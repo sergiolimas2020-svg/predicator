@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Total Sports Predictor</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ═══════════════════════════════════════════
+           VARIABLES GLOBALES
+        ═══════════════════════════════════════════ */
+        :root {
+            --futbol-color:  #00c853;
+            --basket-color:  #ff6d00;
+            --bg-entry:      #080b0f;
+            --text-dim:      #6b7280;
+            --card-bg:       #0f1318;
+            --card-border:   rgba(255,255,255,0.06);
+            /* Basketball */
+            --orange:        #ff6d00;
+            --bg:            #07090c;
+            --bg-card:       #0e1218;
+            --bg-card2:      #131820;
+            --border:        rgba(255,255,255,0.07);
+            --border-hot:    rgba(255,109,0,0.35);
+            --text:          #e8eaf0;
+            --text-mid:      #9ca3af;
+            --green:         #00c853;
+            --red:           #ff3d3d;
+            --blue:          #2979ff;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Outfit', sans-serif; background: #07090c; color: #e8eaf0; overflow-x: hidden; }
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #07090c; }
+        ::-webkit-scrollbar-thumb { background: var(--orange); border-radius: 2px; }
+
+        /* ═══════════════════════════════════════════
+           PANTALLA DE ENTRADA
+        ═══════════════════════════════════════════ */
+        #sport-entry {
+            position: fixed; inset: 0; z-index: 9999;
+            background: var(--bg-entry);
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            overflow: hidden;
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        #sport-entry.exit { opacity: 0; transform: scale(1.04); pointer-events: none; }
+        #sport-entry::before {
+            content: ''; position: absolute; inset: 0;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 60px 60px; pointer-events: none;
+        }
+        #sport-entry::after {
+            content: ''; position: absolute;
+            top: 50%; left: 50%; transform: translate(-50%, -50%);
+            width: 700px; height: 700px; border-radius: 50%;
+            background: radial-gradient(circle, rgba(0,200,83,0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .entry-header {
+            text-align: center; margin-bottom: 3.5rem;
+            position: relative; z-index: 1;
+            animation: entryFadeUp 0.7s 0.1s ease both;
+        }
+        .entry-logo {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(2.8rem, 6vw, 4.5rem);
+            letter-spacing: 0.12em; color: #fff; line-height: 1;
+        }
+        .entry-logo span { color: var(--futbol-color); }
+        .entry-subtitle {
+            font-family: 'Outfit', sans-serif; font-size: 0.78rem;
+            letter-spacing: 0.35em; text-transform: uppercase;
+            color: var(--text-dim); margin-top: 0.6rem;
+        }
+        .entry-question {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(0.8rem, 2vw, 0.95rem);
+            letter-spacing: 0.25em; text-transform: uppercase;
+            color: var(--text-dim); margin-bottom: 2rem;
+            position: relative; z-index: 1;
+            animation: entryFadeUp 0.7s 0.25s ease both;
+        }
+        .sport-cards {
+            display: flex; gap: 1.5rem;
+            position: relative; z-index: 1;
+            animation: entryFadeUp 0.7s 0.4s ease both;
+        }
+        .sport-card {
+            width: 260px; background: var(--card-bg);
+            border: 1px solid var(--card-border); border-radius: 4px;
+            padding: 2.5rem 2rem; text-align: center; cursor: pointer;
+            position: relative; overflow: hidden;
+            transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+            user-select: none;
+        }
+        .sport-card::before {
+            content: ''; position: absolute;
+            top: 0; left: 0; right: 0; height: 3px;
+            transform: scaleX(0); transition: transform 0.35s ease; transform-origin: left;
+        }
+        .sport-card.futbol::before { background: var(--futbol-color); }
+        .sport-card.basket::before { background: var(--basket-color); }
+        .sport-card::after {
+            content: ''; position: absolute; inset: 0; opacity: 0; transition: opacity 0.35s;
+        }
+        .sport-card.futbol::after { background: radial-gradient(circle at 50% 0%, rgba(0,200,83,0.08) 0%, transparent 70%); }
+        .sport-card.basket::after { background: radial-gradient(circle at 50% 0%, rgba(255,109,0,0.08) 0%, transparent 70%); }
+        .sport-card:hover { transform: translateY(-6px); }
+        .sport-card:hover::before { transform: scaleX(1); }
+        .sport-card:hover::after  { opacity: 1; }
+        .sport-card.futbol:hover { border-color: rgba(0,200,83,0.35);  box-shadow: 0 20px 40px rgba(0,200,83,0.1); }
+        .sport-card.basket:hover { border-color: rgba(255,109,0,0.35); box-shadow: 0 20px 40px rgba(255,109,0,0.1); }
+        .sport-emoji { font-size: 3.2rem; display: block; margin-bottom: 1.2rem; line-height: 1; }
+        .sport-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.9rem; letter-spacing: 0.1em; margin-bottom: 0.5rem; }
+        .sport-card.futbol .sport-name { color: var(--futbol-color); }
+        .sport-card.basket .sport-name { color: var(--basket-color); }
+        .sport-desc { font-family: 'Outfit', sans-serif; font-size: 0.78rem; color: var(--text-dim); line-height: 1.6; }
+        .sport-badge {
+            display: inline-block; margin-top: 1.4rem; padding: 0.35rem 1rem;
+            border-radius: 2px; font-family: 'Outfit', sans-serif;
+            font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 600;
+        }
+        .sport-card.futbol .sport-badge { background: rgba(0,200,83,0.15);  color: var(--futbol-color); }
+        .sport-card.basket .sport-badge { background: rgba(255,109,0,0.15); color: var(--basket-color); }
+        .entry-footer {
+            position: absolute; bottom: 2rem;
+            font-family: 'Outfit', sans-serif; font-size: 0.65rem;
+            letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-dim);
+            z-index: 1; animation: entryFadeUp 0.7s 0.6s ease both;
+        }
+        @keyframes entryFadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ═══════════════════════════════════════════
+           SECCIONES APP (ocultas al inicio)
+        ═══════════════════════════════════════════ */
+        #futbol-app, #basket-app { display: none; }
+        #futbol-app.visible, #basket-app.visible { display: block; }
+
+        .btn-volver {
+            background: none; border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 4px; cursor: pointer; font-size: 1rem; color: #aaa;
+            padding: 0.3rem 0.7rem; margin-right: 0.8rem;
+            transition: color 0.2s, border-color 0.2s; vertical-align: middle;
+        }
+        .btn-volver:hover { color: #fff; border-color: rgba(255,255,255,0.3); }
+
+        /* ═══════════════════════════════════════════
+           BASKETBALL — ESTILOS
+        ═══════════════════════════════════════════ */
+        .bk-header {
+            background: rgba(7,9,12,0.95); backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border); padding: 1rem 2rem;
+            display: flex; align-items: center; justify-content: space-between;
+            position: sticky; top: 0; z-index: 100;
+        }
+        .bk-header-left { display: flex; align-items: center; gap: 1rem; }
+        .bk-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; letter-spacing: 0.1em; color: #e8eaf0; }
+        .bk-logo span { color: var(--orange); }
+        .bk-badge {
+            background: rgba(255,109,0,0.12); border: 1px solid var(--border-hot);
+            padding: 0.3rem 0.9rem; border-radius: 2px;
+            font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+            color: var(--orange); font-weight: 600;
+        }
+        .bk-container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        .bk-match-setup { padding: 3rem 0 2rem; }
+        .bk-section-title {
+            font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 0.1em;
+            color: #e8eaf0; margin-bottom: 1.5rem;
+            display: flex; align-items: center; gap: 0.8rem;
+        }
+        .bk-section-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+        .bk-team-selectors {
+            display: grid; grid-template-columns: 1fr auto 1fr;
+            gap: 1.5rem; align-items: end; margin-bottom: 2rem;
+        }
+        .bk-team-selector label { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; }
+        .bk-team-label { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-dim); font-weight: 600; }
+        .bk-team-select {
+            width: 100%; background: var(--bg-card); border: 1px solid var(--border);
+            color: #e8eaf0; padding: 0.85rem 1rem;
+            font-family: 'Outfit', sans-serif; font-size: 0.9rem;
+            outline: none; appearance: none; border-radius: 4px;
+            transition: border-color 0.3s; cursor: pointer;
+        }
+        .bk-team-select:focus { border-color: var(--orange); }
+        .bk-vs-divider { display: flex; align-items: center; justify-content: center; padding-bottom: 0.85rem; }
+        .bk-vs-text { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; color: var(--orange); letter-spacing: 0.1em; }
+        .bk-analyze-btn {
+            width: 100%; background: var(--orange); color: #000; border: none; cursor: pointer;
+            padding: 1rem 2rem; border-radius: 4px;
+            font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; letter-spacing: 0.15em;
+            display: flex; align-items: center; justify-content: center; gap: 0.8rem;
+            transition: background 0.3s, transform 0.2s, opacity 0.3s;
+        }
+        .bk-analyze-btn:hover:not(:disabled) { background: #ff8c00; transform: translateY(-2px); }
+        .bk-analyze-btn:disabled { opacity: 0.35; cursor: not-allowed; }
+
+        /* métricas */
+        .bk-metrics {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1px; background: var(--border);
+            border: 1px solid var(--border); border-radius: 4px;
+            overflow: hidden; margin-bottom: 2rem;
+        }
+        .bk-metric-box {
+            background: var(--bg-card); padding: 1.4rem 1.2rem; text-align: center;
+            transition: background 0.3s;
+        }
+        .bk-metric-box:hover { background: var(--bg-card2); }
+        .bk-metric-label { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 0.5rem; }
+        .bk-metric-value { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 0.05em; line-height: 1; }
+        .bk-metric-sub { font-size: 0.7rem; color: var(--text-dim); margin-top: 0.3rem; }
+
+        /* predicciones */
+        .bk-preds-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+        .bk-pred-card {
+            background: var(--bg-card); border: 1px solid var(--border); border-radius: 4px;
+            padding: 1.5rem; position: relative; overflow: hidden;
+            transition: border-color 0.3s, transform 0.3s;
+        }
+        .bk-pred-card:hover { border-color: var(--border-hot); transform: translateY(-3px); }
+        .bk-pred-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+            background: var(--orange); transform: scaleX(0); transition: transform 0.35s; transform-origin: left;
+        }
+        .bk-pred-card:hover::before { transform: scaleX(1); }
+        .bk-pred-title { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+        .bk-pred-result { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 0.05em; margin-bottom: 0.4rem; }
+        .bk-pred-prob { font-size: 0.78rem; color: var(--text-dim); }
+        .bk-prob-bar { height: 3px; background: var(--border); border-radius: 2px; margin-top: 0.8rem; overflow: hidden; }
+        .bk-prob-fill { height: 100%; background: var(--orange); border-radius: 2px; transition: width 1s ease; }
+
+        /* stats equipo */
+        .bk-matchup-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        .bk-team-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 4px; padding: 1.5rem; }
+        .bk-team-card.home { border-top: 3px solid var(--orange); }
+        .bk-team-card.away { border-top: 3px solid var(--blue); }
+        .bk-team-card-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 0.08em; margin-bottom: 1.2rem; }
+        .bk-team-card.home .bk-team-card-name { color: var(--orange); }
+        .bk-team-card.away .bk-team-card-name { color: var(--blue); }
+        .bk-stat-row { display: flex; justify-content: space-between; align-items: center; padding: 0.55rem 0; border-bottom: 1px solid rgba(255,255,255,0.04); }
+        .bk-stat-row:last-child { border-bottom: none; }
+        .bk-stat-name { font-size: 0.78rem; color: var(--text-mid); }
+        .bk-stat-val  { font-size: 0.85rem; font-weight: 600; color: #e8eaf0; }
+        .record-bar { display: flex; height: 6px; border-radius: 3px; overflow: hidden; margin: 0.8rem 0; }
+        .record-w { background: var(--green); }
+        .record-l { background: var(--red); }
+
+        /* jugadores estrella */
+        .bk-stars-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; }
+        .bk-star-card {
+            background: var(--bg-card); border: 1px solid var(--border); border-radius: 4px;
+            padding: 1.5rem; transition: border-color 0.3s, transform 0.3s;
+        }
+        .bk-star-card:hover { border-color: var(--border-hot); transform: translateY(-3px); }
+        .bk-star-category { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--orange); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+        .bk-star-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; letter-spacing: 0.06em; color: #e8eaf0; margin-bottom: 0.2rem; }
+        .bk-star-team { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 1rem; }
+        .bk-star-main { font-family: 'Bebas Neue', sans-serif; font-size: 2.8rem; color: var(--orange); line-height: 1; margin-bottom: 0.2rem; }
+        .bk-star-lbl  { font-size: 0.7rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 1rem; }
+        .bk-star-extras { display: flex; gap: 1.5rem; padding-top: 0.8rem; border-top: 1px solid var(--border); }
+        .bk-star-extra-val { font-size: 0.95rem; font-weight: 600; color: #e8eaf0; }
+        .bk-star-extra-lbl { font-size: 0.6rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 0.2rem; }
+
+        /* loading */
+        .bk-loading {
+            position: fixed; inset: 0; z-index: 999;
+            background: rgba(7,9,12,0.9);
+            display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.2rem;
+        }
+        .bk-loading.hidden { display: none; }
+        .bk-spinner { width: 48px; height: 48px; border-radius: 50%; border: 3px solid var(--border); border-top-color: var(--orange); animation: spin 0.8s linear infinite; }
+        .bk-loading-text { font-size: 0.75rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--orange); }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        .bk-footer { border-top: 1px solid var(--border); padding: 1.5rem 2rem; text-align: center; font-size: 0.7rem; color: var(--text-dim); letter-spacing: 0.1em; }
+
+        .val-green  { color: var(--green); }
+        .val-red    { color: var(--red); }
+        .val-orange { color: var(--orange); }
+        .val-blue   { color: var(--blue); }
+
+        /* responsive */
+        @media (max-width: 700px) {
+            .bk-team-selectors { grid-template-columns: 1fr; }
+            .bk-matchup-grid   { grid-template-columns: 1fr; }
+            .bk-header { flex-direction: column; gap: 0.8rem; align-items: flex-start; }
+        }
+        @media (max-width: 620px) {
+            .sport-cards { flex-direction: column; gap: 1rem; }
+            .sport-card  { width: 280px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ══════════════════════════════════════
+         PANTALLA DE ENTRADA
+    ══════════════════════════════════════ -->
+    <div id="sport-entry">
+        <div class="entry-header">
+            <div class="entry-logo">TOTAL <span>SPORTS</span></div>
+            <div class="entry-subtitle">Predictor · Análisis · Estadísticas</div>
+        </div>
+        <p class="entry-question">¿Qué deporte quieres analizar?</p>
+        <div class="sport-cards">
+            <div class="sport-card futbol" onclick="enterApp('futbol')">
+                <span class="sport-emoji">⚽</span>
+                <div class="sport-name">Fútbol</div>
+                <p class="sport-desc">Premier, La Liga, Serie A,<br>Bundesliga, Champions y más.</p>
+                <span class="sport-badge">Disponible</span>
+            </div>
+            <div class="sport-card basket" onclick="enterApp('basket')">
+                <span class="sport-emoji">🏀</span>
+                <div class="sport-name">Basketball</div>
+                <p class="sport-desc">NBA 2025-26 · Estadísticas<br>en tiempo real por equipo.</p>
+                <span class="sport-badge">Disponible</span>
+            </div>
+        </div>
+        <p class="entry-footer">Jose Melo · Total Sports Predictor</p>
+    </div>
+
+
+    <!-- ══════════════════════════════════════
+         APP FÚTBOL
+    ══════════════════════════════════════ -->
+    <div id="futbol-app">
+        <header class="header">
+            <div class="container">
+                <div class="header-content">
+                    <h1 class="logo">
+                        <button class="btn-volver" onclick="volverEntrada()" title="Volver al inicio">←</button>
+                        <span class="logo-icon">⚽</span>
+                        <span class="logo-text">Total Soccer</span>
+                    </h1>
+                    <div class="league-selector-container">
+                        <label for="league-select" class="league-label">SELECCIONAR LIGA</label>
+                        <select id="league-select" class="league-select">
+                            <option value="england">Premier League - Inglaterra</option>
+                            <option value="spain">La Liga - España</option>
+                            <option value="germany">Bundesliga - Alemania</option>
+                            <option value="italy" selected>Serie A - Italia</option>
+                            <option value="france">Ligue 1 - Francia</option>
+                            <option value="argentina">Liga Profesional - Argentina</option>
+                            <option value="brazil">Campeonato Brasileño - Brasil</option>
+                            <option value="colombia">Liga Colombiana - Colombia</option>
+                            <option value="turkey">Super Lig - Turquía</option>
+                            <option value="uefa-champions-league">Champions League</option>
+                        </select>
+                        <div id="current-league-badge" class="league-badge">
+                            <span class="league-flag flag-italy"></span>
+                            <div class="league-info">
+                                <span class="league-name">SERIE A</span>
+                                <span class="season">2024/25</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="container">
+                <section class="match-setup">
+                    <h2 class="section-title">Seleccionar Equipos</h2>
+                    <div class="team-selectors">
+                        <div class="team-selector home-team">
+                            <label for="home-team">
+                                <span class="team-label">EQUIPO LOCAL</span>
+                                <span class="team-icon">🏠</span>
+                            </label>
+                            <select id="home-team" class="team-select">
+                                <option value="">-- Seleccionar equipo --</option>
+                            </select>
+                        </div>
+                        <div class="vs-divider"><span class="vs-text">VS</span></div>
+                        <div class="team-selector away-team">
+                            <label for="away-team">
+                                <span class="team-label">EQUIPO VISITANTE</span>
+                                <span class="team-icon">✈️</span>
+                            </label>
+                            <select id="away-team" class="team-select">
+                                <option value="">-- Seleccionar equipo --</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button id="analyze-btn" class="analyze-btn" disabled>
+                        <span class="btn-text">ANALIZAR PARTIDO</span>
+                        <span class="btn-icon">📊</span>
+                    </button>
+                </section>
+
+                <div id="results-container" class="results-container hidden">
+                    <section class="predictions-grid">
+                        <div class="prediction-card winner-card">
+                            <div class="card-header"><h3 class="card-title">PREDICCIÓN GANADOR</h3><span class="card-icon">🏆</span></div>
+                            <div class="card-body"><div id="winner-prediction" class="prediction-result"></div></div>
+                        </div>
+                        <div class="prediction-card goals-card">
+                            <div class="card-header"><h3 class="card-title">PREDICCIÓN GOLES</h3><span class="card-icon">⚽</span></div>
+                            <div class="card-body"><div id="goals-prediction" class="goals-grid"></div></div>
+                        </div>
+                        <div class="prediction-card btts-card">
+                            <div class="card-header"><h3 class="card-title">AMBOS ANOTAN</h3><span class="card-icon">🎯</span></div>
+                            <div class="card-body"><div id="btts-prediction" class="prediction-result"></div></div>
+                        </div>
+                        <div class="prediction-card corners-card">
+                            <div class="card-header"><h3 class="card-title">PREDICCIÓN CORNERS</h3><span class="card-icon">🚩</span></div>
+                            <div class="card-body"><div id="corners-prediction" class="corners-grid"></div></div>
+                        </div>
+                    </section>
+                    <section class="detailed-stats">
+                        <h2 class="section-title">Estadísticas Detalladas</h2>
+                        <div class="stats-grid">
+                            <div class="team-stats home-stats">
+                                <h3 id="home-stats-title" class="team-stats-title"></h3>
+                                <div id="home-stats-content" class="stats-content"></div>
+                            </div>
+                            <div class="team-stats away-stats">
+                                <h3 id="away-stats-title" class="team-stats-title"></h3>
+                                <div id="away-stats-content" class="stats-content"></div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="container">
+                <p class="footer-text">Datos actualizados: <span id="last-update"></span> | Jose Melo</p>
+            </div>
+        </footer>
+        <div id="loading-overlay" class="loading-overlay hidden">
+            <div class="loading-spinner"></div>
+            <p class="loading-text">Analizando datos...</p>
+        </div>
+    </div><!-- fin futbol-app -->
+
+
+    <!-- ══════════════════════════════════════
+         APP BASKETBALL
+    ══════════════════════════════════════ -->
+    <div id="basket-app">
+
+        <header class="bk-header">
+            <div class="bk-header-left">
+                <button class="btn-volver" onclick="volverEntrada()">← Volver</button>
+                <div class="bk-logo">TOTAL <span>HOOPS</span></div>
+            </div>
+            <div class="bk-badge">🏀 NBA · 2025-26</div>
+        </header>
+
+        <main>
+            <div class="bk-container">
+                <section class="bk-match-setup">
+                    <h2 class="bk-section-title">Seleccionar Equipos</h2>
+                    <div class="bk-team-selectors">
+                        <div class="bk-team-selector">
+                            <label for="bk-home-team">
+                                <span class="bk-team-label">Equipo Local</span>
+                                <span>🏠</span>
+                            </label>
+                            <select id="bk-home-team" class="bk-team-select">
+                                <option value="">-- Seleccionar equipo --</option>
+                            </select>
+                        </div>
+                        <div class="bk-vs-divider"><span class="bk-vs-text">VS</span></div>
+                        <div class="bk-team-selector">
+                            <label for="bk-away-team">
+                                <span class="bk-team-label">Equipo Visitante</span>
+                                <span>✈️</span>
+                            </label>
+                            <select id="bk-away-team" class="bk-team-select">
+                                <option value="">-- Seleccionar equipo --</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button id="bk-analyze-btn" class="bk-analyze-btn" disabled onclick="bkAnalyze()">
+                        ANALIZAR PARTIDO 📊
+                    </button>
+                </section>
+
+                <div id="bk-results" style="display:none; padding-bottom:4rem;">
+                    <div id="bk-metrics" class="bk-metrics"></div>
+                    <h2 class="bk-section-title">Predicciones</h2>
+                    <div id="bk-preds" class="bk-preds-row"></div>
+                    <section style="margin-bottom:2rem;">
+                        <h2 class="bk-section-title">Estadísticas por Equipo</h2>
+                        <div id="bk-matchup" class="bk-matchup-grid"></div>
+                    </section>
+                    <section>
+                        <h2 class="bk-section-title">Jugadores Estrella del Partido</h2>
+                        <div id="bk-stars" class="bk-stars-grid"></div>
+                    </section>
+                </div>
+            </div>
+        </main>
+
+        <footer class="bk-footer">
+            Datos vía NBA Stats API (stats.nba.com) · nba_stats.json · Jose Melo
+        </footer>
+
+        <div id="bk-loading" class="bk-loading hidden">
+            <div class="bk-spinner"></div>
+            <p class="bk-loading-text">Analizando partido...</p>
+        </div>
+
+    </div><!-- fin basket-app -->
+
+
+    <!-- Scripts fútbol -->
+    <script src="js/data-loader.js"></script>
+    <script src="js/calculator.js"></script>
+    <script src="js/ui-renderer.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+    /* ══════════════════════════════════════════
+       NAVEGACIÓN ENTRE SECCIONES
+    ══════════════════════════════════════════ */
+    function enterApp(sport) {
+        const entry = document.getElementById('sport-entry');
+        entry.classList.add('exit');
+
+        setTimeout(() => {
+            entry.style.display = 'none';
+            if (sport === 'futbol') {
+                document.getElementById('futbol-app').classList.add('visible');
+            } else {
+                document.getElementById('basket-app').classList.add('visible');
+                bkLoadData();
+            }
+        }, 600);
+    }
+
+    function volverEntrada() {
+        document.getElementById('futbol-app').classList.remove('visible');
+        document.getElementById('basket-app').classList.remove('visible');
+        document.getElementById('bk-results').style.display = 'none';
+
+        const entry = document.getElementById('sport-entry');
+        entry.style.display   = 'flex';
+        entry.style.opacity   = '0';
+        entry.style.transform = '';
+        entry.classList.remove('exit');
+        requestAnimationFrame(() => {
+            entry.style.transition = 'opacity 0.4s ease';
+            entry.style.opacity    = '1';
+        });
+    }
+
+    /* ══════════════════════════════════════════
+       BASKETBALL — LÓGICA
+    ══════════════════════════════════════════ */
+    let nbaData = {};
+
+    async function bkLoadData() {
+        try {
+            const res = await fetch('static/nba_stats.json');
+            if (!res.ok) throw new Error('No se pudo cargar nba_stats.json');
+            const json = await res.json();
+            nbaData = json;
+            bkPopulateTeams();
+        } catch(e) {
+            alert('❌ ' + e.message + '\nEjecuta: python3 scrapers/nba_scraper.py');
+        }
+    }
+
+    function bkPopulateTeams() {
+        const teams = Object.keys(nbaData.teams || {}).sort();
+        ['bk-home-team','bk-away-team'].forEach(id => {
+            const sel = document.getElementById(id);
+            // limpiar opciones anteriores excepto la primera
+            while (sel.options.length > 1) sel.remove(1);
+            teams.forEach(t => {
+                const opt = document.createElement('option');
+                opt.value = t; opt.textContent = t;
+                sel.appendChild(opt);
+            });
+            sel.addEventListener('change', bkCheckReady);
+        });
+    }
+
+    function bkCheckReady() {
+        const h = document.getElementById('bk-home-team').value;
+        const a = document.getElementById('bk-away-team').value;
+        document.getElementById('bk-analyze-btn').disabled = !(h && a && h !== a);
+    }
+
+    function bkAnalyze() {
+        const homeId = document.getElementById('bk-home-team').value;
+        const awayId = document.getElementById('bk-away-team').value;
+        const home   = nbaData.teams[homeId];
+        const away   = nbaData.teams[awayId];
+
+        document.getElementById('bk-loading').classList.remove('hidden');
+        setTimeout(() => {
+            bkRenderMetrics(home, away, homeId, awayId);
+            bkRenderPreds(home, away, homeId, awayId);
+            bkRenderTeams(home, away, homeId, awayId);
+            bkRenderStars(home, away, homeId, awayId);
+            document.getElementById('bk-results').style.display = 'block';
+            document.getElementById('bk-loading').classList.add('hidden');
+            document.getElementById('bk-results').scrollIntoView({ behavior: 'smooth' });
+        }, 800);
+    }
+
+    function bkWinProb(home, away) {
+        const diff = (home.win_pct - away.win_pct) + (home.avg_points - away.avg_points) * 0.5 + 3;
+        return Math.min(85, Math.max(15, 50 + diff)).toFixed(1);
+    }
+
+    function bkRenderMetrics(home, away, hId, aId) {
+        const total  = home.avg_points + away.avg_points;
+        const homeWin = bkWinProb(home, away);
+        const awayWin = (100 - homeWin).toFixed(1);
+        document.getElementById('bk-metrics').innerHTML = `
+            <div class="bk-metric-box"><div class="bk-metric-label">Local</div><div class="bk-metric-value val-orange">${hId}</div><div class="bk-metric-sub">${home.wins}W - ${home.losses}L</div></div>
+            <div class="bk-metric-box"><div class="bk-metric-label">Win% Local</div><div class="bk-metric-value val-green">${home.win_pct}%</div><div class="bk-metric-sub">Prob. ${homeWin}%</div></div>
+            <div class="bk-metric-box"><div class="bk-metric-label">Total proyectado</div><div class="bk-metric-value val-orange">${total.toFixed(1)}</div><div class="bk-metric-sub">puntos</div></div>
+            <div class="bk-metric-box"><div class="bk-metric-label">Pts prom. local</div><div class="bk-metric-value">${home.avg_points}</div><div class="bk-metric-sub">por partido</div></div>
+            <div class="bk-metric-box"><div class="bk-metric-label">Pts prom. visit.</div><div class="bk-metric-value">${away.avg_points}</div><div class="bk-metric-sub">por partido</div></div>
+            <div class="bk-metric-box"><div class="bk-metric-label">Win% Visitante</div><div class="bk-metric-value val-blue">${away.win_pct}%</div><div class="bk-metric-sub">Prob. ${awayWin}%</div></div>
+        `;
+    }
+
+    function bkRenderPreds(home, away, hId, aId) {
+        const total    = home.avg_points + away.avg_points;
+        const overLine = 220.5;
+        const overProb = total > overLine ? Math.min(75, 50 + (total - overLine) * 1.5).toFixed(0) : Math.max(30, 50 - (overLine - total) * 1.5).toFixed(0);
+        const underProb= (100 - overProb).toFixed(0);
+        const homeWin  = bkWinProb(home, away);
+        const awayWin  = (100 - homeWin).toFixed(1);
+        const spread   = (home.avg_points - away.avg_points).toFixed(1);
+
+        document.getElementById('bk-preds').innerHTML = `
+            <div class="bk-pred-card">
+                <div class="bk-pred-title"><span>🏆</span> Ganador probable</div>
+                <div class="bk-pred-result ${homeWin >= 50 ? 'val-orange' : 'val-blue'}">${homeWin >= 50 ? hId : aId}</div>
+                <div class="bk-pred-prob">Probabilidad: ${homeWin >= 50 ? homeWin : awayWin}%</div>
+                <div class="bk-prob-bar"><div class="bk-prob-fill" style="width:${homeWin >= 50 ? homeWin : awayWin}%"></div></div>
+            </div>
+            <div class="bk-pred-card">
+                <div class="bk-pred-title"><span>📈</span> Over/Under ${overLine}</div>
+                <div class="bk-pred-result ${overProb >= 50 ? 'val-green' : 'val-red'}">${overProb >= 50 ? 'OVER' : 'UNDER'}</div>
+                <div class="bk-pred-prob">Total proyectado: ${total.toFixed(1)} pts · Confianza: ${overProb >= 50 ? overProb : underProb}%</div>
+                <div class="bk-prob-bar"><div class="bk-prob-fill" style="width:${overProb >= 50 ? overProb : underProb}%"></div></div>
+            </div>
+            <div class="bk-pred-card">
+                <div class="bk-pred-title"><span>📊</span> Spread</div>
+                <div class="bk-pred-result val-orange">${spread > 0 ? '+' : ''}${spread}</div>
+                <div class="bk-pred-prob">Ventaja proyectada del local</div>
+                <div class="bk-prob-bar"><div class="bk-prob-fill" style="width:${homeWin}%"></div></div>
+            </div>
+            <div class="bk-pred-card">
+                <div class="bk-pred-title"><span>🔥</span> Ritmo del partido</div>
+                <div class="bk-pred-result">${total > 230 ? 'ALTO' : total > 210 ? 'MEDIO' : 'BAJO'}</div>
+                <div class="bk-pred-prob">${total.toFixed(1)} pts totales proyectados</div>
+                <div class="bk-prob-bar"><div class="bk-prob-fill" style="width:${Math.min(100, total/2.5)}%"></div></div>
+            </div>
+        `;
+    }
+
+    function bkRenderTeams(home, away, hId, aId) {
+        function card(team, id, side) {
+            const total = team.wins + team.losses;
+            const wp = (team.wins / total * 100).toFixed(0);
+            const diff = (team.avg_points - team.avg_points_allowed).toFixed(1);
+            return `
+                <div class="bk-team-card ${side}">
+                    <div class="bk-team-card-name">${id}</div>
+                    <div class="record-bar">
+                        <div class="record-w" style="width:${wp}%"></div>
+                        <div class="record-l" style="width:${100-wp}%"></div>
+                    </div>
+                    <div class="bk-stat-row"><span class="bk-stat-name">Partidos ganados</span><span class="bk-stat-val val-green">${team.wins}</span></div>
+                    <div class="bk-stat-row"><span class="bk-stat-name">Partidos perdidos</span><span class="bk-stat-val val-red">${team.losses}</span></div>
+                    <div class="bk-stat-row"><span class="bk-stat-name">% de victoria</span><span class="bk-stat-val val-orange">${team.win_pct}%</span></div>
+                    <div class="bk-stat-row"><span class="bk-stat-name">Puntos promedio</span><span class="bk-stat-val">${team.avg_points}</span></div>
+                    <div class="bk-stat-row"><span class="bk-stat-name">Puntos recibidos prom.</span><span class="bk-stat-val">${team.avg_points_allowed}</span></div>
+                    <div class="bk-stat-row"><span class="bk-stat-name">Diferencial</span><span class="bk-stat-val ${diff > 0 ? 'val-green' : 'val-red'}">${diff > 0 ? '+' : ''}${diff}</span></div>
+                    <div class="bk-stat-row"><span class="bk-stat-name">Rebotes promedio</span><span class="bk-stat-val">${team.avg_rebounds}</span></div>
+                    <div class="bk-stat-row"><span class="bk-stat-name">Asistencias promedio</span><span class="bk-stat-val">${team.avg_assists}</span></div>
+                    <div class="bk-stat-row"><span class="bk-stat-name">Triples anotados prom.</span><span class="bk-stat-val val-blue">${team.avg_threes}</span></div>
+                    <div class="bk-stat-row"><span class="bk-stat-name">Partidos Over 220.5</span><span class="bk-stat-val val-green">${team.over_220}</span></div>
+                    <div class="bk-stat-row"><span class="bk-stat-name">Partidos Under 220.5</span><span class="bk-stat-val val-red">${team.under_220}</span></div>
+                    <div class="bk-stat-row"><span class="bk-stat-name">Puntos totales temporada</span><span class="bk-stat-val val-orange">${team.total_points}</span></div>
+                </div>`;
+        }
+        document.getElementById('bk-matchup').innerHTML = card(home, hId, 'home') + card(away, aId, 'away');
+    }
+
+    function bkRenderStars(home, away, hId, aId) {
+        const all = [
+            ...(home.players || []).map(p => ({...p, team: hId})),
+            ...(away.players || []).map(p => ({...p, team: aId}))
+        ];
+        if (!all.length) {
+            document.getElementById('bk-stars').innerHTML = '<p style="color:var(--text-dim)">No hay datos de jugadores disponibles.</p>';
+            return;
+        }
+        const topPts = [...all].sort((a,b) => b.avg_points   - a.avg_points)[0];
+        const topReb = [...all].sort((a,b) => b.avg_rebounds - a.avg_rebounds)[0];
+        const topAst = [...all].sort((a,b) => b.avg_assists  - a.avg_assists)[0];
+        const top3pt = [...all].sort((a,b) => b.avg_threes   - a.avg_threes)[0];
+
+        function starCard(icon, cat, p) {
+            return `
+                <div class="bk-star-card">
+                    <div class="bk-star-category">${icon} ${cat}</div>
+                    <div class="bk-star-name">${p.name}</div>
+                    <div class="bk-star-team">${p.team}</div>
+                    <div class="bk-star-main">${p.avg_points}</div>
+                    <div class="bk-star-lbl">Puntos por partido</div>
+                    <div class="bk-star-extras">
+                        <div><div class="bk-star-extra-val">${p.avg_rebounds}</div><div class="bk-star-extra-lbl">REB</div></div>
+                        <div><div class="bk-star-extra-val">${p.avg_assists}</div><div class="bk-star-extra-lbl">AST</div></div>
+                        <div><div class="bk-star-extra-val">${p.avg_threes}</div><div class="bk-star-extra-lbl">3PT</div></div>
+                        <div><div class="bk-star-extra-val">${p.games_played}</div><div class="bk-star-extra-lbl">GP</div></div>
+                    </div>
+                </div>`;
+        }
+
+        document.getElementById('bk-stars').innerHTML =
+            starCard('🏆', 'Máximo anotador',     topPts) +
+            starCard('💪', 'Líder en rebotes',    topReb) +
+            starCard('🎯', 'Líder en asistencias',topAst) +
+            starCard('🌟', 'Líder en triples',    top3pt);
+    }
+    </script>
+
+</body>
+</html>
