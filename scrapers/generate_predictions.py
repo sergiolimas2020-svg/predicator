@@ -15,6 +15,9 @@ for en, es in MESES.items():
 BALLDONTLIE_KEY = os.environ.get("BALLDONTLIE_KEY", "")
 ADSENSE = '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5953880132871590" crossorigin="anonymous"></script>'
 
+# ── URL base del sitio en produccion ──
+SITE_URL = "https://predicator-sergiolimas2020-svgs-projects.vercel.app"
+
 ESPN_LEAGUES = {
     "soccer/eng.1":          ("Premier League",    "england_stats.json"),
     "soccer/esp.1":          ("La Liga",            "spain_stats.json"),
@@ -33,7 +36,42 @@ HTML = """<!DOCTYPE html>
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{title} - PREDIKTOR</title>
-<meta name="description" content="{desc}"><meta name="keywords" content="{kw}">
+<meta name="description" content="{desc}">
+<meta name="keywords" content="{kw}">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="{canonical}">
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="{title} - PREDIKTOR">
+<meta property="og:description" content="{desc}">
+<meta property="og:url" content="{canonical}">
+<meta property="og:site_name" content="PREDIKTOR">
+<meta property="og:locale" content="es_CO">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="{title} - PREDIKTOR">
+<meta name="twitter:description" content="{desc}">
+<!-- Schema.org -->
+<script type="application/ld+json">
+{{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "{title}",
+  "description": "{desc}",
+  "url": "{canonical}",
+  "datePublished": "{date_iso}",
+  "dateModified": "{date_iso}",
+  "publisher": {{
+    "@type": "Organization",
+    "name": "PREDIKTOR",
+    "url": "{site_url}"
+  }},
+  "mainEntityOfPage": {{
+    "@type": "WebPage",
+    "@id": "{canonical}"
+  }}
+}}
+</script>
 {adsense}
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -103,6 +141,13 @@ INDEX = """<!DOCTYPE html>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Predicciones deportivas hoy {date} - PREDIKTOR</title>
 <meta name="description" content="Predicciones y pronosticos deportivos para hoy {date}. Partidos reales de futbol y NBA con estadisticas.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="{site_url}/static/predictions/index.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Predicciones deportivas hoy {date} - PREDIKTOR">
+<meta property="og:description" content="Predicciones y pronosticos deportivos para hoy {date}. Partidos reales de futbol y NBA con estadisticas.">
+<meta property="og:url" content="{site_url}/static/predictions/index.html">
+<meta property="og:site_name" content="PREDIKTOR">
 {adsense}
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -270,32 +315,25 @@ def prob_futbol(hd, ad):
     pos_h = hd.get("position", {})
     pos_a = ad.get("position", {})
 
-    # Factor 1: Posicion en tabla (40%)
     h_score = (21 - safe_float(pos_h.get("posicion"), 10)) * 0.4 * 5
     a_score = (21 - safe_float(pos_a.get("posicion"), 10)) * 0.4 * 5
 
-    # Factor 2: Win rate (30%)
     h_games = safe_float(pos_h.get("partidos"), 1) or 1
     a_games = safe_float(pos_a.get("partidos"), 1) or 1
     h_score += (safe_float(pos_h.get("ganados")) / h_games * 100) * 0.3
     a_score += (safe_float(pos_a.get("ganados")) / a_games * 100) * 0.3
 
-    # Factor 3: Diferencia de goles (20%)
     h_score += safe_float(pos_h.get("diferencia")) * 0.2
     a_score += safe_float(pos_a.get("diferencia")) * 0.2
 
-    # Factor 4: Ventaja local (10% extra solo al local)
     h_score += h_score * 0.1
 
     total = (h_score + a_score) or 1
     hp = (h_score / total) * 100
-
-    # Clamp igual que calculator.js: min 15%, max 85%
     hp = min(85.0, max(15.0, hp))
     ap = round(100 - hp, 1)
     hp = round(hp, 1)
 
-    # Umbral de empate: diff < 10 (igual que calculator.js)
     if abs(hp - ap) < 10:
         return 50.0, 50.0
 
@@ -303,22 +341,18 @@ def prob_futbol(hd, ad):
 
 # ══════════════════════════════════════════════════════════════
 #  NBA — replica index.html bkWinProb()
-#  NUNCA retorna empate (el basket siempre tiene ganador)
+#  NUNCA retorna empate
 # ══════════════════════════════════════════════════════════════
 def prob_nba(hd, ad):
-    h_win_pct  = safe_float(hd.get("win_pct"), 50)
-    a_win_pct  = safe_float(ad.get("win_pct"), 50)
-    h_avg_pts  = safe_float(hd.get("avg_points"), 110)
-    a_avg_pts  = safe_float(ad.get("avg_points"), 110)
+    h_win_pct = safe_float(hd.get("win_pct"), 50)
+    a_win_pct = safe_float(ad.get("win_pct"), 50)
+    h_avg_pts = safe_float(hd.get("avg_points"), 110)
+    a_avg_pts = safe_float(ad.get("avg_points"), 110)
 
-    # Misma formula que bkWinProb() en index.html:
-    # diff = (home.win_pct - away.win_pct) + (home.avg_points - away.avg_points) * 0.5 + 3
     diff = (h_win_pct - a_win_pct) + (h_avg_pts - a_avg_pts) * 0.5 + 3
     hp = min(85.0, max(15.0, 50 + diff))
     ap = round(100 - hp, 1)
     hp = round(hp, 1)
-
-    # En NBA nunca hay empate — siempre retorna ganador
     return hp, ap
 
 def goals_section(hd, ad):
@@ -361,7 +395,6 @@ def goals_section(hd, ad):
 </div>"""
 
 def article(league, home, hd, away, ad, nba=False):
-    # ── Seleccionar funcion correcta segun deporte ──
     if nba:
         hp, ap = prob_nba(hd, ad)
     else:
@@ -369,9 +402,7 @@ def article(league, home, hd, away, ad, nba=False):
 
     sp = "puntos" if nba else "goles"
 
-    # ── Determinar resultado ──
     if not nba and abs(hp - ap) < 10:
-        # Solo futbol puede empatar
         win = "EMPATE"
         wp  = 33
     elif hp >= ap:
@@ -415,8 +446,6 @@ def article(league, home, hd, away, ad, nba=False):
         ])
 
     conf_txt = f"Probabilidad: {wp}%" if win != "EMPATE" else "Confianza: MEDIA (33%)"
-
-    # Seccion de goles solo para futbol
     goles_html = goals_section(hd, ad) if not nba else ""
 
     return f"""
@@ -453,15 +482,57 @@ def save(league, home, away, art):
     slug = f"{home}-vs-{away}-{league}-{today}".lower()
     slug = ''.join(c if c.isalnum() or c == '-' else '-' for c in slug)
     slug = '-'.join(filter(None, slug.split('-')))[:100]
-    html = HTML.format(
-        title=f"Prediccion {home} vs {away} - {league} {today_display}",
-        desc=f"Prediccion y analisis de {home} vs {away} en {league} para {today_display}.",
-        kw=f"prediccion {home} {away}, pronostico {league}, {home} vs {away} hoy",
-        adsense=ADSENSE, league=league, date=today_display,
+    canonical = f"{SITE_URL}/static/predictions/{slug}.html"
+    title = f"Prediccion {home} vs {away} - {league} {today_display}"
+    desc  = f"Prediccion y analisis de {home} vs {away} en {league} para {today_display}. Probabilidades, estadisticas y pronostico."
+    kw    = f"prediccion {home} {away}, pronostico {league}, {home} vs {away} hoy, apuestas {league}"
+    html  = HTML.format(
+        title=title, desc=desc, kw=kw,
+        canonical=canonical, site_url=SITE_URL,
+        date_iso=today, adsense=ADSENSE,
+        league=league, date=today_display,
         home=home, away=away, article=art
     )
     (OUTPUT_DIR / f"{slug}.html").write_text(html, encoding='utf-8')
     return slug
+
+def generate_sitemap(slugs):
+    """Genera sitemap.xml con todas las URLs del sitio."""
+    static_urls = [
+        f"{SITE_URL}/index.html",
+        f"{SITE_URL}/static/predictions/index.html",
+        f"{SITE_URL}/privacy.html",
+    ]
+    pred_urls = [f"{SITE_URL}/static/predictions/{s}.html" for s in slugs]
+    all_urls  = static_urls + pred_urls
+
+    entries = "\n".join(
+        f"""  <url>
+    <loc>{u}</loc>
+    <lastmod>{today}</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>{"1.0" if u == f"{SITE_URL}/index.html" else "0.9" if "predictions" in u and "index" not in u else "0.7"}</priority>
+  </url>"""
+        for u in all_urls
+    )
+
+    sitemap = f"""<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{entries}
+</urlset>"""
+
+    Path("sitemap.xml").write_text(sitemap, encoding='utf-8')
+    print(f"   sitemap.xml → {len(all_urls)} URLs")
+
+def generate_robots():
+    """Genera robots.txt permitiendo todo e indicando el sitemap."""
+    robots = f"""User-agent: *
+Allow: /
+
+Sitemap: {SITE_URL}/sitemap.xml
+"""
+    Path("robots.txt").write_text(robots, encoding='utf-8')
+    print("   robots.txt generado")
 
 def main():
     preds = []
@@ -501,10 +572,22 @@ def main():
     ) if preds else '<div class="empty"><p>No hay partidos programados para hoy.</p></div>'
 
     (OUTPUT_DIR / "index.html").write_text(
-        INDEX.format(date=today_display, adsense=ADSENSE, cards=cards),
+        INDEX.format(date=today_display, adsense=ADSENSE,
+                     site_url=SITE_URL, cards=cards),
         encoding='utf-8'
     )
+
+    # ── SEO: sitemap y robots ──
+    print("\nGenerando archivos SEO...")
+    slugs = [s for s, _, _ in preds]
+    generate_sitemap(slugs)
+    generate_robots()
+
     print(f"\n{len(preds)} predicciones generadas!")
+    print(f"\nProximo paso: registra tu sitemap en Google Search Console")
+    print(f"→ https://search.google.com/search-console")
+    print(f"→ Agrega propiedad: {SITE_URL}")
+    print(f"→ Envia sitemap: {SITE_URL}/sitemap.xml")
 
 if __name__ == "__main__":
     main()
