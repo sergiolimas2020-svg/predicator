@@ -1,6 +1,6 @@
 """
 NBA SCRAPER — nba_api (oficial, gratis)
-Temporada 2025-26 | Jugadores, stats, standings
+Temporada 2025-26 | Jugadores, stats, standings + corrección de traspasos
 USO: .venv/bin/python scrapers/nba_scraper.py
 """
 
@@ -11,6 +11,7 @@ from nba_api.stats.endpoints import (
     leaguedashplayerstats,
     leaguestandingsv3,
     leaguedashteamstats,
+    commonplayerinfo,
 )
 from nba_api.stats.static import teams as nba_teams_static
 
@@ -143,6 +144,30 @@ try:
 except Exception as e:
     print(f"   ERROR player stats: {e}")
 
+# 4b. Corregir equipo actual tras traspasos
+print("\n4b. Verificando equipo actual de jugadores traspasados...")
+print("    (esto puede tardar ~6 min por rate limit de NBA.com)")
+traspasos = 0
+valid_team_ids = set(teams.keys())
+total_players = len(player_stats)
+
+for i, (pid, pdata) in enumerate(player_stats.items(), 1):
+    if i % 50 == 0:
+        print(f"   ...procesando {i}/{total_players}")
+    try:
+        time.sleep(0.6)
+        df_info = commonplayerinfo.CommonPlayerInfo(player_id=pid).get_data_frames()[0]
+        current_team_id = int(df_info["TEAM_ID"].iloc[0])
+        # Solo actualizar si el equipo cambió y es equipo NBA válido
+        if current_team_id != pdata["team_id"] and current_team_id in valid_team_ids:
+            print(f"   Traspaso: {pdata['name']}  ({pdata['team_id']} -> {current_team_id})")
+            pdata["team_id"] = current_team_id
+            traspasos += 1
+    except Exception:
+        pass
+
+print(f"   OK: {traspasos} traspasos detectados y corregidos")
+
 # 5. Lesionados
 print("\n5. Lesionados: no disponible en nba_api free (todos Active)")
 total_injured = 0
@@ -213,5 +238,6 @@ with open(OUTPUT, "w", encoding="utf-8") as f:
 print(f"\nCOMPLETADO:")
 print(f"  {len(result)} equipos")
 print(f"  {len(player_stats)} jugadores")
+print(f"  {traspasos} traspasos corregidos")
 print(f"  {total_injured} lesionados")
 print(f"  Archivo: {OUTPUT}")
