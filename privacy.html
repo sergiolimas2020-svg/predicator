@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de Privacidad — PREDIKTOR</title>
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5953880132871590"
+     crossorigin="anonymous"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --navy-900: #050d1a;
+            --navy-800: #0b1d3a;
+            --navy-700: #112b55;
+            --gold-600: #c9a84c;
+            --gold-500: #d4b865;
+            --white: #ffffff;
+            --gray-100: #e8edf5;
+            --gray-400: #8896ae;
+            --gray-600: #4a5568;
+            --font-display: 'Barlow Condensed', sans-serif;
+            --font-body: 'Barlow', sans-serif;
+        }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-body);
+            background: var(--navy-900);
+            color: var(--gray-100);
+            min-height: 100vh;
+        }
+
+        /* HEADER */
+        .pk-header {
+            background: rgba(5,13,26,0.97);
+            border-bottom: 1px solid rgba(201,168,76,0.15);
+            padding: 1rem 2rem;
+            display: flex; align-items: center; gap: 1.5rem;
+        }
+        .btn-back {
+            background: none;
+            border: 1px solid rgba(201,168,76,0.2);
+            border-radius: 4px;
+            color: var(--gray-400); cursor: pointer;
+            padding: 0.35rem 0.8rem; font-size: 0.85rem;
+            font-family: var(--font-body);
+            transition: color 0.2s, border-color 0.2s;
+            text-decoration: none;
+        }
+        .btn-back:hover { color: var(--gold-500); border-color: rgba(201,168,76,0.5); }
+        .pk-logo {
+            font-family: var(--font-display);
+            font-size: 1.6rem; font-weight: 800;
+            letter-spacing: 0.1em; color: var(--white);
+        }
+        .pk-logo .gold { color: var(--gold-600); }
+
+        /* CONTENIDO */
+        .content {
+            max-width: 800px;
+            margin: 3rem auto;
+            padding: 0 2rem 4rem;
+        }
+
+        .page-title {
+            font-family: var(--font-display);
+            font-size: 2.8rem; font-weight: 800;
+            letter-spacing: 0.08em;
+            color: var(--white);
+            margin-bottom: 0.5rem;
+        }
+        .page-title .gold { color: var(--gold-600); }
+
+        .divider {
+            width: 60px; height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold-600), transparent);
+            margin: 1rem 0 2rem;
+        }
+
+        .last-updated {
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gray-400);
+            margin-bottom: 3rem;
+        }
+
+        .section {
+            margin-bottom: 2.5rem;
+            background: var(--navy-800);
+            border: 1px solid rgba(201,168,76,0.1);
+            border-left: 3px solid var(--gold-600);
+            border-radius: 0 6px 6px 0;
+            padding: 1.8rem 2rem;
+        }
+
+        .section h2 {
+            font-family: var(--font-display);
+            font-size: 1.3rem; font-weight: 700;
+            letter-spacing: 0.08em;
+            color: var(--gold-500);
+            margin-bottom: 1rem;
+        }
+
+        .section p {
+            font-size: 0.92rem;
+            line-height: 1.8;
+            color: var(--gray-100);
+            margin-bottom: 0.8rem;
+        }
+        .section p:last-child { margin-bottom: 0; }
+
+        .section ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 0.5rem;
+        }
+        .section ul li {
+            font-size: 0.92rem;
+            line-height: 1.8;
+            color: var(--gray-100);
+            padding: 0.3rem 0 0.3rem 1.2rem;
+            position: relative;
+        }
+        .section ul li::before {
+            content: '▸';
+            position: absolute; left: 0;
+            color: var(--gold-600);
+            font-size: 0.75rem;
+            top: 0.45rem;
+        }
+
+        .contact-box {
+            background: rgba(201,168,76,0.06);
+            border: 1px solid rgba(201,168,76,0.2);
+            border-radius: 6px;
+            padding: 1.2rem 1.5rem;
+            margin-top: 1rem;
+            font-size: 0.88rem;
+            color: var(--gray-100);
+            line-height: 1.8;
+        }
+
+        .footer {
+            border-top: 1px solid rgba(201,168,76,0.1);
+            padding: 1.5rem 2rem;
+            text-align: center;
+            font-size: 0.68rem;
+            color: var(--gray-600);
+            letter-spacing: 0.1em;
+        }
+    </style>
+</head>
+<body>
+
+<header class="pk-header">
+    <a href="index.html" class="btn-back">← Volver</a>
+    <div class="pk-logo">PREDI<span class="gold">KTOR</span></div>
+</header>
+
+<main class="content">
+
+    <h1 class="page-title">POLÍTICA DE <span class="gold">PRIVACIDAD</span></h1>
+    <div class="divider"></div>
+    <p class="last-updated">Última actualización: 28 de marzo de 2026</p>
+
+    <div class="section">
+        <h2>1. Información General</h2>
+        <p>PREDIKTOR ("nosotros", "nuestro" o "el sitio") es una plataforma de análisis y predicciones deportivas disponible en <strong>predicator-sergiolimas2020-svgs-projects.vercel.app</strong>. Esta Política de Privacidad describe cómo recopilamos, usamos y protegemos la información de los usuarios que visitan nuestro sitio.</p>
+        <p>Al usar PREDIKTOR, aceptas las prácticas descritas en esta política.</p>
+    </div>
+
+    <div class="section">
+        <h2>2. Información que Recopilamos</h2>
+        <p>PREDIKTOR no requiere registro ni recopila datos personales directamente. Sin embargo, como cualquier sitio web, se pueden recopilar de forma automática los siguientes datos:</p>
+        <ul>
+            <li>Dirección IP del dispositivo</li>
+            <li>Tipo de navegador y sistema operativo</li>
+            <li>Páginas visitadas dentro del sitio</li>
+            <li>Fecha y hora de la visita</li>
+            <li>Datos de rendimiento y uso del sitio</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>3. Uso de Google AdSense y Cookies Publicitarias</h2>
+        <p>Este sitio utiliza <strong>Google AdSense</strong> para mostrar anuncios. Google AdSense puede usar cookies y tecnologías similares para mostrar anuncios personalizados basados en tus visitas anteriores a este y otros sitios web.</p>
+        <p>Google, como proveedor externo, utiliza cookies para publicar anuncios. El uso de la cookie de DART por parte de Google le permite publicar anuncios en función de las visitas anteriores del usuario a este sitio y a otros sitios de Internet.</p>
+        <p>Puedes inhabilitar el uso de la cookie de DART visitando la <a href="https://policies.google.com/technologies/ads" target="_blank" style="color: var(--gold-500);">Política de privacidad de anuncios de Google</a>.</p>
+        <ul>
+            <li>Google puede mostrar anuncios de PREDIKTOR en sitios de terceros</li>
+            <li>Los proveedores externos usan cookies para publicar anuncios</li>
+            <li>Puedes optar por no recibir publicidad personalizada en <a href="https://www.google.com/settings/ads" target="_blank" style="color: var(--gold-500);">Configuración de anuncios de Google</a></li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>4. Cookies</h2>
+        <p>Las cookies son pequeños archivos de texto que los sitios web almacenan en tu dispositivo. PREDIKTOR y sus proveedores de publicidad (Google AdSense) pueden usar cookies para:</p>
+        <ul>
+            <li>Recordar tus preferencias de navegación</li>
+            <li>Analizar el tráfico del sitio</li>
+            <li>Mostrar anuncios relevantes para ti</li>
+            <li>Medir el rendimiento de los anuncios</li>
+        </ul>
+        <p>Puedes configurar tu navegador para rechazar todas las cookies o para que te avise cuando se envíe una. Sin embargo, es posible que algunas funcionalidades del sitio no funcionen correctamente si las cookies están deshabilitadas.</p>
+    </div>
+
+    <div class="section">
+        <h2>5. Servicios de Terceros</h2>
+        <p>PREDIKTOR utiliza los siguientes servicios externos que pueden recopilar datos de forma independiente:</p>
+        <ul>
+            <li><strong>Google AdSense</strong> — publicidad contextual y personalizada</li>
+            <li><strong>Google Fonts</strong> — tipografía web</li>
+            <li><strong>APIs deportivas públicas</strong> — datos de fútbol y NBA en tiempo real</li>
+            <li><strong>Vercel</strong> — plataforma de alojamiento del sitio</li>
+        </ul>
+        <p>Cada uno de estos servicios tiene su propia política de privacidad, que te recomendamos revisar.</p>
+    </div>
+
+    <div class="section">
+        <h2>6. Derechos del Usuario</h2>
+        <p>De acuerdo con las leyes de protección de datos aplicables, tienes derecho a:</p>
+        <ul>
+            <li>Acceder a los datos que podamos tener sobre ti</li>
+            <li>Solicitar la corrección de datos incorrectos</li>
+            <li>Solicitar la eliminación de tus datos</li>
+            <li>Oponerte al procesamiento de tus datos con fines publicitarios</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>7. Cambios en esta Política</h2>
+        <p>Nos reservamos el derecho de actualizar esta Política de Privacidad en cualquier momento. Los cambios serán publicados en esta misma página con la fecha de actualización correspondiente. Te recomendamos revisarla periódicamente.</p>
+    </div>
+
+    <div class="section">
+        <h2>8. Contacto</h2>
+        <p>Si tienes preguntas o inquietudes sobre esta Política de Privacidad, puedes contactarnos a través de:</p>
+        <div class="contact-box">
+            📧 Sitio web: <strong>predicator-sergiolimas2020-svgs-projects.vercel.app</strong><br>
+            📅 Vigente desde: 28 de marzo de 2026
+        </div>
+    </div>
+
+</main>
+
+<footer class="footer">
+    PREDIKTOR © 2026 · Sports Analytics &nbsp;·&nbsp; Política de Privacidad
+</footer>
+
+</body>
+</html>
