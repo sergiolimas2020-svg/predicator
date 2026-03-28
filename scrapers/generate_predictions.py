@@ -126,6 +126,36 @@ def norm(s):
         if unicodedata.category(c) != 'Mn'
     )
 
+# ─── ALIASES: nombre ESPN (normalizado) → nombre exacto en el JSON ────────────
+TEAM_ALIASES = {
+    # Liga Colombiana
+    "deportivo pereira":          "D. Pereira",
+    "atletico nacional":          "A. Nacional",
+    "atletico bucaramanga":       "A. Bucaramanga",
+    "atletico petrolera":         "A. Petrolera",
+    "independiente medellin":     "I. Medelin",
+    "rionegro aguilas":           "R. Aguilas",
+    "aguilas doradas rionegro":   "R. Aguilas",
+    "jaguares de cordoba":        "Jaguares de C.",
+    "jaguares":                   "Jaguares de C.",
+    "deportivo cali":             "Deportivo Cali",
+    "america de cali":            "America de Cali",
+    "boyaca chico":               "Boyaca Chico",
+    "once caldas":                "Once Caldas",
+    "deportes tolima":            "Deportes Tolima",
+    "deportivo pasto":            "Deportivo Pasto",
+    "la equidad":                 "La Equidad",
+    "millonarios":                "Millonarios",
+    "junior":                     "Junior",
+    "junior fc":                  "Junior",
+    "santa fe":                   "Santa Fe",
+    "independiente santa fe":     "Santa Fe",
+    "fortaleza ceif":             "Fortaleza CEIF",
+    "llaneros":                   "Llaneros",
+    "cucuta deportivo":           "Cucuta",
+    "cucuta":                     "Cucuta",
+}
+
 def espn_fixtures(code):
     try:
         r = requests.get(f"https://site.api.espn.com/apis/site/v2/sports/{code}/scoreboard", timeout=10)
@@ -167,23 +197,35 @@ def load(f):
 def find(stats, name):
     if not stats: return {}
     nl = norm(name)
+
+    # 0. Alias manual (maxima prioridad)
+    if nl in TEAM_ALIASES:
+        alias = TEAM_ALIASES[nl]
+        if alias in stats:
+            print(f"      [alias] '{name}' → '{alias}'")
+            return stats[alias]
+
+    # 1. Exacto normalizado
     for k in stats:
         if norm(k) == nl: return stats[k]
+
+    # 2. Contenido normalizado
     for k in stats:
         nk = norm(k)
         if nk in nl or nl in nk: return stats[k]
+
+    # 3. Palabras clave (min 4 letras)
     words = [w for w in nl.split() if len(w) >= 4]
     for k in stats:
         nk = norm(k)
         matches = sum(1 for w in words if w in nk)
         if matches >= 1: return stats[k]
+
+    # 4. Fallback: primer equipo (log de advertencia)
+    print(f"      [WARN] '{name}' no encontrado, usando fallback")
     return list(stats.values())[0] if stats else {}
 
 def gs(d, *ks):
-    """
-    Busca claves en el dict d (y en d['position']) con soporte de aliases.
-    Orden: clave directa en raiz → clave en position → aliases en raiz → aliases en position
-    """
     pos = d.get("position", {})
     aliases = {
         "wins":               ["ganados"],
@@ -224,8 +266,7 @@ def prob(hd, ad):
       Diferencia goles   20%  →  diferencia * 0.2
       Ventaja local      10%  →  h_score * 0.1  (solo al local)
 
-    Umbral de empate: diff < 10 puntos porcentuales (igual que calculator.js)
-    Retorna (hp, ap) — si hp == ap == 50.0 es señal de empate.
+    Umbral de empate: diff < 10 (igual que calculator.js)
     """
     pos_h = hd.get("position", {})
     pos_a = ad.get("position", {})
@@ -247,13 +288,11 @@ def prob(hd, ad):
     # Factor 4: Ventaja local (10% extra solo al local)
     h_score += h_score * 0.1
 
-    # Calcular probabilidades
     total = (h_score + a_score) or 1
     hp = (h_score / total) * 100
     ap = (a_score / total) * 100
     diff = abs(hp - ap)
 
-    # Mismo umbral de empate que calculator.js (diff < 10)
     if diff < 10:
         return 50.0, 50.0
 
@@ -263,7 +302,6 @@ def article(league, home, hd, away, ad, nba=False):
     hp, ap = prob(hd, ad)
     sp = "puntos" if nba else "goles"
 
-    # Determinar resultado — misma logica que calculator.js predictWinner()
     diff = abs(hp - ap)
     if diff < 10:
         win = "EMPATE"
@@ -275,7 +313,6 @@ def article(league, home, hd, away, ad, nba=False):
         win = away
         wp  = round(ap, 1)
 
-    # Stats para mostrar en la tabla
     hw   = gs(hd, 'wins', 'won')
     hl   = gs(hd, 'losses', 'lost')
     hpts = gs(hd, 'avg_points', 'goals_for')
@@ -399,3 +436,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+    
