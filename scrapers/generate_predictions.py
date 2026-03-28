@@ -62,6 +62,23 @@ h1{{font-family:var(--font-display);font-size:clamp(1.8rem,4vw,2.8rem);font-weig
 .plbl{{font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gray-400);margin-bottom:.5rem}}
 .pres{{font-family:var(--font-display);font-size:2.2rem;font-weight:800;color:var(--gold-500)}}
 .pconf{{font-size:.85rem;color:var(--gray-400);margin-top:.3rem}}
+/* ── SECCION GOLES ── */
+.goals-section{{margin:2.5rem 0 0}}
+.goals-grid{{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem}}
+.goal-card{{background:var(--navy-800);border:1px solid rgba(201,168,76,.12);border-radius:8px;padding:1.4rem 1.6rem;position:relative;overflow:hidden}}
+.goal-card::before{{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold-600),transparent)}}
+.goal-label{{font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gray-400);font-weight:600;margin-bottom:.6rem}}
+.goal-value{{font-family:var(--font-display);font-size:2rem;font-weight:800;line-height:1;margin-bottom:.4rem}}
+.goal-value.high{{color:var(--success)}}
+.goal-value.mid{{color:var(--gold-500)}}
+.goal-value.low{{color:var(--danger)}}
+.goal-bar-wrap{{height:4px;background:rgba(255,255,255,.08);border-radius:2px;margin:.6rem 0}}
+.goal-bar{{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--gold-700),var(--gold-500))}}
+.goal-bar.high{{background:linear-gradient(90deg,#16a34a,var(--success))}}
+.goal-bar.low{{background:linear-gradient(90deg,#b91c1c,var(--danger))}}
+.goal-rec{{font-size:.72rem;color:var(--gray-400);margin-top:.3rem}}
+.goal-rec strong{{color:var(--gold-500)}}
+/* ── ────────────── ── */
 .cta{{background:linear-gradient(135deg,var(--navy-800),var(--navy-700));border:1px solid rgba(201,168,76,.2);border-radius:8px;padding:2rem;text-align:center;margin-top:3rem}}
 .cta p{{margin-bottom:1rem;color:var(--gray-400)}}
 .cta a{{display:inline-block;background:linear-gradient(135deg,#b88e30,var(--gold-500));color:#050d1a;padding:.9rem 2rem;border-radius:4px;font-family:var(--font-display);font-size:1.1rem;font-weight:700;letter-spacing:.1em;text-decoration:none}}
@@ -221,7 +238,7 @@ def find(stats, name):
         matches = sum(1 for w in words if w in nk)
         if matches >= 1: return stats[k]
 
-    # 4. Fallback: primer equipo (log de advertencia)
+    # 4. Fallback
     print(f"      [WARN] '{name}' no encontrado, usando fallback")
     return list(stats.values())[0] if stats else {}
 
@@ -238,16 +255,12 @@ def gs(d, *ks):
         "avg_points_allowed": ["goles_contra"],
     }
     for k in ks:
-        if d.get(k) is not None:
-            return d[k]
-        if pos.get(k) is not None:
-            return pos[k]
+        if d.get(k) is not None: return d[k]
+        if pos.get(k) is not None: return pos[k]
         for a in aliases.get(k, []):
-            if d.get(a) is not None:
-                return d[a]
+            if d.get(a) is not None: return d[a]
         for a in aliases.get(k, []):
-            if pos.get(a) is not None:
-                return pos[a]
+            if pos.get(a) is not None: return pos[a]
     return "N/A"
 
 def safe_float(v, default=0.0):
@@ -256,47 +269,88 @@ def safe_float(v, default=0.0):
     except (ValueError, TypeError):
         return default
 
+def parse_pct(s):
+    """Convierte '77%' → 77.0, maneja N/A y None."""
+    if not s or s == "N/A": return 0.0
+    try:
+        return float(str(s).replace('%', '').strip())
+    except:
+        return 0.0
+
 def prob(hd, ad):
     """
     Replica EXACTAMENTE la logica de calculator.js → predictWinner()
-
-    Factores:
-      Posicion en tabla  40%  →  (21 - posicion) * 0.4 * 5
-      Win rate           30%  →  (ganados / partidos * 100) * 0.3
-      Diferencia goles   20%  →  diferencia * 0.2
-      Ventaja local      10%  →  h_score * 0.1  (solo al local)
-
-    Umbral de empate: diff < 10 (igual que calculator.js)
+    Factores: posicion 40% | win rate 30% | dif goles 20% | ventaja local 10%
+    Umbral empate: diff < 10
     """
     pos_h = hd.get("position", {})
     pos_a = ad.get("position", {})
 
-    # Factor 1: Posicion en tabla (40%)
     h_score = (21 - safe_float(pos_h.get("posicion"), 10)) * 0.4 * 5
     a_score = (21 - safe_float(pos_a.get("posicion"), 10)) * 0.4 * 5
 
-    # Factor 2: Win rate (30%)
     h_games = safe_float(pos_h.get("partidos"), 1) or 1
     a_games = safe_float(pos_a.get("partidos"), 1) or 1
     h_score += (safe_float(pos_h.get("ganados")) / h_games * 100) * 0.3
     a_score += (safe_float(pos_a.get("ganados")) / a_games * 100) * 0.3
 
-    # Factor 3: Diferencia de goles (20%)
     h_score += safe_float(pos_h.get("diferencia")) * 0.2
     a_score += safe_float(pos_a.get("diferencia")) * 0.2
 
-    # Factor 4: Ventaja local (10% extra solo al local)
     h_score += h_score * 0.1
 
     total = (h_score + a_score) or 1
     hp = (h_score / total) * 100
     ap = (a_score / total) * 100
-    diff = abs(hp - ap)
 
-    if diff < 10:
+    if abs(hp - ap) < 10:
         return 50.0, 50.0
 
     return round(hp, 1), round(ap, 1)
+
+def goals_section(hd, ad):
+    """
+    Genera la seccion de probabilidades de goles (Over 1.5 y Over 2.5)
+    promediando los datos de ambos equipos, igual que calculator.js predictGoals()
+    """
+    hg = hd.get("goals", {})
+    ag = ad.get("goals", {})
+
+    o15 = round((parse_pct(hg.get("over_1_5")) + parse_pct(ag.get("over_1_5"))) / 2, 1)
+    o25 = round((parse_pct(hg.get("over_2_5")) + parse_pct(ag.get("over_2_5"))) / 2, 1)
+
+    def bar_class(p):
+        if p >= 65: return "high"
+        if p >= 45: return "mid"
+        return "low"
+
+    def rec(label, p):
+        if p >= 65: return f"<strong>Recomendado</strong> · Alta probabilidad"
+        if p >= 45: return f"Probabilidad media"
+        return f"Probabilidad baja"
+
+    c15 = bar_class(o15)
+    c25 = bar_class(o25)
+
+    return f"""
+<div class="goals-section">
+<h2>Prediccion de Goles</h2>
+<p>Probabilidad de que el partido tenga mas de 1.5 o 2.5 goles, basada en el historial de ambos equipos.</p>
+<div class="goals-grid">
+  <div class="goal-card">
+    <div class="goal-label">⚽ Over 1.5 goles</div>
+    <div class="goal-value {c15}">{o15}%</div>
+    <div class="goal-bar-wrap"><div class="goal-bar {c15}" style="width:{min(o15,100)}%"></div></div>
+    <div class="goal-rec">{rec('Over 1.5', o15)}</div>
+  </div>
+  <div class="goal-card">
+    <div class="goal-label">⚽ Over 2.5 goles</div>
+    <div class="goal-value {c25}">{o25}%</div>
+    <div class="goal-bar-wrap"><div class="goal-bar {c25}" style="width:{min(o25,100)}%"></div></div>
+    <div class="goal-rec">{rec('Over 2.5', o25)}</div>
+  </div>
+</div>
+</div>"""
 
 def article(league, home, hd, away, ad, nba=False):
     hp, ap = prob(hd, ad)
@@ -348,6 +402,9 @@ def article(league, home, hd, away, ad, nba=False):
 
     conf_txt = "Probabilidad: " + str(wp) + "%" if win != "EMPATE" else "Confianza: MEDIA (33%)"
 
+    # Seccion de goles solo para futbol
+    goles_html = goals_section(hd, ad) if not nba else ""
+
     return f"""
 <p>{intro}</p>
 <h2>Analisis del equipo local: {home}</h2>
@@ -375,6 +432,7 @@ def article(league, home, hd, away, ad, nba=False):
 <div class="pres">{win}</div>
 <div class="pconf">{conf_txt}</div>
 </div>
+{goles_html}
 <p>Este analisis esta basado en las estadisticas actuales de la temporada. Usa nuestro analizador interactivo para explorar mas datos.</p>"""
 
 def save(league, home, away, art):
@@ -436,4 +494,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-    
