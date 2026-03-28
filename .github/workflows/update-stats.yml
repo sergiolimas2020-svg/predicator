@@ -1,9 +1,9 @@
-name: 🏀 NBA Stats Auto-Update
+name: 🏆 PREDIKTOR Auto-Update
 
 on:
   schedule:
-    - cron: '0 15 * * *'   # Corre a las 10AM ET (15:00 UTC) cada día
-  workflow_dispatch:         # También puedes correrlo manualmente
+    - cron: '0 5 * * *'   # 12:00 AM Colombia (05:00 UTC) cada día
+  workflow_dispatch:        # También puedes correrlo manualmente
 
 jobs:
   update-nba-stats:
@@ -13,19 +13,29 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+
       - run: pip install nba_api requests beautifulsoup4 pdfplumber
+
       - run: python scrapers/nba_scraper.py
         env:
           BALLDONTLIE_KEY: ${{ secrets.BALLDONTLIE_KEY }}
+
       - run: |
-          python scrapers/italia.py || true
-          python scrapers/premier.py || true
-          python scrapers/españa.py || true
+          python scrapers/premier.py      || true
+          python scrapers/españa.py       || true
+          python scrapers/italia.py       || true
+          python scrapers/bundesliga.py   || true
+          python scrapers/francia.py      || true
+          python scrapers/colombia.py     || true
+          python scrapers/argentina.py    || true
+          python scrapers/brazil.py       || true
+          python scrapers/turquia.py      || true
+          python scrapers/champions.py    || true
         continue-on-error: true
+
       - run: |
           git config user.email "action@github.com"
           git config user.name "GitHub Actions Bot"
           git add static/
           git diff --staged --quiet || git commit -m "🤖 Auto-update $(date +'%Y-%m-%d')"
           git push
-          
