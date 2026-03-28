@@ -1,0 +1,39 @@
+name: Scrapers Diarios
+
+on:
+  schedule:
+    # 5am Colombia = 10am UTC (1 hora antes de las predicciones)
+    - cron: '0 10 * * *'
+  workflow_dispatch:
+
+jobs:
+  correr-scrapers:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clonar repositorio
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Instalar dependencias
+        run: pip install requests beautifulsoup4 lxml
+
+      - name: Correr scrapers
+        run: python run_all_scrapers.py
+
+      - name: Configurar Git
+        run: |
+          git config --global user.name "PREDIKTOR Bot"
+          git config --global user.email "bot@prediktor.app"
+
+      - name: Commit y push si hay cambios
+        run: |
+          git add static/
+          git diff --staged --quiet || git commit -m "chore: stats actualizadas $(date +'%Y-%m-%d')"
+          git push
