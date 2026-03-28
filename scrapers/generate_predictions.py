@@ -211,13 +211,11 @@ def load(f):
 def find(stats, name):
     if not stats: return {}
     nl = norm(name)
-
     if nl in TEAM_ALIASES:
         alias = TEAM_ALIASES[nl]
         if alias in stats:
             print(f"      [alias] '{name}' → '{alias}'")
             return stats[alias]
-
     for k in stats:
         if norm(k) == nl: return stats[k]
     for k in stats:
@@ -227,7 +225,6 @@ def find(stats, name):
     for k in stats:
         nk = norm(k)
         if sum(1 for w in words if w in nk) >= 1: return stats[k]
-
     print(f"      [WARN] '{name}' no encontrado, usando fallback")
     return list(stats.values())[0] if stats else {}
 
@@ -265,13 +262,11 @@ def parse_pct(s):
     except:
         return 0.0
 
-def prob(hd, ad):
-    """
-    Replica EXACTAMENTE calculator.js → predictWinner()
-    Factores: posicion 40% | win rate 30% | dif goles 20% | ventaja local 10%
-    Clamp: min 15%, max 85% (igual que calculator.js)
-    Umbral empate: diff < 10
-    """
+# ══════════════════════════════════════════════════════════════
+#  FUTBOL — replica calculator.js predictWinner()
+#  Puede retornar EMPATE (hp == ap == 50.0)
+# ══════════════════════════════════════════════════════════════
+def prob_futbol(hd, ad):
     pos_h = hd.get("position", {})
     pos_a = ad.get("position", {})
 
@@ -295,22 +290,38 @@ def prob(hd, ad):
     total = (h_score + a_score) or 1
     hp = (h_score / total) * 100
 
-    # ── CLAMP: igual que calculator.js min(85, max(15, ...)) ──
+    # Clamp igual que calculator.js: min 15%, max 85%
     hp = min(85.0, max(15.0, hp))
     ap = round(100 - hp, 1)
     hp = round(hp, 1)
 
-    # Umbral de empate
+    # Umbral de empate: diff < 10 (igual que calculator.js)
     if abs(hp - ap) < 10:
         return 50.0, 50.0
 
     return hp, ap
 
+# ══════════════════════════════════════════════════════════════
+#  NBA — replica index.html bkWinProb()
+#  NUNCA retorna empate (el basket siempre tiene ganador)
+# ══════════════════════════════════════════════════════════════
+def prob_nba(hd, ad):
+    h_win_pct  = safe_float(hd.get("win_pct"), 50)
+    a_win_pct  = safe_float(ad.get("win_pct"), 50)
+    h_avg_pts  = safe_float(hd.get("avg_points"), 110)
+    a_avg_pts  = safe_float(ad.get("avg_points"), 110)
+
+    # Misma formula que bkWinProb() en index.html:
+    # diff = (home.win_pct - away.win_pct) + (home.avg_points - away.avg_points) * 0.5 + 3
+    diff = (h_win_pct - a_win_pct) + (h_avg_pts - a_avg_pts) * 0.5 + 3
+    hp = min(85.0, max(15.0, 50 + diff))
+    ap = round(100 - hp, 1)
+    hp = round(hp, 1)
+
+    # En NBA nunca hay empate — siempre retorna ganador
+    return hp, ap
+
 def goals_section(hd, ad):
-    """
-    Seccion Over 1.5 / Over 2.5 promediando ambos equipos.
-    Igual que calculator.js → predictGoals()
-    """
     hg = hd.get("goals", {})
     ag = ad.get("goals", {})
 
@@ -350,14 +361,20 @@ def goals_section(hd, ad):
 </div>"""
 
 def article(league, home, hd, away, ad, nba=False):
-    hp, ap = prob(hd, ad)
+    # ── Seleccionar funcion correcta segun deporte ──
+    if nba:
+        hp, ap = prob_nba(hd, ad)
+    else:
+        hp, ap = prob_futbol(hd, ad)
+
     sp = "puntos" if nba else "goles"
 
-    diff = abs(hp - ap)
-    if diff < 10:
+    # ── Determinar resultado ──
+    if not nba and abs(hp - ap) < 10:
+        # Solo futbol puede empatar
         win = "EMPATE"
         wp  = 33
-    elif hp > ap:
+    elif hp >= ap:
         win = home
         wp  = hp
     else:
@@ -398,6 +415,8 @@ def article(league, home, hd, away, ad, nba=False):
         ])
 
     conf_txt = f"Probabilidad: {wp}%" if win != "EMPATE" else "Confianza: MEDIA (33%)"
+
+    # Seccion de goles solo para futbol
     goles_html = goals_section(hd, ad) if not nba else ""
 
     return f"""
@@ -458,7 +477,7 @@ def main():
             hd = find(stats, home); ad = find(stats, away)
             if not hd: hd = ad
             if not ad: ad = hd
-            art = article(league, home, hd, away, ad)
+            art = article(league, home, hd, away, ad, nba=False)
             slug = save(league, home, away, art)
             preds.append((slug, f"{home} vs {away}", league))
             print(f"   OK: {home} vs {away}")
