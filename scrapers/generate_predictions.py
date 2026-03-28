@@ -1,4 +1,4 @@
-import json, os, random, requests
+import json, os, random, requests, unicodedata
 from datetime import date, timedelta
 from pathlib import Path
 
@@ -120,38 +120,28 @@ h1{{font-family:var(--font-display);font-size:2.5rem;font-weight:800;color:var(-
 <footer class="ftr">PREDIKTOR 2026 · <a href="/privacy.html" style="color:var(--gray-600);text-decoration:none;">Privacidad</a></footer>
 </body></html>"""
 
+def norm(s):
+    """Normaliza texto: minusculas, sin acentos"""
+    return ''.join(
+        c for c in unicodedata.normalize('NFD', s.lower())
+        if unicodedata.category(c) != 'Mn'
+    )
+
 def espn_fixtures(code):
-    """
-    Obtiene partidos de HOY en hora Colombia (UTC-5).
-    Acepta partidos con fecha UTC de hoy O de manana antes de las 06:00 UTC
-    (porque en Colombia la medianoche = 05:00 UTC del dia siguiente).
-    Excluye partidos ya terminados.
-    """
     try:
-        r = requests.get(
-            f"https://site.api.espn.com/apis/site/v2/sports/{code}/scoreboard",
-            timeout=10
-        )
+        r = requests.get(f"https://site.api.espn.com/apis/site/v2/sports/{code}/scoreboard", timeout=10)
         matches = []
         for e in r.json().get("events", []):
-            event_date_utc = e.get("date", "")  # ej: 2026-03-29T01:20:00Z
-            event_date = event_date_utc[:10]     # ej: 2026-03-29
+            event_date_utc = e.get("date", "")
+            event_date = event_date_utc[:10]
             event_hour = int(event_date_utc[11:13]) if len(event_date_utc) > 12 else 0
             status = e.get("status", {}).get("type", {}).get("description", "")
-
-            # Excluir partidos ya terminados
             if status in ("Full Time", "Final", "FT"):
                 continue
-
-            # Incluir si:
-            # - fecha UTC es hoy, O
-            # - fecha UTC es manana pero hora UTC <= 05:59 (medianoche Colombia = 05:00 UTC)
             es_hoy = event_date == today
-            es_noche_colombia = (event_date == tomorrow and event_hour <= 5)
-
-            if not es_hoy and not es_noche_colombia:
+            es_noche_col = (event_date == tomorrow and event_hour <= 5)
+            if not es_hoy and not es_noche_col:
                 continue
-
             cs = e.get("competitions", [{}])[0].get("competitors", [])
             if len(cs) >= 2:
                 h = next((c["team"]["displayName"] for c in cs if c.get("homeAway") == "home"), None)
@@ -160,37 +150,39 @@ def espn_fixtures(code):
                     matches.append((h, a))
         return matches
     except Exception as ex:
-        print(f"   ESPN error: {ex}")
-        return []
+        print(f"   ESPN error: {ex}"); return []
 
 def nba_fixtures():
-    if not BALLDONTLIE_KEY:
-        return []
+    if not BALLDONTLIE_KEY: return []
     try:
-        r = requests.get(
-            f"https://api.balldontlie.io/v1/games?dates[]={today}",
-            headers={"Authorization": BALLDONTLIE_KEY},
-            timeout=10
-        )
+        r = requests.get(f"https://api.balldontlie.io/v1/games?dates[]={today}",
+            headers={"Authorization": BALLDONTLIE_KEY}, timeout=10)
         return [(g["home_team"]["full_name"], g["visitor_team"]["full_name"]) for g in r.json().get("data", [])]
     except Exception as ex:
-        print(f"   BallDontLie error: {ex}")
-        return []
+        print(f"   BallDontLie error: {ex}"); return []
 
 def load(f):
     p = Path(f"static/{f}")
     return json.load(open(p)) if p.exists() else {}
 
 def find(stats, name):
+    """Busca equipo con normalizacion de acentos y palabras clave"""
     if not stats: return {}
-    nl = name.lower()
+    nl = norm(name)
+    # 1. Exacto normalizado
     for k in stats:
-        if k.lower() == nl: return stats[k]
+        if norm(k) == nl: return stats[k]
+    # 2. Contenido normalizado
     for k in stats:
-        if k.lower() in nl or nl in k.lower(): return stats[k]
-    ws = [w for w in nl.split() if len(w) > 3]
+        nk = norm(k)
+        if nk in nl or nl in nk: return stats[k]
+    # 3. Palabras clave (min 4 letras)
+    words = [w for w in nl.split() if len(w) >= 4]
     for k in stats:
-        if any(w in k.lower() for w in ws): return stats[k]
+        nk = norm(k)
+        matches = sum(1 for w in words if w in nk)
+        if matches >= 1: return stats[k]
+    # 4. Fallback: primer equipo
     return list(stats.values())[0] if stats else {}
 
 def prob(hd, ad):
@@ -216,7 +208,7 @@ def article(league, home, hd, away, ad, nba=False):
     sp = "puntos" if nba else "goles"
     hw = gs(hd,'wins','won'); hl = gs(hd,'losses','lost')
     hpts = gs(hd,'avg_points','goals_for'); hpta = gs(hd,'avg_points_allowed','goals_against')
-    aw = gs(ad,'wins','won'); al = gs(ad,'losses','lost')
+    aw2 = gs(ad,'wins','won'); al2 = gs(ad,'losses','lost')
     apts = gs(ad,'avg_points','goals_for'); apta = gs(ad,'avg_points_allowed','goals_against')
     try: tot_txt = f"El total proyectado es de <strong>{round(float(hpts)+float(apts),1)} {sp}</strong>."
     except: tot_txt = ""
@@ -242,10 +234,10 @@ def article(league, home, hd, away, ad, nba=False):
 <div class="srow"><span class="slbl">Probabilidad de victoria</span><span class="sval" style="color:var(--gold-500)">{hp}%</span></div>
 </div>
 <h2>Analisis del equipo visitante: {away}</h2>
-<p><strong>{away}</strong> presenta <strong>{aw} victorias y {al} derrotas</strong>. Promedia <strong>{apts} {sp}</strong> anotados y <strong>{apta}</strong> recibidos.</p>
+<p><strong>{away}</strong> presenta <strong>{aw2} victorias y {al2} derrotas</strong>. Promedia <strong>{apts} {sp}</strong> anotados y <strong>{apta}</strong> recibidos.</p>
 <div class="sbox">
-<div class="srow"><span class="slbl">Victorias</span><span class="sval" style="color:var(--success)">{aw}</span></div>
-<div class="srow"><span class="slbl">Derrotas</span><span class="sval" style="color:var(--danger)">{al}</span></div>
+<div class="srow"><span class="slbl">Victorias</span><span class="sval" style="color:var(--success)">{aw2}</span></div>
+<div class="srow"><span class="slbl">Derrotas</span><span class="sval" style="color:var(--danger)">{al2}</span></div>
 <div class="srow"><span class="slbl">{sp.capitalize()} prom. a favor</span><span class="sval">{apts}</span></div>
 <div class="srow"><span class="slbl">{sp.capitalize()} prom. en contra</span><span class="sval">{apta}</span></div>
 <div class="srow"><span class="slbl">Probabilidad de victoria</span><span class="sval" style="color:var(--gold-500)">{ap}%</span></div>
@@ -276,12 +268,11 @@ def save(league, home, away, art):
 def main():
     preds = []
     print(f"Generando predicciones — {today_display}")
-    print(f"Hoy UTC: {today} | Acepta hasta {tomorrow} 05:59 UTC (medianoche Colombia)\n")
+    print(f"Hoy: {today} | Acepta hasta {tomorrow} 05:59 UTC\n")
 
     for code, (league, stats_file) in ESPN_LEAGUES.items():
         matches = espn_fixtures(code)
-        if not matches:
-            continue
+        if not matches: continue
         print(f"Futbol {league}: {len(matches)} partidos")
         stats = load(stats_file)
         for home, away in matches:
@@ -315,7 +306,8 @@ def main():
         INDEX.format(date=today_display, adsense=ADSENSE, cards=cards),
         encoding='utf-8'
     )
-    print(f"\n{len(preds)} predicciones generadas en static/predictions/")
+    print(f"\n{len(preds)} predicciones generadas!")
 
 if __name__ == "__main__":
     main()
+    
