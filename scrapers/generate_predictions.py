@@ -62,7 +62,6 @@ h1{{font-family:var(--font-display);font-size:clamp(1.8rem,4vw,2.8rem);font-weig
 .plbl{{font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gray-400);margin-bottom:.5rem}}
 .pres{{font-family:var(--font-display);font-size:2.2rem;font-weight:800;color:var(--gold-500)}}
 .pconf{{font-size:.85rem;color:var(--gray-400);margin-top:.3rem}}
-/* ── SECCION GOLES ── */
 .goals-section{{margin:2.5rem 0 0}}
 .goals-grid{{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem}}
 .goal-card{{background:var(--navy-800);border:1px solid rgba(201,168,76,.12);border-radius:8px;padding:1.4rem 1.6rem;position:relative;overflow:hidden}}
@@ -73,12 +72,12 @@ h1{{font-family:var(--font-display);font-size:clamp(1.8rem,4vw,2.8rem);font-weig
 .goal-value.mid{{color:var(--gold-500)}}
 .goal-value.low{{color:var(--danger)}}
 .goal-bar-wrap{{height:4px;background:rgba(255,255,255,.08);border-radius:2px;margin:.6rem 0}}
-.goal-bar{{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--gold-700),var(--gold-500))}}
+.goal-bar{{height:100%;border-radius:2px}}
 .goal-bar.high{{background:linear-gradient(90deg,#16a34a,var(--success))}}
+.goal-bar.mid{{background:linear-gradient(90deg,var(--gold-700),var(--gold-500))}}
 .goal-bar.low{{background:linear-gradient(90deg,#b91c1c,var(--danger))}}
 .goal-rec{{font-size:.72rem;color:var(--gray-400);margin-top:.3rem}}
 .goal-rec strong{{color:var(--gold-500)}}
-/* ── ────────────── ── */
 .cta{{background:linear-gradient(135deg,var(--navy-800),var(--navy-700));border:1px solid rgba(201,168,76,.2);border-radius:8px;padding:2rem;text-align:center;margin-top:3rem}}
 .cta p{{margin-bottom:1rem;color:var(--gray-400)}}
 .cta a{{display:inline-block;background:linear-gradient(135deg,#b88e30,var(--gold-500));color:#050d1a;padding:.9rem 2rem;border-radius:4px;font-family:var(--font-display);font-size:1.1rem;font-weight:700;letter-spacing:.1em;text-decoration:none}}
@@ -143,9 +142,7 @@ def norm(s):
         if unicodedata.category(c) != 'Mn'
     )
 
-# ─── ALIASES: nombre ESPN (normalizado) → nombre exacto en el JSON ────────────
 TEAM_ALIASES = {
-    # Liga Colombiana
     "deportivo pereira":          "D. Pereira",
     "atletico nacional":          "A. Nacional",
     "atletico bucaramanga":       "A. Bucaramanga",
@@ -215,30 +212,22 @@ def find(stats, name):
     if not stats: return {}
     nl = norm(name)
 
-    # 0. Alias manual (maxima prioridad)
     if nl in TEAM_ALIASES:
         alias = TEAM_ALIASES[nl]
         if alias in stats:
             print(f"      [alias] '{name}' → '{alias}'")
             return stats[alias]
 
-    # 1. Exacto normalizado
     for k in stats:
         if norm(k) == nl: return stats[k]
-
-    # 2. Contenido normalizado
     for k in stats:
         nk = norm(k)
         if nk in nl or nl in nk: return stats[k]
-
-    # 3. Palabras clave (min 4 letras)
     words = [w for w in nl.split() if len(w) >= 4]
     for k in stats:
         nk = norm(k)
-        matches = sum(1 for w in words if w in nk)
-        if matches >= 1: return stats[k]
+        if sum(1 for w in words if w in nk) >= 1: return stats[k]
 
-    # 4. Fallback
     print(f"      [WARN] '{name}' no encontrado, usando fallback")
     return list(stats.values())[0] if stats else {}
 
@@ -270,7 +259,6 @@ def safe_float(v, default=0.0):
         return default
 
 def parse_pct(s):
-    """Convierte '77%' → 77.0, maneja N/A y None."""
     if not s or s == "N/A": return 0.0
     try:
         return float(str(s).replace('%', '').strip())
@@ -279,39 +267,49 @@ def parse_pct(s):
 
 def prob(hd, ad):
     """
-    Replica EXACTAMENTE la logica de calculator.js → predictWinner()
+    Replica EXACTAMENTE calculator.js → predictWinner()
     Factores: posicion 40% | win rate 30% | dif goles 20% | ventaja local 10%
+    Clamp: min 15%, max 85% (igual que calculator.js)
     Umbral empate: diff < 10
     """
     pos_h = hd.get("position", {})
     pos_a = ad.get("position", {})
 
+    # Factor 1: Posicion en tabla (40%)
     h_score = (21 - safe_float(pos_h.get("posicion"), 10)) * 0.4 * 5
     a_score = (21 - safe_float(pos_a.get("posicion"), 10)) * 0.4 * 5
 
+    # Factor 2: Win rate (30%)
     h_games = safe_float(pos_h.get("partidos"), 1) or 1
     a_games = safe_float(pos_a.get("partidos"), 1) or 1
     h_score += (safe_float(pos_h.get("ganados")) / h_games * 100) * 0.3
     a_score += (safe_float(pos_a.get("ganados")) / a_games * 100) * 0.3
 
+    # Factor 3: Diferencia de goles (20%)
     h_score += safe_float(pos_h.get("diferencia")) * 0.2
     a_score += safe_float(pos_a.get("diferencia")) * 0.2
 
+    # Factor 4: Ventaja local (10% extra solo al local)
     h_score += h_score * 0.1
 
     total = (h_score + a_score) or 1
     hp = (h_score / total) * 100
-    ap = (a_score / total) * 100
 
+    # ── CLAMP: igual que calculator.js min(85, max(15, ...)) ──
+    hp = min(85.0, max(15.0, hp))
+    ap = round(100 - hp, 1)
+    hp = round(hp, 1)
+
+    # Umbral de empate
     if abs(hp - ap) < 10:
         return 50.0, 50.0
 
-    return round(hp, 1), round(ap, 1)
+    return hp, ap
 
 def goals_section(hd, ad):
     """
-    Genera la seccion de probabilidades de goles (Over 1.5 y Over 2.5)
-    promediando los datos de ambos equipos, igual que calculator.js predictGoals()
+    Seccion Over 1.5 / Over 2.5 promediando ambos equipos.
+    Igual que calculator.js → predictGoals()
     """
     hg = hd.get("goals", {})
     ag = ad.get("goals", {})
@@ -319,35 +317,34 @@ def goals_section(hd, ad):
     o15 = round((parse_pct(hg.get("over_1_5")) + parse_pct(ag.get("over_1_5"))) / 2, 1)
     o25 = round((parse_pct(hg.get("over_2_5")) + parse_pct(ag.get("over_2_5"))) / 2, 1)
 
-    def bar_class(p):
+    def cls(p):
         if p >= 65: return "high"
         if p >= 45: return "mid"
         return "low"
 
-    def rec(label, p):
-        if p >= 65: return f"<strong>Recomendado</strong> · Alta probabilidad"
-        if p >= 45: return f"Probabilidad media"
-        return f"Probabilidad baja"
+    def rec(p):
+        if p >= 65: return "<strong>Recomendado</strong> · Alta probabilidad"
+        if p >= 45: return "Probabilidad media"
+        return "Probabilidad baja"
 
-    c15 = bar_class(o15)
-    c25 = bar_class(o25)
+    c15, c25 = cls(o15), cls(o25)
 
     return f"""
 <div class="goals-section">
 <h2>Prediccion de Goles</h2>
-<p>Probabilidad de que el partido tenga mas de 1.5 o 2.5 goles, basada en el historial de ambos equipos.</p>
+<p>Probabilidad de que el partido supere 1.5 o 2.5 goles, basada en el historial de ambos equipos esta temporada.</p>
 <div class="goals-grid">
   <div class="goal-card">
     <div class="goal-label">⚽ Over 1.5 goles</div>
     <div class="goal-value {c15}">{o15}%</div>
     <div class="goal-bar-wrap"><div class="goal-bar {c15}" style="width:{min(o15,100)}%"></div></div>
-    <div class="goal-rec">{rec('Over 1.5', o15)}</div>
+    <div class="goal-rec">{rec(o15)}</div>
   </div>
   <div class="goal-card">
     <div class="goal-label">⚽ Over 2.5 goles</div>
     <div class="goal-value {c25}">{o25}%</div>
     <div class="goal-bar-wrap"><div class="goal-bar {c25}" style="width:{min(o25,100)}%"></div></div>
-    <div class="goal-rec">{rec('Over 2.5', o25)}</div>
+    <div class="goal-rec">{rec(o25)}</div>
   </div>
 </div>
 </div>"""
@@ -362,10 +359,10 @@ def article(league, home, hd, away, ad, nba=False):
         wp  = 33
     elif hp > ap:
         win = home
-        wp  = round(hp, 1)
+        wp  = hp
     else:
         win = away
-        wp  = round(ap, 1)
+        wp  = ap
 
     hw   = gs(hd, 'wins', 'won')
     hl   = gs(hd, 'losses', 'lost')
@@ -400,9 +397,7 @@ def article(league, home, hd, away, ad, nba=False):
             f"Segun nuestro modelo, <strong>{win}</strong> tiene el <strong>{wp}%</strong> de posibilidades de ganar.",
         ])
 
-    conf_txt = "Probabilidad: " + str(wp) + "%" if win != "EMPATE" else "Confianza: MEDIA (33%)"
-
-    # Seccion de goles solo para futbol
+    conf_txt = f"Probabilidad: {wp}%" if win != "EMPATE" else "Confianza: MEDIA (33%)"
     goles_html = goals_section(hd, ad) if not nba else ""
 
     return f"""
