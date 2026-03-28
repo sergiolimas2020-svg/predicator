@@ -121,7 +121,6 @@ h1{{font-family:var(--font-display);font-size:2.5rem;font-weight:800;color:var(-
 </body></html>"""
 
 def norm(s):
-    """Normaliza texto: minusculas, sin acentos"""
     return ''.join(
         c for c in unicodedata.normalize('NFD', s.lower())
         if unicodedata.category(c) != 'Mn'
@@ -166,62 +165,152 @@ def load(f):
     return json.load(open(p)) if p.exists() else {}
 
 def find(stats, name):
-    """Busca equipo con normalizacion de acentos y palabras clave"""
     if not stats: return {}
     nl = norm(name)
-    # 1. Exacto normalizado
     for k in stats:
         if norm(k) == nl: return stats[k]
-    # 2. Contenido normalizado
     for k in stats:
         nk = norm(k)
         if nk in nl or nl in nk: return stats[k]
-    # 3. Palabras clave (min 4 letras)
     words = [w for w in nl.split() if len(w) >= 4]
     for k in stats:
         nk = norm(k)
         matches = sum(1 for w in words if w in nk)
         if matches >= 1: return stats[k]
-    # 4. Fallback: primer equipo
     return list(stats.values())[0] if stats else {}
 
-def prob(hd, ad):
-    hw = hd.get('wins', hd.get('won', 0)) or 0
-    hl = hd.get('losses', hd.get('lost', 0)) or 0
-    aw = ad.get('wins', ad.get('won', 0)) or 0
-    al = ad.get('losses', ad.get('lost', 0)) or 0
-    hg = hw + hl or 1; ag = aw + al or 1
-    hp = hw / hg; ap = aw / ag
-    h = min(85, max(15, round(hp / (hp + ap + 0.001) * 100 + 5)))
-    return h, 100 - h
-
 def gs(d, *ks):
+    """
+    Busca claves en el dict d (y en d['position']) con soporte de aliases.
+    Orden: clave directa en raiz → clave en position → aliases en raiz → aliases en position
+    """
+    pos = d.get("position", {})
+    aliases = {
+        "wins":               ["ganados"],
+        "won":                ["ganados"],
+        "losses":             ["perdidos"],
+        "lost":               ["perdidos"],
+        "goals_for":          ["goles_favor"],
+        "goals_against":      ["goles_contra"],
+        "avg_points":         ["promedio"],
+        "avg_points_allowed": ["goles_contra"],
+    }
     for k in ks:
-        v = d.get(k)
-        if v is not None: return v
+        if d.get(k) is not None:
+            return d[k]
+        if pos.get(k) is not None:
+            return pos[k]
+        for a in aliases.get(k, []):
+            if d.get(a) is not None:
+                return d[a]
+        for a in aliases.get(k, []):
+            if pos.get(a) is not None:
+                return pos[a]
     return "N/A"
+
+def safe_float(v, default=0.0):
+    try:
+        return float(v or default)
+    except (ValueError, TypeError):
+        return default
+
+def prob(hd, ad):
+    """
+    Replica EXACTAMENTE la logica de calculator.js → predictWinner()
+
+    Factores:
+      Posicion en tabla  40%  →  (21 - posicion) * 0.4 * 5
+      Win rate           30%  →  (ganados / partidos * 100) * 0.3
+      Diferencia goles   20%  →  diferencia * 0.2
+      Ventaja local      10%  →  h_score * 0.1  (solo al local)
+
+    Umbral de empate: diff < 10 puntos porcentuales (igual que calculator.js)
+    Retorna (hp, ap) — si hp == ap == 50.0 es señal de empate.
+    """
+    pos_h = hd.get("position", {})
+    pos_a = ad.get("position", {})
+
+    # Factor 1: Posicion en tabla (40%)
+    h_score = (21 - safe_float(pos_h.get("posicion"), 10)) * 0.4 * 5
+    a_score = (21 - safe_float(pos_a.get("posicion"), 10)) * 0.4 * 5
+
+    # Factor 2: Win rate (30%)
+    h_games = safe_float(pos_h.get("partidos"), 1) or 1
+    a_games = safe_float(pos_a.get("partidos"), 1) or 1
+    h_score += (safe_float(pos_h.get("ganados")) / h_games * 100) * 0.3
+    a_score += (safe_float(pos_a.get("ganados")) / a_games * 100) * 0.3
+
+    # Factor 3: Diferencia de goles (20%)
+    h_score += safe_float(pos_h.get("diferencia")) * 0.2
+    a_score += safe_float(pos_a.get("diferencia")) * 0.2
+
+    # Factor 4: Ventaja local (10% extra solo al local)
+    h_score += h_score * 0.1
+
+    # Calcular probabilidades
+    total = (h_score + a_score) or 1
+    hp = (h_score / total) * 100
+    ap = (a_score / total) * 100
+    diff = abs(hp - ap)
+
+    # Mismo umbral de empate que calculator.js (diff < 10)
+    if diff < 10:
+        return 50.0, 50.0
+
+    return round(hp, 1), round(ap, 1)
 
 def article(league, home, hd, away, ad, nba=False):
     hp, ap = prob(hd, ad)
-    win = home if hp >= 50 else away
-    wp = hp if hp >= 50 else ap
     sp = "puntos" if nba else "goles"
-    hw = gs(hd,'wins','won'); hl = gs(hd,'losses','lost')
-    hpts = gs(hd,'avg_points','goals_for'); hpta = gs(hd,'avg_points_allowed','goals_against')
-    aw2 = gs(ad,'wins','won'); al2 = gs(ad,'losses','lost')
-    apts = gs(ad,'avg_points','goals_for'); apta = gs(ad,'avg_points_allowed','goals_against')
-    try: tot_txt = f"El total proyectado es de <strong>{round(float(hpts)+float(apts),1)} {sp}</strong>."
-    except: tot_txt = ""
+
+    # Determinar resultado — misma logica que calculator.js predictWinner()
+    diff = abs(hp - ap)
+    if diff < 10:
+        win = "EMPATE"
+        wp  = 33
+    elif hp > ap:
+        win = home
+        wp  = round(hp, 1)
+    else:
+        win = away
+        wp  = round(ap, 1)
+
+    # Stats para mostrar en la tabla
+    hw   = gs(hd, 'wins', 'won')
+    hl   = gs(hd, 'losses', 'lost')
+    hpts = gs(hd, 'avg_points', 'goals_for')
+    hpta = gs(hd, 'avg_points_allowed', 'goals_against')
+    aw2  = gs(ad, 'wins', 'won')
+    al2  = gs(ad, 'losses', 'lost')
+    apts = gs(ad, 'avg_points', 'goals_for')
+    apta = gs(ad, 'avg_points_allowed', 'goals_against')
+
+    try:
+        tot_txt = f"El total proyectado es de <strong>{round(float(hpts)+float(apts),1)} {sp}</strong>."
+    except:
+        tot_txt = ""
+
     intro = random.choice([
         f"Uno de los encuentros de la jornada en <strong>{league}</strong> enfrenta a <strong>{home}</strong> y <strong>{away}</strong>.",
         f"La <strong>{league}</strong> presenta este choque entre <strong>{home}</strong> y <strong>{away}</strong>.",
         f"<strong>{home}</strong> recibe a <strong>{away}</strong> en un partido clave de la <strong>{league}</strong>.",
     ])
-    fav = random.choice([
-        f"Nuestro analisis indica que <strong>{win}</strong> parte como favorito con una probabilidad del <strong>{wp}%</strong>.",
-        f"Los datos apuntan a <strong>{win}</strong> con un <strong>{wp}%</strong> de probabilidad de victoria.",
-        f"Segun nuestro modelo, <strong>{win}</strong> tiene el <strong>{wp}%</strong> de posibilidades de ganar.",
-    ])
+
+    if win == "EMPATE":
+        fav = random.choice([
+            f"Nuestro analisis indica un partido muy parejo. El resultado mas probable es el <strong>EMPATE</strong> con un <strong>{wp}%</strong> de confianza.",
+            f"Los datos apuntan a un encuentro equilibrado donde el <strong>EMPATE</strong> es el resultado mas probable.",
+            f"Segun nuestro modelo, ambos equipos estan muy igualados y el <strong>EMPATE</strong> es el escenario mas factible.",
+        ])
+    else:
+        fav = random.choice([
+            f"Nuestro analisis indica que <strong>{win}</strong> parte como favorito con una probabilidad del <strong>{wp}%</strong>.",
+            f"Los datos apuntan a <strong>{win}</strong> con un <strong>{wp}%</strong> de probabilidad de victoria.",
+            f"Segun nuestro modelo, <strong>{win}</strong> tiene el <strong>{wp}%</strong> de posibilidades de ganar.",
+        ])
+
+    conf_txt = "Probabilidad: " + str(wp) + "%" if win != "EMPATE" else "Confianza: MEDIA (33%)"
+
     return f"""
 <p>{intro}</p>
 <h2>Analisis del equipo local: {home}</h2>
@@ -245,9 +334,9 @@ def article(league, home, hd, away, ad, nba=False):
 <h2>Prediccion final</h2>
 <p>{fav} {tot_txt}</p>
 <div class="pbox">
-<div class="plbl">Ganador probable</div>
+<div class="plbl">Resultado probable</div>
 <div class="pres">{win}</div>
-<div class="pconf">Probabilidad de victoria: {wp}%</div>
+<div class="pconf">{conf_txt}</div>
 </div>
 <p>Este analisis esta basado en las estadisticas actuales de la temporada. Usa nuestro analizador interactivo para explorar mas datos.</p>"""
 
@@ -310,4 +399,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-    
