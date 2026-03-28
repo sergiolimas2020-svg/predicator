@@ -123,16 +123,29 @@ try:
             if gp < 5:
                 continue
             pid = row["PLAYER_ID"]
+            team_id = int(row["TEAM_ID"])
+            # Siempre preferir la fila con equipo real (team_id != 0)
+            # y con más partidos jugados (jugadores traspasados tienen varias filas)
+            if pid in player_stats:
+                existing_gp = player_stats[pid]["games_played"]
+                existing_tid = player_stats[pid]["team_id"]
+                # Si ya tenemos equipo real y esta fila es TOT (0), saltar
+                if existing_tid != 0 and team_id == 0:
+                    continue
+                # Si esta fila tiene menos GP que la existente, saltar
+                if gp <= existing_gp and team_id == 0:
+                    continue
+            n = max(gp, 1)
             player_stats[pid] = {
                 "name":          row["PLAYER_NAME"],
-                "team_id":       int(row["TEAM_ID"]),
+                "team_id":       team_id,
                 "games_played":  gp,
-                "avg_points":    round(float(row.get("PTS", 0)), 1),
-                "avg_rebounds":  round(float(row.get("REB", 0)), 1),
-                "avg_assists":   round(float(row.get("AST", 0)), 1),
-                "avg_threes":    round(float(row.get("FG3M", 0)), 1),
-                "avg_steals":    round(float(row.get("STL", 0)), 1),
-                "avg_blocks":    round(float(row.get("BLK", 0)), 1),
+                "avg_points":    round(float(row.get("PTS", 0)) / n, 1),
+                "avg_rebounds":  round(float(row.get("REB", 0)) / n, 1),
+                "avg_assists":   round(float(row.get("AST", 0)) / n, 1),
+                "avg_threes":    round(float(row.get("FG3M", 0)) / n, 1),
+                "avg_steals":    round(float(row.get("STL", 0)) / n, 1),
+                "avg_blocks":    round(float(row.get("BLK", 0)) / n, 1),
                 "fg_pct":        round(float(row.get("FG_PCT", 0)) * 100, 1),
                 "injury_status": "Active",
                 "injury_reason": "",
@@ -190,7 +203,7 @@ for tid, info in teams.items():
         [p for p in player_stats.values() if p["team_id"] == tid],
         key=lambda x: x["avg_points"], reverse=True
     )
-    active  = [p for p in team_pl if p.get("available", True)][:8]
+    active  = [p for p in team_pl if p.get("available", True)][:15]
     injured = [p for p in team_pl if not p.get("available", True)]
 
     result[team_name] = {
