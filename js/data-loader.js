@@ -87,7 +87,7 @@ const DataLoader = {
             }
             
             const fileName = leagueConfig.file;
-            const response = await fetch(`../static/${fileName}`);
+            const response = await fetch(`/static/${fileName}`);
             
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
