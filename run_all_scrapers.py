@@ -13,7 +13,7 @@ SCRAPERS_CONFIG = [
     ("colombia.py",   "static/colombia_stats.json",           10, 120),
     ("italia.py",     "scrapers/static/italy_stats.json",     15, 120),
     ("premier.py",    "scrapers/static/england_stats.json",   15, 120),
-    ("espana.py",     "scrapers/static/spain_stats.json",     15, 120),
+    ("españa.py",     "scrapers/static/spain_stats.json",     15, 120),
     ("francia.py",    "scrapers/static/france_stats.json",    15, 120),
     ("bundesliga.py", "scrapers/static/germany_stats.json",   15, 120),
     ("turquia.py",    "scrapers/static/turkey_stats.json",    15, 120),
