@@ -192,7 +192,7 @@ def norm(s):
 
 TEAM_ALIASES = {
     # Colombia - aliases ESPN -> JSON
-    "Internacional de Bogota": "La Equidad",
+    "Internacional de Bogota": "La Equidad", "Internacional de Bogota FC": "La Equidad",
     "Internacional de Bogota FC": "La Equidad",
     "Atletico Junior": "Junior",
     "Atletico Nacional": "A. Nacional",
