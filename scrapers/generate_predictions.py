@@ -191,6 +191,17 @@ def norm(s):
     )
 
 TEAM_ALIASES = {
+    # Colombia - aliases ESPN -> JSON
+    "Internacional de Bogota": "I. Medelin",
+    "Internacional de Bogota FC": "I. Medelin",
+    "Atletico Junior": "Junior",
+    "Atletico Nacional": "A. Nacional",
+    "Atletico Bucaramanga": "A. Bucaramanga",
+    "Atletico Petrolera": "A. Petrolera",
+    "Deportivo Pereira": "D. Pereira",
+    "Jaguares de Cordoba": "Jaguares de C.",
+    "Rionegro Aguilas": "R. Aguilas",
+    "Fortaleza CEIF FC": "Fortaleza CEIF",
     "deportivo pereira":          "D. Pereira",
     "atletico nacional":          "A. Nacional",
     "atletico bucaramanga":       "A. Bucaramanga",
