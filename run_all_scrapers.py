@@ -1,76 +1,94 @@
 #!/usr/bin/env python3
-"""
-Script para ejecutar todos los scrapers automáticamente
-"""
-
-import os
-import subprocess
-import sys
+import os, sys, json, shutil, subprocess
 from pathlib import Path
+from datetime import datetime
 
-def run_all_scrapers():
-    # Obtener la ruta de la carpeta scrapers
-    scrapers_dir = Path(__file__).parent / "scrapers"
-    
-    # Verificar que la carpeta existe
-    if not scrapers_dir.exists():
-        print(f"❌ La carpeta '{scrapers_dir}' no existe")
-        sys.exit(1)
-    
-    # Obtener todos los archivos .py (excluyendo __pycache__ y similar)
-    py_files = sorted([f for f in scrapers_dir.glob("*.py") if f.is_file()])
-    
-    if not py_files:
-        print(f"❌ No se encontraron archivos .py en {scrapers_dir}")
-        sys.exit(1)
-    
-    print(f"\n🚀 Ejecutando {len(py_files)} scrapers...\n")
-    print("=" * 60)
-    
-    executed = 0
-    failed = 0
-    
-    for script in py_files:
-        script_name = script.name
-        print(f"\n▶️  Ejecutando: {script_name}")
-        print("-" * 60)
-        
+ROOT       = Path(__file__).parent
+SCRAPERS   = ROOT / "scrapers"
+STATIC     = ROOT / "static"
+BACKUP_DIR = ROOT / "static" / "_backup"
+BACKUP_DIR.mkdir(exist_ok=True)
+
+SCRAPERS_LIST = [
+    ("colombia.py",   "static/colombia_stats.json",                       10),
+    ("italia.py",     "scrapers/static/italy_stats.json",                 15),
+    ("premier.py",    "scrapers/static/england_stats.json",               15),
+    ("españa.py",     "scrapers/static/spain_stats.json",                 15),
+    ("francia.py",    "scrapers/static/france_stats.json",                15),
+    ("bundesliga.py", "scrapers/static/germany_stats.json",               15),
+    ("turquia.py",    "scrapers/static/turkey_stats.json",                15),
+    ("champions.py",  "scrapers/static/uefa_champions_league_stats.json", 10),
+    ("argentina.py",  "scrapers/static/argentina_stats.json",             15),
+    ("brazil.py",     "scrapers/static/brazil_stats.json",                15),
+    ("nba_scraper.py","static/nba_stats.json",                             5),
+]
+
+def validate_json(json_path, min_teams):
+    p = ROOT / json_path
+    if not p.exists(): return False, "No existe"
+    try: data = json.loads(p.read_text(encoding="utf-8"))
+    except Exception as e: return False, f"JSON invalido: {e}"
+    teams = [k for k in data if not k.startswith("_")]
+    if len(teams) < min_teams: return False, f"Solo {len(teams)} equipos (min {min_teams})"
+    return True, f"{len(teams)} equipos OK"
+
+def backup(json_path):
+    p = ROOT / json_path
+    if p.exists():
+        name = p.stem + "_" + datetime.now().strftime("%Y%m%d") + ".json"
+        shutil.copy(p, BACKUP_DIR / name)
+
+def run_scraper(script, json_output, min_teams):
+    script_path = SCRAPERS / script
+    if not script_path.exists(): return False, "Script no encontrado"
+    backup(json_output)
+    try:
+        result = subprocess.run(
+            [sys.executable, str(script_path)],
+            cwd=str(ROOT), capture_output=True, text=True, timeout=120
+        )
+        if result.returncode != 0:
+            return False, f"Codigo {result.returncode}: {result.stderr[:150]}"
+    except subprocess.TimeoutExpired: return False, "Timeout 2min"
+    except Exception as e: return False, str(e)
+    ok, msg = validate_json(json_output, min_teams)
+    if not ok:
+        bk = BACKUP_DIR / (Path(json_output).stem + "_" + datetime.now().strftime("%Y%m%d") + ".json")
+        if bk.exists(): shutil.copy(bk, ROOT / json_output)
+        return False, f"{msg} — backup restaurado"
+    return True, msg
+
+def sync_to_static():
+    src = SCRAPERS / "static"
+    if not src.exists(): return
+    n = 0
+    for f in src.glob("*.json"):
         try:
-            result = subprocess.run(
-                [sys.executable, str(script)],
-                cwd=scrapers_dir,
-                capture_output=False,  # Mostrar la salida en tiempo real
-                timeout=300  # Timeout de 5 minutos por script
-            )
-            
-            if result.returncode == 0:
-                print(f"✅ {script_name} completado exitosamente")
-                executed += 1
-            else:
-                print(f"❌ {script_name} falló con código {result.returncode}")
-                failed += 1
-                
-        except subprocess.TimeoutExpired:
-            print(f"⏱️  {script_name} excedió el tiempo máximo (5 min)")
-            failed += 1
-        except Exception as e:
-            print(f"❌ Error al ejecutar {script_name}: {str(e)}")
-            failed += 1
-    
-    print("\n" + "=" * 60)
-    print(f"\n📊 Resumen:")
-    print(f"   ✅ Exitosos: {executed}")
-    print(f"   ❌ Fallidos: {failed}")
-    print(f"   📦 Total: {len(py_files)}\n")
-    
-    return failed == 0
+            data = json.loads(f.read_text(encoding="utf-8"))
+            if len([k for k in data if not k.startswith("_")]) >= 5:
+                shutil.copy(f, STATIC / f.name); n += 1
+        except: pass
+    print(f"   {n} JSONs sincronizados a static/")
+
+def main():
+    print("\n" + "="*60)
+    print("PREDIKTOR — Actualizacion de estadisticas")
+    print(datetime.now().strftime("%Y-%m-%d %H:%M"))
+    print("="*60 + "\n")
+    ok = fail = 0
+    bad = []
+    for script, json_output, min_teams in SCRAPERS_LIST:
+        print(f"Ejecutando: {script}")
+        success, msg = run_scraper(script, json_output, min_teams)
+        print(f"  {'OK' if success else 'FALLO'}: {msg}\n")
+        if success: ok += 1
+        else: fail += 1; bad.append((script, msg))
+    print("Sincronizando JSONs...")
+    sync_to_static()
+    print(f"\nResumen: {ok} exitosos, {fail} fallidos de {len(SCRAPERS_LIST)}")
+    if bad:
+        for s, m in bad: print(f"  - {s}: {m}")
+    return fail == 0
 
 if __name__ == "__main__":
-    success = run_all_scrapers()
-    sys.exit(0 if success else 1)
-
-# Sincronizar JSONs a static/ raiz
-import shutil, glob
-for f in glob.glob('scrapers/static/*.json'):
-    shutil.copy(f, 'static/')
-print('✅ JSONs sincronizados a static/')
+    sys.exit(0 if main() else 1)
