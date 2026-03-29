@@ -1,5 +1,4 @@
 name: Scrapers Diarios
-
 on:
   schedule:
     - cron: '0 10 * * *'
@@ -11,7 +10,6 @@ permissions:
 jobs:
   correr-scrapers:
     runs-on: ubuntu-latest
-
     steps:
       - name: Clonar repositorio
         uses: actions/checkout@v4
@@ -25,8 +23,7 @@ jobs:
           python-version: '3.11'
 
       - name: Instalar dependencias
-        run: |
-          pip install requests beautifulsoup4 lxml nba_api --break-system-packages
+        run: pip install requests beautifulsoup4 lxml nba_api --break-system-packages
 
       - name: Correr scrapers
         run: python run_all_scrapers.py
@@ -45,4 +42,5 @@ jobs:
         run: |
           git add static/ scrapers/static/
           git diff --staged --quiet || git commit -m "chore: stats actualizadas $(date +'%Y-%m-%d')"
+          git pull --rebase origin main
           git push
