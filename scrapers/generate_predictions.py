@@ -271,7 +271,9 @@ def load(f):
 def find(stats, name):
     if not stats: return {}
     nl = norm(name)
-    if nl in TEAM_ALIASES:
+    if name in TEAM_ALIASES:
+        alias = TEAM_ALIASES[name]
+    elif nl in TEAM_ALIASES:
         alias = TEAM_ALIASES[nl]
         if alias in stats:
             print(f"      [alias] '{name}' → '{alias}'")
