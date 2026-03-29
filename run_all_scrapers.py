@@ -68,3 +68,9 @@ def run_all_scrapers():
 if __name__ == "__main__":
     success = run_all_scrapers()
     sys.exit(0 if success else 1)
+
+# Sincronizar JSONs a static/ raiz
+import shutil, glob
+for f in glob.glob('scrapers/static/*.json'):
+    shutil.copy(f, 'static/')
+print('✅ JSONs sincronizados a static/')
