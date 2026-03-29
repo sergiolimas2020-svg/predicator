@@ -153,7 +153,14 @@ def scrape_positions_data(url):
                                 if mp > 0 and w + d + l == mp:
                                     positions_data[text] = {
                                         "posicion": position,
-                                        "puntos": w * 3 + d
+                                        "puntos": w * 3 + d,
+                            "partidos": mp,
+                            "ganados": w,
+                            "empatados": d,
+                            "perdidos": l,
+                            "goles_favor": gf,
+                            "goles_contra": ga,
+                            "diferencia": gf - ga
                                     }
                                     
                                     position += 1
