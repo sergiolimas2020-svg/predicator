@@ -196,6 +196,7 @@ TEAM_ALIASES = {
     "Internacional de Bogota FC": "La Equidad",
     "Atletico Junior": "Junior",
     "Atletico Nacional": "A. Nacional",
+    "Athletico-PR": "Athletico PR",
     "Atletico Bucaramanga": "A. Bucaramanga",
     "Atletico Petrolera": "A. Petrolera",
     "Deportivo Pereira": "D. Pereira",
