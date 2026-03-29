@@ -14,6 +14,7 @@ for en, es in MESES.items():
 
 BALLDONTLIE_KEY = os.environ.get("BALLDONTLIE_KEY", "")
 ADSENSE = '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5953880132871590" crossorigin="anonymous"></script>'
+GA = '<script async src="https://www.googletagmanager.com/gtag/js?id=G-K3JES4SQS9"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-K3JES4SQS9");</script>'
 
 # ── URL base del sitio en produccion ──
 SITE_URL = "https://predicator-sergiolimas2020-svgs-projects.vercel.app"
@@ -73,6 +74,7 @@ HTML = """<!DOCTYPE html>
 }}
 </script>
 {adsense}
+{ga}
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{{--navy-900:#050d1a;--navy-800:#0b1d3a;--navy-700:#112b55;--gold-600:#c9a84c;--gold-500:#d4b865;--white:#fff;--gray-100:#e8edf5;--gray-400:#8896ae;--gray-600:#4a5568;--success:#22c55e;--danger:#ef4444;--font-display:'Barlow Condensed',sans-serif;--font-body:'Barlow',sans-serif;}}
@@ -149,6 +151,7 @@ INDEX = """<!DOCTYPE html>
 <meta property="og:url" content="{site_url}/static/predictions/index.html">
 <meta property="og:site_name" content="PREDIKTOR">
 {adsense}
+{ga}
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{{--navy-900:#050d1a;--navy-800:#0b1d3a;--gold-600:#c9a84c;--gold-500:#d4b865;--white:#fff;--gray-100:#e8edf5;--gray-400:#8896ae;--gray-600:#4a5568;--font-display:'Barlow Condensed',sans-serif;--font-body:'Barlow',sans-serif;}}
@@ -489,7 +492,7 @@ def save(league, home, away, art):
     html  = HTML.format(
         title=title, desc=desc, kw=kw,
         canonical=canonical, site_url=SITE_URL,
-        date_iso=today, adsense=ADSENSE,
+        date_iso=today, adsense=ADSENSE, ga=GA,
         league=league, date=today_display,
         home=home, away=away, article=art
     )
@@ -572,7 +575,7 @@ def main():
     ) if preds else '<div class="empty"><p>No hay partidos programados para hoy.</p></div>'
 
     (OUTPUT_DIR / "index.html").write_text(
-        INDEX.format(date=today_display, adsense=ADSENSE,
+        INDEX.format(date=today_display, adsense=ADSENSE, ga=GA,
                      site_url=SITE_URL, cards=cards),
         encoding='utf-8'
     )
