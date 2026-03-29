@@ -2,7 +2,6 @@ name: Scrapers Diarios
 
 on:
   schedule:
-    # 5am Colombia = 10am UTC (1 hora antes de las predicciones)
     - cron: '0 10 * * *'
   workflow_dispatch:
 
@@ -22,18 +21,24 @@ jobs:
           python-version: '3.11'
 
       - name: Instalar dependencias
-        run: pip install requests beautifulsoup4 lxml
+        run: |
+          pip install requests beautifulsoup4 lxml nba_api selenium --break-system-packages
 
       - name: Correr scrapers
         run: python run_all_scrapers.py
+        continue-on-error: true
+
+      - name: Generar predicciones
+        run: python scrapers/generate_predictions.py
+        continue-on-error: true
 
       - name: Configurar Git
         run: |
           git config --global user.name "PREDIKTOR Bot"
           git config --global user.email "bot@prediktor.app"
 
-      - name: Commit y push si hay cambios
+      - name: Commit y push
         run: |
-          git add static/
+          git add static/ scrapers/static/
           git diff --staged --quiet || git commit -m "chore: stats actualizadas $(date +'%Y-%m-%d')"
           git push
