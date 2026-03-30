@@ -1161,26 +1161,6 @@ window.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-<script>
-window.addEventListener('DOMContentLoaded', function() {
-  const params = new URLSearchParams(window.location.search);
-  const sport = params.get('sport');
-  const liga = params.get('liga');
-  if (sport === 'basket') {
-    enterApp('basket'); // no auto-analyze
-  } else if (sport === 'futbol') {
-    enterApp('futbol');
-    if (liga) {
-      setTimeout(() => {
-        const sel = document.getElementById('league-select');
-        if (sel) {
-          sel.value = liga;
-          sel.dispatchEvent(new Event('change'));
-        }
-      }, 300);
-    }
-  }
-});
-</script>
+
 </body>
 </html>
