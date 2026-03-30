@@ -953,10 +953,12 @@
    NAVEGACIÓN
 ═══════════════════════════════════════════════════ */
 // Auto-abrir seccion por parametro URL
-window.addEventListener('DOMContentLoaded', () => {
-    const params = new URLSearchParams(window.location.search);
-    const sec = params.get('seccion');
-    if (sec === 'historial') enterApp('historial');
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        const params = new URLSearchParams(window.location.search);
+        const sec = params.get('seccion');
+        if (sec === 'historial') enterApp('historial');
+    }, 300);
 });
 
 function enterApp(sport, liga) {
