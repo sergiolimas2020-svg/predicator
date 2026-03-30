@@ -387,38 +387,55 @@ fetch('static/historial.json').then(r=>r.json()).then(h=>{
 
 <section class="pick-demo">
   <div class="pick-demo-inner">
-    <div class="section-label" style="text-align:center">Ejemplo real</div>
-    <div class="section-title" style="font-size:clamp(1.8rem,4vw,2.5rem)">Así se ve un pick de PREDIKTOR</div>
-    <div class="pick-card">
-      <div class="pick-header">
-        <span class="pick-liga">⚽ Premier League</span>
-        <span class="pick-valor">🔥 Alto valor</span>
-      </div>
-      <div class="pick-partido">Liverpool vs Chelsea</div>
-      <div class="pick-stats">
-        <div class="pick-stat">
-          <div class="pick-stat-val verde">74%</div>
-          <div class="pick-stat-label">Probabilidad</div>
-        </div>
-        <div class="pick-stat">
-          <div class="pick-stat-val dorado">Over 2.5</div>
-          <div class="pick-stat-label">Predicción</div>
-        </div>
-        <div class="pick-stat">
-          <div class="pick-stat-val" style="color:var(--azul)">Alta</div>
-          <div class="pick-stat-label">Confianza</div>
-        </div>
-      </div>
-      <div class="pick-recomendacion">
-        <div>
-          <div class="pick-rec-label">Recomendación del sistema</div>
-          <div class="pick-rec-val">✅ Over 2.5 goles</div>
-        </div>
-        <div style="color:var(--gris);font-size:0.82rem;max-width:260px">Basado en tendencias ofensivas y promedio de goles de las últimas 8 jornadas.</div>
-      </div>
+    <div class="section-label" style="text-align:center">Pick del día</div>
+    <div class="section-title" style="font-size:clamp(1.8rem,4vw,2.5rem)">El pick más confiable de hoy</div>
+    <div id="pick-hoy" class="pick-card">
+      <div style="text-align:center;padding:2rem;color:var(--gris)">Cargando pick del día…</div>
     </div>
   </div>
 </section>
+<script>
+fetch('static/predictions_log.json').then(r=>r.json()).then(picks=>{
+  const hoy = new Date().toISOString().slice(0,10);
+  const deHoy = picks.filter(p=>p.fecha===hoy);
+  if(!deHoy.length){ document.getElementById('pick-hoy').innerHTML='<div style="text-align:center;padding:2rem;color:var(--gris)">No hay picks para hoy aún.</div>'; return; }
+  // Extraer probabilidad numérica para ordenar
+  const conPct = deHoy.map(p=>({ ...p, pct: parseFloat((p.confianza||'0').replace(/[^0-9.]/g,'')) }));
+  const mejor = conPct.sort((a,b)=>b.pct-a.pct)[0];
+  const ligaIcon = mejor.league==='NBA'?'🏀':'⚽';
+  const confianzaLabel = mejor.pct>=70?'Alta':mejor.pct>=60?'Media':'Normal';
+  const confianzaColor = mejor.pct>=70?'var(--verde)':mejor.pct>=60?'var(--dorado)':'var(--gris)';
+  document.getElementById('pick-hoy').innerHTML = `
+    <div class="pick-header">
+      <span class="pick-liga">${ligaIcon} ${mejor.league}</span>
+      <span class="pick-valor">🔥 Alto valor</span>
+    </div>
+    <div class="pick-partido">${mejor.home} vs ${mejor.away}</div>
+    <div class="pick-stats">
+      <div class="pick-stat">
+        <div class="pick-stat-val verde">${mejor.pct.toFixed(0)}%</div>
+        <div class="pick-stat-label">Probabilidad</div>
+      </div>
+      <div class="pick-stat">
+        <div class="pick-stat-val dorado">${mejor.prediccion}</div>
+        <div class="pick-stat-label">Predicción</div>
+      </div>
+      <div class="pick-stat">
+        <div class="pick-stat-val" style="color:${confianzaColor}">${confianzaLabel}</div>
+        <div class="pick-stat-label">Confianza</div>
+      </div>
+    </div>
+    <div class="pick-recomendacion">
+      <div>
+        <div class="pick-rec-label">Recomendación del sistema</div>
+        <div class="pick-rec-val">✅ ${mejor.prediccion}</div>
+      </div>
+      <div style="color:var(--gris);font-size:0.82rem;max-width:260px">Basado en estadísticas reales — ${mejor.fecha}.</div>
+    </div>`;
+}).catch(()=>{
+  document.getElementById('pick-hoy').innerHTML='<div style="text-align:center;padding:2rem;color:var(--gris)">No hay picks disponibles.</div>';
+});
+</script>
 
 <!-- AD -->
 <div class="ad-banner">
