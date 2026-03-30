@@ -920,14 +920,14 @@
 /* ═══════════════════════════════════════════════════
    NAVEGACIÓN
 ═══════════════════════════════════════════════════ */
-function enterApp(sport) {
+function enterApp(sport, liga) {
     const entry = document.getElementById('sport-entry');
     entry.classList.add('exit');
     setTimeout(() => {
         entry.style.display = 'none';
         if (sport === 'futbol') {
             document.getElementById('futbol-app').classList.add('visible');
-            initApp();
+            initApp(liga);
         } else {
             document.getElementById('basket-app').classList.add('visible');
             bkLoadData();
@@ -1146,9 +1146,9 @@ window.addEventListener('DOMContentLoaded', function() {
   const sport = params.get('sport');
   const liga = params.get('liga');
   if (sport === 'basket') {
-    enterApp('basket'); // no auto-analyze
+    enterApp('basket', null);
   } else if (sport === 'futbol') {
-    enterApp('futbol');
+    enterApp('futbol', liga);
     if (liga) {
       setTimeout(() => {
         const sel = document.getElementById('league-select');
