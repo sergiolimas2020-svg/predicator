@@ -1152,11 +1152,11 @@ window.addEventListener('DOMContentLoaded', function() {
     if (liga) {
       setTimeout(() => {
         const sel = document.getElementById('league-select');
-        if (sel) {
+        if (sel && liga) {
           sel.value = liga;
           sel.dispatchEvent(new Event('change'));
         }
-      }, 300);
+      }, 1200);
     }
   }
 });

@@ -79,19 +79,21 @@ try:
     )
     if df_team is not None:
         for _, row in df_team.iterrows():
-            tid        = row["TEAM_ID"]
-            avg_pts    = float(row.get("PTS", 0))
-            plus_minus = float(row.get("PLUS_MINUS", 0))
+            tid = row["TEAM_ID"]
+            gp  = max(int(row.get("GP", 1)), 1)          # partidos jugados (denominador)
+
+            avg_pts    = float(row.get("PTS", 0)) / gp   # total → promedio
+            plus_minus = float(row.get("PLUS_MINUS", 0)) / gp
             avg_pta    = round(avg_pts - plus_minus, 1)
-            gp         = int(row.get("GP", 1))
+
             team_stats[tid] = {
                 "avg_points":         round(avg_pts, 1),
                 "avg_points_allowed": avg_pta,
-                "avg_rebounds":       round(float(row.get("REB", 0)), 1),
-                "avg_assists":        round(float(row.get("AST", 0)), 1),
-                "avg_steals":         round(float(row.get("STL", 0)), 1),
-                "avg_blocks":         round(float(row.get("BLK", 0)), 1),
-                "avg_turnovers":      round(float(row.get("TOV", 0)), 1),
+                "avg_rebounds":       round(float(row.get("REB", 0)) / gp, 1),
+                "avg_assists":        round(float(row.get("AST", 0)) / gp, 1),
+                "avg_steals":         round(float(row.get("STL", 0)) / gp, 1),
+                "avg_blocks":         round(float(row.get("BLK", 0)) / gp, 1),
+                "avg_turnovers":      round(float(row.get("TOV", 0)) / gp, 1),
                 "fg_pct":             round(float(row.get("FG_PCT", 0)) * 100, 1),
                 "three_pct":          round(float(row.get("FG3_PCT", 0)) * 100, 1),
                 "ft_pct":             round(float(row.get("FT_PCT", 0)) * 100, 1),
@@ -124,15 +126,11 @@ try:
                 continue
             pid = row["PLAYER_ID"]
             team_id = int(row["TEAM_ID"])
-            # Siempre preferir la fila con equipo real (team_id != 0)
-            # y con más partidos jugados (jugadores traspasados tienen varias filas)
             if pid in player_stats:
                 existing_gp = player_stats[pid]["games_played"]
                 existing_tid = player_stats[pid]["team_id"]
-                # Si ya tenemos equipo real y esta fila es TOT (0), saltar
                 if existing_tid != 0 and team_id == 0:
                     continue
-                # Si esta fila tiene menos GP que la existente, saltar
                 if gp <= existing_gp and team_id == 0:
                     continue
             n = max(gp, 1)
@@ -171,7 +169,6 @@ for i, (pid, pdata) in enumerate(player_stats.items(), 1):
         time.sleep(0.6)
         df_info = commonplayerinfo.CommonPlayerInfo(player_id=pid).get_data_frames()[0]
         current_team_id = int(df_info["TEAM_ID"].iloc[0])
-        # Solo actualizar si el equipo cambió y es equipo NBA válido
         if current_team_id != pdata["team_id"] and current_team_id in valid_team_ids:
             print(f"   Traspaso: {pdata['name']}  ({pdata['team_id']} -> {current_team_id})")
             pdata["team_id"] = current_team_id
