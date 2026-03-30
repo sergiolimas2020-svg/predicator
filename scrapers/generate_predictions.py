@@ -497,6 +497,10 @@ def article(league, home, hd, away, ad, nba=False):
 
 def save(league, home, away, art):
     slug = f"{home}-vs-{away}-{league}-{today}".lower()
+    # Eliminar caracteres especiales para URLs limpias
+    import unicodedata
+    slug = unicodedata.normalize('NFKD', slug)
+    slug = slug.encode('ascii', 'ignore').decode('ascii')
     slug = ''.join(c if c.isalnum() or c == '-' else '-' for c in slug)
     slug = '-'.join(filter(None, slug.split('-')))[:100]
     canonical = f"{SITE_URL}/static/predictions/{slug}.html"
