@@ -181,6 +181,26 @@
     }
     .pick-rec-label { font-size:0.75rem; color:var(--gris); text-transform:uppercase; letter-spacing:1px; }
     .pick-rec-val { font-weight:700; font-size:1.1rem; color:var(--verde); }
+    .pick-analisis-btn {
+      margin-top:1.2rem; width:100%; background:none;
+      border:1px solid var(--borde); border-radius:8px;
+      color:var(--gris); font-size:0.88rem; padding:0.65rem 1rem;
+      cursor:pointer; display:flex; align-items:center; justify-content:center; gap:0.5rem;
+      transition:border-color 0.2s, color 0.2s;
+    }
+    .pick-analisis-btn:hover { border-color:var(--dorado); color:var(--dorado); }
+    .pick-analisis-panel {
+      display:none; margin-top:1rem;
+      background:rgba(240,180,41,0.04); border:1px solid rgba(240,180,41,0.15);
+      border-radius:8px; padding:1.2rem; text-align:left;
+    }
+    .pick-analisis-panel.abierto { display:block; }
+    .pick-analisis-fila {
+      display:flex; gap:0.6rem; align-items:flex-start;
+      font-size:0.88rem; color:var(--texto); margin-bottom:0.7rem; line-height:1.5;
+    }
+    .pick-analisis-fila:last-child { margin-bottom:0; }
+    .pick-analisis-fila span:first-child { flex-shrink:0; }
 
     /* VIP */
     .vip-section {
@@ -399,12 +419,23 @@ fetch('static/predictions_log.json').then(r=>r.json()).then(picks=>{
   const hoy = new Date().toISOString().slice(0,10);
   const deHoy = picks.filter(p=>p.fecha===hoy);
   if(!deHoy.length){ document.getElementById('pick-hoy').innerHTML='<div style="text-align:center;padding:2rem;color:var(--gris)">No hay picks para hoy aún.</div>'; return; }
-  // Extraer probabilidad numérica para ordenar
   const conPct = deHoy.map(p=>({ ...p, pct: parseFloat((p.confianza||'0').replace(/[^0-9.]/g,'')) }));
-  const mejor = conPct.sort((a,b)=>b.pct-a.pct)[0];
+  const ordenados = conPct.sort((a,b)=>b.pct-a.pct);
+  const mejor = ordenados[0];
   const ligaIcon = mejor.league==='NBA'?'🏀':'⚽';
   const confianzaLabel = mejor.pct>=70?'Alta':mejor.pct>=60?'Media':'Normal';
   const confianzaColor = mejor.pct>=70?'var(--verde)':mejor.pct>=60?'var(--dorado)':'var(--gris)';
+  // Análisis generado a partir de los datos
+  const rankTotal = deHoy.length;
+  const segundoMejor = ordenados[1];
+  const ventaja = segundoMejor ? (mejor.pct - segundoMejor.pct).toFixed(1) : null;
+  const analisisLineas = [
+    `📊 El sistema analizó <strong>${rankTotal} partidos</strong> de hoy y este fue el de mayor probabilidad con un <strong>${mejor.pct.toFixed(0)}%</strong>.`,
+    ventaja ? `📈 Supera al siguiente pick más confiable por <strong>${ventaja} puntos porcentuales</strong> (${segundoMejor.home} vs ${segundoMejor.away}, ${segundoMejor.pct.toFixed(0)}%).` : '',
+    `🏆 La predicción favorece a <strong>${mejor.prediccion}</strong> basado en el rendimiento histórico y estadísticas recientes de la ${mejor.league}.`,
+    `⚠️ Ningún pick es 100% seguro — este es el de mayor confianza estadística del día, no una garantía.`
+  ].filter(Boolean);
+
   document.getElementById('pick-hoy').innerHTML = `
     <div class="pick-header">
       <span class="pick-liga">${ligaIcon} ${mejor.league}</span>
@@ -431,6 +462,10 @@ fetch('static/predictions_log.json').then(r=>r.json()).then(picks=>{
         <div class="pick-rec-val">✅ ${mejor.prediccion}</div>
       </div>
       <div style="color:var(--gris);font-size:0.82rem;max-width:260px">Basado en estadísticas reales — ${mejor.fecha}.</div>
+    </div>
+    <button class="pick-analisis-btn" onclick="this.nextElementSibling.classList.toggle('abierto');this.textContent=this.nextElementSibling.classList.contains('abierto')?'▲ Ocultar análisis':'▼ Ver análisis del pick'">▼ Ver análisis del pick</button>
+    <div class="pick-analisis-panel">
+      ${analisisLineas.map(l=>`<div class="pick-analisis-fila">${l}</div>`).join('')}
     </div>`;
 }).catch(()=>{
   document.getElementById('pick-hoy').innerHTML='<div style="text-align:center;padding:2rem;color:var(--gris)">No hay picks disponibles.</div>';
