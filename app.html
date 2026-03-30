@@ -927,6 +927,7 @@ function enterApp(sport) {
         entry.style.display = 'none';
         if (sport === 'futbol') {
             document.getElementById('futbol-app').classList.add('visible');
+            initApp();
         } else {
             document.getElementById('basket-app').classList.add('visible');
             bkLoadData();

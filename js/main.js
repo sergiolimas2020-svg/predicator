@@ -268,11 +268,7 @@ window.addEventListener('unhandledrejection', (event) => {
 });
 
 // Inicializar la aplicación cuando el DOM esté listo
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initApp);
-} else {
-    initApp();
-}
+// initApp() es llamado desde enterApp() en app.html
 
 // Exportar para debugging
 window.AppState = AppState;
