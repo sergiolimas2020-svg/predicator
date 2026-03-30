@@ -648,9 +648,20 @@
         .pk-header { flex-direction: column; gap: 0.8rem; align-items: flex-start; }
         .league-selector-container { flex-wrap: wrap; }
     }
+    /* Ocultar sport-entry inmediatamente si seccion=historial */
+    html[data-skip-entry="1"] #sport-entry { display: none !important; }
+    html[data-skip-entry="1"] #historial-app { display: block !important; }
     </style>
 </head>
 <body>
+<script>
+// Corre sincrono antes de pintar — oculta sport-entry si viene con ?seccion=historial
+(function(){
+  if(new URLSearchParams(location.search).get('seccion')==='historial'){
+    document.documentElement.setAttribute('data-skip-entry','1');
+  }
+})();
+</script>
 
 <!-- ═══════════════════════════════════════════════════
      PANTALLA DE ENTRADA
