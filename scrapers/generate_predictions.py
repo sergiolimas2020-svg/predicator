@@ -293,10 +293,10 @@ def find(stats, name):
 def gs(d, *ks):
     pos = d.get("position", {})
     aliases = {
-        "wins":               ["ganados"],
-        "won":                ["ganados"],
-        "losses":             ["perdidos"],
-        "lost":               ["perdidos"],
+        "wins":              ["ganados", "won"],
+        "won":               ["ganados", "wins"],
+        "losses":            ["perdidos", "lost"],
+        "lost":              ["perdidos", "losses"],
         "goals_for":          ["goles_favor"],
         "goals_against":      ["goles_contra"],
         "avg_points":         ["promedio"],
