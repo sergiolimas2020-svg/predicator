@@ -3,20 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PREDIKTOR — Predicciones Deportivas con Inteligencia de Datos</title>
-  <meta name="description" content="Predicciones deportivas basadas en estadísticas reales. Análisis de fútbol y NBA con datos actualizados diariamente. Liga Colombiana, Premier League, NBA y más.">
-  <meta name="keywords" content="predicciones deportivas, predicciones fútbol, predicciones NBA, análisis deportivo, apuestas deportivas colombia, liga colombiana predicciones">
+  <title>PREDIKTOR — Predicciones Deportivas con Análisis Estadístico Real</title>
+  <meta name="description" content="Predicciones deportivas basadas en estadísticas reales. Análisis automatizado de fútbol y NBA. Liga Colombiana, Premier League, NBA y más. Actualización diaria.">
+  <meta name="keywords" content="predicciones deportivas hoy, predicciones fútbol, predicciones NBA, análisis deportivo, pronósticos liga colombiana, picks deportivos">
   <meta name="robots" content="index, follow">
-  <meta name="author" content="PREDIKTOR">
   <link rel="canonical" href="https://predicator-sergiolimas2020-svgs-projects.vercel.app/">
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="PREDIKTOR — Predicciones Deportivas">
-  <meta property="og:description" content="Análisis estadístico de fútbol y NBA. Predicciones diarias basadas en datos reales.">
+  <meta property="og:title" content="PREDIKTOR — Predicciones Deportivas con Datos Reales">
+  <meta property="og:description" content="Sistema automatizado de predicciones deportivas. Fútbol y NBA analizados con estadísticas reales cada día.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://predicator-sergiolimas2020-svgs-projects.vercel.app/">
 
-  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-K3JES4SQS9"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -24,693 +19,506 @@
     gtag('js', new Date());
     gtag('config', 'G-K3JES4SQS9');
   </script>
-
-  <!-- Google AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5953880132871590" crossorigin="anonymous"></script>
-
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
       --negro: #0a0a0f;
-      --oscuro: #12121a;
-      --card: #1a1a26;
+      --oscuro: #111118;
+      --card: #16161f;
+      --card2: #1c1c28;
       --borde: #2a2a3a;
       --dorado: #f0b429;
+      --dorado2: #c9900a;
       --verde: #22c55e;
       --rojo: #ef4444;
+      --azul: #3b82f6;
       --texto: #e2e8f0;
       --gris: #94a3b8;
     }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--negro);
-      color: var(--texto);
-      min-height: 100vh;
-    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family:'DM Sans',sans-serif; background:var(--negro); color:var(--texto); }
 
     /* NAV */
     nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.2rem 2rem;
-      border-bottom: 1px solid var(--borde);
-      position: sticky;
-      top: 0;
-      background: rgba(10,10,15,0.95);
-      backdrop-filter: blur(10px);
-      z-index: 100;
+      display:flex; justify-content:space-between; align-items:center;
+      padding:1.2rem 2rem; border-bottom:1px solid var(--borde);
+      position:sticky; top:0; background:rgba(10,10,15,0.96);
+      backdrop-filter:blur(12px); z-index:100;
     }
-
-    .logo {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.8rem;
-      letter-spacing: 2px;
-      color: var(--dorado);
+    .logo { font-family:'Bebas Neue',sans-serif; font-size:1.8rem; letter-spacing:3px; color:var(--texto); }
+    .logo span { color:var(--dorado); }
+    .nav-links { display:flex; gap:1.5rem; align-items:center; }
+    .nav-links a { color:var(--gris); text-decoration:none; font-size:0.9rem; font-weight:500; transition:color 0.2s; }
+    .nav-links a:hover { color:var(--dorado); }
+    .nav-cta {
+      background:var(--dorado); color:var(--negro) !important;
+      padding:0.5rem 1.2rem; border-radius:6px; font-weight:700 !important;
+      font-size:0.85rem !important;
     }
-
-    .logo span { color: var(--texto); }
-
-    nav a {
-      color: var(--gris);
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 500;
-      transition: color 0.2s;
-    }
-
-    nav a:hover { color: var(--dorado); }
+    .nav-cta:hover { opacity:0.9; }
 
     /* HERO */
     .hero {
-      text-align: center;
-      padding: 5rem 2rem 4rem;
-      background: radial-gradient(ellipse at 50% 0%, rgba(240,180,41,0.08) 0%, transparent 70%);
-      border-bottom: 1px solid var(--borde);
+      text-align:center; padding:5rem 2rem 4rem;
+      background:radial-gradient(ellipse at 50% 0%, rgba(240,180,41,0.07) 0%, transparent 65%);
+      border-bottom:1px solid var(--borde);
     }
-
     .hero-badge {
-      display: inline-block;
-      background: rgba(240,180,41,0.1);
-      border: 1px solid rgba(240,180,41,0.3);
-      color: var(--dorado);
-      padding: 0.3rem 1rem;
-      border-radius: 100px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      margin-bottom: 1.5rem;
+      display:inline-block; background:rgba(240,180,41,0.1);
+      border:1px solid rgba(240,180,41,0.3); color:var(--dorado);
+      padding:0.35rem 1.2rem; border-radius:100px; font-size:0.78rem;
+      font-weight:600; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:1.8rem;
     }
-
     .hero h1 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(3rem, 8vw, 6rem);
-      line-height: 1;
-      letter-spacing: 2px;
-      margin-bottom: 1.2rem;
+      font-family:'Bebas Neue',sans-serif;
+      font-size:clamp(3.2rem, 9vw, 6.5rem);
+      line-height:0.95; letter-spacing:2px; margin-bottom:1.5rem;
     }
-
-    .hero h1 span { color: var(--dorado); }
-
-    .hero p {
-      color: var(--gris);
-      font-size: 1.1rem;
-      max-width: 560px;
-      margin: 0 auto 2.5rem;
-      line-height: 1.7;
+    .hero h1 span { color:var(--dorado); }
+    .hero p { color:var(--gris); font-size:1.1rem; max-width:540px; margin:0 auto 2.5rem; line-height:1.7; }
+    .hero-btns { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
+    .btn-primary {
+      display:inline-flex; align-items:center; gap:0.5rem;
+      background:var(--dorado); color:var(--negro);
+      padding:0.95rem 2rem; border-radius:8px; font-weight:700;
+      font-size:1rem; text-decoration:none;
+      transition:transform 0.2s, box-shadow 0.2s;
     }
-
-    .hero-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: var(--dorado);
-      color: var(--negro);
-      padding: 0.9rem 2rem;
-      border-radius: 8px;
-      font-weight: 700;
-      font-size: 1rem;
-      text-decoration: none;
-      transition: transform 0.2s, box-shadow 0.2s;
+    .btn-primary:hover { transform:translateY(-2px); box-shadow:0 8px 28px rgba(240,180,41,0.35); }
+    .btn-secondary {
+      display:inline-flex; align-items:center; gap:0.5rem;
+      background:transparent; color:var(--texto);
+      padding:0.95rem 2rem; border-radius:8px; font-weight:600;
+      font-size:1rem; text-decoration:none;
+      border:1px solid var(--borde);
+      transition:border-color 0.2s, color 0.2s;
     }
-
-    .hero-cta:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(240,180,41,0.3);
-    }
+    .btn-secondary:hover { border-color:var(--dorado); color:var(--dorado); }
 
     /* STATS BAR */
     .stats-bar {
-      display: flex;
-      justify-content: center;
-      gap: 3rem;
-      padding: 2rem;
-      background: var(--oscuro);
-      border-bottom: 1px solid var(--borde);
-      flex-wrap: wrap;
+      display:flex; justify-content:center; gap:3rem;
+      padding:2rem; background:var(--oscuro);
+      border-bottom:1px solid var(--borde); flex-wrap:wrap;
     }
+    .stat { text-align:center; }
+    .stat-num { font-family:'Bebas Neue',sans-serif; font-size:2.4rem; color:var(--dorado); line-height:1; }
+    .stat-label { font-size:0.78rem; color:var(--gris); text-transform:uppercase; letter-spacing:1px; margin-top:0.3rem; }
 
-    .stat {
-      text-align: center;
+    /* PROBLEMA */
+    .problema {
+      background:var(--oscuro); border-top:1px solid var(--borde);
+      border-bottom:1px solid var(--borde); padding:4rem 2rem; text-align:center;
     }
+    .problema h2 { font-family:'Bebas Neue',sans-serif; font-size:clamp(2rem,5vw,3.5rem); margin-bottom:1rem; }
+    .problema h2 span { color:var(--rojo); }
+    .problema-grid {
+      display:flex; justify-content:center; gap:1.5rem;
+      flex-wrap:wrap; margin-top:2rem; max-width:800px; margin:2rem auto 0;
+    }
+    .problema-item {
+      background:var(--card); border:1px solid var(--borde);
+      border-radius:10px; padding:1.2rem 1.5rem;
+      font-size:0.95rem; color:var(--gris); flex:1; min-width:200px;
+    }
+    .problema-item span { display:block; font-size:1.5rem; margin-bottom:0.5rem; }
 
-    .stat-num {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 2.2rem;
-      color: var(--dorado);
-      line-height: 1;
+    /* SOLUCION */
+    .section { max-width:1100px; margin:0 auto; padding:4rem 1.5rem; }
+    .section-label {
+      font-size:0.78rem; font-weight:600; text-transform:uppercase;
+      letter-spacing:2px; color:var(--dorado); margin-bottom:0.8rem;
     }
+    .section-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(2rem,5vw,3rem); margin-bottom:0.8rem; }
+    .section-sub { color:var(--gris); font-size:0.95rem; margin-bottom:2.5rem; line-height:1.7; max-width:600px; }
 
-    .stat-label {
-      font-size: 0.8rem;
-      color: var(--gris);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-top: 0.3rem;
+    .solucion-grid {
+      display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:1rem;
     }
+    .solucion-card {
+      background:var(--card); border:1px solid var(--borde);
+      border-radius:12px; padding:1.5rem;
+      transition:border-color 0.2s;
+    }
+    .solucion-card:hover { border-color:rgba(240,180,41,0.4); }
+    .solucion-icon { font-size:1.8rem; margin-bottom:0.8rem; }
+    .solucion-title { font-weight:700; font-size:1rem; margin-bottom:0.4rem; }
+    .solucion-desc { color:var(--gris); font-size:0.88rem; line-height:1.6; }
 
-    /* ADSENSE BANNER */
-    .ad-banner {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-      text-align: center;
+    /* EJEMPLO PICK */
+    .pick-demo {
+      background:var(--oscuro); border-top:1px solid var(--borde);
+      border-bottom:1px solid var(--borde); padding:4rem 2rem;
     }
+    .pick-demo-inner { max-width:700px; margin:0 auto; text-align:center; }
+    .pick-card {
+      background:var(--card); border:1px solid rgba(240,180,41,0.3);
+      border-top:3px solid var(--dorado); border-radius:12px;
+      padding:2rem; margin-top:2rem; text-align:left;
+    }
+    .pick-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem; }
+    .pick-liga { font-size:0.75rem; font-weight:600; text-transform:uppercase; letter-spacing:1px; color:var(--dorado); }
+    .pick-valor {
+      display:inline-flex; align-items:center; gap:0.4rem;
+      background:rgba(240,180,41,0.1); border:1px solid rgba(240,180,41,0.3);
+      color:var(--dorado); padding:0.3rem 0.8rem; border-radius:100px;
+      font-size:0.78rem; font-weight:700;
+    }
+    .pick-partido { font-family:'Bebas Neue',sans-serif; font-size:1.8rem; letter-spacing:1px; margin-bottom:1.5rem; }
+    .pick-stats { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; }
+    .pick-stat { text-align:center; }
+    .pick-stat-val { font-family:'Bebas Neue',sans-serif; font-size:2rem; }
+    .pick-stat-val.verde { color:var(--verde); }
+    .pick-stat-val.dorado { color:var(--dorado); }
+    .pick-stat-label { font-size:0.75rem; color:var(--gris); text-transform:uppercase; letter-spacing:1px; margin-top:0.2rem; }
+    .pick-recomendacion {
+      margin-top:1.5rem; background:rgba(34,197,94,0.08);
+      border:1px solid rgba(34,197,94,0.2); border-radius:8px;
+      padding:1rem 1.2rem; display:flex; align-items:center; gap:1rem;
+    }
+    .pick-rec-label { font-size:0.75rem; color:var(--gris); text-transform:uppercase; letter-spacing:1px; }
+    .pick-rec-val { font-weight:700; font-size:1.1rem; color:var(--verde); }
 
-    .ad-label {
-      font-size: 0.7rem;
-      color: var(--gris);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 0.5rem;
+    /* VIP */
+    .vip-section {
+      background:linear-gradient(135deg, var(--oscuro) 0%, #1a1a2e 100%);
+      border-top:1px solid var(--borde); border-bottom:1px solid var(--borde);
+      padding:5rem 2rem; text-align:center;
     }
+    .vip-inner { max-width:900px; margin:0 auto; }
+    .vip-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin-top:3rem; }
+    .vip-card {
+      background:var(--card); border:1px solid var(--borde);
+      border-radius:16px; padding:2rem; text-align:left;
+    }
+    .vip-card.destacado {
+      border-color:var(--dorado);
+      background:linear-gradient(135deg, var(--card) 0%, rgba(240,180,41,0.05) 100%);
+    }
+    .vip-plan { font-size:0.78rem; font-weight:700; text-transform:uppercase; letter-spacing:2px; color:var(--gris); margin-bottom:1rem; }
+    .vip-plan.gold { color:var(--dorado); }
+    .vip-precio { font-family:'Bebas Neue',sans-serif; font-size:3rem; line-height:1; margin-bottom:0.3rem; }
+    .vip-periodo { color:var(--gris); font-size:0.85rem; margin-bottom:1.5rem; }
+    .vip-features { list-style:none; margin-bottom:2rem; }
+    .vip-features li { padding:0.5rem 0; font-size:0.9rem; color:var(--gris); border-bottom:1px solid var(--borde); display:flex; align-items:center; gap:0.6rem; }
+    .vip-features li:last-child { border-bottom:none; }
+    .vip-features li span { font-size:1rem; }
+    .vip-btn {
+      display:block; text-align:center; padding:0.9rem;
+      border-radius:8px; font-weight:700; text-decoration:none;
+      transition:transform 0.2s, box-shadow 0.2s;
+    }
+    .vip-btn-free { background:var(--card2); color:var(--texto); border:1px solid var(--borde); }
+    .vip-btn-free:hover { border-color:var(--dorado); color:var(--dorado); }
+    .vip-btn-gold { background:var(--dorado); color:var(--negro); }
+    .vip-btn-gold:hover { transform:translateY(-2px); box-shadow:0 8px 24px rgba(240,180,41,0.3); }
 
     /* LIGAS */
-    .section {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 3rem 1.5rem;
-    }
-
-    .section-title {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 2rem;
-      letter-spacing: 2px;
-      margin-bottom: 0.5rem;
-    }
-
-    .section-sub {
-      color: var(--gris);
-      font-size: 0.95rem;
-      margin-bottom: 2rem;
-    }
-
     .ligas-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1rem;
+      display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:1rem;
     }
-
     .liga-card {
-      background: var(--card);
-      border: 1px solid var(--borde);
-      border-radius: 12px;
-      padding: 1.5rem;
-      cursor: pointer;
-      transition: border-color 0.2s, transform 0.2s;
-      text-decoration: none;
-      color: inherit;
-      display: block;
+      background:var(--card); border:1px solid var(--borde);
+      border-radius:12px; padding:1.5rem; cursor:pointer;
+      transition:border-color 0.2s, transform 0.2s;
+      text-decoration:none; color:inherit; display:block;
     }
-
-    .liga-card:hover {
-      border-color: var(--dorado);
-      transform: translateY(-2px);
-    }
-
-    .liga-flag { font-size: 2rem; margin-bottom: 0.8rem; }
-
-    .liga-nombre {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.3rem;
-      letter-spacing: 1px;
-      margin-bottom: 0.3rem;
-    }
-
-    .liga-desc { color: var(--gris); font-size: 0.85rem; }
-
+    .liga-card:hover { border-color:var(--dorado); transform:translateY(-2px); }
+    .liga-flag { font-size:2rem; margin-bottom:0.8rem; }
+    .liga-nombre { font-family:'Bebas Neue',sans-serif; font-size:1.3rem; letter-spacing:1px; margin-bottom:0.3rem; }
+    .liga-desc { color:var(--gris); font-size:0.85rem; }
     .liga-badge {
-      display: inline-block;
-      margin-top: 0.8rem;
-      padding: 0.2rem 0.7rem;
-      border-radius: 100px;
-      font-size: 0.75rem;
-      font-weight: 600;
+      display:inline-block; margin-top:0.8rem; padding:0.2rem 0.7rem;
+      border-radius:100px; font-size:0.75rem; font-weight:600;
     }
-
-    .badge-live { background: rgba(34,197,94,0.1); color: var(--verde); }
-    .badge-soon { background: rgba(148,163,184,0.1); color: var(--gris); }
+    .badge-live { background:rgba(34,197,94,0.1); color:var(--verde); }
 
     /* COMO FUNCIONA */
-    .como-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-
-    .como-card {
-      background: var(--card);
-      border: 1px solid var(--borde);
-      border-radius: 12px;
-      padding: 1.5rem;
-    }
-
-    .como-num {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 3rem;
-      color: rgba(240,180,41,0.2);
-      line-height: 1;
-      margin-bottom: 0.5rem;
-    }
-
-    .como-title {
-      font-weight: 600;
-      font-size: 1rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .como-desc { color: var(--gris); font-size: 0.9rem; line-height: 1.6; }
-
-    /* ARTICULOS SEO */
-    .articulos-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-
-    .articulo-card {
-      background: var(--card);
-      border: 1px solid var(--borde);
-      border-radius: 12px;
-      overflow: hidden;
-    }
-
-    .articulo-header {
-      background: linear-gradient(135deg, var(--oscuro), var(--card));
-      padding: 1.5rem;
-      border-bottom: 1px solid var(--borde);
-    }
-
-    .articulo-tag {
-      font-size: 0.75rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--dorado);
-      margin-bottom: 0.5rem;
-    }
-
-    .articulo-titulo {
-      font-weight: 600;
-      font-size: 1rem;
-      line-height: 1.4;
-    }
-
-    .articulo-body {
-      padding: 1.2rem 1.5rem;
-      color: var(--gris);
-      font-size: 0.9rem;
-      line-height: 1.7;
-    }
+    .como-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:1.5rem; }
+    .como-card { background:var(--card); border:1px solid var(--borde); border-radius:12px; padding:1.5rem; }
+    .como-num { font-family:'Bebas Neue',sans-serif; font-size:3rem; color:rgba(240,180,41,0.2); line-height:1; margin-bottom:0.5rem; }
+    .como-title { font-weight:600; font-size:1rem; margin-bottom:0.5rem; }
+    .como-desc { color:var(--gris); font-size:0.88rem; line-height:1.6; }
 
     /* FAQ */
-    .faq-list { margin-top: 2rem; }
+    .faq-list { margin-top:2rem; }
+    .faq-item { background:var(--card); border:1px solid var(--borde); border-radius:10px; margin-bottom:0.8rem; overflow:hidden; }
+    .faq-q { padding:1.2rem 1.5rem; font-weight:600; cursor:pointer; display:flex; justify-content:space-between; align-items:center; transition:color 0.2s; }
+    .faq-q:hover { color:var(--dorado); }
+    .faq-a { padding:0 1.5rem 1.2rem; color:var(--gris); font-size:0.95rem; line-height:1.7; display:none; }
+    .faq-item.open .faq-a { display:block; }
+    .faq-item.open .faq-icon { transform:rotate(45deg); }
+    .faq-icon { transition:transform 0.2s; font-size:1.2rem; color:var(--dorado); }
 
-    .faq-item {
-      background: var(--card);
-      border: 1px solid var(--borde);
-      border-radius: 10px;
-      margin-bottom: 0.8rem;
-      overflow: hidden;
+    /* CTA FINAL */
+    .cta-final {
+      text-align:center; padding:5rem 2rem;
+      background:radial-gradient(ellipse at 50% 100%, rgba(240,180,41,0.08) 0%, transparent 70%);
+      border-top:1px solid var(--borde);
     }
+    .cta-final h2 { font-family:'Bebas Neue',sans-serif; font-size:clamp(2.5rem,6vw,4.5rem); line-height:1; margin-bottom:1rem; }
+    .cta-final h2 span { color:var(--dorado); }
+    .cta-final p { color:var(--gris); font-size:1rem; max-width:500px; margin:0 auto 2.5rem; line-height:1.7; }
 
-    .faq-q {
-      padding: 1.2rem 1.5rem;
-      font-weight: 600;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      transition: color 0.2s;
+    /* DISCLAIMER */
+    .disclaimer {
+      background:rgba(240,180,41,0.04); border-top:1px solid rgba(240,180,41,0.1);
+      border-bottom:1px solid rgba(240,180,41,0.1);
+      padding:1.2rem 2rem; text-align:center;
+      color:var(--gris); font-size:0.82rem; line-height:1.6;
     }
-
-    .faq-q:hover { color: var(--dorado); }
-
-    .faq-a {
-      padding: 0 1.5rem 1.2rem;
-      color: var(--gris);
-      font-size: 0.95rem;
-      line-height: 1.7;
-      display: none;
-    }
-
-    .faq-item.open .faq-a { display: block; }
-    .faq-item.open .faq-icon { transform: rotate(45deg); }
-
-    .faq-icon { transition: transform 0.2s; font-size: 1.2rem; color: var(--dorado); }
 
     /* FOOTER */
-    footer {
-      background: var(--oscuro);
-      border-top: 1px solid var(--borde);
-      padding: 3rem 2rem 2rem;
-      text-align: center;
-    }
+    footer { background:var(--oscuro); border-top:1px solid var(--borde); padding:3rem 2rem 2rem; text-align:center; }
+    .footer-logo { font-family:'Bebas Neue',sans-serif; font-size:2rem; color:var(--dorado); letter-spacing:3px; margin-bottom:0.8rem; }
+    .footer-desc { color:var(--gris); font-size:0.88rem; max-width:480px; margin:0 auto 1.5rem; line-height:1.7; }
+    .footer-links { display:flex; justify-content:center; gap:2rem; margin-bottom:2rem; flex-wrap:wrap; }
+    .footer-links a { color:var(--gris); text-decoration:none; font-size:0.85rem; transition:color 0.2s; }
+    .footer-links a:hover { color:var(--dorado); }
+    .footer-copy { color:var(--borde); font-size:0.8rem; }
 
-    .footer-logo {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 2rem;
-      color: var(--dorado);
-      letter-spacing: 2px;
-      margin-bottom: 1rem;
-    }
+    .ad-banner { max-width:900px; margin:2rem auto; padding:0 1rem; text-align:center; }
+    .ad-label { font-size:0.7rem; color:var(--gris); text-transform:uppercase; letter-spacing:1px; margin-bottom:0.5rem; }
 
-    .footer-desc {
-      color: var(--gris);
-      font-size: 0.9rem;
-      max-width: 500px;
-      margin: 0 auto 1.5rem;
-      line-height: 1.7;
-    }
-
-    .footer-links {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      margin-bottom: 2rem;
-      flex-wrap: wrap;
-    }
-
-    .footer-links a {
-      color: var(--gris);
-      text-decoration: none;
-      font-size: 0.85rem;
-      transition: color 0.2s;
-    }
-
-    .footer-links a:hover { color: var(--dorado); }
-
-    .footer-copy {
-      color: var(--borde);
-      font-size: 0.8rem;
-    }
-
-    .disclaimer {
-      background: rgba(240,180,41,0.05);
-      border: 1px solid rgba(240,180,41,0.15);
-      border-radius: 8px;
-      padding: 1rem 1.5rem;
-      margin: 2rem auto;
-      max-width: 700px;
-      color: var(--gris);
-      font-size: 0.85rem;
-      line-height: 1.6;
-    }
-
-    @media (max-width: 600px) {
-      .stats-bar { gap: 1.5rem; }
-      .hero { padding: 3rem 1rem 2rem; }
+    @media(max-width:768px) {
+      .vip-grid { grid-template-columns:1fr; }
+      .pick-stats { grid-template-columns:repeat(3,1fr); }
+      .stats-bar { gap:1.5rem; }
+      .hero { padding:3rem 1rem 2.5rem; }
+      .nav-links .btn-secondary-nav { display:none; }
     }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav>
-    <div class="logo">PREDI<span>KTOR</span></div>
-    <a href="static/predictions/index.html">Ver Predicciones</a>
-  </nav>
+<nav>
+  <div class="logo">PREDI<span>KTOR</span></div>
+  <div class="nav-links">
+    <a href="#predicciones" class="btn-secondary-nav">Ligas</a>
+    <a href="#como-funciona" class="btn-secondary-nav">¿Cómo funciona?</a>
+    <a href="static/predictions/index.html">Ver predicciones</a>
+    <a href="https://t.me/prediktor" target="_blank" class="nav-cta">📲 Canal VIP</a>
+  </div>
+</nav>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-badge">📊 Datos actualizados diariamente</div>
-    <h1>Predicciones<br><span>Deportivas</span><br>con Datos Reales</h1>
-    <p>Analizamos estadísticas de más de 10 ligas de fútbol y la NBA para darte las predicciones más precisas del día. Sin intuición — solo números.</p>
-    <a href="static/predictions/index.html" class="hero-cta">Ver predicciones de hoy →</a>
-  </section>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">📊 Sistema automatizado · Datos reales · Actualización diaria</div>
+  <h1>Predicciones<br><span>Deportivas</span><br>con Datos Reales</h1>
+  <p>Nuestro sistema analiza estadísticas de más de 10 ligas de fútbol y la NBA para detectar las apuestas con mayor valor cada día. Sin intuición — solo números.</p>
+  <div class="hero-btns">
+    <a href="static/predictions/index.html" class="btn-primary">Ver predicciones de hoy →</a>
+    <a href="https://t.me/prediktor" target="_blank" class="btn-secondary">📲 Unirme al canal VIP</a>
+  </div>
+</section>
 
-  <!-- STATS -->
-  <div class="stats-bar">
-    <div class="stat">
-      <div class="stat-num">10+</div>
-      <div class="stat-label">Ligas analizadas</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">30</div>
-      <div class="stat-label">Equipos NBA</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">Daily</div>
-      <div class="stat-label">Actualización</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">100%</div>
-      <div class="stat-label">Basado en datos</div>
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stat"><div class="stat-num">10+</div><div class="stat-label">Ligas analizadas</div></div>
+  <div class="stat"><div class="stat-num">30</div><div class="stat-label">Equipos NBA</div></div>
+  <div class="stat"><div class="stat-num">Daily</div><div class="stat-label">Actualización</div></div>
+  <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Basado en datos</div></div>
+</div>
+
+<!-- PROBLEMA -->
+<section class="problema">
+  <h2>Apostar sin datos<br><span>es perder dinero</span></h2>
+  <div class="problema-grid">
+    <div class="problema-item"><span>❌</span>Sigues picks sin fundamento estadístico</div>
+    <div class="problema-item"><span>❌</span>No sabes en qué tipster confiar</div>
+    <div class="problema-item"><span>❌</span>Apostás por intuición y emoción</div>
+    <div class="problema-item"><span>❌</span>Pierdes dinero a largo plazo</div>
+  </div>
+</section>
+
+<!-- SOLUCION -->
+<section class="section">
+  <div class="section-label">La solución</div>
+  <div class="section-title">PREDIKTOR no es un tipster.<br>Es un sistema.</div>
+  <div class="section-sub">Analizamos estadísticas reales de cada equipo y generamos predicciones basadas en datos objetivos — no en opiniones.</div>
+  <div class="solucion-grid">
+    <div class="solucion-card"><div class="solucion-icon">📊</div><div class="solucion-title">Rendimiento reciente</div><div class="solucion-desc">Analizamos las últimas jornadas para detectar rachas positivas y negativas reales.</div></div>
+    <div class="solucion-card"><div class="solucion-icon">⚽</div><div class="solucion-title">Goles esperados</div><div class="solucion-desc">Promedio de goles, tendencias ofensivas y defensivas de cada equipo.</div></div>
+    <div class="solucion-card"><div class="solucion-icon">🏠</div><div class="solucion-title">Local vs Visitante</div><div class="solucion-desc">El factor localía tiene un impacto medible. Lo incluimos en cada predicción.</div></div>
+    <div class="solucion-card"><div class="solucion-icon">🤖</div><div class="solucion-title">Automatización total</div><div class="solucion-desc">Los datos se actualizan solos cada mañana. Sin intervención humana. Sin sesgos.</div></div>
+  </div>
+</section>
+
+<!-- EJEMPLO PICK -->
+<section class="pick-demo">
+  <div class="pick-demo-inner">
+    <div class="section-label" style="text-align:center">Ejemplo real</div>
+    <div class="section-title" style="font-size:clamp(1.8rem,4vw,2.5rem)">Así se ve un pick de PREDIKTOR</div>
+    <div class="pick-card">
+      <div class="pick-header">
+        <span class="pick-liga">⚽ Premier League</span>
+        <span class="pick-valor">🔥 Alto valor</span>
+      </div>
+      <div class="pick-partido">Liverpool vs Chelsea</div>
+      <div class="pick-stats">
+        <div class="pick-stat">
+          <div class="pick-stat-val verde">74%</div>
+          <div class="pick-stat-label">Probabilidad</div>
+        </div>
+        <div class="pick-stat">
+          <div class="pick-stat-val dorado">Over 2.5</div>
+          <div class="pick-stat-label">Predicción</div>
+        </div>
+        <div class="pick-stat">
+          <div class="pick-stat-val" style="color:var(--azul)">Alta</div>
+          <div class="pick-stat-label">Confianza</div>
+        </div>
+      </div>
+      <div class="pick-recomendacion">
+        <div>
+          <div class="pick-rec-label">Recomendación del sistema</div>
+          <div class="pick-rec-val">✅ Over 2.5 goles</div>
+        </div>
+        <div style="color:var(--gris);font-size:0.82rem;max-width:260px">Basado en tendencias ofensivas y promedio de goles de las últimas 8 jornadas.</div>
+      </div>
     </div>
   </div>
+</section>
 
-  <!-- AD BANNER TOP -->
-  <div class="ad-banner">
-    <div class="ad-label">Publicidad</div>
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-5953880132871590"
-         data-ad-slot="auto"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-  </div>
+<!-- AD -->
+<div class="ad-banner">
+  <div class="ad-label">Publicidad</div>
+  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5953880132871590" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
 
-  <!-- LIGAS -->
-  <section class="section" id="predicciones">
-    <div class="section-title">Ligas Disponibles</div>
-    <div class="section-sub">Selecciona una liga para ver los partidos del día y sus predicciones</div>
-
-    <div class="ligas-grid">
-      <a href="app.html?sport=futbol&liga=colombia" class="liga-card">
-        <div class="liga-flag">🇨🇴</div>
-        <div class="liga-nombre">Liga Colombiana</div>
-        <div class="liga-desc">BetPlay Dimayor — Primera División</div>
-        <span class="liga-badge badge-live">● En vivo</span>
-      </a>
-      <a href="app.html?sport=futbol&liga=argentina" class="liga-card">
-        <div class="liga-flag">🇦🇷</div>
-        <div class="liga-nombre">Liga Argentina</div>
-        <div class="liga-desc">Liga Profesional de Fútbol</div>
-        <span class="liga-badge badge-live">● En vivo</span>
-      </a>
-      <a href="app.html?sport=futbol&liga=brasil" class="liga-card">
-        <div class="liga-flag">🇧🇷</div>
-        <div class="liga-nombre">Brasileirao</div>
-        <div class="liga-desc">Campeonato Brasileiro Série A</div>
-        <span class="liga-badge badge-live">● En vivo</span>
-      </a>
-      <a href="app.html?sport=futbol&liga=premier" class="liga-card">
-        <div class="liga-flag">🏴󠁧󠁢󠁥󠁮󠁧󠁿</div>
-        <div class="liga-nombre">Premier League</div>
-        <div class="liga-desc">Primera División de Inglaterra</div>
-        <span class="liga-badge badge-live">● En vivo</span>
-      </a>
-      <a href="app.html?sport=futbol&liga=laliga" class="liga-card">
-        <div class="liga-flag">🇪🇸</div>
-        <div class="liga-nombre">La Liga</div>
-        <div class="liga-desc">Primera División de España</div>
-        <span class="liga-badge badge-live">● En vivo</span>
-      </a>
-      <a href="app.html?sport=futbol&liga=seriea" class="liga-card">
-        <div class="liga-flag">🇮🇹</div>
-        <div class="liga-nombre">Serie A</div>
-        <div class="liga-desc">Primera División de Italia</div>
-        <span class="liga-badge badge-live">● En vivo</span>
-      </a>
-      <a href="app.html?sport=futbol&liga=bundesliga" class="liga-card">
-        <div class="liga-flag">🇩🇪</div>
-        <div class="liga-nombre">Bundesliga</div>
-        <div class="liga-desc">Primera División de Alemania</div>
-        <span class="liga-badge badge-live">● En vivo</span>
-      </a>
-      <a href="app.html?sport=futbol&liga=ligue1" class="liga-card">
-        <div class="liga-flag">🇫🇷</div>
-        <div class="liga-nombre">Ligue 1</div>
-        <div class="liga-desc">Primera División de Francia</div>
-        <span class="liga-badge badge-live">● En vivo</span>
-      </a>
-      <a href="app.html?sport=futbol&liga=turquia" class="liga-card">
-        <div class="liga-flag">🇹🇷</div>
-        <div class="liga-nombre">Süper Lig</div>
-        <div class="liga-desc">Primera División de Turquía</div>
-        <span class="liga-badge badge-live">● En vivo</span>
-      </a>
-      <a href="app.html?sport=basket" class="liga-card">
-        <div class="liga-flag">🏀</div>
-        <div class="liga-nombre">NBA</div>
-        <div class="liga-desc">National Basketball Association</div>
-        <span class="liga-badge badge-live">● En vivo</span>
-      </a>
+<!-- VIP -->
+<section class="vip-section">
+  <div class="vip-inner">
+    <div class="section-label" style="text-align:center">Acceso</div>
+    <h2 class="section-title" style="text-align:center;font-size:clamp(2rem,5vw,3.5rem)">Elige tu plan</h2>
+    <p style="color:var(--gris);text-align:center;max-width:500px;margin:0 auto;line-height:1.7">Accede gratis o únete al canal VIP para recibir todos los picks diarios con análisis completo.</p>
+    <div class="vip-grid">
+      <div class="vip-card">
+        <div class="vip-plan">Gratis</div>
+        <div class="vip-precio">$0</div>
+        <div class="vip-periodo">siempre gratis</div>
+        <ul class="vip-features">
+          <li><span>✅</span> Acceso a la app web</li>
+          <li><span>✅</span> Picks limitados diarios</li>
+          <li><span>✅</span> Análisis básico</li>
+          <li><span>❌</span> Todos los picks del día</li>
+          <li><span>❌</span> Alertas en tiempo real</li>
+          <li><span>❌</span> Análisis completo por partido</li>
+        </ul>
+        <a href="static/predictions/index.html" class="vip-btn vip-btn-free">Ver picks gratuitos</a>
+      </div>
+      <div class="vip-card destacado">
+        <div class="vip-plan gold">⭐ VIP — Canal Telegram</div>
+        <div class="vip-precio" style="color:var(--dorado)">$15.000</div>
+        <div class="vip-periodo">COP / mes</div>
+        <ul class="vip-features">
+          <li><span>✅</span> Todos los picks diarios</li>
+          <li><span>✅</span> Análisis completo por partido</li>
+          <li><span>✅</span> Alertas antes de cada partido</li>
+          <li><span>✅</span> +10 ligas de fútbol + NBA</li>
+          <li><span>✅</span> Historial de resultados</li>
+          <li><span>✅</span> Soporte directo</li>
+        </ul>
+        <a href="https://t.me/prediktor" target="_blank" class="vip-btn vip-btn-gold">📲 Unirme al VIP</a>
+      </div>
     </div>
-  </section>
-
-  <!-- AD MEDIO -->
-  <div class="ad-banner">
-    <div class="ad-label">Publicidad</div>
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-5953880132871590"
-         data-ad-slot="auto"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   </div>
+</section>
 
-  <!-- COMO FUNCIONA -->
-  <section class="section">
-    <div class="section-title">¿Cómo Funciona?</div>
-    <div class="section-sub">Nuestro sistema analiza datos estadísticos reales para generar predicciones objetivas</div>
+<!-- LIGAS -->
+<section class="section" id="predicciones">
+  <div class="section-label">Cobertura</div>
+  <div class="section-title">Ligas Disponibles</div>
+  <div class="section-sub">Selecciona una liga para analizar partidos y ver predicciones detalladas.</div>
+  <div class="ligas-grid">
+    <a href="app.html?sport=futbol&liga=colombia" class="liga-card"><div class="liga-flag">🇨🇴</div><div class="liga-nombre">Liga Colombiana</div><div class="liga-desc">BetPlay Dimayor — Primera División</div><span class="liga-badge badge-live">● Disponible</span></a>
+    <a href="app.html?sport=futbol&liga=argentina" class="liga-card"><div class="liga-flag">🇦🇷</div><div class="liga-nombre">Liga Argentina</div><div class="liga-desc">Liga Profesional de Fútbol</div><span class="liga-badge badge-live">● Disponible</span></a>
+    <a href="app.html?sport=futbol&liga=brazil" class="liga-card"><div class="liga-flag">🇧🇷</div><div class="liga-nombre">Brasileirao</div><div class="liga-desc">Campeonato Brasileiro Série A</div><span class="liga-badge badge-live">● Disponible</span></a>
+    <a href="app.html?sport=futbol&liga=england" class="liga-card"><div class="liga-flag">🏴󠁧󠁢󠁥󠁮󠁧󠁿</div><div class="liga-nombre">Premier League</div><div class="liga-desc">Primera División de Inglaterra</div><span class="liga-badge badge-live">● Disponible</span></a>
+    <a href="app.html?sport=futbol&liga=spain" class="liga-card"><div class="liga-flag">🇪🇸</div><div class="liga-nombre">La Liga</div><div class="liga-desc">Primera División de España</div><span class="liga-badge badge-live">● Disponible</span></a>
+    <a href="app.html?sport=futbol&liga=italy" class="liga-card"><div class="liga-flag">🇮🇹</div><div class="liga-nombre">Serie A</div><div class="liga-desc">Primera División de Italia</div><span class="liga-badge badge-live">● Disponible</span></a>
+    <a href="app.html?sport=futbol&liga=germany" class="liga-card"><div class="liga-flag">🇩🇪</div><div class="liga-nombre">Bundesliga</div><div class="liga-desc">Primera División de Alemania</div><span class="liga-badge badge-live">● Disponible</span></a>
+    <a href="app.html?sport=futbol&liga=france" class="liga-card"><div class="liga-flag">🇫🇷</div><div class="liga-nombre">Ligue 1</div><div class="liga-desc">Primera División de Francia</div><span class="liga-badge badge-live">● Disponible</span></a>
+    <a href="app.html?sport=futbol&liga=turkey" class="liga-card"><div class="liga-flag">🇹🇷</div><div class="liga-nombre">Süper Lig</div><div class="liga-desc">Primera División de Turquía</div><span class="liga-badge badge-live">● Disponible</span></a>
+    <a href="app.html?sport=basket" class="liga-card"><div class="liga-flag">🏀</div><div class="liga-nombre">NBA</div><div class="liga-desc">National Basketball Association 2025-26</div><span class="liga-badge badge-live">● Disponible</span></a>
+  </div>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section class="section" id="como-funciona" style="background:var(--oscuro);max-width:100%;padding:4rem 2rem;">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div class="section-label">El proceso</div>
+    <div class="section-title">¿Cómo funciona el sistema?</div>
+    <div class="section-sub">Automatización completa desde la recolección de datos hasta la predicción final.</div>
     <div class="como-grid">
-      <div class="como-card">
-        <div class="como-num">01</div>
-        <div class="como-title">Recolección de Datos</div>
-        <div class="como-desc">Cada día recolectamos estadísticas actualizadas de más de 10 ligas: posiciones, goles, corners, porcentajes de victorias y más.</div>
-      </div>
-      <div class="como-card">
-        <div class="como-num">02</div>
-        <div class="como-title">Análisis Estadístico</div>
-        <div class="como-desc">Nuestro algoritmo pondera múltiples variables: rendimiento local, racha de resultados, diferencia de goles y posición en la tabla.</div>
-      </div>
-      <div class="como-card">
-        <div class="como-num">03</div>
-        <div class="como-title">Predicción con Confianza</div>
-        <div class="como-desc">Cada predicción incluye un porcentaje de confianza. Priorizamos partidos donde la diferencia estadística es clara y significativa.</div>
-      </div>
-      <div class="como-card">
-        <div class="como-num">04</div>
-        <div class="como-title">Actualización Diaria</div>
-        <div class="como-desc">Los datos se actualizan automáticamente cada mañana para que siempre tengas las predicciones del día con información fresca.</div>
-      </div>
+      <div class="como-card"><div class="como-num">01</div><div class="como-title">Recolección automática</div><div class="como-desc">Cada mañana el sistema descarga estadísticas actualizadas de más de 10 ligas y los 30 equipos NBA.</div></div>
+      <div class="como-card"><div class="como-num">02</div><div class="como-title">Análisis estadístico</div><div class="como-desc">El algoritmo pondera posición, forma reciente, rendimiento local/visitante, goles y más de 10 variables.</div></div>
+      <div class="como-card"><div class="como-num">03</div><div class="como-title">Predicción con confianza</div><div class="como-desc">Cada pick incluye porcentaje de probabilidad, nivel de confianza y tipo de apuesta recomendada.</div></div>
+      <div class="como-card"><div class="como-num">04</div><div class="como-title">Entrega en tiempo real</div><div class="como-desc">Los picks del día llegan al canal VIP antes de cada partido para que tengas tiempo de actuar.</div></div>
     </div>
-  </section>
-
-  <!-- ARTICULOS SEO -->
-  <section class="section">
-    <div class="section-title">Guías y Análisis</div>
-    <div class="section-sub">Aprende a interpretar las predicciones deportivas y a usar los datos a tu favor</div>
-    <div class="articulos-grid">
-      <div class="articulo-card">
-        <div class="articulo-header">
-          <div class="articulo-tag">📘 Guía</div>
-          <div class="articulo-titulo">¿Qué significa el porcentaje de confianza en una predicción?</div>
-        </div>
-        <div class="articulo-body">
-          El porcentaje de confianza indica qué tan clara es la ventaja estadística de un equipo sobre otro. Un 75% significa que los datos apuntan fuertemente a ese resultado, pero nunca es una garantía absoluta. Las predicciones entre 70-85% son las más confiables en nuestro sistema.
-        </div>
-      </div>
-      <div class="articulo-card">
-        <div class="articulo-header">
-          <div class="articulo-tag">⚽ Fútbol</div>
-          <div class="articulo-titulo">Los 5 indicadores más importantes para predecir un partido</div>
-        </div>
-        <div class="articulo-body">
-          La posición en tabla, el rendimiento como local, la diferencia de goles, los corners a favor y el porcentaje de victorias recientes son los cinco factores que más influyen en el resultado de un partido de fútbol según el análisis estadístico moderno.
-        </div>
-      </div>
-      <div class="articulo-card">
-        <div class="articulo-header">
-          <div class="articulo-tag">🏀 NBA</div>
-          <div class="articulo-titulo">Cómo leer las estadísticas de la NBA para predecir ganadores</div>
-        </div>
-        <div class="articulo-body">
-          En la NBA, el win percentage, los puntos por partido y la ventaja de jugar en casa son los predictores más confiables. Equipos con más del 60% de victorias en casa tienen una ventaja estadística significativa sobre visitantes con rachas negativas.
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section class="section">
-    <div class="section-title">Preguntas Frecuentes</div>
-    <div class="section-sub">Todo lo que necesitas saber sobre PREDIKTOR</div>
-    <div class="faq-list">
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">
-          ¿Con qué frecuencia se actualizan las predicciones?
-          <span class="faq-icon">+</span>
-        </div>
-        <div class="faq-a">Las predicciones se actualizan cada mañana con los datos más recientes de cada liga. El sistema descarga automáticamente las estadísticas actualizadas y genera nuevas predicciones para los partidos del día.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">
-          ¿Las predicciones son 100% seguras?
-          <span class="faq-icon">+</span>
-        </div>
-        <div class="faq-a">No. Ninguna predicción deportiva es 100% segura. PREDIKTOR usa estadísticas reales para calcular probabilidades, pero el fútbol y el basketball tienen factores impredecibles como lesiones, clima o decisiones arbitrales. Usa las predicciones como una herramienta de análisis, no como certeza absoluta.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">
-          ¿Qué ligas de fútbol están disponibles?
-          <span class="faq-icon">+</span>
-        </div>
-        <div class="faq-a">Actualmente analizamos la Liga Colombiana, Liga Argentina, Brasileirao, Premier League, La Liga, Serie A, Bundesliga, Ligue 1 y Süper Lig de Turquía. Próximamente agregaremos la UEFA Champions League.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">
-          ¿Cómo se calcula la predicción de la NBA?
-          <span class="faq-icon">+</span>
-        </div>
-        <div class="faq-a">Para la NBA usamos el win percentage de la temporada, el promedio de puntos por partido, la ventaja de jugar en casa (+3 puntos) y el ranking de conferencia. El resultado se clampea entre 15% y 85% para reflejar la incertidumbre natural del deporte.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">
-          ¿Es gratuito usar PREDIKTOR?
-          <span class="faq-icon">+</span>
-        </div>
-        <div class="faq-a">Sí, todas las predicciones de PREDIKTOR son completamente gratuitas. El sitio se sostiene con publicidad no intrusiva de Google AdSense.</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- DISCLAIMER -->
-  <div class="disclaimer">
-    ⚠️ <strong>Aviso importante:</strong> Las predicciones de PREDIKTOR están basadas en análisis estadístico y son solo orientativas. No constituyen asesoramiento de apuestas. El uso de esta información es responsabilidad exclusiva del usuario. Apuesta con responsabilidad.
   </div>
+</section>
 
-  <!-- AD FOOTER -->
-  <div class="ad-banner">
-    <div class="ad-label">Publicidad</div>
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-5953880132871590"
-         data-ad-slot="auto"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+<!-- FAQ -->
+<section class="section">
+  <div class="section-label">Soporte</div>
+  <div class="section-title">Preguntas Frecuentes</div>
+  <div class="faq-list">
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">¿Con qué frecuencia se actualizan las predicciones?<span class="faq-icon">+</span></div><div class="faq-a">Las predicciones se actualizan cada mañana automáticamente con los datos más recientes de cada liga.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">¿Las predicciones son 100% seguras?<span class="faq-icon">+</span></div><div class="faq-a">No. Ninguna predicción deportiva es 100% segura. PREDIKTOR usa estadísticas reales para calcular probabilidades, pero el deporte tiene factores impredecibles. Usa las predicciones como herramienta de análisis.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">¿Qué incluye el canal VIP de Telegram?<span class="faq-icon">+</span></div><div class="faq-a">El canal VIP incluye todos los picks diarios con análisis completo, alertas antes de cada partido, cobertura de +10 ligas y NBA, e historial de resultados.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">¿Qué ligas de fútbol están disponibles?<span class="faq-icon">+</span></div><div class="faq-a">Liga Colombiana, Liga Argentina, Brasileirao, Premier League, La Liga, Serie A, Bundesliga, Ligue 1 y Süper Lig. Próximamente Champions League.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">¿Es gratuito usar PREDIKTOR?<span class="faq-icon">+</span></div><div class="faq-a">Sí, la app web es completamente gratuita. El canal VIP de Telegram con análisis completo tiene un costo de $15.000 COP/mes.</div></div>
   </div>
+</section>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-logo">PREDIKTOR</div>
-    <div class="footer-desc">Predicciones deportivas basadas en estadísticas reales. Fútbol y NBA analizados con datos actualizados diariamente.</div>
-    <div class="footer-links">
-      <a href="#">Inicio</a>
-      <a href="#">Fútbol</a>
-      <a href="#">NBA</a>
-      <a href="#">¿Cómo funciona?</a>
-      <a href="#">Aviso legal</a>
-    </div>
-    <div class="footer-copy">© 2026 PREDIKTOR — Análisis deportivo basado en datos</div>
-  </footer>
+<!-- CTA FINAL -->
+<section class="cta-final">
+  <h2>Empieza a apostar<br><span>con datos reales</span></h2>
+  <p>Únete al canal VIP y recibe picks diarios basados en análisis estadístico real. Sin intuición — solo números.</p>
+  <div class="hero-btns">
+    <a href="https://t.me/prediktor" target="_blank" class="btn-primary">📲 Unirme al canal VIP</a>
+    <a href="static/predictions/index.html" class="btn-secondary">Ver picks de hoy →</a>
+  </div>
+</section>
 
-  <script>
-    function toggleFaq(el) {
-      const item = el.parentElement;
-      item.classList.toggle('open');
-    }
+<!-- AD FOOTER -->
+<div class="ad-banner">
+  <div class="ad-label">Publicidad</div>
+  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5953880132871590" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
 
-    // Smooth scroll
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', e => {
-        e.preventDefault();
-        const target = document.querySelector(a.getAttribute('href'));
-        if (target) target.scrollIntoView({ behavior: 'smooth' });
-      });
+<div class="disclaimer">⚠️ <strong>Aviso importante:</strong> Los datos provienen de fuentes públicas y son procesados mediante algoritmos propios. Las predicciones son orientativas y no constituyen asesoramiento de apuestas. PREDIKTOR no es una casa de apuestas. Apuesta con responsabilidad.</div>
+
+<footer>
+  <div class="footer-logo">PREDIKTOR</div>
+  <div class="footer-desc">Sistema automatizado de predicciones deportivas basado en análisis estadístico real. Fútbol y NBA actualizados diariamente.</div>
+  <div class="footer-links">
+    <a href="#">Inicio</a>
+    <a href="#predicciones">Ligas</a>
+    <a href="#como-funciona">¿Cómo funciona?</a>
+    <a href="static/predictions/index.html">Predicciones de hoy</a>
+    <a href="privacy.html">Privacidad</a>
+  </div>
+  <div class="footer-copy">© 2026 PREDIKTOR — Sistema de predicción deportiva basado en datos</div>
+</footer>
+
+<script>
+  function toggleFaq(el) {
+    el.parentElement.classList.toggle('open');
+  }
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const t = document.querySelector(a.getAttribute('href'));
+      if (t) t.scrollIntoView({ behavior:'smooth' });
     });
-  </script>
-
+  });
+</script>
 </body>
 </html>
