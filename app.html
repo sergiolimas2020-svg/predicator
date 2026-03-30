@@ -952,17 +952,7 @@
 /* ═══════════════════════════════════════════════════
    NAVEGACIÓN
 ═══════════════════════════════════════════════════ */
-// Auto-abrir seccion por parametro URL
-window.addEventListener('load', () => {
-    const params = new URLSearchParams(window.location.search);
-    const sec = params.get('seccion');
-    if (sec === 'historial') {
-        const entry = document.getElementById('sport-entry');
-        entry.style.display = 'none';
-        document.getElementById('historial-app').style.display = 'block';
-        loadHistorial();
-    }
-});
+// Auto-abrir seccion por parametro URL (ejecutar lo antes posible)
 
 function enterApp(sport, liga) {
     const entry = document.getElementById('sport-entry');
@@ -1221,8 +1211,14 @@ window.addEventListener('DOMContentLoaded', function() {
   const params = new URLSearchParams(window.location.search);
   const sport = params.get('sport');
   const liga = params.get('liga');
-  if (sport) {
-    const entry = document.getElementById('sport-entry');
+  const sec = params.get('seccion');
+  const entry = document.getElementById('sport-entry');
+
+  if (sec === 'historial') {
+    entry.style.display = 'none';
+    document.getElementById('historial-app').style.display = 'block';
+    loadHistorial();
+  } else if (sport) {
     entry.style.display = 'none';
     if (sport === 'basket') {
       document.getElementById('basket-app').classList.add('visible');
