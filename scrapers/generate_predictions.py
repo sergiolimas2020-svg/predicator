@@ -431,12 +431,26 @@ def article(league, home, hd, away, ad, nba=False):
 
     hw   = gs(hd, 'wins', 'won')
     hl   = gs(hd, 'losses', 'lost')
-    hpts = gs(hd, 'avg_points', 'goals_for')
-    hpta = gs(hd, 'avg_points_allowed', 'goals_against')
+    def avg_g(d, key_tot=None):
+        try:
+            pos = d.get('position', {}) if isinstance(d, dict) else {}
+            gf = float(pos.get('goles_favor') or pos.get('goals_for') or 0)
+            mp = float(pos.get('partidos') or pos.get('gp') or 1)
+            return round(gf / mp, 2) if mp > 1 and gf > 0 else 0
+        except: return 0
+    def _avg(d, key):
+        v = gs(d, key)
+        if not v or v == 'N/A': return avg_g(d, key)
+        try:
+            fv = float(v)
+            return avg_g(d, key) if fv > 10 else fv
+        except: return avg_g(d, key)
+    hpts = _avg(hd, 'avg_points')
+    hpta = _avg(hd, 'avg_points_allowed')
     aw2  = gs(ad, 'wins', 'won')
     al2  = gs(ad, 'losses', 'lost')
-    apts = gs(ad, 'avg_points', 'goals_for')
-    apta = gs(ad, 'avg_points_allowed', 'goals_against')
+    apts = _avg(ad, 'avg_points')
+    apta = _avg(ad, 'avg_points_allowed')
 
     try:
         tot_txt = f"El total proyectado es de <strong>{round(float(hpts)+float(apts),1)} {sp}</strong>."
