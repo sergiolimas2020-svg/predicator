@@ -954,11 +954,14 @@
 ═══════════════════════════════════════════════════ */
 // Auto-abrir seccion por parametro URL
 window.addEventListener('load', () => {
-    setTimeout(() => {
-        const params = new URLSearchParams(window.location.search);
-        const sec = params.get('seccion');
-        if (sec === 'historial') enterApp('historial');
-    }, 300);
+    const params = new URLSearchParams(window.location.search);
+    const sec = params.get('seccion');
+    if (sec === 'historial') {
+        const entry = document.getElementById('sport-entry');
+        entry.style.display = 'none';
+        document.getElementById('historial-app').style.display = 'block';
+        loadHistorial();
+    }
 });
 
 function enterApp(sport, liga) {
