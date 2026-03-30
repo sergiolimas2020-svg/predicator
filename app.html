@@ -111,8 +111,8 @@
                 -45deg,
                 transparent,
                 transparent 40px,
-                rgba(201,168,76,0.025) 40px,
-                rgba(201,168,76,0.025) 41px
+                rgba(240,180,41,0.025) 40px,
+                rgba(240,180,41,0.025) 41px
             );
         pointer-events: none;
     }
@@ -125,7 +125,7 @@
         transform: translate(-50%, -50%);
         width: 600px; height: 600px;
         border-radius: 50%;
-        background: radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%);
+        background: radial-gradient(circle, rgba(240,180,41,0.06) 0%, transparent 70%);
         pointer-events: none;
     }
 
@@ -179,7 +179,7 @@
     .sport-card {
         width: 240px;
         background: var(--navy-800);
-        border: 1px solid rgba(201,168,76,0.15);
+        border: 1px solid rgba(240,180,41,0.15);
         border-radius: 8px;
         padding: 2.2rem 1.8rem;
         text-align: center;
@@ -197,10 +197,10 @@
     .sport-card::after {
         content: '';
         position: absolute; inset: 0; opacity: 0;
-        background: radial-gradient(circle at 50% 0%, rgba(201,168,76,0.07) 0%, transparent 70%);
+        background: radial-gradient(circle at 50% 0%, rgba(240,180,41,0.07) 0%, transparent 70%);
         transition: opacity 0.4s;
     }
-    .sport-card:hover { transform: translateY(-6px); border-color: rgba(201,168,76,0.4); box-shadow: 0 16px 40px rgba(0,0,0,0.4), 0 0 20px rgba(201,168,76,0.08); }
+    .sport-card:hover { transform: translateY(-6px); border-color: rgba(240,180,41,0.4); box-shadow: 0 16px 40px rgba(0,0,0,0.4), 0 0 20px rgba(240,180,41,0.08); }
     .sport-card:hover::before { transform: scaleX(1); }
     .sport-card:hover::after  { opacity: 1; }
 
@@ -222,9 +222,9 @@
         padding: 0.3rem 1rem; border-radius: 2px;
         font-size: 0.62rem; letter-spacing: 0.25em;
         text-transform: uppercase; font-weight: 600;
-        background: rgba(201,168,76,0.12);
+        background: rgba(240,180,41,0.12);
         color: var(--gold-500);
-        border: 1px solid rgba(201,168,76,0.25);
+        border: 1px solid rgba(240,180,41,0.25);
     }
 
     .entry-footer {
@@ -254,9 +254,9 @@
     ═══════════════════════════════════════════════════════ */
     .pk-header {
         position: sticky; top: 0; z-index: 100;
-        background: rgba(5,13,26,0.95);
+        background: rgba(10,10,15,0.95);
         backdrop-filter: blur(12px);
-        border-bottom: 1px solid rgba(201,168,76,0.15);
+        border-bottom: 1px solid rgba(240,180,41,0.15);
         padding: 0.9rem 2rem;
         display: flex; align-items: center; justify-content: space-between;
     }
@@ -264,7 +264,7 @@
 
     .btn-back {
         background: none;
-        border: 1px solid rgba(201,168,76,0.2);
+        border: 1px solid rgba(240,180,41,0.2);
         border-radius: 4px;
         color: var(--gray-400); cursor: pointer;
         padding: 0.35rem 0.8rem; font-size: 0.85rem;
@@ -272,7 +272,7 @@
         transition: color 0.2s, border-color 0.2s;
         text-decoration: none; display: inline-block;
     }
-    .btn-back:hover { color: var(--gold-500); border-color: rgba(201,168,76,0.5); }
+    .btn-back:hover { color: var(--gold-500); border-color: rgba(240,180,41,0.5); }
 
     .pk-logo {
         font-family: var(--font-display);
@@ -282,8 +282,8 @@
     .pk-logo .gold { color: var(--gold-600); }
 
     .pk-badge {
-        background: rgba(201,168,76,0.1);
-        border: 1px solid rgba(201,168,76,0.25);
+        background: rgba(240,180,41,0.1);
+        border: 1px solid rgba(240,180,41,0.25);
         padding: 0.28rem 0.8rem; border-radius: 2px;
         font-size: 0.62rem; letter-spacing: 0.2em;
         text-transform: uppercase; color: var(--gold-500);
@@ -305,7 +305,7 @@
     }
     .league-select {
         background: var(--navy-800);
-        border: 1px solid rgba(201,168,76,0.2);
+        border: 1px solid rgba(240,180,41,0.2);
         color: var(--gray-100);
         padding: 0.45rem 0.9rem;
         font-family: var(--font-body); font-size: 0.85rem;
@@ -316,8 +316,8 @@
 
     .league-badge {
         display: flex; align-items: center; gap: 0.6rem;
-        background: rgba(201,168,76,0.08);
-        border: 1px solid rgba(201,168,76,0.2);
+        background: rgba(240,180,41,0.08);
+        border: 1px solid rgba(240,180,41,0.2);
         padding: 0.35rem 0.9rem; border-radius: 4px;
     }
     .league-name {
@@ -339,7 +339,7 @@
     }
     .section-title::after {
         content: ''; flex: 1; height: 1px;
-        background: linear-gradient(90deg, rgba(201,168,76,0.3), transparent);
+        background: linear-gradient(90deg, rgba(240,180,41,0.3), transparent);
     }
 
     .team-selectors {
@@ -358,7 +358,7 @@
     .team-select {
         width: 100%;
         background: var(--navy-800);
-        border: 1px solid rgba(201,168,76,0.15);
+        border: 1px solid rgba(240,180,41,0.15);
         color: var(--gray-100);
         padding: 0.85rem 1rem;
         font-family: var(--font-body); font-size: 0.9rem;
@@ -395,7 +395,7 @@
     /* Predicciones fútbol — ganador grande */
     .predictions-hero {
         background: var(--navy-800);
-        border: 1px solid rgba(201,168,76,0.2);
+        border: 1px solid rgba(240,180,41,0.2);
         border-top: 3px solid var(--gold-600);
         border-radius: 8px;
         padding: 2rem;
@@ -425,7 +425,7 @@
     }
     .prediction-card {
         background: var(--navy-800);
-        border: 1px solid rgba(201,168,76,0.1);
+        border: 1px solid rgba(240,180,41,0.1);
         border-radius: 6px; padding: 1.2rem;
         transition: border-color 0.3s, transform 0.3s;
         position: relative; overflow: hidden;
@@ -435,7 +435,7 @@
         background: var(--gold-600); transform: scaleX(0);
         transition: transform 0.35s ease; transform-origin: left;
     }
-    .prediction-card:hover { border-color: rgba(201,168,76,0.3); transform: translateY(-3px); }
+    .prediction-card:hover { border-color: rgba(240,180,41,0.3); transform: translateY(-3px); }
     .prediction-card:hover::before { transform: scaleX(1); }
 
     .card-header {
@@ -455,7 +455,7 @@
     .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
     .team-stats {
         background: var(--navy-800);
-        border: 1px solid rgba(201,168,76,0.1);
+        border: 1px solid rgba(240,180,41,0.1);
         border-radius: 6px; padding: 1.5rem;
     }
     .team-stats.home-stats { border-top: 2px solid var(--gold-600); }
@@ -470,7 +470,7 @@
 
     /* Footer fútbol */
     .footer {
-        border-top: 1px solid rgba(201,168,76,0.1);
+        border-top: 1px solid rgba(240,180,41,0.1);
         padding: 1.5rem 2rem; text-align: center;
         font-size: 0.7rem; color: var(--gray-600); letter-spacing: 0.1em;
     }
@@ -478,14 +478,14 @@
     /* Loading fútbol */
     .loading-overlay {
         position: fixed; inset: 0; z-index: 999;
-        background: rgba(5,13,26,0.92);
+        background: rgba(10,10,15,0.92);
         display: flex; flex-direction: column;
         align-items: center; justify-content: center; gap: 1rem;
     }
     .loading-overlay.hidden { display: none; }
     .loading-spinner {
         width: 44px; height: 44px; border-radius: 50%;
-        border: 3px solid rgba(201,168,76,0.15);
+        border: 3px solid rgba(240,180,41,0.15);
         border-top-color: var(--gold-600);
         animation: spin 0.8s linear infinite;
     }
@@ -509,7 +509,7 @@
     }
     .bk-section-title::after {
         content: ''; flex: 1; height: 1px;
-        background: linear-gradient(90deg, rgba(201,168,76,0.3), transparent);
+        background: linear-gradient(90deg, rgba(240,180,41,0.3), transparent);
     }
 
     .bk-team-selectors {
@@ -520,7 +520,7 @@
     .bk-team-label { font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gray-400); font-weight: 600; }
     .bk-team-select {
         width: 100%; background: var(--navy-800);
-        border: 1px solid rgba(201,168,76,0.15); color: var(--gray-100);
+        border: 1px solid rgba(240,180,41,0.15); color: var(--gray-100);
         padding: 0.85rem 1rem; font-family: var(--font-body); font-size: 0.9rem;
         outline: none; appearance: none; border-radius: 4px;
         cursor: pointer; transition: border-color 0.3s;
@@ -545,8 +545,8 @@
     /* Métricas */
     .bk-metrics {
         display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-        gap: 1px; background: rgba(201,168,76,0.1);
-        border: 1px solid rgba(201,168,76,0.1); border-radius: 8px;
+        gap: 1px; background: rgba(240,180,41,0.1);
+        border: 1px solid rgba(240,180,41,0.1); border-radius: 8px;
         overflow: hidden; margin-bottom: 1.5rem;
     }
     .bk-metric-box {
@@ -561,7 +561,7 @@
     /* Predicciones NBA — ganador hero */
     .bk-pred-hero {
         background: var(--navy-800);
-        border: 1px solid rgba(201,168,76,0.2);
+        border: 1px solid rgba(240,180,41,0.2);
         border-top: 3px solid var(--gold-600);
         border-radius: 8px; padding: 2rem;
         margin-bottom: 1rem;
@@ -575,7 +575,7 @@
     /* 3 tarjetas NBA */
     .bk-preds-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 2rem; }
     .bk-pred-card {
-        background: var(--navy-800); border: 1px solid rgba(201,168,76,0.1);
+        background: var(--navy-800); border: 1px solid rgba(240,180,41,0.1);
         border-radius: 6px; padding: 1.2rem;
         position: relative; overflow: hidden;
         transition: border-color 0.3s, transform 0.3s;
@@ -585,17 +585,17 @@
         background: var(--gold-600); transform: scaleX(0);
         transition: transform 0.35s ease; transform-origin: left;
     }
-    .bk-pred-card:hover { border-color: rgba(201,168,76,0.3); transform: translateY(-3px); }
+    .bk-pred-card:hover { border-color: rgba(240,180,41,0.3); transform: translateY(-3px); }
     .bk-pred-card:hover::before { transform: scaleX(1); }
     .bk-pred-title { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gray-400); margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.5rem; }
     .bk-pred-result { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; letter-spacing: 0.05em; margin-bottom: 0.3rem; }
     .bk-pred-prob { font-size: 0.75rem; color: var(--gray-400); }
-    .bk-prob-bar { height: 3px; background: rgba(201,168,76,0.15); border-radius: 2px; margin-top: 0.8rem; overflow: hidden; }
+    .bk-prob-bar { height: 3px; background: rgba(240,180,41,0.15); border-radius: 2px; margin-top: 0.8rem; overflow: hidden; }
     .bk-prob-fill { height: 100%; background: linear-gradient(90deg, var(--gold-700), var(--gold-500)); border-radius: 2px; transition: width 1s ease; }
 
     /* Stats equipos NBA */
     .bk-matchup-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    .bk-team-card { background: var(--navy-800); border: 1px solid rgba(201,168,76,0.1); border-radius: 6px; padding: 1.5rem; }
+    .bk-team-card { background: var(--navy-800); border: 1px solid rgba(240,180,41,0.1); border-radius: 6px; padding: 1.5rem; }
     .bk-team-card.home { border-top: 2px solid var(--gold-600); }
     .bk-team-card.away { border-top: 2px solid var(--navy-400); }
     .bk-team-card-name { font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; letter-spacing: 0.08em; margin-bottom: 1rem; }
@@ -612,31 +612,31 @@
     /* Jugadores estrella */
     .bk-stars-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; }
     .bk-star-card {
-        background: var(--navy-800); border: 1px solid rgba(201,168,76,0.1);
+        background: var(--navy-800); border: 1px solid rgba(240,180,41,0.1);
         border-radius: 6px; padding: 1.4rem;
         transition: border-color 0.3s, transform 0.3s;
     }
-    .bk-star-card:hover { border-color: rgba(201,168,76,0.3); transform: translateY(-3px); }
+    .bk-star-card:hover { border-color: rgba(240,180,41,0.3); transform: translateY(-3px); }
     .bk-star-category { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-500); margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.5rem; }
     .bk-star-name { font-family: var(--font-display); font-size: 1.4rem; font-weight: 700; letter-spacing: 0.06em; color: var(--white); margin-bottom: 0.2rem; }
     .bk-star-team { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gray-400); margin-bottom: 0.8rem; }
     .bk-star-main { font-family: var(--font-display); font-size: 2.6rem; font-weight: 800; color: var(--gold-500); line-height: 1; margin-bottom: 0.2rem; }
     .bk-star-lbl { font-size: 0.65rem; color: var(--gray-400); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 0.8rem; }
-    .bk-star-extras { display: flex; gap: 1.5rem; padding-top: 0.8rem; border-top: 1px solid rgba(201,168,76,0.1); }
+    .bk-star-extras { display: flex; gap: 1.5rem; padding-top: 0.8rem; border-top: 1px solid rgba(240,180,41,0.1); }
     .bk-star-extra-val { font-size: 0.95rem; font-weight: 600; color: var(--gray-100); }
     .bk-star-extra-lbl { font-size: 0.58rem; color: var(--gray-400); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 0.2rem; }
 
     /* Loading NBA */
     .bk-loading {
         position: fixed; inset: 0; z-index: 999;
-        background: rgba(5,13,26,0.92);
+        background: rgba(10,10,15,0.92);
         display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem;
     }
     .bk-loading.hidden { display: none; }
-    .bk-spinner { width: 44px; height: 44px; border-radius: 50%; border: 3px solid rgba(201,168,76,0.15); border-top-color: var(--gold-600); animation: spin 0.8s linear infinite; }
+    .bk-spinner { width: 44px; height: 44px; border-radius: 50%; border: 3px solid rgba(240,180,41,0.15); border-top-color: var(--gold-600); animation: spin 0.8s linear infinite; }
     .bk-loading-text { font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold-500); }
 
-    .bk-footer { border-top: 1px solid rgba(201,168,76,0.1); padding: 1.5rem 2rem; text-align: center; font-size: 0.68rem; color: var(--gray-600); letter-spacing: 0.1em; }
+    .bk-footer { border-top: 1px solid rgba(240,180,41,0.1); padding: 1.5rem 2rem; text-align: center; font-size: 0.68rem; color: var(--gray-600); letter-spacing: 0.1em; }
 
     /* ═══ RESPONSIVE ═════════════════════════════════════ */
     @media (max-width: 768px) {
@@ -680,7 +680,7 @@
         </div>
     </div>
 
-    <a href="/static/predictions/index.html" style="position:relative;z-index:1;margin-top:1.8rem;display:flex;align-items:center;justify-content:space-between;width:100%;max-width:510px;background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.25);border-radius:8px;padding:1rem 1.5rem;text-decoration:none;"><div><div style="font-size:0.6rem;color:#d4b865;font-weight:600;margin-bottom:0.3rem;">Predicciones del dia</div><div style="font-size:1.1rem;font-weight:700;color:#fff;">Partidos de hoy analizados</div><div style="font-size:0.72rem;color:#8896ae;">Futbol · NBA · Estadisticas reales</div></div><div style="font-size:1.4rem;color:#d4b865;">→</div></a>
+    <a href="/static/predictions/index.html" style="position:relative;z-index:1;margin-top:1.8rem;display:flex;align-items:center;justify-content:space-between;width:100%;max-width:510px;background:rgba(240,180,41,0.06);border:1px solid rgba(240,180,41,0.25);border-radius:8px;padding:1rem 1.5rem;text-decoration:none;"><div><div style="font-size:0.6rem;color:#d4b865;font-weight:600;margin-bottom:0.3rem;">Predicciones del dia</div><div style="font-size:1.1rem;font-weight:700;color:#fff;">Partidos de hoy analizados</div><div style="font-size:0.72rem;color:#8896ae;">Futbol · NBA · Estadisticas reales</div></div><div style="font-size:1.4rem;color:#d4b865;">→</div></a>
     <p class="entry-footer">PREDIKTOR © 2026 · Sports Analytics</p>
 </div>
 
