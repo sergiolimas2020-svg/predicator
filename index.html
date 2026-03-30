@@ -348,6 +348,45 @@
 </section>
 
 <!-- EJEMPLO PICK -->
+<section class="historial-preview" style="padding:4rem 1rem;background:linear-gradient(135deg,#0d0d1a,#0a0a0f);text-align:center;">
+  <div class="section-label">Resultados reales</div>
+  <div class="section-title" style="font-size:clamp(1.8rem,4vw,2.8rem);margin-bottom:0.5rem;">Nuestro historial habla por sí solo</div>
+  <div class="section-sub" style="margin-bottom:2.5rem;">Verificado automáticamente con resultados oficiales</div>
+  <div id="hist-stats" style="display:flex;justify-content:center;gap:3rem;flex-wrap:wrap;margin-bottom:2.5rem;">
+    <div style="text-align:center">
+      <div id="hist-pct" style="font-size:3.5rem;font-weight:900;color:var(--gold)">--</div>
+      <div style="color:var(--gray-400);font-size:0.9rem;text-transform:uppercase;letter-spacing:1px">Aciertos</div>
+    </div>
+    <div style="text-align:center">
+      <div id="hist-total" style="font-size:3.5rem;font-weight:900;color:var(--gold)">--</div>
+      <div style="color:var(--gray-400);font-size:0.9rem;text-transform:uppercase;letter-spacing:1px">Predicciones</div>
+    </div>
+  </div>
+  <div id="hist-tabla" style="max-width:700px;margin:0 auto 2rem;"></div>
+  <a href="app.html" class="cta-btn" style="display:inline-block;padding:1rem 2.5rem;background:var(--gold);color:#000;font-weight:800;border-radius:8px;text-decoration:none;font-size:1.1rem;">Ver predicciones de hoy →</a>
+</section>
+
+<script>
+fetch('static/historial.json').then(r=>r.json()).then(h=>{
+  if(h.total === 0){
+    document.getElementById('hist-pct').textContent = '🔄';
+    document.getElementById('hist-total').textContent = '0';
+    document.getElementById('hist-tabla').innerHTML = '<p style="color:var(--gray-400)">Sistema en calibración — los primeros resultados aparecerán mañana.</p>';
+    return;
+  }
+  document.getElementById('hist-pct').textContent = h.porcentaje + '%';
+  document.getElementById('hist-total').textContent = h.total;
+  const rows = h.ultimos.slice(0,8).map(e=>`
+    <div style="display:flex;justify-content:space-between;align-items:center;padding:0.75rem 1rem;background:#111;border-radius:8px;margin-bottom:0.5rem;font-size:0.9rem;">
+      <span style="color:#fff">${e.home} vs ${e.away}</span>
+      <span style="color:var(--gray-400)">${e.prediccion}</span>
+      <span style="color:var(--gray-400)">${e.resultado_real||'?'}</span>
+      <span style="font-size:1.2rem">${e.acerto===true?'✅':e.acerto===false?'❌':'⏳'}</span>
+    </div>`).join('');
+  document.getElementById('hist-tabla').innerHTML = rows;
+});
+</script>
+
 <section class="pick-demo">
   <div class="pick-demo-inner">
     <div class="section-label" style="text-align:center">Ejemplo real</div>
