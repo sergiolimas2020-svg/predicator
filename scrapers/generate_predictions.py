@@ -604,6 +604,31 @@ def main():
     generate_sitemap(slugs)
     generate_robots()
 
+    # --- LOG DE PREDICCIONES DIARIO ---
+    import json as _json, re as _re
+    from pathlib import Path as _Path
+    _log_path = _Path("static/predictions_log.json")
+    _log = _json.loads(_log_path.read_text()) if _log_path.exists() else []
+    _log = [e for e in _log if e.get("fecha") != today]
+    for slug, matchup, league in preds:
+        parts = matchup.split(" vs ")
+        if len(parts) != 2:
+            continue
+        _pred, _conf = None, None
+        try:
+            _html = (OUTPUT_DIR / f"{slug}.html").read_text(encoding="utf-8")
+            _m = _re.search(r'class="pres">([^<]+)<', _html)
+            if _m: _pred = _m.group(1).strip()
+            _m2 = _re.search(r'class="pconf">([^<]+)<', _html)
+            if _m2: _conf = _m2.group(1).strip()
+        except: pass
+        _log.append({"fecha": today, "slug": slug,
+            "home": parts[0].strip(), "away": parts[1].strip(),
+            "league": league, "prediccion": _pred, "confianza": _conf,
+            "resultado_real": None, "acerto": None})
+    _log_path.write_text(_json.dumps(_log, ensure_ascii=False, indent=2))
+    print(f"Log guardado: {len(_log)} predicciones")
+
     print(f"\n{len(preds)} predicciones generadas!")
     print(f"\nProximo paso: registra tu sitemap en Google Search Console")
     print(f"→ https://search.google.com/search-console")
@@ -611,4 +636,5 @@ def main():
     print(f"→ Envia sitemap: {SITE_URL}/sitemap.xml")
 
 if __name__ == "__main__":
+    main()
     main()
