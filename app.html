@@ -666,7 +666,12 @@
     <p class="entry-question">Selecciona tu deporte</p>
 
     <div class="sport-cards">
-        <div class="sport-card" onclick="enterApp('futbol')">
+        <div class="sport-card" onclick="enterApp('historial')" style="border-color:var(--gold);background:linear-gradient(135deg,rgba(240,180,41,0.1),transparent)">
+  <div style="font-size:3rem">📊</div>
+  <div style="font-weight:800;font-size:1.2rem;margin:0.5rem 0">Historial</div>
+  <div style="color:var(--gray-400);font-size:0.9rem">Aciertos verificados</div>
+</div>
+<div class="sport-card" onclick="enterApp('futbol')">
             <span class="sport-emoji">⚽</span>
             <div class="sport-name">Fútbol</div>
             <p class="sport-desc">Premier, La Liga, Serie A,<br>Champions, Colombia y más.</p>
@@ -829,6 +834,33 @@
 <!-- ═══════════════════════════════════════════════════
      APP BASKETBALL
 ═══════════════════════════════════════════════════ -->
+<div id="historial-app" style="display:none;padding:1rem;max-width:800px;margin:0 auto">
+  <button class="btn-back" onclick="window.location.href='index.html'">← Volver</button>
+  <div style="text-align:center;margin:2rem 0 1.5rem">
+    <div style="font-size:0.85rem;color:var(--gold);text-transform:uppercase;letter-spacing:2px;margin-bottom:0.5rem">Resultados verificados</div>
+    <h1 style="font-size:2rem;font-weight:900;margin:0">Historial de Aciertos</h1>
+  </div>
+  <div id="hist-resumen" style="display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;margin-bottom:2rem">
+    <div style="text-align:center;background:#111;padding:1.5rem 2rem;border-radius:12px;min-width:120px">
+      <div id="h-pct" style="font-size:2.5rem;font-weight:900;color:var(--gold)">--</div>
+      <div style="color:var(--gray-400);font-size:0.8rem;text-transform:uppercase;letter-spacing:1px">Aciertos</div>
+    </div>
+    <div style="text-align:center;background:#111;padding:1.5rem 2rem;border-radius:12px;min-width:120px">
+      <div id="h-total" style="font-size:2.5rem;font-weight:900;color:#fff">--</div>
+      <div style="color:var(--gray-400);font-size:0.8rem;text-transform:uppercase;letter-spacing:1px">Predicciones</div>
+    </div>
+    <div style="text-align:center;background:#111;padding:1.5rem 2rem;border-radius:12px;min-width:120px">
+      <div id="h-aciertos" style="font-size:2.5rem;font-weight:900;color:#4ade80">--</div>
+      <div style="color:var(--gray-400);font-size:0.8rem;text-transform:uppercase;letter-spacing:1px">Correctas</div>
+    </div>
+  </div>
+  <div id="h-lista" style="display:flex;flex-direction:column;gap:0.5rem"></div>
+  <div id="h-empty" style="text-align:center;padding:3rem;color:var(--gray-400);display:none">
+    <div style="font-size:3rem;margin-bottom:1rem">🔄</div>
+    <p>Sistema en calibración.<br>Los primeros resultados aparecerán mañana.</p>
+  </div>
+</div>
+
 <div id="basket-app">
 
     <header class="pk-header">
@@ -928,6 +960,9 @@ function enterApp(sport, liga) {
         if (sport === 'futbol') {
             document.getElementById('futbol-app').classList.add('visible');
             initApp(liga);
+        } else if (sport === 'historial') {
+            document.getElementById('historial-app').style.display = 'block';
+            loadHistorial();
         } else {
             document.getElementById('basket-app').classList.add('visible');
             bkLoadData();
@@ -938,6 +973,7 @@ function enterApp(sport, liga) {
 function volverEntrada() {
     document.getElementById('futbol-app').classList.remove('visible');
     document.getElementById('basket-app').classList.remove('visible');
+        document.getElementById('historial-app').style.display = 'none';
     document.getElementById('bk-results').style.display = 'none';
     const entry = document.getElementById('sport-entry');
     entry.style.display   = 'flex';
@@ -954,6 +990,34 @@ function volverEntrada() {
    BASKETBALL — LÓGICA
 ═══════════════════════════════════════════════════ */
 let nbaData = {};
+
+function loadHistorial() {
+    fetch('static/historial.json')
+    .then(r => r.json())
+    .then(h => {
+        if (h.total === 0) {
+            document.getElementById('h-empty').style.display = 'block';
+            document.getElementById('hist-resumen').style.display = 'none';
+            return;
+        }
+        document.getElementById('h-pct').textContent = h.porcentaje + '%';
+        document.getElementById('h-total').textContent = h.total;
+        document.getElementById('h-aciertos').textContent = h.aciertos;
+        const icons = {'Colombia':'🇨🇴','Premier League':'🏴','La Liga':'🇪🇸','Bundesliga':'🇩🇪','Serie A':'🇮🇹','Ligue 1':'🇫🇷','Champions League':'⭐','NBA':'🏀','MLS':'🇺🇸'};
+        document.getElementById('h-lista').innerHTML = h.ultimos.map(e =>
+            `<div style="display:flex;justify-content:space-between;align-items:center;padding:0.85rem 1rem;background:#111;border-radius:10px;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.4rem">
+                <span>${icons[e.league]||'⚽'}</span>
+                <span style="flex:1;color:#fff;font-size:0.9rem">${e.home} vs ${e.away}</span>
+                <span style="color:var(--gray-400);font-size:0.85rem">${e.prediccion||'—'}</span>
+                <span style="color:var(--gray-400);font-size:0.85rem">${e.score||'?'}</span>
+                <span style="font-size:1.2rem">${e.acerto===true?'✅':e.acerto===false?'❌':'⏳'}</span>
+            </div>`).join('');
+    })
+    .catch(() => {
+        document.getElementById('h-empty').style.display = 'block';
+        document.getElementById('hist-resumen').style.display = 'none';
+    });
+}
 
 async function bkLoadData() {
     try {
