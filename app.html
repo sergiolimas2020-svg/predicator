@@ -1145,18 +1145,15 @@ window.addEventListener('DOMContentLoaded', function() {
   const params = new URLSearchParams(window.location.search);
   const sport = params.get('sport');
   const liga = params.get('liga');
-  if (sport === 'basket') {
-    enterApp('basket', null);
-  } else if (sport === 'futbol') {
-    enterApp('futbol', liga);
-    if (liga) {
-      setTimeout(() => {
-        const sel = document.getElementById('league-select');
-        if (sel && liga) {
-          sel.value = liga;
-          sel.dispatchEvent(new Event('change'));
-        }
-      }, 1200);
+  if (sport) {
+    const entry = document.getElementById('sport-entry');
+    entry.style.display = 'none';
+    if (sport === 'basket') {
+      document.getElementById('basket-app').classList.add('visible');
+      bkLoadData();
+    } else if (sport === 'futbol') {
+      document.getElementById('futbol-app').classList.add('visible');
+      initApp(liga);
     }
   }
 });
