@@ -1,33 +1,64 @@
 {
-    "Besiktas": {
+    "Kayserispor": {
         "corners": {
             "local": {
-                "partidos": 14,
-                "corners_favor": 6.14,
-                "corners_contra": 3.71
+                "partidos": 13,
+                "corners_favor": 5.46,
+                "corners_contra": 4.15
             },
             "visitante": {
-                "partidos": 13,
-                "corners_favor": 4.77,
-                "corners_contra": 5.31
+                "partidos": 14,
+                "corners_favor": 4.29,
+                "corners_contra": 5.43
             }
         },
         "goals": {
-            "over_1_5": "85%",
-            "over_2_5": "59%",
-            "over_3_5": "37%",
-            "bts": "59%"
+            "over_1_5": "74%",
+            "over_2_5": "48%",
+            "over_3_5": "33%",
+            "bts": "52%"
         },
         "position": {
-            "posicion": 4,
+            "posicion": 16,
             "partidos": 27,
-            "ganados": 15,
-            "empatados": 7,
-            "perdidos": 5,
-            "goles_favor": 49,
-            "goles_contra": 31,
-            "diferencia": 18,
-            "puntos": 52
+            "ganados": 4,
+            "empatados": 11,
+            "perdidos": 12,
+            "goles_favor": 21,
+            "goles_contra": 48,
+            "diferencia": -27,
+            "puntos": 23
+        }
+    },
+    "Fenerbahce": {
+        "corners": {
+            "local": {
+                "partidos": 13,
+                "corners_favor": 7.23,
+                "corners_contra": 3.46
+            },
+            "visitante": {
+                "partidos": 14,
+                "corners_favor": 6.93,
+                "corners_contra": 4.93
+            }
+        },
+        "goals": {
+            "over_1_5": "89%",
+            "over_2_5": "59%",
+            "over_3_5": "52%",
+            "bts": "67%"
+        },
+        "position": {
+            "posicion": 2,
+            "partidos": 27,
+            "ganados": 17,
+            "empatados": 9,
+            "perdidos": 1,
+            "goles_favor": 61,
+            "goles_contra": 28,
+            "diferencia": 33,
+            "puntos": 60
         }
     },
     "Kasimpasa": {
@@ -92,128 +123,66 @@
             "puntos": 30
         }
     },
-    "Goztepe": {
+    "Besiktas": {
         "corners": {
             "local": {
-                "partidos": 13,
-                "corners_favor": 5.08,
-                "corners_contra": 4.85
-            },
-            "visitante": {
-                "partidos": 13,
-                "corners_favor": 4.23,
-                "corners_contra": 5.38
-            }
-        },
-        "goals": {
-            "over_1_5": "62%",
-            "over_2_5": "38%",
-            "over_3_5": "15%",
-            "bts": "38%"
-        },
-        "position": {
-            "posicion": 5,
-            "partidos": 26,
-            "ganados": 11,
-            "empatados": 10,
-            "perdidos": 5,
-            "goles_favor": 30,
-            "goles_contra": 20,
-            "diferencia": 10,
-            "puntos": 43
-        }
-    },
-    "Fenerbahce": {
-        "corners": {
-            "local": {
-                "partidos": 13,
-                "corners_favor": 7.23,
-                "corners_contra": 3.46
-            },
-            "visitante": {
                 "partidos": 14,
-                "corners_favor": 6.93,
-                "corners_contra": 4.93
+                "corners_favor": 6.14,
+                "corners_contra": 3.71
+            },
+            "visitante": {
+                "partidos": 13,
+                "corners_favor": 4.77,
+                "corners_contra": 5.31
             }
         },
         "goals": {
-            "over_1_5": "89%",
+            "over_1_5": "85%",
             "over_2_5": "59%",
-            "over_3_5": "52%",
-            "bts": "67%"
+            "over_3_5": "37%",
+            "bts": "59%"
         },
         "position": {
-            "posicion": 2,
+            "posicion": 4,
             "partidos": 27,
-            "ganados": 17,
-            "empatados": 9,
-            "perdidos": 1,
-            "goles_favor": 61,
-            "goles_contra": 28,
-            "diferencia": 33,
-            "puntos": 60
-        }
-    },
-    "Eyupspor": {
-        "corners": {
-            "local": {
-                "partidos": 14,
-                "corners_favor": 3.93,
-                "corners_contra": 4.93
-            },
-            "visitante": {
-                "partidos": 13,
-                "corners_favor": 3.0,
-                "corners_contra": 6.46
-            }
-        },
-        "goals": {
-            "over_1_5": "59%",
-            "over_2_5": "37%",
-            "over_3_5": "15%",
-            "bts": "41%"
-        },
-        "position": {
-            "posicion": 17,
-            "partidos": 27,
-            "ganados": 5,
+            "ganados": 15,
             "empatados": 7,
-            "perdidos": 15,
-            "goles_favor": 19,
-            "goles_contra": 38,
-            "diferencia": -19,
-            "puntos": 22
+            "perdidos": 5,
+            "goles_favor": 49,
+            "goles_contra": 31,
+            "diferencia": 18,
+            "puntos": 52
         }
     },
-    "Kocaelispor": {
+    "Genclerbirligi": {
         "corners": {
             "local": {
-                "partidos": 14,
-                "corners_favor": 4.57,
-                "corners_contra": 3.86
+                "partidos": 13,
+                "corners_favor": 4.85,
+                "corners_contra": 5.69
             },
             "visitante": {
-                "partidos": 13,
-                "corners_favor": 4.08,
-                "corners_contra": 4.23
+                "partidos": 14,
+                "corners_favor": 3.29,
+                "corners_contra": 6.0
             }
         },
         "goals": {
-            "over_1_5": "59%",
-            "over_2_5": "33%",
-            "over_3_5": "15%",
-            "bts": "37%"
+            "over_1_5": "63%",
+            "over_2_5": "52%",
+            "over_3_5": "22%",
+            "bts": "56%"
         },
         "position": {
-            "posicion": 8,
+            "posicion": 14,
             "partidos": 27,
-            "ganados": 9,
-            "empatados": 6,
-            "perdidos": 12,
-            "goles_favor": 23,
-            "goles_contra": 32,
+            "ganados": 6,
+            "empatados": 7,
+            "perdidos": 14,
+            "goles_favor": 28,
+            "goles_contra": 37,
             "diferencia": -9,
-            "puntos": 33
+            "puntos": 25
         }
     },
     "F. Karagumruk": {
@@ -247,6 +216,37 @@
             "puntos": 17
         }
     },
+    "Alanyaspor": {
+        "corners": {
+            "local": {
+                "partidos": 14,
+                "corners_favor": 5.5,
+                "corners_contra": 3.0
+            },
+            "visitante": {
+                "partidos": 13,
+                "corners_favor": 4.0,
+                "corners_contra": 4.23
+            }
+        },
+        "goals": {
+            "over_1_5": "74%",
+            "over_2_5": "48%",
+            "over_3_5": "30%",
+            "bts": "59%"
+        },
+        "position": {
+            "posicion": 10,
+            "partidos": 27,
+            "ganados": 6,
+            "empatados": 13,
+            "perdidos": 8,
+            "goles_favor": 33,
+            "goles_contra": 32,
+            "diferencia": 1,
+            "puntos": 31
+        }
+    },
     "League average": {
         "corners": {},
         "goals": {
@@ -257,128 +257,97 @@
         },
         "position": {}
     },
-    "Antalyaspor": {
+    "Kocaelispor": {
         "corners": {
             "local": {
-                "partidos": 13,
-                "corners_favor": 4.69,
-                "corners_contra": 5.46
+                "partidos": 14,
+                "corners_favor": 4.57,
+                "corners_contra": 3.86
             },
             "visitante": {
-                "partidos": 14,
-                "corners_favor": 3.21,
-                "corners_contra": 6.14
+                "partidos": 13,
+                "corners_favor": 4.08,
+                "corners_contra": 4.23
             }
         },
         "goals": {
-            "over_1_5": "63%",
-            "over_2_5": "52%",
-            "over_3_5": "30%",
-            "bts": "56%"
+            "over_1_5": "59%",
+            "over_2_5": "33%",
+            "over_3_5": "15%",
+            "bts": "37%"
         },
         "position": {
-            "posicion": 13,
+            "posicion": 8,
             "partidos": 27,
-            "ganados": 6,
-            "empatados": 7,
-            "perdidos": 14,
-            "goles_favor": 25,
-            "goles_contra": 43,
-            "diferencia": -18,
-            "puntos": 25
+            "ganados": 9,
+            "empatados": 6,
+            "perdidos": 12,
+            "goles_favor": 23,
+            "goles_contra": 32,
+            "diferencia": -9,
+            "puntos": 33
         }
     },
-    "Rizespor": {
+    "Basaksehir": {
+        "corners": {
+            "local": {
+                "partidos": 14,
+                "corners_favor": 4.5,
+                "corners_contra": 4.86
+            },
+            "visitante": {
+                "partidos": 13,
+                "corners_favor": 5.23,
+                "corners_contra": 5.92
+            }
+        },
+        "goals": {
+            "over_1_5": "81%",
+            "over_2_5": "59%",
+            "over_3_5": "22%",
+            "bts": "59%"
+        },
+        "position": {
+            "posicion": 6,
+            "partidos": 27,
+            "ganados": 12,
+            "empatados": 7,
+            "perdidos": 8,
+            "goles_favor": 44,
+            "goles_contra": 30,
+            "diferencia": 14,
+            "puntos": 43
+        }
+    },
+    "Goztepe": {
         "corners": {
             "local": {
                 "partidos": 13,
-                "corners_favor": 3.69,
-                "corners_contra": 4.62
+                "corners_favor": 5.08,
+                "corners_contra": 4.85
             },
             "visitante": {
                 "partidos": 13,
                 "corners_favor": 4.23,
-                "corners_contra": 4.69
+                "corners_contra": 5.38
             }
         },
         "goals": {
-            "over_1_5": "69%",
-            "over_2_5": "50%",
-            "over_3_5": "27%",
-            "bts": "50%"
+            "over_1_5": "62%",
+            "over_2_5": "38%",
+            "over_3_5": "15%",
+            "bts": "38%"
         },
         "position": {
-            "posicion": 11,
+            "posicion": 5,
             "partidos": 26,
-            "ganados": 7,
-            "empatados": 9,
-            "perdidos": 10,
-            "goles_favor": 32,
-            "goles_contra": 36,
-            "diferencia": -4,
-            "puntos": 30
-        }
-    },
-    "Kayserispor": {
-        "corners": {
-            "local": {
-                "partidos": 13,
-                "corners_favor": 5.46,
-                "corners_contra": 4.15
-            },
-            "visitante": {
-                "partidos": 14,
-                "corners_favor": 4.29,
-                "corners_contra": 5.43
-            }
-        },
-        "goals": {
-            "over_1_5": "74%",
-            "over_2_5": "48%",
-            "over_3_5": "33%",
-            "bts": "52%"
-        },
-        "position": {
-            "posicion": 16,
-            "partidos": 27,
-            "ganados": 4,
-            "empatados": 11,
-            "perdidos": 12,
-            "goles_favor": 21,
-            "goles_contra": 48,
-            "diferencia": -27,
-            "puntos": 23
-        }
-    },
-    "Trabzonspor": {
-        "corners": {
-            "local": {
-                "partidos": 13,
-                "corners_favor": 4.77,
-                "corners_contra": 4.54
-            },
-            "visitante": {
-                "partidos": 14,
-                "corners_favor": 4.64,
-                "corners_contra": 5.57
-            }
-        },
-        "goals": {
-            "over_1_5": "74%",
-            "over_2_5": "56%",
-            "over_3_5": "33%",
-            "bts": "63%"
-        },
-        "position": {
-            "posicion": 3,
-            "partidos": 27,
-            "ganados": 18,
-            "empatados": 6,
-            "perdidos": 3,
-            "goles_favor": 53,
-            "goles_contra": 29,
-            "diferencia": 24,
-            "puntos": 60
+            "ganados": 11,
+            "empatados": 10,
+            "perdidos": 5,
+            "goles_favor": 30,
+            "goles_contra": 20,
+            "diferencia": 10,
+            "puntos": 43
         }
     },
     "Samsunspor": {
@@ -474,101 +443,132 @@
             "puntos": 64
         }
     },
-    "Genclerbirligi": {
+    "Trabzonspor": {
         "corners": {
             "local": {
                 "partidos": 13,
-                "corners_favor": 4.85,
-                "corners_contra": 5.69
+                "corners_favor": 4.77,
+                "corners_contra": 4.54
             },
             "visitante": {
                 "partidos": 14,
-                "corners_favor": 3.29,
-                "corners_contra": 6.0
+                "corners_favor": 4.64,
+                "corners_contra": 5.57
+            }
+        },
+        "goals": {
+            "over_1_5": "74%",
+            "over_2_5": "56%",
+            "over_3_5": "33%",
+            "bts": "63%"
+        },
+        "position": {
+            "posicion": 3,
+            "partidos": 27,
+            "ganados": 18,
+            "empatados": 6,
+            "perdidos": 3,
+            "goles_favor": 53,
+            "goles_contra": 29,
+            "diferencia": 24,
+            "puntos": 60
+        }
+    },
+    "Eyupspor": {
+        "corners": {
+            "local": {
+                "partidos": 14,
+                "corners_favor": 3.93,
+                "corners_contra": 4.93
+            },
+            "visitante": {
+                "partidos": 13,
+                "corners_favor": 3.0,
+                "corners_contra": 6.46
+            }
+        },
+        "goals": {
+            "over_1_5": "59%",
+            "over_2_5": "37%",
+            "over_3_5": "15%",
+            "bts": "41%"
+        },
+        "position": {
+            "posicion": 17,
+            "partidos": 27,
+            "ganados": 5,
+            "empatados": 7,
+            "perdidos": 15,
+            "goles_favor": 19,
+            "goles_contra": 38,
+            "diferencia": -19,
+            "puntos": 22
+        }
+    },
+    "Antalyaspor": {
+        "corners": {
+            "local": {
+                "partidos": 13,
+                "corners_favor": 4.69,
+                "corners_contra": 5.46
+            },
+            "visitante": {
+                "partidos": 14,
+                "corners_favor": 3.21,
+                "corners_contra": 6.14
             }
         },
         "goals": {
             "over_1_5": "63%",
             "over_2_5": "52%",
-            "over_3_5": "22%",
+            "over_3_5": "30%",
             "bts": "56%"
         },
         "position": {
-            "posicion": 14,
+            "posicion": 13,
             "partidos": 27,
             "ganados": 6,
             "empatados": 7,
             "perdidos": 14,
-            "goles_favor": 28,
-            "goles_contra": 37,
-            "diferencia": -9,
+            "goles_favor": 25,
+            "goles_contra": 43,
+            "diferencia": -18,
             "puntos": 25
         }
     },
-    "Alanyaspor": {
+    "Rizespor": {
         "corners": {
             "local": {
-                "partidos": 14,
-                "corners_favor": 5.5,
-                "corners_contra": 3.0
+                "partidos": 13,
+                "corners_favor": 3.69,
+                "corners_contra": 4.62
             },
             "visitante": {
                 "partidos": 13,
-                "corners_favor": 4.0,
-                "corners_contra": 4.23
+                "corners_favor": 4.23,
+                "corners_contra": 4.69
             }
         },
         "goals": {
-            "over_1_5": "74%",
-            "over_2_5": "48%",
-            "over_3_5": "30%",
-            "bts": "59%"
+            "over_1_5": "69%",
+            "over_2_5": "50%",
+            "over_3_5": "27%",
+            "bts": "50%"
         },
         "position": {
-            "posicion": 10,
-            "partidos": 27,
-            "ganados": 6,
-            "empatados": 13,
-            "perdidos": 8,
-            "goles_favor": 33,
-            "goles_contra": 32,
-            "diferencia": 1,
-            "puntos": 31
-        }
-    },
-    "Basaksehir": {
-        "corners": {
-            "local": {
-                "partidos": 14,
-                "corners_favor": 4.5,
-                "corners_contra": 4.86
-            },
-            "visitante": {
-                "partidos": 13,
-                "corners_favor": 5.23,
-                "corners_contra": 5.92
-            }
-        },
-        "goals": {
-            "over_1_5": "81%",
-            "over_2_5": "59%",
-            "over_3_5": "22%",
-            "bts": "59%"
-        },
-        "position": {
-            "posicion": 6,
-            "partidos": 27,
-            "ganados": 12,
-            "empatados": 7,
-            "perdidos": 8,
-            "goles_favor": 44,
-            "goles_contra": 30,
-            "diferencia": 14,
-            "puntos": 43
+            "posicion": 11,
+            "partidos": 26,
+            "ganados": 7,
+            "empatados": 9,
+            "perdidos": 10,
+            "goles_favor": 32,
+            "goles_contra": 36,
+            "diferencia": -4,
+            "puntos": 30
         }
     },
     "_metadata": {
-        "fecha_actualizacion": "2026-03-30T10:04:08.203790",
+        "fecha_actualizacion": "2026-03-28T19:32:51.716932",
         "liga": "turkey",
         "fuente_datos": {
             "corners": "https://www.soccerstats.com/table.asp?league=turkey&tid=cr",
