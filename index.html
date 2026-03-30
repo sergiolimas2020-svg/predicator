@@ -413,65 +413,100 @@ fetch('static/historial.json').then(r=>r.json()).then(h=>{
   </div>
 </section>
 <script>
-fetch('static/predictions_log.json').then(r=>r.json()).then(picks=>{
-  const hoy = new Date().toISOString().slice(0,10);
-  const deHoy = picks.filter(p=>p.fecha===hoy);
-  if(!deHoy.length){ document.getElementById('pick-hoy').innerHTML='<div style="text-align:center;padding:2rem;color:var(--gris)">No hay picks para hoy aún.</div>'; return; }
-  const conPct = deHoy.map(p=>({ ...p, pct: parseFloat((p.confianza||'0').replace(/[^0-9.]/g,'')) }));
-  const ordenados = conPct.sort((a,b)=>b.pct-a.pct);
-  const mejor = ordenados[0];
-  const ligaIcon = mejor.league==='NBA'?'🏀':'⚽';
-  const confianzaLabel = mejor.pct>=70?'Alta':mejor.pct>=60?'Media':'Normal';
-  const confianzaColor = mejor.pct>=70?'var(--verde)':mejor.pct>=60?'var(--dorado)':'var(--gris)';
-  // Análisis generado a partir de los datos
-  const rankTotal = deHoy.length;
-  const segundoMejor = ordenados[1];
-  const ventajaN = segundoMejor ? +(mejor.pct - segundoMejor.pct).toFixed(1) : null;
-  const analisisLineas = [
-    `📊 De los <strong>${rankTotal} partidos</strong> analizados hoy, este es el de mayor probabilidad con un <strong>${mejor.pct.toFixed(0)}%</strong> de confianza.`,
-    ventajaN && ventajaN > 0
-      ? `📈 Supera al siguiente pick más confiable (<strong>${segundoMejor.home} vs ${segundoMejor.away}</strong>) por <strong>${ventajaN} puntos porcentuales</strong>.`
-      : ventajaN === 0
-        ? `📈 Comparte la probabilidad más alta del día junto con <strong>${segundoMejor.home} vs ${segundoMejor.away}</strong> (${segundoMejor.pct.toFixed(0)}%). Se elige por criterio de liga.`
-        : '',
-    `🏆 El sistema favorece a <strong>${mejor.prediccion}</strong> basándose en el rendimiento histórico y estadísticas recientes de la <strong>${mejor.league}</strong>.`,
-    `⚠️ Ningún pick es garantía — este es el de mayor confianza estadística del día.`
-  ].filter(Boolean);
+(async function(){
+  const ligaArchivo = {
+    'Liga Colombiana':'static/colombia_stats.json',
+    'NBA':'static/nba_stats.json',
+    'Premier League':'static/england_stats.json',
+    'La Liga':'static/spain_stats.json',
+    'Bundesliga':'static/germany_stats.json',
+    'Serie A':'static/italy_stats.json',
+    'Ligue 1':'static/france_stats.json'
+  };
+  // Algunos nombres en predictions_log difieren del key en el JSON de stats
+  const normalizarEquipo = n => ({'Independiente Medellín':'I. Medelin','América de Cali':'America de Cali'}[n]||n);
 
-  document.getElementById('pick-hoy').innerHTML = `
-    <div class="pick-header">
-      <span class="pick-liga">${ligaIcon} ${mejor.league}</span>
-      <span class="pick-valor">🔥 Alto valor</span>
-    </div>
-    <div class="pick-partido">${mejor.home} vs ${mejor.away}</div>
-    <div class="pick-stats">
-      <div class="pick-stat">
-        <div class="pick-stat-val verde">${mejor.pct.toFixed(0)}%</div>
-        <div class="pick-stat-label">Probabilidad</div>
+  try {
+    const picks = await fetch('static/predictions_log.json').then(r=>r.json());
+    const hoy = new Date().toISOString().slice(0,10);
+    const deHoy = picks.filter(p=>p.fecha===hoy);
+    if(!deHoy.length){ document.getElementById('pick-hoy').innerHTML='<div style="text-align:center;padding:2rem;color:var(--gris)">No hay picks para hoy aún.</div>'; return; }
+
+    const conPct = deHoy.map(p=>({...p, pct:parseFloat((p.confianza||'0').replace(/[^0-9.]/g,''))}));
+    const ordenados = conPct.sort((a,b)=>b.pct-a.pct);
+    const mejor = ordenados[0];
+    const segundoMejor = ordenados[1];
+    const ligaIcon = mejor.league==='NBA'?'🏀':'⚽';
+    const confianzaLabel = mejor.pct>=70?'Alta':mejor.pct>=60?'Media':'Normal';
+    const confianzaColor = mejor.pct>=70?'var(--verde)':mejor.pct>=60?'var(--dorado)':'var(--gris)';
+
+    // Render card principal
+    document.getElementById('pick-hoy').innerHTML = `
+      <div class="pick-header">
+        <span class="pick-liga">${ligaIcon} ${mejor.league}</span>
+        <span class="pick-valor">🔥 Alto valor</span>
       </div>
-      <div class="pick-stat">
-        <div class="pick-stat-val dorado">${mejor.prediccion}</div>
-        <div class="pick-stat-label">Predicción</div>
+      <div class="pick-partido">${mejor.home} vs ${mejor.away}</div>
+      <div class="pick-stats">
+        <div class="pick-stat"><div class="pick-stat-val verde">${mejor.pct.toFixed(0)}%</div><div class="pick-stat-label">Probabilidad</div></div>
+        <div class="pick-stat"><div class="pick-stat-val dorado">${mejor.prediccion}</div><div class="pick-stat-label">Predicción</div></div>
+        <div class="pick-stat"><div class="pick-stat-val" style="color:${confianzaColor}">${confianzaLabel}</div><div class="pick-stat-label">Confianza</div></div>
       </div>
-      <div class="pick-stat">
-        <div class="pick-stat-val" style="color:${confianzaColor}">${confianzaLabel}</div>
-        <div class="pick-stat-label">Confianza</div>
+      <div class="pick-recomendacion">
+        <div><div class="pick-rec-label">Recomendación del sistema</div><div class="pick-rec-val">✅ ${mejor.prediccion}</div></div>
+        <div style="color:var(--gris);font-size:0.82rem;max-width:260px">Basado en estadísticas reales — ${mejor.fecha}.</div>
       </div>
-    </div>
-    <div class="pick-recomendacion">
-      <div>
-        <div class="pick-rec-label">Recomendación del sistema</div>
-        <div class="pick-rec-val">✅ ${mejor.prediccion}</div>
-      </div>
-      <div style="color:var(--gris);font-size:0.82rem;max-width:260px">Basado en estadísticas reales — ${mejor.fecha}.</div>
-    </div>
-    <button class="pick-analisis-btn" onclick="this.nextElementSibling.classList.toggle('abierto');this.textContent=this.nextElementSibling.classList.contains('abierto')?'▲ Ocultar análisis':'▼ Ver análisis del pick'">▼ Ver análisis del pick</button>
-    <div class="pick-analisis-panel">
-      ${analisisLineas.map(l=>`<div class="pick-analisis-fila">${l}</div>`).join('')}
-    </div>`;
-}).catch(()=>{
-  document.getElementById('pick-hoy').innerHTML='<div style="text-align:center;padding:2rem;color:var(--gris)">No hay picks disponibles.</div>';
-});
+      <button class="pick-analisis-btn" onclick="this.nextElementSibling.classList.toggle('abierto');this.textContent=this.nextElementSibling.classList.contains('abierto')?'▲ Ocultar análisis':'▼ Ver análisis del pick'">▼ Ver análisis del pick</button>
+      <div class="pick-analisis-panel" id="analisis-panel"><div style="color:var(--gris);font-size:0.85rem">Cargando estadísticas…</div></div>`;
+
+    // Cargar estadísticas del equipo
+    const statsFile = ligaArchivo[mejor.league];
+    if(!statsFile) return;
+    const stats = await fetch(statsFile).then(r=>r.json());
+
+    const lineas = [];
+    lineas.push(`📊 El sistema analizó <strong>${deHoy.length} partidos</strong> para hoy y este resultó el de mayor confianza estadística con <strong>${mejor.pct.toFixed(0)}%</strong> de probabilidad.`);
+
+    if(mejor.league==='NBA'){
+      const teams = stats.teams||{};
+      const th = teams[mejor.home], ta = teams[mejor.away];
+      if(th) lineas.push(`🏀 <strong>${mejor.home}:</strong> ${th.wins}V / ${th.losses}D en la temporada (${th.win_pct}% efectividad) — promedio de <strong>${th.avg_points} pts por partido</strong>.`);
+      if(ta) lineas.push(`🏀 <strong>${mejor.away}:</strong> ${ta.wins}V / ${ta.losses}D en la temporada (${ta.win_pct}% efectividad) — promedio de <strong>${ta.avg_points} pts por partido</strong>.`);
+      if(th && ta){
+        const diff = Math.abs(th.win_pct - ta.win_pct).toFixed(1);
+        const lider = th.win_pct >= ta.win_pct ? mejor.home : mejor.away;
+        lineas.push(`📈 <strong>${lider}</strong> lidera en efectividad con una diferencia de <strong>${diff} puntos porcentuales</strong> sobre el rival.`);
+      }
+    } else {
+      const kh = normalizarEquipo(mejor.home), ka = normalizarEquipo(mejor.away);
+      const th = stats[kh], ta = stats[ka];
+      if(th && th.position){
+        const p=th.position;
+        lineas.push(`⚽ <strong>${mejor.home}:</strong> posición ${p.posicion} en la liga — ${p.ganados}G ${p.empatados}E ${p.perdidos}P en ${p.partidos} partidos jugados (${p.goles_favor} goles a favor / ${p.goles_contra} en contra, ${p.puntos} pts).`);
+      }
+      if(ta && ta.position){
+        const p=ta.position;
+        lineas.push(`⚽ <strong>${mejor.away}:</strong> posición ${p.posicion} en la liga — ${p.ganados}G ${p.empatados}E ${p.perdidos}P en ${p.partidos} partidos jugados (${p.goles_favor} goles a favor / ${p.goles_contra} en contra, ${p.puntos} pts).`);
+      }
+      if(th && ta && th.position && ta.position){
+        const favPos = th.position.posicion < ta.position.posicion ? mejor.home : mejor.away;
+        const favWin = th.position.ganados >= ta.position.ganados ? mejor.home : mejor.away;
+        lineas.push(`📈 <strong>${favPos}</strong> tiene mejor posición en la tabla y el sistema lo favorece como ganador más probable del encuentro.`);
+      }
+    }
+
+    if(segundoMejor){
+      const vN = +(mejor.pct - segundoMejor.pct).toFixed(1);
+      if(vN>0) lineas.push(`🔎 Supera al siguiente pick (<strong>${segundoMejor.home} vs ${segundoMejor.away}</strong>, ${segundoMejor.pct.toFixed(0)}%) por <strong>${vN} puntos porcentuales</strong>.`);
+    }
+    lineas.push(`⚠️ Ningún pick es garantía — este es el de mayor confianza estadística del día.`);
+
+    const panel = document.getElementById('analisis-panel');
+    if(panel) panel.innerHTML = lineas.map(l=>`<div class="pick-analisis-fila">${l}</div>`).join('');
+  } catch(e){
+    document.getElementById('pick-hoy').innerHTML='<div style="text-align:center;padding:2rem;color:var(--gris)">No hay picks disponibles.</div>';
+  }
+})();
 </script>
 
 <!-- AD -->
