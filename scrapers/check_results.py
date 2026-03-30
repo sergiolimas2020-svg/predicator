@@ -49,6 +49,33 @@ def get_espn_results(league_id):
         print(f"  Error ESPN {league_id}: {ex}")
         return []
 
+def get_nba_results():
+    yesterday = (date.today() - timedelta(days=1)).strftime("%Y%m%d")
+    url = f"https://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard?dates={yesterday}"
+    try:
+        r = requests.get(url, verify=certifi.where(), timeout=10)
+        events = r.json().get("events", [])
+        results = []
+        for e in events:
+            comp = e["competitions"][0]
+            if comp["status"]["type"]["completed"]:
+                teams = {c["homeAway"]: c for c in comp["competitors"]}
+                home = teams.get("home", {})
+                away = teams.get("away", {})
+                h_score = int(home.get("score", 0))
+                a_score = int(away.get("score", 0))
+                winner = home["team"]["displayName"] if h_score > a_score else away["team"]["displayName"]
+                results.append({
+                    "home": home["team"]["displayName"],
+                    "away": away["team"]["displayName"],
+                    "score": f"{h_score}-{a_score}",
+                    "winner": winner
+                })
+        return results
+    except Exception as ex:
+        print(f"  Error ESPN NBA: {ex}")
+        return []
+
 def normalize(name):
     import unicodedata
     name = unicodedata.normalize('NFKD', name).encode('ascii','ignore').decode('ascii')
@@ -73,6 +100,7 @@ else:
     all_results = {}
     for lid, lname in LEAGUES.items():
         all_results[lname] = get_espn_results(lid)
+    all_results["NBA"] = get_nba_results()
 
     for entry in log:
         if entry["fecha"] != yesterday or entry["resultado_real"] is not None:
