@@ -1,7 +1,7 @@
 const AppState = {
     homeTeam: null,
     awayTeam: null,
-    currentLeague: 'italy',
+    currentLeague: 'colombia',
     isAnalyzing: false,
     isLoadingLeague: false
 };

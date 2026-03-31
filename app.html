@@ -13,7 +13,7 @@
 
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PREDIKTOR — Sports Analytics</title>
+    <title>PREDIKTOR — Análisis Deportivo</title>
 
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5953880132871590"
@@ -714,22 +714,22 @@
         <div class="league-selector-container">
             <label for="league-select" class="league-label">Liga</label>
             <select id="league-select" class="league-select">
+                <option value="colombia" selected>Liga Colombiana</option>
                 <option value="england">Premier League</option>
                 <option value="spain">La Liga</option>
                 <option value="germany">Bundesliga</option>
-                <option value="italy" selected>Serie A</option>
+                <option value="italy">Serie A</option>
                 <option value="france">Ligue 1</option>
                 <option value="argentina">Liga Argentina</option>
                 <option value="brazil">Brasileirao</option>
-                <option value="colombia">Liga Colombiana</option>
                 <option value="turkey">Süper Lig</option>
                 <option value="uefa-champions-league">Champions League</option>
             </select>
             <div id="current-league-badge" class="league-badge">
-                <span class="league-flag flag-italy"></span>
+                <span class="league-flag flag-colombia"></span>
                 <div class="league-info">
-                    <span class="league-name">SERIE A</span>
-                    <span class="season">2024/25</span>
+                    <span class="league-name">LIGA COLOMBIANA</span>
+                    <span class="season">2025</span>
                 </div>
             </div>
         </div>
@@ -853,15 +853,15 @@
   </div>
   <div id="hist-resumen" style="display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;margin-bottom:2rem">
     <div style="text-align:center;background:#111;padding:1.5rem 2rem;border-radius:12px;min-width:120px">
-      <div id="h-pct" style="font-size:2.5rem;font-weight:900;color:var(--gold)">--</div>
+      <div id="h-pct" style="font-size:2.5rem;font-weight:900;color:var(--gold)">…</div>
       <div style="color:var(--gray-400);font-size:0.8rem;text-transform:uppercase;letter-spacing:1px">Aciertos</div>
     </div>
     <div style="text-align:center;background:#111;padding:1.5rem 2rem;border-radius:12px;min-width:120px">
-      <div id="h-total" style="font-size:2.5rem;font-weight:900;color:#fff">--</div>
+      <div id="h-total" style="font-size:2.5rem;font-weight:900;color:#fff">…</div>
       <div style="color:var(--gray-400);font-size:0.8rem;text-transform:uppercase;letter-spacing:1px">Predicciones</div>
     </div>
     <div style="text-align:center;background:#111;padding:1.5rem 2rem;border-radius:12px;min-width:120px">
-      <div id="h-aciertos" style="font-size:2.5rem;font-weight:900;color:#4ade80">--</div>
+      <div id="h-aciertos" style="font-size:2.5rem;font-weight:900;color:#4ade80">…</div>
       <div style="color:var(--gray-400);font-size:0.8rem;text-transform:uppercase;letter-spacing:1px">Correctas</div>
     </div>
   </div>

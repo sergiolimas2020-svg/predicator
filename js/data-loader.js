@@ -6,7 +6,7 @@
 const DataLoader = {
     data: null,
     metadata: null,
-    currentLeague: 'italy',
+    currentLeague: 'colombia',
     
     // Configuración de ligas disponibles
     leagues: {

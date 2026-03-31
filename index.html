@@ -333,11 +333,20 @@
 
 <!-- STATS -->
 <div class="stats-bar">
+  <div class="stat"><div id="sb-pct" class="stat-num">…</div><div class="stat-label">Tasa de acierto</div></div>
+  <div class="stat"><div id="sb-total" class="stat-num">…</div><div class="stat-label">Predicciones verificadas</div></div>
   <div class="stat"><div class="stat-num">10+</div><div class="stat-label">Ligas analizadas</div></div>
-  <div class="stat"><div class="stat-num">30</div><div class="stat-label">Equipos NBA</div></div>
-  <div class="stat"><div class="stat-num">Daily</div><div class="stat-label">Actualización</div></div>
-  <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Basado en datos</div></div>
+  <div class="stat"><div class="stat-num">Diaria</div><div class="stat-label">Actualización</div></div>
 </div>
+<script>
+fetch('static/historial.json').then(r=>r.json()).then(h=>{
+  document.getElementById('sb-pct').textContent = h.total > 0 ? h.porcentaje + '%' : '—';
+  document.getElementById('sb-total').textContent = h.total > 0 ? h.total : '—';
+}).catch(()=>{
+  document.getElementById('sb-pct').textContent = '—';
+  document.getElementById('sb-total').textContent = '—';
+});
+</script>
 
 <!-- PROBLEMA -->
 <section class="problema">
@@ -367,14 +376,14 @@
 <section class="historial-preview" style="padding:4rem 1rem;background:linear-gradient(135deg,#0d0d1a,#0a0a0f);text-align:center;">
   <div class="section-label">Resultados reales</div>
   <div class="section-title" style="font-size:clamp(1.8rem,4vw,2.8rem);margin-bottom:0.5rem;">Nuestro historial habla por sí solo</div>
-  <div class="section-sub" style="margin-bottom:2.5rem;">Verificado automáticamente con resultados oficiales</div>
+  <div class="section-sub" style="margin-bottom:2.5rem;">Resultados verificados automáticamente con datos oficiales de la API de ESPN — sin intervención humana</div>
   <div id="hist-stats" style="display:flex;justify-content:center;gap:3rem;flex-wrap:wrap;margin-bottom:2.5rem;">
     <div style="text-align:center">
-      <div id="hist-pct" style="font-size:3.5rem;font-weight:900;color:var(--dorado)">--</div>
+      <div id="hist-pct" style="font-size:3.5rem;font-weight:900;color:var(--dorado)">…</div>
       <div style="color:var(--gray-400);font-size:0.9rem;text-transform:uppercase;letter-spacing:1px">Aciertos</div>
     </div>
     <div style="text-align:center">
-      <div id="hist-total" style="font-size:3.5rem;font-weight:900;color:var(--dorado)">--</div>
+      <div id="hist-total" style="font-size:3.5rem;font-weight:900;color:var(--dorado)">…</div>
       <div style="color:var(--gray-400);font-size:0.9rem;text-transform:uppercase;letter-spacing:1px">Predicciones</div>
     </div>
   </div>
@@ -603,8 +612,9 @@ fetch('static/historial.json').then(r=>r.json()).then(h=>{
     <a href="#como-funciona">¿Cómo funciona?</a>
     <a href="static/predictions/index.html">Predicciones de hoy</a>
     <a href="privacy.html">Privacidad</a>
+    <a href="mailto:contacto@prediktor.app">Contacto</a>
   </div>
-  <div class="footer-copy">© 2026 PREDIKTOR — Sistema de predicción deportiva basado en datos</div>
+  <div class="footer-copy">© 2026 PREDIKTOR — Sistema de predicción deportiva basado en datos · contacto@prediktor.app</div>
 </footer>
 
 <script>
