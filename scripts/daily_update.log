@@ -1,0 +1,569 @@
+
+============================================
+  PREDIKTOR daily update — 2026-03-31 13:16
+============================================
+[1/3] Actualizando estadísticas...
+  → Colombia...
+2026-03-31 13:17:00 - INFO: 🔥 Iniciando extracción completa para liga: COLOMBIA
+2026-03-31 13:17:00 - INFO: 📊 Extrayendo datos de posiciones...
+2026-03-31 13:17:02 - INFO: ✅ 1. A. Nacional - 30 pts
+2026-03-31 13:17:02 - INFO: ✅ 2. Deportivo Pasto - 27 pts
+2026-03-31 13:17:02 - INFO: ✅ 3. Junior - 25 pts
+2026-03-31 13:17:02 - INFO: ✅ 4. Once Caldas - 24 pts
+2026-03-31 13:17:02 - INFO: ✅ 5. Deportes Tolima - 23 pts
+2026-03-31 13:17:02 - INFO: ✅ 6. Millonarios - 21 pts
+2026-03-31 13:17:02 - INFO: ✅ 7. America de Cali - 21 pts
+2026-03-31 13:17:02 - INFO: ✅ 8. La Equidad - 21 pts
+2026-03-31 13:17:02 - INFO: ✅ 9. A. Bucaramanga - 19 pts
+2026-03-31 13:17:02 - INFO: ✅ 10. Deportivo Cali - 19 pts
+2026-03-31 13:17:02 - INFO: ✅ 11. R. Aguilas - 19 pts
+2026-03-31 13:17:02 - INFO: ✅ 12. Santa Fe - 18 pts
+2026-03-31 13:17:02 - INFO: ✅ 13. Llaneros - 17 pts
+2026-03-31 13:17:02 - INFO: ✅ 14. I. Medelin - 16 pts
+2026-03-31 13:17:02 - INFO: ✅ 15. Fortaleza CEIF - 15 pts
+2026-03-31 13:17:02 - INFO: ✅ 16. Cucuta - 11 pts
+2026-03-31 13:17:02 - INFO: ✅ 17. A. Petrolera - 11 pts
+2026-03-31 13:17:02 - INFO: ✅ 18. Jaguares de C. - 11 pts
+2026-03-31 13:17:02 - INFO: ✅ 19. Boyaca Chico - 8 pts
+2026-03-31 13:17:02 - INFO: ✅ 20. D. Pereira - 6 pts
+2026-03-31 13:17:02 - INFO: ✅ Posiciones extraídas: 20 equipos
+2026-03-31 13:17:02 - INFO: 🚩 Extrayendo datos de córners...
+2026-03-31 13:17:03 - WARNING: Error en la solicitud (intento 1/3): 404 Client Error: Not Found for url: https://www.soccerstats.com/table.asp?league=colombia&tid=cr
+2026-03-31 13:17:03 - WARNING: Error en la solicitud (intento 2/3): 404 Client Error: Not Found for url: https://www.soccerstats.com/table.asp?league=colombia&tid=cr
+2026-03-31 13:17:04 - WARNING: Error en la solicitud (intento 3/3): 404 Client Error: Not Found for url: https://www.soccerstats.com/table.asp?league=colombia&tid=cr
+2026-03-31 13:17:04 - ERROR: Error en scrape_corners_data: 404 Client Error: Not Found for url: https://www.soccerstats.com/table.asp?league=colombia&tid=cr
+2026-03-31 13:17:04 - INFO: ⚽ Extrayendo datos de goles...
+2026-03-31 13:17:05 - INFO: ✅ Goals extraídos: 21 equipos
+2026-03-31 13:17:05 - INFO: 🎉 Datos completos guardados en static/colombia_stats.json
+
+📋 RESUMEN FINAL:
+   📊 Posiciones: 20 equipos
+   🚩 Corners: 0 equipos
+   ⚽ Goals: 21 equipos
+   📁 Archivo: static/colombia_stats.json
+
+🏆 TOP 5 COMPLETO:
+
+1. A. Nacional - 30 pts
+   ⚽ Over 1.5: 85%
+   ⚽ Over 2.5: 77%
+   ⚽ BTS: 38%
+
+2. Deportivo Pasto - 27 pts
+   ⚽ Over 1.5: 79%
+   ⚽ Over 2.5: 57%
+   ⚽ BTS: 57%
+
+3. Junior - 25 pts
+   ⚽ Over 1.5: 93%
+   ⚽ Over 2.5: 57%
+   ⚽ BTS: 50%
+
+4. Once Caldas - 24 pts
+   ⚽ Over 1.5: 100%
+   ⚽ Over 2.5: 50%
+   ⚽ BTS: 86%
+
+5. Deportes Tolima - 23 pts
+   ⚽ Over 1.5: 69%
+   ⚽ Over 2.5: 31%
+   ⚽ BTS: 46%
+    OK
+  → Argentina...
+2026-03-31 13:17:05 - INFO: 🔥 Iniciando extracción completa para liga: ARGENTINA
+2026-03-31 13:17:05 - INFO: 📊 Extrayendo datos de posiciones...
+2026-03-31 13:17:06 - INFO: ✅ 1. Velez Sarsfield - 22 pts
+2026-03-31 13:17:06 - INFO: ✅ 2. Estudiantes - 21 pts
+2026-03-31 13:17:06 - INFO: ✅ 3. Defensa y J. - 19 pts
+2026-03-31 13:17:06 - INFO: ✅ 4. Lanus - 18 pts
+2026-03-31 13:17:06 - INFO: ✅ 5. T. de Cordoba - 18 pts
+2026-03-31 13:17:06 - INFO: ✅ 6. Boca Juniors - 17 pts
+2026-03-31 13:17:06 - INFO: ✅ 7. Union Santa Fe - 16 pts
+2026-03-31 13:17:06 - INFO: ✅ 8. Independiente - 14 pts
+2026-03-31 13:17:06 - INFO: ✅ 9. San Lorenzo - 14 pts
+2026-03-31 13:17:06 - INFO: ✅ 10. Platense - 14 pts
+2026-03-31 13:17:06 - INFO: ✅ 11. Central Cordoba - 12 pts
+2026-03-31 13:17:06 - INFO: ✅ 12. Instituto - 11 pts
+2026-03-31 13:17:06 - INFO: ✅ 13. G. Mendoza - 9 pts
+2026-03-31 13:17:06 - INFO: ✅ 14. D. Riestra - 7 pts
+2026-03-31 13:17:06 - INFO: ✅ 15. Newells - 6 pts
+2026-03-31 13:17:06 - INFO: ✅ 16. I. Rivadavia - 23 pts
+2026-03-31 13:17:06 - INFO: ✅ 17. I. Rivadavia - 23 pts
+2026-03-31 13:17:06 - INFO: ✅ 18. River Plate - 20 pts
+2026-03-31 13:17:06 - INFO: ✅ 19. Belgrano - 19 pts
+2026-03-31 13:17:06 - INFO: ✅ 20. Racing Club - 18 pts
+2026-03-31 13:17:06 - INFO: ✅ Posiciones extraídas: 20 equipos
+2026-03-31 13:17:06 - INFO: 🚩 Extrayendo datos de córners...
+2026-03-31 13:17:07 - WARNING: Error en la solicitud (intento 1/3): 404 Client Error: Not Found for url: https://www.soccerstats.com/table.asp?league=argentina&tid=cr
+2026-03-31 13:17:07 - WARNING: Error en la solicitud (intento 2/3): 404 Client Error: Not Found for url: https://www.soccerstats.com/table.asp?league=argentina&tid=cr
+2026-03-31 13:17:08 - WARNING: Error en la solicitud (intento 3/3): 404 Client Error: Not Found for url: https://www.soccerstats.com/table.asp?league=argentina&tid=cr
+2026-03-31 13:17:08 - ERROR: Error en scrape_corners_data: 404 Client Error: Not Found for url: https://www.soccerstats.com/table.asp?league=argentina&tid=cr
+2026-03-31 13:17:08 - INFO: ⚽ Extrayendo datos de goles...
+2026-03-31 13:17:09 - INFO: ✅ Goals extraídos: 31 equipos
+2026-03-31 13:17:09 - INFO: 🎉 Datos completos guardados en static/argentina_stats.json
+
+📋 RESUMEN FINAL:
+   📊 Posiciones: 19 equipos
+   🚩 Corners: 0 equipos
+   ⚽ Goals: 31 equipos
+   📁 Archivo: static/argentina_stats.json
+
+🏆 TOP 5 COMPLETO:
+
+1. Velez Sarsfield - 22 pts
+   ⚽ Over 1.5: 55%
+   ⚽ Over 2.5: 18%
+   ⚽ BTS: 45%
+
+2. Estudiantes - 21 pts
+   ⚽ Over 1.5: 45%
+   ⚽ Over 2.5: 27%
+   ⚽ BTS: 27%
+
+3. Defensa y J. - 19 pts
+   ⚽ Over 1.5: 64%
+   ⚽ Over 2.5: 18%
+   ⚽ BTS: 55%
+
+4. Lanus - 18 pts
+   ⚽ Over 1.5: 82%
+   ⚽ Over 2.5: 55%
+   ⚽ BTS: 55%
+
+5. T. de Cordoba - 18 pts
+   ⚽ Over 1.5: 73%
+   ⚽ Over 2.5: 45%
+   ⚽ BTS: 55%
+    OK
+  → Premier...
+2026-03-31 13:17:09 - INFO: 🔥 Iniciando extracción completa para liga: ENGLAND
+2026-03-31 13:17:09 - INFO: 📊 Extrayendo datos de posiciones...
+2026-03-31 13:17:10 - INFO: ✅ 1. Arsenal - 70 pts
+2026-03-31 13:17:10 - INFO: ✅ 2. Manchester City - 61 pts
+2026-03-31 13:17:10 - INFO: ✅ 3. Manchester Utd - 55 pts
+2026-03-31 13:17:10 - INFO: ✅ 4. Aston Villa - 54 pts
+2026-03-31 13:17:10 - INFO: ✅ 5. Liverpool - 49 pts
+2026-03-31 13:17:10 - INFO: ✅ 6. Chelsea - 48 pts
+2026-03-31 13:17:10 - INFO: ✅ 7. Brentford - 46 pts
+2026-03-31 13:17:10 - INFO: ✅ 8. Everton - 46 pts
+2026-03-31 13:17:10 - INFO: ✅ 9. Fulham - 44 pts
+2026-03-31 13:17:10 - INFO: ✅ 10. Brighton - 43 pts
+2026-03-31 13:17:10 - INFO: ✅ 11. Sunderland - 43 pts
+2026-03-31 13:17:10 - INFO: ✅ 12. Newcastle Utd - 42 pts
+2026-03-31 13:17:10 - INFO: ✅ 13. Bournemouth - 42 pts
+2026-03-31 13:17:10 - INFO: ✅ 14. Crystal Palace - 39 pts
+2026-03-31 13:17:10 - INFO: ✅ 15. Leeds Utd - 33 pts
+2026-03-31 13:17:10 - INFO: ✅ 16. Nottm Forest - 32 pts
+2026-03-31 13:17:10 - INFO: ✅ 17. Tottenham - 30 pts
+2026-03-31 13:17:10 - INFO: ✅ 18. West Ham Utd - 29 pts
+2026-03-31 13:17:10 - INFO: ✅ 19. Burnley - 20 pts
+2026-03-31 13:17:10 - INFO: ✅ 20. Wolverhampton - 17 pts
+2026-03-31 13:17:10 - INFO: ✅ Posiciones extraídas: 20 equipos
+2026-03-31 13:17:10 - INFO: 🚩 Extrayendo datos de córners...
+2026-03-31 13:17:11 - INFO: ✅ Corners extraídos: 20 equipos
+2026-03-31 13:17:11 - INFO: ⚽ Extrayendo datos de goles...
+2026-03-31 13:17:11 - INFO: ✅ Goals extraídos: 21 equipos
+2026-03-31 13:17:11 - INFO: 🎉 Datos completos guardados en static/england_stats.json
+
+📋 RESUMEN FINAL:
+   📊 Posiciones: 20 equipos
+   🚩 Corners: 20 equipos
+   ⚽ Goals: 21 equipos
+   📁 Archivo: static/england_stats.json
+
+🏆 TOP 5 COMPLETO:
+
+1. Arsenal - 70 pts
+   🚩 Corners Local: 5.93
+   🚩 Corners Visitante: 5.75
+   ⚽ Over 1.5: 74%
+   ⚽ Over 2.5: 52%
+   ⚽ BTS: 48%
+
+2. Manchester City - 61 pts
+   🚩 Corners Local: 6.6
+   🚩 Corners Visitante: 4.73
+   ⚽ Over 1.5: 87%
+   ⚽ Over 2.5: 60%
+   ⚽ BTS: 50%
+
+3. Manchester Utd - 55 pts
+   🚩 Corners Local: 4.8
+   🚩 Corners Visitante: 4.38
+   ⚽ Over 1.5: 87%
+   ⚽ Over 2.5: 61%
+   ⚽ BTS: 74%
+
+4. Aston Villa - 54 pts
+   🚩 Corners Local: 5.75
+   🚩 Corners Visitante: 4.93
+   ⚽ Over 1.5: 71%
+   ⚽ Over 2.5: 48%
+   ⚽ BTS: 52%
+
+5. Liverpool - 49 pts
+   🚩 Corners Local: 5.93
+   🚩 Corners Visitante: 6.0
+   ⚽ Over 1.5: 81%
+   ⚽ Over 2.5: 61%
+   ⚽ BTS: 65%
+    OK
+  → La Liga...
+2026-03-31 13:17:11 - INFO: 🔥 Iniciando extracción completa para liga: SPAIN
+2026-03-31 13:17:11 - INFO: 📊 Extrayendo datos de posiciones...
+2026-03-31 13:17:13 - INFO: ✅ 1. FC Barcelona - 73 pts
+2026-03-31 13:17:13 - INFO: ✅ 2. Real Madrid - 69 pts
+2026-03-31 13:17:13 - INFO: ✅ 3. Villarreal - 58 pts
+2026-03-31 13:17:13 - INFO: ✅ 4. Atletico Madrid - 57 pts
+2026-03-31 13:17:13 - INFO: ✅ 5. Real Betis - 44 pts
+2026-03-31 13:17:13 - INFO: ✅ 6. Celta Vigo - 41 pts
+2026-03-31 13:17:13 - INFO: ✅ 7. Real Sociedad - 38 pts
+2026-03-31 13:17:13 - INFO: ✅ 8. Getafe - 38 pts
+2026-03-31 13:17:13 - INFO: ✅ 9. Athletic Bilbao - 38 pts
+2026-03-31 13:17:13 - INFO: ✅ 10. Osasuna - 37 pts
+2026-03-31 13:17:13 - INFO: ✅ 11. Espanyol - 37 pts
+2026-03-31 13:17:13 - INFO: ✅ 12. Valencia - 35 pts
+2026-03-31 13:17:13 - INFO: ✅ 13. Girona - 34 pts
+2026-03-31 13:17:13 - INFO: ✅ 14. Rayo Vallecano - 32 pts
+2026-03-31 13:17:13 - INFO: ✅ 15. Sevilla FC - 31 pts
+2026-03-31 13:17:13 - INFO: ✅ 16. Alaves - 31 pts
+2026-03-31 13:17:13 - INFO: ✅ 17. Elche - 29 pts
+2026-03-31 13:17:13 - INFO: ✅ 18. Mallorca - 28 pts
+2026-03-31 13:17:13 - INFO: ✅ 19. Levante - 26 pts
+2026-03-31 13:17:13 - INFO: ✅ 20. Real Oviedo - 21 pts
+2026-03-31 13:17:13 - INFO: ✅ Posiciones extraídas: 20 equipos
+2026-03-31 13:17:13 - INFO: 🚩 Extrayendo datos de córners...
+2026-03-31 13:17:14 - INFO: ✅ Corners extraídos: 20 equipos
+2026-03-31 13:17:14 - INFO: ⚽ Extrayendo datos de goles...
+2026-03-31 13:17:14 - INFO: ✅ Goals extraídos: 21 equipos
+2026-03-31 13:17:14 - INFO: 🎉 Datos completos guardados en static/spain_stats.json
+
+📋 RESUMEN FINAL:
+   📊 Posiciones: 20 equipos
+   🚩 Corners: 20 equipos
+   ⚽ Goals: 21 equipos
+   📁 Archivo: static/spain_stats.json
+
+🏆 TOP 5 COMPLETO:
+
+1. FC Barcelona - 73 pts
+   🚩 Corners Local: 7.53
+   🚩 Corners Visitante: 6.86
+   ⚽ Over 1.5: 93%
+   ⚽ Over 2.5: 79%
+   ⚽ BTS: 59%
+
+2. Real Madrid - 69 pts
+   🚩 Corners Local: 6.53
+   🚩 Corners Visitante: 6.29
+   ⚽ Over 1.5: 86%
+   ⚽ Over 2.5: 62%
+   ⚽ BTS: 55%
+
+3. Villarreal - 58 pts
+   🚩 Corners Local: 5.13
+   🚩 Corners Visitante: 2.64
+   ⚽ Over 1.5: 93%
+   ⚽ Over 2.5: 59%
+   ⚽ BTS: 59%
+
+4. Atletico Madrid - 57 pts
+   🚩 Corners Local: 8.33
+   🚩 Corners Visitante: 4.93
+   ⚽ Over 1.5: 72%
+   ⚽ Over 2.5: 45%
+   ⚽ BTS: 48%
+
+5. Real Betis - 44 pts
+   🚩 Corners Local: 4.29
+   🚩 Corners Visitante: 4.8
+   ⚽ Over 1.5: 90%
+   ⚽ Over 2.5: 48%
+   ⚽ BTS: 66%
+    OK
+  → Serie A...
+2026-03-31 13:17:15 - INFO: 🔥 Iniciando extracción completa para liga: ITALY
+2026-03-31 13:17:15 - INFO: 📊 Extrayendo datos de posiciones...
+2026-03-31 13:17:16 - INFO: ✅ 1. Inter Milan - 69 pts
+2026-03-31 13:17:16 - INFO: ✅ 2. AC Milan - 63 pts
+2026-03-31 13:17:16 - INFO: ✅ 3. Napoli - 62 pts
+2026-03-31 13:17:16 - INFO: ✅ 4. Como - 57 pts
+2026-03-31 13:17:16 - INFO: ✅ 5. Juventus - 54 pts
+2026-03-31 13:17:16 - INFO: ✅ 6. AS Roma - 54 pts
+2026-03-31 13:17:16 - INFO: ✅ 7. Atalanta - 50 pts
+2026-03-31 13:17:16 - INFO: ✅ 8. Lazio - 43 pts
+2026-03-31 13:17:16 - INFO: ✅ 9. Bologna - 42 pts
+2026-03-31 13:17:16 - INFO: ✅ 10. Sassuolo - 39 pts
+2026-03-31 13:17:16 - INFO: ✅ 11. Udinese - 39 pts
+2026-03-31 13:17:16 - INFO: ✅ 12. Parma - 34 pts
+2026-03-31 13:17:16 - INFO: ✅ 13. Genoa - 33 pts
+2026-03-31 13:17:16 - INFO: ✅ 14. Torino - 33 pts
+2026-03-31 13:17:16 - INFO: ✅ 15. Cagliari - 30 pts
+2026-03-31 13:17:16 - INFO: ✅ 16. Fiorentina - 29 pts
+2026-03-31 13:17:16 - INFO: ✅ 17. Cremonese - 27 pts
+2026-03-31 13:17:16 - INFO: ✅ 18. Lecce - 27 pts
+2026-03-31 13:17:16 - INFO: ✅ 19. Hellas Verona - 18 pts
+2026-03-31 13:17:16 - INFO: ✅ 20. Pisa - 18 pts
+2026-03-31 13:17:16 - INFO: ✅ Posiciones extraídas: 20 equipos
+2026-03-31 13:17:16 - INFO: 🚩 Extrayendo datos de córners...
+2026-03-31 13:17:16 - INFO: ✅ Corners extraídos: 20 equipos
+2026-03-31 13:17:16 - INFO: ⚽ Extrayendo datos de goles...
+2026-03-31 13:17:17 - INFO: ✅ Goals extraídos: 21 equipos
+2026-03-31 13:17:17 - INFO: 🎉 Datos completos guardados en static/italy_stats.json
+
+📋 RESUMEN FINAL:
+   📊 Posiciones: 20 equipos
+   🚩 Corners: 20 equipos
+   ⚽ Goals: 21 equipos
+   📁 Archivo: static/italy_stats.json
+
+🏆 TOP 5 COMPLETO:
+
+1. Inter Milan - 69 pts
+   🚩 Corners Local: 7.4
+   🚩 Corners Visitante: 6.0
+   ⚽ Over 1.5: 80%
+   ⚽ Over 2.5: 50%
+   ⚽ BTS: 43%
+
+2. AC Milan - 63 pts
+   🚩 Corners Local: 5.47
+   🚩 Corners Visitante: 3.8
+   ⚽ Over 1.5: 67%
+   ⚽ Over 2.5: 43%
+   ⚽ BTS: 50%
+
+3. Napoli - 62 pts
+   🚩 Corners Local: 6.14
+   🚩 Corners Visitante: 4.63
+   ⚽ Over 1.5: 70%
+   ⚽ Over 2.5: 57%
+   ⚽ BTS: 53%
+
+4. Como - 57 pts
+   🚩 Corners Local: 4.75
+   🚩 Corners Visitante: 3.64
+   ⚽ Over 1.5: 77%
+   ⚽ Over 2.5: 47%
+   ⚽ BTS: 43%
+
+5. Juventus - 54 pts
+   🚩 Corners Local: 6.13
+   🚩 Corners Visitante: 4.33
+   ⚽ Over 1.5: 77%
+   ⚽ Over 2.5: 47%
+   ⚽ BTS: 50%
+    OK
+  → Bundesliga...
+2026-03-31 13:17:17 - INFO: 🔥 Iniciando extracción completa para liga: GERMANY
+2026-03-31 13:17:17 - INFO: 📊 Extrayendo datos de posiciones...
+2026-03-31 13:17:18 - INFO: ✅ 1. Bayern Munich - 70 pts
+2026-03-31 13:17:18 - INFO: ✅ 2. Dortmund - 61 pts
+2026-03-31 13:17:18 - INFO: ✅ 3. Stuttgart - 53 pts
+2026-03-31 13:17:18 - INFO: ✅ 4. RB Leipzig - 50 pts
+2026-03-31 13:17:18 - INFO: ✅ 5. Hoffenheim - 50 pts
+2026-03-31 13:17:18 - INFO: ✅ 6. Leverkusen - 46 pts
+2026-03-31 13:17:18 - INFO: ✅ 7. E. Frankfurt - 38 pts
+2026-03-31 13:17:18 - INFO: ✅ 8. Freiburg - 37 pts
+2026-03-31 13:17:18 - INFO: ✅ 9. Union Berlin - 31 pts
+2026-03-31 13:17:18 - INFO: ✅ 10. FC Augsburg - 31 pts
+2026-03-31 13:17:18 - INFO: ✅ 11. FSV Mainz - 30 pts
+2026-03-31 13:17:18 - INFO: ✅ 12. Hamburger SV - 30 pts
+2026-03-31 13:17:18 - INFO: ✅ 13. Monchengladbach - 29 pts
+2026-03-31 13:17:18 - INFO: ✅ 14. Werder Bremen - 28 pts
+2026-03-31 13:17:18 - INFO: ✅ 15. FC Koln - 26 pts
+2026-03-31 13:17:18 - INFO: ✅ 16. Sankt Pauli - 24 pts
+2026-03-31 13:17:18 - INFO: ✅ 17. Wolfsburg - 21 pts
+2026-03-31 13:17:18 - INFO: ✅ 18. Heidenheim - 15 pts
+2026-03-31 13:17:18 - INFO: ✅ Posiciones extraídas: 18 equipos
+2026-03-31 13:17:18 - INFO: 🚩 Extrayendo datos de córners...
+2026-03-31 13:17:19 - INFO: ✅ Corners extraídos: 18 equipos
+2026-03-31 13:17:19 - INFO: ⚽ Extrayendo datos de goles...
+2026-03-31 13:17:20 - INFO: ✅ Goals extraídos: 19 equipos
+2026-03-31 13:17:20 - INFO: 🎉 Datos completos guardados en static/germany_stats.json
+
+📋 RESUMEN FINAL:
+   📊 Posiciones: 18 equipos
+   🚩 Corners: 18 equipos
+   ⚽ Goals: 19 equipos
+   📁 Archivo: static/germany_stats.json
+
+🏆 TOP 5 COMPLETO:
+
+1. Bayern Munich - 70 pts
+   🚩 Corners Local: 7.21
+   🚩 Corners Visitante: 5.15
+   ⚽ Over 1.5: 100%
+   ⚽ Over 2.5: 96%
+   ⚽ BTS: 63%
+
+2. Dortmund - 61 pts
+   🚩 Corners Local: 7.64
+   🚩 Corners Visitante: 3.62
+   ⚽ Over 1.5: 89%
+   ⚽ Over 2.5: 59%
+   ⚽ BTS: 56%
+
+3. Stuttgart - 53 pts
+   🚩 Corners Local: 5.08
+   🚩 Corners Visitante: 5.64
+   ⚽ Over 1.5: 81%
+   ⚽ Over 2.5: 74%
+   ⚽ BTS: 59%
+
+4. RB Leipzig - 50 pts
+   🚩 Corners Local: 5.43
+   🚩 Corners Visitante: 5.31
+   ⚽ Over 1.5: 85%
+   ⚽ Over 2.5: 67%
+   ⚽ BTS: 56%
+
+5. Hoffenheim - 50 pts
+   🚩 Corners Local: 6.62
+   🚩 Corners Visitante: 4.71
+   ⚽ Over 1.5: 85%
+   ⚽ Over 2.5: 67%
+   ⚽ BTS: 63%
+    OK
+  → Ligue 1...
+2026-03-31 13:17:20 - INFO: 🔥 Iniciando extracción completa para liga: FRANCE
+2026-03-31 13:17:20 - INFO: 📊 Extrayendo datos de posiciones...
+2026-03-31 13:17:21 - INFO: ✅ 1. Paris SG - 60 pts
+2026-03-31 13:17:21 - INFO: ✅ 2. Lens - 59 pts
+2026-03-31 13:17:21 - INFO: ✅ 3. Marseille - 49 pts
+2026-03-31 13:17:21 - INFO: ✅ 4. Lyon - 47 pts
+2026-03-31 13:17:21 - INFO: ✅ 5. Lille - 47 pts
+2026-03-31 13:17:21 - INFO: ✅ 6. Monaco - 46 pts
+2026-03-31 13:17:21 - INFO: ✅ 7. Rennes - 44 pts
+2026-03-31 13:17:21 - INFO: ✅ 8. Strasbourg - 40 pts
+2026-03-31 13:17:21 - INFO: ✅ 9. Toulouse - 37 pts
+2026-03-31 13:17:21 - INFO: ✅ 10. Lorient - 37 pts
+2026-03-31 13:17:21 - INFO: ✅ 11. Brest - 36 pts
+2026-03-31 13:17:21 - INFO: ✅ 12. Angers - 32 pts
+2026-03-31 13:17:21 - INFO: ✅ 13. Paris FC - 31 pts
+2026-03-31 13:17:21 - INFO: ✅ 14. Le Havre - 27 pts
+2026-03-31 13:17:21 - INFO: ✅ 15. Nice - 27 pts
+2026-03-31 13:17:21 - INFO: ✅ 16. Auxerre - 22 pts
+2026-03-31 13:17:21 - INFO: ✅ 17. Nantes - 17 pts
+2026-03-31 13:17:21 - INFO: ✅ 18. Metz - 14 pts
+2026-03-31 13:17:21 - INFO: ✅ Posiciones extraídas: 18 equipos
+2026-03-31 13:17:21 - INFO: 🚩 Extrayendo datos de córners...
+2026-03-31 13:17:22 - INFO: ✅ Corners extraídos: 18 equipos
+2026-03-31 13:17:22 - INFO: ⚽ Extrayendo datos de goles...
+2026-03-31 13:17:22 - INFO: ✅ Goals extraídos: 19 equipos
+2026-03-31 13:17:22 - INFO: 🎉 Datos completos guardados en static/france_stats.json
+
+📋 RESUMEN FINAL:
+   📊 Posiciones: 18 equipos
+   🚩 Corners: 18 equipos
+   ⚽ Goals: 19 equipos
+   📁 Archivo: static/france_stats.json
+
+🏆 TOP 5 COMPLETO:
+
+1. Paris SG - 60 pts
+   🚩 Corners Local: 6.42
+   🚩 Corners Visitante: 5.64
+   ⚽ Over 1.5: 73%
+   ⚽ Over 2.5: 58%
+   ⚽ BTS: 38%
+
+2. Lens - 59 pts
+   🚩 Corners Local: 6.21
+   🚩 Corners Visitante: 5.46
+   ⚽ Over 1.5: 81%
+   ⚽ Over 2.5: 67%
+   ⚽ BTS: 52%
+
+3. Marseille - 49 pts
+   🚩 Corners Local: 5.5
+   🚩 Corners Visitante: 4.46
+   ⚽ Over 1.5: 70%
+   ⚽ Over 2.5: 63%
+   ⚽ BTS: 48%
+
+4. Lyon - 47 pts
+   🚩 Corners Local: 5.69
+   🚩 Corners Visitante: 4.93
+   ⚽ Over 1.5: 59%
+   ⚽ Over 2.5: 52%
+   ⚽ BTS: 48%
+
+5. Lille - 47 pts
+   🚩 Corners Local: 6.31
+   🚩 Corners Visitante: 5.64
+   ⚽ Over 1.5: 67%
+   ⚽ Over 2.5: 41%
+   ⚽ BTS: 44%
+    OK
+  → Brasil...
+2026-03-31 13:17:23 - INFO: 🔥 Liga: brazil
+2026-03-31 13:17:25 - INFO: ✅ Corners extraídos: 20 equipos
+2026-03-31 13:17:26 - INFO: ✅ Goals extraídos: 21 equipos
+2026-03-31 13:17:37 - INFO: ✅ AdamChoi: 0 partidos
+
+✅ Archivo generado: static/brazil_stats.json
+    OK
+  → Champions...
+2026-03-31 13:17:38 - INFO: 🔥 Iniciando liga: uefa-champions-league
+2026-03-31 13:17:38 - WARNING: Error en la solicitud (intento 1/3): 404 Client Error: Not Found for url: https://www.soccerstats.com/latest.asp?league=uefa-champions-league
+2026-03-31 13:17:38 - WARNING: Error en la solicitud (intento 2/3): 404 Client Error: Not Found for url: https://www.soccerstats.com/latest.asp?league=uefa-champions-league
+2026-03-31 13:17:39 - WARNING: Error en la solicitud (intento 3/3): 404 Client Error: Not Found for url: https://www.soccerstats.com/latest.asp?league=uefa-champions-league
+2026-03-31 13:17:39 - ERROR: Error en posiciones: 404 Client Error: Not Found for url: https://www.soccerstats.com/latest.asp?league=uefa-champions-league
+2026-03-31 13:17:40 - INFO: 🌐 Extrayendo corners de FootyStats
+2026-03-31 13:17:45 - INFO: 📊 Analizando 27 tablas para corners
+2026-03-31 13:17:45 - INFO:    Tabla 0: 139 filas (potencial corners)
+2026-03-31 13:17:45 - INFO:    Tabla 2: 7 filas (potencial corners)
+2026-03-31 13:17:45 - INFO:    Tabla 4: 7 filas (potencial corners)
+2026-03-31 13:17:45 - INFO:    Tabla 6: 7 filas (potencial corners)
+2026-03-31 13:17:45 - INFO:    Tabla 8: 7 filas (potencial corners)
+2026-03-31 13:17:45 - INFO:    Tabla 10: 7 filas (potencial corners)
+2026-03-31 13:17:45 - INFO:    Tabla 12: 7 filas (potencial corners)
+2026-03-31 13:17:45 - INFO:    Tabla 14: 7 filas (potencial corners)
+2026-03-31 13:17:45 - INFO:    Tabla 16: 7 filas (potencial corners)
+2026-03-31 13:17:45 - INFO:    Tabla 18: 7 filas (potencial corners)
+2026-03-31 13:17:45 - INFO:    Tabla 20: 7 filas (potencial corners)
+2026-03-31 13:17:45 - INFO:    Tabla 22: 7 filas (potencial corners)
+2026-03-31 13:17:45 - INFO:    Tabla 24: 7 filas (potencial corners)
+2026-03-31 13:17:45 - INFO:    Tabla 25: 83 filas (potencial corners)
+2026-03-31 13:17:45 - INFO: ✅ Corners extraído: 95 equipos
+2026-03-31 13:17:45 - WARNING: Error en la solicitud (intento 1/3): 404 Client Error: Not Found for url: https://www.soccerstats.com/table.asp?league=uefa-champions-league&tid=c
+2026-03-31 13:17:45 - WARNING: Error en la solicitud (intento 2/3): 404 Client Error: Not Found for url: https://www.soccerstats.com/table.asp?league=uefa-champions-league&tid=c
+2026-03-31 13:17:46 - WARNING: Error en la solicitud (intento 3/3): 404 Client Error: Not Found for url: https://www.soccerstats.com/table.asp?league=uefa-champions-league&tid=c
+2026-03-31 13:17:46 - ERROR: Error en scrape_goals_data: 404 Client Error: Not Found for url: https://www.soccerstats.com/table.asp?league=uefa-champions-league&tid=c
+2026-03-31 13:17:55 - INFO: ✅ AdamChoi: 0 partidos
+2026-03-31 13:17:56 - INFO: 🌐 Conectando a FootyStats: https://footystats.org/europe/uefa-champions-league
+2026-03-31 13:17:57 - INFO: ⏳ Esperando carga completa (máx 15 segundos)...
+2026-03-31 13:18:00 - INFO: 📊 Tablas encontradas: 27
+2026-03-31 13:18:00 - INFO:    Tabla 1: 139 filas
+2026-03-31 13:18:00 - INFO:    Tabla 2: 4 filas
+2026-03-31 13:18:00 - INFO:    Tabla 3: 7 filas
+2026-03-31 13:18:00 - INFO:    Tabla 4: 4 filas
+2026-03-31 13:18:00 - INFO:    Tabla 5: 7 filas
+2026-03-31 13:18:00 - INFO:    Tabla 6: 4 filas
+2026-03-31 13:18:00 - INFO:    Tabla 7: 7 filas
+2026-03-31 13:18:00 - INFO:    Tabla 8: 4 filas
+2026-03-31 13:18:00 - INFO:    Tabla 9: 7 filas
+2026-03-31 13:18:00 - INFO:    Tabla 10: 4 filas
+2026-03-31 13:18:00 - INFO:    Tabla 11: 7 filas
+2026-03-31 13:18:00 - INFO:    Tabla 12: 4 filas
+2026-03-31 13:18:00 - INFO:    Tabla 13: 7 filas
+2026-03-31 13:18:00 - INFO:    Tabla 14: 4 filas
+2026-03-31 13:18:00 - INFO:    Tabla 15: 7 filas
+2026-03-31 13:18:00 - INFO:    Tabla 16: 4 filas
+2026-03-31 13:18:00 - INFO:    Tabla 17: 7 filas
+2026-03-31 13:18:00 - INFO:    Tabla 18: 4 filas
+2026-03-31 13:18:00 - INFO:    Tabla 19: 7 filas
+2026-03-31 13:18:00 - INFO:    Tabla 20: 4 filas
+2026-03-31 13:18:00 - INFO:    Tabla 21: 7 filas
+2026-03-31 13:18:00 - INFO:    Tabla 22: 4 filas
+2026-03-31 13:18:00 - INFO:    Tabla 23: 7 filas
+2026-03-31 13:18:00 - INFO:    Tabla 24: 4 filas
+2026-03-31 13:18:00 - INFO:    Tabla 25: 7 filas
+2026-03-31 13:18:00 - INFO:    Tabla 26: 83 filas
+2026-03-31 13:18:00 - INFO:    Tabla 27: 10 filas
+2026-03-31 13:18:00 - INFO: ✅ FootyStats extraído: 104 equipos
+
+✅ Archivo generado: static/uefa-champions-league_stats.json
+    OK
+  → NBA (background)...

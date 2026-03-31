@@ -1,0 +1,78 @@
+name: Predicciones diarias
+
+on:
+  schedule:
+    # Todos los días a las 12:00 UTC = 7:00am Colombia (UTC-5)
+    - cron: '0 12 * * *'
+  workflow_dispatch:
+    # Permite correrlo manualmente desde GitHub si es necesario
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clonar repositorio
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Instalar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Instalar dependencias
+        run: pip install requests beautifulsoup4 nba_api
+
+      - name: Actualizar stats Colombia
+        run: python3 scrapers/colombia.py
+        continue-on-error: true
+
+      - name: Actualizar stats Argentina
+        run: python3 scrapers/argentina.py
+        continue-on-error: true
+
+      - name: Actualizar stats Premier League
+        run: python3 scrapers/premier.py
+        continue-on-error: true
+
+      - name: Actualizar stats La Liga
+        run: python3 scrapers/españa.py
+        continue-on-error: true
+
+      - name: Actualizar stats Serie A
+        run: python3 scrapers/italia.py
+        continue-on-error: true
+
+      - name: Actualizar stats Bundesliga
+        run: python3 scrapers/bundesliga.py
+        continue-on-error: true
+
+      - name: Actualizar stats Ligue 1
+        run: python3 scrapers/francia.py
+        continue-on-error: true
+
+      - name: Actualizar stats Brasil
+        run: python3 scrapers/brazil.py
+        continue-on-error: true
+
+      - name: Actualizar stats Champions
+        run: python3 scrapers/champions.py
+        continue-on-error: true
+
+      - name: Actualizar stats NBA
+        run: python3 scrapers/nba_scraper.py
+        continue-on-error: true
+        timeout-minutes: 5
+
+      - name: Generar predicciones del día
+        run: python3 scrapers/generate_predictions.py
+
+      - name: Publicar cambios en GitHub
+        run: |
+          git config user.name "PREDIKTOR Bot"
+          git config user.email "bot@prediktor.app"
+          git add -A
+          git diff --cached --quiet && echo "Sin cambios" || git commit -m "chore: predicciones automáticas $(date '+%Y-%m-%d')"
+          git push
