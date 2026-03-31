@@ -25,6 +25,10 @@ jobs:
       - name: Instalar dependencias
         run: pip install requests beautifulsoup4 nba_api
 
+      - name: Registrar resultados de ayer (ESPN)
+        run: python3 scrapers/update_results.py
+        continue-on-error: true
+
       - name: Actualizar stats Colombia
         run: python3 scrapers/colombia.py
         continue-on-error: true
