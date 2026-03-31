@@ -284,13 +284,7 @@ def espn_fixtures(code):
         print(f"   ESPN error: {ex}"); return []
 
 def nba_fixtures():
-    if not BALLDONTLIE_KEY: return []
-    try:
-        r = requests.get(f"https://api.balldontlie.io/v1/games?dates[]={today}",
-            headers={"Authorization": BALLDONTLIE_KEY}, timeout=10)
-        return [(g["home_team"]["full_name"], g["visitor_team"]["full_name"]) for g in r.json().get("data", [])]
-    except Exception as ex:
-        print(f"   BallDontLie error: {ex}"); return []
+    return espn_fixtures("basketball/nba")
 
 def load(f):
     p = Path(f"static/{f}")
