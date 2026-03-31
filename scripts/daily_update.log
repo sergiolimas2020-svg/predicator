@@ -567,3 +567,69 @@
 ✅ Archivo generado: static/uefa-champions-league_stats.json
     OK
   → NBA (background)...
+=======================================================
+  NBA SCRAPER | nba_api | 2025-26
+=======================================================
+
+1. Cargando equipos NBA...
+   OK: 30 equipos
+
+2. Obteniendo standings...
+   OK: 30 equipos con standings
+
+3. Obteniendo stats de equipos...
+   OK: 30 equipos con stats
+
+4. Obteniendo stats de jugadores...
+   OK: 533 jugadores
+
+4b. Verificando equipo actual de jugadores traspasados...
+    (esto puede tardar ~6 min por rate limit de NBA.com)
+   ...procesando 50/533
+   ...procesando 100/533
+   ...procesando 150/533
+   ...procesando 200/533
+   ...procesando 250/533
+   ...procesando 300/533
+   ...procesando 350/533
+   ...procesando 400/533
+   ...procesando 450/533
+   ...procesando 500/533
+   OK: 0 traspasos detectados y corregidos
+
+5. Lesionados: no disponible en nba_api free (todos Active)
+
+6. Construyendo JSON...
+
+COMPLETADO:
+  30 equipos
+  533 jugadores
+  0 traspasos corregidos
+  0 lesionados
+  Archivo: static/nba_stats.json
+    NBA OK
+[2/3] Generando predicciones...
+Generando predicciones — 31 de marzo de 2026
+Hoy: 2026-03-31 | Acepta hasta 2026-04-01 05:59 UTC
+
+      [alias] 'Deportes Tolima' → 'Deportes Tolima'
+Candidatos totales: 5 | Publicando top 4 por valor
+
+   [64pts valor] Aldosivi vs Argentinos Juniors → Argentinos Juniors (63.5%) cuota justa 1.57
+   [62pts valor] Deportes Tolima vs Águilas Doradas → Deportes Tolima (62.2%) cuota justa 1.61
+   [59pts valor] Milwaukee Bucks vs Dallas Mavericks → Milwaukee Bucks (58.6%) cuota justa 1.71
+   [56pts valor] Detroit Pistons vs Toronto Raptors → Detroit Pistons (69.8%) cuota justa 1.43
+
+Generando archivos SEO...
+   sitemap.xml → 7 URLs
+   robots.txt generado
+Log guardado: 15 predicciones
+
+4 predicciones generadas!
+
+Proximo paso: registra tu sitemap en Google Search Console
+→ https://search.google.com/search-console
+→ Agrega propiedad: https://predicator-sergiolimas2020-svgs-projects.vercel.app
+→ Envia sitemap: https://predicator-sergiolimas2020-svgs-projects.vercel.app/sitemap.xml
+  OK
+[3/3] Publicando en GitHub...
