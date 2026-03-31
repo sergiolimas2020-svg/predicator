@@ -327,7 +327,7 @@
   <h1>Predicciones<br><span>Deportivas</span><br>con Datos Reales</h1>
   <p>Nuestro sistema analiza estadísticas de más de 10 ligas de fútbol y la NBA para detectar las apuestas con mayor valor cada día. Sin intuición — solo números.</p>
   <div class="hero-btns">
-    <a href="static/predictions/index.html" class="btn-primary">Ver predicciones de hoy →</a>
+    <a href="static/predictions/index.html" class="btn-primary">Ver picks de valor de hoy — gratis →</a>
   </div>
 </section>
 
@@ -422,13 +422,11 @@ fetch('static/historial.json').then(r=>r.json()).then(h=>{
 });
 </script>
 
-<section class="pick-demo">
+<section class="pick-demo" id="pick-demo-section" style="display:none">
   <div class="pick-demo-inner">
     <div class="section-label" style="text-align:center">Pick del día</div>
     <div class="section-title" style="font-size:clamp(1.8rem,4vw,2.5rem)">El pick más confiable de hoy</div>
-    <div id="pick-hoy" class="pick-card">
-      <div style="text-align:center;padding:2rem;color:var(--gris)">Cargando pick del día…</div>
-    </div>
+    <div id="pick-hoy" class="pick-card"></div>
   </div>
 </section>
 <script>
@@ -450,7 +448,7 @@ fetch('static/historial.json').then(r=>r.json()).then(h=>{
     const _d = new Date(); _d.setMinutes(_d.getMinutes() - _d.getTimezoneOffset());
   const hoy = _d.toISOString().slice(0,10);
     const deHoy = picks.filter(p=>p.fecha===hoy);
-    if(!deHoy.length){ document.getElementById('pick-hoy').innerHTML='<div style="text-align:center;padding:2rem;color:var(--gris)">No hay picks para hoy aún.</div>'; return; }
+    if(!deHoy.length){ return; /* sin picks hoy, sección permanece oculta */ }
 
     const conPct = deHoy.map(p=>({...p, pct:parseFloat((p.confianza||'0').replace(/[^0-9.]/g,''))}));
     const ordenados = conPct.sort((a,b)=>b.pct-a.pct);
@@ -476,12 +474,12 @@ fetch('static/historial.json').then(r=>r.json()).then(h=>{
         <div><div class="pick-rec-label">Recomendación del sistema</div><div class="pick-rec-val">✅ ${mejor.prediccion}</div></div>
         <div style="color:var(--gris);font-size:0.82rem;max-width:260px">Basado en estadísticas reales — ${mejor.fecha}.</div>
       </div>
-      <button class="pick-analisis-btn" onclick="this.nextElementSibling.classList.toggle('abierto');this.textContent=this.nextElementSibling.classList.contains('abierto')?'▲ Ocultar análisis':'▼ Ver análisis del pick'">▼ Ver análisis del pick</button>
-      <div class="pick-analisis-panel" id="analisis-panel"><div style="color:var(--gris);font-size:0.85rem">Cargando estadísticas…</div></div>`;
+      <div class="pick-analisis-panel abierto" id="analisis-panel"></div>`;
 
-    // Cargar estadísticas del equipo
+    // Mostrar sección y cargar estadísticas
+    document.getElementById('pick-demo-section').style.display = '';
     const statsFile = ligaArchivo[mejor.league];
-    if(!statsFile) return;
+    if(!statsFile){ document.getElementById('pick-demo-section').style.display = ''; return; }
     const stats = await fetch(statsFile).then(r=>r.json());
 
     const lineas = [];
@@ -523,8 +521,9 @@ fetch('static/historial.json').then(r=>r.json()).then(h=>{
 
     const panel = document.getElementById('analisis-panel');
     if(panel) panel.innerHTML = lineas.map(l=>`<div class="pick-analisis-fila">${l}</div>`).join('');
+    document.getElementById('pick-demo-section').style.display = '';
   } catch(e){
-    document.getElementById('pick-hoy').innerHTML='<div style="text-align:center;padding:2rem;color:var(--gris)">No hay picks disponibles.</div>';
+    /* si falla, la sección permanece oculta */
   }
 })();
 </script>
@@ -580,7 +579,7 @@ fetch('static/historial.json').then(r=>r.json()).then(h=>{
     <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">¿Con qué frecuencia se actualizan las predicciones?<span class="faq-icon">+</span></div><div class="faq-a">Las predicciones se actualizan cada mañana automáticamente con los datos más recientes de cada liga.</div></div>
     <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">¿Las predicciones son 100% seguras?<span class="faq-icon">+</span></div><div class="faq-a">No. Ninguna predicción deportiva es 100% segura. PREDIKTOR usa estadísticas reales para calcular probabilidades, pero el deporte tiene factores impredecibles. Usa las predicciones como herramienta de análisis.</div></div>
     <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">¿Qué incluye el canal VIP de Telegram?<span class="faq-icon">+</span></div><div class="faq-a">El canal VIP incluye todos los picks diarios con análisis completo, alertas antes de cada partido, cobertura de +10 ligas y NBA, e historial de resultados.</div></div>
-    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">¿Qué ligas de fútbol están disponibles?<span class="faq-icon">+</span></div><div class="faq-a">Liga Colombiana, Liga Argentina, Brasileirao, Premier League, La Liga, Serie A, Bundesliga, Ligue 1 y Süper Lig. Próximamente Champions League.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">¿Qué ligas de fútbol están disponibles?<span class="faq-icon">+</span></div><div class="faq-a">Liga Colombiana, Liga Argentina, Brasileirao, Premier League, La Liga, Serie A, Bundesliga, Ligue 1, Süper Lig y Champions League.</div></div>
     <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">¿Es gratuito usar PREDIKTOR?<span class="faq-icon">+</span></div><div class="faq-a">Sí, la app web es completamente gratuita. El canal VIP de Telegram con análisis completo tiene un costo de $15.000 COP/mes.</div></div>
   </div>
 </section>
@@ -588,9 +587,10 @@ fetch('static/historial.json').then(r=>r.json()).then(h=>{
 <!-- CTA FINAL -->
 <section class="cta-final">
   <h2>Empieza a apostar<br><span>con datos reales</span></h2>
-  <p>Únete al canal VIP y recibe picks diarios basados en análisis estadístico real. Sin intuición — solo números.</p>
+  <p>Picks diarios basados en análisis estadístico real, verificados automáticamente con resultados oficiales. Sin intuición — solo números.</p>
   <div class="hero-btns">
-    <a href="static/predictions/index.html" class="btn-secondary">Ver picks de hoy →</a>
+    <a href="static/predictions/index.html" class="btn-primary">Ver picks de hoy — gratis →</a>
+    <a href="app.html" class="btn-secondary">Analizar un partido →</a>
   </div>
 </section>
 
