@@ -470,6 +470,8 @@ def article(league, home, hd, away, ad, nba=False):
         if not v or v == 'N/A': return avg_g(d, key)
         try:
             fv = float(v)
+            # NBA: avg_points ya es por partido (~110), usarlo directo
+            if nba: return fv
             return avg_g(d, key) if fv > 10 else fv
         except: return avg_g(d, key)
     hpts = _avg(hd, 'avg_points')
