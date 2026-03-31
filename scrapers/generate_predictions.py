@@ -16,30 +16,30 @@ BALLDONTLIE_KEY = os.environ.get("BALLDONTLIE_KEY", "")
 
 # ── Límite de picks diarios y umbrales de valor ──
 MAX_PICKS      = 4    # máximo picks publicados por día
-MIN_CONF       = 56.0 # probabilidad mínima para considerar un pick
-MAX_CONF_VALUE = 80.0 # por encima de esto es favorito obvio → bajo valor en cuotas
-
-def value_score(wp):
-    """
-    Score de valor apostable (0-100).
-    Sweet spot: 60-75% → más valor que un favorito aplastante.
-    >80% = favorito obvio, cuotas ~1.25 o menos, poco valor.
-    <56% = demasiado incierto.
-    """
-    if wp < MIN_CONF:
-        return 0
-    if wp >= MAX_CONF_VALUE:
-        return round(wp * 0.45, 1)   # penalizar fuertemente al favorito obvio
-    if wp >= 72:
-        return round(wp * 0.82, 1)   # buen pick pero ya empieza a ser caro
-    if wp >= 60:
-        return round(wp * 1.0,  1)   # sweet spot máximo valor
-    return round(wp * 0.88, 1)        # aceptable pero menos confianza
+MIN_CONF       = 56.0 # probabilidad mínima (descarta picks demasiado inciertos)
+MIN_CUOTA      = 1.40 # cuota justa mínima — por debajo los bookmakers pagan ~1.05-1.20, sin valor real
+MAX_CUOTA      = 2.00 # cuota justa máxima — por encima es demasiado incierto
 
 def cuota_justa(wp):
     """Devuelve la cuota decimal justa para una probabilidad wp (%)."""
     if wp <= 0: return 99.0
     return round(100 / wp, 2)
+
+def value_score(wp):
+    """
+    Score de valor apostable (0-100).
+    Zona de valor real: cuota justa 1.40-1.85 (prob 54-71%).
+    Por debajo de 1.40 (>71%): favorito aplastante, bookmakers pagan 1.05-1.20, sin valor.
+    Por encima de 2.00 (<50%): demasiado incierto, no publicar.
+    """
+    cj = cuota_justa(wp)
+    if wp < MIN_CONF or cj < MIN_CUOTA or cj > MAX_CUOTA:
+        return 0
+    # Sweet spot 1.45-1.75 (prob 57-69%): máximo valor
+    if 1.45 <= cj <= 1.75:
+        return round(wp * 1.0, 1)
+    # Zona aceptable 1.40-1.44 o 1.76-2.00
+    return round(wp * 0.80, 1)
 
 ADSENSE = '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5953880132871590" crossorigin="anonymous"></script>'
 GA = '<script async src="https://www.googletagmanager.com/gtag/js?id=G-K3JES4SQS9"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-K3JES4SQS9");</script>'
@@ -676,7 +676,8 @@ def main():
 
     # ── FASE 2: ordenar por valor y tomar los MAX_PICKS mejores ──
     candidates.sort(key=lambda x: x[0], reverse=True)
-    top = candidates[:MAX_PICKS]
+    # Descartar picks sin valor real (score 0 = favorito aplastante o demasiado incierto)
+    top = [c for c in candidates if c[0] > 0][:MAX_PICKS]
 
     print(f"Candidatos totales: {len(candidates)} | Publicando top {len(top)} por valor\n")
 
