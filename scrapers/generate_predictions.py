@@ -458,22 +458,24 @@ def article(league, home, hd, away, ad, nba=False):
 
     hw   = gs(hd, 'wins', 'won')
     hl   = gs(hd, 'losses', 'lost')
-    def avg_g(d, key_tot=None):
+    def avg_g(d, contra=False):
         try:
             pos = d.get('position', {}) if isinstance(d, dict) else {}
-            gf = float(pos.get('goles_favor') or pos.get('goals_for') or 0)
             mp = float(pos.get('partidos') or pos.get('gp') or 1)
+            if contra:
+                gc = float(pos.get('goles_contra') or pos.get('goals_against') or 0)
+                return round(gc / mp, 2) if mp > 1 and gc >= 0 else 0
+            gf = float(pos.get('goles_favor') or pos.get('goals_for') or 0)
             return round(gf / mp, 2) if mp > 1 and gf > 0 else 0
         except: return 0
     def _avg(d, key):
-        v = gs(d, key)
-        if not v or v == 'N/A': return avg_g(d, key)
-        try:
-            fv = float(v)
-            # NBA: avg_points ya es por partido (~110), usarlo directo
-            if nba: return fv
-            return avg_g(d, key) if fv > 10 else fv
-        except: return avg_g(d, key)
+        if nba:
+            v = gs(d, key)
+            try: return float(v)
+            except: return 0
+        # Para fútbol, siempre calcular promedio desde totales
+        contra = key in ('avg_points_allowed', 'goals_against')
+        return avg_g(d, contra=contra)
     hpts = _avg(hd, 'avg_points')
     hpta = _avg(hd, 'avg_points_allowed')
     aw2  = gs(ad, 'wins', 'won')
