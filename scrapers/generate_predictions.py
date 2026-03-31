@@ -555,7 +555,7 @@ def article(league, home, hd, away, ad, nba=False, _win=None, _wp=None, _valor=N
 <div class="sbox">
 <div class="srow"><span class="slbl">Probabilidad estimada</span><span class="sval" style="color:var(--gold-500)">{wp}%</span></div>
 <div class="srow"><span class="slbl">Cuota minima con valor</span><span class="sval">{cuota}</span></div>
-<div class="srow"><span class="slbl">Score de valor</span><span class="sval" style="color:{valor_color}">{valor_label} ({valor}/100)</span></div>
+<div class="srow"><span class="slbl">Valor apostable</span><span class="sval" style="color:{valor_color}">{valor_label}</span></div>
 </div>"""
 
     return f"""
