@@ -419,15 +419,42 @@ def article(league, home, hd, away, ad, nba=False):
 
     sp = "puntos" if nba else "goles"
 
-    if not nba and abs(hp - ap) < 10:
-        win = "EMPATE"
-        wp  = 33
-    elif hp >= ap:
-        win = home
-        wp  = hp
+    # ── Para fútbol: elegir el mercado con mayor probabilidad ──
+    if not nba:
+        hg = hd.get("goals", {})
+        ag = ad.get("goals", {})
+        o15 = round((parse_pct(hg.get("over_1_5")) + parse_pct(ag.get("over_1_5"))) / 2, 1)
+        o25 = round((parse_pct(hg.get("over_2_5")) + parse_pct(ag.get("over_2_5"))) / 2, 1)
+
+        # Probabilidad efectiva del ganador (penalizar si diferencia < 10 = empate probable)
+        if abs(hp - ap) < 10:
+            win_prob = 33.0
+            win_team = "EMPATE"
+        elif hp >= ap:
+            win_prob = hp
+            win_team = home
+        else:
+            win_prob = ap
+            win_team = away
+
+        # Elegir el mercado más probable
+        mercados = [
+            ("Over 1.5 goles", o15),
+            ("Over 2.5 goles", o25),
+            (win_team, win_prob),
+        ]
+        mercados.sort(key=lambda x: x[1], reverse=True)
+        win, wp = mercados[0]
+        # Nunca elegir EMPATE como predicción si un mercado de goles supera su probabilidad
+        if win == "EMPATE" and o15 > 33:
+            win, wp = ("Over 1.5 goles", o15) if o15 >= o25 else ("Over 2.5 goles", o25)
     else:
-        win = away
-        wp  = ap
+        if hp >= ap:
+            win = home
+            wp  = hp
+        else:
+            win = away
+            wp  = ap
 
     hw   = gs(hd, 'wins', 'won')
     hl   = gs(hd, 'losses', 'lost')
@@ -463,20 +490,24 @@ def article(league, home, hd, away, ad, nba=False):
         f"<strong>{home}</strong> recibe a <strong>{away}</strong> en un partido clave de la <strong>{league}</strong>.",
     ])
 
-    if win == "EMPATE":
+    if win in ("Over 1.5 goles", "Over 2.5 goles"):
+        fav = random.choice([
+            f"El mercado con mayor probabilidad estadistica es <strong>{win}</strong> con un <strong>{wp}%</strong> de confianza basado en el historial de ambos equipos.",
+            f"Segun nuestro modelo, el escenario mas probable es <strong>{win}</strong> ({wp}%), mas confiable que predecir un ganador directo.",
+            f"Los datos de goles de ambos equipos esta temporada apuntan a <strong>{win}</strong> como la apuesta de mayor valor ({wp}%).",
+        ])
+    elif win == "EMPATE":
         fav = random.choice([
             f"Nuestro analisis indica un partido muy parejo. El resultado mas probable es el <strong>EMPATE</strong> con un <strong>{wp}%</strong> de confianza.",
             f"Los datos apuntan a un encuentro equilibrado donde el <strong>EMPATE</strong> es el resultado mas probable.",
-            f"Segun nuestro modelo, ambos equipos estan muy igualados y el <strong>EMPATE</strong> es el escenario mas factible.",
         ])
     else:
         fav = random.choice([
             f"Nuestro analisis indica que <strong>{win}</strong> parte como favorito con una probabilidad del <strong>{wp}%</strong>.",
             f"Los datos apuntan a <strong>{win}</strong> con un <strong>{wp}%</strong> de probabilidad de victoria.",
-            f"Segun nuestro modelo, <strong>{win}</strong> tiene el <strong>{wp}%</strong> de posibilidades de ganar.",
         ])
 
-    conf_txt = f"Probabilidad: {wp}%" if win != "EMPATE" else "Confianza: MEDIA (33%)"
+    conf_txt = f"Probabilidad: {wp}%"
     goles_html = goals_section(hd, ad) if not nba else ""
 
     return f"""
