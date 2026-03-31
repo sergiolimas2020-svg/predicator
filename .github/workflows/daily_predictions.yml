@@ -79,4 +79,5 @@ jobs:
           git config user.email "bot@prediktor.app"
           git add -A
           git diff --cached --quiet && echo "Sin cambios" || git commit -m "chore: predicciones automáticas $(date '+%Y-%m-%d')"
+          git pull --rebase origin main
           git push
