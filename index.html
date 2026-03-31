@@ -428,7 +428,8 @@ fetch('static/historial.json').then(r=>r.json()).then(h=>{
 
   try {
     const picks = await fetch('static/predictions_log.json').then(r=>r.json());
-    const hoy = new Date().toISOString().slice(0,10);
+    const _d = new Date(); _d.setMinutes(_d.getMinutes() - _d.getTimezoneOffset());
+  const hoy = _d.toISOString().slice(0,10);
     const deHoy = picks.filter(p=>p.fecha===hoy);
     if(!deHoy.length){ document.getElementById('pick-hoy').innerHTML='<div style="text-align:center;padding:2rem;color:var(--gris)">No hay picks para hoy aún.</div>'; return; }
 
