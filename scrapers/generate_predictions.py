@@ -1,4 +1,4 @@
-import json, os, random, requests, unicodedata
+import json, os, requests, unicodedata
 from datetime import date, timedelta
 from pathlib import Path
 
@@ -499,63 +499,105 @@ def article(league, home, hd, away, ad, nba=False, _win=None, _wp=None, _valor=N
     apta = _avg(ad, 'avg_points_allowed')
 
     try:
-        tot_txt = f"El total proyectado es de <strong>{round(float(hpts)+float(apts),1)} {sp}</strong>."
+        tot_txt = round(float(hpts) + float(apts), 1)
     except:
-        tot_txt = ""
-
-    intro = random.choice([
-        f"Uno de los encuentros de la jornada en <strong>{league}</strong> enfrenta a <strong>{home}</strong> y <strong>{away}</strong>.",
-        f"La <strong>{league}</strong> presenta este choque entre <strong>{home}</strong> y <strong>{away}</strong>.",
-        f"<strong>{home}</strong> recibe a <strong>{away}</strong> en un partido clave de la <strong>{league}</strong>.",
-    ])
-
-    if win in ("Over 1.5 goles", "Over 2.5 goles"):
-        fav = random.choice([
-            f"El mercado con mayor probabilidad estadistica es <strong>{win}</strong> con un <strong>{wp}%</strong> de confianza basado en el historial de ambos equipos.",
-            f"Segun nuestro modelo, el escenario mas probable es <strong>{win}</strong> ({wp}%), mas confiable que predecir un ganador directo.",
-            f"Los datos de goles de ambos equipos esta temporada apuntan a <strong>{win}</strong> como la apuesta de mayor valor ({wp}%).",
-        ])
-    elif win == "EMPATE":
-        fav = random.choice([
-            f"Nuestro analisis indica un partido muy parejo. El resultado mas probable es el <strong>EMPATE</strong> con un <strong>{wp}%</strong> de confianza.",
-            f"Los datos apuntan a un encuentro equilibrado donde el <strong>EMPATE</strong> es el resultado mas probable.",
-        ])
-    else:
-        fav = random.choice([
-            f"Nuestro analisis indica que <strong>{win}</strong> parte como favorito con una probabilidad del <strong>{wp}%</strong>.",
-            f"Los datos apuntan a <strong>{win}</strong> con un <strong>{wp}%</strong> de probabilidad de victoria.",
-        ])
+        tot_txt = None
 
     conf_txt = f"Probabilidad: {wp}%"
     goles_html = goals_section(hd, ad) if not nba else ""
 
-    # Bloque de análisis de valor apostable
+    # ── Textos de análisis concretos con datos reales ──
+    if nba:
+        # Contexto NBA
+        h_rec = f"{hw}-{hl}" if hw != 'N/A' and hl != 'N/A' else "N/A"
+        a_rec = f"{aw2}-{al2}" if aw2 != 'N/A' and al2 != 'N/A' else "N/A"
+        intro = f"Analizamos el choque de <strong>{league}</strong> entre <strong>{home}</strong> ({h_rec}) y <strong>{away}</strong> ({a_rec}). Nuestro modelo cruza rendimiento ofensivo, defensivo y porcentaje de victorias para identificar si existe valor apostable."
+        if win == home:
+            analisis_pick = (
+                f"<strong>{home}</strong> promedia <strong>{hpts} puntos</strong> anotados y solo "
+                f"<strong>{hpta}</strong> recibidos por partido, frente a un <strong>{away}</strong> que anota "
+                f"{apts} y recibe {apta}. La diferencia de rendimiento respalda a <strong>{home}</strong> "
+                f"con un <strong>{wp}%</strong> de probabilidad estadistica."
+            )
+        else:
+            analisis_pick = (
+                f"<strong>{away}</strong> llega como visitante con <strong>{apts} puntos</strong> anotados "
+                f"y {apta} recibidos por partido, superando en eficiencia a <strong>{home}</strong> "
+                f"({hpts} anotados, {hpta} recibidos). El modelo asigna <strong>{wp}%</strong> de probabilidad "
+                f"al triunfo visitante."
+            )
+        if tot_txt:
+            analisis_pick += f" El total proyectado de puntos entre ambos equipos es <strong>{tot_txt}</strong>."
+    else:
+        # Contexto fútbol
+        intro = (
+            f"Nuestro motor analiza el partido de <strong>{league}</strong> entre "
+            f"<strong>{home}</strong> y <strong>{away}</strong> cruzando posicion en tabla, "
+            f"promedio de goles y estadisticas Over/Under de la temporada actual."
+        )
+        if win in ("Over 1.5 goles", "Over 2.5 goles"):
+            hg = hd.get("goals", {})
+            ag = ad.get("goals", {})
+            key = "over_1_5" if "1.5" in win else "over_2_5"
+            h_pct = hg.get(key, "N/A")
+            a_pct = ag.get(key, "N/A")
+            analisis_pick = (
+                f"El mercado de <strong>{win}</strong> es el de mayor respaldo estadistico en este partido. "
+                f"<strong>{home}</strong> supera esa barrera en el <strong>{h_pct}</strong> de sus partidos esta temporada, "
+                f"mientras que <strong>{away}</strong> lo hace en el <strong>{a_pct}</strong>. "
+                f"Combinando ambos historiales, la probabilidad de que el partido tenga mas de "
+                f"{'1.5' if '1.5' in win else '2.5'} goles es del <strong>{wp}%</strong> — "
+                f"significativamente mas alta que predecir un ganador directo."
+            )
+        elif win == home:
+            analisis_pick = (
+                f"<strong>{home}</strong> acumula <strong>{hw} victorias</strong> en lo que va de temporada "
+                f"con un promedio de <strong>{hpts} goles</strong> a favor y solo <strong>{hpta}</strong> en contra por partido. "
+                f"Frente a <strong>{away}</strong> ({aw2} victorias, {apts} goles a favor), "
+                f"el modelo le asigna una probabilidad de victoria del <strong>{wp}%</strong>."
+            )
+        else:
+            analisis_pick = (
+                f"<strong>{away}</strong> llega como visitante con <strong>{aw2} victorias</strong> esta temporada, "
+                f"promediando <strong>{apts} goles</strong> anotados y {apta} recibidos por partido. "
+                f"Frente a <strong>{home}</strong> ({hw} victorias, {hpts} goles a favor), "
+                f"el modelo detecta ventaja visitante con un <strong>{wp}%</strong> de probabilidad."
+            )
+
+    # ── Bloque ¿Por qué hay valor aquí? ──
     if valor >= 60:
         valor_label = "ALTO"
         valor_color = "var(--success)"
-        valor_txt   = f"Esta linea tiene <strong>alto valor apostable</strong>. Nuestra probabilidad ({wp}%) supera significativamente la probabilidad implicita de los bookmakers. Busca cuotas por encima de <strong>{cuota}</strong> para tener valor real."
-    elif valor >= 48:
+        valor_why = (
+            f"Nuestra probabilidad estadistica es <strong>{wp}%</strong>, lo que equivale a una cuota justa de "
+            f"<strong>{cuota}</strong>. Esto significa que si encuentras este mercado en tu bookmaker a una cuota "
+            f"igual o superior a <strong>{cuota}</strong>, matematicamente hay valor a tu favor. "
+            f"Los mercados con probabilidades en este rango (60-71%) son los que los bookmakers "
+            f"suelen sub-valorar frente a los grandes favoritos — aqui esta la oportunidad."
+        )
+    else:
         valor_label = "MEDIO"
         valor_color = "var(--gold-500)"
-        valor_txt   = f"Valor apostable <strong>moderado</strong>. La probabilidad estimada ({wp}%) deja margen si encuentras cuotas superiores a <strong>{cuota}</strong>. Verifica las lineas antes de apostar."
-    else:
-        valor_label = "BAJO"
-        valor_color = "var(--danger)"
-        valor_txt   = f"Este resultado es demasiado favorito. Los bookmakers pagan poco (cuota justa ~{cuota}). <strong>No representa valor apostable</strong> — es predecible pero no rentable a largo plazo."
+        valor_why = (
+            f"Nuestra probabilidad es <strong>{wp}%</strong> (cuota justa <strong>{cuota}</strong>). "
+            f"Hay margen de valor si el bookmaker ofrece una cuota igual o superior. "
+            f"Recomendamos comparar lineas en al menos dos casas antes de apostar — "
+            f"una diferencia de 0.05-0.10 en la cuota puede ser la diferencia entre valor positivo y negativo."
+        )
 
     valor_html = f"""
-<h2>Analisis de Valor Apostable</h2>
-<p>{valor_txt}</p>
+<h2>¿Por que hay valor en este pick?</h2>
+<p>{valor_why}</p>
 <div class="sbox">
-<div class="srow"><span class="slbl">Probabilidad estimada</span><span class="sval" style="color:var(--gold-500)">{wp}%</span></div>
-<div class="srow"><span class="slbl">Cuota minima con valor</span><span class="sval">{cuota}</span></div>
-<div class="srow"><span class="slbl">Valor apostable</span><span class="sval" style="color:{valor_color}">{valor_label}</span></div>
+<div class="srow"><span class="slbl">Probabilidad estimada (modelo)</span><span class="sval" style="color:var(--gold-500)">{wp}%</span></div>
+<div class="srow"><span class="slbl">Cuota minima con valor</span><span class="sval" style="color:var(--white)">{cuota}</span></div>
+<div class="srow"><span class="slbl">Nivel de valor</span><span class="sval" style="color:{valor_color}">{valor_label}</span></div>
 </div>"""
 
     return f"""
 <p>{intro}</p>
 <h2>Analisis del equipo local: {home}</h2>
-<p><strong>{home}</strong> llega con <strong>{hw} victorias y {hl} derrotas</strong>. Promedia <strong>{hpts} {sp}</strong> por partido y recibe <strong>{hpta}</strong> en contra.</p>
+<p><strong>{home}</strong> acumula <strong>{hw} victorias y {hl} derrotas</strong> esta temporada. Promedia <strong>{hpts} {sp}</strong> a favor y <strong>{hpta}</strong> en contra por partido.</p>
 <div class="sbox">
 <div class="srow"><span class="slbl">Victorias</span><span class="sval" style="color:var(--success)">{hw}</span></div>
 <div class="srow"><span class="slbl">Derrotas</span><span class="sval" style="color:var(--danger)">{hl}</span></div>
@@ -564,7 +606,7 @@ def article(league, home, hd, away, ad, nba=False, _win=None, _wp=None, _valor=N
 <div class="srow"><span class="slbl">Probabilidad de victoria</span><span class="sval" style="color:var(--gold-500)">{hp}%</span></div>
 </div>
 <h2>Analisis del equipo visitante: {away}</h2>
-<p><strong>{away}</strong> presenta <strong>{aw2} victorias y {al2} derrotas</strong>. Promedia <strong>{apts} {sp}</strong> anotados y <strong>{apta}</strong> recibidos.</p>
+<p><strong>{away}</strong> registra <strong>{aw2} victorias y {al2} derrotas</strong>. Promedia <strong>{apts} {sp}</strong> anotados y <strong>{apta}</strong> recibidos por partido.</p>
 <div class="sbox">
 <div class="srow"><span class="slbl">Victorias</span><span class="sval" style="color:var(--success)">{aw2}</span></div>
 <div class="srow"><span class="slbl">Derrotas</span><span class="sval" style="color:var(--danger)">{al2}</span></div>
@@ -572,16 +614,16 @@ def article(league, home, hd, away, ad, nba=False, _win=None, _wp=None, _valor=N
 <div class="srow"><span class="slbl">{sp.capitalize()} prom. en contra</span><span class="sval">{apta}</span></div>
 <div class="srow"><span class="slbl">Probabilidad de victoria</span><span class="sval" style="color:var(--gold-500)">{ap}%</span></div>
 </div>
-<h2>Prediccion final</h2>
-<p>{fav} {tot_txt}</p>
+<h2>Conclusion del analisis</h2>
+<p>{analisis_pick}</p>
 {valor_html}
 <div class="pbox">
-<div class="plbl">Resultado probable</div>
+<div class="plbl">Pick de valor</div>
 <div class="pres">{win}</div>
 <div class="pconf">{conf_txt}</div>
 </div>
 {goles_html}
-<p>Este analisis esta basado en las estadisticas actuales de la temporada. Usa nuestro analizador interactivo para explorar mas datos.</p>"""
+<p><em>Este analisis es generado por nuestro motor estadistico con datos de la temporada actual. Apuesta siempre con responsabilidad y compara cuotas antes de decidir.</em></p>"""
 
 def save(league, home, away, art):
     slug = f"{home}-vs-{away}-{league}-{today}".lower()
