@@ -1,4 +1,194 @@
 {
+    "Banfield": {
+        "corners": {},
+        "goals": {
+            "over_1_5": "73%",
+            "over_2_5": "45%",
+            "over_3_5": "9%",
+            "bts": "45%"
+        },
+        "position": {}
+    },
+    "San Lorenzo": {
+        "corners": {},
+        "goals": {
+            "over_1_5": "55%",
+            "over_2_5": "18%",
+            "over_3_5": "18%",
+            "bts": "45%"
+        },
+        "position": {
+            "posicion": 9,
+            "partidos": 11,
+            "ganados": 3,
+            "empatados": 5,
+            "perdidos": 3,
+            "goles_favor": 11,
+            "goles_contra": 12,
+            "diferencia": -1,
+            "puntos": 14
+        }
+    },
+    "Newells": {
+        "corners": {},
+        "goals": {
+            "over_1_5": "91%",
+            "over_2_5": "36%",
+            "over_3_5": "18%",
+            "bts": "45%"
+        },
+        "position": {
+            "posicion": 15,
+            "partidos": 11,
+            "ganados": 1,
+            "empatados": 3,
+            "perdidos": 7,
+            "goles_favor": 7,
+            "goles_contra": 22,
+            "diferencia": -15,
+            "puntos": 6
+        }
+    },
+    "League average": {
+        "corners": {},
+        "goals": {
+            "over_1_5": "32.1%",
+            "over_2_5": "11.5%",
+            "over_3_5": "5.5%",
+            "bts": "35.2%"
+        },
+        "position": {}
+    },
+    "Platense": {
+        "corners": {},
+        "goals": {
+            "over_1_5": "36%",
+            "over_2_5": "18%",
+            "over_3_5": "0%",
+            "bts": "27%"
+        },
+        "position": {
+            "posicion": 10,
+            "partidos": 11,
+            "ganados": 3,
+            "empatados": 5,
+            "perdidos": 3,
+            "goles_favor": 6,
+            "goles_contra": 7,
+            "diferencia": -1,
+            "puntos": 14
+        }
+    },
+    "Rosario Central": {
+        "corners": {},
+        "goals": {
+            "over_1_5": "73%",
+            "over_2_5": "36%",
+            "over_3_5": "0%",
+            "bts": "45%"
+        },
+        "position": {}
+    },
+    "Estudiantes": {
+        "corners": {},
+        "goals": {
+            "over_1_5": "45%",
+            "over_2_5": "27%",
+            "over_3_5": "9%",
+            "bts": "27%"
+        },
+        "position": {
+            "posicion": 2,
+            "partidos": 11,
+            "ganados": 6,
+            "empatados": 3,
+            "perdidos": 2,
+            "goles_favor": 14,
+            "goles_contra": 5,
+            "diferencia": 9,
+            "puntos": 21
+        }
+    },
+    "Lanus": {
+        "corners": {},
+        "goals": {
+            "over_1_5": "82%",
+            "over_2_5": "55%",
+            "over_3_5": "27%",
+            "bts": "55%"
+        },
+        "position": {
+            "posicion": 4,
+            "partidos": 11,
+            "ganados": 5,
+            "empatados": 3,
+            "perdidos": 3,
+            "goles_favor": 17,
+            "goles_contra": 14,
+            "diferencia": 3,
+            "puntos": 18
+        }
+    },
+    "Tigre": {
+        "corners": {},
+        "goals": {
+            "over_1_5": "73%",
+            "over_2_5": "36%",
+            "over_3_5": "27%",
+            "bts": "64%"
+        },
+        "position": {}
+    },
+    "Boca Juniors": {
+        "corners": {},
+        "goals": {
+            "over_1_5": "73%",
+            "over_2_5": "27%",
+            "over_3_5": "0%",
+            "bts": "45%"
+        },
+        "position": {
+            "posicion": 6,
+            "partidos": 11,
+            "ganados": 4,
+            "empatados": 5,
+            "perdidos": 2,
+            "goles_favor": 13,
+            "goles_contra": 7,
+            "diferencia": 6,
+            "puntos": 17
+        }
+    },
+    "Huracan": {
+        "corners": {},
+        "goals": {
+            "over_1_5": "55%",
+            "over_2_5": "27%",
+            "over_3_5": "9%",
+            "bts": "45%"
+        },
+        "position": {}
+    },
+    "Barracas C.": {
+        "corners": {},
+        "goals": {
+            "over_1_5": "64%",
+            "over_2_5": "27%",
+            "over_3_5": "0%",
+            "bts": "45%"
+        },
+        "position": {}
+    },
+    "Aldosivi": {
+        "corners": {},
+        "goals": {
+            "over_1_5": "55%",
+            "over_2_5": "9%",
+            "over_3_5": "9%",
+            "bts": "27%"
+        },
+        "position": {}
+    },
     "Instituto": {
         "corners": {},
         "goals": {
@@ -18,6 +208,116 @@
             "diferencia": -4,
             "puntos": 11
         }
+    },
+    "G. Mendoza": {
+        "corners": {},
+        "goals": {
+            "over_1_5": "45%",
+            "over_2_5": "27%",
+            "over_3_5": "9%",
+            "bts": "36%"
+        },
+        "position": {
+            "posicion": 13,
+            "partidos": 11,
+            "ganados": 2,
+            "empatados": 3,
+            "perdidos": 6,
+            "goles_favor": 6,
+            "goles_contra": 13,
+            "diferencia": -7,
+            "puntos": 9
+        }
+    },
+    "Velez Sarsfield": {
+        "corners": {},
+        "goals": {
+            "over_1_5": "55%",
+            "over_2_5": "18%",
+            "over_3_5": "0%",
+            "bts": "45%"
+        },
+        "position": {
+            "posicion": 1,
+            "partidos": 11,
+            "ganados": 6,
+            "empatados": 4,
+            "perdidos": 1,
+            "goles_favor": 12,
+            "goles_contra": 6,
+            "diferencia": 6,
+            "puntos": 22
+        }
+    },
+    "Central Cordoba": {
+        "corners": {},
+        "goals": {
+            "over_1_5": "45%",
+            "over_2_5": "9%",
+            "over_3_5": "9%",
+            "bts": "9%"
+        },
+        "position": {
+            "posicion": 11,
+            "partidos": 11,
+            "ganados": 3,
+            "empatados": 3,
+            "perdidos": 5,
+            "goles_favor": 5,
+            "goles_contra": 12,
+            "diferencia": -7,
+            "puntos": 12
+        }
+    },
+    "Defensa y J.": {
+        "corners": {},
+        "goals": {
+            "over_1_5": "64%",
+            "over_2_5": "18%",
+            "over_3_5": "18%",
+            "bts": "55%"
+        },
+        "position": {
+            "posicion": 3,
+            "partidos": 11,
+            "ganados": 4,
+            "empatados": 7,
+            "perdidos": 0,
+            "goles_favor": 15,
+            "goles_contra": 8,
+            "diferencia": 7,
+            "puntos": 19
+        }
+    },
+    "Union Santa Fe": {
+        "corners": {},
+        "goals": {
+            "over_1_5": "64%",
+            "over_2_5": "45%",
+            "over_3_5": "27%",
+            "bts": "45%"
+        },
+        "position": {
+            "posicion": 7,
+            "partidos": 11,
+            "ganados": 4,
+            "empatados": 4,
+            "perdidos": 3,
+            "goles_favor": 16,
+            "goles_contra": 12,
+            "diferencia": 4,
+            "puntos": 16
+        }
+    },
+    "Sarmiento": {
+        "corners": {},
+        "goals": {
+            "over_1_5": "45%",
+            "over_2_5": "27%",
+            "over_3_5": "9%",
+            "bts": "27%"
+        },
+        "position": {}
     },
     "D. Riestra": {
         "corners": {},
@@ -59,6 +359,26 @@
             "puntos": 20
         }
     },
+    "T. de Cordoba": {
+        "corners": {},
+        "goals": {
+            "over_1_5": "73%",
+            "over_2_5": "45%",
+            "over_3_5": "0%",
+            "bts": "55%"
+        },
+        "position": {
+            "posicion": 5,
+            "partidos": 11,
+            "ganados": 5,
+            "empatados": 3,
+            "perdidos": 3,
+            "goles_favor": 12,
+            "goles_contra": 10,
+            "diferencia": 2,
+            "puntos": 18
+        }
+    },
     "Argentinos Jrs": {
         "corners": {},
         "goals": {
@@ -79,133 +399,13 @@
             "puntos": 20
         }
     },
-    "League average": {
-        "corners": {},
-        "goals": {
-            "over_1_5": "32.1%",
-            "over_2_5": "11.5%",
-            "over_3_5": "5.5%",
-            "bts": "35.2%"
-        },
-        "position": {}
-    },
-    "Velez Sarsfield": {
-        "corners": {},
-        "goals": {
-            "over_1_5": "55%",
-            "over_2_5": "18%",
-            "over_3_5": "0%",
-            "bts": "45%"
-        },
-        "position": {
-            "posicion": 1,
-            "partidos": 11,
-            "ganados": 6,
-            "empatados": 4,
-            "perdidos": 1,
-            "goles_favor": 12,
-            "goles_contra": 6,
-            "diferencia": 6,
-            "puntos": 22
-        }
-    },
-    "Independiente": {
-        "corners": {},
-        "goals": {
-            "over_1_5": "91%",
-            "over_2_5": "36%",
-            "over_3_5": "18%",
-            "bts": "73%"
-        },
-        "position": {
-            "posicion": 8,
-            "partidos": 11,
-            "ganados": 3,
-            "empatados": 5,
-            "perdidos": 3,
-            "goles_favor": 17,
-            "goles_contra": 15,
-            "diferencia": 2,
-            "puntos": 14
-        }
-    },
-    "Lanus": {
+    "Racing Club": {
         "corners": {},
         "goals": {
             "over_1_5": "82%",
             "over_2_5": "55%",
-            "over_3_5": "27%",
-            "bts": "55%"
-        },
-        "position": {
-            "posicion": 4,
-            "partidos": 11,
-            "ganados": 5,
-            "empatados": 3,
-            "perdidos": 3,
-            "goles_favor": 17,
-            "goles_contra": 14,
-            "diferencia": 3,
-            "puntos": 18
-        }
-    },
-    "Aldosivi": {
-        "corners": {},
-        "goals": {
-            "over_1_5": "55%",
-            "over_2_5": "9%",
             "over_3_5": "9%",
-            "bts": "27%"
-        },
-        "position": {}
-    },
-    "G. Mendoza": {
-        "corners": {},
-        "goals": {
-            "over_1_5": "45%",
-            "over_2_5": "27%",
-            "over_3_5": "9%",
-            "bts": "36%"
-        },
-        "position": {
-            "posicion": 13,
-            "partidos": 11,
-            "ganados": 2,
-            "empatados": 3,
-            "perdidos": 6,
-            "goles_favor": 6,
-            "goles_contra": 13,
-            "diferencia": -7,
-            "puntos": 9
-        }
-    },
-    "A. Tucuman": {
-        "corners": {},
-        "goals": {
-            "over_1_5": "82%",
-            "over_2_5": "64%",
-            "over_3_5": "18%",
-            "bts": "64%"
-        },
-        "position": {}
-    },
-    "Gimnasia": {
-        "corners": {},
-        "goals": {
-            "over_1_5": "73%",
-            "over_2_5": "55%",
-            "over_3_5": "27%",
             "bts": "55%"
-        },
-        "position": {}
-    },
-    "Tigre": {
-        "corners": {},
-        "goals": {
-            "over_1_5": "73%",
-            "over_2_5": "36%",
-            "over_3_5": "27%",
-            "bts": "64%"
         },
         "position": {}
     },
@@ -229,24 +429,34 @@
             "puntos": 19
         }
     },
-    "Estudiantes": {
+    "E. Rio Cuarto": {
         "corners": {},
         "goals": {
-            "over_1_5": "45%",
-            "over_2_5": "27%",
+            "over_1_5": "64%",
+            "over_2_5": "18%",
             "over_3_5": "9%",
-            "bts": "27%"
+            "bts": "9%"
+        },
+        "position": {}
+    },
+    "Independiente": {
+        "corners": {},
+        "goals": {
+            "over_1_5": "91%",
+            "over_2_5": "36%",
+            "over_3_5": "18%",
+            "bts": "73%"
         },
         "position": {
-            "posicion": 2,
+            "posicion": 8,
             "partidos": 11,
-            "ganados": 6,
-            "empatados": 3,
-            "perdidos": 2,
-            "goles_favor": 14,
-            "goles_contra": 5,
-            "diferencia": 9,
-            "puntos": 21
+            "ganados": 3,
+            "empatados": 5,
+            "perdidos": 3,
+            "goles_favor": 17,
+            "goles_contra": 15,
+            "diferencia": 2,
+            "puntos": 14
         }
     },
     "I. Rivadavia": {
@@ -269,238 +479,28 @@
             "puntos": 23
         }
     },
-    "E. Rio Cuarto": {
-        "corners": {},
-        "goals": {
-            "over_1_5": "64%",
-            "over_2_5": "18%",
-            "over_3_5": "9%",
-            "bts": "9%"
-        },
-        "position": {}
-    },
-    "Boca Juniors": {
-        "corners": {},
-        "goals": {
-            "over_1_5": "73%",
-            "over_2_5": "27%",
-            "over_3_5": "0%",
-            "bts": "45%"
-        },
-        "position": {
-            "posicion": 6,
-            "partidos": 11,
-            "ganados": 4,
-            "empatados": 5,
-            "perdidos": 2,
-            "goles_favor": 13,
-            "goles_contra": 7,
-            "diferencia": 6,
-            "puntos": 17
-        }
-    },
-    "Defensa y J.": {
-        "corners": {},
-        "goals": {
-            "over_1_5": "64%",
-            "over_2_5": "18%",
-            "over_3_5": "18%",
-            "bts": "55%"
-        },
-        "position": {
-            "posicion": 3,
-            "partidos": 11,
-            "ganados": 4,
-            "empatados": 7,
-            "perdidos": 0,
-            "goles_favor": 15,
-            "goles_contra": 8,
-            "diferencia": 7,
-            "puntos": 19
-        }
-    },
-    "T. de Cordoba": {
-        "corners": {},
-        "goals": {
-            "over_1_5": "73%",
-            "over_2_5": "45%",
-            "over_3_5": "0%",
-            "bts": "55%"
-        },
-        "position": {
-            "posicion": 5,
-            "partidos": 11,
-            "ganados": 5,
-            "empatados": 3,
-            "perdidos": 3,
-            "goles_favor": 12,
-            "goles_contra": 10,
-            "diferencia": 2,
-            "puntos": 18
-        }
-    },
-    "Central Cordoba": {
-        "corners": {},
-        "goals": {
-            "over_1_5": "45%",
-            "over_2_5": "9%",
-            "over_3_5": "9%",
-            "bts": "9%"
-        },
-        "position": {
-            "posicion": 11,
-            "partidos": 11,
-            "ganados": 3,
-            "empatados": 3,
-            "perdidos": 5,
-            "goles_favor": 5,
-            "goles_contra": 12,
-            "diferencia": -7,
-            "puntos": 12
-        }
-    },
-    "Union Santa Fe": {
-        "corners": {},
-        "goals": {
-            "over_1_5": "64%",
-            "over_2_5": "45%",
-            "over_3_5": "27%",
-            "bts": "45%"
-        },
-        "position": {
-            "posicion": 7,
-            "partidos": 11,
-            "ganados": 4,
-            "empatados": 4,
-            "perdidos": 3,
-            "goles_favor": 16,
-            "goles_contra": 12,
-            "diferencia": 4,
-            "puntos": 16
-        }
-    },
-    "San Lorenzo": {
-        "corners": {},
-        "goals": {
-            "over_1_5": "55%",
-            "over_2_5": "18%",
-            "over_3_5": "18%",
-            "bts": "45%"
-        },
-        "position": {
-            "posicion": 9,
-            "partidos": 11,
-            "ganados": 3,
-            "empatados": 5,
-            "perdidos": 3,
-            "goles_favor": 11,
-            "goles_contra": 12,
-            "diferencia": -1,
-            "puntos": 14
-        }
-    },
-    "Banfield": {
-        "corners": {},
-        "goals": {
-            "over_1_5": "73%",
-            "over_2_5": "45%",
-            "over_3_5": "9%",
-            "bts": "45%"
-        },
-        "position": {}
-    },
-    "Barracas C.": {
-        "corners": {},
-        "goals": {
-            "over_1_5": "64%",
-            "over_2_5": "27%",
-            "over_3_5": "0%",
-            "bts": "45%"
-        },
-        "position": {}
-    },
-    "Racing Club": {
+    "A. Tucuman": {
         "corners": {},
         "goals": {
             "over_1_5": "82%",
-            "over_2_5": "55%",
-            "over_3_5": "9%",
-            "bts": "55%"
+            "over_2_5": "64%",
+            "over_3_5": "18%",
+            "bts": "64%"
         },
         "position": {}
     },
-    "Newells": {
-        "corners": {},
-        "goals": {
-            "over_1_5": "91%",
-            "over_2_5": "36%",
-            "over_3_5": "18%",
-            "bts": "45%"
-        },
-        "position": {
-            "posicion": 15,
-            "partidos": 11,
-            "ganados": 1,
-            "empatados": 3,
-            "perdidos": 7,
-            "goles_favor": 7,
-            "goles_contra": 22,
-            "diferencia": -15,
-            "puntos": 6
-        }
-    },
-    "Rosario Central": {
+    "Gimnasia": {
         "corners": {},
         "goals": {
             "over_1_5": "73%",
-            "over_2_5": "36%",
-            "over_3_5": "0%",
-            "bts": "45%"
-        },
-        "position": {}
-    },
-    "Platense": {
-        "corners": {},
-        "goals": {
-            "over_1_5": "36%",
-            "over_2_5": "18%",
-            "over_3_5": "0%",
-            "bts": "27%"
-        },
-        "position": {
-            "posicion": 10,
-            "partidos": 11,
-            "ganados": 3,
-            "empatados": 5,
-            "perdidos": 3,
-            "goles_favor": 6,
-            "goles_contra": 7,
-            "diferencia": -1,
-            "puntos": 14
-        }
-    },
-    "Huracan": {
-        "corners": {},
-        "goals": {
-            "over_1_5": "55%",
-            "over_2_5": "27%",
-            "over_3_5": "9%",
-            "bts": "45%"
-        },
-        "position": {}
-    },
-    "Sarmiento": {
-        "corners": {},
-        "goals": {
-            "over_1_5": "45%",
-            "over_2_5": "27%",
-            "over_3_5": "9%",
-            "bts": "27%"
+            "over_2_5": "55%",
+            "over_3_5": "27%",
+            "bts": "55%"
         },
         "position": {}
     },
     "_metadata": {
-        "fecha_actualizacion": "2026-03-31T20:34:28.989316",
+        "fecha_actualizacion": "2026-04-01T08:53:10.901877",
         "liga": "argentina",
         "fuente_datos": {
             "corners": "https://www.soccerstats.com/table.asp?league=argentina&tid=cr",
