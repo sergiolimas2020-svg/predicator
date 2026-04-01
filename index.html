@@ -181,6 +181,7 @@
     }
     .pick-rec-label { font-size:0.75rem; color:var(--gris); text-transform:uppercase; letter-spacing:1px; }
     .pick-rec-val { font-weight:700; font-size:1.1rem; color:var(--verde); }
+    .pick-conservador { font-size:0.75rem; color:var(--azul); background:rgba(59,130,246,0.1); border:1px solid rgba(59,130,246,0.25); border-radius:6px; padding:0.3rem 0.75rem; margin-top:0.75rem; text-align:center; display:inline-block; }
     .pick-analisis-btn {
       margin-top:1.2rem; width:100%; background:none;
       border:1px solid var(--borde); border-radius:8px;
@@ -473,6 +474,7 @@ fetch('static/historial.json').then(r=>r.json()).then(h=>{
         <div><div class="pick-rec-label">Recomendación del sistema</div><div class="pick-rec-val">✅ ${mejor.prediccion}</div></div>
         <div style="color:var(--gris);font-size:0.82rem;max-width:260px">Basado en estadísticas reales — ${mejor.fecha}.</div>
       </div>
+      ${mejor.base_pick && mejor.prediccion !== mejor.base_pick ? `<div class="pick-conservador">Salida conservadora · modelo base: <strong>${mejor.base_pick}</strong> (${mejor.probabilidad_modelo}%)</div>` : ''}
       <div class="pick-analisis-panel abierto" id="analisis-panel"></div>`;
 
     // Mostrar sección y cargar estadísticas

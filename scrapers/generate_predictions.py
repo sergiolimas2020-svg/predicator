@@ -439,10 +439,17 @@ def goals_section(hd, ad):
 </div>"""
 
 def calc_wp(league, home, hd, away, ad, nba=False):
-    """Calcula win/wp sin generar HTML. Retorna (win, wp, valor, cuota)."""
+    """Calcula win/wp. Retorna (base_pick, base_prob, display_pick, display_prob, vs, cj, vl).
+    base_* = pick subyacente usado para value_score y filtros.
+    display_* = pick que se muestra (puede ser salida conservadora como Doble oportunidad).
+    """
     if nba:
         hp, ap = prob_nba(hd, ad)
         win, wp = (home, hp) if hp >= ap else (away, ap)
+        vs = value_score(wp)
+        cj = cuota_justa(wp)
+        vl = value_level(vs)
+        return win, wp, win, wp, vs, cj, vl
     else:
         hp, ap = prob_futbol(hd, ad)
         hg = hd.get("goals", {})
@@ -469,15 +476,22 @@ def calc_wp(league, home, hd, away, ad, nba=False):
         win, wp = mercados[0]
         if win == "EMPATE" and o15 > 33:
             win, wp = ("Over 1.5 goles", o15) if o15 >= o25 else ("Over 2.5 goles", o25)
-    vs = value_score(wp)
-    cj = cuota_justa(wp)
-    vl = value_level(vs)
-    return win, wp, vs, cj, vl
+        # Si el display es DC, la base es la victoria directa (para value_score y filtros)
+        if dc_label and win == dc_label:
+            base_pick, base_prob = win_team, win_prob
+        else:
+            base_pick, base_prob = win, wp
+        vs = value_score(base_prob)
+        cj = cuota_justa(base_prob)
+        vl = value_level(vs)
+        return base_pick, base_prob, win, wp, vs, cj, vl
 
-def article(league, home, hd, away, ad, nba=False, _win=None, _wp=None, _valor=None, _cuota=None):
+def article(league, home, hd, away, ad, nba=False, _win=None, _wp=None, _valor=None, _cuota=None, _base_prob=None):
     # Usar valores pre-calculados por calc_wp() para consistencia
     win, wp = _win, _wp
     valor, cuota = _valor, _cuota
+    # base_prob: probabilidad de la victoria directa — usada en el bloque de valor
+    base_prob = _base_prob if _base_prob is not None else wp
 
     if nba:
         hp, ap = prob_nba(hd, ad)
@@ -598,7 +612,7 @@ def article(league, home, hd, away, ad, nba=False, _win=None, _wp=None, _valor=N
         valor_label = "ALTO"
         valor_color = "var(--success)"
         valor_why = (
-            f"Nuestra probabilidad estadistica es <strong>{wp}%</strong>, lo que equivale a una cuota justa de "
+            f"Nuestra probabilidad estadistica es <strong>{base_prob}%</strong>, lo que equivale a una cuota justa de "
             f"<strong>{cuota}</strong>. Esto significa que si encuentras este mercado en tu bookmaker a una cuota "
             f"igual o superior a <strong>{cuota}</strong>, matematicamente hay valor a tu favor. "
             f"Los mercados con probabilidades en este rango (60-71%) son los que los bookmakers "
@@ -608,7 +622,7 @@ def article(league, home, hd, away, ad, nba=False, _win=None, _wp=None, _valor=N
         valor_label = "MEDIO"
         valor_color = "var(--gold-500)"
         valor_why = (
-            f"Nuestra probabilidad es <strong>{wp}%</strong> (cuota justa <strong>{cuota}</strong>). "
+            f"Nuestra probabilidad es <strong>{base_prob}%</strong> (cuota justa <strong>{cuota}</strong>). "
             f"Hay margen de valor si el bookmaker ofrece una cuota igual o superior. "
             f"Recomendamos comparar lineas en al menos dos casas antes de apostar — "
             f"una diferencia de 0.05-0.10 en la cuota puede ser la diferencia entre valor positivo y negativo."
@@ -618,10 +632,15 @@ def article(league, home, hd, away, ad, nba=False, _win=None, _wp=None, _valor=N
 <h2>¿Por que hay valor en este pick?</h2>
 <p>{valor_why}</p>
 <div class="sbox">
-<div class="srow"><span class="slbl">Probabilidad estimada (modelo)</span><span class="sval" style="color:var(--gold-500)">{wp}%</span></div>
+<div class="srow"><span class="slbl">Probabilidad estimada (modelo)</span><span class="sval" style="color:var(--gold-500)">{base_prob}%</span></div>
 <div class="srow"><span class="slbl">Cuota minima con valor</span><span class="sval" style="color:var(--white)">{cuota}</span></div>
 <div class="srow"><span class="slbl">Nivel de valor</span><span class="sval" style="color:{valor_color}">{valor_label}</span></div>
 </div>"""
+
+    conservador_tag = (
+        '<div class="ptag">Salida conservadora — cubre victoria + empate</div>'
+        if win.startswith("Doble oportunidad:") else ""
+    )
 
     return f"""
 <p>{intro}</p>
@@ -649,6 +668,7 @@ def article(league, home, hd, away, ad, nba=False, _win=None, _wp=None, _valor=N
 <div class="pbox">
 <div class="plbl">Pick de valor</div>
 <div class="pres">{win}</div>
+{conservador_tag}
 <div class="pconf">{conf_txt}</div>
 </div>
 {goles_html}
@@ -720,7 +740,7 @@ def main():
     print(f"Hoy: {today} | Acepta hasta {tomorrow} 05:59 UTC\n")
 
     # ── FASE 1: recopilar todos los candidatos con su score de valor ──
-    candidates = []  # (valor_score, league, home, hd, away, ad, nba, win, wp, cuota)
+    candidates = []  # (vs, league, home, hd, away, ad, nba, display_pick, display_prob, cj, vl, base_prob, base_pick)
 
     for code, (league, stats_file) in ESPN_LEAGUES.items():
         matches = espn_fixtures(code)
@@ -730,9 +750,9 @@ def main():
             hd = find(stats, home); ad = find(stats, away)
             if not hd: hd = ad
             if not ad: ad = hd
-            win, wp, vs, cj, vl = calc_wp(league, home, hd, away, ad, nba=False)
-            if wp >= MIN_CONF:
-                candidates.append((vs, league, home, hd, away, ad, False, win, wp, cj, vl))
+            base_pick, base_prob, display_pick, display_prob, vs, cj, vl = calc_wp(league, home, hd, away, ad, nba=False)
+            if base_prob >= MIN_CONF:
+                candidates.append((vs, league, home, hd, away, ad, False, display_pick, display_prob, cj, vl, base_prob, base_pick))
 
     nba_games = nba_fixtures()
     if nba_games:
@@ -741,9 +761,9 @@ def main():
             hd = find(nba_teams, home); ad = find(nba_teams, away)
             if not hd: hd = ad
             if not ad: ad = hd
-            win, wp, vs, cj, vl = calc_wp("NBA", home, hd, away, ad, nba=True)
-            if wp >= MIN_CONF:
-                candidates.append((vs, "NBA", home, hd, away, ad, True, win, wp, cj, vl))
+            base_pick, base_prob, display_pick, display_prob, vs, cj, vl = calc_wp("NBA", home, hd, away, ad, nba=True)
+            if base_prob >= MIN_CONF:
+                candidates.append((vs, "NBA", home, hd, away, ad, True, display_pick, display_prob, cj, vl, base_prob, base_pick))
 
     # ── FASE 2: ordenar por valor y tomar los MAX_PICKS mejores ──
     candidates.sort(key=lambda x: x[0], reverse=True)
@@ -753,18 +773,19 @@ def main():
     print(f"Candidatos totales: {len(candidates)} | Publicando top {len(top)} por valor\n")
 
     # ── FASE 3: generar HTML solo para los elegidos ──
-    for vs, league, home, hd, away, ad, nba, win, wp, cj, vl in top:
+    for vs, league, home, hd, away, ad, nba, win, wp, cj, vl, base_prob, base_pick in top:
         art = article(league, home, hd, away, ad, nba=nba,
-                      _win=win, _wp=wp, _valor=vs, _cuota=cj)
+                      _win=win, _wp=wp, _valor=vs, _cuota=cj, _base_prob=base_prob)
         slug = save(league, home, away, art)
         lg_label = "NBA" if nba else league
-        preds.append((slug, f"{home} vs {away}", lg_label, round(wp,1), round(cj,2), vs, vl))
-        print(f"   [{vs:.0f}pts valor] {home} vs {away} → {win} ({wp}%) cuota justa {cj}")
+        preds.append((slug, f"{home} vs {away}", lg_label, round(base_prob,1), round(cj,2), vs, vl, base_pick))
+        conservador = f" → DC ({wp}%)" if win != base_pick else ""
+        print(f"   [{vs:.0f}pts valor] {home} vs {away} → {win}{conservador} | base: {base_pick} {base_prob}% | cuota {cj}")
 
     cards = ''.join(
         f'<a href="/static/predictions/{s}.html" class="card"><span class="lg">{lg}</span><h3>{m}</h3><span class="lnk">Ver prediccion →</span></a>'
         for s, m, lg, *_ in preds
-    ) if preds else '<div class="empty"><p>No hay partidos programados para hoy.</p></div>'
+    ) if preds else '<div class="empty"><p>No hay partidos programados hoy.</p></div>'
 
     (OUTPUT_DIR / "index.html").write_text(
         INDEX.format(date=today_display, adsense=ADSENSE, ga=GA,
@@ -784,7 +805,7 @@ def main():
     _log_path = _Path("static/predictions_log.json")
     _log = _json.loads(_log_path.read_text()) if _log_path.exists() else []
     _log = [e for e in _log if e.get("fecha") != today]
-    for slug, matchup, league, _wp, _cj, _vs, _vl in preds:
+    for slug, matchup, league, _wp, _cj, _vs, _vl, _base_pick in preds:
         parts = matchup.split(" vs ")
         if len(parts) != 2:
             continue
@@ -801,6 +822,7 @@ def main():
             "league": league, "prediccion": _pred, "confianza": _conf,
             "resultado_real": None, "acerto": None,
             "probabilidad_modelo": _wp,
+            "base_pick": _base_pick,
             "cuota_justa": _cj,
             "value_score": _vs,
             "value_level": _vl})
