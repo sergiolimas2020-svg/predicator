@@ -33,6 +33,10 @@ jobs:
         run: python3 scrapers/update_results.py
         continue-on-error: true
 
+      - name: Generar estadísticas
+        run: python3 scrapers/stats_tracker.py
+        continue-on-error: true
+
       # PASO 2: Actualizar estadísticas de todas las ligas
       - name: Stats Colombia
         run: python3 scrapers/colombia.py

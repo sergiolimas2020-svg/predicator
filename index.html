@@ -182,6 +182,13 @@
     .pick-rec-label { font-size:0.75rem; color:var(--gris); text-transform:uppercase; letter-spacing:1px; }
     .pick-rec-val { font-weight:700; font-size:1.1rem; color:var(--verde); }
     .pick-conservador { font-size:0.75rem; color:var(--azul); background:rgba(59,130,246,0.1); border:1px solid rgba(59,130,246,0.25); border-radius:6px; padding:0.3rem 0.75rem; margin-top:0.75rem; text-align:center; display:inline-block; }
+    .stats-box { background:var(--oscuro); border-top:1px solid var(--borde); border-bottom:1px solid var(--borde); padding:2.5rem 1rem; }
+    .stats-box-inner { max-width:900px; margin:0 auto; }
+    .stats-track-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem; }
+    .track-item { background:var(--card); border:1px solid var(--borde); border-radius:10px; padding:1.2rem; text-align:center; }
+    .track-val { font-family:'Bebas Neue',sans-serif; font-size:2rem; color:var(--dorado); }
+    .track-lbl { font-size:0.72rem; color:var(--gris); text-transform:uppercase; letter-spacing:1px; margin-top:0.2rem; }
+    @media(max-width:600px){ .stats-track-grid { grid-template-columns:repeat(2,1fr); } }
     .pick-analisis-btn {
       margin-top:1.2rem; width:100%; background:none;
       border:1px solid var(--borde); border-radius:8px;
@@ -347,6 +354,32 @@ fetch('static/historial.json').then(r=>r.json()).then(h=>{
   document.getElementById('sb-pct').textContent = '—';
   document.getElementById('sb-total').textContent = '—';
 });
+</script>
+
+<!-- TRACK RECORD -->
+<section class="stats-box">
+  <div class="stats-box-inner">
+    <div class="section-label" style="text-align:center;margin-bottom:1.2rem">Rendimiento del modelo</div>
+    <div id="stats-track" class="stats-track-grid">
+      <div class="track-item"><div class="track-val" id="tr-winrate">—</div><div class="track-lbl">Win rate</div></div>
+      <div class="track-item"><div class="track-val" id="tr-streak">—</div><div class="track-lbl">Racha actual</div></div>
+      <div class="track-item"><div class="track-val" id="tr-total">—</div><div class="track-lbl">Total picks</div></div>
+      <div class="track-item"><div class="track-val" id="tr-over">—</div><div class="track-lbl">Over (acierto)</div></div>
+      <div class="track-item"><div class="track-val" id="tr-dc">—</div><div class="track-lbl">Doble op. (acierto)</div></div>
+      <div class="track-item"><div class="track-val" id="tr-win">—</div><div class="track-lbl">Victoria directa</div></div>
+    </div>
+  </div>
+</section>
+<script>
+fetch('static/stats.json').then(r=>r.json()).then(s=>{
+  document.getElementById('tr-winrate').textContent = s.winrate + '%';
+  document.getElementById('tr-streak').textContent  = s.streak;
+  document.getElementById('tr-total').textContent   = s.total;
+  const bt = s.by_type || {};
+  document.getElementById('tr-over').textContent = bt.over  ? bt.over.rate  + '%' : '—';
+  document.getElementById('tr-dc').textContent   = bt.dc    ? bt.dc.rate    + '%' : '—';
+  document.getElementById('tr-win').textContent  = bt.win   ? bt.win.rate   + '%' : '—';
+}).catch(()=>{});
 </script>
 
 <!-- PROBLEMA -->
