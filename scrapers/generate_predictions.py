@@ -773,7 +773,6 @@ def main():
             _m2 = _re.search(r'class="pconf">([^<]+)<', _html)
             if _m2: _conf = _m2.group(1).strip()
         except: pass
-        print(f"DEBUG: {_wp=} {_cj=} {_vs=} {_vl=}")
         _log.append({"fecha": today, "slug": slug,
             "home": parts[0].strip(), "away": parts[1].strip(),
             "league": league, "prediccion": _pred, "confianza": _conf,
