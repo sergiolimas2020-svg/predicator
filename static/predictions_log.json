@@ -128,8 +128,8 @@
     "league": "Liga Colombiana",
     "prediccion": "Deportes Tolima",
     "confianza": "Probabilidad: 62.2%",
-    "resultado_real": null,
-    "acerto": null
+    "resultado_real": "4-1",
+    "acerto": true
   },
   {
     "fecha": "2026-03-31",
@@ -139,8 +139,8 @@
     "league": "NBA",
     "prediccion": "Milwaukee Bucks",
     "confianza": "Probabilidad: 58.6%",
-    "resultado_real": null,
-    "acerto": null
+    "resultado_real": "123-99",
+    "acerto": true
   },
   {
     "fecha": "2026-03-31",
@@ -150,8 +150,8 @@
     "league": "NBA",
     "prediccion": "Detroit Pistons",
     "confianza": "Probabilidad: 69.8%",
-    "resultado_real": null,
-    "acerto": null
+    "resultado_real": "127-116",
+    "acerto": true
   },
   {
     "fecha": "2026-04-01",
@@ -170,32 +170,17 @@
   },
   {
     "fecha": "2026-04-01",
-    "slug": "bahia-vs-athletico-pr-brasileirao-2026-04-01",
-    "home": "Bahia",
-    "away": "Athletico-PR",
-    "league": "Brasileirao",
-    "prediccion": "Over 1.5 goles",
-    "confianza": "Probabilidad: 66.5%",
-    "resultado_real": null,
-    "acerto": null,
-    "probabilidad_modelo": 66.5,
-    "cuota_justa": 1.5,
-    "value_score": 66.5,
-    "value_level": "alto"
-  },
-  {
-    "fecha": "2026-04-01",
     "slug": "internacional-vs-sao-paulo-brasileirao-2026-04-01",
     "home": "Internacional",
     "away": "São Paulo",
     "league": "Brasileirao",
     "prediccion": "São Paulo",
-    "confianza": "Probabilidad: 65.7%",
+    "confianza": "Probabilidad: 66.9%",
     "resultado_real": null,
     "acerto": null,
-    "probabilidad_modelo": 65.7,
-    "cuota_justa": 1.52,
-    "value_score": 65.7,
+    "probabilidad_modelo": 66.9,
+    "cuota_justa": 1.49,
+    "value_score": 66.9,
     "value_level": "alto"
   },
   {
@@ -212,5 +197,20 @@
     "cuota_justa": 1.56,
     "value_score": 63.9,
     "value_level": "alto"
+  },
+  {
+    "fecha": "2026-04-01",
+    "slug": "botafogo-vs-mirassol-brasileirao-2026-04-01",
+    "home": "Botafogo",
+    "away": "Mirassol",
+    "league": "Brasileirao",
+    "prediccion": "Over 1.5 goles",
+    "confianza": "Probabilidad: 71.5%",
+    "resultado_real": null,
+    "acerto": null,
+    "probabilidad_modelo": 71.5,
+    "cuota_justa": 1.4,
+    "value_score": 57.2,
+    "value_level": "medio"
   }
 ]
