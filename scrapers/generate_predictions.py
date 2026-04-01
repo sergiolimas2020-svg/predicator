@@ -455,7 +455,16 @@ def calc_wp(league, home, hd, away, ad, nba=False):
             win_prob, win_team = hp, home
         else:
             win_prob, win_team = ap, away
+        # Doble oportunidad: cuando victoria directa es competitiva (50-69%)
+        # cubre win + empate — más sólido que la victoria directa sola
+        if win_team != "EMPATE" and 50 <= win_prob < 70:
+            dc_prob = round(min(84, win_prob + 20.0), 1)
+            dc_label = f"Doble oportunidad: {win_team}"
+        else:
+            dc_prob, dc_label = 0, ""
         mercados = [("Over 1.5 goles", o15), ("Over 2.5 goles", o25), (win_team, win_prob)]
+        if dc_label:
+            mercados.append((dc_label, dc_prob))
         mercados.sort(key=lambda x: x[1], reverse=True)
         win, wp = mercados[0]
         if win == "EMPATE" and o15 > 33:
@@ -554,6 +563,20 @@ def article(league, home, hd, away, ad, nba=False, _win=None, _wp=None, _valor=N
                 f"Combinando ambos historiales, la probabilidad de que el partido tenga mas de "
                 f"{'1.5' if '1.5' in win else '2.5'} goles es del <strong>{wp}%</strong> — "
                 f"significativamente mas alta que predecir un ganador directo."
+            )
+        elif win.startswith("Doble oportunidad:"):
+            team = win.replace("Doble oportunidad:", "").strip()
+            direct_prob = round(hp if team == home else ap, 1)
+            opp_team = away if team == home else home
+            opp_wins = aw2 if team == home else hw
+            analisis_pick = (
+                f"El partido entre <strong>{home}</strong> y <strong>{away}</strong> es disputado — "
+                f"la victoria directa de <strong>{team}</strong> tiene un <strong>{direct_prob}%</strong> de probabilidad, "
+                f"pero en un enfrentamiento competitivo apostarlo solo seria regalar el escenario del empate. "
+                f"La <strong>Doble oportunidad</strong> cubre tanto la victoria de <strong>{team}</strong> "
+                f"como el empate, elevando la probabilidad total al <strong>{wp}%</strong>. "
+                f"<strong>{opp_team}</strong> registra {opp_wins} victorias esta temporada — rival real, "
+                f"pero los datos favorecen a <strong>{team}</strong> sin necesidad de jugarse todo a la victoria directa."
             )
         elif win == home:
             analisis_pick = (

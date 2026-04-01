@@ -1,17 +1,16 @@
-name: Predicciones diarias
+name: PREDIKTOR Daily
 
 on:
   schedule:
-    # Todos los días a las 12:00 UTC = 7:00am Colombia (UTC-5)
-    - cron: '0 12 * * *'
+    # 11:00 UTC = 6:00am Colombia — resultados de anoche listos, picks listos antes de despertar
+    - cron: '0 11 * * *'
   workflow_dispatch:
-    # Permite correrlo manualmente desde GitHub si es necesario
 
 permissions:
   contents: write
 
 jobs:
-  update:
+  daily:
     runs-on: ubuntu-latest
 
     steps:
@@ -27,59 +26,61 @@ jobs:
           python-version: '3.11'
 
       - name: Instalar dependencias
-        run: pip install requests beautifulsoup4 nba_api
+        run: pip install requests beautifulsoup4 lxml nba_api
 
-      - name: Registrar resultados de ayer (ESPN)
+      # PASO 1: Registrar resultados de los partidos de ayer (ESPN)
+      - name: Registrar resultados
         run: python3 scrapers/update_results.py
         continue-on-error: true
 
-      - name: Actualizar stats Colombia
+      # PASO 2: Actualizar estadísticas de todas las ligas
+      - name: Stats Colombia
         run: python3 scrapers/colombia.py
         continue-on-error: true
 
-      - name: Actualizar stats Argentina
+      - name: Stats Argentina
         run: python3 scrapers/argentina.py
         continue-on-error: true
 
-      - name: Actualizar stats Premier League
+      - name: Stats Premier League
         run: python3 scrapers/premier.py
         continue-on-error: true
 
-      - name: Actualizar stats La Liga
+      - name: Stats La Liga
         run: python3 scrapers/españa.py
         continue-on-error: true
 
-      - name: Actualizar stats Serie A
+      - name: Stats Serie A
         run: python3 scrapers/italia.py
         continue-on-error: true
 
-      - name: Actualizar stats Bundesliga
+      - name: Stats Bundesliga
         run: python3 scrapers/bundesliga.py
         continue-on-error: true
 
-      - name: Actualizar stats Ligue 1
+      - name: Stats Ligue 1
         run: python3 scrapers/francia.py
         continue-on-error: true
 
-      - name: Actualizar stats Brasil
+      - name: Stats Brasileirao
         run: python3 scrapers/brazil.py
         continue-on-error: true
 
-      - name: Actualizar stats Champions
+      - name: Stats Champions League
         run: python3 scrapers/champions.py
         continue-on-error: true
 
-      - name: Generar predicciones del día
+      # PASO 3: Generar picks del día con datos frescos
+      - name: Generar predicciones
         run: python3 scrapers/generate_predictions.py
 
-      - name: Publicar cambios en GitHub
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # PASO 4: Publicar todos los cambios
+      - name: Commit y push
         run: |
           git config user.name "PREDIKTOR Bot"
           git config user.email "bot@prediktor.app"
-          git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/sergiolimas2020-svg/predicator.git
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/sergiolimas2020-svg/predicator.git
           git add -A
-          git diff --cached --quiet && echo "Sin cambios" || git commit -m "chore: predicciones automáticas $(date '+%Y-%m-%d')"
+          git diff --cached --quiet && echo "Sin cambios" || git commit -m "chore: update diario $(date '+%Y-%m-%d')"
           git pull --rebase origin main
           git push origin main
