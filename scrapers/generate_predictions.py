@@ -740,7 +740,7 @@ def main():
 
     cards = ''.join(
         f'<a href="/static/predictions/{s}.html" class="card"><span class="lg">{lg}</span><h3>{m}</h3><span class="lnk">Ver prediccion →</span></a>'
-        for s, m, lg in preds
+        for s, m, lg, *_ in preds
     ) if preds else '<div class="empty"><p>No hay partidos programados para hoy.</p></div>'
 
     (OUTPUT_DIR / "index.html").write_text(
@@ -751,7 +751,7 @@ def main():
 
     # ── SEO: sitemap y robots ──
     print("\nGenerando archivos SEO...")
-    slugs = [s for s, _, _ in preds]
+    slugs = [s for s, *_ in preds]
     generate_sitemap(slugs)
     generate_robots()
 
@@ -773,6 +773,7 @@ def main():
             _m2 = _re.search(r'class="pconf">([^<]+)<', _html)
             if _m2: _conf = _m2.group(1).strip()
         except: pass
+        print(f"DEBUG: {_wp=} {_cj=} {_vs=} {_vl=}")
         _log.append({"fecha": today, "slug": slug,
             "home": parts[0].strip(), "away": parts[1].strip(),
             "league": league, "prediccion": _pred, "confianza": _conf,
