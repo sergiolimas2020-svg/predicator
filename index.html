@@ -450,12 +450,11 @@ fetch('static/historial.json').then(r=>r.json()).then(h=>{
     const deHoy = picks.filter(p=>p.fecha===hoy);
     if(!deHoy.length){ return; /* sin picks hoy, sección permanece oculta */ }
 
-    const conPct = deHoy.map(p=>({...p, pct:parseFloat((p.confianza||'0').replace(/[^0-9.]/g,''))}));
+    const conPct = deHoy.map(p=>({...p, pct: p.probabilidad_modelo ?? parseFloat((p.confianza||'0').replace(/[^0-9.]/g,''))}));
     const ordenados = conPct.sort((a,b)=>b.pct-a.pct);
     const mejor = ordenados[0];
     const segundoMejor = ordenados[1];
     const ligaIcon = mejor.league==='NBA'?'🏀':'⚽';
-    const confianzaLabel = mejor.pct>=70?'Alta':mejor.pct>=60?'Media':'Normal';
     const confianzaColor = mejor.pct>=70?'var(--verde)':mejor.pct>=60?'var(--dorado)':'var(--gris)';
 
     // Render card principal
@@ -466,9 +465,9 @@ fetch('static/historial.json').then(r=>r.json()).then(h=>{
       </div>
       <div class="pick-partido">${mejor.home} vs ${mejor.away}</div>
       <div class="pick-stats">
-        <div class="pick-stat"><div class="pick-stat-val verde">${mejor.pct.toFixed(0)}%</div><div class="pick-stat-label">Probabilidad</div></div>
-        <div class="pick-stat"><div class="pick-stat-val dorado">${mejor.prediccion}</div><div class="pick-stat-label">Predicción</div></div>
-        <div class="pick-stat"><div class="pick-stat-val" style="color:${confianzaColor}">${confianzaLabel}</div><div class="pick-stat-label">Confianza</div></div>
+        <div class="pick-stat"><div class="pick-stat-val verde">${mejor.pct.toFixed(1)}%</div><div class="pick-stat-label">Probabilidad</div></div>
+        <div class="pick-stat"><div class="pick-stat-val dorado">${mejor.cuota_justa ?? '—'}</div><div class="pick-stat-label">Cuota mínima</div></div>
+        <div class="pick-stat"><div class="pick-stat-val" style="color:${confianzaColor}">${(mejor.value_level||'').toUpperCase()||'—'}</div><div class="pick-stat-label">Nivel valor</div></div>
       </div>
       <div class="pick-recomendacion">
         <div><div class="pick-rec-label">Recomendación del sistema</div><div class="pick-rec-val">✅ ${mejor.prediccion}</div></div>

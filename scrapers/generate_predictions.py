@@ -25,6 +25,11 @@ def cuota_justa(wp):
     if wp <= 0: return 99.0
     return round(100 / wp, 2)
 
+def value_level(vs):
+    if vs >= 60: return "alto"
+    if vs > 0:   return "medio"
+    return "bajo"
+
 def value_score(wp):
     """
     Score de valor apostable (0-100).
@@ -457,7 +462,8 @@ def calc_wp(league, home, hd, away, ad, nba=False):
             win, wp = ("Over 1.5 goles", o15) if o15 >= o25 else ("Over 2.5 goles", o25)
     vs = value_score(wp)
     cj = cuota_justa(wp)
-    return win, wp, vs, cj
+    vl = value_level(vs)
+    return win, wp, vs, cj, vl
 
 def article(league, home, hd, away, ad, nba=False, _win=None, _wp=None, _valor=None, _cuota=None):
     # Usar valores pre-calculados por calc_wp() para consistencia
@@ -701,9 +707,9 @@ def main():
             hd = find(stats, home); ad = find(stats, away)
             if not hd: hd = ad
             if not ad: ad = hd
-            win, wp, vs, cj = calc_wp(league, home, hd, away, ad, nba=False)
+            win, wp, vs, cj, vl = calc_wp(league, home, hd, away, ad, nba=False)
             if wp >= MIN_CONF:
-                candidates.append((vs, league, home, hd, away, ad, False, win, wp, cj))
+                candidates.append((vs, league, home, hd, away, ad, False, win, wp, cj, vl))
 
     nba_games = nba_fixtures()
     if nba_games:
@@ -712,9 +718,9 @@ def main():
             hd = find(nba_teams, home); ad = find(nba_teams, away)
             if not hd: hd = ad
             if not ad: ad = hd
-            win, wp, vs, cj = calc_wp("NBA", home, hd, away, ad, nba=True)
+            win, wp, vs, cj, vl = calc_wp("NBA", home, hd, away, ad, nba=True)
             if wp >= MIN_CONF:
-                candidates.append((vs, "NBA", home, hd, away, ad, True, win, wp, cj))
+                candidates.append((vs, "NBA", home, hd, away, ad, True, win, wp, cj, vl))
 
     # ── FASE 2: ordenar por valor y tomar los MAX_PICKS mejores ──
     candidates.sort(key=lambda x: x[0], reverse=True)
@@ -724,12 +730,12 @@ def main():
     print(f"Candidatos totales: {len(candidates)} | Publicando top {len(top)} por valor\n")
 
     # ── FASE 3: generar HTML solo para los elegidos ──
-    for vs, league, home, hd, away, ad, nba, win, wp, cj in top:
+    for vs, league, home, hd, away, ad, nba, win, wp, cj, vl in top:
         art = article(league, home, hd, away, ad, nba=nba,
                       _win=win, _wp=wp, _valor=vs, _cuota=cj)
         slug = save(league, home, away, art)
         lg_label = "NBA" if nba else league
-        preds.append((slug, f"{home} vs {away}", lg_label))
+        preds.append((slug, f"{home} vs {away}", lg_label, round(wp,1), round(cj,2), vs, vl))
         print(f"   [{vs:.0f}pts valor] {home} vs {away} → {win} ({wp}%) cuota justa {cj}")
 
     cards = ''.join(
@@ -755,7 +761,7 @@ def main():
     _log_path = _Path("static/predictions_log.json")
     _log = _json.loads(_log_path.read_text()) if _log_path.exists() else []
     _log = [e for e in _log if e.get("fecha") != today]
-    for slug, matchup, league in preds:
+    for slug, matchup, league, _wp, _cj, _vs, _vl in preds:
         parts = matchup.split(" vs ")
         if len(parts) != 2:
             continue
@@ -770,7 +776,11 @@ def main():
         _log.append({"fecha": today, "slug": slug,
             "home": parts[0].strip(), "away": parts[1].strip(),
             "league": league, "prediccion": _pred, "confianza": _conf,
-            "resultado_real": None, "acerto": None})
+            "resultado_real": None, "acerto": None,
+            "probabilidad_modelo": _wp,
+            "cuota_justa": _cj,
+            "value_score": _vs,
+            "value_level": _vl})
     _log_path.write_text(_json.dumps(_log, ensure_ascii=False, indent=2))
     print(f"Log guardado: {len(_log)} predicciones")
 
