@@ -77,6 +77,13 @@ def check_acerto(pred, result, nba):
     if "EMPATE" in p:
         return h == a
 
+    if "Apuesta sin empate:" in p:
+        team = p.replace("Apuesta sin empate:", "").strip()
+        if h == a:
+            return None  # empate → apuesta nula (devuelven la apuesta, no cuenta como acierto ni fallo)
+        winner = result["home_name"] if h > a else result["away_name"]
+        return norm(team) in norm(winner) or norm(winner) in norm(team)
+
     if "Doble oportunidad:" in p:
         team = p.replace("Doble oportunidad:", "").strip()
         if h == a:

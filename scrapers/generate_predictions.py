@@ -464,31 +464,40 @@ def calc_wp(league, home, hd, away, ad, nba=False):
         else:
             win_prob, win_team = ap, away
         # Doble oportunidad: cuando victoria directa es competitiva (50-69%)
-        # cubre win + empate — más sólido que la victoria directa sola
         if win_team != "EMPATE" and 50 <= win_prob < 70:
             dc_prob = round(min(84, win_prob + 20.0), 1)
             dc_label = f"Doble oportunidad: {win_team}"
         else:
             dc_prob, dc_label = 0, ""
-        # Evaluar cada mercado por su PROPIO value_score antes de competir
+
+        # Apuesta sin empate: elimina el empate — si empata devuelven la apuesta
+        # draw_prob estimado según competitividad (más parejo = más probable el empate)
+        if win_team != "EMPATE":
+            draw_est = max(10.0, 30.0 - (win_prob - 50) * 0.8)
+            dnb_prob = round(win_prob / (win_prob + draw_est) * 100, 1)
+            dnb_label = f"Apuesta sin empate: {win_team}"
+        else:
+            dnb_prob, dnb_label = 0, ""
+
+        # Evaluar cada mercado por su PROPIO value_score — todos compiten igual
         vs_o15 = value_score(o15)
         vs_o25 = value_score(o25)
         vs_win = value_score(win_prob) if win_team != "EMPATE" else 0
+        vs_dc  = value_score(dc_prob)  if dc_label else 0
+        vs_dnb = value_score(dnb_prob) if dnb_label else 0
 
         # Candidatos: (value_score, display_pick, display_prob, base_pick, base_prob)
-        # Over 1.5 y Over 2.5 compiten de forma independiente
-        # DC reemplaza la victoria directa si aplica — ambos usan el mismo vs_win
         mercados = []
         if vs_o15 > 0:
             mercados.append((vs_o15, "Over 1.5 goles", o15, "Over 1.5 goles", o15))
         if vs_o25 > 0:
             mercados.append((vs_o25, "Over 2.5 goles", o25, "Over 2.5 goles", o25))
         if vs_win > 0:
-            if dc_label:
-                # DC sustituye la victoria directa (mismo value_score, display más conservador)
-                mercados.append((vs_win, dc_label, dc_prob, win_team, win_prob))
-            else:
-                mercados.append((vs_win, win_team, win_prob, win_team, win_prob))
+            mercados.append((vs_win, win_team, win_prob, win_team, win_prob))
+        if vs_dc > 0:
+            mercados.append((vs_dc, dc_label, dc_prob, win_team, win_prob))
+        if vs_dnb > 0:
+            mercados.append((vs_dnb, dnb_label, dnb_prob, win_team, win_prob))
 
         if not mercados:
             # Ningún mercado tiene valor — retornar con vs=0 para que main() lo descarte
@@ -593,6 +602,17 @@ def article(league, home, hd, away, ad, nba=False, _win=None, _wp=None, _valor=N
                 f"{'1.5' if '1.5' in win else '2.5'} goles es del <strong>{wp}%</strong> — "
                 f"significativamente mas alta que predecir un ganador directo."
             )
+        elif win.startswith("Apuesta sin empate:"):
+            team = win.replace("Apuesta sin empate:", "").strip()
+            direct_prob = round(hp if team == home else ap, 1)
+            opp_team = away if team == home else home
+            analisis_pick = (
+                f"El modelo asigna a <strong>{team}</strong> un <strong>{direct_prob}%</strong> de probabilidad de victoria directa. "
+                f"La <strong>apuesta sin empate</strong> elimina el riesgo del empate: si el partido termina igualado, recuperas tu apuesta integra. "
+                f"Descontando ese escenario, la probabilidad efectiva a tu favor sube al <strong>{wp}%</strong>. "
+                f"Esta linea ofrece mejor cuota que la doble oportunidad con la misma proteccion frente al empate — "
+                f"aqui esta la ventaja sobre el bookmaker."
+            )
         elif win.startswith("Doble oportunidad:"):
             team = win.replace("Doble oportunidad:", "").strip()
             direct_prob = round(hp if team == home else ap, 1)
@@ -652,10 +672,12 @@ def article(league, home, hd, away, ad, nba=False, _win=None, _wp=None, _valor=N
 <div class="srow"><span class="slbl">Nivel de valor</span><span class="sval" style="color:{valor_color}">{valor_label}</span></div>
 </div>"""
 
-    conservador_tag = (
-        '<div class="ptag">Salida conservadora — cubre victoria + empate</div>'
-        if win.startswith("Doble oportunidad:") else ""
-    )
+    if win.startswith("Doble oportunidad:"):
+        conservador_tag = '<div class="ptag">Salida conservadora — cubre victoria + empate</div>'
+    elif win.startswith("Apuesta sin empate:"):
+        conservador_tag = '<div class="ptag">Empate = devolucion de la apuesta</div>'
+    else:
+        conservador_tag = ""
 
     return f"""
 <p>{intro}</p>
