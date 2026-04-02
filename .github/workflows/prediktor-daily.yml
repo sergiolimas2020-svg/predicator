@@ -33,6 +33,13 @@ jobs:
         run: python3 scrapers/update_results.py
         continue-on-error: true
 
+      # PASO 1b: Descargar cuotas reales de bookmakers
+      - name: Fetch cuotas bookmakers
+        run: python3 scrapers/fetch_odds.py
+        continue-on-error: true
+        env:
+          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+
       - name: Generar estadísticas
         run: python3 scrapers/stats_tracker.py
         continue-on-error: true
@@ -78,6 +85,8 @@ jobs:
       - name: Generar predicciones
         run: python3 scrapers/generate_predictions.py
         continue-on-error: true
+        env:
+          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
 
       # PASO 4: Publicar todos los cambios
       - name: Commit y push
