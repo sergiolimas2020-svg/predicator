@@ -19,7 +19,7 @@ echo "  PREDIKTOR daily update — $(date '+%Y-%m-%d %H:%M')" >> "$LOG"
 echo "============================================" >> "$LOG"
 
 # ── 1. Actualizar stats de todas las ligas ──
-echo "[1/3] Actualizando estadísticas..." >> "$LOG"
+echo "[1/4] Actualizando estadísticas..." >> "$LOG"
 
 run_scraper() {
     local name="$1"
@@ -46,13 +46,18 @@ NBA_PID=$!
 # Esperar NBA (máximo 3 min)
 wait $NBA_PID && echo "    NBA OK" >> "$LOG" || echo "    NBA WARN: usará stats anteriores" >> "$LOG"
 
-# ── 2. Generar predicciones del día ──
-echo "[2/3] Generando predicciones..." >> "$LOG"
+# ── 2. Actualizar resultados de ayer ──
+echo "[2/4] Actualizando resultados de ayer..." >> "$LOG"
+$PYTHON scrapers/update_results.py >> "$LOG" 2>&1 || echo "    WARN: update_results falló, continuando" >> "$LOG"
+echo "  OK" >> "$LOG"
+
+# ── 3. Generar predicciones del día ──
+echo "[3/4] Generando predicciones..." >> "$LOG"
 $PYTHON scrapers/generate_predictions.py >> "$LOG" 2>&1
 echo "  OK" >> "$LOG"
 
-# ── 3. Push a GitHub → Vercel redespliega ──
-echo "[3/3] Publicando en GitHub..." >> "$LOG"
+# ── 4. Push a GitHub → Vercel redespliega ──
+echo "[4/4] Publicando en GitHub..." >> "$LOG"
 git add -A >> "$LOG" 2>&1
 git diff --cached --quiet && echo "  Sin cambios nuevos" >> "$LOG" || {
     git commit -m "chore: actualización automática $(date '+%Y-%m-%d')" >> "$LOG" 2>&1
