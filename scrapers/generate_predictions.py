@@ -1,3 +1,4 @@
+# VERSION DE PRUEBA - NO PRODUCCION
 import json, os, requests, unicodedata
 from datetime import date, timedelta
 from pathlib import Path
@@ -15,9 +16,9 @@ for en, es in MESES.items():
 BALLDONTLIE_KEY = os.environ.get("BALLDONTLIE_KEY", "")
 
 # ── Límite de picks diarios y umbrales de valor ──
-MAX_PICKS      = 4    # máximo picks publicados por día
-MIN_CONF       = 56.0 # probabilidad mínima (descarta picks demasiado inciertos)
-MIN_CUOTA      = 1.40 # cuota justa mínima — por debajo los bookmakers pagan ~1.05-1.20, sin valor real
+MAX_PICKS = 4    # máximo picks publicados por día
+MIN_CONF = 50.0 # probabilidad mínima (descarta picks demasiado inciertos)
+MIN_CUOTA = 1.30 # cuota justa mínima — por debajo los bookmakers pagan ~1.05-1.20, sin valor real
 MAX_CUOTA      = 2.00 # cuota justa máxima — por encima es demasiado incierto
 
 def cuota_justa(wp):
@@ -469,22 +470,36 @@ def calc_wp(league, home, hd, away, ad, nba=False):
             dc_label = f"Doble oportunidad: {win_team}"
         else:
             dc_prob, dc_label = 0, ""
-        mercados = [("Over 1.5 goles", o15), ("Over 2.5 goles", o25), (win_team, win_prob)]
-        if dc_label:
-            mercados.append((dc_label, dc_prob))
-        mercados.sort(key=lambda x: x[1], reverse=True)
-        win, wp = mercados[0]
-        if win == "EMPATE" and o15 > 33:
-            win, wp = ("Over 1.5 goles", o15) if o15 >= o25 else ("Over 2.5 goles", o25)
-        # Si el display es DC, la base es la victoria directa (para value_score y filtros)
-        if dc_label and win == dc_label:
-            base_pick, base_prob = win_team, win_prob
-        else:
-            base_pick, base_prob = win, wp
-        vs = value_score(base_prob)
+        # Evaluar cada mercado por su PROPIO value_score antes de competir
+        vs_o15 = value_score(o15)
+        vs_o25 = value_score(o25)
+        vs_win = value_score(win_prob) if win_team != "EMPATE" else 0
+
+        # Candidatos: (value_score, display_pick, display_prob, base_pick, base_prob)
+        # Over 1.5 y Over 2.5 compiten de forma independiente
+        # DC reemplaza la victoria directa si aplica — ambos usan el mismo vs_win
+        mercados = []
+        if vs_o15 > 0:
+            mercados.append((vs_o15, "Over 1.5 goles", o15, "Over 1.5 goles", o15))
+        if vs_o25 > 0:
+            mercados.append((vs_o25, "Over 2.5 goles", o25, "Over 2.5 goles", o25))
+        if vs_win > 0:
+            if dc_label:
+                # DC sustituye la victoria directa (mismo value_score, display más conservador)
+                mercados.append((vs_win, dc_label, dc_prob, win_team, win_prob))
+            else:
+                mercados.append((vs_win, win_team, win_prob, win_team, win_prob))
+
+        if not mercados:
+            # Ningún mercado tiene valor — retornar con vs=0 para que main() lo descarte
+            return win_team, win_prob, win_team, win_prob, 0, cuota_justa(win_prob), "bajo"
+
+        # Ordenar por value_score (no por probabilidad bruta)
+        mercados.sort(key=lambda x: x[0], reverse=True)
+        best_vs, display_pick, display_prob, base_pick, base_prob = mercados[0]
         cj = cuota_justa(base_prob)
-        vl = value_level(vs)
-        return base_pick, base_prob, win, wp, vs, cj, vl
+        vl = value_level(best_vs)
+        return base_pick, base_prob, display_pick, display_prob, best_vs, cj, vl
 
 def article(league, home, hd, away, ad, nba=False, _win=None, _wp=None, _valor=None, _cuota=None, _base_prob=None):
     # Usar valores pre-calculados por calc_wp() para consistencia
