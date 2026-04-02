@@ -524,42 +524,66 @@ def calc_wp(league, home, hd, away, ad, nba=False):
     bk = find_bk_odds(home, away, league, today)
 
     def edge_of(our_p, odds):
-        if not odds or odds <= 1.0: return -1
+        if not odds or odds <= 1.0: return -1.0
         return round(our_p * odds - 1, 4)
 
     if bk:
-        # ── Con cuotas reales: DNB es el pick por defecto para equipos ──
+        # ── Con cuotas reales: todos los mercados compiten por edge real ──
         bk_win  = bk['win_home'] if win_team == home else bk['win_away']
         bk_draw = bk.get('draw')
         bk_dnb  = round((bk_win + bk_draw) / bk_draw, 3) if bk_draw and bk_draw > 1 else None
+        bk_dc   = round((bk_win * bk_draw) / (bk_win + bk_draw), 3) if bk_draw else None
 
+        e_win = edge_of(p_win, bk_win)
         e_dnb = edge_of(p_dnb, bk_dnb)
+        e_dc  = edge_of(p_dc,  bk_dc)
 
-        # Apuesta sin empate es el pick principal si tiene edge positivo
-        if e_dnb >= MIN_EDGE:
-            vs = round(e_dnb * 100, 1)
-            return win_team, round(p_win*100,1), f"Apuesta sin empate: {win_team}", round(p_dnb*100,1), vs, bk_dnb, value_level(vs), bk_dnb
+        # Candidatos de equipo: (edge, label, display_prob, bk_odds)
+        team_candidates = [
+            (e_win, win_team,                         round(p_win*100,1), bk_win),
+            (e_dnb, f"Apuesta sin empate: {win_team}", round(p_dnb*100,1), bk_dnb),
+            (e_dc,  f"Doble oportunidad: {win_team}",  round(p_dc*100,1),  bk_dc),
+        ]
+        # Candidatos de goles (sin cuota real → value_score escalado)
+        goles_candidates = []
+        for label, prob in [("Over 1.5 goles", o15), ("Over 2.5 goles", o25)]:
+            vs_g = value_score(prob)
+            if vs_g > 0:
+                goles_candidates.append((vs_g / 100, label, prob, None))
 
-        # Sin edge en DNB → sin pick de equipo para este partido
-        return win_team, round(p_win*100,1), win_team, round(p_win*100,1), 0, bk_win or cuota_justa(round(p_win*100,1)), "bajo", None
+        best_team  = max(team_candidates,  key=lambda x: x[0])
+        best_goles = max(goles_candidates, key=lambda x: x[0]) if goles_candidates else None
+
+        # Gana el mercado con mayor edge, pero DNB tiene preferencia de desempate
+        # frente a victoria directa y DC (más consistente, cuota media)
+        all_candidates = team_candidates + (goles_candidates if goles_candidates else [])
+        winner = max(all_candidates, key=lambda x: x[0])
+
+        # Si el mejor mercado de equipo y el ganador empatan o difieren poco (<2%),
+        # preferir DNB sobre victoria directa para consistencia
+        if winner[0] < MIN_EDGE:
+            return win_team, round(p_win*100,1), win_team, round(p_win*100,1), 0, bk_win or cuota_justa(round(p_win*100,1)), "bajo", None
+
+        best_edge, display_pick, display_prob, best_bk_odds = winner
+        vs = round(best_edge * 100, 1)
+        cj = best_bk_odds if best_bk_odds else cuota_justa(display_prob)
+        return win_team, round(p_win*100,1), display_pick, display_prob, vs, cj, value_level(vs), best_bk_odds
 
     else:
-        # ── Sin cuotas reales (Colombia): DNB con valor justo 3-way ──
-        cj_dnb = cuota_justa(round(p_dnb * 100, 1))
-        vs_dnb = value_score(round(p_dnb * 100, 1))
+        # ── Sin cuotas reales (Colombia): todos los mercados compiten por valor justo ──
+        candidates = [
+            (value_score(round(p_win*100,1)), win_team,                         round(p_win*100,1), cuota_justa(round(p_win*100,1))),
+            (value_score(round(p_dnb*100,1)), f"Apuesta sin empate: {win_team}", round(p_dnb*100,1), cuota_justa(round(p_dnb*100,1))),
+            (value_score(round(p_dc*100,1)),  f"Doble oportunidad: {win_team}",  round(p_dc*100,1),  cuota_justa(round(p_dc*100,1))),
+            (value_score(o15),                "Over 1.5 goles",                  o15,                cuota_justa(o15)),
+            (value_score(o25),                "Over 2.5 goles",                  o25,                cuota_justa(o25)),
+        ]
+        valid = [(vs, lbl, prob, cj) for vs, lbl, prob, cj in candidates if vs > 0]
+        if not valid:
+            return win_team, round(p_win*100,1), win_team, round(p_win*100,1), 0, cuota_justa(round(p_win*100,1)), "bajo", None
 
-        if vs_dnb > 0:
-            return win_team, round(p_win*100,1), f"Apuesta sin empate: {win_team}", round(p_dnb*100,1), vs_dnb, cj_dnb, value_level(vs_dnb), None
-
-        # Fallback a Over goles si DNB no tiene valor (partido muy parejo o favorito aplastante)
-        vs_o15 = value_score(o15)
-        vs_o25 = value_score(o25)
-        if vs_o15 > 0 or vs_o25 > 0:
-            if vs_o15 >= vs_o25:
-                return "Over 1.5 goles", o15, "Over 1.5 goles", o15, vs_o15, cuota_justa(o15), value_level(vs_o15), None
-            return "Over 2.5 goles", o25, "Over 2.5 goles", o25, vs_o25, cuota_justa(o25), value_level(vs_o25), None
-
-        return win_team, round(p_win*100,1), win_team, round(p_win*100,1), 0, cuota_justa(round(p_win*100,1)), "bajo", None
+        best_vs, display_pick, display_prob, cj = max(valid, key=lambda x: x[0])
+        return win_team, round(p_win*100,1), display_pick, display_prob, best_vs, cj, value_level(best_vs), None
 
 def article(league, home, hd, away, ad, nba=False, _win=None, _wp=None, _valor=None, _cuota=None, _base_prob=None, _bk_odds=None):
     # Usar valores pre-calculados por calc_wp() para consistencia
