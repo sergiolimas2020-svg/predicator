@@ -2,8 +2,8 @@ name: PREDIKTOR Daily
 
 on:
   schedule:
-    # 11:00 UTC = 6:00am Colombia — resultados de anoche listos, picks listos antes de despertar
-    - cron: '0 11 * * *'
+    # 05:00 UTC = 00:00 Colombia (UTC-5) — al cambiar de día
+    - cron: '0 5 * * *'
   workflow_dispatch:
 
 permissions:
@@ -77,6 +77,7 @@ jobs:
       # PASO 3: Generar picks del día con datos frescos
       - name: Generar predicciones
         run: python3 scrapers/generate_predictions.py
+        continue-on-error: true
 
       # PASO 4: Publicar todos los cambios
       - name: Commit y push
@@ -86,5 +87,4 @@ jobs:
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/sergiolimas2020-svg/predicator.git
           git add -A
           git diff --cached --quiet && echo "Sin cambios" || git commit -m "chore: update diario $(date '+%Y-%m-%d')"
-          git pull --rebase origin main
           git push origin main
