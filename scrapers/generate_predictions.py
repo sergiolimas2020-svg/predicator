@@ -554,13 +554,14 @@ def calc_wp(league, home, hd, away, ad, nba=False):
         best_team  = max(team_candidates,  key=lambda x: x[0])
         best_goles = max(goles_candidates, key=lambda x: x[0]) if goles_candidates else None
 
-        # Gana el mercado con mayor edge, pero DNB tiene preferencia de desempate
-        # frente a victoria directa y DC (más consistente, cuota media)
         all_candidates = team_candidates + (goles_candidates if goles_candidates else [])
         winner = max(all_candidates, key=lambda x: x[0])
 
-        # Si el mejor mercado de equipo y el ganador empatan o difieren poco (<2%),
-        # preferir DNB sobre victoria directa para consistencia
+        # Preferencia DNB: si la victoria directa ganó pero DNB tiene edge positivo
+        # y la diferencia entre ambos es menor al 5%, preferir DNB (más conservador)
+        if winner[1] == win_team and bk_dnb and e_dnb >= MIN_EDGE and (e_win - e_dnb) < 0.05:
+            winner = team_candidates[1]  # DNB
+
         if winner[0] < MIN_EDGE:
             return win_team, round(p_win*100,1), win_team, round(p_win*100,1), 0, bk_win or cuota_justa(round(p_win*100,1)), "bajo", None
 
@@ -583,6 +584,17 @@ def calc_wp(league, home, hd, away, ad, nba=False):
             return win_team, round(p_win*100,1), win_team, round(p_win*100,1), 0, cuota_justa(round(p_win*100,1)), "bajo", None
 
         best_vs, display_pick, display_prob, cj = max(valid, key=lambda x: x[0])
+
+        # Preferencia DNB: si victoria directa ganó, pero DNB tiene valor positivo
+        # y la diferencia es menor a 5 puntos, preferir DNB (más conservador)
+        if display_pick == win_team:
+            dnb_score = value_score(round(p_dnb*100,1))
+            if dnb_score > 0 and (best_vs - dnb_score) < 5:
+                display_pick = f"Apuesta sin empate: {win_team}"
+                display_prob = round(p_dnb*100,1)
+                cj           = cuota_justa(display_prob)
+                best_vs      = dnb_score
+
         return win_team, round(p_win*100,1), display_pick, display_prob, best_vs, cj, value_level(best_vs), None
 
 def article(league, home, hd, away, ad, nba=False, _win=None, _wp=None, _valor=None, _cuota=None, _base_prob=None, _bk_odds=None):
