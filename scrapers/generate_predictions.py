@@ -584,8 +584,11 @@ def calc_wp(league, home, hd, away, ad, nba=False):
         (value_score(round(p_win*100,1)), win_team,                          round(p_win*100,1), cuota_justa(round(p_win*100,1))),
         (value_score(round(p_dnb*100,1)), f"Apuesta sin empate: {win_team}", round(p_dnb*100,1), cuota_justa(round(p_dnb*100,1))),
         (value_score(round(p_dc*100,1)),  f"Doble oportunidad: {win_team}",  round(p_dc*100,1),  cuota_justa(round(p_dc*100,1))),
-        (value_score(o15),                "Over 1.5 goles",                  o15,                cuota_justa(o15)),
-        (value_score(o25),                "Over 2.5 goles",                  o25,                cuota_justa(o25)),
+        # Over goles: mínimo cuota justa 1.60 — bookmakers ya tienen bien
+        # calculados los overs de equipos conocidos, solo hay valor en
+        # partidos donde el modelo detecta alto scoring inesperado (cj >= 1.60)
+        (value_score(o15) if cuota_justa(o15) >= 1.60 else 0, "Over 1.5 goles", o15, cuota_justa(o15)),
+        (value_score(o25) if cuota_justa(o25) >= 1.60 else 0, "Over 2.5 goles", o25, cuota_justa(o25)),
     ]
     valid = [(vs, lbl, prob, cj) for vs, lbl, prob, cj in candidates if vs > 0]
     if not valid:
