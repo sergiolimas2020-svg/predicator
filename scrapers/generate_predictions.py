@@ -502,8 +502,10 @@ def prob_futbol_3way(hd, ad):
     Incorpora probabilidad de empate según competitividad del partido."""
     hp, ap = prob_futbol(hd, ad)
     diff = abs(hp - ap)
-    # Más parejo → más empates. Rango: 8% (muy desigual) a 30% (50/50)
-    draw_pct = max(8.0, 30.0 - diff * 0.44)
+    # Más parejo → más empates. Rango: 20% (muy desigual) a 30% (50/50)
+    # Mínimo 20% refleja la realidad del fútbol: incluso favoritos claros pierden
+    # ~20% al empate, lo que hace que DNB tenga siempre cuota >= ~1.25
+    draw_pct = max(20.0, 30.0 - diff * 0.20)
     scale = (100.0 - draw_pct) / 100.0
     win  = round(hp * scale, 1)
     lose = round(ap * scale, 1)
@@ -592,13 +594,14 @@ def calc_wp(league, home, hd, away, ad, nba=False):
     best_vs, display_pick, display_prob, cj = max(valid, key=lambda x: x[0])
 
     # Preferencia conservadora: si victoria directa ganó, sustituir por DNB
-    # siempre que DNB tenga valor (cuota justa >= 1.30).
-    # Solo se muestra victoria directa si el DNB no tiene valor.
+    # siempre que la cuota justa del DNB sea >= 1.20 (hay margen mínimo).
+    # Victoria directa solo aparece cuando el favorito es tan dominante que
+    # el DNB baja de 1.20 (probabilidad > 83%).
     if display_pick == win_team:
-        dnb_prob  = round(p_dnb*100,1)
-        dnb_cj    = cuota_justa(dnb_prob)
-        dnb_score = value_score(dnb_prob)
-        if dnb_score > 0:
+        dnb_prob = round(p_dnb*100,1)
+        dnb_cj   = cuota_justa(dnb_prob)
+        if dnb_cj >= 1.20:
+            dnb_score    = max(value_score(dnb_prob), 1)  # mínimo 1 para que entre
             display_pick = f"Apuesta sin empate: {win_team}"
             display_prob = dnb_prob
             cj           = dnb_cj
