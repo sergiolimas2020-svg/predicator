@@ -567,9 +567,18 @@ def calc_wp(league, home, hd, away, ad, nba=False):
     if nba:
         hp, ap = prob_nba(hd, ad)
         win, wp = (home, hp) if hp >= ap else (away, ap)
-        vs = value_score(wp)
-        cj = cuota_justa(wp)
-        return win, wp, win, wp, vs, cj, value_level(vs), None
+        bk = find_bk_odds(home, away, "NBA", today)
+        if bk:
+            bk_win = bk['win_home'] if win == home else bk['win_away']
+            e = edge_real(wp / 100, bk_win)
+            if e is None:
+                # Sin edge real (favorito obvio o modelo errado) → no publicar
+                return win, wp, win, wp, 0, bk_win, "bajo", None
+            vs = round(e * 100, 1)
+            return win, wp, win, wp, vs, bk_win, value_level(vs), bk_win
+        else:
+            # Sin cuotas reales → no publicar partido NBA
+            return win, wp, win, wp, 0, cuota_justa(wp), "bajo", None
 
     # ── Fútbol: modelo 3 vías ──
     win_3w, draw_3w, lose_3w = prob_futbol_3way(hd, ad)
