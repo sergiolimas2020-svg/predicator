@@ -589,14 +589,20 @@ def calc_wp(league, home, hd, away, ad, nba=False):
     if not valid:
         return win_team, round(p_win*100,1), win_team, round(p_win*100,1), 0, cuota_justa(round(p_win*100,1)), "bajo", None
 
-    # Preferencia DNB: si victoria directa gana pero DNB tiene valor y diferencia <5pts, preferir DNB
+    # El mercado con mayor value_score gana — competencia pura
+    # DNB solo reemplaza victoria directa si:
+    #   1. DNB tiene value_score > 0 (cuota justa >= 1.30)
+    #   2. La diferencia con victoria directa es <= 3pts (casi empate estadístico)
+    #   3. La cuota justa del DNB es >= 1.35 (hay margen real para el apostador)
     best_vs, display_pick, display_prob, cj = max(valid, key=lambda x: x[0])
     if display_pick == win_team:
-        dnb_score = value_score(round(p_dnb*100,1))
-        if dnb_score > 0 and (best_vs - dnb_score) < 5:
+        dnb_prob  = round(p_dnb*100,1)
+        dnb_cj    = cuota_justa(dnb_prob)
+        dnb_score = value_score(dnb_prob)
+        if dnb_score > 0 and dnb_cj >= 1.35 and (best_vs - dnb_score) <= 3:
             display_pick = f"Apuesta sin empate: {win_team}"
-            display_prob = round(p_dnb*100,1)
-            cj           = cuota_justa(display_prob)
+            display_prob = dnb_prob
+            cj           = dnb_cj
             best_vs      = dnb_score
 
     return win_team, round(p_win*100,1), display_pick, display_prob, best_vs, cj, value_level(best_vs), None
