@@ -5,8 +5,10 @@ from pathlib import Path
 
 OUTPUT_DIR = Path("static/predictions")
 OUTPUT_DIR.mkdir(exist_ok=True)
-today = date.today().strftime("%Y-%m-%d")
-tomorrow = (date.today() + timedelta(days=1)).strftime("%Y-%m-%d")
+from datetime import datetime, timezone
+_now_col = datetime.now(timezone.utc) - timedelta(hours=5)
+today    = _now_col.strftime("%Y-%m-%d")
+tomorrow = (_now_col + timedelta(days=1)).strftime("%Y-%m-%d")
 
 MESES = {"January":"enero","February":"febrero","March":"marzo","April":"abril","May":"mayo","June":"junio","July":"julio","August":"agosto","September":"septiembre","October":"octubre","November":"noviembre","December":"diciembre"}
 today_display = date.today().strftime("%d de %B de %Y")
@@ -330,29 +332,40 @@ TEAM_ALIASES = {
 }
 
 def espn_fixtures(code):
-    try:
-        r = requests.get(f"https://site.api.espn.com/apis/site/v2/sports/{code}/scoreboard", timeout=10)
-        matches = []
-        for e in r.json().get("events", []):
-            event_date_utc = e.get("date", "")
-            event_date = event_date_utc[:10]
-            event_hour = int(event_date_utc[11:13]) if len(event_date_utc) > 12 else 0
-            status = e.get("status", {}).get("type", {}).get("description", "")
-            if status in ("Full Time", "Final", "FT"):
-                continue
-            es_hoy = event_date == today
-            es_noche_col = (event_date == tomorrow and event_hour <= 5)
-            if not es_hoy and not es_noche_col:
-                continue
-            cs = e.get("competitions", [{}])[0].get("competitors", [])
-            if len(cs) >= 2:
-                h = next((c["team"]["displayName"] for c in cs if c.get("homeAway") == "home"), None)
-                a = next((c["team"]["displayName"] for c in cs if c.get("homeAway") == "away"), None)
-                if h and a:
-                    matches.append((h, a))
-        return matches
-    except Exception as ex:
-        print(f"   ESPN error: {ex}"); return []
+    """Obtiene partidos de hoy (hora Colombia) que aún no han terminado."""
+    matches = []
+    seen = set()
+    # Consultar hoy y mañana en UTC para capturar todos los partidos del día Colombia
+    dates_to_check = [today.replace("-",""), tomorrow.replace("-","")]
+    for d in dates_to_check:
+        try:
+            url = f"https://site.api.espn.com/apis/site/v2/sports/{code}/scoreboard?dates={d}"
+            r = requests.get(url, timeout=10)
+            for e in r.json().get("events", []):
+                event_date_utc = e.get("date", "")
+                event_date = event_date_utc[:10]
+                event_hour = int(event_date_utc[11:13]) if len(event_date_utc) > 12 else 0
+                status = e.get("status", {}).get("type", {}).get("description", "")
+                if status in ("Full Time", "Final", "FT", "Finalizado"):
+                    continue
+                # Hora Colombia = UTC-5. Acepta partidos del día Colombia:
+                # hoy UTC o mañana UTC antes de las 06:00 UTC
+                event_col_date = (
+                    datetime.strptime(event_date_utc[:16], "%Y-%m-%dT%H:%M")
+                    .replace(tzinfo=timezone.utc) - timedelta(hours=5)
+                ).strftime("%Y-%m-%d")
+                if event_col_date != today:
+                    continue
+                cs = e.get("competitions", [{}])[0].get("competitors", [])
+                if len(cs) >= 2:
+                    h = next((c["team"]["displayName"] for c in cs if c.get("homeAway") == "home"), None)
+                    a = next((c["team"]["displayName"] for c in cs if c.get("homeAway") == "away"), None)
+                    if h and a and (h, a) not in seen:
+                        seen.add((h, a))
+                        matches.append((h, a))
+        except Exception as ex:
+            print(f"   ESPN error ({code} {d}): {ex}")
+    return matches
 
 def nba_fixtures():
     return espn_fixtures("basketball/nba")
@@ -521,27 +534,19 @@ def goals_section(hd, ad):
 </div>"""
 
 def calc_wp(league, home, hd, away, ad, nba=False):
-    """Retorna (base_pick, base_prob, display_pick, display_prob, vs, cj, vl, bk_odds).
-    Con cuotas reales del bookmaker usa edge verdadero; sin ellas usa valor justo 3-way.
-    bk_odds: cuota real del mercado seleccionado (None si no hay datos de bookmaker).
+    """Retorna (base_pick, base_prob, display_pick, display_prob, vs, cj, vl, None).
+    Usa cuota justa (valor interno) para todos los mercados y ligas.
     """
     if nba:
         hp, ap = prob_nba(hd, ad)
         win, wp = (home, hp) if hp >= ap else (away, ap)
-        bk = find_bk_odds(home, away, "NBA", today)
-        if bk:
-            bk_win = bk['win_home'] if win == home else bk['win_away']
-            edge = round(wp / 100 * bk_win - 1, 4) if bk_win else 0
-            if edge >= MIN_EDGE:
-                vs = round(edge * 100, 1)
-                return win, wp, win, wp, vs, bk_win, value_level(vs), bk_win
         vs = value_score(wp)
         cj = cuota_justa(wp)
         return win, wp, win, wp, vs, cj, value_level(vs), None
 
     # ── Fútbol: modelo 3 vías ──
     win_3w, draw_3w, lose_3w = prob_futbol_3way(hd, ad)
-    hp, ap = prob_futbol(hd, ad)   # para display en artículo
+    hp, ap = prob_futbol(hd, ad)
 
     hg = hd.get("goals", {})
     ag = ad.get("goals", {})
@@ -556,81 +561,29 @@ def calc_wp(league, home, hd, away, ad, nba=False):
     p_dnb  = p_win / (p_win + p_draw)   # prob sin empate
     p_dc   = p_win + p_draw              # prob doble oportunidad
 
-    bk = find_bk_odds(home, away, league, today)
+    # Todos los mercados compiten por valor justo (cuota justa interna)
+    candidates = [
+        (value_score(round(p_win*100,1)), win_team,                          round(p_win*100,1), cuota_justa(round(p_win*100,1))),
+        (value_score(round(p_dnb*100,1)), f"Apuesta sin empate: {win_team}", round(p_dnb*100,1), cuota_justa(round(p_dnb*100,1))),
+        (value_score(round(p_dc*100,1)),  f"Doble oportunidad: {win_team}",  round(p_dc*100,1),  cuota_justa(round(p_dc*100,1))),
+        (value_score(o15),                "Over 1.5 goles",                  o15,                cuota_justa(o15)),
+        (value_score(o25),                "Over 2.5 goles",                  o25,                cuota_justa(o25)),
+    ]
+    valid = [(vs, lbl, prob, cj) for vs, lbl, prob, cj in candidates if vs > 0]
+    if not valid:
+        return win_team, round(p_win*100,1), win_team, round(p_win*100,1), 0, cuota_justa(round(p_win*100,1)), "bajo", None
 
-    def edge_of(our_p, odds):
-        if not odds or odds <= 1.0: return -1.0
-        return round(our_p * odds - 1, 4)
+    # Preferencia DNB: si victoria directa gana pero DNB tiene valor y diferencia <5pts, preferir DNB
+    best_vs, display_pick, display_prob, cj = max(valid, key=lambda x: x[0])
+    if display_pick == win_team:
+        dnb_score = value_score(round(p_dnb*100,1))
+        if dnb_score > 0 and (best_vs - dnb_score) < 5:
+            display_pick = f"Apuesta sin empate: {win_team}"
+            display_prob = round(p_dnb*100,1)
+            cj           = cuota_justa(display_prob)
+            best_vs      = dnb_score
 
-    if bk:
-        # ── Con cuotas reales: todos los mercados compiten por edge real ──
-        bk_win  = bk['win_home'] if win_team == home else bk['win_away']
-        bk_draw = bk.get('draw')
-        bk_dnb  = round((bk_win + bk_draw) / bk_draw, 3) if bk_draw and bk_draw > 1 else None
-        bk_dc   = round((bk_win * bk_draw) / (bk_win + bk_draw), 3) if bk_draw else None
-
-        e_win = edge_of(p_win, bk_win)
-        e_dnb = edge_of(p_dnb, bk_dnb)
-        e_dc  = edge_of(p_dc,  bk_dc)
-
-        # Candidatos de equipo: (edge, label, display_prob, bk_odds)
-        team_candidates = [
-            (e_win, win_team,                         round(p_win*100,1), bk_win),
-            (e_dnb, f"Apuesta sin empate: {win_team}", round(p_dnb*100,1), bk_dnb),
-            (e_dc,  f"Doble oportunidad: {win_team}",  round(p_dc*100,1),  bk_dc),
-        ]
-        # Candidatos de goles (sin cuota real → value_score escalado)
-        goles_candidates = []
-        for label, prob in [("Over 1.5 goles", o15), ("Over 2.5 goles", o25)]:
-            vs_g = value_score(prob)
-            if vs_g > 0:
-                goles_candidates.append((vs_g / 100, label, prob, None))
-
-        best_team  = max(team_candidates,  key=lambda x: x[0])
-        best_goles = max(goles_candidates, key=lambda x: x[0]) if goles_candidates else None
-
-        all_candidates = team_candidates + (goles_candidates if goles_candidates else [])
-        winner = max(all_candidates, key=lambda x: x[0])
-
-        # Preferencia DNB: si la victoria directa ganó pero DNB tiene edge positivo
-        # y la diferencia entre ambos es menor al 5%, preferir DNB (más conservador)
-        if winner[1] == win_team and bk_dnb and e_dnb >= MIN_EDGE and (e_win - e_dnb) < 0.05:
-            winner = team_candidates[1]  # DNB
-
-        if winner[0] < MIN_EDGE:
-            return win_team, round(p_win*100,1), win_team, round(p_win*100,1), 0, bk_win or cuota_justa(round(p_win*100,1)), "bajo", None
-
-        best_edge, display_pick, display_prob, best_bk_odds = winner
-        vs = round(best_edge * 100, 1)
-        cj = best_bk_odds if best_bk_odds else cuota_justa(display_prob)
-        return win_team, round(p_win*100,1), display_pick, display_prob, vs, cj, value_level(vs), best_bk_odds
-
-    else:
-        # ── Sin cuotas reales (Colombia): todos los mercados compiten por valor justo ──
-        candidates = [
-            (value_score(round(p_win*100,1)), win_team,                         round(p_win*100,1), cuota_justa(round(p_win*100,1))),
-            (value_score(round(p_dnb*100,1)), f"Apuesta sin empate: {win_team}", round(p_dnb*100,1), cuota_justa(round(p_dnb*100,1))),
-            (value_score(round(p_dc*100,1)),  f"Doble oportunidad: {win_team}",  round(p_dc*100,1),  cuota_justa(round(p_dc*100,1))),
-            (value_score(o15),                "Over 1.5 goles",                  o15,                cuota_justa(o15)),
-            (value_score(o25),                "Over 2.5 goles",                  o25,                cuota_justa(o25)),
-        ]
-        valid = [(vs, lbl, prob, cj) for vs, lbl, prob, cj in candidates if vs > 0]
-        if not valid:
-            return win_team, round(p_win*100,1), win_team, round(p_win*100,1), 0, cuota_justa(round(p_win*100,1)), "bajo", None
-
-        best_vs, display_pick, display_prob, cj = max(valid, key=lambda x: x[0])
-
-        # Preferencia DNB: si victoria directa ganó, pero DNB tiene valor positivo
-        # y la diferencia es menor a 5 puntos, preferir DNB (más conservador)
-        if display_pick == win_team:
-            dnb_score = value_score(round(p_dnb*100,1))
-            if dnb_score > 0 and (best_vs - dnb_score) < 5:
-                display_pick = f"Apuesta sin empate: {win_team}"
-                display_prob = round(p_dnb*100,1)
-                cj           = cuota_justa(display_prob)
-                best_vs      = dnb_score
-
-        return win_team, round(p_win*100,1), display_pick, display_prob, best_vs, cj, value_level(best_vs), None
+    return win_team, round(p_win*100,1), display_pick, display_prob, best_vs, cj, value_level(best_vs), None
 
 def article(league, home, hd, away, ad, nba=False, _win=None, _wp=None, _valor=None, _cuota=None, _base_prob=None, _bk_odds=None):
     # Usar valores pre-calculados por calc_wp() para consistencia
@@ -766,48 +719,27 @@ def article(league, home, hd, away, ad, nba=False, _win=None, _wp=None, _valor=N
             )
 
     # ── Bloque ¿Por qué hay valor aquí? ──
-    if bk_odds:
-        edge_pct = round((base_prob / 100 * bk_odds - 1) * 100, 1)
-        if edge_pct >= 15:
-            valor_label, valor_color = "ALTO", "var(--success)"
-        elif edge_pct >= 5:
-            valor_label, valor_color = "MEDIO", "var(--gold-500)"
-        else:
-            valor_label, valor_color = "BAJO", "var(--danger)"
+    if valor >= 60:
+        valor_label, valor_color = "ALTO", "var(--success)"
         valor_why = (
-            f"Nuestro modelo asigna a este resultado una probabilidad del <strong>{base_prob}%</strong>. "
-            f"El mejor bookmaker esta pagando <strong>{bk_odds}</strong> por esta linea, "
-            f"lo que implica que ellos creen que la probabilidad es del <strong>{round(100/bk_odds,1)}%</strong>. "
-            f"La diferencia entre lo que creemos nosotros y lo que cree el bookmaker representa un "
-            f"<strong>edge de +{edge_pct}%</strong> a tu favor — matematicamente tienes ventaja real sobre la casa."
+            f"Nuestro modelo asigna a este resultado una probabilidad del <strong>{base_prob}%</strong>, "
+            f"lo que equivale a una cuota justa de <strong>{cuota}</strong>. "
+            f"Si tu casa de apuestas paga igual o mas que esa cuota, tienes ventaja matematica real."
         )
-        edge_row = f'<div class="srow"><span class="slbl">Edge sobre el bookmaker</span><span class="sval" style="color:var(--success)">+{edge_pct}%</span></div>'
-        bk_row   = f'<div class="srow"><span class="slbl">Cuota real (mejor bookmaker)</span><span class="sval" style="color:var(--white)">{bk_odds}</span></div>'
     else:
-        edge_pct = None
-        if valor >= 60:
-            valor_label, valor_color = "ALTO", "var(--success)"
-            valor_why = (
-                f"Nuestro modelo 3-way asigna a este resultado una probabilidad del <strong>{base_prob}%</strong>, "
-                f"equivalente a una cuota justa de <strong>{cuota}</strong>. "
-                f"Si encuentras este mercado a una cuota igual o superior, tienes ventaja matematica sobre el bookmaker."
-            )
-        else:
-            valor_label, valor_color = "MEDIO", "var(--gold-500)"
-            valor_why = (
-                f"Probabilidad estimada: <strong>{base_prob}%</strong> (cuota justa <strong>{cuota}</strong>). "
-                f"Compara cuotas en al menos dos casas antes de apostar."
-            )
-        edge_row = ""
-        bk_row   = f'<div class="srow"><span class="slbl">Cuota minima con valor</span><span class="sval" style="color:var(--white)">{cuota}</span></div>'
+        valor_label, valor_color = "MEDIO", "var(--gold-500)"
+        valor_why = (
+            f"Probabilidad estimada: <strong>{base_prob}%</strong>. "
+            f"La cuota justa para este resultado es <strong>{cuota}</strong>. "
+            f"Compara con tu casa de apuestas — si pagan esa cuota o mas, hay valor."
+        )
 
     valor_html = f"""
 <h2>¿Por que hay valor en este pick?</h2>
 <p>{valor_why}</p>
 <div class="sbox">
 <div class="srow"><span class="slbl">Probabilidad estimada (modelo)</span><span class="sval" style="color:var(--gold-500)">{base_prob}%</span></div>
-{bk_row}
-{edge_row}
+<div class="srow"><span class="slbl">Cuota justa</span><span class="sval" style="color:var(--white)">{cuota}</span></div>
 <div class="srow"><span class="slbl">Nivel de valor</span><span class="sval" style="color:{valor_color}">{valor_label}</span></div>
 </div>"""
 
@@ -954,8 +886,7 @@ def main():
         slug = save(league, home, away, art)
         lg_label = "NBA" if nba else league
         preds.append((slug, f"{home} vs {away}", lg_label, round(base_prob,1), round(cj,2), vs, vl, base_pick))
-        edge_str = f" | edge +{round((base_prob/100*bk_odds-1)*100,1)}%" if bk_odds else ""
-        print(f"   [{vs:.0f}pts valor] {home} vs {away} → {win} | base: {base_pick} {base_prob}% | cuota bk: {cj}{edge_str}")
+        print(f"   [{vs:.0f}pts valor] {home} vs {away} → {win} | base: {base_pick} {base_prob}% | cuota justa: {cj}")
 
     cards = ''.join(
         f'<a href="/static/predictions/{s}.html" class="card"><span class="lg">{lg}</span><h3>{m}</h3><span class="lnk">Ver prediccion →</span></a>'
