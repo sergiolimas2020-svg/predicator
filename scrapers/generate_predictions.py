@@ -295,6 +295,38 @@ TEAM_ALIASES = {
     "llaneros":                   "Llaneros",
     "cucuta deportivo":           "Cucuta",
     "cucuta":                     "Cucuta",
+    # Ligue 1
+    "Paris Saint-Germain":        "Paris SG",
+    "paris saint-germain":        "Paris SG",
+    "psg":                        "Paris SG",
+    # Premier League
+    "Nottingham Forest":          "Nott'm Forest",
+    "nottingham forest":          "Nott'm Forest",
+    "Newcastle Utd":              "Newcastle",
+    "newcastle utd":              "Newcastle",
+    # Serie A
+    "Inter Milan":                "Inter",
+    "inter milan":                "Inter",
+    "AC Milan":                   "Milan",
+    "ac milan":                   "Milan",
+    "Hellas Verona":              "Verona",
+    "hellas verona":              "Verona",
+    # La Liga
+    "Atletico Madrid":            "Atlético Madrid",
+    "atletico madrid":            "Atlético Madrid",
+    "Real Betis":                 "Betis",
+    "real betis":                 "Betis",
+    # Bundesliga
+    "Eintracht Frankfurt":        "E. Frankfurt",
+    "eintracht frankfurt":        "E. Frankfurt",
+    "Bayer Leverkusen":           "B. Leverkusen",
+    "bayer leverkusen":           "B. Leverkusen",
+    # Brasileirao
+    "Atletico-MG":                "Atlético-MG",
+    "atletico-mg":                "Atlético-MG",
+    "atletico mineiro":           "Atlético-MG",
+    "Red Bull Bragantino":        "Bragantino",
+    "red bull bragantino":        "Bragantino",
 }
 
 def espn_fixtures(code):
@@ -334,6 +366,9 @@ def find(stats, name):
     nl = norm(name)
     if name in TEAM_ALIASES:
         alias = TEAM_ALIASES[name]
+        if alias in stats:
+            print(f"      [alias] '{name}' → '{alias}'")
+            return stats[alias]
     elif nl in TEAM_ALIASES:
         alias = TEAM_ALIASES[nl]
         if alias in stats:
