@@ -924,6 +924,18 @@ Sitemap: {SITE_URL}/sitemap.xml
     print("   robots.txt generado")
 
 def main():
+    import sys
+    force = "--force" in sys.argv
+
+    # Si ya existen picks del día, no regenerar (protege la consistencia)
+    _log_path = Path("static/predictions_log.json")
+    if not force and _log_path.exists():
+        existing = [e for e in json.loads(_log_path.read_text()) if e.get("fecha") == today]
+        if existing:
+            print(f"✅ Picks del {today} ya publicados ({len(existing)} picks) — sin cambios.")
+            print("   Usa --force para regenerar.")
+            return
+
     preds = []
     print(f"Generando predicciones — {today_display}")
     print(f"Hoy: {today} | Acepta hasta {tomorrow} 05:59 UTC\n")
