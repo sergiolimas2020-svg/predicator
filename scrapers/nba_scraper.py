@@ -234,6 +234,15 @@ for tid, info in teams.items():
     }
 
 os.makedirs("static", exist_ok=True)
+
+# Verificar que los datos son válidos antes de sobrescribir
+teams_with_data = sum(1 for t in result.values() if t.get("wins", 0) > 0 or t.get("losses", 0) > 0)
+if teams_with_data == 0:
+    print(f"\nADVERTENCIA: todos los equipos tienen 0 victorias/derrotas — la API no devolvió datos.")
+    if os.path.exists(OUTPUT):
+        print(f"  Conservando {OUTPUT} anterior para no sobreescribir con datos vacíos.")
+        exit(0)
+
 with open(OUTPUT, "w", encoding="utf-8") as f:
     json.dump({
         "league":        "NBA",
