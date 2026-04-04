@@ -95,9 +95,9 @@ CONF_FREQ_LOW_FACTOR    = 0.95   # factor de confianza para frecuencia baja
 # Factor por tipo de mercado (goles: varianza intrínsecamente mayor que el resultado)
 CONF_GOALS_FACTOR       = 0.97   # aplica a Over 2.5 y Over 1.5
 
-# Factor por magnitud del EV bruto (EV muy alto → posible overfit o línea stale)
-CONF_EV_HIGH_THRESHOLD  = 0.25   # EV > 25% activa este control
-CONF_EV_HIGH_FACTOR     = 0.94   # reducción de confianza ante EV sospechosamente alto
+# Nota: la señal de overfit por EV bruto fue eliminada porque requería
+# calcular EV con prob_modelo (sin ajustar), violando la invariante del pipeline.
+# La protección equivalente la proveen MAX_EV_H2H y MAX_EV_GOALS (ev_excesivo).
 
 # ── Penalización por liquidez de mercado ──────────────────────
 # Mercados poco líquidos (Over 1.5, Alt Totals) tienen:
@@ -167,13 +167,11 @@ def compute_model_confidence(context):
       league       — nombre de la liga
       freq_market  — frecuencia del mercado en odds.json (0.0–1.0)
       market_type  — "h2h" | "goals"
-      ev_raw       — EV bruto preliminar con probabilidad sin ajustar
 
     Reglas (factores acumulativos, mínimo CONF_FLOOR):
       1. Liga: ligas menores → factor menor (menos datos, mercado menos eficiente)
       2. Frecuencia: mercados raros → calibración menos fiable
       3. Tipo: mercados de goles → más varianza que resultado
-      4. EV bruto alto: señal de overfit del modelo o cuota stale
     """
     factor = 1.0
 
@@ -187,9 +185,6 @@ def compute_model_confidence(context):
 
     if context["market_type"] == "goals":
         factor *= CONF_GOALS_FACTOR
-
-    if context["ev_raw"] > CONF_EV_HIGH_THRESHOLD:
-        factor *= CONF_EV_HIGH_FACTOR
 
     return max(CONF_FLOOR, round(factor, 4))
 
@@ -877,14 +872,10 @@ def evaluate_value(probs, odds, home, away, market_freqs=None, league=None):
         pen_pct  = round(penalty * 100, 1)
         is_goals = odds_key in ("over_2_5", "over_1_5")
 
-        # EV preliminar sin ajuste de confianza — para señal de overfit en el contexto
-        ev_prelim = round(our_p * bk_o - 1, 4) if (bk_o and bk_o >= min_cuota) else 0.0
-
         context = {
             "league":      league,
             "freq_market": freq,
             "market_type": "goals" if is_goals else "h2h",
-            "ev_raw":      ev_prelim,
         }
         cf            = compute_model_confidence(context)
         prob_adj      = our_p * cf
@@ -911,8 +902,8 @@ def evaluate_value(probs, odds, home, away, market_freqs=None, league=None):
         ev_model_pct = round(ev_model * 100, 1)
         ev_final_pct = round(ev_final * 100, 1)
 
-        # ev_negativo: el modelo ya pierde antes de cualquier ajuste
-        if ev_raw < 0:
+        # reason deriva exclusivamente de ev_final (pipeline completo)
+        if ev_final < 0:
             reason = "ev_negativo"
         elif ev_final < MIN_EV:
             reason = "ev_insuficiente"
