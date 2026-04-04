@@ -62,6 +62,43 @@ GOALS_HIGH_PCT       = 65    # umbral "alta probabilidad" en sección goles
 GOALS_MID_PCT        = 45    # umbral "media probabilidad" en sección goles
 VALUE_ALTO_THRESHOLD = 60.0  # EV% mínimo para nivel de valor "alto"
 
+# ── Confidence adjuster del modelo ───────────────────────────
+# Factor multiplicativo en [CONF_FLOOR, 1.0]. Solo reduce la probabilidad del modelo,
+# nunca la aumenta. Depende del contexto (liga, mercado, EV bruto), no del partido.
+CONF_FLOOR              = 0.85   # ajuste máximo absoluto
+
+# Tier de liga: cuantos más datos y más eficiente el mercado, mayor confianza
+CONF_LEAGUE_TOP         = 1.00   # top 5 europeo + Champions + NBA
+CONF_LEAGUE_MID         = 0.97   # ligas con buen histórico pero menor eficiencia
+CONF_LEAGUE_MINOR       = 0.95   # ligas menores (histórico corto o datos incompletos)
+
+CONF_LEAGUE_TIERS = {
+    "Premier League":   CONF_LEAGUE_TOP,
+    "La Liga":          CONF_LEAGUE_TOP,
+    "Serie A":          CONF_LEAGUE_TOP,
+    "Bundesliga":       CONF_LEAGUE_TOP,
+    "Ligue 1":          CONF_LEAGUE_TOP,
+    "Champions League": CONF_LEAGUE_TOP,
+    "NBA":              CONF_LEAGUE_TOP,
+    "Liga Argentina":   CONF_LEAGUE_MID,
+    "Brasileirao":      CONF_LEAGUE_MID,
+    "Super Lig":        CONF_LEAGUE_MID,
+    # Liga Colombiana y demás → CONF_LEAGUE_MINOR (default)
+}
+
+# Factor por frecuencia del mercado (muestra pequeña → calibración menos fiable)
+CONF_FREQ_MID_THRESHOLD = 0.30   # freq < 0.30 → muestra reducida
+CONF_FREQ_LOW_THRESHOLD = 0.10   # freq < 0.10 → muestra muy pequeña
+CONF_FREQ_MID_FACTOR    = 0.98   # factor de confianza para frecuencia media
+CONF_FREQ_LOW_FACTOR    = 0.95   # factor de confianza para frecuencia baja
+
+# Factor por tipo de mercado (goles: varianza intrínsecamente mayor que el resultado)
+CONF_GOALS_FACTOR       = 0.97   # aplica a Over 2.5 y Over 1.5
+
+# Factor por magnitud del EV bruto (EV muy alto → posible overfit o línea stale)
+CONF_EV_HIGH_THRESHOLD  = 0.25   # EV > 25% activa este control
+CONF_EV_HIGH_FACTOR     = 0.94   # reducción de confianza ante EV sospechosamente alto
+
 # ── Penalización por liquidez de mercado ──────────────────────
 # Mercados poco líquidos (Over 1.5, Alt Totals) tienen:
 #   a) spread real más alto → cuota efectiva menor que la publicada
@@ -120,6 +157,41 @@ def compute_market_penalty(freq_market):
     if freq_market >= PENALTY_FREQ_MID:
         return PENALTY_MID
     return PENALTY_LOW
+
+def compute_model_confidence(context):
+    """
+    Devuelve un factor multiplicativo en [CONF_FLOOR, 1.0] para ajustar la
+    probabilidad del modelo según el contexto del mercado.
+
+    context debe contener:
+      league       — nombre de la liga
+      freq_market  — frecuencia del mercado en odds.json (0.0–1.0)
+      market_type  — "h2h" | "goals"
+      ev_raw       — EV bruto preliminar con probabilidad sin ajustar
+
+    Reglas (factores acumulativos, mínimo CONF_FLOOR):
+      1. Liga: ligas menores → factor menor (menos datos, mercado menos eficiente)
+      2. Frecuencia: mercados raros → calibración menos fiable
+      3. Tipo: mercados de goles → más varianza que resultado
+      4. EV bruto alto: señal de overfit del modelo o cuota stale
+    """
+    factor = 1.0
+
+    factor *= CONF_LEAGUE_TIERS.get(context["league"], CONF_LEAGUE_MINOR)
+
+    freq = context["freq_market"]
+    if freq < CONF_FREQ_LOW_THRESHOLD:
+        factor *= CONF_FREQ_LOW_FACTOR
+    elif freq < CONF_FREQ_MID_THRESHOLD:
+        factor *= CONF_FREQ_MID_FACTOR
+
+    if context["market_type"] == "goals":
+        factor *= CONF_GOALS_FACTOR
+
+    if context["ev_raw"] > CONF_EV_HIGH_THRESHOLD:
+        factor *= CONF_EV_HIGH_FACTOR
+
+    return max(CONF_FLOOR, round(factor, 4))
 
 def _norm(s):
     s = unicodedata.normalize('NFKD', str(s)).encode('ascii','ignore').decode().lower()
@@ -725,21 +797,30 @@ def get_market_odds(home, away, league):
 # ══════════════════════════════════════════════════════════════
 #  CAPA 3 — Evaluación de valor
 # ══════════════════════════════════════════════════════════════
-def evaluate_value(probs, odds, home, away, market_freqs=None):
+def evaluate_value(probs, odds, home, away, market_freqs=None, league=None):
     """
     Cruza probabilidades del modelo con cuotas reales del mercado.
-    Aplica penalización de liquidez según la frecuencia del mercado en odds.json.
+
+    Pipeline de ajuste por mercado:
+      1. compute_model_confidence(context) → confidence_factor ∈ [CONF_FLOOR, 1.0]
+      2. prob_adjusted = prob_original × confidence_factor
+      3. ev_raw    = prob_original × bk_odds − 1   (referencia sin ajuste)
+      4. ev_model  = prob_adjusted × bk_odds − 1   (tras confidence)
+      5. ev_adjusted = ev_model − penalty            (tras liquidez)
 
     Devuelve lista de dicts para TODOS los mercados evaluados:
-      ev           — EV bruto del modelo en % (float | None si no hay cuota)
-      ev_adjusted  — EV tras descontar la penalización por liquidez
-      penalty      — penalización aplicada en % (0 si mercado líquido)
-      label        — nombre del mercado
-      prob         — probabilidad del modelo (0–100)
-      bk_odds      — cuota del bookmaker (None si no disponible)
-      valid        — True si ev_adjusted pasa todos los umbrales
-      reason       — "ok" | "cuota_baja" | "ev_insuficiente" | "ev_negativo"
-                      | "ev_excesivo" | "mercado_no_disponible"
+      prob_original    — probabilidad del modelo sin ajustar (0–100)
+      prob_adjusted    — probabilidad tras confidence_factor (0–100)
+      confidence_factor — factor aplicado [CONF_FLOOR, 1.0]
+      ev               — EV bruto con prob_original (%)
+      ev_model         — EV tras confidence_factor (%)
+      penalty          — penalización por liquidez (%)
+      ev_adjusted      — EV final de decisión (%)
+      label            — nombre del mercado
+      bk_odds          — cuota del bookmaker (None si no disponible)
+      valid            — True si ev_adjusted pasa MIN_EV y max_ev
+      reason           — "ok" | "cuota_baja" | "ev_insuficiente" | "ev_negativo"
+                          | "ev_excesivo" | "mercado_no_disponible"
 
     Orden: válidos primero (Over > DNB > DC > win, luego ev_adjusted desc), luego rechazados.
     """
@@ -773,50 +854,76 @@ def evaluate_value(probs, odds, home, away, market_freqs=None):
         if "Doble oportunidad" in label:  return 2
         return 3
 
-    def _entry(ev_raw, ev_adj, pen, label, our_p, bk_o, valid, reason):
+    def _entry(prob_orig, prob_adj, cf, ev_raw, ev_model, ev_adj, pen, label, bk_o, valid, reason):
         return {
-            "ev":          ev_raw,
-            "ev_adjusted": ev_adj,
-            "penalty":     pen,
-            "label":       label,
-            "prob":        round(our_p * 100, 1),
-            "bk_odds":     bk_o,
-            "valid":       valid,
-            "reason":      reason,
+            "prob_original":     prob_orig,
+            "prob_adjusted":     prob_adj,
+            "confidence_factor": cf,
+            "ev":                ev_raw,
+            "ev_model":          ev_model,
+            "penalty":           pen,
+            "ev_adjusted":       ev_adj,
+            "label":             label,
+            "bk_odds":           bk_o,
+            "valid":             valid,
+            "reason":            reason,
         }
 
     results = []
     for our_p, label, odds_key, min_cuota, max_ev in markets:
-        bk_o    = odds.get(odds_key) if odds else None
-        freq    = market_freqs.get(odds_key, 1.0)   # 1.0 = líquido si no hay datos
-        penalty = compute_market_penalty(freq)
-        pen_pct = round(penalty * 100, 1)
+        bk_o     = odds.get(odds_key) if odds else None
+        freq     = market_freqs.get(odds_key, 1.0)
+        penalty  = compute_market_penalty(freq)
+        pen_pct  = round(penalty * 100, 1)
+        is_goals = odds_key in ("over_2_5", "over_1_5")
+
+        # EV preliminar sin ajuste de confianza — para señal de overfit en el contexto
+        ev_prelim = round(our_p * bk_o - 1, 4) if (bk_o and bk_o >= min_cuota) else 0.0
+
+        context = {
+            "league":      league,
+            "freq_market": freq,
+            "market_type": "goals" if is_goals else "h2h",
+            "ev_raw":      ev_prelim,
+        }
+        cf            = compute_model_confidence(context)
+        prob_adj      = our_p * cf
+        prob_orig_pct = round(our_p    * 100, 1)
+        prob_adj_pct  = round(prob_adj * 100, 1)
 
         if bk_o is None:
-            results.append(_entry(None, None, None, label, our_p, None, False, "mercado_no_disponible"))
+            results.append(_entry(prob_orig_pct, prob_adj_pct, cf,
+                                  None, None, None, None,
+                                  label, None, False, "mercado_no_disponible"))
             continue
 
         if bk_o < min_cuota:
-            results.append(_entry(None, None, pen_pct, label, our_p, bk_o, False, "cuota_baja"))
+            results.append(_entry(prob_orig_pct, prob_adj_pct, cf,
+                                  None, None, None, pen_pct,
+                                  label, bk_o, False, "cuota_baja"))
             continue
 
-        ev_raw  = round(our_p * bk_o - 1, 4)
-        ev_adj  = round(ev_raw - penalty,  4)
-        ev_raw_pct = round(ev_raw * 100, 1)
-        ev_adj_pct = round(ev_adj * 100, 1)
+        ev_raw   = round(our_p    * bk_o - 1, 4)
+        ev_model = round(prob_adj * bk_o - 1, 4)
+        ev_final = round(ev_model - penalty,   4)
 
-        # La clasificación usa ev_adj. ev_negativo solo cuando el modelo ya pierde en bruto.
+        ev_raw_pct   = round(ev_raw   * 100, 1)
+        ev_model_pct = round(ev_model * 100, 1)
+        ev_final_pct = round(ev_final * 100, 1)
+
+        # ev_negativo: el modelo ya pierde antes de cualquier ajuste
         if ev_raw < 0:
             reason = "ev_negativo"
-        elif ev_adj < MIN_EV:
+        elif ev_final < MIN_EV:
             reason = "ev_insuficiente"
-        elif ev_adj > max_ev:
+        elif ev_final > max_ev:
             reason = "ev_excesivo"
         else:
             reason = "ok"
 
-        results.append(_entry(ev_raw_pct, ev_adj_pct, pen_pct, label, our_p, bk_o,
-                              reason == "ok", reason))
+        results.append(_entry(prob_orig_pct, prob_adj_pct, cf,
+                              ev_raw_pct, ev_model_pct, ev_final_pct, pen_pct,
+                              label, bk_o, reason == "ok", reason))
 
     valid_picks   = [r for r in results if r["valid"]]
     invalid_picks = [r for r in results if not r["valid"]]
@@ -829,43 +936,47 @@ def evaluate_value(probs, odds, home, away, market_freqs=None):
 # ══════════════════════════════════════════════════════════════
 def calc_wp(league, home, hd, away, ad, nba=False):
     """Orquesta las 3 capas. Retorna:
-    (base_pick, base_prob, display_pick, display_prob, vs, cj, vl, bk_odds)"""
+    (base_pick, base_prob, display_pick, display_prob, vs, cj, vl, bk_odds, confidence_factor)
+    vs y display_prob usan valores ajustados por confidence + liquidez.
+    """
     probs = get_probabilities(hd, ad, nba=nba)
-    fav   = probs["favorite"]
+    fav       = probs["favorite"]
     fav_team  = home if fav == "home" else away
     p_win_key = "win_home" if fav == "home" else "win_away"
     base_prob = round(probs[p_win_key] * 100, 1)
-
-    win_key = "win_home" if fav == "home" else "win_away"
+    win_key   = p_win_key
+    mkt_freqs = _compute_market_freqs()
 
     if nba:
         odds = get_market_odds(home, away, "NBA")
         if not odds:
-            return fav_team, base_prob, fav_team, base_prob, 0, cuota_justa(base_prob), "bajo", None
-        bk_win      = odds.get(win_key)
-        mkt_freqs   = _compute_market_freqs()
-        valid = [p for p in evaluate_value(probs, odds, home, away, mkt_freqs) if p["valid"]]
+            return fav_team, base_prob, fav_team, base_prob, 0, cuota_justa(base_prob), "bajo", None, 1.0
+        bk_win = odds.get(win_key)
+        valid  = [p for p in evaluate_value(probs, odds, home, away, mkt_freqs, league="NBA") if p["valid"]]
         if not valid:
-            return fav_team, base_prob, fav_team, base_prob, 0, bk_win, "bajo", None
-        best = valid[0]
+            return fav_team, base_prob, fav_team, base_prob, 0, bk_win, "bajo", None, 1.0
+        best   = valid[0]
         ev_out = best["ev_adjusted"]
-        return fav_team, base_prob, best["label"], best["prob"], ev_out, best["bk_odds"], value_level(ev_out), best["bk_odds"]
+        return (fav_team, base_prob, best["label"], best["prob_adjusted"],
+                ev_out, best["bk_odds"], value_level(ev_out), best["bk_odds"],
+                best["confidence_factor"])
 
     # Fútbol
     odds = get_market_odds(home, away, league)
     if not odds:
         if league == "Liga Colombiana" and base_prob >= COLOMBIA_MIN_CONF:
-            return fav_team, base_prob, fav_team, base_prob, 1, None, "estadistico", None
-        return fav_team, base_prob, fav_team, base_prob, 0, None, "bajo", None
+            return fav_team, base_prob, fav_team, base_prob, 1, None, "estadistico", None, 1.0
+        return fav_team, base_prob, fav_team, base_prob, 0, None, "bajo", None, 1.0
 
-    bk_win    = odds.get(win_key)
-    mkt_freqs = _compute_market_freqs()
-    valid = [p for p in evaluate_value(probs, odds, home, away, mkt_freqs) if p["valid"]]
+    bk_win = odds.get(win_key)
+    valid  = [p for p in evaluate_value(probs, odds, home, away, mkt_freqs, league=league) if p["valid"]]
     if not valid:
-        return fav_team, base_prob, fav_team, base_prob, 0, bk_win, "bajo", None
-    best = valid[0]
+        return fav_team, base_prob, fav_team, base_prob, 0, bk_win, "bajo", None, 1.0
+    best   = valid[0]
     ev_out = best["ev_adjusted"]
-    return fav_team, base_prob, best["label"], best["prob"], ev_out, best["bk_odds"], value_level(ev_out), best["bk_odds"]
+    return (fav_team, base_prob, best["label"], best["prob_adjusted"],
+            ev_out, best["bk_odds"], value_level(ev_out), best["bk_odds"],
+            best["confidence_factor"])
 
 def article(league, home, hd, away, ad, nba=False, _win=None, _wp=None, _valor=None, _cuota=None, _base_prob=None, _bk_odds=None):
     # Usar valores pre-calculados por calc_wp() para consistencia
@@ -1152,7 +1263,7 @@ def main():
     print(f"Hoy: {today} | Acepta hasta {tomorrow} 05:59 UTC\n")
 
     # ── FASE 1: recopilar todos los candidatos con su score de valor ──
-    candidates = []  # (vs, league, home, hd, away, ad, nba, display_pick, display_prob, cj, vl, base_prob, base_pick)
+    candidates = []  # (vs, league, home, hd, away, ad, nba, display_pick, display_prob, cj, vl, base_prob, base_pick, bk_odds, cf)
 
     for code, (league, stats_file) in ESPN_LEAGUES.items():
         matches = espn_fixtures(code)
@@ -1162,9 +1273,9 @@ def main():
             hd = find(stats, home); ad = find(stats, away)
             if not hd: hd = ad
             if not ad: ad = hd
-            base_pick, base_prob, display_pick, display_prob, vs, cj, vl, bk_odds = calc_wp(league, home, hd, away, ad, nba=False)
+            base_pick, base_prob, display_pick, display_prob, vs, cj, vl, bk_odds, cf = calc_wp(league, home, hd, away, ad, nba=False)
             if base_prob >= MIN_CONF:
-                candidates.append((vs, league, home, hd, away, ad, False, display_pick, display_prob, cj, vl, base_prob, base_pick, bk_odds))
+                candidates.append((vs, league, home, hd, away, ad, False, display_pick, display_prob, cj, vl, base_prob, base_pick, bk_odds, cf))
 
     nba_games = nba_fixtures()
     if nba_games:
@@ -1173,9 +1284,9 @@ def main():
             hd = find(nba_teams, home); ad = find(nba_teams, away)
             if not hd: hd = ad
             if not ad: ad = hd
-            base_pick, base_prob, display_pick, display_prob, vs, cj, vl, bk_odds = calc_wp("NBA", home, hd, away, ad, nba=True)
+            base_pick, base_prob, display_pick, display_prob, vs, cj, vl, bk_odds, cf = calc_wp("NBA", home, hd, away, ad, nba=True)
             if base_prob >= MIN_CONF:
-                candidates.append((vs, "NBA", home, hd, away, ad, True, display_pick, display_prob, cj, vl, base_prob, base_pick, bk_odds))
+                candidates.append((vs, "NBA", home, hd, away, ad, True, display_pick, display_prob, cj, vl, base_prob, base_pick, bk_odds, cf))
 
     # ── FASE 2: ordenar por valor y tomar los MAX_PICKS mejores ──
     candidates.sort(key=lambda x: x[0], reverse=True)
@@ -1184,14 +1295,14 @@ def main():
     print(f"Candidatos totales: {len(candidates)} | Publicando top {len(top)} por valor\n")
 
     # ── FASE 3: generar HTML solo para los elegidos ──
-    for vs, league, home, hd, away, ad, nba, win, wp, cj, vl, base_prob, base_pick, bk_odds in top:
+    for vs, league, home, hd, away, ad, nba, win, wp, cj, vl, base_prob, base_pick, bk_odds, cf in top:
         art = article(league, home, hd, away, ad, nba=nba,
                       _win=win, _wp=wp, _valor=vs, _cuota=cj, _base_prob=base_prob, _bk_odds=bk_odds)
         slug = save(league, home, away, art)
         lg_label = "NBA" if nba else league
         cj_display = round(cj, 2) if cj else None
-        preds.append((slug, f"{home} vs {away}", lg_label, round(base_prob,1), cj_display, vs, vl, base_pick))
-        print(f"   [{vs:.0f}pts valor] {home} vs {away} → {win} | base: {base_pick} {base_prob}% | cuota: {cj_display or 'estadístico'}")
+        preds.append((slug, f"{home} vs {away}", lg_label, round(base_prob,1), cj_display, vs, vl, base_pick, cf))
+        print(f"   [{vs:.0f}pts valor] {home} vs {away} → {win} | base: {base_pick} {base_prob}% | cuota: {cj_display or 'estadístico'} | cf: {cf}")
 
     cards = ''.join(
         f'<a href="/static/predictions/{s}.html" class="card"><span class="lg">{lg}</span><h3>{m}</h3><span class="lnk">Ver prediccion →</span></a>'
@@ -1216,7 +1327,7 @@ def main():
     _log_path = _Path("static/predictions_log.json")
     _log = _json.loads(_log_path.read_text()) if _log_path.exists() else []
     _log = [e for e in _log if e.get("fecha") != today]
-    for slug, matchup, league, _wp, _cj, _vs, _vl, _base_pick in preds:
+    for slug, matchup, league, _wp, _cj, _vs, _vl, _base_pick, _cf in preds:
         parts = matchup.split(" vs ")
         if len(parts) != 2:
             continue
@@ -1235,8 +1346,9 @@ def main():
             "probabilidad_modelo": _wp,
             "base_pick": _base_pick,
             "cuota_justa": _cj,
-            "value_score": _vs,
-            "value_level": _vl})
+            "value_score":       _vs,
+            "value_level":       _vl,
+            "confidence_factor": _cf})
     _log_path.write_text(_json.dumps(_log, ensure_ascii=False, indent=2))
     print(f"Log guardado: {len(_log)} predicciones")
 
