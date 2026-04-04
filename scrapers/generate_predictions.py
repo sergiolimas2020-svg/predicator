@@ -58,18 +58,68 @@ NBA_MAX_PROB        =  85.0  # cap superior de probabilidad NBA
 NBA_MIN_PROB        =  15.0  # cap inferior de probabilidad NBA
 
 # ── Display ───────────────────────────────────────────────────
-GOALS_HIGH_PCT       = 65   # umbral "alta probabilidad" en sección goles
-GOALS_MID_PCT        = 45   # umbral "media probabilidad" en sección goles
+GOALS_HIGH_PCT       = 65    # umbral "alta probabilidad" en sección goles
+GOALS_MID_PCT        = 45    # umbral "media probabilidad" en sección goles
 VALUE_ALTO_THRESHOLD = 60.0  # EV% mínimo para nivel de valor "alto"
 
+# ── Penalización por liquidez de mercado ──────────────────────
+# Mercados poco líquidos (Over 1.5, Alt Totals) tienen:
+#   a) spread real más alto → cuota efectiva menor que la publicada
+#   b) muestra estadística pequeña → mayor varianza en el modelo
+# La penalización aumenta el EV mínimo requerido según qué tan raro es el mercado.
+PENALTY_FREQ_HIGH = 0.30   # freq >= 0.30 → mercado líquido, sin penalización
+PENALTY_FREQ_MID  = 0.10   # 0.10 <= freq < 0.30 → liquidez media
+PENALTY_MID       = 0.03   # penalización para liquidez media (+3 pp al EV requerido)
+PENALTY_LOW       = 0.06   # penalización para liquidez baja (+6 pp al EV requerido)
+
 # ── Cuotas reales ──
-_ODDS_CACHE = None
+_ODDS_CACHE        = None
+_MARKET_FREQS_CACHE = None
+
 def _load_odds():
     global _ODDS_CACHE
     if _ODDS_CACHE is None:
         p = Path("static/odds.json")
         _ODDS_CACHE = json.loads(p.read_text()) if p.exists() else {}
     return _ODDS_CACHE
+
+def _compute_market_freqs():
+    """
+    Calcula la frecuencia de aparición de cada mercado en odds.json:
+        freq = partidos_con_ese_mercado / partidos_totales
+    DNB y DC se derivan del mercado draw → heredan su frecuencia.
+    Resultado cacheado: se computa una sola vez por ejecución.
+    """
+    global _MARKET_FREQS_CACHE
+    if _MARKET_FREQS_CACHE is not None:
+        return _MARKET_FREQS_CACHE
+    odds = _load_odds()
+    total = len(odds)
+    if total == 0:
+        _MARKET_FREQS_CACHE = {}
+        return _MARKET_FREQS_CACHE
+    freqs = {}
+    for key in ("win_home", "win_away", "draw", "over_2_5", "over_1_5"):
+        count = sum(1 for v in odds.values() if v.get(key) is not None)
+        freqs[key] = round(count / total, 4)
+    draw_freq = freqs.get("draw", 0.0)
+    for key in ("dnb_home", "dnb_away", "dc_home", "dc_away"):
+        freqs[key] = draw_freq
+    _MARKET_FREQS_CACHE = freqs
+    return freqs
+
+def compute_market_penalty(freq_market):
+    """
+    Penalización de EV según la frecuencia del mercado en el universo de partidos.
+    Protege el ROI ante mercados poco líquidos: un mercado raro implica
+    mayor spread real en la casas y muestra estadística pequeña en el modelo.
+    Todos los umbrales y valores de penalización están en la configuración central.
+    """
+    if freq_market >= PENALTY_FREQ_HIGH:
+        return 0.0
+    if freq_market >= PENALTY_FREQ_MID:
+        return PENALTY_MID
+    return PENALTY_LOW
 
 def _norm(s):
     s = unicodedata.normalize('NFKD', str(s)).encode('ascii','ignore').decode().lower()
@@ -675,21 +725,27 @@ def get_market_odds(home, away, league):
 # ══════════════════════════════════════════════════════════════
 #  CAPA 3 — Evaluación de valor
 # ══════════════════════════════════════════════════════════════
-def evaluate_value(probs, odds, home, away):
+def evaluate_value(probs, odds, home, away, market_freqs=None):
     """
     Cruza probabilidades del modelo con cuotas reales del mercado.
+    Aplica penalización de liquidez según la frecuencia del mercado en odds.json.
 
     Devuelve lista de dicts para TODOS los mercados evaluados:
-      ev       — valor esperado en % (float | None si no hay cuota)
-      label    — nombre del mercado
-      prob     — probabilidad del modelo (0–100)
-      bk_odds  — cuota del bookmaker (None si no disponible)
-      valid    — True si el pick pasa todos los umbrales
-      reason   — "ok" | "cuota_baja" | "ev_insuficiente" | "ev_negativo"
-                  | "ev_excesivo" | "mercado_no_disponible"
+      ev           — EV bruto del modelo en % (float | None si no hay cuota)
+      ev_adjusted  — EV tras descontar la penalización por liquidez
+      penalty      — penalización aplicada en % (0 si mercado líquido)
+      label        — nombre del mercado
+      prob         — probabilidad del modelo (0–100)
+      bk_odds      — cuota del bookmaker (None si no disponible)
+      valid        — True si ev_adjusted pasa todos los umbrales
+      reason       — "ok" | "cuota_baja" | "ev_insuficiente" | "ev_negativo"
+                      | "ev_excesivo" | "mercado_no_disponible"
 
-    Orden: válidos primero (Over > DNB > DC > win, luego EV desc), luego rechazados.
+    Orden: válidos primero (Over > DNB > DC > win, luego ev_adjusted desc), luego rechazados.
     """
+    if market_freqs is None:
+        market_freqs = _compute_market_freqs()
+
     fav      = probs["favorite"]
     fav_team = home if fav == "home" else away
 
@@ -717,37 +773,54 @@ def evaluate_value(probs, odds, home, away):
         if "Doble oportunidad" in label:  return 2
         return 3
 
-    def _entry(ev_pct, label, our_p, bk_o, valid, reason):
-        return {"ev": ev_pct, "label": label, "prob": round(our_p * 100, 1),
-                "bk_odds": bk_o, "valid": valid, "reason": reason}
+    def _entry(ev_raw, ev_adj, pen, label, our_p, bk_o, valid, reason):
+        return {
+            "ev":          ev_raw,
+            "ev_adjusted": ev_adj,
+            "penalty":     pen,
+            "label":       label,
+            "prob":        round(our_p * 100, 1),
+            "bk_odds":     bk_o,
+            "valid":       valid,
+            "reason":      reason,
+        }
 
     results = []
     for our_p, label, odds_key, min_cuota, max_ev in markets:
-        bk_o = odds.get(odds_key) if odds else None
+        bk_o    = odds.get(odds_key) if odds else None
+        freq    = market_freqs.get(odds_key, 1.0)   # 1.0 = líquido si no hay datos
+        penalty = compute_market_penalty(freq)
+        pen_pct = round(penalty * 100, 1)
 
         if bk_o is None:
-            results.append(_entry(None, label, our_p, None, False, "mercado_no_disponible"))
+            results.append(_entry(None, None, None, label, our_p, None, False, "mercado_no_disponible"))
             continue
 
         if bk_o < min_cuota:
-            results.append(_entry(None, label, our_p, bk_o, False, "cuota_baja"))
+            results.append(_entry(None, None, pen_pct, label, our_p, bk_o, False, "cuota_baja"))
             continue
 
-        ev = round(our_p * bk_o - 1, 4)
-        ev_pct = round(ev * 100, 1)
+        ev_raw  = round(our_p * bk_o - 1, 4)
+        ev_adj  = round(ev_raw - penalty,  4)
+        ev_raw_pct = round(ev_raw * 100, 1)
+        ev_adj_pct = round(ev_adj * 100, 1)
 
-        if ev < 0:
-            results.append(_entry(ev_pct, label, our_p, bk_o, False, "ev_negativo"))
-        elif ev < MIN_EV:
-            results.append(_entry(ev_pct, label, our_p, bk_o, False, "ev_insuficiente"))
-        elif ev > max_ev:
-            results.append(_entry(ev_pct, label, our_p, bk_o, False, "ev_excesivo"))
+        # La clasificación usa ev_adj. ev_negativo solo cuando el modelo ya pierde en bruto.
+        if ev_raw < 0:
+            reason = "ev_negativo"
+        elif ev_adj < MIN_EV:
+            reason = "ev_insuficiente"
+        elif ev_adj > max_ev:
+            reason = "ev_excesivo"
         else:
-            results.append(_entry(ev_pct, label, our_p, bk_o, True, "ok"))
+            reason = "ok"
+
+        results.append(_entry(ev_raw_pct, ev_adj_pct, pen_pct, label, our_p, bk_o,
+                              reason == "ok", reason))
 
     valid_picks   = [r for r in results if r["valid"]]
     invalid_picks = [r for r in results if not r["valid"]]
-    valid_picks.sort(key=lambda r: (market_priority(r["label"]), -r["ev"]))
+    valid_picks.sort(key=lambda r: (market_priority(r["label"]), -r["ev_adjusted"]))
     return valid_picks + invalid_picks
 
 
@@ -769,12 +842,14 @@ def calc_wp(league, home, hd, away, ad, nba=False):
         odds = get_market_odds(home, away, "NBA")
         if not odds:
             return fav_team, base_prob, fav_team, base_prob, 0, cuota_justa(base_prob), "bajo", None
-        bk_win = odds.get(win_key)
-        valid  = [p for p in evaluate_value(probs, odds, home, away) if p["valid"]]
+        bk_win      = odds.get(win_key)
+        mkt_freqs   = _compute_market_freqs()
+        valid = [p for p in evaluate_value(probs, odds, home, away, mkt_freqs) if p["valid"]]
         if not valid:
             return fav_team, base_prob, fav_team, base_prob, 0, bk_win, "bajo", None
         best = valid[0]
-        return fav_team, base_prob, best["label"], best["prob"], best["ev"], best["bk_odds"], value_level(best["ev"]), best["bk_odds"]
+        ev_out = best["ev_adjusted"]
+        return fav_team, base_prob, best["label"], best["prob"], ev_out, best["bk_odds"], value_level(ev_out), best["bk_odds"]
 
     # Fútbol
     odds = get_market_odds(home, away, league)
@@ -783,12 +858,14 @@ def calc_wp(league, home, hd, away, ad, nba=False):
             return fav_team, base_prob, fav_team, base_prob, 1, None, "estadistico", None
         return fav_team, base_prob, fav_team, base_prob, 0, None, "bajo", None
 
-    bk_win = odds.get(win_key)
-    valid  = [p for p in evaluate_value(probs, odds, home, away) if p["valid"]]
+    bk_win    = odds.get(win_key)
+    mkt_freqs = _compute_market_freqs()
+    valid = [p for p in evaluate_value(probs, odds, home, away, mkt_freqs) if p["valid"]]
     if not valid:
         return fav_team, base_prob, fav_team, base_prob, 0, bk_win, "bajo", None
     best = valid[0]
-    return fav_team, base_prob, best["label"], best["prob"], best["ev"], best["bk_odds"], value_level(best["ev"]), best["bk_odds"]
+    ev_out = best["ev_adjusted"]
+    return fav_team, base_prob, best["label"], best["prob"], ev_out, best["bk_odds"], value_level(ev_out), best["bk_odds"]
 
 def article(league, home, hd, away, ad, nba=False, _win=None, _wp=None, _valor=None, _cuota=None, _base_prob=None, _bk_odds=None):
     # Usar valores pre-calculados por calc_wp() para consistencia
