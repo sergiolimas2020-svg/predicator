@@ -552,11 +552,13 @@ def goals_section(hd, ad):
 </div>"""
 
 def edge_real(our_prob, bk_odds, max_edge=0.20):
-    """Edge real sobre el mercado. Solo válido entre 3% y max_edge."""
+    """Edge real sobre el mercado europeo.
+    Mínimo 15% para absorber el descuento de BetPlay (~0.15-0.30 menos en cuota).
+    Un pick con EV +15% en Europa sigue siendo EV positivo en BetPlay."""
     if not bk_odds or bk_odds <= 1.0:
         return None
     e = round(our_prob * bk_odds - 1, 4)
-    if 0.03 <= e <= max_edge:
+    if 0.15 <= e <= max_edge:
         return e
     return None
 
