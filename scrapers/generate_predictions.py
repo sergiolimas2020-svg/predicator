@@ -613,58 +613,53 @@ def calc_wp(league, home, hd, away, ad, nba=False):
             bk_dnb = None
         bk_dc = round((bk_win * bk_draw) / (bk_win + bk_draw), 3) if bk_draw else None
 
+        # Cuotas mínimas reales por mercado (la victoria directa es el más arriesgado)
+        MIN_BK = {win_team: 1.60, f"Apuesta sin empate: {win_team}": 1.30, f"Doble oportunidad: {win_team}": 1.20}
         candidates = []
         for our_p, label, bk_o in [
             (p_win,  win_team,                          bk_win),
             (p_dnb,  f"Apuesta sin empate: {win_team}", bk_dnb),
             (p_dc,   f"Doble oportunidad: {win_team}",  bk_dc),
         ]:
+            if not bk_o or bk_o < MIN_BK.get(label, 1.30):
+                continue
             e = edge_real(our_p, bk_o)
             if e is not None:
                 candidates.append((round(e*100,1), label, round(our_p*100,1), bk_o))
 
         if not candidates:
-            # Ningún mercado tiene edge real → no publicar este partido
             return win_team, round(p_win*100,1), win_team, round(p_win*100,1), 0, bk_win, "bajo", None
 
-        # El mercado con mayor edge gana; preferir DNB sobre victoria directa si edge similar
         candidates.sort(key=lambda x: x[0], reverse=True)
         best_edge, display_pick, display_prob, best_bk = candidates[0]
 
-        # Si victoria directa ganó y DNB también tiene edge real, preferir DNB
+        # Preferencia de mercado: DNB > DC > victoria directa
+        # Victoria directa solo si no existe DNB ni DC con edge real
         if display_pick == win_team:
-            dnb_candidate = next((c for c in candidates if c[1].startswith("Apuesta sin empate")), None)
-            if dnb_candidate and (best_edge - dnb_candidate[0]) <= 3:
-                best_edge, display_pick, display_prob, best_bk = dnb_candidate
+            dnb_c = next((c for c in candidates if c[1].startswith("Apuesta sin empate")), None)
+            dc_c  = next((c for c in candidates if c[1].startswith("Doble oportunidad")), None)
+            if dnb_c:
+                best_edge, display_pick, display_prob, best_bk = dnb_c
+            elif dc_c:
+                best_edge, display_pick, display_prob, best_bk = dc_c
+            # Si no hay DNB ni DC, se queda victoria directa solo cuando la cuota es >= 1.50
+            elif best_bk < 1.50:
+                return win_team, round(p_win*100,1), win_team, round(p_win*100,1), 0, best_bk, "bajo", None
 
         return win_team, round(p_win*100,1), display_pick, display_prob, best_edge, best_bk, value_level(best_edge), best_bk
 
     else:
-        # ── Sin odds reales (Colombia u otras): cuota justa interna ──
-        candidates = [
-            (value_score(round(p_win*100,1)), win_team,                          round(p_win*100,1), cuota_justa(round(p_win*100,1))),
-            (value_score(round(p_dnb*100,1)), f"Apuesta sin empate: {win_team}", round(p_dnb*100,1), cuota_justa(round(p_dnb*100,1))),
-            (value_score(round(p_dc*100,1)),  f"Doble oportunidad: {win_team}",  round(p_dc*100,1),  cuota_justa(round(p_dc*100,1))),
-            (value_score(o15) if cuota_justa(o15) >= 1.60 else 0, "Over 1.5 goles", o15, cuota_justa(o15)),
-            (value_score(o25) if cuota_justa(o25) >= 1.60 else 0, "Over 2.5 goles", o25, cuota_justa(o25)),
-        ]
-        valid = [(vs, lbl, prob, cj) for vs, lbl, prob, cj in candidates if vs > 0]
-        if not valid:
-            return win_team, round(p_win*100,1), win_team, round(p_win*100,1), 0, cuota_justa(round(p_win*100,1)), "bajo", None
-
-        best_vs, display_pick, display_prob, cj = max(valid, key=lambda x: x[0])
-
-        # Preferencia DNB sobre victoria directa si tiene cuota justa >= 1.20
-        if display_pick == win_team:
-            dnb_prob = round(p_dnb*100,1)
-            dnb_cj   = cuota_justa(dnb_prob)
-            if dnb_cj >= 1.20:
-                display_pick = f"Apuesta sin empate: {win_team}"
-                display_prob = dnb_prob
-                cj           = dnb_cj
-                best_vs      = max(value_score(dnb_prob), 1)
-
-        return win_team, round(p_win*100,1), display_pick, display_prob, best_vs, cj, value_level(best_vs), None
+        # ── Sin odds reales ──
+        # Colombia: publicar solo si prob >= 70%, sin etiqueta de valor
+        # Otras ligas sin odds: no publicar (no hay referencia de mercado real)
+        if league == "Liga Colombiana":
+            base_prob = round(p_win * 100, 1)
+            if base_prob >= 70.0:
+                return win_team, base_prob, win_team, base_prob, 1, None, "estadistico", None
+            return win_team, base_prob, win_team, base_prob, 0, None, "bajo", None
+        else:
+            # Liga sin cuotas reales → no publicar
+            return win_team, round(p_win*100,1), win_team, round(p_win*100,1), 0, None, "bajo", None
 
 def article(league, home, hd, away, ad, nba=False, _win=None, _wp=None, _valor=None, _cuota=None, _base_prob=None, _bk_odds=None):
     # Usar valores pre-calculados por calc_wp() para consistencia
@@ -799,28 +794,37 @@ def article(league, home, hd, away, ad, nba=False, _win=None, _wp=None, _valor=N
                 f"el modelo detecta ventaja visitante con un <strong>{wp}%</strong> de probabilidad."
             )
 
-    # ── Bloque ¿Por qué hay valor aquí? ──
-    if valor >= 60:
-        valor_label, valor_color = "ALTO", "var(--success)"
-        valor_why = (
-            f"Nuestro modelo asigna a este resultado una probabilidad del <strong>{base_prob}%</strong>, "
-            f"lo que equivale a una cuota justa de <strong>{cuota}</strong>. "
-            f"Si tu casa de apuestas paga igual o mas que esa cuota, tienes ventaja matematica real."
-        )
+    # ── Bloque de análisis ──
+    if cuota is None:
+        # Colombia: solo estadístico, sin referencia de mercado
+        valor_html = f"""
+<h2>Analisis estadistico</h2>
+<p>Nuestro modelo asigna a <strong>{win}</strong> una probabilidad de victoria del <strong>{base_prob}%</strong> basado en estadísticas de la temporada actual. Este pick se publica por confianza estadística — no disponemos de cuotas de mercado verificadas para esta liga.</p>
+<div class="sbox">
+<div class="srow"><span class="slbl">Probabilidad estimada (modelo)</span><span class="sval" style="color:var(--gold-500)">{base_prob}%</span></div>
+<div class="srow"><span class="slbl">Confianza</span><span class="sval" style="color:var(--success)">ALTA (≥70%)</span></div>
+</div>"""
     else:
-        valor_label, valor_color = "MEDIO", "var(--gold-500)"
-        valor_why = (
-            f"Probabilidad estimada: <strong>{base_prob}%</strong>. "
-            f"La cuota justa para este resultado es <strong>{cuota}</strong>. "
-            f"Compara con tu casa de apuestas — si pagan esa cuota o mas, hay valor."
-        )
+        if valor >= 60:
+            valor_label, valor_color = "ALTO", "var(--success)"
+            valor_why = (
+                f"Nuestro modelo asigna a este resultado una probabilidad del <strong>{base_prob}%</strong>. "
+                f"La cuota real de mercado es <strong>{cuota}</strong>, lo que genera una ventaja matematica real sobre el bookmaker."
+            )
+        else:
+            valor_label, valor_color = "MEDIO", "var(--gold-500)"
+            valor_why = (
+                f"Probabilidad estimada: <strong>{base_prob}%</strong>. "
+                f"Cuota real disponible: <strong>{cuota}</strong>. "
+                f"El modelo detecta ventaja sobre el bookmaker en este mercado."
+            )
 
-    valor_html = f"""
+        valor_html = f"""
 <h2>¿Por que hay valor en este pick?</h2>
 <p>{valor_why}</p>
 <div class="sbox">
 <div class="srow"><span class="slbl">Probabilidad estimada (modelo)</span><span class="sval" style="color:var(--gold-500)">{base_prob}%</span></div>
-<div class="srow"><span class="slbl">Cuota justa</span><span class="sval" style="color:var(--white)">{cuota}</span></div>
+<div class="srow"><span class="slbl">Cuota real de mercado</span><span class="sval" style="color:var(--white)">{cuota}</span></div>
 <div class="srow"><span class="slbl">Nivel de valor</span><span class="sval" style="color:{valor_color}">{valor_label}</span></div>
 </div>"""
 
@@ -978,8 +982,9 @@ def main():
                       _win=win, _wp=wp, _valor=vs, _cuota=cj, _base_prob=base_prob, _bk_odds=bk_odds)
         slug = save(league, home, away, art)
         lg_label = "NBA" if nba else league
-        preds.append((slug, f"{home} vs {away}", lg_label, round(base_prob,1), round(cj,2), vs, vl, base_pick))
-        print(f"   [{vs:.0f}pts valor] {home} vs {away} → {win} | base: {base_pick} {base_prob}% | cuota justa: {cj}")
+        cj_display = round(cj, 2) if cj else None
+        preds.append((slug, f"{home} vs {away}", lg_label, round(base_prob,1), cj_display, vs, vl, base_pick))
+        print(f"   [{vs:.0f}pts valor] {home} vs {away} → {win} | base: {base_pick} {base_prob}% | cuota: {cj_display or 'estadístico'}")
 
     cards = ''.join(
         f'<a href="/static/predictions/{s}.html" class="card"><span class="lg">{lg}</span><h3>{m}</h3><span class="lnk">Ver prediccion →</span></a>'
