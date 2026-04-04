@@ -586,18 +586,43 @@ def calc_wp(league, home, hd, away, ad, nba=False):
 
     hg = hd.get("goals", {})
     ag = ad.get("goals", {})
-    # Modelo calibrado de goles: promedio ponderado con regresión hacia la media del 50%
-    # El promedio simple sobreinfla — aplicamos factor 0.75 para acercarnos a la realidad
-    def goals_prob(key):
-        h = parse_pct(hg.get(key))
-        a = parse_pct(ag.get(key))
-        if h == 0 and a == 0: return 0.0
-        raw = (h + a) / 2
-        # Regresión hacia 50%: reduce el exceso sobre 50 en un 25%
-        calibrated = 50 + (raw - 50) * 0.75
-        return round(calibrated, 1)
-    o15 = goals_prob("over_1_5")
-    o25 = goals_prob("over_2_5")
+    # Modelo de goles basado en promedio real de goles/partido (GF+GC/PJ de cada equipo)
+    # Esto evita el sesgo del Over% histórico (un equipo que recibe muchos goles
+    # tiene Over% alto pero eso no significa que el partido vaya a tener muchos goles)
+    def avg_goals_per_game(d):
+        pos = d.get('position', {})
+        pj = float(pos.get('partidos') or 1)
+        gf = float(pos.get('goles_favor') or 0)
+        gc = float(pos.get('goles_contra') or 0)
+        if pj < 1: return 0.0
+        return (gf + gc) / pj
+
+    h_avg = avg_goals_per_game(hd)
+    a_avg = avg_goals_per_game(ad)
+    # Total esperado del partido = promedio de los promedios de ambos equipos
+    total_esperado = (h_avg + a_avg) / 2
+
+    # Convertir total esperado a probabilidad Over usando distribución de Poisson aproximada
+    # Over 2.5: P(goles >= 3) con lambda = total_esperado
+    import math
+    def poisson_over(lam, threshold):
+        if lam <= 0: return 0.0
+        # P(X <= threshold) = suma poisson hasta threshold
+        p_under = sum((lam**k * math.exp(-lam)) / math.factorial(k) for k in range(int(threshold)+1))
+        return round((1 - p_under) * 100, 1)
+
+    o25 = poisson_over(total_esperado, 2)   # P(goles >= 3)
+    o15 = poisson_over(total_esperado, 1)   # P(goles >= 2)
+
+    # Fallback: si no hay datos de posición, usar el % histórico calibrado
+    if total_esperado == 0:
+        def goals_prob_fallback(key):
+            h = parse_pct(hg.get(key))
+            a = parse_pct(ag.get(key))
+            if h == 0 and a == 0: return 0.0
+            return round(50 + ((h + a) / 2 - 50) * 0.70, 1)
+        o15 = goals_prob_fallback("over_1_5")
+        o25 = goals_prob_fallback("over_2_5")
 
     if win_3w >= lose_3w:
         win_team, p_win, p_lose = home, win_3w / 100, lose_3w / 100
