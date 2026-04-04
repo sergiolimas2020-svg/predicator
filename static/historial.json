@@ -1,8 +1,56 @@
 {
-  "total": 23,
-  "aciertos": 21,
-  "porcentaje": 91,
+  "total": 26,
+  "aciertos": 22,
+  "porcentaje": 85,
   "ultimos": [
+    {
+      "fecha": "2026-04-03",
+      "slug": "philadelphia-76ers-vs-minnesota-timberwolves-nba-2026-04-03",
+      "home": "Philadelphia 76ers",
+      "away": "Minnesota Timberwolves",
+      "league": "NBA",
+      "prediccion": "Minnesota Timberwolves",
+      "confianza": "Probabilidad: 52.8%",
+      "resultado_real": "115-103",
+      "acerto": false,
+      "probabilidad_modelo": 52.8,
+      "base_pick": "Minnesota Timberwolves",
+      "cuota_justa": 2.24,
+      "value_score": 18.3,
+      "value_level": "medio"
+    },
+    {
+      "fecha": "2026-04-03",
+      "slug": "union-santa-fe-vs-deportivo-riestra-liga-argentina-2026-04-03",
+      "home": "Unión (Santa Fe)",
+      "away": "Deportivo Riestra",
+      "league": "Liga Argentina",
+      "prediccion": "Apuesta sin empate: Unión (Santa Fe)",
+      "confianza": "Probabilidad: 75.4%",
+      "resultado_real": "2-0",
+      "acerto": true,
+      "probabilidad_modelo": 61.4,
+      "base_pick": "Unión (Santa Fe)",
+      "cuota_justa": 1.33,
+      "value_score": 60.3,
+      "value_level": "alto"
+    },
+    {
+      "fecha": "2026-04-03",
+      "slug": "atletico-junior-vs-deportivo-cali-liga-colombiana-2026-04-03",
+      "home": "Atlético Junior",
+      "away": "Deportivo Cali",
+      "league": "Liga Colombiana",
+      "prediccion": "Apuesta sin empate: Atlético Junior",
+      "confianza": "Probabilidad: 66.1%",
+      "resultado_real": "1-2",
+      "acerto": false,
+      "probabilidad_modelo": 47.9,
+      "base_pick": "Atlético Junior",
+      "cuota_justa": 1.51,
+      "value_score": 66.1,
+      "value_level": "alto"
+    },
     {
       "fecha": "2026-04-02",
       "slug": "santos-vs-remo-brasileirao-2026-04-02",
@@ -233,39 +281,6 @@
       "prediccion": "San Antonio Spurs",
       "confianza": "Probabilidad: 85.0%",
       "resultado_real": "Spurs W",
-      "acerto": true
-    },
-    {
-      "fecha": "2026-03-30",
-      "slug": "memphis-grizzlies-vs-phoenix-suns-nba-2026-03-30",
-      "home": "Memphis Grizzlies",
-      "away": "Phoenix Suns",
-      "league": "NBA",
-      "prediccion": "Phoenix Suns",
-      "confianza": "Probabilidad: 67.4%",
-      "resultado_real": "Suns W",
-      "acerto": true
-    },
-    {
-      "fecha": "2026-03-30",
-      "slug": "atlanta-hawks-vs-boston-celtics-nba-2026-03-30",
-      "home": "Atlanta Hawks",
-      "away": "Boston Celtics",
-      "league": "NBA",
-      "prediccion": "Boston Celtics",
-      "confianza": "Probabilidad: 56.5%",
-      "resultado_real": "Hawks W",
-      "acerto": false
-    },
-    {
-      "fecha": "2026-03-30",
-      "slug": "miami-heat-vs-philadelphia-76ers-nba-2026-03-30",
-      "home": "Miami Heat",
-      "away": "Philadelphia 76ers",
-      "league": "NBA",
-      "prediccion": "Miami Heat",
-      "confianza": "Probabilidad: 51.6%",
-      "resultado_real": "Heat W",
       "acerto": true
     }
   ]

@@ -1,4 +1,262 @@
 {
+    "Lorient": {
+        "corners": {
+            "local": {
+                "partidos": 13,
+                "corners_favor": 2.69,
+                "corners_contra": 5.31
+            },
+            "visitante": {
+                "partidos": 14,
+                "corners_favor": 3.71,
+                "corners_contra": 5.0
+            }
+        },
+        "goals": {
+            "over_1_5": "85%",
+            "over_2_5": "44%",
+            "over_3_5": "33%",
+            "bts": "56%"
+        },
+        "position": {
+            "posicion": 10,
+            "partidos": 27,
+            "ganados": 9,
+            "empatados": 10,
+            "perdidos": 8,
+            "goles_favor": 37,
+            "goles_contra": 41,
+            "diferencia": -4,
+            "puntos": 37
+        }
+    },
+    "Nice": {
+        "corners": {
+            "local": {
+                "partidos": 14,
+                "corners_favor": 5.14,
+                "corners_contra": 6.0
+            },
+            "visitante": {
+                "partidos": 13,
+                "corners_favor": 4.92,
+                "corners_contra": 5.38
+            }
+        },
+        "goals": {
+            "over_1_5": "78%",
+            "over_2_5": "56%",
+            "over_3_5": "48%",
+            "bts": "56%"
+        },
+        "position": {
+            "posicion": 15,
+            "partidos": 27,
+            "ganados": 7,
+            "empatados": 6,
+            "perdidos": 14,
+            "goles_favor": 32,
+            "goles_contra": 52,
+            "diferencia": -20,
+            "puntos": 27
+        }
+    },
+    "Paris FC": {
+        "corners": {
+            "local": {
+                "partidos": 13,
+                "corners_favor": 5.85,
+                "corners_contra": 4.15
+            },
+            "visitante": {
+                "partidos": 14,
+                "corners_favor": 3.0,
+                "corners_contra": 6.86
+            }
+        },
+        "goals": {
+            "over_1_5": "70%",
+            "over_2_5": "52%",
+            "over_3_5": "30%",
+            "bts": "59%"
+        },
+        "position": {
+            "posicion": 13,
+            "partidos": 27,
+            "ganados": 7,
+            "empatados": 10,
+            "perdidos": 10,
+            "goles_favor": 32,
+            "goles_contra": 43,
+            "diferencia": -11,
+            "puntos": 31
+        }
+    },
+    "Strasbourg": {
+        "corners": {
+            "local": {
+                "partidos": 13,
+                "corners_favor": 5.08,
+                "corners_contra": 3.77
+            },
+            "visitante": {
+                "partidos": 14,
+                "corners_favor": 3.36,
+                "corners_contra": 4.71
+            }
+        },
+        "goals": {
+            "over_1_5": "70%",
+            "over_2_5": "59%",
+            "over_3_5": "33%",
+            "bts": "59%"
+        },
+        "position": {
+            "posicion": 8,
+            "partidos": 27,
+            "ganados": 11,
+            "empatados": 7,
+            "perdidos": 9,
+            "goles_favor": 43,
+            "goles_contra": 33,
+            "diferencia": 10,
+            "puntos": 40
+        }
+    },
+    "League average": {
+        "corners": {},
+        "goals": {
+            "over_1_5": "51.0%",
+            "over_2_5": "32.5%",
+            "over_3_5": "17.3%",
+            "bts": "29.6%"
+        },
+        "position": {}
+    },
+    "Lens": {
+        "corners": {
+            "local": {
+                "partidos": 14,
+                "corners_favor": 6.21,
+                "corners_contra": 4.5
+            },
+            "visitante": {
+                "partidos": 13,
+                "corners_favor": 5.46,
+                "corners_contra": 3.15
+            }
+        },
+        "goals": {
+            "over_1_5": "81%",
+            "over_2_5": "67%",
+            "over_3_5": "26%",
+            "bts": "52%"
+        },
+        "position": {
+            "posicion": 2,
+            "partidos": 27,
+            "ganados": 19,
+            "empatados": 2,
+            "perdidos": 6,
+            "goles_favor": 54,
+            "goles_contra": 24,
+            "diferencia": 30,
+            "puntos": 59
+        }
+    },
+    "Brest": {
+        "corners": {
+            "local": {
+                "partidos": 13,
+                "corners_favor": 5.0,
+                "corners_contra": 3.62
+            },
+            "visitante": {
+                "partidos": 14,
+                "corners_favor": 3.36,
+                "corners_contra": 7.14
+            }
+        },
+        "goals": {
+            "over_1_5": "81%",
+            "over_2_5": "48%",
+            "over_3_5": "26%",
+            "bts": "41%"
+        },
+        "position": {
+            "posicion": 11,
+            "partidos": 27,
+            "ganados": 10,
+            "empatados": 6,
+            "perdidos": 11,
+            "goles_favor": 34,
+            "goles_contra": 39,
+            "diferencia": -5,
+            "puntos": 36
+        }
+    },
+    "Nantes": {
+        "corners": {
+            "local": {
+                "partidos": 14,
+                "corners_favor": 3.29,
+                "corners_contra": 5.29
+            },
+            "visitante": {
+                "partidos": 12,
+                "corners_favor": 3.0,
+                "corners_contra": 6.33
+            }
+        },
+        "goals": {
+            "over_1_5": "69%",
+            "over_2_5": "46%",
+            "over_3_5": "27%",
+            "bts": "50%"
+        },
+        "position": {
+            "posicion": 17,
+            "partidos": 26,
+            "ganados": 4,
+            "empatados": 5,
+            "perdidos": 17,
+            "goles_favor": 24,
+            "goles_contra": 45,
+            "diferencia": -21,
+            "puntos": 17
+        }
+    },
+    "Marseille": {
+        "corners": {
+            "local": {
+                "partidos": 14,
+                "corners_favor": 5.5,
+                "corners_contra": 2.71
+            },
+            "visitante": {
+                "partidos": 13,
+                "corners_favor": 4.46,
+                "corners_contra": 4.46
+            }
+        },
+        "goals": {
+            "over_1_5": "70%",
+            "over_2_5": "63%",
+            "over_3_5": "44%",
+            "bts": "48%"
+        },
+        "position": {
+            "posicion": 3,
+            "partidos": 27,
+            "ganados": 15,
+            "empatados": 4,
+            "perdidos": 8,
+            "goles_favor": 54,
+            "goles_contra": 35,
+            "diferencia": 19,
+            "puntos": 49
+        }
+    },
     "Auxerre": {
         "corners": {
             "local": {
@@ -30,66 +288,66 @@
             "puntos": 22
         }
     },
-    "Toulouse": {
+    "Monaco": {
         "corners": {
             "local": {
                 "partidos": 14,
-                "corners_favor": 5.07,
-                "corners_contra": 4.43
+                "corners_favor": 4.86,
+                "corners_contra": 4.0
             },
             "visitante": {
                 "partidos": 13,
-                "corners_favor": 4.23,
-                "corners_contra": 5.23
+                "corners_favor": 4.62,
+                "corners_contra": 4.92
+            }
+        },
+        "goals": {
+            "over_1_5": "70%",
+            "over_2_5": "59%",
+            "over_3_5": "52%",
+            "bts": "59%"
+        },
+        "position": {
+            "posicion": 6,
+            "partidos": 27,
+            "ganados": 14,
+            "empatados": 4,
+            "perdidos": 9,
+            "goles_favor": 47,
+            "goles_contra": 38,
+            "diferencia": 9,
+            "puntos": 46
+        }
+    },
+    "Lyon": {
+        "corners": {
+            "local": {
+                "partidos": 13,
+                "corners_favor": 5.69,
+                "corners_contra": 3.62
+            },
+            "visitante": {
+                "partidos": 14,
+                "corners_favor": 4.93,
+                "corners_contra": 5.5
             }
         },
         "goals": {
             "over_1_5": "59%",
-            "over_2_5": "44%",
-            "over_3_5": "26%",
-            "bts": "41%"
-        },
-        "position": {
-            "posicion": 9,
-            "partidos": 27,
-            "ganados": 10,
-            "empatados": 7,
-            "perdidos": 10,
-            "goles_favor": 38,
-            "goles_contra": 32,
-            "diferencia": 6,
-            "puntos": 37
-        }
-    },
-    "Metz": {
-        "corners": {
-            "local": {
-                "partidos": 13,
-                "corners_favor": 4.62,
-                "corners_contra": 4.0
-            },
-            "visitante": {
-                "partidos": 14,
-                "corners_favor": 3.43,
-                "corners_contra": 5.93
-            }
-        },
-        "goals": {
-            "over_1_5": "74%",
-            "over_2_5": "59%",
-            "over_3_5": "37%",
+            "over_2_5": "52%",
+            "over_3_5": "30%",
             "bts": "48%"
         },
         "position": {
-            "posicion": 18,
+            "posicion": 4,
             "partidos": 27,
-            "ganados": 3,
+            "ganados": 14,
             "empatados": 5,
-            "perdidos": 19,
-            "goles_favor": 25,
-            "goles_contra": 60,
-            "diferencia": -35,
-            "puntos": 14
+            "perdidos": 8,
+            "goles_favor": 41,
+            "goles_contra": 29,
+            "diferencia": 12,
+            "puntos": 47
         }
     },
     "Le Havre": {
@@ -154,355 +412,35 @@
             "puntos": 32
         }
     },
-    "Nice": {
+    "Toulouse": {
         "corners": {
             "local": {
                 "partidos": 14,
-                "corners_favor": 5.14,
-                "corners_contra": 6.0
-            },
-            "visitante": {
-                "partidos": 13,
-                "corners_favor": 4.92,
-                "corners_contra": 5.38
-            }
-        },
-        "goals": {
-            "over_1_5": "78%",
-            "over_2_5": "56%",
-            "over_3_5": "48%",
-            "bts": "56%"
-        },
-        "position": {
-            "posicion": 15,
-            "partidos": 27,
-            "ganados": 7,
-            "empatados": 6,
-            "perdidos": 14,
-            "goles_favor": 32,
-            "goles_contra": 52,
-            "diferencia": -20,
-            "puntos": 27
-        }
-    },
-    "Strasbourg": {
-        "corners": {
-            "local": {
-                "partidos": 13,
-                "corners_favor": 5.08,
-                "corners_contra": 3.77
+                "corners_favor": 5.07,
+                "corners_contra": 4.43
             },
             "visitante": {
                 "partidos": 14,
-                "corners_favor": 3.36,
-                "corners_contra": 4.71
+                "corners_favor": 4.07,
+                "corners_contra": 5.21
             }
         },
         "goals": {
-            "over_1_5": "70%",
-            "over_2_5": "59%",
-            "over_3_5": "33%",
-            "bts": "59%"
-        },
-        "position": {
-            "posicion": 8,
-            "partidos": 27,
-            "ganados": 11,
-            "empatados": 7,
-            "perdidos": 9,
-            "goles_favor": 43,
-            "goles_contra": 33,
-            "diferencia": 10,
-            "puntos": 40
-        }
-    },
-    "Paris FC": {
-        "corners": {
-            "local": {
-                "partidos": 13,
-                "corners_favor": 5.85,
-                "corners_contra": 4.15
-            },
-            "visitante": {
-                "partidos": 14,
-                "corners_favor": 3.0,
-                "corners_contra": 6.86
-            }
-        },
-        "goals": {
-            "over_1_5": "70%",
-            "over_2_5": "52%",
-            "over_3_5": "30%",
-            "bts": "59%"
-        },
-        "position": {
-            "posicion": 13,
-            "partidos": 27,
-            "ganados": 7,
-            "empatados": 10,
-            "perdidos": 10,
-            "goles_favor": 32,
-            "goles_contra": 43,
-            "diferencia": -11,
-            "puntos": 31
-        }
-    },
-    "Lille": {
-        "corners": {
-            "local": {
-                "partidos": 13,
-                "corners_favor": 6.31,
-                "corners_contra": 3.69
-            },
-            "visitante": {
-                "partidos": 14,
-                "corners_favor": 5.64,
-                "corners_contra": 3.71
-            }
-        },
-        "goals": {
-            "over_1_5": "67%",
-            "over_2_5": "41%",
-            "over_3_5": "22%",
-            "bts": "44%"
-        },
-        "position": {
-            "posicion": 5,
-            "partidos": 27,
-            "ganados": 14,
-            "empatados": 5,
-            "perdidos": 8,
-            "goles_favor": 42,
-            "goles_contra": 34,
-            "diferencia": 8,
-            "puntos": 47
-        }
-    },
-    "Lorient": {
-        "corners": {
-            "local": {
-                "partidos": 13,
-                "corners_favor": 2.69,
-                "corners_contra": 5.31
-            },
-            "visitante": {
-                "partidos": 14,
-                "corners_favor": 3.71,
-                "corners_contra": 5.0
-            }
-        },
-        "goals": {
-            "over_1_5": "85%",
-            "over_2_5": "44%",
-            "over_3_5": "33%",
-            "bts": "56%"
-        },
-        "position": {
-            "posicion": 10,
-            "partidos": 27,
-            "ganados": 9,
-            "empatados": 10,
-            "perdidos": 8,
-            "goles_favor": 37,
-            "goles_contra": 41,
-            "diferencia": -4,
-            "puntos": 37
-        }
-    },
-    "Brest": {
-        "corners": {
-            "local": {
-                "partidos": 13,
-                "corners_favor": 5.0,
-                "corners_contra": 3.62
-            },
-            "visitante": {
-                "partidos": 14,
-                "corners_favor": 3.36,
-                "corners_contra": 7.14
-            }
-        },
-        "goals": {
-            "over_1_5": "81%",
-            "over_2_5": "48%",
-            "over_3_5": "26%",
-            "bts": "41%"
-        },
-        "position": {
-            "posicion": 11,
-            "partidos": 27,
-            "ganados": 10,
-            "empatados": 6,
-            "perdidos": 11,
-            "goles_favor": 34,
-            "goles_contra": 39,
-            "diferencia": -5,
-            "puntos": 36
-        }
-    },
-    "Lens": {
-        "corners": {
-            "local": {
-                "partidos": 14,
-                "corners_favor": 6.21,
-                "corners_contra": 4.5
-            },
-            "visitante": {
-                "partidos": 13,
-                "corners_favor": 5.46,
-                "corners_contra": 3.15
-            }
-        },
-        "goals": {
-            "over_1_5": "81%",
-            "over_2_5": "67%",
-            "over_3_5": "26%",
-            "bts": "52%"
-        },
-        "position": {
-            "posicion": 2,
-            "partidos": 27,
-            "ganados": 19,
-            "empatados": 2,
-            "perdidos": 6,
-            "goles_favor": 54,
-            "goles_contra": 24,
-            "diferencia": 30,
-            "puntos": 59
-        }
-    },
-    "Monaco": {
-        "corners": {
-            "local": {
-                "partidos": 14,
-                "corners_favor": 4.86,
-                "corners_contra": 4.0
-            },
-            "visitante": {
-                "partidos": 13,
-                "corners_favor": 4.62,
-                "corners_contra": 4.92
-            }
-        },
-        "goals": {
-            "over_1_5": "70%",
-            "over_2_5": "59%",
-            "over_3_5": "52%",
-            "bts": "59%"
-        },
-        "position": {
-            "posicion": 6,
-            "partidos": 27,
-            "ganados": 14,
-            "empatados": 4,
-            "perdidos": 9,
-            "goles_favor": 47,
-            "goles_contra": 38,
-            "diferencia": 9,
-            "puntos": 46
-        }
-    },
-    "Nantes": {
-        "corners": {
-            "local": {
-                "partidos": 14,
-                "corners_favor": 3.29,
-                "corners_contra": 5.29
-            },
-            "visitante": {
-                "partidos": 12,
-                "corners_favor": 3.0,
-                "corners_contra": 6.33
-            }
-        },
-        "goals": {
-            "over_1_5": "69%",
+            "over_1_5": "61%",
             "over_2_5": "46%",
-            "over_3_5": "27%",
-            "bts": "50%"
+            "over_3_5": "29%",
+            "bts": "43%"
         },
         "position": {
-            "posicion": 17,
-            "partidos": 26,
-            "ganados": 4,
-            "empatados": 5,
-            "perdidos": 17,
-            "goles_favor": 24,
-            "goles_contra": 45,
-            "diferencia": -21,
-            "puntos": 17
-        }
-    },
-    "League average": {
-        "corners": {},
-        "goals": {
-            "over_1_5": "50.8%",
-            "over_2_5": "32.2%",
-            "over_3_5": "17.4%",
-            "bts": "29.8%"
-        },
-        "position": {}
-    },
-    "Marseille": {
-        "corners": {
-            "local": {
-                "partidos": 14,
-                "corners_favor": 5.5,
-                "corners_contra": 2.71
-            },
-            "visitante": {
-                "partidos": 13,
-                "corners_favor": 4.46,
-                "corners_contra": 4.46
-            }
-        },
-        "goals": {
-            "over_1_5": "70%",
-            "over_2_5": "63%",
-            "over_3_5": "44%",
-            "bts": "48%"
-        },
-        "position": {
-            "posicion": 3,
-            "partidos": 27,
-            "ganados": 15,
-            "empatados": 4,
-            "perdidos": 8,
-            "goles_favor": 54,
+            "posicion": 9,
+            "partidos": 28,
+            "ganados": 10,
+            "empatados": 7,
+            "perdidos": 11,
+            "goles_favor": 39,
             "goles_contra": 35,
-            "diferencia": 19,
-            "puntos": 49
-        }
-    },
-    "Lyon": {
-        "corners": {
-            "local": {
-                "partidos": 13,
-                "corners_favor": 5.69,
-                "corners_contra": 3.62
-            },
-            "visitante": {
-                "partidos": 14,
-                "corners_favor": 4.93,
-                "corners_contra": 5.5
-            }
-        },
-        "goals": {
-            "over_1_5": "59%",
-            "over_2_5": "52%",
-            "over_3_5": "30%",
-            "bts": "48%"
-        },
-        "position": {
-            "posicion": 4,
-            "partidos": 27,
-            "ganados": 14,
-            "empatados": 5,
-            "perdidos": 8,
-            "goles_favor": 41,
-            "goles_contra": 29,
-            "diferencia": 12,
-            "puntos": 47
+            "diferencia": 4,
+            "puntos": 37
         }
     },
     "Rennes": {
@@ -536,12 +474,74 @@
             "puntos": 44
         }
     },
+    "Lille": {
+        "corners": {
+            "local": {
+                "partidos": 13,
+                "corners_favor": 6.31,
+                "corners_contra": 3.69
+            },
+            "visitante": {
+                "partidos": 14,
+                "corners_favor": 5.64,
+                "corners_contra": 3.71
+            }
+        },
+        "goals": {
+            "over_1_5": "67%",
+            "over_2_5": "41%",
+            "over_3_5": "22%",
+            "bts": "44%"
+        },
+        "position": {
+            "posicion": 5,
+            "partidos": 27,
+            "ganados": 14,
+            "empatados": 5,
+            "perdidos": 8,
+            "goles_favor": 42,
+            "goles_contra": 34,
+            "diferencia": 8,
+            "puntos": 47
+        }
+    },
+    "Metz": {
+        "corners": {
+            "local": {
+                "partidos": 13,
+                "corners_favor": 4.62,
+                "corners_contra": 4.0
+            },
+            "visitante": {
+                "partidos": 14,
+                "corners_favor": 3.43,
+                "corners_contra": 5.93
+            }
+        },
+        "goals": {
+            "over_1_5": "74%",
+            "over_2_5": "59%",
+            "over_3_5": "37%",
+            "bts": "48%"
+        },
+        "position": {
+            "posicion": 18,
+            "partidos": 27,
+            "ganados": 3,
+            "empatados": 5,
+            "perdidos": 19,
+            "goles_favor": 25,
+            "goles_contra": 60,
+            "diferencia": -35,
+            "puntos": 14
+        }
+    },
     "Paris SG": {
         "corners": {
             "local": {
-                "partidos": 12,
-                "corners_favor": 6.42,
-                "corners_contra": 2.42
+                "partidos": 13,
+                "corners_favor": 6.31,
+                "corners_contra": 2.38
             },
             "visitante": {
                 "partidos": 14,
@@ -550,25 +550,25 @@
             }
         },
         "goals": {
-            "over_1_5": "73%",
-            "over_2_5": "58%",
-            "over_3_5": "35%",
-            "bts": "38%"
+            "over_1_5": "74%",
+            "over_2_5": "59%",
+            "over_3_5": "37%",
+            "bts": "41%"
         },
         "position": {
             "posicion": 1,
-            "partidos": 26,
-            "ganados": 19,
+            "partidos": 27,
+            "ganados": 20,
             "empatados": 3,
             "perdidos": 4,
-            "goles_favor": 58,
-            "goles_contra": 22,
-            "diferencia": 36,
-            "puntos": 60
+            "goles_favor": 61,
+            "goles_contra": 23,
+            "diferencia": 38,
+            "puntos": 63
         }
     },
     "_metadata": {
-        "fecha_actualizacion": "2026-04-03T08:09:20.060767",
+        "fecha_actualizacion": "2026-04-04T07:39:55.230189",
         "liga": "france",
         "fuente_datos": {
             "corners": "https://www.soccerstats.com/table.asp?league=france&tid=cr",

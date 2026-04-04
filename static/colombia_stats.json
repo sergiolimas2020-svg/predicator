@@ -1,44 +1,4 @@
 {
-    "Santa Fe": {
-        "corners": {},
-        "goals": {
-            "over_1_5": "79%",
-            "over_2_5": "43%",
-            "over_3_5": "14%",
-            "bts": "79%"
-        },
-        "position": {
-            "posicion": 13,
-            "partidos": 14,
-            "ganados": 4,
-            "empatados": 6,
-            "perdidos": 4,
-            "goles_favor": 16,
-            "goles_contra": 17,
-            "diferencia": -1,
-            "puntos": 18
-        }
-    },
-    "La Equidad": {
-        "corners": {},
-        "goals": {
-            "over_1_5": "71%",
-            "over_2_5": "57%",
-            "over_3_5": "29%",
-            "bts": "57%"
-        },
-        "position": {
-            "posicion": 8,
-            "partidos": 14,
-            "ganados": 5,
-            "empatados": 6,
-            "perdidos": 3,
-            "goles_favor": 17,
-            "goles_contra": 19,
-            "diferencia": -2,
-            "puntos": 21
-        }
-    },
     "Llaneros": {
         "corners": {},
         "goals": {
@@ -48,7 +8,7 @@
             "bts": "53%"
         },
         "position": {
-            "posicion": 9,
+            "posicion": 10,
             "partidos": 15,
             "ganados": 4,
             "empatados": 8,
@@ -59,63 +19,23 @@
             "puntos": 20
         }
     },
-    "Deportivo Cali": {
+    "R. Aguilas": {
         "corners": {},
         "goals": {
             "over_1_5": "57%",
-            "over_2_5": "29%",
+            "over_2_5": "36%",
             "over_3_5": "14%",
-            "bts": "36%"
+            "bts": "57%"
         },
         "position": {
-            "posicion": 11,
+            "posicion": 12,
             "partidos": 14,
             "ganados": 5,
             "empatados": 4,
             "perdidos": 5,
-            "goles_favor": 15,
-            "goles_contra": 12,
-            "diferencia": 3,
-            "puntos": 19
-        }
-    },
-    "Fortaleza CEIF": {
-        "corners": {},
-        "goals": {
-            "over_1_5": "86%",
-            "over_2_5": "50%",
-            "over_3_5": "21%",
-            "bts": "79%"
-        },
-        "position": {
-            "posicion": 15,
-            "partidos": 14,
-            "ganados": 3,
-            "empatados": 6,
-            "perdidos": 5,
-            "goles_favor": 16,
-            "goles_contra": 22,
-            "diferencia": -6,
-            "puntos": 15
-        }
-    },
-    "A. Bucaramanga": {
-        "corners": {},
-        "goals": {
-            "over_1_5": "71%",
-            "over_2_5": "43%",
-            "over_3_5": "14%",
-            "bts": "43%"
-        },
-        "position": {
-            "posicion": 10,
-            "partidos": 14,
-            "ganados": 4,
-            "empatados": 7,
-            "perdidos": 3,
-            "goles_favor": 17,
-            "goles_contra": 12,
-            "diferencia": 5,
+            "goles_favor": 14,
+            "goles_contra": 16,
+            "diferencia": -2,
             "puntos": 19
         }
     },
@@ -139,24 +59,114 @@
             "puntos": 12
         }
     },
-    "Junior": {
+    "Fortaleza CEIF": {
         "corners": {},
         "goals": {
-            "over_1_5": "93%",
-            "over_2_5": "57%",
-            "over_3_5": "14%",
-            "bts": "50%"
+            "over_1_5": "87%",
+            "over_2_5": "47%",
+            "over_3_5": "20%",
+            "bts": "80%"
         },
         "position": {
-            "posicion": 5,
-            "partidos": 14,
-            "ganados": 8,
-            "empatados": 1,
+            "posicion": 15,
+            "partidos": 15,
+            "ganados": 3,
+            "empatados": 7,
             "perdidos": 5,
-            "goles_favor": 20,
-            "goles_contra": 18,
-            "diferencia": 2,
+            "goles_favor": 17,
+            "goles_contra": 23,
+            "diferencia": -6,
+            "puntos": 16
+        }
+    },
+    "Once Caldas": {
+        "corners": {},
+        "goals": {
+            "over_1_5": "100%",
+            "over_2_5": "47%",
+            "over_3_5": "20%",
+            "bts": "87%"
+        },
+        "position": {
+            "posicion": 4,
+            "partidos": 15,
+            "ganados": 6,
+            "empatados": 7,
+            "perdidos": 2,
+            "goles_favor": 26,
+            "goles_contra": 19,
+            "diferencia": 7,
             "puntos": 25
+        }
+    },
+    "League average": {
+        "corners": {},
+        "goals": {
+            "over_1_5": "46.9%",
+            "over_2_5": "20.7%",
+            "over_3_5": "10.3%",
+            "bts": "26.6%"
+        },
+        "position": {}
+    },
+    "Deportivo Pasto": {
+        "corners": {},
+        "goals": {
+            "over_1_5": "73%",
+            "over_2_5": "53%",
+            "over_3_5": "20%",
+            "bts": "53%"
+        },
+        "position": {
+            "posicion": 2,
+            "partidos": 15,
+            "ganados": 8,
+            "empatados": 4,
+            "perdidos": 3,
+            "goles_favor": 21,
+            "goles_contra": 17,
+            "diferencia": 4,
+            "puntos": 28
+        }
+    },
+    "Millonarios": {
+        "corners": {},
+        "goals": {
+            "over_1_5": "73%",
+            "over_2_5": "67%",
+            "over_3_5": "27%",
+            "bts": "60%"
+        },
+        "position": {
+            "posicion": 9,
+            "partidos": 15,
+            "ganados": 6,
+            "empatados": 3,
+            "perdidos": 6,
+            "goles_favor": 25,
+            "goles_contra": 17,
+            "diferencia": 8,
+            "puntos": 21
+        }
+    },
+    "Deportivo Cali": {
+        "corners": {},
+        "goals": {
+            "over_1_5": "60%",
+            "over_2_5": "33%",
+            "over_3_5": "13%",
+            "bts": "40%"
+        },
+        "position": {
+            "posicion": 7,
+            "partidos": 15,
+            "ganados": 6,
+            "empatados": 4,
+            "perdidos": 5,
+            "goles_favor": 17,
+            "goles_contra": 13,
+            "diferencia": 4,
+            "puntos": 22
         }
     },
     "Cucuta": {
@@ -199,136 +209,6 @@
             "puntos": 11
         }
     },
-    "I. Medelin": {
-        "corners": {},
-        "goals": {
-            "over_1_5": "86%",
-            "over_2_5": "64%",
-            "over_3_5": "29%",
-            "bts": "79%"
-        },
-        "position": {
-            "posicion": 14,
-            "partidos": 14,
-            "ganados": 4,
-            "empatados": 5,
-            "perdidos": 5,
-            "goles_favor": 19,
-            "goles_contra": 19,
-            "diferencia": 0,
-            "puntos": 17
-        }
-    },
-    "Once Caldas": {
-        "corners": {},
-        "goals": {
-            "over_1_5": "100%",
-            "over_2_5": "47%",
-            "over_3_5": "20%",
-            "bts": "87%"
-        },
-        "position": {
-            "posicion": 4,
-            "partidos": 15,
-            "ganados": 6,
-            "empatados": 7,
-            "perdidos": 2,
-            "goles_favor": 26,
-            "goles_contra": 19,
-            "diferencia": 7,
-            "puntos": 25
-        }
-    },
-    "A. Nacional": {
-        "corners": {},
-        "goals": {
-            "over_1_5": "79%",
-            "over_2_5": "71%",
-            "over_3_5": "21%",
-            "bts": "36%"
-        },
-        "position": {
-            "posicion": 1,
-            "partidos": 14,
-            "ganados": 10,
-            "empatados": 1,
-            "perdidos": 3,
-            "goles_favor": 28,
-            "goles_contra": 10,
-            "diferencia": 18,
-            "puntos": 31
-        }
-    },
-    "Deportes Tolima": {
-        "corners": {},
-        "goals": {
-            "over_1_5": "71%",
-            "over_2_5": "36%",
-            "over_3_5": "29%",
-            "bts": "50%"
-        },
-        "position": {
-            "posicion": 3,
-            "partidos": 14,
-            "ganados": 7,
-            "empatados": 5,
-            "perdidos": 2,
-            "goles_favor": 22,
-            "goles_contra": 11,
-            "diferencia": 11,
-            "puntos": 26
-        }
-    },
-    "League average": {
-        "corners": {},
-        "goals": {
-            "over_1_5": "46.9%",
-            "over_2_5": "21.0%",
-            "over_3_5": "10.5%",
-            "bts": "26.9%"
-        },
-        "position": {}
-    },
-    "Deportivo Pasto": {
-        "corners": {},
-        "goals": {
-            "over_1_5": "73%",
-            "over_2_5": "53%",
-            "over_3_5": "20%",
-            "bts": "53%"
-        },
-        "position": {
-            "posicion": 2,
-            "partidos": 15,
-            "ganados": 8,
-            "empatados": 4,
-            "perdidos": 3,
-            "goles_favor": 21,
-            "goles_contra": 17,
-            "diferencia": 4,
-            "puntos": 28
-        }
-    },
-    "Millonarios": {
-        "corners": {},
-        "goals": {
-            "over_1_5": "73%",
-            "over_2_5": "67%",
-            "over_3_5": "27%",
-            "bts": "60%"
-        },
-        "position": {
-            "posicion": 7,
-            "partidos": 15,
-            "ganados": 6,
-            "empatados": 3,
-            "perdidos": 6,
-            "goles_favor": 25,
-            "goles_contra": 17,
-            "diferencia": 8,
-            "puntos": 21
-        }
-    },
     "America de Cali": {
         "corners": {},
         "goals": {
@@ -349,44 +229,24 @@
             "puntos": 24
         }
     },
-    "R. Aguilas": {
+    "La Equidad": {
         "corners": {},
         "goals": {
-            "over_1_5": "57%",
-            "over_2_5": "36%",
-            "over_3_5": "14%",
-            "bts": "57%"
+            "over_1_5": "73%",
+            "over_2_5": "53%",
+            "over_3_5": "27%",
+            "bts": "60%"
         },
         "position": {
-            "posicion": 12,
-            "partidos": 14,
+            "posicion": 8,
+            "partidos": 15,
             "ganados": 5,
-            "empatados": 4,
-            "perdidos": 5,
-            "goles_favor": 14,
-            "goles_contra": 16,
+            "empatados": 7,
+            "perdidos": 3,
+            "goles_favor": 18,
+            "goles_contra": 20,
             "diferencia": -2,
-            "puntos": 19
-        }
-    },
-    "D. Pereira": {
-        "corners": {},
-        "goals": {
-            "over_1_5": "64%",
-            "over_2_5": "50%",
-            "over_3_5": "43%",
-            "bts": "50%"
-        },
-        "position": {
-            "posicion": 20,
-            "partidos": 14,
-            "ganados": 0,
-            "empatados": 6,
-            "perdidos": 8,
-            "goles_favor": 12,
-            "goles_contra": 26,
-            "diferencia": -14,
-            "puntos": 6
+            "puntos": 22
         }
     },
     "Jaguares de C.": {
@@ -409,8 +269,148 @@
             "puntos": 14
         }
     },
+    "A. Bucaramanga": {
+        "corners": {},
+        "goals": {
+            "over_1_5": "71%",
+            "over_2_5": "43%",
+            "over_3_5": "14%",
+            "bts": "43%"
+        },
+        "position": {
+            "posicion": 11,
+            "partidos": 14,
+            "ganados": 4,
+            "empatados": 7,
+            "perdidos": 3,
+            "goles_favor": 17,
+            "goles_contra": 12,
+            "diferencia": 5,
+            "puntos": 19
+        }
+    },
+    "Junior": {
+        "corners": {},
+        "goals": {
+            "over_1_5": "93%",
+            "over_2_5": "60%",
+            "over_3_5": "13%",
+            "bts": "53%"
+        },
+        "position": {
+            "posicion": 5,
+            "partidos": 15,
+            "ganados": 8,
+            "empatados": 1,
+            "perdidos": 6,
+            "goles_favor": 21,
+            "goles_contra": 20,
+            "diferencia": 1,
+            "puntos": 25
+        }
+    },
+    "Deportes Tolima": {
+        "corners": {},
+        "goals": {
+            "over_1_5": "71%",
+            "over_2_5": "36%",
+            "over_3_5": "29%",
+            "bts": "50%"
+        },
+        "position": {
+            "posicion": 3,
+            "partidos": 14,
+            "ganados": 7,
+            "empatados": 5,
+            "perdidos": 2,
+            "goles_favor": 22,
+            "goles_contra": 11,
+            "diferencia": 11,
+            "puntos": 26
+        }
+    },
+    "Santa Fe": {
+        "corners": {},
+        "goals": {
+            "over_1_5": "79%",
+            "over_2_5": "43%",
+            "over_3_5": "14%",
+            "bts": "79%"
+        },
+        "position": {
+            "posicion": 13,
+            "partidos": 14,
+            "ganados": 4,
+            "empatados": 6,
+            "perdidos": 4,
+            "goles_favor": 16,
+            "goles_contra": 17,
+            "diferencia": -1,
+            "puntos": 18
+        }
+    },
+    "D. Pereira": {
+        "corners": {},
+        "goals": {
+            "over_1_5": "64%",
+            "over_2_5": "50%",
+            "over_3_5": "43%",
+            "bts": "50%"
+        },
+        "position": {
+            "posicion": 20,
+            "partidos": 14,
+            "ganados": 0,
+            "empatados": 6,
+            "perdidos": 8,
+            "goles_favor": 12,
+            "goles_contra": 26,
+            "diferencia": -14,
+            "puntos": 6
+        }
+    },
+    "A. Nacional": {
+        "corners": {},
+        "goals": {
+            "over_1_5": "79%",
+            "over_2_5": "71%",
+            "over_3_5": "21%",
+            "bts": "36%"
+        },
+        "position": {
+            "posicion": 1,
+            "partidos": 14,
+            "ganados": 10,
+            "empatados": 1,
+            "perdidos": 3,
+            "goles_favor": 28,
+            "goles_contra": 10,
+            "diferencia": 18,
+            "puntos": 31
+        }
+    },
+    "I. Medelin": {
+        "corners": {},
+        "goals": {
+            "over_1_5": "86%",
+            "over_2_5": "64%",
+            "over_3_5": "29%",
+            "bts": "79%"
+        },
+        "position": {
+            "posicion": 14,
+            "partidos": 14,
+            "ganados": 4,
+            "empatados": 5,
+            "perdidos": 5,
+            "goles_favor": 19,
+            "goles_contra": 19,
+            "diferencia": 0,
+            "puntos": 17
+        }
+    },
     "_metadata": {
-        "fecha_actualizacion": "2026-04-03T08:09:03.622716",
+        "fecha_actualizacion": "2026-04-04T07:39:37.426052",
         "liga": "colombia",
         "fuente_datos": {
             "corners": "https://www.soccerstats.com/table.asp?league=colombia&tid=cr",
