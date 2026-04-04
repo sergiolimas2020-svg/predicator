@@ -1,5 +1,5 @@
 # VERSION DE PRUEBA - NO PRODUCCION
-import json, os, requests, unicodedata
+import json, math, os, requests, unicodedata
 from datetime import date, timedelta
 from pathlib import Path
 
@@ -31,7 +31,36 @@ MIN_CUOTA_DNB     = 1.30   # cuota mínima para DNB (apuesta sin empate)
 MIN_CUOTA_DC      = 1.20   # cuota mínima para DC (doble oportunidad)
 MIN_CUOTA_OVER25  = 1.60   # cuota mínima para Over 2.5 goles
 MIN_CUOTA_OVER15  = 1.40   # cuota mínima para Over 1.5 goles
-COLOMBIA_MIN_CONF = 70.0   # prob mínima para picks estadísticos (Liga Colombiana)
+COLOMBIA_MIN_CONF       = 70.0  # prob mínima para picks estadísticos (Liga Colombiana)
+MIN_VALID_ODDS          = 1.0   # cuota mínima válida del bookmaker (< 1.0 = dato inválido)
+GOALS_FALLBACK_REGRESS  = 0.70  # factor de regresión al centro para fallback histórico de goles
+CUOTA_INFINITA          = 99.0  # cuota centinela cuando la probabilidad es 0
+
+# ── Parámetros del modelo de fútbol ──────────────────────────
+MODEL_MAX_PROB      = 85.0  # cap superior de probabilidad
+MODEL_MIN_PROB      = 15.0  # cap inferior de probabilidad
+MODEL_DRAW_DIFF     = 10.0  # diferencia mínima hp-ap para no declarar empate técnico
+WEIGHT_POSITION     = 0.40  # peso de la posición en tabla
+WEIGHT_WIN_RATE     = 0.30  # peso del porcentaje de victorias
+WEIGHT_GOAL_DIFF    = 0.20  # peso de la diferencia de goles
+HOME_ADVANTAGE_PCT  = 0.10  # ventaja de local (% adicional sobre propio score)
+POSITION_RANGE      = 21    # max_posicion + 1 (para invertir el ranking)
+DEFAULT_POSITION    = 10    # posición por defecto si no hay datos
+DRAW_PCT_MIN        = 20.0  # % mínimo de empate en modelo 3-way
+DRAW_PCT_MAX        = 30.0  # % máximo de empate en modelo 3-way (partidos 50/50)
+DRAW_DIFF_FACTOR    = 0.20  # pendiente de reducción del % empate por diferencia
+
+# ── Parámetros del modelo NBA ─────────────────────────────────
+NBA_DEFAULT_PPG     = 110.0  # puntos por partido por defecto si no hay datos
+NBA_HOME_ADVANTAGE  =   3.0  # ajuste de ventaja de local en puntos
+NBA_SCORING_WEIGHT  =   0.5  # peso del diferencial de puntos sobre la probabilidad
+NBA_MAX_PROB        =  85.0  # cap superior de probabilidad NBA
+NBA_MIN_PROB        =  15.0  # cap inferior de probabilidad NBA
+
+# ── Display ───────────────────────────────────────────────────
+GOALS_HIGH_PCT       = 65   # umbral "alta probabilidad" en sección goles
+GOALS_MID_PCT        = 45   # umbral "media probabilidad" en sección goles
+VALUE_ALTO_THRESHOLD = 60.0  # EV% mínimo para nivel de valor "alto"
 
 # ── Cuotas reales ──
 _ODDS_CACHE = None
@@ -66,12 +95,12 @@ def find_bk_odds(home, away, league, match_date):
 
 def cuota_justa(wp):
     """Devuelve la cuota decimal justa para una probabilidad wp (%)."""
-    if wp <= 0: return 99.0
+    if wp <= 0: return CUOTA_INFINITA
     return round(100 / wp, 2)
 
 def value_level(vs):
-    if vs >= 60: return "alto"
-    if vs > 0:   return "medio"
+    if vs >= VALUE_ALTO_THRESHOLD: return "alto"
+    if vs > 0:                     return "medio"
     return "bajo"
 
 
@@ -450,26 +479,26 @@ def prob_futbol(hd, ad):
     pos_h = hd.get("position", {})
     pos_a = ad.get("position", {})
 
-    h_score = (21 - safe_float(pos_h.get("posicion"), 10)) * 0.4 * 5
-    a_score = (21 - safe_float(pos_a.get("posicion"), 10)) * 0.4 * 5
+    h_score = (POSITION_RANGE - safe_float(pos_h.get("posicion"), DEFAULT_POSITION)) * WEIGHT_POSITION * 5
+    a_score = (POSITION_RANGE - safe_float(pos_a.get("posicion"), DEFAULT_POSITION)) * WEIGHT_POSITION * 5
 
     h_games = safe_float(pos_h.get("partidos"), 1) or 1
     a_games = safe_float(pos_a.get("partidos"), 1) or 1
-    h_score += (safe_float(pos_h.get("ganados")) / h_games * 100) * 0.3
-    a_score += (safe_float(pos_a.get("ganados")) / a_games * 100) * 0.3
+    h_score += (safe_float(pos_h.get("ganados")) / h_games * 100) * WEIGHT_WIN_RATE
+    a_score += (safe_float(pos_a.get("ganados")) / a_games * 100) * WEIGHT_WIN_RATE
 
-    h_score += safe_float(pos_h.get("diferencia")) * 0.2
-    a_score += safe_float(pos_a.get("diferencia")) * 0.2
+    h_score += safe_float(pos_h.get("diferencia")) * WEIGHT_GOAL_DIFF
+    a_score += safe_float(pos_a.get("diferencia")) * WEIGHT_GOAL_DIFF
 
-    h_score += h_score * 0.1
+    h_score += h_score * HOME_ADVANTAGE_PCT
 
     total = (h_score + a_score) or 1
     hp = (h_score / total) * 100
-    hp = min(85.0, max(15.0, hp))
+    hp = min(MODEL_MAX_PROB, max(MODEL_MIN_PROB, hp))
     ap = round(100 - hp, 1)
     hp = round(hp, 1)
 
-    if abs(hp - ap) < 10:
+    if abs(hp - ap) < MODEL_DRAW_DIFF:
         return 50.0, 50.0
 
     return hp, ap
@@ -481,11 +510,11 @@ def prob_futbol(hd, ad):
 def prob_nba(hd, ad):
     h_win_pct = safe_float(hd.get("win_pct"), 50)
     a_win_pct = safe_float(ad.get("win_pct"), 50)
-    h_avg_pts = safe_float(hd.get("avg_points"), 110)
-    a_avg_pts = safe_float(ad.get("avg_points"), 110)
+    h_avg_pts = safe_float(hd.get("avg_points"), NBA_DEFAULT_PPG)
+    a_avg_pts = safe_float(ad.get("avg_points"), NBA_DEFAULT_PPG)
 
-    diff = (h_win_pct - a_win_pct) + (h_avg_pts - a_avg_pts) * 0.5 + 3
-    hp = min(85.0, max(15.0, 50 + diff))
+    diff = (h_win_pct - a_win_pct) + (h_avg_pts - a_avg_pts) * NBA_SCORING_WEIGHT + NBA_HOME_ADVANTAGE
+    hp = min(NBA_MAX_PROB, max(NBA_MIN_PROB, 50 + diff))
     ap = round(100 - hp, 1)
     hp = round(hp, 1)
     return hp, ap
@@ -498,7 +527,7 @@ def prob_futbol_3way(hd, ad):
     # Más parejo → más empates. Rango: 20% (muy desigual) a 30% (50/50)
     # Mínimo 20% refleja la realidad del fútbol: incluso favoritos claros pierden
     # ~20% al empate, lo que hace que DNB tenga siempre cuota >= ~1.25
-    draw_pct = max(20.0, 30.0 - diff * 0.20)
+    draw_pct = max(DRAW_PCT_MIN, DRAW_PCT_MAX - diff * DRAW_DIFF_FACTOR)
     scale = (100.0 - draw_pct) / 100.0
     win  = round(hp * scale, 1)
     lose = round(ap * scale, 1)
@@ -513,13 +542,13 @@ def goals_section(hd, ad):
     o25 = round((parse_pct(hg.get("over_2_5")) + parse_pct(ag.get("over_2_5"))) / 2, 1)
 
     def cls(p):
-        if p >= 65: return "high"
-        if p >= 45: return "mid"
+        if p >= GOALS_HIGH_PCT: return "high"
+        if p >= GOALS_MID_PCT:  return "mid"
         return "low"
 
     def rec(p):
-        if p >= 65: return "<strong>Recomendado</strong> · Alta probabilidad"
-        if p >= 45: return "Probabilidad media"
+        if p >= GOALS_HIGH_PCT: return "<strong>Recomendado</strong> · Alta probabilidad"
+        if p >= GOALS_MID_PCT:  return "Probabilidad media"
         return "Probabilidad baja"
 
     c15, c25 = cls(o15), cls(o25)
@@ -563,7 +592,6 @@ def get_probabilities(hd, ad, nba=False):
     win_3w, draw_3w, lose_3w = prob_futbol_3way(hd, ad)
     hp, ap = prob_futbol(hd, ad)
 
-    import math
     def avg_goals_per_game(d):
         pos = d.get('position', {})
         pj = float(pos.get('partidos') or 1)
@@ -586,7 +614,7 @@ def get_probabilities(hd, ad, nba=False):
         def goals_prob_fallback(key):
             h, a = parse_pct(hg.get(key)), parse_pct(ag.get(key))
             if h == 0 and a == 0: return 0.0
-            return round((50 + ((h + a) / 2 - 50) * 0.70) / 100, 4)
+            return round((50 + ((h + a) / 2 - 50) * GOALS_FALLBACK_REGRESS) / 100, 4)
         o25 = goals_prob_fallback("over_2_5")
         o15 = goals_prob_fallback("over_1_5")
 
@@ -619,15 +647,18 @@ def get_market_odds(home, away, league):
     bk_away = bk.get('win_away')
     bk_draw = bk.get('draw')
 
+    def _valid(v):
+        return v is not None and v > MIN_VALID_ODDS
+
     def derive_dnb(bk_win, bk_d):
-        if not bk_win or not bk_d or bk_win <= 1 or bk_d <= 1: return None
+        if not _valid(bk_win) or not _valid(bk_d): return None
         p_win_mkt  = 1 / bk_win
         p_draw_mkt = 1 / bk_d
         denom = p_win_mkt + p_draw_mkt
         return round(1 / (p_win_mkt / denom), 3) if denom > 0 else None
 
     def derive_dc(bk_win, bk_d):
-        if not bk_win or not bk_d or bk_win <= 1 or bk_d <= 1: return None
+        if not _valid(bk_win) or not _valid(bk_d): return None
         return round((bk_win * bk_d) / (bk_win + bk_d), 3)
 
     return {
@@ -647,49 +678,77 @@ def get_market_odds(home, away, league):
 def evaluate_value(probs, odds, home, away):
     """
     Cruza probabilidades del modelo con cuotas reales del mercado.
-    Devuelve lista de (ev_pct, label, prob_pct, bk_odds) con EV >= MIN_EV,
-    ordenada por tipo de mercado (Over > DNB > DC > victoria directa)
-    y dentro de cada tipo por EV descendente.
-    """
-    if not odds:
-        return []
 
-    fav = probs["favorite"]
+    Devuelve lista de dicts para TODOS los mercados evaluados:
+      ev       — valor esperado en % (float | None si no hay cuota)
+      label    — nombre del mercado
+      prob     — probabilidad del modelo (0–100)
+      bk_odds  — cuota del bookmaker (None si no disponible)
+      valid    — True si el pick pasa todos los umbrales
+      reason   — "ok" | "cuota_baja" | "ev_insuficiente" | "ev_negativo"
+                  | "ev_excesivo" | "mercado_no_disponible"
+
+    Orden: válidos primero (Over > DNB > DC > win, luego EV desc), luego rechazados.
+    """
+    fav      = probs["favorite"]
     fav_team = home if fav == "home" else away
 
     markets = [
         # (prob, label, odds_key, min_cuota, max_ev)
         (probs["win_home" if fav == "home" else "win_away"],
-         fav_team,                              "win_home" if fav == "home" else "win_away",
+         fav_team,
+         "win_home" if fav == "home" else "win_away",
          MIN_CUOTA_WIN, MAX_EV_H2H),
         (probs["dnb_home" if fav == "home" else "dnb_away"],
-         f"Apuesta sin empate: {fav_team}",    "dnb_home" if fav == "home" else "dnb_away",
+         f"Apuesta sin empate: {fav_team}",
+         "dnb_home" if fav == "home" else "dnb_away",
          MIN_CUOTA_DNB, MAX_EV_H2H),
         (probs["dc_home" if fav == "home" else "dc_away"],
-         f"Doble oportunidad: {fav_team}",     "dc_home"  if fav == "home" else "dc_away",
+         f"Doble oportunidad: {fav_team}",
+         "dc_home" if fav == "home" else "dc_away",
          MIN_CUOTA_DC, MAX_EV_H2H),
-        (probs["over_2_5"], "Over 2.5 goles",  "over_2_5", MIN_CUOTA_OVER25, MAX_EV_GOALS),
-        (probs["over_1_5"], "Over 1.5 goles",  "over_1_5", MIN_CUOTA_OVER15, MAX_EV_GOALS),
+        (probs["over_2_5"], "Over 2.5 goles", "over_2_5", MIN_CUOTA_OVER25, MAX_EV_GOALS),
+        (probs["over_1_5"], "Over 1.5 goles", "over_1_5", MIN_CUOTA_OVER15, MAX_EV_GOALS),
     ]
 
     def market_priority(label):
-        if "Over" in label:          return 0
-        if "sin empate" in label:    return 1
-        if "Doble oportunidad" in label: return 2
+        if "Over" in label:               return 0
+        if "sin empate" in label:         return 1
+        if "Doble oportunidad" in label:  return 2
         return 3
 
-    candidates = []
-    for our_p, label, odds_key, min_cuota, max_ev in markets:
-        bk_o = odds.get(odds_key)
-        if not bk_o or bk_o < min_cuota:
-            continue
-        ev = round(our_p * bk_o - 1, 4)
-        if MIN_EV <= ev <= max_ev:
-            candidates.append((round(ev * 100, 1), label, round(our_p * 100, 1), bk_o))
+    def _entry(ev_pct, label, our_p, bk_o, valid, reason):
+        return {"ev": ev_pct, "label": label, "prob": round(our_p * 100, 1),
+                "bk_odds": bk_o, "valid": valid, "reason": reason}
 
-    # Primero: tipo de mercado (Over > DNB > DC > win). Segundo: EV desc.
-    candidates.sort(key=lambda c: (market_priority(c[1]), -c[0]))
-    return candidates
+    results = []
+    for our_p, label, odds_key, min_cuota, max_ev in markets:
+        bk_o = odds.get(odds_key) if odds else None
+
+        if bk_o is None:
+            results.append(_entry(None, label, our_p, None, False, "mercado_no_disponible"))
+            continue
+
+        if bk_o < min_cuota:
+            results.append(_entry(None, label, our_p, bk_o, False, "cuota_baja"))
+            continue
+
+        ev = round(our_p * bk_o - 1, 4)
+        ev_pct = round(ev * 100, 1)
+
+        if ev < 0:
+            results.append(_entry(ev_pct, label, our_p, bk_o, False, "ev_negativo"))
+        elif ev < MIN_EV:
+            results.append(_entry(ev_pct, label, our_p, bk_o, False, "ev_insuficiente"))
+        elif ev > max_ev:
+            results.append(_entry(ev_pct, label, our_p, bk_o, False, "ev_excesivo"))
+        else:
+            results.append(_entry(ev_pct, label, our_p, bk_o, True, "ok"))
+
+    valid_picks   = [r for r in results if r["valid"]]
+    invalid_picks = [r for r in results if not r["valid"]]
+    valid_picks.sort(key=lambda r: (market_priority(r["label"]), -r["ev"]))
+    return valid_picks + invalid_picks
 
 
 # ══════════════════════════════════════════════════════════════
@@ -704,16 +763,18 @@ def calc_wp(league, home, hd, away, ad, nba=False):
     p_win_key = "win_home" if fav == "home" else "win_away"
     base_prob = round(probs[p_win_key] * 100, 1)
 
+    win_key = "win_home" if fav == "home" else "win_away"
+
     if nba:
         odds = get_market_odds(home, away, "NBA")
         if not odds:
             return fav_team, base_prob, fav_team, base_prob, 0, cuota_justa(base_prob), "bajo", None
-        bk_win = odds.get("win_home" if fav == "home" else "win_away")
-        picks  = evaluate_value(probs, odds, home, away)
-        if not picks:
+        bk_win = odds.get(win_key)
+        valid  = [p for p in evaluate_value(probs, odds, home, away) if p["valid"]]
+        if not valid:
             return fav_team, base_prob, fav_team, base_prob, 0, bk_win, "bajo", None
-        best_ev, best_label, best_prob, best_bk = picks[0]
-        return fav_team, base_prob, best_label, best_prob, best_ev, best_bk, value_level(best_ev), best_bk
+        best = valid[0]
+        return fav_team, base_prob, best["label"], best["prob"], best["ev"], best["bk_odds"], value_level(best["ev"]), best["bk_odds"]
 
     # Fútbol
     odds = get_market_odds(home, away, league)
@@ -722,12 +783,12 @@ def calc_wp(league, home, hd, away, ad, nba=False):
             return fav_team, base_prob, fav_team, base_prob, 1, None, "estadistico", None
         return fav_team, base_prob, fav_team, base_prob, 0, None, "bajo", None
 
-    bk_win = odds.get("win_home" if fav == "home" else "win_away")
-    picks  = evaluate_value(probs, odds, home, away)
-    if not picks:
+    bk_win = odds.get(win_key)
+    valid  = [p for p in evaluate_value(probs, odds, home, away) if p["valid"]]
+    if not valid:
         return fav_team, base_prob, fav_team, base_prob, 0, bk_win, "bajo", None
-    best_ev, best_label, best_prob, best_bk = picks[0]
-    return fav_team, base_prob, best_label, best_prob, best_ev, best_bk, value_level(best_ev), best_bk
+    best = valid[0]
+    return fav_team, base_prob, best["label"], best["prob"], best["ev"], best["bk_odds"], value_level(best["ev"]), best["bk_odds"]
 
 def article(league, home, hd, away, ad, nba=False, _win=None, _wp=None, _valor=None, _cuota=None, _base_prob=None, _bk_odds=None):
     # Usar valores pre-calculados por calc_wp() para consistencia
@@ -873,7 +934,7 @@ def article(league, home, hd, away, ad, nba=False, _win=None, _wp=None, _valor=N
 <div class="srow"><span class="slbl">Confianza</span><span class="sval" style="color:var(--success)">ALTA (≥70%)</span></div>
 </div>"""
     else:
-        if valor >= 60:
+        if valor >= VALUE_ALTO_THRESHOLD:
             valor_label, valor_color = "ALTO", "var(--success)"
             valor_why = (
                 f"Nuestro modelo asigna a este resultado una probabilidad del <strong>{base_prob}%</strong>. "
