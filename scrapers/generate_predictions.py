@@ -611,15 +611,25 @@ def calc_wp(league, home, hd, away, ad, nba=False):
             bk_dnb = round(1 / p_dnb_mkt, 3)
         else:
             bk_dnb = None
-        bk_dc = round((bk_win * bk_draw) / (bk_win + bk_draw), 3) if bk_draw else None
+        bk_dc    = round((bk_win * bk_draw) / (bk_win + bk_draw), 3) if bk_draw else None
+        bk_over25 = bk.get('over_2_5')
+        bk_over15 = bk.get('over_1_5')
 
-        # Cuotas mínimas reales por mercado (la victoria directa es el más arriesgado)
-        MIN_BK = {win_team: 1.60, f"Apuesta sin empate: {win_team}": 1.30, f"Doble oportunidad: {win_team}": 1.20}
+        # Cuotas mínimas reales por mercado
+        MIN_BK = {
+            win_team:                            1.60,
+            f"Apuesta sin empate: {win_team}":   1.30,
+            f"Doble oportunidad: {win_team}":    1.20,
+            "Over 2.5 goles":                    1.60,
+            "Over 1.5 goles":                    1.40,
+        }
         candidates = []
         for our_p, label, bk_o in [
             (p_win,  win_team,                          bk_win),
             (p_dnb,  f"Apuesta sin empate: {win_team}", bk_dnb),
             (p_dc,   f"Doble oportunidad: {win_team}",  bk_dc),
+            (o25/100, "Over 2.5 goles",                 bk_over25),
+            (o15/100, "Over 1.5 goles",                 bk_over15),
         ]:
             if not bk_o or bk_o < MIN_BK.get(label, 1.30):
                 continue
@@ -633,17 +643,19 @@ def calc_wp(league, home, hd, away, ad, nba=False):
         candidates.sort(key=lambda x: x[0], reverse=True)
         best_edge, display_pick, display_prob, best_bk = candidates[0]
 
-        # Preferencia de mercado: DNB > DC > victoria directa
-        # Victoria directa solo si no existe DNB ni DC con edge real
+        # Preferencia de mercado: Over > DNB > DC > victoria directa
+        # Victoria directa solo si ningún otro mercado tiene edge real
         if display_pick == win_team:
-            dnb_c = next((c for c in candidates if c[1].startswith("Apuesta sin empate")), None)
-            dc_c  = next((c for c in candidates if c[1].startswith("Doble oportunidad")), None)
-            if dnb_c:
+            over_c = next((c for c in candidates if "Over" in c[1]), None)
+            dnb_c  = next((c for c in candidates if c[1].startswith("Apuesta sin empate")), None)
+            dc_c   = next((c for c in candidates if c[1].startswith("Doble oportunidad")), None)
+            if over_c:
+                best_edge, display_pick, display_prob, best_bk = over_c
+            elif dnb_c:
                 best_edge, display_pick, display_prob, best_bk = dnb_c
             elif dc_c:
                 best_edge, display_pick, display_prob, best_bk = dc_c
-            # Si no hay DNB ni DC, se queda victoria directa solo cuando la cuota es >= 1.50
-            elif best_bk < 1.50:
+            elif best_bk < 1.60:
                 return win_team, round(p_win*100,1), win_team, round(p_win*100,1), 0, best_bk, "bajo", None
 
         return win_team, round(p_win*100,1), display_pick, display_prob, best_edge, best_bk, value_level(best_edge), best_bk

@@ -34,12 +34,24 @@ def best_odds(bookmakers, outcome_name):
                     best = o["price"]
     return round(best, 3) if best > 1.0 else None
 
+def best_odds_totals(bookmakers, name, point):
+    """Devuelve la mejor cuota Over/Under para un punto dado (ej. Over 2.5)."""
+    best = 1.0
+    for bk in bookmakers:
+        for mkt in bk.get("markets", []):
+            if mkt.get("key") != "totals":
+                continue
+            for o in mkt.get("outcomes", []):
+                if o.get("name") == name and abs(float(o.get("point", 0)) - point) < 0.01 and o["price"] > best:
+                    best = o["price"]
+    return round(best, 3) if best > 1.0 else None
+
 def fetch_league(sport_key):
     url = f"{BASE}/{sport_key}/odds/"
     params = {
         "apiKey":      API_KEY,
         "regions":     "eu",
-        "markets":     "h2h",
+        "markets":     "h2h,totals",
         "oddsFormat":  "decimal",
     }
     try:
@@ -72,6 +84,8 @@ def main():
             win_home = best_odds(e["bookmakers"], home)
             win_away = best_odds(e["bookmakers"], away)
             draw     = best_odds(e["bookmakers"], "Draw") if not nba else None
+            over25   = best_odds_totals(e["bookmakers"], "Over", 2.5)
+            over15   = best_odds_totals(e["bookmakers"], "Over", 1.5)
 
             if win_home and win_away:
                 all_odds[key] = {
@@ -82,6 +96,8 @@ def main():
                     "win_home":  win_home,
                     "win_away":  win_away,
                     "draw":      draw,
+                    "over_2_5":  over25,
+                    "over_1_5":  over15,
                     "fetched_at": datetime.now(timezone.utc).isoformat(),
                 }
 
