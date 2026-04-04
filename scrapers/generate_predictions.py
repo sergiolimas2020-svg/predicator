@@ -551,14 +551,14 @@ def goals_section(hd, ad):
 </div>
 </div>"""
 
-def edge_real(our_prob, bk_odds):
-    """Edge real sobre el mercado. Solo válido entre 3% y 20% (fuera = modelo errado)."""
+def edge_real(our_prob, bk_odds, max_edge=0.20):
+    """Edge real sobre el mercado. Solo válido entre 3% y max_edge."""
     if not bk_odds or bk_odds <= 1.0:
         return None
     e = round(our_prob * bk_odds - 1, 4)
-    if 0.03 <= e <= 0.20:
+    if 0.03 <= e <= max_edge:
         return e
-    return None  # inflado o sin valor
+    return None
 
 def calc_wp(league, home, hd, away, ad, nba=False):
     """Retorna (base_pick, base_prob, display_pick, display_prob, vs, cj, vl, bk_odds).
@@ -586,8 +586,18 @@ def calc_wp(league, home, hd, away, ad, nba=False):
 
     hg = hd.get("goals", {})
     ag = ad.get("goals", {})
-    o15 = round((parse_pct(hg.get("over_1_5")) + parse_pct(ag.get("over_1_5"))) / 2, 1)
-    o25 = round((parse_pct(hg.get("over_2_5")) + parse_pct(ag.get("over_2_5"))) / 2, 1)
+    # Modelo calibrado de goles: promedio ponderado con regresión hacia la media del 50%
+    # El promedio simple sobreinfla — aplicamos factor 0.75 para acercarnos a la realidad
+    def goals_prob(key):
+        h = parse_pct(hg.get(key))
+        a = parse_pct(ag.get(key))
+        if h == 0 and a == 0: return 0.0
+        raw = (h + a) / 2
+        # Regresión hacia 50%: reduce el exceso sobre 50 en un 25%
+        calibrated = 50 + (raw - 50) * 0.75
+        return round(calibrated, 1)
+    o15 = goals_prob("over_1_5")
+    o25 = goals_prob("over_2_5")
 
     if win_3w >= lose_3w:
         win_team, p_win, p_lose = home, win_3w / 100, lose_3w / 100
@@ -624,16 +634,16 @@ def calc_wp(league, home, hd, away, ad, nba=False):
             "Over 1.5 goles":                    1.40,
         }
         candidates = []
-        for our_p, label, bk_o in [
-            (p_win,  win_team,                          bk_win),
-            (p_dnb,  f"Apuesta sin empate: {win_team}", bk_dnb),
-            (p_dc,   f"Doble oportunidad: {win_team}",  bk_dc),
-            (o25/100, "Over 2.5 goles",                 bk_over25),
-            (o15/100, "Over 1.5 goles",                 bk_over15),
+        for our_p, label, bk_o, max_e in [
+            (p_win,   win_team,                          bk_win,    0.20),
+            (p_dnb,   f"Apuesta sin empate: {win_team}", bk_dnb,    0.20),
+            (p_dc,    f"Doble oportunidad: {win_team}",  bk_dc,     0.20),
+            (o25/100, "Over 2.5 goles",                  bk_over25, 0.35),
+            (o15/100, "Over 1.5 goles",                  bk_over15, 0.35),
         ]:
             if not bk_o or bk_o < MIN_BK.get(label, 1.30):
                 continue
-            e = edge_real(our_p, bk_o)
+            e = edge_real(our_p, bk_o, max_edge=max_e)
             if e is not None:
                 candidates.append((round(e*100,1), label, round(our_p*100,1), bk_o))
 
