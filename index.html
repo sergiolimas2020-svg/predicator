@@ -494,30 +494,45 @@ fetch('static/historial.json').then(r=>r.json()).then(h=>{
     const deHoy = picks.filter(p=>p.fecha===hoy);
     if(!deHoy.length){ return; /* sin picks hoy, sección permanece oculta */ }
 
-    const conPct = deHoy.map(p=>({...p, pct: p.probabilidad_modelo ?? parseFloat((p.confianza||'0').replace(/[^0-9.]/g,''))}));
-    const ordenados = conPct.sort((a,b)=>b.pct-a.pct);
-    const mejor = ordenados[0];
-    const segundoMejor = ordenados[1];
+    // Priorizar pick_dia; si no hay, tomar el de mayor prob_adjusted
+    const withProb = deHoy.map(p => ({...p, pct: +(p.prob_adjusted ?? 0)}));
+    const mejor = withProb.find(p => p.tipo_pick === 'pick_dia')
+                  || withProb.sort((a,b) => b.pct - a.pct)[0];
+    const segundoMejor = withProb.filter(p => p !== mejor).sort((a,b) => b.pct - a.pct)[0];
     const ligaIcon = mejor.league==='NBA'?'🏀':'⚽';
     const confianzaColor = mejor.pct>=70?'var(--verde)':mejor.pct>=60?'var(--dorado)':'var(--gris)';
+    const cuotaDisplay = mejor.bk_odds != null ? (+mejor.bk_odds).toFixed(2) : '—';
+
+    function explicarMercado(label) {
+      const l = (label || '').toLowerCase();
+      if (l.startsWith('doble oportunidad:')) return label.split(':')[1].trim() + ' gana o empata';
+      if (l.startsWith('apuesta sin empate:')) return label.split(':')[1].trim() + ' gana — empate devuelve apuesta';
+      if (l.includes('over 1.5')) return 'se marcan 2 o más goles';
+      if (l.includes('over 2.5')) return 'se marcan 3 o más goles';
+      return (label || '') + ' gana el partido';
+    }
+    const explicacion = explicarMercado(mejor.prediccion || '');
 
     // Render card principal
     document.getElementById('pick-hoy').innerHTML = `
       <div class="pick-header">
         <span class="pick-liga">${ligaIcon} ${mejor.league}</span>
-        <span class="pick-valor">🔥 Alto valor</span>
+        <span class="pick-valor">🔥 Pick del Día</span>
       </div>
       <div class="pick-partido">${mejor.home} vs ${mejor.away}</div>
       <div class="pick-stats">
         <div class="pick-stat"><div class="pick-stat-val verde">${mejor.pct.toFixed(1)}%</div><div class="pick-stat-label">Probabilidad</div></div>
-        <div class="pick-stat"><div class="pick-stat-val dorado">${mejor.cuota_justa ?? '—'}</div><div class="pick-stat-label">Cuota mínima</div></div>
+        <div class="pick-stat"><div class="pick-stat-val dorado">${cuotaDisplay}</div><div class="pick-stat-label">Cuota actual</div></div>
         <div class="pick-stat"><div class="pick-stat-val" style="color:${confianzaColor}">${(mejor.value_level||'').toUpperCase()||'—'}</div><div class="pick-stat-label">Nivel valor</div></div>
       </div>
       <div class="pick-recomendacion">
-        <div><div class="pick-rec-label">Recomendación del sistema</div><div class="pick-rec-val">✅ ${mejor.prediccion}</div></div>
+        <div>
+          <div class="pick-rec-label">Recomendación del sistema</div>
+          <div class="pick-rec-val">✅ ${mejor.prediccion || '—'}</div>
+          <div style="color:var(--gris);font-size:0.85rem;margin-top:.4rem">Ganas si <strong style="color:var(--blanco)">${explicacion}</strong>.</div>
+        </div>
         <div style="color:var(--gris);font-size:0.82rem;max-width:260px">Basado en estadísticas reales — ${mejor.fecha}.</div>
       </div>
-      ${mejor.base_pick && mejor.prediccion !== mejor.base_pick ? `<div class="pick-conservador">Salida conservadora · modelo base: <strong>${mejor.base_pick}</strong> (${mejor.probabilidad_modelo}%)</div>` : ''}
       <div class="pick-analisis-panel abierto" id="analisis-panel"></div>`;
 
     // Mostrar sección y cargar estadísticas
@@ -575,9 +590,9 @@ fetch('static/historial.json').then(r=>r.json()).then(h=>{
       const lista = document.getElementById('picks-adicionales-lista');
       lista.innerHTML = adicionales.map(p => {
         const icon = p.league === 'NBA' ? '🏀' : '⚽';
-        const pct = p.prob_adjusted ?? p.probabilidad_modelo ?? 0;
+        const pct = p.prob_adjusted ?? 0;
         const vs = p.value_score != null ? p.value_score.toFixed(2) : '—';
-        const cuota = p.bk_odds ?? p.cuota_justa ?? '—';
+        const cuota = p.bk_odds != null ? (+p.bk_odds).toFixed(2) : '—';
         return `<div class="pick-card" style="margin:0">
           <div class="pick-header">
             <span class="pick-liga">${icon} ${p.league}</span>
