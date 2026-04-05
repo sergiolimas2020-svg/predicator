@@ -1,8 +1,40 @@
 {
-  "total": 26,
-  "aciertos": 22,
-  "porcentaje": 85,
+  "total": 28,
+  "aciertos": 23,
+  "porcentaje": 82,
   "ultimos": [
+    {
+      "fecha": "2026-04-04",
+      "slug": "hellas-verona-vs-fiorentina-serie-a-2026-04-04",
+      "home": "Hellas Verona",
+      "away": "Fiorentina",
+      "league": "Serie A",
+      "prediccion": "Over 2.5 goles",
+      "confianza": "Probabilidad: 46.9%",
+      "resultado_real": "0-1",
+      "acerto": false,
+      "probabilidad_modelo": 68.0,
+      "base_pick": "Fiorentina",
+      "cuota_justa": 2.52,
+      "value_score": 18.2,
+      "value_level": "medio"
+    },
+    {
+      "fecha": "2026-04-04",
+      "slug": "sao-paulo-vs-cruzeiro-brasileirao-2026-04-04",
+      "home": "São Paulo",
+      "away": "Cruzeiro",
+      "league": "Brasileirao",
+      "prediccion": "Doble oportunidad: São Paulo",
+      "confianza": "Probabilidad: 87.7%",
+      "resultado_real": "4-1",
+      "acerto": true,
+      "probabilidad_modelo": 67.7,
+      "base_pick": "São Paulo",
+      "cuota_justa": 1.37,
+      "value_score": 19.9,
+      "value_level": "medio"
+    },
     {
       "fecha": "2026-04-03",
       "slug": "philadelphia-76ers-vs-minnesota-timberwolves-nba-2026-04-03",
@@ -259,28 +291,6 @@
       "prediccion": "Cleveland Cavaliers",
       "confianza": "Probabilidad: 82.2%",
       "resultado_real": "Cavs W",
-      "acerto": true
-    },
-    {
-      "fecha": "2026-03-30",
-      "slug": "dallas-mavericks-vs-minnesota-timberwolves-nba-2026-03-30",
-      "home": "Dallas Mavericks",
-      "away": "Minnesota Timberwolves",
-      "league": "NBA",
-      "prediccion": "Minnesota Timberwolves",
-      "confianza": "Probabilidad: 77.4%",
-      "resultado_real": "TWolves W",
-      "acerto": true
-    },
-    {
-      "fecha": "2026-03-30",
-      "slug": "san-antonio-spurs-vs-chicago-bulls-nba-2026-03-30",
-      "home": "San Antonio Spurs",
-      "away": "Chicago Bulls",
-      "league": "NBA",
-      "prediccion": "San Antonio Spurs",
-      "confianza": "Probabilidad: 85.0%",
-      "resultado_real": "Spurs W",
       "acerto": true
     }
   ]
