@@ -992,7 +992,7 @@ def calc_wp(league, home, hd, away, ad, nba=False):
             ev_out, best["bk_odds"], value_level(ev_out), best["bk_odds"],
             best["confidence_factor"], best, all_evals)
 
-def article(league, home, hd, away, ad, nba=False, _win=None, _wp=None, _valor=None, _cuota=None, _base_prob=None, _bk_odds=None, _tipo_pick=None, _pick_copy=None):
+def article(league, home, hd, away, ad, nba=False, _win=None, _wp=None, _valor=None, _cuota=None, _base_prob=None, _bk_odds=None, _tipo_pick=None, _pick_data=None):
     # Usar valores pre-calculados por calc_wp() para consistencia
     win, wp = _win, _wp
     valor, cuota = _valor, _cuota
@@ -1166,20 +1166,47 @@ def article(league, home, hd, away, ad, nba=False, _win=None, _wp=None, _valor=N
     else:
         conservador_tag = ""
 
-    # ── Bloque de copy automático (presentación, sin HTML propio) ──
+    # ── Bloque de copy automático (HTML estructurado con clases del diseño) ──
     _copy_html = ""
-    if _pick_copy:
+    if _pick_data and _tipo_pick in ("pick_dia", "extra"):
+        _pd_label = _pick_data.get("market_label", "")
+        _pd_prob  = _pick_data.get("prob_adjusted", "—")
+        _pd_odds  = _pick_data.get("bk_odds", "—")
+        _pd_expl  = _market_explanation_copy(_pd_label)
         if _tipo_pick == "pick_dia":
             _copy_html = (
                 f'<div style="background:rgba(240,180,41,.06);border:1px solid rgba(240,180,41,.2);'
-                f'border-radius:8px;padding:1.5rem 1.8rem;margin-bottom:2rem;font-size:.92rem;line-height:1.7">'
-                f'<pre style="font-family:inherit;white-space:pre-wrap;margin:0">{_pick_copy}</pre></div>'
+                f'border-top:3px solid var(--gold-600);border-radius:8px;padding:1.5rem 1.8rem;margin-bottom:2rem">'
+                f'<div style="font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;'
+                f'color:var(--gold-500);margin-bottom:.6rem">Recomendación del sistema</div>'
+                f'<div style="font-family:var(--font-display);font-size:1.3rem;font-weight:700;'
+                f'color:var(--white);margin-bottom:.8rem">{_pd_label}</div>'
+                f'<p style="font-size:.95rem;color:var(--gray-100);margin-bottom:1.2rem">'
+                f'Con esta selección ganas si <strong>{_pd_expl}</strong>.</p>'
+                f'<div class="sbox" style="margin:0">'
+                f'<div class="srow"><span class="slbl">Probabilidad estimada</span>'
+                f'<span class="sval" style="color:var(--gold-500)">{_pd_prob}%</span></div>'
+                f'<div class="srow"><span class="slbl">Cuota actual</span>'
+                f'<span class="sval" style="color:var(--success)">{_pd_odds}</span></div>'
+                f'<div class="srow"><span class="slbl">Tipo de pick</span>'
+                f'<span class="sval">Conservador</span></div>'
+                f'<div class="srow"><span class="slbl">Nivel de confianza</span>'
+                f'<span class="sval" style="color:var(--success)">Alto</span></div>'
+                f'</div></div>'
             )
         else:  # extra
             _copy_html = (
-                f'<div style="background:rgba(59,130,246,.06);border:1px solid rgba(59,130,246,.15);'
-                f'border-radius:8px;padding:1.2rem 1.5rem;margin-bottom:2rem;font-size:.88rem;line-height:1.6">'
-                f'<pre style="font-family:inherit;white-space:pre-wrap;margin:0">{_pick_copy}</pre></div>'
+                f'<div style="background:var(--navy-800);border:1px solid rgba(255,255,255,.08);'
+                f'border-left:3px solid rgba(255,255,255,.15);border-radius:0 8px 8px 0;'
+                f'padding:1.2rem 1.5rem;margin-bottom:1.5rem">'
+                f'<div style="font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;'
+                f'color:var(--gray-400);margin-bottom:.5rem">Pick extra</div>'
+                f'<div style="font-family:var(--font-display);font-size:1.2rem;font-weight:700;'
+                f'color:var(--white);margin-bottom:.4rem">{_pd_label}</div>'
+                f'<div style="font-size:.9rem;color:var(--gray-400)">Cuota: {_pd_odds}</div>'
+                f'<div style="font-size:.82rem;color:var(--gray-400);margin-top:.6rem">'
+                f'Opción con mayor riesgo, solo como complemento.</div>'
+                f'</div>'
             )
 
     return f"""
@@ -1629,16 +1656,9 @@ def main():
             "prob_adjusted": round(_be_d.get("prob_adjusted", 0), 1) if _be_d.get("prob_adjusted") else "—",
             "bk_odds": round(bk_odds, 2) if bk_odds else "—",
         }
-        if tipo_pick == "pick_dia":
-            _copy = render_pick_dia_copy(_pick_data)
-        elif tipo_pick == "extra":
-            _copy = render_pick_extra_copy([_pick_data])
-        else:
-            _copy = None
-
         art = article(league, home, hd, away, ad, nba=nba,
                       _win=win, _wp=wp, _valor=vs, _cuota=cj, _base_prob=base_prob, _bk_odds=bk_odds,
-                      _tipo_pick=tipo_pick, _pick_copy=_copy)
+                      _tipo_pick=tipo_pick, _pick_data=_pick_data)
         slug = save(league, home, away, art)
         lg_label = "NBA" if nba else league
         cj_display = round(cj, 2) if cj else None
@@ -1683,23 +1703,43 @@ def main():
                          site_url=SITE_URL, cards=cards),
             encoding='utf-8'
         )
-        # Inyectar sección de copy de picks extra en modo normal (si hay picks extra)
+        # Inyectar sección de picks extra en modo normal (si hay picks extra)
         if _extra_picks_for_copy:
-            _extra_copy_text = render_pick_extra_copy(_extra_picks_for_copy)
-            _extra_copy_section = (
-                '\n<section style="max-width:780px;margin:2rem auto;padding:0 2rem 3rem">'
-                '<pre style="font-family:\'Courier New\',monospace;font-size:.85rem;line-height:1.7;'
-                'color:var(--gray-200);white-space:pre-wrap;background:rgba(59,130,246,.06);'
-                'border:1px solid rgba(59,130,246,.15);border-radius:8px;padding:1.5rem 1.8rem">'
-                f'{_extra_copy_text}'
-                '</pre></section>'
+            _extra_minicards = ''.join(
+                f'<a href="/static/predictions/{s}.html" style="background:var(--navy-800);'
+                f'border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:1.2rem 1.5rem;'
+                f'text-decoration:none;display:block;transition:border-color .3s">'
+                f'<span style="font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;'
+                f'color:var(--gray-400)">{lg}</span>'
+                f'<div style="font-family:var(--font-display);font-size:1.1rem;font-weight:700;'
+                f'color:var(--white);margin:.4rem 0 .3rem">{m}</div>'
+                f'<div style="font-size:.85rem;color:var(--gray-400)">'
+                f'{ep.get("market_label","—")} &nbsp;@&nbsp; {ep.get("bk_odds","—")}</div>'
+                f'<div style="font-size:.78rem;color:var(--gray-400);margin-top:.5rem">'
+                f'Opción con mayor riesgo, solo como complemento.</div>'
+                f'</a>'
+                for (s, m, lg, *_), ep in zip(
+                    [p for p in preds if p[11] != "pick_dia"],
+                    _extra_picks_for_copy
+                )
+            )
+            _extra_section = (
+                '\n<section style="max-width:1000px;margin:0 auto;padding:0 2rem 3rem">'
+                '<h2 style="font-family:var(--font-display);font-size:1.6rem;font-weight:800;'
+                'color:var(--white);margin-bottom:.4rem">Picks Extra</h2>'
+                '<p style="color:var(--gray-400);font-size:.82rem;letter-spacing:.15em;'
+                'text-transform:uppercase;margin-bottom:1.5rem">'
+                'Opciones adicionales &mdash; mayor riesgo</p>'
+                f'<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:1rem">'
+                f'{_extra_minicards}</div>'
+                '</section>'
             )
             _existing = _index_path.read_text(encoding="utf-8")
             _index_path.write_text(
-                _existing.replace("</body>", _extra_copy_section + "\n</body>"),
+                _existing.replace("</body>", _extra_section + "\n</body>"),
                 encoding="utf-8"
             )
-            print("Sección copy picks extra inyectada en index.html")
+            print("Sección picks extra inyectada en index.html")
 
     # ── SEO: sitemap y robots ──
     print("\nGenerando archivos SEO...")
