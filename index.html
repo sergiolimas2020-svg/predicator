@@ -463,6 +463,16 @@ fetch('static/historial.json').then(r=>r.json()).then(h=>{
     <div id="pick-hoy" class="pick-card"></div>
   </div>
 </section>
+
+<!-- PICKS ADICIONALES — motor actualizado (tipo_pick = "adicional") -->
+<section class="pick-demo" id="picks-adicionales-section" style="display:none">
+  <div class="pick-demo-inner">
+    <div class="section-label" style="text-align:center">Motor actualizado</div>
+    <div class="section-title" style="font-size:clamp(1.6rem,3.5vw,2.2rem)">Picks adicionales de hoy</div>
+    <div id="picks-adicionales-lista" style="display:flex;flex-direction:column;gap:1rem;margin-top:1.5rem"></div>
+  </div>
+</section>
+
 <script>
 (async function(){
   const ligaArchivo = {
@@ -556,6 +566,37 @@ fetch('static/historial.json').then(r=>r.json()).then(h=>{
     const panel = document.getElementById('analisis-panel');
     if(panel) panel.innerHTML = lineas.map(l=>`<div class="pick-analisis-fila">${l}</div>`).join('');
     document.getElementById('pick-demo-section').style.display = '';
+
+    // ── PICKS ADICIONALES ──
+    // Renderiza los picks con tipo_pick === "adicional" en sección separada.
+    // No interfiere con el pick del día — son conjuntos disjuntos.
+    const adicionales = deHoy.filter(p => p.tipo_pick === 'adicional');
+    if(adicionales.length) {
+      const lista = document.getElementById('picks-adicionales-lista');
+      lista.innerHTML = adicionales.map(p => {
+        const icon = p.league === 'NBA' ? '🏀' : '⚽';
+        const pct = p.prob_adjusted ?? p.probabilidad_modelo ?? 0;
+        const vs = p.value_score != null ? p.value_score.toFixed(2) : '—';
+        const cuota = p.bk_odds ?? p.cuota_justa ?? '—';
+        return `<div class="pick-card" style="margin:0">
+          <div class="pick-header">
+            <span class="pick-liga">${icon} ${p.league}</span>
+            <span class="pick-valor" style="background:rgba(59,130,246,.15);color:#3b82f6">📈 Value score ${vs}</span>
+          </div>
+          <div class="pick-partido">${p.home} vs ${p.away}</div>
+          <div class="pick-stats">
+            <div class="pick-stat"><div class="pick-stat-val verde">${(+pct).toFixed(1)}%</div><div class="pick-stat-label">Prob. ajustada</div></div>
+            <div class="pick-stat"><div class="pick-stat-val dorado">${cuota}</div><div class="pick-stat-label">Cuota</div></div>
+            <div class="pick-stat"><div class="pick-stat-val" style="color:var(--gris)">${(p.value_level||'').toUpperCase()||'—'}</div><div class="pick-stat-label">Nivel valor</div></div>
+          </div>
+          <div class="pick-recomendacion">
+            <div><div class="pick-rec-label">Recomendación del sistema</div><div class="pick-rec-val">✅ ${p.prediccion||'—'}</div></div>
+            <div style="color:var(--gris);font-size:0.82rem;max-width:260px">EV ajustado: ${p.ev_adjusted != null ? p.ev_adjusted.toFixed(1)+'%' : '—'} · CF: ${p.confidence_factor ?? '—'}</div>
+          </div>
+        </div>`;
+      }).join('');
+      document.getElementById('picks-adicionales-section').style.display = '';
+    }
   } catch(e){
     /* si falla, la sección permanece oculta */
   }
