@@ -992,7 +992,7 @@ def calc_wp(league, home, hd, away, ad, nba=False):
             ev_out, best["bk_odds"], value_level(ev_out), best["bk_odds"],
             best["confidence_factor"], best, all_evals)
 
-def article(league, home, hd, away, ad, nba=False, _win=None, _wp=None, _valor=None, _cuota=None, _base_prob=None, _bk_odds=None):
+def article(league, home, hd, away, ad, nba=False, _win=None, _wp=None, _valor=None, _cuota=None, _base_prob=None, _bk_odds=None, _tipo_pick=None, _pick_copy=None):
     # Usar valores pre-calculados por calc_wp() para consistencia
     win, wp = _win, _wp
     valor, cuota = _valor, _cuota
@@ -1166,8 +1166,24 @@ def article(league, home, hd, away, ad, nba=False, _win=None, _wp=None, _valor=N
     else:
         conservador_tag = ""
 
+    # ── Bloque de copy automático (presentación, sin HTML propio) ──
+    _copy_html = ""
+    if _pick_copy:
+        if _tipo_pick == "pick_dia":
+            _copy_html = (
+                f'<div style="background:rgba(240,180,41,.06);border:1px solid rgba(240,180,41,.2);'
+                f'border-radius:8px;padding:1.5rem 1.8rem;margin-bottom:2rem;font-size:.92rem;line-height:1.7">'
+                f'<pre style="font-family:inherit;white-space:pre-wrap;margin:0">{_pick_copy}</pre></div>'
+            )
+        else:  # extra
+            _copy_html = (
+                f'<div style="background:rgba(59,130,246,.06);border:1px solid rgba(59,130,246,.15);'
+                f'border-radius:8px;padding:1.2rem 1.5rem;margin-bottom:2rem;font-size:.88rem;line-height:1.6">'
+                f'<pre style="font-family:inherit;white-space:pre-wrap;margin:0">{_pick_copy}</pre></div>'
+            )
+
     return f"""
-<p>{intro}</p>
+{_copy_html}<p>{intro}</p>
 <h2>Analisis del equipo local: {home}</h2>
 <p><strong>{home}</strong> acumula <strong>{hw} victorias y {hl} derrotas</strong> esta temporada. Promedia <strong>{hpts} {sp}</strong> a favor y <strong>{hpta}</strong> en contra por partido.</p>
 <div class="sbox">
@@ -1258,6 +1274,115 @@ Sitemap: {SITE_URL}/sitemap.xml
 """
     Path("robots.txt").write_text(robots, encoding='utf-8')
     print("   robots.txt generado")
+
+# ══════════════════════════════════════════════════════════════
+#  CAPA DE COPY — Texto automático de presentación
+#  Estas funciones NO calculan nada.
+#  Reciben datos del motor y devuelven texto plano formateado.
+# ══════════════════════════════════════════════════════════════
+
+# Tabla de conversión: market_label → explicación en lenguaje humano
+def _market_explanation_copy(label: str) -> str:
+    lbl = (label or "").strip()
+    low = lbl.lower()
+    if low.startswith("doble oportunidad:"):
+        team = lbl.split(":", 1)[1].strip()
+        return f"{team} gana o empata"
+    if low.startswith("apuesta sin empate:"):
+        team = lbl.split(":", 1)[1].strip()
+        return f"{team} gana — si hay empate, se devuelve la apuesta"
+    if "over 1.5" in low:
+        return "se marcan 2 o más goles en el partido"
+    if "over 2.5" in low:
+        return "se marcan 3 o más goles en el partido"
+    return f"{lbl} gana el partido"   # 1X2 directo
+
+
+def render_pick_dia_copy(pick: dict) -> str:
+    """
+    Genera el bloque de copy del Pick del Día.
+    Entrada: dict con home, away, league, market_label (o prediccion),
+             prob_adjusted (o probabilidad_modelo), bk_odds (o cuota_justa).
+    Salida: texto plano, sin HTML.
+    """
+    home   = pick.get("home", "")
+    away   = pick.get("away", "")
+    league = pick.get("league", "")
+    label  = (pick.get("market_label") or pick.get("prediccion") or "").strip()
+    prob   = pick.get("prob_adjusted") or pick.get("probabilidad_modelo") or "—"
+    odds   = pick.get("bk_odds") or pick.get("cuota_justa") or "—"
+    expl   = _market_explanation_copy(label)
+    sep    = "═" * 43
+    dash   = "─" * 43
+    return "\n".join([
+        sep,
+        "EL PICK MÁS CONFIABLE DE HOY",
+        sep,
+        "",
+        f"{home} vs {away}",
+        f"{league}",
+        "",
+        dash,
+        f"RECOMENDACIÓN DEL SISTEMA: {label}",
+        dash,
+        "",
+        f"Con esta selección ganas si {expl}.",
+        "",
+        f"  Probabilidad estimada:  {prob}%",
+        f"  Cuota actual:           {odds}",
+        "  Tipo de pick:           Conservador",
+        "  Nivel de confianza:     Alto (según datos actuales)",
+        "",
+        "Por qué tiene sentido:",
+        "  · Alta consistencia reciente del equipo seleccionado.",
+        "  · Ventaja estadística clara frente al rival según datos actuales.",
+        "  · Mercado de bajo riesgo, diseñado para reducir la variabilidad.",
+        "",
+        "Este pick es el único seleccionado hoy como la opción",
+        "con mayor probabilidad real según nuestros criterios de seguridad.",
+        sep,
+    ])
+
+
+def render_pick_extra_copy(picks: list) -> str:
+    """
+    Genera el bloque de copy de todos los Picks Extra.
+    Entrada: lista de dicts con home, away, market_label (o prediccion), bk_odds (o cuota_justa).
+    Salida: texto plano, sin HTML.
+    """
+    if not picks:
+        return ""
+    dash = "─" * 43
+    lines = [
+        dash,
+        "PICKS EXTRA PARA QUIEN QUIERA ALGO MÁS",
+        dash,
+        "",
+        "Además del Pick del Día, dejamos algunas opciones adicionales",
+        "para quienes quieran intentar algo diferente.",
+        "Estos picks implican más riesgo y NO son el foco principal.",
+    ]
+    for p in picks:
+        label = (p.get("market_label") or p.get("prediccion") or "").strip()
+        odds  = p.get("bk_odds") or p.get("cuota_justa") or "—"
+        lines += [
+            "",
+            "· · ·",
+            "",
+            f"{p.get('home', '')} vs {p.get('away', '')}",
+            f"Mercado: {label} @ {odds}",
+            "",
+            "Opción con mayor riesgo, pero con lógica estadística detrás.",
+            "Recomendado solo como complemento.",
+        ]
+    lines += [
+        "",
+        dash,
+        "Recuerda: el Pick del Día es siempre la referencia principal.",
+        dash,
+    ]
+    return "\n".join(lines)
+
 
 # ══════════════════════════════════════════════════════════════
 #  CAPA DE PRODUCTO — Pick del día vendible
@@ -1449,13 +1574,14 @@ def main():
         print("═" * 60)
         if not top:
             print("  (sin picks válidos para hoy)")
+        _preview_extras = []
         for tipo_pick, (vs, league, home, hd, away, ad, nba, win, wp, cj, vl, base_prob, base_pick, bk_odds, cf, best_eval, all_evals) in top:
             be = best_eval or {}
-            cuota_str   = f"@{round(bk_odds, 2)}" if bk_odds else "(sin cuota)"
-            pa_str      = f"{be.get('prob_adjusted', wp):.1f}%"
-            ev_str      = f"{be.get('ev_adjusted'):.1f}%" if be.get('ev_adjusted') is not None else "—"
-            vs_str      = f"{vs:.4f}" if vs is not None else "—"
-            mercado     = be.get("label") or win
+            cuota_str = f"@{round(bk_odds, 2)}" if bk_odds else "(sin cuota)"
+            pa_str    = f"{be.get('prob_adjusted', wp):.1f}%"
+            ev_str    = f"{be.get('ev_adjusted'):.1f}%" if be.get('ev_adjusted') is not None else "—"
+            vs_str    = f"{vs:.4f}" if vs is not None else "—"
+            mercado   = be.get("label") or win
             print(f"\n[{tipo_pick.upper()}]")
             print(f"  {home} vs {away} ({league})")
             print(f"  Mercado:       {mercado} {cuota_str}")
@@ -1463,13 +1589,56 @@ def main():
             print(f"  ev_adjusted:   {ev_str}")
             print(f"  value_score:   {vs_str}")
             print(f"  cf:            {be.get('confidence_factor', cf)}")
+            _pick_data = {"home": home, "away": away, "league": league,
+                          "market_label": mercado, "prob_adjusted": pa_str.rstrip("%"),
+                          "bk_odds": round(bk_odds, 2) if bk_odds else "—"}
+            if tipo_pick == "pick_dia":
+                print("\n── COPY PICK DEL DÍA ──")
+                print(render_pick_dia_copy(_pick_data))
+            else:
+                _preview_extras.append(_pick_data)
+        if _preview_extras:
+            print("\n── COPY PICKS EXTRA ──")
+            print(render_pick_extra_copy(_preview_extras))
         print("\n" + "═" * 60 + "\n")
         return  # ← salida limpia: nada se escribe en disco
 
     # ── FASE 3: generar HTML solo para los elegidos ──
+
+    # Pre-construir lista de picks extra para render_pick_extra_copy()
+    _extra_picks_for_copy = []
+    for _tp, (_vs, _lg, _hm, _hd2, _aw, _ad2, _nba2, _win2, _wp2, _cj2, _vl2, _bp2, _bpick2, _bko2, _cf2, _be2, _ae2) in top:
+        if _tp != "pick_dia":
+            _be2d = _be2 or {}
+            _extra_picks_for_copy.append({
+                "home": _hm,
+                "away": _aw,
+                "league": _lg,
+                "market_label": _be2d.get("label", ""),
+                "prob_adjusted": round(_be2d.get("prob_adjusted", 0), 1) if _be2d.get("prob_adjusted") else "—",
+                "bk_odds": round(_bko2, 2) if _bko2 else "—",
+            })
+
     for tipo_pick, (vs, league, home, hd, away, ad, nba, win, wp, cj, vl, base_prob, base_pick, bk_odds, cf, best_eval, all_evals) in top:
+        _be_d = best_eval or {}
+        _pick_data = {
+            "home": home,
+            "away": away,
+            "league": league,
+            "market_label": _be_d.get("label", ""),
+            "prob_adjusted": round(_be_d.get("prob_adjusted", 0), 1) if _be_d.get("prob_adjusted") else "—",
+            "bk_odds": round(bk_odds, 2) if bk_odds else "—",
+        }
+        if tipo_pick == "pick_dia":
+            _copy = render_pick_dia_copy(_pick_data)
+        elif tipo_pick == "extra":
+            _copy = render_pick_extra_copy([_pick_data])
+        else:
+            _copy = None
+
         art = article(league, home, hd, away, ad, nba=nba,
-                      _win=win, _wp=wp, _valor=vs, _cuota=cj, _base_prob=base_prob, _bk_odds=bk_odds)
+                      _win=win, _wp=wp, _valor=vs, _cuota=cj, _base_prob=base_prob, _bk_odds=bk_odds,
+                      _tipo_pick=tipo_pick, _pick_copy=_copy)
         slug = save(league, home, away, art)
         lg_label = "NBA" if nba else league
         cj_display = round(cj, 2) if cj else None
@@ -1514,6 +1683,23 @@ def main():
                          site_url=SITE_URL, cards=cards),
             encoding='utf-8'
         )
+        # Inyectar sección de copy de picks extra en modo normal (si hay picks extra)
+        if _extra_picks_for_copy:
+            _extra_copy_text = render_pick_extra_copy(_extra_picks_for_copy)
+            _extra_copy_section = (
+                '\n<section style="max-width:780px;margin:2rem auto;padding:0 2rem 3rem">'
+                '<pre style="font-family:\'Courier New\',monospace;font-size:.85rem;line-height:1.7;'
+                'color:var(--gray-200);white-space:pre-wrap;background:rgba(59,130,246,.06);'
+                'border:1px solid rgba(59,130,246,.15);border-radius:8px;padding:1.5rem 1.8rem">'
+                f'{_extra_copy_text}'
+                '</pre></section>'
+            )
+            _existing = _index_path.read_text(encoding="utf-8")
+            _index_path.write_text(
+                _existing.replace("</body>", _extra_copy_section + "\n</body>"),
+                encoding="utf-8"
+            )
+            print("Sección copy picks extra inyectada en index.html")
 
     # ── SEO: sitemap y robots ──
     print("\nGenerando archivos SEO...")
