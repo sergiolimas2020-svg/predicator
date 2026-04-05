@@ -395,50 +395,50 @@
   },
   {
     "fecha": "2026-04-05",
-    "slug": "alaves-vs-osasuna-la-liga-2026-04-05",
-    "home": "Alavés",
-    "away": "Osasuna",
-    "league": "La Liga",
-    "prediccion": "Doble oportunidad: Osasuna",
-    "confianza": "Probabilidad: 73.1%",
+    "slug": "fatih-karagumruk-vs-caykur-rizespor-super-lig-2026-04-05",
+    "home": "Fatih Karagümrük",
+    "away": "Caykur Rizespor",
+    "league": "Super Lig",
+    "prediccion": "Doble oportunidad: Caykur Rizespor",
+    "confianza": "Probabilidad: 82.2%",
     "resultado_real": null,
     "acerto": null,
-    "prob_original": 73.1,
-    "confidence_factor": 1.0,
-    "prob_adjusted": 73.1,
-    "bk_odds": 1.637,
-    "ev": 19.7,
+    "prob_original": 84.7,
+    "confidence_factor": 0.97,
+    "prob_adjusted": 82.2,
+    "bk_odds": 1.433,
+    "ev": 21.4,
     "penalty": 0.0,
-    "ev_adjusted": 19.7,
-    "value_score": 9.7094,
+    "ev_adjusted": 17.7,
+    "value_score": 6.1769,
     "reason": "ok",
     "tipo_pick": "pick_dia",
-    "base_pick": "Osasuna",
+    "base_pick": "Caykur Rizespor",
     "value_level": "medio",
     "markets_evaluated": [
       {
-        "market": "Doble oportunidad: Osasuna",
-        "ev_adjusted": 19.7,
-        "value_score": 9.7094,
+        "market": "Doble oportunidad: Caykur Rizespor",
+        "ev_adjusted": 17.7,
+        "value_score": 6.1769,
         "reason": "ok"
       },
       {
-        "market": "Osasuna",
-        "ev_adjusted": 61.4,
+        "market": "Caykur Rizespor",
+        "ev_adjusted": 48.1,
         "value_score": null,
         "reason": "ev_excesivo"
       },
       {
-        "market": "Apuesta sin empate: Osasuna",
-        "ev_adjusted": 34.8,
+        "market": "Apuesta sin empate: Caykur Rizespor",
+        "ev_adjusted": 22.0,
         "value_score": null,
         "reason": "ev_excesivo"
       },
       {
         "market": "Over 2.5 goles",
-        "ev_adjusted": 1.8,
+        "ev_adjusted": -14.7,
         "value_score": null,
-        "reason": "ev_insuficiente"
+        "reason": "ev_negativo"
       },
       {
         "market": "Over 1.5 goles",
@@ -467,7 +467,7 @@
     "ev_adjusted": 26.8,
     "value_score": 24.8395,
     "reason": "ok",
-    "tipo_pick": "premium",
+    "tipo_pick": "extra",
     "base_pick": "1. FC Union Berlin",
     "value_level": "medio",
     "markets_evaluated": [
@@ -479,82 +479,27 @@
       },
       {
         "market": "1. FC Union Berlin",
-        "ev_adjusted": 25.4,
+        "ev_adjusted": 14.4,
         "value_score": null,
-        "reason": "ev_excesivo"
+        "reason": "ev_insuficiente"
       },
       {
         "market": "Apuesta sin empate: 1. FC Union Berlin",
-        "ev_adjusted": 20.9,
+        "ev_adjusted": 14.9,
         "value_score": null,
-        "reason": "ev_excesivo"
+        "reason": "ev_insuficiente"
       },
       {
         "market": "Doble oportunidad: 1. FC Union Berlin",
-        "ev_adjusted": 3.7,
+        "ev_adjusted": -0.4,
         "value_score": null,
-        "reason": "ev_insuficiente"
+        "reason": "ev_negativo"
       },
       {
         "market": "Over 1.5 goles",
         "ev_adjusted": 5.2,
         "value_score": null,
         "reason": "ev_insuficiente"
-      }
-    ]
-  },
-  {
-    "fecha": "2026-04-05",
-    "slug": "metz-vs-nantes-ligue-1-2026-04-05",
-    "home": "Metz",
-    "away": "Nantes",
-    "league": "Ligue 1",
-    "prediccion": "Over 2.5 goles",
-    "confianza": "Probabilidad: 53.8%",
-    "resultado_real": null,
-    "acerto": null,
-    "prob_original": 55.4,
-    "confidence_factor": 0.97,
-    "prob_adjusted": 53.8,
-    "bk_odds": 2.26,
-    "ev": 25.3,
-    "penalty": 0.0,
-    "ev_adjusted": 21.5,
-    "value_score": 17.0044,
-    "reason": "ok",
-    "tipo_pick": "premium",
-    "base_pick": "Nantes",
-    "value_level": "medio",
-    "markets_evaluated": [
-      {
-        "market": "Over 2.5 goles",
-        "ev_adjusted": 21.5,
-        "value_score": 17.0044,
-        "reason": "ok"
-      },
-      {
-        "market": "Nantes",
-        "ev_adjusted": 68.0,
-        "value_score": null,
-        "reason": "ev_excesivo"
-      },
-      {
-        "market": "Apuesta sin empate: Nantes",
-        "ev_adjusted": 36.2,
-        "value_score": null,
-        "reason": "ev_excesivo"
-      },
-      {
-        "market": "Doble oportunidad: Nantes",
-        "ev_adjusted": 23.3,
-        "value_score": null,
-        "reason": "ev_excesivo"
-      },
-      {
-        "market": "Over 1.5 goles",
-        "ev_adjusted": null,
-        "value_score": null,
-        "reason": "mercado_no_disponible"
       }
     ]
   },
@@ -571,39 +516,94 @@
     "prob_original": 49.5,
     "confidence_factor": 0.97,
     "prob_adjusted": 48.0,
-    "bk_odds": 2.5,
-    "ev": 23.8,
+    "bk_odds": 2.6,
+    "ev": 28.8,
     "penalty": 0.0,
-    "ev_adjusted": 20.1,
-    "value_score": 17.8649,
+    "ev_adjusted": 24.9,
+    "value_score": 23.0785,
     "reason": "ok",
-    "tipo_pick": "premium",
+    "tipo_pick": "extra",
     "base_pick": "Sevilla",
     "value_level": "medio",
     "markets_evaluated": [
       {
         "market": "Over 2.5 goles",
-        "ev_adjusted": 20.1,
-        "value_score": 17.8649,
+        "ev_adjusted": 24.9,
+        "value_score": 23.0785,
         "reason": "ok"
       },
       {
         "market": "Sevilla",
-        "ev_adjusted": 98.6,
+        "ev_adjusted": 110.8,
         "value_score": null,
         "reason": "ev_excesivo"
       },
       {
         "market": "Apuesta sin empate: Sevilla",
-        "ev_adjusted": 47.8,
+        "ev_adjusted": 53.3,
         "value_score": null,
         "reason": "ev_excesivo"
       },
       {
         "market": "Doble oportunidad: Sevilla",
-        "ev_adjusted": 34.4,
+        "ev_adjusted": 37.5,
         "value_score": null,
         "reason": "ev_excesivo"
+      },
+      {
+        "market": "Over 1.5 goles",
+        "ev_adjusted": null,
+        "value_score": null,
+        "reason": "mercado_no_disponible"
+      }
+    ]
+  },
+  {
+    "fecha": "2026-04-05",
+    "slug": "valencia-vs-celta-vigo-la-liga-2026-04-05",
+    "home": "Valencia",
+    "away": "Celta Vigo",
+    "league": "La Liga",
+    "prediccion": "Doble oportunidad: Celta Vigo",
+    "confianza": "Probabilidad: 70.8%",
+    "resultado_real": null,
+    "acerto": null,
+    "prob_original": 70.8,
+    "confidence_factor": 1.0,
+    "prob_adjusted": 70.8,
+    "bk_odds": 1.687,
+    "ev": 19.4,
+    "penalty": 0.0,
+    "ev_adjusted": 19.4,
+    "value_score": 10.1453,
+    "reason": "ok",
+    "tipo_pick": "extra",
+    "base_pick": "Celta Vigo",
+    "value_level": "medio",
+    "markets_evaluated": [
+      {
+        "market": "Doble oportunidad: Celta Vigo",
+        "ev_adjusted": 19.4,
+        "value_score": 10.1453,
+        "reason": "ok"
+      },
+      {
+        "market": "Celta Vigo",
+        "ev_adjusted": 51.1,
+        "value_score": null,
+        "reason": "ev_excesivo"
+      },
+      {
+        "market": "Apuesta sin empate: Celta Vigo",
+        "ev_adjusted": 26.5,
+        "value_score": null,
+        "reason": "ev_excesivo"
+      },
+      {
+        "market": "Over 2.5 goles",
+        "ev_adjusted": 5.7,
+        "value_score": null,
+        "reason": "ev_insuficiente"
       },
       {
         "market": "Over 1.5 goles",
