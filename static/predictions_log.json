@@ -401,8 +401,8 @@
     "league": "Super Lig",
     "prediccion": "Doble oportunidad: Caykur Rizespor",
     "confianza": "Probabilidad: 82.2%",
-    "resultado_real": null,
-    "acerto": null,
+    "resultado_real": "2-1",
+    "acerto": false,
     "prob_original": 84.7,
     "confidence_factor": 0.97,
     "prob_adjusted": 82.2,
@@ -456,8 +456,8 @@
     "league": "Bundesliga",
     "prediccion": "Over 2.5 goles",
     "confianza": "Probabilidad: 48.8%",
-    "resultado_real": null,
-    "acerto": null,
+    "resultado_real": "1-1",
+    "acerto": false,
     "prob_original": 50.3,
     "confidence_factor": 0.97,
     "prob_adjusted": 48.8,
@@ -511,8 +511,8 @@
     "league": "La Liga",
     "prediccion": "Over 2.5 goles",
     "confianza": "Probabilidad: 48.0%",
-    "resultado_real": null,
-    "acerto": null,
+    "resultado_real": "1-0",
+    "acerto": false,
     "prob_original": 49.5,
     "confidence_factor": 0.97,
     "prob_adjusted": 48.0,
@@ -566,8 +566,8 @@
     "league": "La Liga",
     "prediccion": "Doble oportunidad: Celta Vigo",
     "confianza": "Probabilidad: 70.8%",
-    "resultado_real": null,
-    "acerto": null,
+    "resultado_real": "2-3",
+    "acerto": true,
     "prob_original": 70.8,
     "confidence_factor": 1.0,
     "prob_adjusted": 70.8,
@@ -604,6 +604,116 @@
         "ev_adjusted": 5.7,
         "value_score": null,
         "reason": "ev_insuficiente"
+      },
+      {
+        "market": "Over 1.5 goles",
+        "ev_adjusted": null,
+        "value_score": null,
+        "reason": "mercado_no_disponible"
+      }
+    ]
+  },
+  {
+    "fecha": "2026-04-06",
+    "slug": "orlando-magic-vs-detroit-pistons-nba-2026-04-06",
+    "home": "Orlando Magic",
+    "away": "Detroit Pistons",
+    "league": "NBA",
+    "prediccion": "Detroit Pistons",
+    "confianza": "Probabilidad: 67.5%",
+    "resultado_real": null,
+    "acerto": null,
+    "prob_original": 67.5,
+    "confidence_factor": 1.0,
+    "prob_adjusted": 67.5,
+    "bk_odds": 1.73,
+    "ev": 16.8,
+    "penalty": 0.0,
+    "ev_adjusted": 16.8,
+    "value_score": 9.2084,
+    "reason": "ok",
+    "tipo_pick": "pick_dia",
+    "base_pick": "Detroit Pistons",
+    "value_level": "medio",
+    "markets_evaluated": [
+      {
+        "market": "Detroit Pistons",
+        "ev_adjusted": 16.8,
+        "value_score": 9.2084,
+        "reason": "ok"
+      },
+      {
+        "market": "Apuesta sin empate: Detroit Pistons",
+        "ev_adjusted": null,
+        "value_score": null,
+        "reason": "mercado_no_disponible"
+      },
+      {
+        "market": "Doble oportunidad: Detroit Pistons",
+        "ev_adjusted": null,
+        "value_score": null,
+        "reason": "mercado_no_disponible"
+      },
+      {
+        "market": "Over 2.5 goles",
+        "ev_adjusted": null,
+        "value_score": null,
+        "reason": "mercado_no_disponible"
+      },
+      {
+        "market": "Over 1.5 goles",
+        "ev_adjusted": null,
+        "value_score": null,
+        "reason": "mercado_no_disponible"
+      }
+    ]
+  },
+  {
+    "fecha": "2026-04-06",
+    "slug": "lecce-vs-atalanta-serie-a-2026-04-06",
+    "home": "Lecce",
+    "away": "Atalanta",
+    "league": "Serie A",
+    "prediccion": "Atalanta",
+    "confianza": "Probabilidad: 65.0%",
+    "resultado_real": null,
+    "acerto": null,
+    "prob_original": 65.0,
+    "confidence_factor": 1.0,
+    "prob_adjusted": 65.0,
+    "bk_odds": 1.79,
+    "ev": 16.4,
+    "penalty": 0.0,
+    "ev_adjusted": 16.4,
+    "value_score": 9.5483,
+    "reason": "ok",
+    "tipo_pick": "extra",
+    "base_pick": "Atalanta",
+    "value_level": "medio",
+    "markets_evaluated": [
+      {
+        "market": "Atalanta",
+        "ev_adjusted": 16.4,
+        "value_score": 9.5483,
+        "reason": "ok"
+      },
+      {
+        "market": "Apuesta sin empate: Atalanta",
+        "ev_adjusted": 12.0,
+        "value_score": null,
+        "reason": "ev_insuficiente"
+      },
+      {
+        "market": "Doble oportunidad: Atalanta",
+        "ev_adjusted": 3.9,
+        "value_score": null,
+        "reason": "ev_insuficiente"
+      },
+      {
+        "market": "Over 2.5 goles",
+        "ev_adjusted": -26.2,
+        "value_score": null,
+        "reason": "ev_negativo"
       },
       {
         "market": "Over 1.5 goles",
