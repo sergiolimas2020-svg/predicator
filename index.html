@@ -97,6 +97,14 @@
       transition:border-color 0.2s, color 0.2s;
     }
     .btn-secondary:hover { border-color:var(--dorado); color:var(--dorado); }
+    .btn-telegram {
+      display:inline-flex; align-items:center; gap:0.5rem;
+      background:#2AABEE; color:#fff;
+      padding:0.95rem 2rem; border-radius:8px; font-weight:700;
+      font-size:1rem; text-decoration:none;
+      transition:transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-telegram:hover { transform:translateY(-2px); box-shadow:0 8px 28px rgba(42,171,238,0.35); }
 
     /* STATS BAR */
     .stats-bar {
@@ -309,6 +317,82 @@
     .ad-banner { max-width:900px; margin:2rem auto; padding:0 1rem; text-align:center; }
     .ad-label { font-size:0.7rem; color:var(--gris); text-transform:uppercase; letter-spacing:1px; margin-bottom:0.5rem; }
 
+    /* ══ PAYWALL ══ */
+    .pw-container { max-width:760px; margin:0 auto; padding:3rem 1.5rem; }
+    .pw-container-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(2rem,5vw,3rem); text-align:center; margin-bottom:0.5rem; }
+    .pw-container-sub { text-align:center; color:var(--gris); font-size:0.9rem; margin-bottom:2.5rem; }
+
+    .pw-section { margin-bottom:2.5rem; }
+    .pw-section-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem; padding-bottom:0.5rem; border-bottom:1px solid var(--borde); }
+    .pw-badge { font-size:0.78rem; font-weight:700; letter-spacing:1px; text-transform:uppercase; }
+    .pw-badge-free { color:var(--verde); }
+    .pw-badge-sub { color:#6b9bd2; }
+    .pw-badge-premium { color:var(--dorado); }
+    .pw-date { font-size:0.78rem; color:var(--gris); }
+
+    .pw-card {
+      background:var(--card); border:1px solid var(--borde);
+      border-radius:12px; padding:1.5rem; margin-bottom:1rem;
+      position:relative; overflow:hidden;
+    }
+    .pw-card-free { border-left:3px solid var(--verde); }
+    .pw-card-sub { border-left:3px solid #4a7abf; }
+    .pw-card-premium { border-left:3px solid var(--dorado); }
+    .pw-card-locked { opacity:0.85; }
+
+    .pw-card-league { font-size:0.75rem; font-weight:600; text-transform:uppercase; letter-spacing:1px; color:var(--gris); margin-bottom:0.4rem; }
+    .pw-card-matchup { font-family:'Bebas Neue',sans-serif; font-size:1.5rem; letter-spacing:1px; margin-bottom:1rem; }
+
+    .pw-card-details { display:flex; gap:1.5rem; flex-wrap:wrap; }
+    .pw-detail-label { font-size:0.72rem; color:var(--gris); text-transform:uppercase; letter-spacing:1px; margin-bottom:0.2rem; }
+    .pw-detail-value { font-weight:600; font-size:0.95rem; }
+    .pw-prob { color:var(--verde); }
+    .pw-ev { color:var(--dorado); }
+
+    .pw-blurred { filter:blur(6px); user-select:none; pointer-events:none; }
+    .pw-lock-overlay {
+      position:absolute; bottom:0; left:0; right:0;
+      background:linear-gradient(transparent, rgba(10,10,15,0.95) 60%);
+      padding:2rem 1.5rem 1.2rem; display:flex; align-items:center; gap:0.5rem;
+      font-size:0.85rem; color:var(--gris); font-weight:600;
+    }
+    .pw-lock-icon { font-size:1.1rem; }
+
+    .pw-cta {
+      border:1px solid var(--borde); border-radius:12px;
+      padding:1.5rem; display:flex; justify-content:space-between;
+      align-items:center; gap:1rem; flex-wrap:wrap;
+    }
+    .pw-cta-premium { border-color:rgba(240,180,41,0.3); background:rgba(240,180,41,0.04); }
+    .pw-cta-sub { border-color:rgba(74,122,191,0.3); background:rgba(74,122,191,0.04); }
+    .pw-cta-text strong { display:block; font-size:1rem; margin-bottom:0.2rem; }
+    .pw-cta-text span { font-size:0.85rem; color:var(--gris); }
+    .pw-cta-btn {
+      display:inline-block; padding:0.7rem 1.5rem; border-radius:8px;
+      font-weight:700; font-size:0.88rem; text-decoration:none;
+      transition:transform 0.2s, box-shadow 0.2s; white-space:nowrap;
+    }
+    .pw-cta-btn-premium { background:var(--dorado); color:var(--negro); }
+    .pw-cta-btn-premium:hover { transform:translateY(-2px); box-shadow:0 6px 20px rgba(240,180,41,0.3); }
+    .pw-cta-btn-sub { background:#4a7abf; color:#fff; }
+    .pw-cta-btn-sub:hover { transform:translateY(-2px); box-shadow:0 6px 20px rgba(74,122,191,0.3); }
+
+    .pw-empty { text-align:center; padding:3rem 1rem; color:var(--gris); font-size:1rem; }
+    .pw-telegram {
+      border:1px solid rgba(42,171,238,0.25); background:rgba(42,171,238,0.05);
+      border-radius:12px; padding:1.2rem 1.5rem; margin-top:0.8rem;
+      display:flex; justify-content:space-between; align-items:center; gap:1rem; flex-wrap:wrap;
+    }
+    .pw-telegram-text strong { display:block; font-size:0.95rem; margin-bottom:0.15rem; }
+    .pw-telegram-text span { font-size:0.82rem; color:var(--gris); }
+    .pw-telegram-btn {
+      display:inline-block; padding:0.6rem 1.3rem; border-radius:8px;
+      background:#2AABEE; color:#fff; font-weight:700; font-size:0.85rem;
+      text-decoration:none; white-space:nowrap;
+      transition:transform 0.2s, box-shadow 0.2s;
+    }
+    .pw-telegram-btn:hover { transform:translateY(-2px); box-shadow:0 6px 16px rgba(42,171,238,0.3); }
+
     @media(max-width:768px) {
       .vip-grid { grid-template-columns:1fr; }
       .pick-stats { grid-template-columns:repeat(3,1fr); }
@@ -336,6 +420,7 @@
   <p>Nuestro sistema analiza estadísticas de más de 10 ligas de fútbol y la NBA para detectar las apuestas con mayor valor cada día. Sin intuición — solo números.</p>
   <div class="hero-btns">
     <a href="static/predictions/index.html" class="btn-primary">Ver picks de valor de hoy — gratis →</a>
+    <a href="https://t.me/prediktorcol" target="_blank" rel="noopener" class="btn-telegram">📲 Ir al canal de Telegram</a>
   </div>
 </section>
 
@@ -456,167 +541,15 @@ fetch('static/historial.json').then(r=>r.json()).then(h=>{
 });
 </script>
 
-<section class="pick-demo" id="pick-demo-section" style="display:none">
-  <div class="pick-demo-inner">
-    <div class="section-label" style="text-align:center">Pick del día</div>
-    <div class="section-title" style="font-size:clamp(1.8rem,4vw,2.5rem)">El pick más confiable de hoy</div>
-    <div id="pick-hoy" class="pick-card"></div>
+<!-- PAYWALL — Picks del día con niveles de acceso -->
+<section style="background:linear-gradient(135deg,#0d0d1a,#0a0a0f);border-top:1px solid var(--borde);border-bottom:1px solid var(--borde);">
+  <div class="pw-container">
+    <div class="pw-container-title">Picks de hoy</div>
+    <div class="pw-container-sub">Generados automáticamente por el motor · Solo partidos con valor real</div>
+    <div id="paywall-container"></div>
   </div>
 </section>
-
-<!-- PICKS ADICIONALES — motor actualizado (tipo_pick = "adicional") -->
-<section class="pick-demo" id="picks-adicionales-section" style="display:none">
-  <div class="pick-demo-inner">
-    <div class="section-label" style="text-align:center">Motor actualizado</div>
-    <div class="section-title" style="font-size:clamp(1.6rem,3.5vw,2.2rem)">Picks adicionales de hoy</div>
-    <div id="picks-adicionales-lista" style="display:flex;flex-direction:column;gap:1rem;margin-top:1.5rem"></div>
-  </div>
-</section>
-
-<script>
-(async function(){
-  const ligaArchivo = {
-    'Liga Colombiana':'static/colombia_stats.json',
-    'NBA':'static/nba_stats.json',
-    'Premier League':'static/england_stats.json',
-    'La Liga':'static/spain_stats.json',
-    'Bundesliga':'static/germany_stats.json',
-    'Serie A':'static/italy_stats.json',
-    'Ligue 1':'static/france_stats.json'
-  };
-  // Algunos nombres en predictions_log difieren del key en el JSON de stats
-  const normalizarEquipo = n => ({'Independiente Medellín':'I. Medelin','América de Cali':'America de Cali'}[n]||n);
-
-  try {
-    const picks = await fetch('static/predictions_log.json').then(r=>r.json());
-    const _d = new Date(); _d.setMinutes(_d.getMinutes() - _d.getTimezoneOffset());
-  const hoy = _d.toISOString().slice(0,10);
-    const deHoy = picks.filter(p=>p.fecha===hoy);
-    if(!deHoy.length){ return; /* sin picks hoy, sección permanece oculta */ }
-
-    // Priorizar pick_dia; si no hay, tomar el de mayor prob_adjusted
-    const withProb = deHoy.map(p => ({...p, pct: +(p.prob_adjusted ?? 0)}));
-    const mejor = withProb.find(p => p.tipo_pick === 'pick_dia')
-                  || withProb.sort((a,b) => b.pct - a.pct)[0];
-    const segundoMejor = withProb.filter(p => p !== mejor).sort((a,b) => b.pct - a.pct)[0];
-    const ligaIcon = mejor.league==='NBA'?'🏀':'⚽';
-    const confianzaColor = mejor.pct>=70?'var(--verde)':mejor.pct>=60?'var(--dorado)':'var(--gris)';
-    const cuotaDisplay = mejor.bk_odds != null ? (+mejor.bk_odds).toFixed(2) : '—';
-
-    function explicarMercado(label) {
-      const l = (label || '').toLowerCase();
-      if (l.startsWith('doble oportunidad:')) return label.split(':')[1].trim() + ' gana o empata';
-      if (l.startsWith('apuesta sin empate:')) return label.split(':')[1].trim() + ' gana — empate devuelve apuesta';
-      if (l.includes('over 1.5')) return 'se marcan 2 o más goles';
-      if (l.includes('over 2.5')) return 'se marcan 3 o más goles';
-      return (label || '') + ' gana el partido';
-    }
-    const explicacion = explicarMercado(mejor.prediccion || '');
-
-    // Render card principal
-    document.getElementById('pick-hoy').innerHTML = `
-      <div class="pick-header">
-        <span class="pick-liga">${ligaIcon} ${mejor.league}</span>
-        <span class="pick-valor">🔥 Pick del Día</span>
-      </div>
-      <div class="pick-partido">${mejor.home} vs ${mejor.away}</div>
-      <div class="pick-stats">
-        <div class="pick-stat"><div class="pick-stat-val verde">${mejor.pct.toFixed(1)}%</div><div class="pick-stat-label">Probabilidad</div></div>
-        <div class="pick-stat"><div class="pick-stat-val dorado">${cuotaDisplay}</div><div class="pick-stat-label">Cuota actual</div></div>
-        <div class="pick-stat"><div class="pick-stat-val" style="color:${confianzaColor}">${(mejor.value_level||'').toUpperCase()||'—'}</div><div class="pick-stat-label">Nivel valor</div></div>
-      </div>
-      <div class="pick-recomendacion">
-        <div>
-          <div class="pick-rec-label">Recomendación del sistema</div>
-          <div class="pick-rec-val">✅ ${mejor.prediccion || '—'}</div>
-          <div style="color:var(--gris);font-size:0.85rem;margin-top:.4rem">Ganas si <strong style="color:var(--blanco)">${explicacion}</strong>.</div>
-        </div>
-        <div style="color:var(--gris);font-size:0.82rem;max-width:260px">Basado en estadísticas reales — ${mejor.fecha}.</div>
-      </div>
-      <div class="pick-analisis-panel abierto" id="analisis-panel"></div>`;
-
-    // Mostrar sección y cargar estadísticas
-    document.getElementById('pick-demo-section').style.display = '';
-    const statsFile = ligaArchivo[mejor.league];
-    if(!statsFile){ document.getElementById('pick-demo-section').style.display = ''; return; }
-    const stats = await fetch(statsFile).then(r=>r.json());
-
-    const lineas = [];
-    lineas.push(`📊 El sistema analizó <strong>${deHoy.length} partidos</strong> para hoy y este resultó el de mayor confianza estadística con <strong>${mejor.pct.toFixed(0)}%</strong> de probabilidad.`);
-
-    if(mejor.league==='NBA'){
-      const teams = stats.teams||{};
-      const th = teams[mejor.home], ta = teams[mejor.away];
-      if(th) lineas.push(`🏀 <strong>${mejor.home}:</strong> ${th.wins}V / ${th.losses}D en la temporada (${th.win_pct}% efectividad) — promedio de <strong>${th.avg_points} pts por partido</strong>.`);
-      if(ta) lineas.push(`🏀 <strong>${mejor.away}:</strong> ${ta.wins}V / ${ta.losses}D en la temporada (${ta.win_pct}% efectividad) — promedio de <strong>${ta.avg_points} pts por partido</strong>.`);
-      if(th && ta){
-        const diff = Math.abs(th.win_pct - ta.win_pct).toFixed(1);
-        const lider = th.win_pct >= ta.win_pct ? mejor.home : mejor.away;
-        lineas.push(`📈 <strong>${lider}</strong> lidera en efectividad con una diferencia de <strong>${diff} puntos porcentuales</strong> sobre el rival.`);
-      }
-    } else {
-      const kh = normalizarEquipo(mejor.home), ka = normalizarEquipo(mejor.away);
-      const th = stats[kh], ta = stats[ka];
-      if(th && th.position){
-        const p=th.position;
-        lineas.push(`⚽ <strong>${mejor.home}:</strong> posición ${p.posicion} en la liga — ${p.ganados}G ${p.empatados}E ${p.perdidos}P en ${p.partidos} partidos jugados (${p.goles_favor} goles a favor / ${p.goles_contra} en contra, ${p.puntos} pts).`);
-      }
-      if(ta && ta.position){
-        const p=ta.position;
-        lineas.push(`⚽ <strong>${mejor.away}:</strong> posición ${p.posicion} en la liga — ${p.ganados}G ${p.empatados}E ${p.perdidos}P en ${p.partidos} partidos jugados (${p.goles_favor} goles a favor / ${p.goles_contra} en contra, ${p.puntos} pts).`);
-      }
-      if(th && ta && th.position && ta.position){
-        const favPos = th.position.posicion < ta.position.posicion ? mejor.home : mejor.away;
-        const favWin = th.position.ganados >= ta.position.ganados ? mejor.home : mejor.away;
-        lineas.push(`📈 <strong>${favPos}</strong> tiene mejor posición en la tabla y el sistema lo favorece como ganador más probable del encuentro.`);
-      }
-    }
-
-    if(segundoMejor){
-      const vN = +(mejor.pct - segundoMejor.pct).toFixed(1);
-      if(vN>0) lineas.push(`🔎 Supera al siguiente pick (<strong>${segundoMejor.home} vs ${segundoMejor.away}</strong>, ${segundoMejor.pct.toFixed(0)}%) por <strong>${vN} puntos porcentuales</strong>.`);
-    }
-    lineas.push(`⚠️ Ningún pick es garantía — este es el de mayor confianza estadística del día.`);
-
-    const panel = document.getElementById('analisis-panel');
-    if(panel) panel.innerHTML = lineas.map(l=>`<div class="pick-analisis-fila">${l}</div>`).join('');
-    document.getElementById('pick-demo-section').style.display = '';
-
-    // ── PICKS ADICIONALES ──
-    // Renderiza los picks con tipo_pick === "adicional" en sección separada.
-    // No interfiere con el pick del día — son conjuntos disjuntos.
-    const adicionales = deHoy.filter(p => p.tipo_pick === 'adicional');
-    if(adicionales.length) {
-      const lista = document.getElementById('picks-adicionales-lista');
-      lista.innerHTML = adicionales.map(p => {
-        const icon = p.league === 'NBA' ? '🏀' : '⚽';
-        const pct = p.prob_adjusted ?? 0;
-        const vs = p.value_score != null ? p.value_score.toFixed(2) : '—';
-        const cuota = p.bk_odds != null ? (+p.bk_odds).toFixed(2) : '—';
-        return `<div class="pick-card" style="margin:0">
-          <div class="pick-header">
-            <span class="pick-liga">${icon} ${p.league}</span>
-            <span class="pick-valor" style="background:rgba(59,130,246,.15);color:#3b82f6">📈 Value score ${vs}</span>
-          </div>
-          <div class="pick-partido">${p.home} vs ${p.away}</div>
-          <div class="pick-stats">
-            <div class="pick-stat"><div class="pick-stat-val verde">${(+pct).toFixed(1)}%</div><div class="pick-stat-label">Prob. ajustada</div></div>
-            <div class="pick-stat"><div class="pick-stat-val dorado">${cuota}</div><div class="pick-stat-label">Cuota</div></div>
-            <div class="pick-stat"><div class="pick-stat-val" style="color:var(--gris)">${(p.value_level||'').toUpperCase()||'—'}</div><div class="pick-stat-label">Nivel valor</div></div>
-          </div>
-          <div class="pick-recomendacion">
-            <div><div class="pick-rec-label">Recomendación del sistema</div><div class="pick-rec-val">✅ ${p.prediccion||'—'}</div></div>
-            <div style="color:var(--gris);font-size:0.82rem;max-width:260px">EV ajustado: ${p.ev_adjusted != null ? p.ev_adjusted.toFixed(1)+'%' : '—'} · CF: ${p.confidence_factor ?? '—'}</div>
-          </div>
-        </div>`;
-      }).join('');
-      document.getElementById('picks-adicionales-section').style.display = '';
-    }
-  } catch(e){
-    /* si falla, la sección permanece oculta */
-  }
-})();
-</script>
+<script src="js/paywall.js"></script>
 
 <!-- AD -->
 <div class="ad-banner">
