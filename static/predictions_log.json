@@ -621,8 +621,8 @@
     "league": "NBA",
     "prediccion": "Detroit Pistons",
     "confianza": "Probabilidad: 67.5%",
-    "resultado_real": null,
-    "acerto": null,
+    "resultado_real": "123-107",
+    "acerto": false,
     "prob_original": 67.5,
     "confidence_factor": 1.0,
     "prob_adjusted": 67.5,
@@ -676,8 +676,8 @@
     "league": "Serie A",
     "prediccion": "Atalanta",
     "confianza": "Probabilidad: 65.0%",
-    "resultado_real": null,
-    "acerto": null,
+    "resultado_real": "0-3",
+    "acerto": true,
     "prob_original": 65.0,
     "confidence_factor": 1.0,
     "prob_adjusted": 65.0,
@@ -714,6 +714,61 @@
         "ev_adjusted": -26.2,
         "value_score": null,
         "reason": "ev_negativo"
+      },
+      {
+        "market": "Over 1.5 goles",
+        "ev_adjusted": null,
+        "value_score": null,
+        "reason": "mercado_no_disponible"
+      }
+    ]
+  },
+  {
+    "fecha": "2026-04-07",
+    "slug": "brooklyn-nets-vs-milwaukee-bucks-nba-2026-04-07",
+    "home": "Brooklyn Nets",
+    "away": "Milwaukee Bucks",
+    "league": "NBA",
+    "prediccion": "Milwaukee Bucks",
+    "confianza": "Probabilidad: 64.8%",
+    "resultado_real": null,
+    "acerto": null,
+    "prob_original": 64.8,
+    "confidence_factor": 1.0,
+    "prob_adjusted": 64.8,
+    "bk_odds": 1.83,
+    "ev": 18.6,
+    "penalty": 0.0,
+    "ev_adjusted": 18.6,
+    "value_score": 11.2403,
+    "reason": "ok",
+    "tipo_pick": "extra",
+    "base_pick": "Milwaukee Bucks",
+    "value_level": "medio",
+    "markets_evaluated": [
+      {
+        "market": "Milwaukee Bucks",
+        "ev_adjusted": 18.6,
+        "value_score": 11.2403,
+        "reason": "ok"
+      },
+      {
+        "market": "Apuesta sin empate: Milwaukee Bucks",
+        "ev_adjusted": null,
+        "value_score": null,
+        "reason": "mercado_no_disponible"
+      },
+      {
+        "market": "Doble oportunidad: Milwaukee Bucks",
+        "ev_adjusted": null,
+        "value_score": null,
+        "reason": "mercado_no_disponible"
+      },
+      {
+        "market": "Over 2.5 goles",
+        "ev_adjusted": null,
+        "value_score": null,
+        "reason": "mercado_no_disponible"
       },
       {
         "market": "Over 1.5 goles",
