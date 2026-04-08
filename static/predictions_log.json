@@ -731,8 +731,8 @@
     "league": "NBA",
     "prediccion": "Milwaukee Bucks",
     "confianza": "Probabilidad: 64.8%",
-    "resultado_real": null,
-    "acerto": null,
+    "resultado_real": "96-90",
+    "acerto": false,
     "prob_original": 64.8,
     "confidence_factor": 1.0,
     "prob_adjusted": 64.8,
@@ -760,6 +760,61 @@
       },
       {
         "market": "Doble oportunidad: Milwaukee Bucks",
+        "ev_adjusted": null,
+        "value_score": null,
+        "reason": "mercado_no_disponible"
+      },
+      {
+        "market": "Over 2.5 goles",
+        "ev_adjusted": null,
+        "value_score": null,
+        "reason": "mercado_no_disponible"
+      },
+      {
+        "market": "Over 1.5 goles",
+        "ev_adjusted": null,
+        "value_score": null,
+        "reason": "mercado_no_disponible"
+      }
+    ]
+  },
+  {
+    "fecha": "2026-04-08",
+    "slug": "cleveland-cavaliers-vs-atlanta-hawks-nba-2026-04-08",
+    "home": "Cleveland Cavaliers",
+    "away": "Atlanta Hawks",
+    "league": "NBA",
+    "prediccion": "Cleveland Cavaliers",
+    "confianza": "Probabilidad: 59.9%",
+    "resultado_real": null,
+    "acerto": null,
+    "prob_original": 59.9,
+    "confidence_factor": 1.0,
+    "prob_adjusted": 59.9,
+    "bk_odds": 1.92,
+    "ev": 15.0,
+    "penalty": 0.0,
+    "ev_adjusted": 15.0,
+    "value_score": 9.7849,
+    "reason": "ok",
+    "tipo_pick": "extra",
+    "base_pick": "Cleveland Cavaliers",
+    "value_level": "medio",
+    "markets_evaluated": [
+      {
+        "market": "Cleveland Cavaliers",
+        "ev_adjusted": 15.0,
+        "value_score": 9.7849,
+        "reason": "ok"
+      },
+      {
+        "market": "Apuesta sin empate: Cleveland Cavaliers",
+        "ev_adjusted": null,
+        "value_score": null,
+        "reason": "mercado_no_disponible"
+      },
+      {
+        "market": "Doble oportunidad: Cleveland Cavaliers",
         "ev_adjusted": null,
         "value_score": null,
         "reason": "mercado_no_disponible"
