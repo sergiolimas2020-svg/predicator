@@ -235,7 +235,7 @@ ADSENSE = '<script async src="https://pagead2.googlesyndication.com/pagead/js/ad
 GA = '<script async src="https://www.googletagmanager.com/gtag/js?id=G-K3JES4SQS9"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-K3JES4SQS9");</script>'
 
 # ── URL base del sitio en produccion ──
-SITE_URL = "https://predicator-sergiolimas2020-svgs-projects.vercel.app"
+SITE_URL = "https://prediktorcol.com"
 
 ESPN_LEAGUES = {
     "soccer/eng.1":          ("Premier League",    "england_stats.json"),
