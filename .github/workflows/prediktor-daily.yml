@@ -26,7 +26,7 @@ jobs:
           python-version: '3.11'
 
       - name: Instalar dependencias
-        run: pip install requests beautifulsoup4 lxml nba_api
+        run: pip install requests beautifulsoup4 lxml nba_api python-telegram-bot
 
       # PASO 1: Registrar resultados de los partidos de ayer (ESPN)
       - name: Registrar resultados
@@ -91,6 +91,14 @@ jobs:
         continue-on-error: true
         env:
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+
+      # PASO 3b: Publicar en canal de Telegram
+      - name: Publicar en Telegram
+        run: python3 -m bot.publish --force
+        continue-on-error: true
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHANNEL_ID: ${{ secrets.TELEGRAM_CHANNEL_ID }}
 
       # PASO 4: Publicar todos los cambios
       - name: Commit y push

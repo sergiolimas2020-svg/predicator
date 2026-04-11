@@ -44,15 +44,20 @@ function renderPaywall(data) {
 
   let html = '';
 
-  // ═══ 1. PICK GRATUITO — siempre visible ═══
+  // ═══ 1. PICK GRATUITO — HERO, lo PRIMERO que ve el usuario ═══
+  //     Card destacada, completa, sin blur, con CTA a Telegram.
   if (pick_gratuito) {
     html += `
-    <div class="pw-section">
-      <div class="pw-section-header pw-free-header">
-        <span class="pw-badge pw-badge-free">✅ PICK GRATUITO</span>
-        <span class="pw-date">${dateStr}</span>
+    <div class="pw-hero">
+      <div class="pw-hero-badge">✅ PICK GRATUITO DEL DÍA</div>
+      <div class="pw-hero-date">${dateStr}</div>
+      ${renderHeroCard(pick_gratuito)}
+      <div class="pw-hero-telegram">
+        <p>📲 Este mismo pick se publica gratis en nuestro canal de Telegram</p>
+        <a href="https://t.me/prediktorcol" target="_blank" rel="noopener" class="pw-hero-telegram-btn">
+          Seguirnos en Telegram
+        </a>
       </div>
-      ${renderPickCard(pick_gratuito, 'free')}
     </div>`;
   }
 
@@ -147,6 +152,36 @@ function renderPickCard(pick, tier) {
       <div class="pw-detail">
         <div class="pw-detail-label">EV ajustado</div>
         <div class="pw-detail-value pw-ev">${ev}</div>
+      </div>` : ''}
+    </div>
+  </div>`;
+}
+
+// ── Hero card: pick gratuito destacado ──
+function renderHeroCard(pick) {
+  const icon = (pick.league || '').includes('NBA') ? '🏀' : '⚽';
+  const odds = pick.bk_odds ? pick.bk_odds : '—';
+  const prob = pick.prob_adjusted ? `${Math.round(pick.prob_adjusted)}%` : '—';
+  const ev = pick.ev_adjusted != null ? `+${pick.ev_adjusted.toFixed(1)}%` : null;
+
+  return `
+  <div class="pw-hero-card">
+    <div class="pw-hero-league">${icon} ${pick.league || '—'}</div>
+    <div class="pw-hero-matchup">${pick.matchup || '—'}</div>
+    <div class="pw-hero-market">${pick.market || '—'}</div>
+    <div class="pw-hero-stats">
+      <div class="pw-hero-stat">
+        <div class="pw-hero-stat-label">Cuota</div>
+        <div class="pw-hero-stat-value pw-hero-odds">${odds}</div>
+      </div>
+      <div class="pw-hero-stat">
+        <div class="pw-hero-stat-label">Probabilidad</div>
+        <div class="pw-hero-stat-value pw-hero-prob">${prob}</div>
+      </div>
+      ${ev ? `
+      <div class="pw-hero-stat">
+        <div class="pw-hero-stat-label">EV ajustado</div>
+        <div class="pw-hero-stat-value pw-hero-ev">${ev}</div>
       </div>` : ''}
     </div>
   </div>`;
