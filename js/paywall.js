@@ -39,7 +39,7 @@ async function initPaywall() {
 
 function renderPaywall(data) {
   const container = document.getElementById('paywall-container');
-  const { pick_gratuito, picks_suscripcion, pick_dia } = data;
+  const { pick_gratuito, picks_suscripcion, pick_dia, analisis_goles } = data;
   const dateStr = data.date || '—';
 
   let html = '';
@@ -93,6 +93,23 @@ function renderPaywall(data) {
     </div>`;
   }
 
+  // ═══ 4. ANÁLISIS DE GOLES — informativo, no es pick ═══
+  if (analisis_goles && analisis_goles.length > 0) {
+    const goalsCards = analisis_goles.map(g => renderGoalsAnalysisCard(g)).join('');
+    html += `
+    <div class="pw-section pw-section-goals">
+      <div class="pw-section-header pw-goals-header">
+        <span class="pw-badge pw-badge-goals">📊 ANÁLISIS DE GOLES (INFORMATIVO)</span>
+        <span class="pw-date">${analisis_goles.length} ${analisis_goles.length === 1 ? 'mercado' : 'mercados'}</span>
+      </div>
+      <div class="pw-goals-intro">
+        Mercados de goles con valor estadístico detectado. No son picks oficiales —
+        son insights complementarios para análisis.
+      </div>
+      ${goalsCards}
+    </div>`;
+  }
+
   // ═══ Sin picks ═══
   if (!pick_gratuito && (!picks_suscripcion || picks_suscripcion.length === 0) && !pick_dia) {
     html = `
@@ -132,6 +149,31 @@ function renderPickCard(pick, tier) {
         <div class="pw-detail-value pw-ev">${ev}</div>
       </div>` : ''}
     </div>
+  </div>`;
+}
+
+// ── Card de análisis de goles (informativo, no es pick) ──
+function renderGoalsAnalysisCard(item) {
+  const odds = item.bk_odds ? `@${item.bk_odds}` : '';
+  const prob = item.prob_adjusted ? `${Math.round(item.prob_adjusted)}%` : '—';
+  const ev = item.ev_adjusted != null ? `+${item.ev_adjusted.toFixed(1)}%` : '—';
+
+  return `
+  <div class="pw-goals-card">
+    <div class="pw-goals-league">${item.league || '—'}</div>
+    <div class="pw-goals-matchup">${item.matchup || '—'}</div>
+    <div class="pw-goals-market">${item.market || '—'} ${odds}</div>
+    <div class="pw-goals-stats">
+      <span class="pw-goals-stat">
+        <span class="pw-goals-stat-label">Probabilidad</span>
+        <span class="pw-goals-stat-value">${prob}</span>
+      </span>
+      <span class="pw-goals-stat">
+        <span class="pw-goals-stat-label">EV ajustado</span>
+        <span class="pw-goals-stat-value">${ev}</span>
+      </span>
+    </div>
+    <div class="pw-goals-note">Análisis estadístico — no es pick oficial</div>
   </div>`;
 }
 
