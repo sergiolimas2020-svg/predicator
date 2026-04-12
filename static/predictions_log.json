@@ -841,8 +841,8 @@
     "league": "Brasileirao",
     "prediccion": "Doble oportunidad: Vasco da Gama",
     "confianza": "Probabilidad: 79.5%",
-    "resultado_real": null,
-    "acerto": null,
+    "resultado_real": "1-1",
+    "acerto": true,
     "prob_original": 82.0,
     "confidence_factor": 0.97,
     "prob_adjusted": 79.5,
@@ -896,8 +896,8 @@
     "league": "Serie A",
     "prediccion": "Over 2.5 goles",
     "confianza": "Probabilidad: 47.4%",
-    "resultado_real": null,
-    "acerto": null,
+    "resultado_real": "2-1",
+    "acerto": true,
     "prob_original": 48.9,
     "confidence_factor": 0.97,
     "prob_adjusted": 47.4,
@@ -951,8 +951,8 @@
     "league": "Premier League",
     "prediccion": "Brighton & Hove Albion",
     "confianza": "Probabilidad: 68.0%",
-    "resultado_real": null,
-    "acerto": null,
+    "resultado_real": "0-2",
+    "acerto": true,
     "prob_original": 68.0,
     "confidence_factor": 1.0,
     "prob_adjusted": 68.0,
@@ -1006,8 +1006,8 @@
     "league": "La Liga",
     "prediccion": "Doble oportunidad: Valencia",
     "confianza": "Probabilidad: 73.4%",
-    "resultado_real": null,
-    "acerto": null,
+    "resultado_real": "1-0",
+    "acerto": false,
     "prob_original": 73.4,
     "confidence_factor": 1.0,
     "prob_adjusted": 73.4,
@@ -1044,6 +1044,171 @@
         "ev_adjusted": 4.8,
         "value_score": null,
         "reason": "ev_insuficiente"
+      },
+      {
+        "market": "Over 1.5 goles",
+        "ev_adjusted": null,
+        "value_score": null,
+        "reason": "mercado_no_disponible"
+      }
+    ]
+  },
+  {
+    "fecha": "2026-04-12",
+    "slug": "bologna-vs-lecce-serie-a-2026-04-12",
+    "home": "Bologna",
+    "away": "Lecce",
+    "league": "Serie A",
+    "prediccion": "Apuesta sin empate: Bologna",
+    "confianza": "Probabilidad: 77.0%",
+    "resultado_real": null,
+    "acerto": null,
+    "prob_original": 77.0,
+    "confidence_factor": 1.0,
+    "prob_adjusted": 77.0,
+    "bk_odds": 1.532,
+    "ev": 18.0,
+    "penalty": 0.0,
+    "ev_adjusted": 18.0,
+    "value_score": 7.6783,
+    "reason": "ok",
+    "tipo_pick": "pick_dia",
+    "base_pick": "Bologna",
+    "value_level": "medio",
+    "markets_evaluated": [
+      {
+        "market": "Apuesta sin empate: Bologna",
+        "ev_adjusted": 18.0,
+        "value_score": 7.6783,
+        "reason": "ok"
+      },
+      {
+        "market": "Bologna",
+        "ev_adjusted": 26.6,
+        "value_score": null,
+        "reason": "ev_excesivo"
+      },
+      {
+        "market": "Doble oportunidad: Bologna",
+        "ev_adjusted": 7.3,
+        "value_score": null,
+        "reason": "ev_insuficiente"
+      },
+      {
+        "market": "Over 2.5 goles",
+        "ev_adjusted": -10.6,
+        "value_score": null,
+        "reason": "ev_negativo"
+      },
+      {
+        "market": "Over 1.5 goles",
+        "ev_adjusted": null,
+        "value_score": null,
+        "reason": "mercado_no_disponible"
+      }
+    ]
+  },
+  {
+    "fecha": "2026-04-12",
+    "slug": "konyaspor-vs-fatih-karagumruk-super-lig-2026-04-12",
+    "home": "Konyaspor",
+    "away": "Fatih Karagümrük",
+    "league": "Super Lig",
+    "prediccion": "Konyaspor",
+    "confianza": "Probabilidad: 63.6%",
+    "resultado_real": null,
+    "acerto": null,
+    "prob_original": 65.6,
+    "confidence_factor": 0.97,
+    "prob_adjusted": 63.6,
+    "bk_odds": 1.88,
+    "ev": 23.3,
+    "penalty": 0.0,
+    "ev_adjusted": 19.6,
+    "value_score": 12.0017,
+    "reason": "ok",
+    "tipo_pick": "extra",
+    "base_pick": "Konyaspor",
+    "value_level": "medio",
+    "markets_evaluated": [
+      {
+        "market": "Konyaspor",
+        "ev_adjusted": 19.6,
+        "value_score": 12.0017,
+        "reason": "ok"
+      },
+      {
+        "market": "Apuesta sin empate: Konyaspor",
+        "ev_adjusted": 11.6,
+        "value_score": null,
+        "reason": "ev_insuficiente"
+      },
+      {
+        "market": "Doble oportunidad: Konyaspor",
+        "ev_adjusted": 4.0,
+        "value_score": null,
+        "reason": "ev_insuficiente"
+      },
+      {
+        "market": "Over 2.5 goles",
+        "ev_adjusted": -5.2,
+        "value_score": null,
+        "reason": "ev_negativo"
+      },
+      {
+        "market": "Over 1.5 goles",
+        "ev_adjusted": null,
+        "value_score": null,
+        "reason": "mercado_no_disponible"
+      }
+    ]
+  },
+  {
+    "fecha": "2026-04-12",
+    "slug": "goztepe-vs-kasimpasa-super-lig-2026-04-12",
+    "home": "Goztepe",
+    "away": "Kasimpasa",
+    "league": "Super Lig",
+    "prediccion": "Goztepe",
+    "confianza": "Probabilidad: 60.4%",
+    "resultado_real": null,
+    "acerto": null,
+    "prob_original": 62.3,
+    "confidence_factor": 0.97,
+    "prob_adjusted": 60.4,
+    "bk_odds": 1.93,
+    "ev": 20.2,
+    "penalty": 0.0,
+    "ev_adjusted": 16.6,
+    "value_score": 10.5874,
+    "reason": "ok",
+    "tipo_pick": "extra",
+    "base_pick": "Goztepe",
+    "value_level": "medio",
+    "markets_evaluated": [
+      {
+        "market": "Goztepe",
+        "ev_adjusted": 16.6,
+        "value_score": 10.5874,
+        "reason": "ok"
+      },
+      {
+        "market": "Apuesta sin empate: Goztepe",
+        "ev_adjusted": 12.3,
+        "value_score": null,
+        "reason": "ev_insuficiente"
+      },
+      {
+        "market": "Doble oportunidad: Goztepe",
+        "ev_adjusted": 0.8,
+        "value_score": null,
+        "reason": "ev_insuficiente"
+      },
+      {
+        "market": "Over 2.5 goles",
+        "ev_adjusted": -26.7,
+        "value_score": null,
+        "reason": "ev_negativo"
       },
       {
         "market": "Over 1.5 goles",
