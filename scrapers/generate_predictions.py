@@ -16,7 +16,66 @@ for en, es in MESES.items():
     today_display = today_display.replace(en, es)
 
 BALLDONTLIE_KEY = os.environ.get("BALLDONTLIE_KEY", "")
-ODDS_API_KEY    = os.environ.get("ODDS_API_KEY", "6d688cc30bd651fe08676c41b4cf1d23")
+ODDS_API_KEY    = os.environ.get("ODDS_API_KEY", "")
+
+# ── API externa (contexto, no decisor) ──
+try:
+    import sys as _sys
+    _sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+    from data_sources.external_api import enrich_match_context, format_context_for_copy, is_api_active
+    _HAS_EXTERNAL_API = True
+except ImportError:
+    _HAS_EXTERNAL_API = False
+    def enrich_match_context(*a, **kw): return {}
+    def format_context_for_copy(*a, **kw): return ""
+    def is_api_active(): return False
+
+# ── API externa NBA Games (contexto partido/equipo, no decisor) ──
+try:
+    from data_sources.nba_games_api import (
+        enrich_nba_game_context, format_nba_game_context_for_copy, is_nba_games_api_active,
+    )
+    _HAS_NBA_GAMES_API = True
+except ImportError:
+    _HAS_NBA_GAMES_API = False
+    def enrich_nba_game_context(*a, **kw): return {}
+    def format_nba_game_context_for_copy(*a, **kw): return ""
+    def is_nba_games_api_active(): return False
+
+# ── API externa NBA Players (contexto props jugador, no decisor) ──
+try:
+    from data_sources.nba_players_api import (
+        enrich_nba_player_prop, format_nba_player_context_for_copy, is_nba_players_api_active,
+    )
+    _HAS_NBA_PLAYERS_API = True
+except ImportError:
+    _HAS_NBA_PLAYERS_API = False
+    def enrich_nba_player_prop(*a, **kw): return {}
+    def format_nba_player_context_for_copy(*a, **kw): return ""
+    def is_nba_players_api_active(): return False
+
+# ── API externa TechCorner (contexto corners, no decisor) ──
+try:
+    from data_sources.techcorner_api import (
+        enrich_corners_context, format_corners_context_for_copy, is_techcorner_active,
+    )
+    _HAS_TECHCORNER_API = True
+except ImportError:
+    _HAS_TECHCORNER_API = False
+    def enrich_corners_context(*a, **kw): return {}
+    def format_corners_context_for_copy(*a, **kw): return ""
+    def is_techcorner_active(): return False
+
+# ── API de ODDS reales de PROPS NBA (The Odds API) ──
+try:
+    from data_sources.nba_props_odds_api import (
+        get_player_prop_odds, is_nba_props_odds_active,
+    )
+    _HAS_NBA_PROPS_ODDS = True
+except ImportError:
+    _HAS_NBA_PROPS_ODDS = False
+    def get_player_prop_odds(*a, **kw): return {}
+    def is_nba_props_odds_active(): return False
 
 # ── Límite de picks diarios y umbral mínimo de confianza ──
 MAX_PICKS         = 4    # cap total legacy (no usado en selección dual)
@@ -31,6 +90,74 @@ PICK_DIA_MIN_PROB  = 65.0  # prob_adjusted mínima (%) — umbral de certeza com
 PICK_DIA_MIN_CUOTA = 1.40  # cuota mínima bookmaker — por debajo no hay valor perceptible
 PICK_DIA_MAX_CUOTA = 1.85  # cuota máxima bookmaker — por encima pierde la narrativa de certeza
 PICK_DIA_MIN_EV    = 5.0   # ev_adjusted mínimo (%) — evitar picks sin ningún valor esperado
+
+# ── Perfiles de filtros — capa de PRODUCTO (no tocan fórmulas) ────
+# Cada perfil define umbrales de elegibilidad. evaluate_value() calcula
+# los valores; estos diccionarios solo deciden qué se PUBLICA.
+
+FILTERS_PREMIUM = {
+    "MIN_PROB":       70.0,   # prob_adjusted mínima (%)
+    "MIN_EV":         15.0,   # EV ajustado mínimo (%) — consistente con all_evals
+    "MAX_EV_H2H":     20.0,   # EV máximo para h2h (%) — anti-overfit
+    "MAX_EV_GOALS":   35.0,   # EV máximo para goles (%)
+    "MIN_CONF_FACTOR": 0.95,  # confidence_factor mínimo
+    "MIN_VS":          0.15,  # value_score mínimo
+    "REQUIRE_BOTH_TEAMS_STATS": True,
+}
+
+FILTERS_SUBSCRIPTION = {
+    "MIN_PROB":       50.0,   # acepta señal parcial del modelo (%)
+    "MIN_EV":          8.0,   # absorbe vig Bet365/Pinnacle (~5-7%) (%)
+    "MAX_EV_H2H":     30.0,   # rango 20-30% = desacuerdo leve (%)
+    "MAX_EV_GOALS":   50.0,   # goles varianza alta; 50% conservador (%)
+    "MIN_CONF_FACTOR": 0.90,  # permite ligas MID + mercado goles
+    "MIN_VS":          0.04,  # umbral bajo; EV y prob ya filtran calidad
+    "REQUIRE_BOTH_TEAMS_STATS": False,
+}
+
+# ── Reglas de selección ──
+TIER_SUSCRIPCION_MIN = 2      # mínimo de picks suscripción para publicar pick_dia
+TIER_SUSCRIPCION_MAX = 4      # máximo de picks suscripción
+
+# ── Ligas CORE — núcleo del producto ──
+# Usado solo por la regla de PICK EXPLORATORIO (capa de publicación).
+# No afecta filtros estadísticos ni pipeline de EV.
+CORE_LEAGUES = {
+    "Premier League",
+    "La Liga",
+    "Serie A",
+    "Bundesliga",
+    "Ligue 1",
+    "Liga Colombiana",
+    "Liga Argentina",
+    "NBA",
+}
+
+# ── Regla de PICK EXPLORATORIO ──
+# Fallback de publicación para evitar días en blanco cuando hay
+# ligas CORE activas pero ningún pick pasa suscripción.
+# NO es premium, NO es suscripción oficial — es una capa honesta
+# de "hoy no hay valor claro pero esto es lo mejor que encontramos".
+EXPLORATORY_MIN_PROB = 48.0   # prob_adjusted mínima (%)
+EXPLORATORY_MIN_EV   = 5.0    # ev_adjusted mínimo (%)
+
+# ── ANÁLISIS DE GOLES (display complementario, NO pick) ──
+# Mercados Over que no ganan el value_score del partido pero tienen
+# valor moderado se exponen como "insight" sin ser publicados como pick.
+GOALS_ANALYSIS_MIN_PROB = 50.0   # prob_adjusted mínima (%)
+GOALS_ANALYSIS_MIN_EV   = 8.0    # ev_adjusted mínimo (%)
+GOALS_ANALYSIS_MIN_CF   = 0.90   # confidence_factor mínimo
+GOALS_ANALYSIS_MAX      = 3      # máximo de análisis de goles por día
+# Ligas elegibles: top 5 europeas + Champions + CORE_LEAGUES
+GOALS_ANALYSIS_LEAGUES = {
+    "Premier League", "La Liga", "Serie A", "Bundesliga", "Ligue 1",
+    "Champions League", "Liga Argentina", "Brasileirao",
+}
+
+# ── MIN_CONF para candidatura al pipeline (pre-filtro) ──
+# Se baja de 45 a 40 para capturar señal parcial en CONMEBOL.
+# 35% (empate técnico sin datos) sigue descartado.
+MIN_CONF_SUBSCRIPTION = 40.0  # pre-filtro para candidatos de suscripción
 
 # ── CONFIGURACIÓN CENTRAL — único lugar para cambiar umbrales de valor ──
 MIN_EV            = 0.15   # EV mínimo para publicar (absorbe descuento BetPlay ~15%)
@@ -90,9 +217,11 @@ CONF_LEAGUE_TIERS = {
     "Ligue 1":          CONF_LEAGUE_TOP,
     "Champions League": CONF_LEAGUE_TOP,
     "NBA":              CONF_LEAGUE_TOP,
-    "Liga Argentina":   CONF_LEAGUE_MID,
-    "Brasileirao":      CONF_LEAGUE_MID,
-    "Super Lig":        CONF_LEAGUE_MID,
+    "Liga Argentina":      CONF_LEAGUE_MID,
+    "Brasileirao":         CONF_LEAGUE_MID,
+    "Super Lig":           CONF_LEAGUE_MID,
+    "Copa Libertadores":   CONF_LEAGUE_MID,
+    "Copa Sudamericana":   CONF_LEAGUE_MID,
     # Liga Colombiana y demás → CONF_LEAGUE_MINOR (default)
 }
 
@@ -248,6 +377,8 @@ ESPN_LEAGUES = {
     "soccer/bra.1":          ("Brasileirao",        "brazil_stats.json"),
     "soccer/tur.1":          ("Super Lig",          "turkey_stats.json"),
     "soccer/uefa.champions": ("Champions League",   "uefa_champions_league_stats.json"),
+    "soccer/conmebol.libertadores":  ("Copa Libertadores",  "conmebol_libertadores_stats.json"),
+    "soccer/conmebol.sudamericana":  ("Copa Sudamericana",  "conmebol_sudamericana_stats.json"),
 }
 
 HTML = """<!DOCTYPE html>
@@ -539,8 +670,46 @@ def load(f):
     p = Path(f"static/{f}")
     return json.load(open(p)) if p.exists() else {}
 
+# ── Fallback CONMEBOL: buscar equipo en stats de ligas locales ──
+# Equipos de Libertadores/Sudamericana ya tienen datos en sus ligas
+# domésticas. Si el JSON de la competición CONMEBOL está vacío,
+# se busca en los stats de Argentina, Brasil, Colombia, etc.
+_CONMEBOL_FALLBACK_FILES = [
+    "argentina_stats.json",
+    "brazil_stats.json",
+    "colombia_stats.json",
+]
+
+def _find_in_local_leagues(name):
+    """Busca un equipo en los stats de ligas locales sudamericanas."""
+    nl = norm(name)
+    resolved = TEAM_ALIASES.get(name) or TEAM_ALIASES.get(nl)
+    for f in _CONMEBOL_FALLBACK_FILES:
+        local_stats = load(f)
+        if not local_stats:
+            continue
+        search_name = resolved or name
+        # Búsqueda exacta
+        if search_name in local_stats:
+            return local_stats[search_name]
+        # Búsqueda normalizada
+        for k in local_stats:
+            if norm(k) == nl:
+                return local_stats[k]
+        for k in local_stats:
+            nk = norm(k)
+            if nk in nl or nl in nk:
+                return local_stats[k]
+    return {}
+
 def find(stats, name):
-    if not stats: return {}
+    if not stats:
+        # Stats vacío (típico en CONMEBOL) → buscar en ligas locales
+        fallback = _find_in_local_leagues(name)
+        if fallback:
+            print(f"      [CONMEBOL fallback] '{name}' encontrado en liga local")
+            return fallback
+        return {}
     nl = norm(name)
     if name in TEAM_ALIASES:
         alias = TEAM_ALIASES[name]
@@ -561,6 +730,11 @@ def find(stats, name):
     for k in stats:
         nk = norm(k)
         if sum(1 for w in words if w in nk) >= 1: return stats[k]
+    # No encontrado en stats principal → intentar ligas locales
+    fallback = _find_in_local_leagues(name)
+    if fallback:
+        print(f"      [CONMEBOL fallback] '{name}' encontrado en liga local")
+        return fallback
     print(f"      [WARN] '{name}' no encontrado, usando fallback")
     return list(stats.values())[0] if stats else {}
 
@@ -1333,9 +1507,10 @@ def render_pick_dia_copy(pick: dict) -> str:
     prob   = pick.get("prob_adjusted") or pick.get("probabilidad_modelo") or "—"
     odds   = pick.get("bk_odds") or pick.get("cuota_justa") or "—"
     expl   = _market_explanation_copy(label)
+    extra_ctx = pick.get("extra_context", "")
     sep    = "═" * 43
     dash   = "─" * 43
-    return "\n".join([
+    lines = [
         sep,
         "EL PICK MÁS CONFIABLE DE HOY",
         sep,
@@ -1358,11 +1533,16 @@ def render_pick_dia_copy(pick: dict) -> str:
         "  · Alta consistencia reciente del equipo seleccionado.",
         "  · Ventaja estadística clara frente al rival según datos actuales.",
         "  · Mercado de bajo riesgo, diseñado para reducir la variabilidad.",
+    ]
+    if extra_ctx:
+        lines += ["", "Contexto adicional (datos externos):", extra_ctx]
+    lines += [
         "",
         "Este pick es el único seleccionado hoy como la opción",
         "con mayor probabilidad real según nuestros criterios de seguridad.",
         sep,
-    ])
+    ]
+    return "\n".join(lines)
 
 
 def render_pick_extra_copy(picks: list) -> str:
@@ -1403,6 +1583,225 @@ def render_pick_extra_copy(picks: list) -> str:
         dash,
     ]
     return "\n".join(lines)
+
+
+# ══════════════════════════════════════════════════════════════
+#  MVP — PROPS DE JUGADOR NBA
+#  Genera candidatos de player props (Over puntos/rebotes/asistencias).
+#  Estos props NUNCA pueden ser pick_dia (_es_mercado_vendible los bloquea).
+#  Se inyectan como EXTRA en el pipeline existente.
+# ══════════════════════════════════════════════════════════════
+
+# Mínimos para generar un prop
+_MVP_MIN_GAMES = 5      # partidos mínimos revisados
+_MVP_MIN_RATIO = 0.60   # 60% de veces over
+
+# Configuración por stat: (avg_key, stat_api, label_es, min_line, min_avg)
+_MVP_PROP_STATS = [
+    ("avg_points",   "points",   "puntos",      8.0, 15.0),
+    ("avg_rebounds",  "rebounds", "rebotes",     5.0,  6.0),
+    ("avg_assists",   "assists",  "asistencias", 4.0,  5.0),
+]
+
+
+def _compute_realistic_line(recent_values: list, season_avg: float) -> float:
+    """
+    Calcula línea realista a partir de datos recientes.
+    base = (avg_recent + median_recent) / 2, luego descuento del 5%
+    para que la línea quede ligeramente por debajo del centro
+    (simula una línea de casa de apuestas atacable).
+    Fallback a season_avg × 0.90 si no hay datos recientes.
+    """
+    if not recent_values:
+        return round(season_avg * 0.90, 1)
+    n = len(recent_values)
+    avg_recent = sum(recent_values) / n
+    sorted_vals = sorted(recent_values)
+    if n % 2 == 1:
+        median_recent = sorted_vals[n // 2]
+    else:
+        median_recent = (sorted_vals[n // 2 - 1] + sorted_vals[n // 2]) / 2
+    base = (avg_recent + median_recent) / 2
+    return round(base * 0.95, 1)
+
+
+def generate_nba_player_props(nba_games, nba_teams_data):
+    """
+    MVP: genera candidatos de props NBA (Over puntos/rebotes/asistencias).
+    Retorna lista de tuplas compatibles con el pipeline de candidatos (18 elementos).
+
+    Flujo por partido:
+      1. Identifica 1 estrella por equipo por stat
+      2. Consulta nba_players_api para game logs recientes
+      3. Calcula línea realista: (avg_recent + median_recent) / 2
+      4. Si ratio >= 60%, datos suficientes, avg >= line → crea candidato
+    """
+    props = []
+    if not nba_games:
+        return props
+
+    for home, away in nba_games:
+        hd = find(nba_teams_data, home)
+        ad = find(nba_teams_data, away)
+        if not hd:
+            hd = ad
+        if not ad:
+            ad = hd
+
+        for team_name, team_data, opp_name, opp_data in [
+            (home, hd, away, ad),
+            (away, ad, home, hd),
+        ]:
+            players = team_data.get("players", [])
+            if not players:
+                continue
+
+            available = [p for p in players if p.get("available", True)]
+            if not available:
+                continue
+
+            # Evaluar cada stat independientemente
+            for avg_key, stat_api, label_es, min_line, min_avg in _MVP_PROP_STATS:
+
+                # Encontrar estrella para este stat
+                star = max(available, key=lambda p, k=avg_key: p.get(k, 0))
+                season_avg = star.get(avg_key, 0)
+                if season_avg < min_avg:
+                    continue
+
+                star_name = star["name"]
+
+                # Consultar API para game logs reales
+                player_ctx = enrich_nba_player_prop(star_name, stat_api, 0)
+                # ^ línea=0 temporal para obtener valores recientes sin filtrar
+
+                if not player_ctx or player_ctx.get("games_checked", 0) < _MVP_MIN_GAMES:
+                    continue
+
+                recent_values = player_ctx.get("recent_values", [])
+                if len(recent_values) < _MVP_MIN_GAMES:
+                    continue
+
+                # Calcular línea realista
+                line = _compute_realistic_line(recent_values, season_avg)
+                if line < min_line:
+                    continue
+
+                # Recalcular ratio con la línea real
+                times_over = sum(1 for v in recent_values if v > line)
+                games_checked = len(recent_values)
+                ratio = round(times_over / games_checked, 2)
+                avg_recent = round(sum(recent_values) / games_checked, 1)
+
+                # Filtros de calidad
+                if ratio < _MVP_MIN_RATIO:
+                    continue
+                if avg_recent < line:
+                    continue
+
+                # Obtener odds reales de props
+                prop_odds = get_player_prop_odds(star_name, stat_api, home, away)
+                if not prop_odds or not prop_odds.get("odds_over"):
+                    continue  # sin odds reales → no crear prop
+
+                bk_odds = prop_odds["odds_over"]
+                real_line = prop_odds.get("line", line)
+
+                # Si la API ofrece una línea distinta, usar la del bookmaker
+                # y recalcular ratio contra esa línea
+                if abs(real_line - line) > 0.5:
+                    line = real_line
+                    times_over = sum(1 for v in recent_values if v > line)
+                    ratio = round(times_over / games_checked, 2)
+                    if ratio < _MVP_MIN_RATIO:
+                        continue
+                    if avg_recent < line:
+                        continue
+
+                # Construir prop con odds reales
+                p_over = ratio
+                prob_pct = round(p_over * 100, 1)
+                cf_adj = player_ctx.get("cf_adjustment", 0)
+                cf = max(CONF_FLOOR, min(1.0, round(1.0 + cf_adj, 4)))
+
+                ev_adjusted = round(p_over * bk_odds - 1, 4)
+                if ev_adjusted <= 0:
+                    continue
+                value_score = round(ev_adjusted * cf * math.log(bk_odds), 4)
+
+                label = f"Over {line} {label_es}: {star_name}"
+
+                # Copy contextual con datos reales
+                stat_short = label_es[:3]
+                copy_lines = []
+                if times_over >= 4:
+                    copy_lines.append(
+                        f"{star_name} superó la línea de {line} {stat_short} "
+                        f"en {times_over} de sus últimos {games_checked} partidos."
+                    )
+                elif times_over >= 3:
+                    copy_lines.append(
+                        f"{star_name} superó {line} {stat_short} "
+                        f"en {times_over} de {games_checked} partidos recientes."
+                    )
+                if avg_recent > line * 1.1:
+                    copy_lines.append(
+                        f"Promedia {avg_recent} {label_es} en sus últimos "
+                        f"{games_checked} partidos (línea: {line})."
+                    )
+
+                best_eval = {
+                    "label": label,
+                    "prob_original": prob_pct,
+                    "prob_adjusted": round(prob_pct * cf, 1),
+                    "confidence_factor": cf,
+                    "bk_odds": bk_odds,
+                    "ev_adjusted": ev_adjusted,
+                    "value_score": value_score,
+                    "valid": True,
+                    "reason": "ok",
+                    "market_type": "nba_player_prop",
+                }
+
+                ext_ctx = {
+                    "copy_lines": copy_lines,
+                    "player_prop": {
+                        "player": star_name,
+                        "stat": stat_api,
+                        "stat_label": label_es,
+                        "line": line,
+                        "games_checked": games_checked,
+                        "times_over": times_over,
+                        "ratio": ratio,
+                        "recent_values": recent_values,
+                        "avg_recent": avg_recent,
+                    },
+                    "cf_adjustment": cf_adj,
+                }
+
+                # Tupla compatible con el pipeline (18 elementos)
+                props.append((
+                    value_score,        # [0]  vs
+                    "NBA",              # [1]  league
+                    team_name,          # [2]  home (equipo del jugador)
+                    team_data,          # [3]  hd
+                    opp_name,           # [4]  away (rival)
+                    opp_data,           # [5]  ad
+                    True,               # [6]  nba
+                    label,              # [7]  display_pick
+                    prob_pct,           # [8]  display_prob
+                    bk_odds,            # [9]  cj
+                    value_level(value_score),  # [10] vl
+                    prob_pct,           # [11] base_prob
+                    label,              # [12] base_pick
+                    bk_odds,            # [13] bk_odds
+                    cf,                 # [14] cf
+                    best_eval,          # [15] best_eval
+                    [best_eval],        # [16] all_evals
+                    ext_ctx,            # [17] ext_ctx
+                ))
+
+    return props
 
 
 # ══════════════════════════════════════════════════════════════
@@ -1465,7 +1864,7 @@ def main():
     print(f"Hoy: {today} | Acepta hasta {tomorrow} 05:59 UTC\n")
 
     # ── FASE 1: recopilar todos los candidatos con su score de valor ──
-    candidates = []  # (vs, league, home, hd, away, ad, nba, display_pick, display_prob, cj, vl, base_prob, base_pick, bk_odds, cf)
+    candidates = []  # tupla de 18 elementos: índice 17 = ext_ctx (contexto API externa)
 
     for code, (league, stats_file) in ESPN_LEAGUES.items():
         matches = espn_fixtures(code)
@@ -1476,8 +1875,23 @@ def main():
             if not hd: hd = ad
             if not ad: ad = hd
             base_pick, base_prob, display_pick, display_prob, vs, cj, vl, bk_odds, cf, best_eval, all_evals = calc_wp(league, home, hd, away, ad, nba=False)
-            if base_prob >= MIN_CONF:
-                candidates.append((vs, league, home, hd, away, ad, False, display_pick, display_prob, cj, vl, base_prob, base_pick, bk_odds, cf, best_eval, all_evals))
+            if base_prob >= MIN_CONF_SUBSCRIPTION:
+                # Enriquecer con API externa (solo contexto, no decisor)
+                ext_ctx = enrich_match_context(home, away, league)
+                # Ajustar confidence_factor con dato externo (acotado ±0.03)
+                if ext_ctx.get("cf_adjustment"):
+                    cf = max(CONF_FLOOR, min(1.0, round(cf + ext_ctx["cf_adjustment"], 4)))
+                # Enriquecer corners con TechCorner (solo si el mercado es corners)
+                _be_label = ((best_eval or {}).get("label") or "").lower()
+                if "corner" in _be_label:
+                    corners_ctx = enrich_corners_context(home, away, league, hd, ad)
+                    if corners_ctx:
+                        ext_ctx = ext_ctx or {}
+                        ext_ctx["corners"] = corners_ctx
+                        if corners_ctx.get("cf_adjustment"):
+                            cf = max(CONF_FLOOR, min(1.0, round(cf + corners_ctx["cf_adjustment"], 4)))
+                        ext_ctx.setdefault("copy_lines", []).extend(corners_ctx.get("copy_lines", []))
+                candidates.append((vs, league, home, hd, away, ad, False, display_pick, display_prob, cj, vl, base_prob, base_pick, bk_odds, cf, best_eval, all_evals, ext_ctx))
 
     nba_games = nba_fixtures()
     if nba_games:
@@ -1487,8 +1901,19 @@ def main():
             if not hd: hd = ad
             if not ad: ad = hd
             base_pick, base_prob, display_pick, display_prob, vs, cj, vl, bk_odds, cf, best_eval, all_evals = calc_wp("NBA", home, hd, away, ad, nba=True)
-            if base_prob >= MIN_CONF:
-                candidates.append((vs, "NBA", home, hd, away, ad, True, display_pick, display_prob, cj, vl, base_prob, base_pick, bk_odds, cf, best_eval, all_evals))
+            if base_prob >= MIN_CONF_SUBSCRIPTION:
+                # Enriquecer con API NBA Games (contexto partido/equipo)
+                ext_ctx = enrich_nba_game_context(home, away, hd, ad)
+                if ext_ctx.get("cf_adjustment"):
+                    cf = max(CONF_FLOOR, min(1.0, round(cf + ext_ctx["cf_adjustment"], 4)))
+                candidates.append((vs, "NBA", home, hd, away, ad, True, display_pick, display_prob, cj, vl, base_prob, base_pick, bk_odds, cf, best_eval, all_evals, ext_ctx))
+
+    # ── FASE 1b: MVP player props NBA (solo Over puntos, solo extra) ──
+    if nba_games:
+        _prop_candidates = generate_nba_player_props(nba_games, nba_teams)
+        if _prop_candidates:
+            candidates.extend(_prop_candidates)
+            print(f"      Props NBA generados: {len(_prop_candidates)}")
 
     # ── FASE 2: selección pick del día + picks premium ──
     #
@@ -1506,6 +1931,9 @@ def main():
     #   - El pick del día reduce rachas de derrotas (alta prob real)
     #   - Los premium maximizan el upside de los picks más prometedores
     #   - Nunca se solapan → el usuario recibe señales distintas y complementarias
+
+    # Inicializar análisis de goles (display complementario, se llena en modo normal)
+    analisis_goles = []
 
     if adicional:
         # ── MODO TRANSICIÓN (solo hoy, --adicional) ──
@@ -1530,102 +1958,465 @@ def main():
               f"Nuevos válidos: {len(new_valid)} | Seleccionados: {len(top)}\n")
 
     else:
-        # ── MODO NORMAL ──
-        # Universo válido: value_score > 0 ↔ ev_adjusted > 0 y reason == "ok"
-        valid_candidates = [c for c in candidates if c[0] is not None and c[0] > 0]
+        # ══════════════════════════════════════════════════════════
+        #  FASE 2 — Clasificación por perfiles (PRODUCTO, no modelo)
+        #  Fórmulas intactas. Solo decide qué se PUBLICA.
+        # ══════════════════════════════════════════════════════════
 
-        # ── Pick del día VENDIBLE ──
-        # Aplica reglas de negocio sobre los candidatos ya validados por el motor.
-        # No toca probabilidades ni EV — solo filtra por rangos de producto.
-        #
-        # Filtros (todos obligatorios):
-        #   · prob_adjusted ≥ PICK_DIA_MIN_PROB (65%)   → certeza mínima comercial
-        #   · PICK_DIA_MIN_CUOTA ≤ bk_odds ≤ PICK_DIA_MAX_CUOTA (1.40–1.85) → rango vendible
-        #   · mercado en lista permitida (DC, 1X2, DNB, Over 1.5)            → legibilidad
-        #   · ev_adjusted ≥ PICK_DIA_MIN_EV (5%)        → valor esperado positivo mínimo
-        #   · reason == "ok" ya garantizado por valid_candidates
-        #
-        # Desempate: prob_adjusted desc → confidence_factor desc → simplicity asc
-        def _es_vendible(c):
-            be   = c[15] or {}
-            prob = be.get("prob_adjusted", 0.0)
-            ev   = be.get("ev_adjusted",   0.0)
-            odds = c[13]   # bk_odds de la tupla del candidato
-            lbl  = be.get("label", "")
-            if prob < PICK_DIA_MIN_PROB:          return False
-            if ev   < PICK_DIA_MIN_EV:            return False
-            if odds is None:                      return False
-            if odds < PICK_DIA_MIN_CUOTA:         return False
-            if odds > PICK_DIA_MAX_CUOTA:         return False
-            if not _es_mercado_vendible(lbl):     return False
+        # ── PASO 2: Recolectar evaluated_picks con metadatos ──
+        # Cada candidato se enriquece con campos necesarios para
+        # qualifies_for_profile(). No filtra nada todavía.
+        evaluated_picks = []
+        for c in candidates:
+            be = c[15] or {}   # best_eval dict
+            all_evals = c[16]  # all evaluations list
+            label = be.get("label", "")
+            is_goals = "over" in label.lower() if label else False
+
+            # Determinar si ambos equipos tienen stats reales
+            hd, ad = c[3], c[5]
+            hd_has = bool(hd and hd.get("position", {}).get("partidos"))
+            ad_has = bool(ad and ad.get("position", {}).get("partidos"))
+            # Para NBA: verificar campo distinto
+            if c[6]:  # nba flag
+                hd_has = bool(hd and hd.get("wins"))
+                ad_has = bool(ad and ad.get("wins"))
+            stats_complete = hd_has and ad_has
+
+            evaluated_picks.append({
+                "raw":              c,
+                "league":           c[1],
+                "home":             c[2],
+                "away":             c[4],
+                "nba":              c[6],
+                "prob_adjusted":    be.get("prob_adjusted", 0.0),
+                "ev_adjusted":      be.get("ev_adjusted"),
+                "value_score":      be.get("value_score") or (c[0] if isinstance(c[0], (int, float)) else 0.0),
+                "confidence_factor": be.get("confidence_factor", c[14]),
+                "bk_odds":          be.get("bk_odds", c[13]),
+                "market_type":      "goals" if is_goals else "h2h",
+                "label":            label,
+                "stats_complete":   stats_complete,
+                "reason":           be.get("reason", "no_eval"),
+                "all_evals":        all_evals,
+            })
+
+        # ── PASO 3: Funciones de elegibilidad por perfil ──
+        def qualifies_for_profile(pick, filters):
+            """Función PURA: decide si un pick es elegible para un perfil."""
+            # Debe tener reason == "ok" en el pipeline original
+            # O tener EV positivo recalculable con los nuevos umbrales
+            ev = pick["ev_adjusted"]
+            if ev is None or ev <= 0:
+                # Revisar all_evals: ¿algún mercado pasa con los nuevos umbrales?
+                found = _find_best_market_for_profile(pick, filters)
+                if found:
+                    # Actualizar el pick con el mercado encontrado
+                    pick.update(found)
+                    ev = pick["ev_adjusted"]
+                else:
+                    return False
+
+            if pick["prob_adjusted"] < filters["MIN_PROB"]:
+                return False
+            if ev < filters["MIN_EV"]:
+                return False
+            if pick["confidence_factor"] < filters["MIN_CONF_FACTOR"]:
+                return False
+            if pick["value_score"] < filters["MIN_VS"]:
+                return False
+            if filters["REQUIRE_BOTH_TEAMS_STATS"] and not pick["stats_complete"]:
+                return False
+
+            # Cap de EV según tipo de mercado
+            max_ev = filters["MAX_EV_GOALS"] if pick["market_type"] == "goals" else filters["MAX_EV_H2H"]
+            if ev > max_ev:
+                return False
+
             return True
 
-        vendibles = [c for c in valid_candidates if _es_vendible(c)]
-        pick_dia  = None
-        if vendibles:
-            pick_dia = max(
-                vendibles,
-                key=lambda c: (
-                    (c[15] or {}).get("prob_adjusted",   0.0),   # 1. mayor certeza
-                    c[14],                                        # 2. mayor cf
-                    -_market_simplicity((c[15] or {}).get("label", "")),  # 3. mercado más simple
-                ),
-            )
+        def _find_best_market_for_profile(pick, filters):
+            """Busca en all_evals un mercado que pase con los umbrales del perfil.
+            No recalcula EV — usa los valores ya computados por evaluate_value()."""
+            best = None
+            best_vs = -1
+            max_ev_h2h = filters["MAX_EV_H2H"]
+            max_ev_goals = filters["MAX_EV_GOALS"]
+            min_ev = filters["MIN_EV"]
 
-        # ── Picks extra (entretenimiento) ──
-        # Picks válidos del motor que no cumplen las reglas del pick_dia vendible
-        # O que cumplen pero ya fueron asignados como pick_dia.
-        # Se ordenan por value_score descendente y se publican como señales adicionales.
-        extra_pool = [c for c in valid_candidates if c is not pick_dia]
-        extra_pool.sort(key=lambda c: c[0], reverse=True)
-        top_extra  = extra_pool[:MAX_EXTRA_PICKS]
+            for e in (pick.get("all_evals") or []):
+                ev = e.get("ev_adjusted")
+                if ev is None or ev <= 0:
+                    continue
+                if ev < min_ev:
+                    continue
+                prob = e.get("prob_adjusted", 0.0)
+                if prob < filters["MIN_PROB"]:
+                    continue
+                cf = e.get("confidence_factor", 0.0)
+                if cf < filters["MIN_CONF_FACTOR"]:
+                    continue
 
-        # Lista final: pick_dia primero (si existe), luego extra
-        top = (([("pick_dia", pick_dia)] if pick_dia else []) +
-               [("extra", c) for c in top_extra])
+                label = e.get("label", "")
+                is_goals = "over" in label.lower()
+                max_ev = max_ev_goals if is_goals else max_ev_h2h
+                if ev > max_ev:
+                    continue
 
-        print(f"Candidatos totales: {len(candidates)} | Válidos: {len(valid_candidates)} | "
-              f"Vendibles: {len(vendibles)} | Pick día: {1 if pick_dia else 0} | "
-              f"Extra: {len(top_extra)}\n")
+                vs = e.get("value_score") or 0.0
+                # Recalcular value_score si no existe pero EV es válido
+                if vs <= 0 and ev > 0 and cf > 0:
+                    bk = e.get("bk_odds") or 0
+                    vs = round(ev * cf * math.log(max(bk, 1.01)), 4) if bk > 1 else 0.0
+
+                if vs > best_vs:
+                    best_vs = vs
+                    best = {
+                        "prob_adjusted":    prob,
+                        "ev_adjusted":      ev,
+                        "value_score":      vs,
+                        "confidence_factor": cf,
+                        "bk_odds":          e.get("bk_odds"),
+                        "label":            label,
+                        "market_type":      "goals" if is_goals else "h2h",
+                        "reason":           "ok",
+                    }
+            return best
+
+        # ── Clasificar candidatos ──
+        subscription_candidates = [
+            p for p in evaluated_picks
+            if qualifies_for_profile(p, FILTERS_SUBSCRIPTION)
+        ]
+        premium_candidates = [
+            p for p in subscription_candidates
+            if qualifies_for_profile(p, FILTERS_PREMIUM)
+        ]
+
+        # ── PASO 4: Selección de picks de suscripción ──
+        subscription_candidates.sort(key=lambda p: p["value_score"], reverse=True)
+        subscription_picks = subscription_candidates[:TIER_SUSCRIPCION_MAX]
+
+        # ── PASO 5: Pick Gratuito (más ESTABLE, no mayor value_score) ──
+        # Priorizar: mayor prob_adjusted → mercados entendibles → mayor cf
+        def _gratuito_sort_key(p):
+            label = p.get("label", "").lower()
+            # Mercados entendibles: victoria directa (3), over 1.5 (2), over 2.5 (1), otros (0)
+            simplicity = 0
+            if "over 1.5" in label:          simplicity = 2
+            elif "over 2.5" in label:        simplicity = 1
+            elif "doble" not in label and "sin empate" not in label:
+                simplicity = 3  # victoria directa
+            return (p["prob_adjusted"], simplicity, p["confidence_factor"])
+
+        pick_gratuito = max(subscription_picks, key=_gratuito_sort_key) if subscription_picks else None
+
+        # ── PASO 6: Pick del Día (Premium) — lógica estricta ──
+        pick_dia = None
+        if len(subscription_picks) >= TIER_SUSCRIPCION_MIN and premium_candidates:
+            premium_candidates.sort(key=lambda p: p["value_score"], reverse=True)
+            # Excluir el pick gratuito del premium
+            for pc in premium_candidates:
+                if pc is not pick_gratuito:
+                    pick_dia = pc
+                    break
+
+        # ══════════════════════════════════════════════════════════
+        #  PASO 7 — PICK EXPLORATORIO (fallback de publicación)
+        #  Solo si:
+        #    · No hay picks de suscripción oficiales (len == 0)
+        #    · Hay fixtures hoy en ligas CORE
+        #    · Al menos 1 evaluated_pick pasa umbrales exploratorios
+        #  NO es premium. NO es suscripción. Es un fallback honesto
+        #  para evitar días en blanco en Telegram/web.
+        # ══════════════════════════════════════════════════════════
+        pick_exploratorio = None
+
+        if not subscription_picks:
+            # ¿Hay ligas CORE activas hoy?
+            core_active = any(p["league"] in CORE_LEAGUES for p in evaluated_picks)
+
+            if core_active:
+                # Buscar en all_evals de cada pick un mercado que cumpla
+                # condiciones exploratorias. No recalcula EV — usa valores
+                # ya computados por evaluate_value().
+                def _is_understandable_market(label):
+                    l = (label or "").lower()
+                    if "over 1.5" in l or "over 2.5" in l:
+                        return True
+                    if "sin empate" in l:  # DNB
+                        return True
+                    if "doble" in l:  # DC no aplica
+                        return False
+                    # Victoria directa (no tiene prefijo)
+                    return "over" not in l
+
+                exploratory_pool = []
+                for ep in evaluated_picks:
+                    if ep["league"] not in CORE_LEAGUES:
+                        continue
+                    # Buscar mejor mercado exploratorio en all_evals
+                    best_market = None
+                    best_vs = -1
+                    for e in (ep.get("all_evals") or []):
+                        ev = e.get("ev_adjusted")
+                        if ev is None or ev < EXPLORATORY_MIN_EV:
+                            continue
+                        prob = e.get("prob_adjusted", 0.0)
+                        if prob < EXPLORATORY_MIN_PROB:
+                            continue
+                        label = e.get("label", "")
+                        if not _is_understandable_market(label):
+                            continue
+                        cf = e.get("confidence_factor", 0.0)
+                        bk = e.get("bk_odds") or 0
+                        vs = e.get("value_score") or 0.0
+                        if vs <= 0 and bk > 1 and cf > 0:
+                            vs = round(ev * cf * math.log(bk), 4)
+                        if vs > best_vs:
+                            best_vs = vs
+                            best_market = {
+                                "raw": ep["raw"],
+                                "prob_adjusted":    prob,
+                                "ev_adjusted":      ev,
+                                "value_score":      vs,
+                                "confidence_factor": cf,
+                                "bk_odds":          e.get("bk_odds"),
+                                "label":            label,
+                                "reason":           "ok",
+                            }
+                    if best_market:
+                        exploratory_pool.append(best_market)
+
+                if exploratory_pool:
+                    exploratory_pool.sort(key=lambda p: p["value_score"], reverse=True)
+                    pick_exploratorio = exploratory_pool[0]
+                    print(f"  [EXPLORATORIO] Activado — {pick_exploratorio['label']} "
+                          f"prob={pick_exploratorio['prob_adjusted']}% "
+                          f"ev={pick_exploratorio['ev_adjusted']}%")
+
+        # ══════════════════════════════════════════════════════════
+        #  PASO 8 — ANÁLISIS DE GOLES (display complementario)
+        #  Mercados Over con valor moderado que NO ganaron el pick
+        #  principal del partido. Se exponen como "insight", no
+        #  como pick. NO se publican en Telegram automáticamente.
+        # ══════════════════════════════════════════════════════════
+        # Set de partidos ya elegidos (para excluirlos)
+        _picks_principales = set()
+        if pick_dia:
+            _picks_principales.add((pick_dia["home"], pick_dia["away"]))
+        for p in subscription_picks:
+            _picks_principales.add((p["home"], p["away"]))
+        if pick_exploratorio:
+            _picks_principales.add((pick_exploratorio["home"], pick_exploratorio["away"]))
+
+        _goals_pool = []
+        for ep in evaluated_picks:
+            if ep["league"] not in GOALS_ANALYSIS_LEAGUES:
+                continue
+            # Buscar el mejor mercado de goles del partido
+            best_goal = None
+            best_vs = -1
+            for e in (ep.get("all_evals") or []):
+                label = (e.get("label") or "")
+                if "Over" not in label:
+                    continue
+                ev = e.get("ev_adjusted")
+                if ev is None or ev < GOALS_ANALYSIS_MIN_EV:
+                    continue
+                prob = e.get("prob_adjusted", 0.0)
+                if prob < GOALS_ANALYSIS_MIN_PROB:
+                    continue
+                cf = e.get("confidence_factor", 0.0)
+                if cf < GOALS_ANALYSIS_MIN_CF:
+                    continue
+                bk = e.get("bk_odds")
+                if bk is None:
+                    continue
+                vs = e.get("value_score") or 0.0
+                if vs <= 0 and bk > 1 and cf > 0:
+                    vs = round(ev * cf * math.log(bk), 4)
+                if vs > best_vs:
+                    best_vs = vs
+                    best_goal = {
+                        "league":             ep["league"],
+                        "matchup":            f"{ep['home']} vs {ep['away']}",
+                        "home":               ep["home"],
+                        "away":               ep["away"],
+                        "market":             label,
+                        "bk_odds":            bk,
+                        "prob_adjusted":      prob,
+                        "ev_adjusted":        ev,
+                        "confidence_factor":  cf,
+                        "value_score":        vs,
+                    }
+            if best_goal:
+                # Excluir si el partido ya tiene pick principal con mercado de goles
+                key = (best_goal["home"], best_goal["away"])
+                # Si ya es pick principal, verificar si su mercado es de goles
+                principal_es_goles = False
+                if key in _picks_principales:
+                    for ep2 in evaluated_picks:
+                        if (ep2["home"], ep2["away"]) == key:
+                            if "over" in (ep2.get("label") or "").lower():
+                                principal_es_goles = True
+                            break
+                if not principal_es_goles:
+                    _goals_pool.append(best_goal)
+
+        # Ordenar por value_score y limitar a GOALS_ANALYSIS_MAX
+        _goals_pool.sort(key=lambda g: g["value_score"], reverse=True)
+        analisis_goles = _goals_pool[:GOALS_ANALYSIS_MAX]
+
+        # ── Construir lista final compatible con el resto del pipeline ──
+        top = []
+        used = set()
+        if pick_dia:
+            top.append(("pick_dia", pick_dia["raw"]))
+            used.add(id(pick_dia))
+        for p in subscription_picks:
+            if id(p) in used:
+                continue
+            if p is pick_gratuito:
+                top.append(("pick_gratuito", p["raw"]))
+            else:
+                top.append(("pick_suscripcion", p["raw"]))
+            used.add(id(p))
+        # Agregar pick exploratorio al final si existe
+        if pick_exploratorio:
+            top.append(("pick_exploratorio", pick_exploratorio["raw"]))
+
+        # ── Actualizar tupla raw con el mercado elegido por el perfil ──
+        # evaluated_pick (o pick_exploratorio) puede haber encontrado un
+        # mercado mejor con umbrales más flexibles. Sincronizamos la tupla
+        # para que HTML, preview y log reflejen el mercado correcto.
+        def _find_profile_pick(raw):
+            """Devuelve el dict (evaluated_pick o exploratorio) asociado a raw."""
+            if pick_exploratorio and pick_exploratorio["raw"] is raw:
+                return pick_exploratorio
+            for p in evaluated_picks:
+                if p["raw"] is raw:
+                    return p
+            return None
+
+        _updated_top = []
+        for tipo, raw in top:
+            ep = _find_profile_pick(raw)
+            if ep and ep.get("reason") == "ok" and ep.get("label"):
+                target_label = ep["label"]
+                matched_eval = None
+                for e in raw[16]:
+                    if e.get("label") == target_label:
+                        matched_eval = e
+                        break
+                if matched_eval:
+                    raw_list = list(raw)
+                    raw_list[0]  = ep["value_score"]          # vs (posición 0)
+                    raw_list[7]  = ep["label"]                # display_pick
+                    raw_list[8]  = ep["prob_adjusted"]        # display_prob
+                    raw_list[13] = ep.get("bk_odds")          # bk_odds
+                    raw_list[14] = ep["confidence_factor"]    # cf
+                    raw_list[15] = matched_eval               # best_eval
+                    _updated_top.append((tipo, tuple(raw_list)))
+                    continue
+            _updated_top.append((tipo, raw))
+        top = _updated_top
+
+        print(f"Candidatos totales: {len(candidates)} | Evaluados: {len(evaluated_picks)} | "
+              f"Suscripción elegibles: {len(subscription_candidates)} | Premium elegibles: {len(premium_candidates)} | "
+              f"Picks suscripción: {len(subscription_picks)} | Pick día: {1 if pick_dia else 0} | "
+              f"Gratuito: {1 if pick_gratuito else 0} | "
+              f"Exploratorio: {1 if pick_exploratorio else 0} | "
+              f"Análisis goles: {len(analisis_goles)}\n")
 
     # ── PREVIEW / DRY-RUN: mostrar picks en consola y salir sin publicar nada ──
     if preview:
         print("\n" + "═" * 60)
         print("  PREVIEW — sin publicar nada (--preview / --dry-run)")
         print("═" * 60)
+        if is_api_active():
+            print("  API fútbol activa (RAPIDAPI_KEY detectada)")
+        else:
+            print("  API fútbol desactivada (sin key)")
+        if is_nba_games_api_active():
+            print("  API NBA Games activa (RAPIDAPI_KEY detectada)")
+        else:
+            print("  API NBA Games desactivada (sin key)")
+        if is_nba_players_api_active():
+            print("  API NBA Players activa (RAPIDAPI_KEY detectada)")
+        else:
+            print("  API NBA Players desactivada (sin key)")
+        if is_techcorner_active():
+            print("  API TechCorner activa (RAPIDAPI_KEY detectada)")
+        else:
+            print("  API TechCorner desactivada (sin key)")
+        if is_nba_props_odds_active():
+            print("  API NBA Prop Odds activa (ODDS_API_KEY detectada)")
+        else:
+            print("  API NBA Prop Odds desactivada (sin key)")
         if not top:
             print("  (sin picks válidos para hoy)")
-        _preview_extras = []
-        for tipo_pick, (vs, league, home, hd, away, ad, nba, win, wp, cj, vl, base_prob, base_pick, bk_odds, cf, best_eval, all_evals) in top:
+        _preview_suscripcion = []
+        _tipo_labels = {
+            "pick_dia": "PICK DEL DÍA (PREMIUM)",
+            "pick_gratuito": "PICK GRATUITO (TELEGRAM)",
+            "pick_suscripcion": "PICK SUSCRIPCIÓN",
+            "pick_exploratorio": "PICK EXPLORATORIO (RIESGO MEDIO)",
+        }
+        for tipo_pick, (vs, league, home, hd, away, ad, nba, win, wp, cj, vl, base_prob, base_pick, bk_odds, cf, best_eval, all_evals, ext_ctx) in top:
             be = best_eval or {}
             cuota_str = f"@{round(bk_odds, 2)}" if bk_odds else "(sin cuota)"
             pa_str    = f"{be.get('prob_adjusted', wp):.1f}%"
             ev_str    = f"{be.get('ev_adjusted'):.1f}%" if be.get('ev_adjusted') is not None else "—"
             vs_str    = f"{vs:.4f}" if vs is not None else "—"
             mercado   = be.get("label") or win
-            print(f"\n[{tipo_pick.upper()}]")
+            print(f"\n[{_tipo_labels.get(tipo_pick, tipo_pick.upper())}]")
             print(f"  {home} vs {away} ({league})")
             print(f"  Mercado:       {mercado} {cuota_str}")
             print(f"  prob_adjusted: {pa_str}")
             print(f"  ev_adjusted:   {ev_str}")
             print(f"  value_score:   {vs_str}")
             print(f"  cf:            {be.get('confidence_factor', cf)}")
+            if ext_ctx.get("risk_flags"):
+                print(f"  ⚠ riesgos:     {', '.join(ext_ctx['risk_flags'])}")
+            if ext_ctx.get("copy_lines"):
+                print("  contexto API:")
+                for _cl in ext_ctx["copy_lines"]:
+                    print(f"    · {_cl}")
             _pick_data = {"home": home, "away": away, "league": league,
                           "market_label": mercado, "prob_adjusted": pa_str.rstrip("%"),
                           "bk_odds": round(bk_odds, 2) if bk_odds else "—"}
             if tipo_pick == "pick_dia":
-                print("\n── COPY PICK DEL DÍA ──")
+                print("\n── COPY PICK DEL DÍA (PREMIUM) ──")
                 print(render_pick_dia_copy(_pick_data))
+            elif tipo_pick == "pick_gratuito":
+                print(f"  ★ Este pick se publica en Telegram (gratuito)")
+                _preview_suscripcion.append(_pick_data)
+            elif tipo_pick == "pick_exploratorio":
+                print(f"  ⚠ PICK EXPLORATORIO — riesgo medio")
+                print(f"    Hoy no hay valor premium claro — este es el mejor")
+                print(f"    pick disponible en ligas CORE con EV positivo.")
             else:
-                _preview_extras.append(_pick_data)
-        if _preview_extras:
-            print("\n── COPY PICKS EXTRA ──")
-            print(render_pick_extra_copy(_preview_extras))
+                _preview_suscripcion.append(_pick_data)
+        if _preview_suscripcion:
+            print("\n── COPY PICKS SUSCRIPCIÓN ──")
+            print(render_pick_extra_copy(_preview_suscripcion))
+
+        # ── ANÁLISIS DE GOLES (display complementario, no es pick) ──
+        if analisis_goles:
+            print("\n── ANÁLISIS DE GOLES ──")
+            print("(insight complementario — no es pick oficial)\n")
+            for g in analisis_goles:
+                ev_label = "moderado" if g["ev_adjusted"] < 12 else "alto"
+                print(f"  • {g['matchup']} ({g['league']})")
+                print(f"    {g['market']} @{g['bk_odds']}")
+                print(f"    Prob: {g['prob_adjusted']:.0f}% | EV: +{g['ev_adjusted']:.1f}% | cf: {g['confidence_factor']}")
+                print(f"    Nota: valor {ev_label} en mercado eficiente\n")
         print("\n" + "═" * 60 + "\n")
         return  # ← salida limpia: nada se escribe en disco
 
     # ── FASE 3: generar HTML solo para los elegidos ──
-    for tipo_pick, (vs, league, home, hd, away, ad, nba, win, wp, cj, vl, base_prob, base_pick, bk_odds, cf, best_eval, all_evals) in top:
+    for tipo_pick, (vs, league, home, hd, away, ad, nba, win, wp, cj, vl, base_prob, base_pick, bk_odds, cf, best_eval, all_evals, ext_ctx) in top:
         # Solo el pick_dia recibe _pick_data (para inyectar cuota + explicación en su pbox)
         # Los picks extra se renderizan como artículos normales sin copy adicional
         if tipo_pick == "pick_dia":
@@ -1635,6 +2426,13 @@ def main():
                 "prob_adjusted": round(_be_d.get("prob_adjusted", 0), 1) if _be_d.get("prob_adjusted") else "—",
                 "bk_odds": round(bk_odds, 2) if bk_odds else "—",
             }
+            # Enriquecer copy del pick del día con contexto externo
+            if nba:
+                _ext_copy = format_nba_game_context_for_copy(ext_ctx)
+            else:
+                _ext_copy = format_context_for_copy(ext_ctx)
+            if _ext_copy:
+                _pick_data["extra_context"] = _ext_copy
         else:
             _pick_data = None
         art = article(league, home, hd, away, ad, nba=nba,
@@ -1675,29 +2473,44 @@ def main():
         print("Sección adicional inyectada en index.html")
     else:
         # Modo normal: escribe el index completo desde cero.
-        # Pick del Día → card destacada (borde dorado); Extras → cards simples.
+        # 3 niveles de cards: Premium (dorado), Suscripción (azul), Gratuito (verde)
         def _card_html(entry):
             s, m, lg, prob, cj_d, vs, vl, base_pick, cf, best_eval, all_evals, tipo_pick = entry
+            be = best_eval or {}
+            market = be.get("label", "")
+            odds   = be.get("bk_odds")
+            odds_str = f' @ {round(odds, 2)}' if odds else ""
             if tipo_pick == "pick_dia":
-                be = best_eval or {}
-                market = be.get("label", "")
-                odds   = be.get("bk_odds")
-                odds_str = f' @ {round(odds, 2)}' if odds else ""
                 return (
                     f'<a href="/static/predictions/{s}.html" class="card" '
                     f'style="border-color:rgba(240,180,41,.4);border-top:3px solid var(--gold-600)">'
-                    f'<span class="lg" style="color:var(--gold-500)">PICK DEL DÍA &nbsp;·&nbsp; {lg}</span>'
+                    f'<span class="lg" style="color:var(--gold-500)">PICK DEL D\u00cdA (PREMIUM) &nbsp;·&nbsp; {lg}</span>'
                     f'<h3>{m}</h3>'
                     f'<div style="font-size:.82rem;color:var(--gray-400);margin:-.2rem 0 .8rem">'
                     f'{market}{odds_str}</div>'
-                    f'<span class="lnk">Ver predicción →</span>'
+                    f'<span class="lnk">Ver predicci\u00f3n →</span>'
+                    f'</a>'
+                )
+            elif tipo_pick == "pick_gratuito":
+                return (
+                    f'<a href="/static/predictions/{s}.html" class="card" '
+                    f'style="border-color:rgba(34,197,94,.3);border-top:3px solid var(--success)">'
+                    f'<span class="lg" style="color:var(--success)">PICK GRATUITO &nbsp;·&nbsp; {lg}</span>'
+                    f'<h3>{m}</h3>'
+                    f'<div style="font-size:.82rem;color:var(--gray-400);margin:-.2rem 0 .8rem">'
+                    f'{market}{odds_str}</div>'
+                    f'<span class="lnk">Ver predicci\u00f3n →</span>'
                     f'</a>'
                 )
             else:
                 return (
-                    f'<a href="/static/predictions/{s}.html" class="card">'
-                    f'<span class="lg">{lg}</span><h3>{m}</h3>'
-                    f'<span class="lnk">Ver predicción →</span>'
+                    f'<a href="/static/predictions/{s}.html" class="card" '
+                    f'style="border-color:rgba(100,140,200,.2);border-top:3px solid #4a7abf">'
+                    f'<span class="lg" style="color:#6b9bd2">SUSCRIPCI\u00d3N &nbsp;·&nbsp; {lg}</span>'
+                    f'<h3>{m}</h3>'
+                    f'<div style="font-size:.82rem;color:var(--gray-400);margin:-.2rem 0 .8rem">'
+                    f'{market}{odds_str}</div>'
+                    f'<span class="lnk">Ver predicci\u00f3n →</span>'
                     f'</a>'
                 )
 
@@ -1707,6 +2520,66 @@ def main():
                          site_url=SITE_URL, cards=cards),
             encoding='utf-8'
         )
+
+    # ── JSON DIARIO — estructura de 3 niveles ──
+    def _pick_to_dict(slug, matchup, league, tipo, best_eval, bk_odds, cf):
+        be = best_eval or {}
+        return {
+            "slug": slug,
+            "matchup": matchup,
+            "league": league,
+            "tipo": tipo,
+            "market": be.get("label", ""),
+            "prob_adjusted": be.get("prob_adjusted"),
+            "value_score": be.get("value_score"),
+            "confidence_factor": be.get("confidence_factor", cf),
+            "ev_adjusted": be.get("ev_adjusted"),
+            "bk_odds": be.get("bk_odds", bk_odds),
+        }
+
+    if not adicional:
+        daily_output = {
+            "date": today,
+            "pick_dia": None,
+            "picks_suscripcion": [],
+            "pick_gratuito": None,
+            "pick_exploratorio": None,
+            "analisis_goles": [],
+        }
+        for slug, matchup, lg, prob, cj_d, vs, vl, base_pick, cf, best_eval, all_evals, tipo_pick in preds:
+            entry = _pick_to_dict(slug, matchup, lg, tipo_pick, best_eval, cj_d, cf)
+            if tipo_pick == "pick_dia":
+                daily_output["pick_dia"] = entry
+            elif tipo_pick == "pick_gratuito":
+                daily_output["pick_gratuito"] = entry
+                daily_output["picks_suscripcion"].append(entry)
+            elif tipo_pick == "pick_suscripcion":
+                daily_output["picks_suscripcion"].append(entry)
+            elif tipo_pick == "pick_exploratorio":
+                # Fallback: se expone en ambos campos — como exploratorio
+                # (etiqueta honesta) y también como gratuito (para que
+                # Telegram tenga contenido que publicar)
+                entry["riesgo"] = "medio"
+                entry["nota"] = "Pick exploratorio — hoy no hay valor premium claro"
+                daily_output["pick_exploratorio"] = entry
+                if daily_output["pick_gratuito"] is None:
+                    daily_output["pick_gratuito"] = entry
+        # Análisis de goles (insight, no es pick)
+        for g in analisis_goles:
+            daily_output["analisis_goles"].append({
+                "league":             g["league"],
+                "matchup":            g["matchup"],
+                "market":             g["market"],
+                "bk_odds":            g["bk_odds"],
+                "prob_adjusted":      g["prob_adjusted"],
+                "ev_adjusted":        g["ev_adjusted"],
+                "confidence_factor":  g["confidence_factor"],
+                "nota":               "Análisis de goles — no es pick oficial",
+            })
+
+        _daily_path = OUTPUT_DIR / "daily_picks.json"
+        _daily_path.write_text(json.dumps(daily_output, ensure_ascii=False, indent=2), encoding="utf-8")
+        print(f"JSON diario generado: {_daily_path}")
 
     # ── SEO: sitemap y robots ──
     print("\nGenerando archivos SEO...")

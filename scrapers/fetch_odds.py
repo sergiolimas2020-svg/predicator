@@ -12,16 +12,18 @@ OUT     = Path("static/odds.json")
 
 # Ligas soportadas por la API → nombre interno
 LEAGUES = {
-    "soccer_argentina_primera_division": "Liga Argentina",
-    "soccer_epl":                        "Premier League",
-    "soccer_spain_la_liga":              "La Liga",
-    "soccer_italy_serie_a":              "Serie A",
-    "soccer_germany_bundesliga":         "Bundesliga",
-    "soccer_france_ligue_one":           "Ligue 1",
-    "soccer_brazil_campeonato":          "Brasileirao",
-    "soccer_turkey_super_league":        "Super Lig",
-    "soccer_uefa_champs_league":         "Champions League",
-    "basketball_nba":                    "NBA",
+    "soccer_argentina_primera_division":    "Liga Argentina",
+    "soccer_epl":                           "Premier League",
+    "soccer_spain_la_liga":                 "La Liga",
+    "soccer_italy_serie_a":                 "Serie A",
+    "soccer_germany_bundesliga":            "Bundesliga",
+    "soccer_france_ligue_one":              "Ligue 1",
+    "soccer_brazil_campeonato":             "Brasileirao",
+    "soccer_turkey_super_league":           "Super Lig",
+    "soccer_uefa_champs_league":            "Champions League",
+    "soccer_conmebol_copa_libertadores":    "Copa Libertadores",
+    "soccer_conmebol_copa_sudamericana":    "Copa Sudamericana",
+    "basketball_nba":                       "NBA",
 }
 
 def best_odds(bookmakers, outcome_name):
