@@ -1,4 +1,107 @@
 {
+    "Espanyol": {
+        "corners": {
+            "local": {
+                "partidos": 15,
+                "corners_favor": 5.2,
+                "corners_contra": 4.4
+            },
+            "visitante": {
+                "partidos": 16,
+                "corners_favor": 4.19,
+                "corners_contra": 4.69
+            }
+        },
+        "goals": {
+            "over_1_5": "77%",
+            "over_2_5": "55%",
+            "over_3_5": "29%",
+            "bts": "61%"
+        },
+        "position": {
+            "posicion": 10,
+            "partidos": 31,
+            "ganados": 10,
+            "empatados": 8,
+            "perdidos": 13,
+            "goles_favor": 37,
+            "goles_contra": 48,
+            "diferencia": -11,
+            "puntos": 38
+        }
+    },
+    "Levante": {
+        "corners": {
+            "local": {
+                "partidos": 16,
+                "corners_favor": 4.81,
+                "corners_contra": 4.81
+            },
+            "visitante": {
+                "partidos": 15,
+                "corners_favor": 2.93,
+                "corners_contra": 7.73
+            }
+        },
+        "goals": {
+            "over_1_5": "87%",
+            "over_2_5": "42%",
+            "over_3_5": "26%",
+            "bts": "48%"
+        },
+        "position": {
+            "posicion": 19,
+            "partidos": 31,
+            "ganados": 7,
+            "empatados": 8,
+            "perdidos": 16,
+            "goles_favor": 35,
+            "goles_contra": 50,
+            "diferencia": -15,
+            "puntos": 29
+        }
+    },
+    "Getafe": {
+        "corners": {
+            "local": {
+                "partidos": 15,
+                "corners_favor": 4.27,
+                "corners_contra": 4.13
+            },
+            "visitante": {
+                "partidos": 16,
+                "corners_favor": 4.5,
+                "corners_contra": 5.75
+            }
+        },
+        "goals": {
+            "over_1_5": "61%",
+            "over_2_5": "29%",
+            "over_3_5": "3%",
+            "bts": "32%"
+        },
+        "position": {
+            "posicion": 8,
+            "partidos": 31,
+            "ganados": 12,
+            "empatados": 5,
+            "perdidos": 14,
+            "goles_favor": 27,
+            "goles_contra": 32,
+            "diferencia": -5,
+            "puntos": 41
+        }
+    },
+    "League average": {
+        "corners": {},
+        "goals": {
+            "over_1_5": "51.0%",
+            "over_2_5": "25.8%",
+            "over_3_5": "12.3%",
+            "bts": "24.0%"
+        },
+        "position": {}
+    },
     "Elche": {
         "corners": {
             "local": {
@@ -61,130 +164,6 @@
             "puntos": 35
         }
     },
-    "Rayo Vallecano": {
-        "corners": {
-            "local": {
-                "partidos": 15,
-                "corners_favor": 6.93,
-                "corners_contra": 4.67
-            },
-            "visitante": {
-                "partidos": 16,
-                "corners_favor": 5.19,
-                "corners_contra": 5.44
-            }
-        },
-        "goals": {
-            "over_1_5": "68%",
-            "over_2_5": "39%",
-            "over_3_5": "16%",
-            "bts": "42%"
-        },
-        "position": {
-            "posicion": 13,
-            "partidos": 31,
-            "ganados": 8,
-            "empatados": 11,
-            "perdidos": 12,
-            "goles_favor": 29,
-            "goles_contra": 38,
-            "diferencia": -9,
-            "puntos": 35
-        }
-    },
-    "Real Betis": {
-        "corners": {
-            "local": {
-                "partidos": 15,
-                "corners_favor": 4.27,
-                "corners_contra": 4.47
-            },
-            "visitante": {
-                "partidos": 16,
-                "corners_favor": 4.69,
-                "corners_contra": 6.0
-            }
-        },
-        "goals": {
-            "over_1_5": "87%",
-            "over_2_5": "45%",
-            "over_3_5": "23%",
-            "bts": "65%"
-        },
-        "position": {
-            "posicion": 5,
-            "partidos": 31,
-            "ganados": 11,
-            "empatados": 13,
-            "perdidos": 7,
-            "goles_favor": 45,
-            "goles_contra": 38,
-            "diferencia": 7,
-            "puntos": 46
-        }
-    },
-    "Real Madrid": {
-        "corners": {
-            "local": {
-                "partidos": 16,
-                "corners_favor": 6.75,
-                "corners_contra": 2.81
-            },
-            "visitante": {
-                "partidos": 15,
-                "corners_favor": 6.13,
-                "corners_contra": 4.13
-            }
-        },
-        "goals": {
-            "over_1_5": "87%",
-            "over_2_5": "61%",
-            "over_3_5": "29%",
-            "bts": "58%"
-        },
-        "position": {
-            "posicion": 2,
-            "partidos": 31,
-            "ganados": 22,
-            "empatados": 4,
-            "perdidos": 5,
-            "goles_favor": 65,
-            "goles_contra": 29,
-            "diferencia": 36,
-            "puntos": 70
-        }
-    },
-    "Villarreal": {
-        "corners": {
-            "local": {
-                "partidos": 15,
-                "corners_favor": 5.13,
-                "corners_contra": 4.47
-            },
-            "visitante": {
-                "partidos": 16,
-                "corners_favor": 2.75,
-                "corners_contra": 5.31
-            }
-        },
-        "goals": {
-            "over_1_5": "90%",
-            "over_2_5": "58%",
-            "over_3_5": "35%",
-            "bts": "58%"
-        },
-        "position": {
-            "posicion": 3,
-            "partidos": 31,
-            "ganados": 19,
-            "empatados": 4,
-            "perdidos": 8,
-            "goles_favor": 56,
-            "goles_contra": 36,
-            "diferencia": 20,
-            "puntos": 61
-        }
-    },
     "Athletic Bilbao": {
         "corners": {
             "local": {
@@ -216,252 +195,35 @@
             "puntos": 38
         }
     },
-    "Real Sociedad": {
-        "corners": {
-            "local": {
-                "partidos": 16,
-                "corners_favor": 6.25,
-                "corners_contra": 4.81
-            },
-            "visitante": {
-                "partidos": 15,
-                "corners_favor": 5.53,
-                "corners_contra": 4.53
-            }
-        },
-        "goals": {
-            "over_1_5": "84%",
-            "over_2_5": "61%",
-            "over_3_5": "42%",
-            "bts": "81%"
-        },
-        "position": {
-            "posicion": 7,
-            "partidos": 31,
-            "ganados": 11,
-            "empatados": 9,
-            "perdidos": 11,
-            "goles_favor": 49,
-            "goles_contra": 48,
-            "diferencia": 1,
-            "puntos": 42
-        }
-    },
-    "Espanyol": {
+    "Villarreal": {
         "corners": {
             "local": {
                 "partidos": 15,
-                "corners_favor": 5.2,
-                "corners_contra": 4.4
+                "corners_favor": 5.13,
+                "corners_contra": 4.47
             },
             "visitante": {
                 "partidos": 16,
-                "corners_favor": 4.19,
-                "corners_contra": 4.69
-            }
-        },
-        "goals": {
-            "over_1_5": "77%",
-            "over_2_5": "55%",
-            "over_3_5": "29%",
-            "bts": "61%"
-        },
-        "position": {
-            "posicion": 10,
-            "partidos": 31,
-            "ganados": 10,
-            "empatados": 8,
-            "perdidos": 13,
-            "goles_favor": 37,
-            "goles_contra": 48,
-            "diferencia": -11,
-            "puntos": 38
-        }
-    },
-    "FC Barcelona": {
-        "corners": {
-            "local": {
-                "partidos": 16,
-                "corners_favor": 7.5,
-                "corners_contra": 3.81
-            },
-            "visitante": {
-                "partidos": 15,
-                "corners_favor": 7.0,
-                "corners_contra": 4.67
-            }
-        },
-        "goals": {
-            "over_1_5": "94%",
-            "over_2_5": "81%",
-            "over_3_5": "45%",
-            "bts": "61%"
-        },
-        "position": {
-            "posicion": 1,
-            "partidos": 31,
-            "ganados": 26,
-            "empatados": 1,
-            "perdidos": 4,
-            "goles_favor": 84,
-            "goles_contra": 30,
-            "diferencia": 54,
-            "puntos": 79
-        }
-    },
-    "Alaves": {
-        "corners": {
-            "local": {
-                "partidos": 15,
-                "corners_favor": 5.87,
-                "corners_contra": 4.07
-            },
-            "visitante": {
-                "partidos": 16,
-                "corners_favor": 4.0,
-                "corners_contra": 5.5
-            }
-        },
-        "goals": {
-            "over_1_5": "71%",
-            "over_2_5": "48%",
-            "over_3_5": "26%",
-            "bts": "61%"
-        },
-        "position": {
-            "posicion": 17,
-            "partidos": 31,
-            "ganados": 8,
-            "empatados": 9,
-            "perdidos": 14,
-            "goles_favor": 35,
-            "goles_contra": 46,
-            "diferencia": -11,
-            "puntos": 33
-        }
-    },
-    "Celta Vigo": {
-        "corners": {
-            "local": {
-                "partidos": 16,
-                "corners_favor": 4.63,
-                "corners_contra": 4.0
-            },
-            "visitante": {
-                "partidos": 15,
-                "corners_favor": 3.33,
-                "corners_contra": 4.93
-            }
-        },
-        "goals": {
-            "over_1_5": "84%",
-            "over_2_5": "45%",
-            "over_3_5": "23%",
-            "bts": "65%"
-        },
-        "position": {
-            "posicion": 6,
-            "partidos": 31,
-            "ganados": 11,
-            "empatados": 11,
-            "perdidos": 9,
-            "goles_favor": 44,
-            "goles_contra": 40,
-            "diferencia": 4,
-            "puntos": 44
-        }
-    },
-    "Sevilla FC": {
-        "corners": {
-            "local": {
-                "partidos": 16,
-                "corners_favor": 4.75,
-                "corners_contra": 3.56
-            },
-            "visitante": {
-                "partidos": 15,
-                "corners_favor": 5.2,
-                "corners_contra": 5.73
-            }
-        },
-        "goals": {
-            "over_1_5": "84%",
-            "over_2_5": "58%",
-            "over_3_5": "29%",
-            "bts": "61%"
-        },
-        "position": {
-            "posicion": 16,
-            "partidos": 31,
-            "ganados": 9,
-            "empatados": 7,
-            "perdidos": 15,
-            "goles_favor": 39,
-            "goles_contra": 51,
-            "diferencia": -12,
-            "puntos": 34
-        }
-    },
-    "Levante": {
-        "corners": {
-            "local": {
-                "partidos": 15,
-                "corners_favor": 4.6,
-                "corners_contra": 5.0
-            },
-            "visitante": {
-                "partidos": 15,
-                "corners_favor": 2.93,
-                "corners_contra": 7.73
+                "corners_favor": 2.75,
+                "corners_contra": 5.31
             }
         },
         "goals": {
             "over_1_5": "90%",
-            "over_2_5": "43%",
-            "over_3_5": "27%",
-            "bts": "50%"
+            "over_2_5": "58%",
+            "over_3_5": "35%",
+            "bts": "58%"
         },
         "position": {
-            "posicion": 20,
-            "partidos": 30,
-            "ganados": 6,
-            "empatados": 8,
-            "perdidos": 16,
-            "goles_favor": 34,
-            "goles_contra": 50,
-            "diferencia": -16,
-            "puntos": 26
-        }
-    },
-    "Getafe": {
-        "corners": {
-            "local": {
-                "partidos": 15,
-                "corners_favor": 4.27,
-                "corners_contra": 4.13
-            },
-            "visitante": {
-                "partidos": 15,
-                "corners_favor": 4.67,
-                "corners_contra": 5.6
-            }
-        },
-        "goals": {
-            "over_1_5": "63%",
-            "over_2_5": "30%",
-            "over_3_5": "3%",
-            "bts": "33%"
-        },
-        "position": {
-            "posicion": 8,
-            "partidos": 30,
-            "ganados": 12,
-            "empatados": 5,
-            "perdidos": 13,
-            "goles_favor": 27,
-            "goles_contra": 31,
-            "diferencia": -4,
-            "puntos": 41
+            "posicion": 3,
+            "partidos": 31,
+            "ganados": 19,
+            "empatados": 4,
+            "perdidos": 8,
+            "goles_favor": 56,
+            "goles_contra": 36,
+            "diferencia": 20,
+            "puntos": 61
         }
     },
     "Girona": {
@@ -515,7 +277,7 @@
             "bts": "32%"
         },
         "position": {
-            "posicion": 19,
+            "posicion": 20,
             "partidos": 31,
             "ganados": 6,
             "empatados": 9,
@@ -524,6 +286,68 @@
             "goles_contra": 48,
             "diferencia": -24,
             "puntos": 27
+        }
+    },
+    "Real Madrid": {
+        "corners": {
+            "local": {
+                "partidos": 16,
+                "corners_favor": 6.75,
+                "corners_contra": 2.81
+            },
+            "visitante": {
+                "partidos": 15,
+                "corners_favor": 6.13,
+                "corners_contra": 4.13
+            }
+        },
+        "goals": {
+            "over_1_5": "87%",
+            "over_2_5": "61%",
+            "over_3_5": "29%",
+            "bts": "58%"
+        },
+        "position": {
+            "posicion": 2,
+            "partidos": 31,
+            "ganados": 22,
+            "empatados": 4,
+            "perdidos": 5,
+            "goles_favor": 65,
+            "goles_contra": 29,
+            "diferencia": 36,
+            "puntos": 70
+        }
+    },
+    "Sevilla FC": {
+        "corners": {
+            "local": {
+                "partidos": 16,
+                "corners_favor": 4.75,
+                "corners_contra": 3.56
+            },
+            "visitante": {
+                "partidos": 15,
+                "corners_favor": 5.2,
+                "corners_contra": 5.73
+            }
+        },
+        "goals": {
+            "over_1_5": "84%",
+            "over_2_5": "58%",
+            "over_3_5": "29%",
+            "bts": "61%"
+        },
+        "position": {
+            "posicion": 16,
+            "partidos": 31,
+            "ganados": 9,
+            "empatados": 7,
+            "perdidos": 15,
+            "goles_favor": 39,
+            "goles_contra": 51,
+            "diferencia": -12,
+            "puntos": 34
         }
     },
     "Mallorca": {
@@ -557,15 +381,36 @@
             "puntos": 34
         }
     },
-    "League average": {
-        "corners": {},
-        "goals": {
-            "over_1_5": "51.1%",
-            "over_2_5": "25.9%",
-            "over_3_5": "12.3%",
-            "bts": "23.9%"
+    "Rayo Vallecano": {
+        "corners": {
+            "local": {
+                "partidos": 15,
+                "corners_favor": 6.93,
+                "corners_contra": 4.67
+            },
+            "visitante": {
+                "partidos": 16,
+                "corners_favor": 5.19,
+                "corners_contra": 5.44
+            }
         },
-        "position": {}
+        "goals": {
+            "over_1_5": "68%",
+            "over_2_5": "39%",
+            "over_3_5": "16%",
+            "bts": "42%"
+        },
+        "position": {
+            "posicion": 13,
+            "partidos": 31,
+            "ganados": 8,
+            "empatados": 11,
+            "perdidos": 12,
+            "goles_favor": 29,
+            "goles_contra": 38,
+            "diferencia": -9,
+            "puntos": 35
+        }
     },
     "Atletico Madrid": {
         "corners": {
@@ -629,8 +474,163 @@
             "puntos": 39
         }
     },
+    "Real Betis": {
+        "corners": {
+            "local": {
+                "partidos": 15,
+                "corners_favor": 4.27,
+                "corners_contra": 4.47
+            },
+            "visitante": {
+                "partidos": 16,
+                "corners_favor": 4.69,
+                "corners_contra": 6.0
+            }
+        },
+        "goals": {
+            "over_1_5": "87%",
+            "over_2_5": "45%",
+            "over_3_5": "23%",
+            "bts": "65%"
+        },
+        "position": {
+            "posicion": 5,
+            "partidos": 31,
+            "ganados": 11,
+            "empatados": 13,
+            "perdidos": 7,
+            "goles_favor": 45,
+            "goles_contra": 38,
+            "diferencia": 7,
+            "puntos": 46
+        }
+    },
+    "Alaves": {
+        "corners": {
+            "local": {
+                "partidos": 15,
+                "corners_favor": 5.87,
+                "corners_contra": 4.07
+            },
+            "visitante": {
+                "partidos": 16,
+                "corners_favor": 4.0,
+                "corners_contra": 5.5
+            }
+        },
+        "goals": {
+            "over_1_5": "71%",
+            "over_2_5": "48%",
+            "over_3_5": "26%",
+            "bts": "61%"
+        },
+        "position": {
+            "posicion": 17,
+            "partidos": 31,
+            "ganados": 8,
+            "empatados": 9,
+            "perdidos": 14,
+            "goles_favor": 35,
+            "goles_contra": 46,
+            "diferencia": -11,
+            "puntos": 33
+        }
+    },
+    "FC Barcelona": {
+        "corners": {
+            "local": {
+                "partidos": 16,
+                "corners_favor": 7.5,
+                "corners_contra": 3.81
+            },
+            "visitante": {
+                "partidos": 15,
+                "corners_favor": 7.0,
+                "corners_contra": 4.67
+            }
+        },
+        "goals": {
+            "over_1_5": "94%",
+            "over_2_5": "81%",
+            "over_3_5": "45%",
+            "bts": "61%"
+        },
+        "position": {
+            "posicion": 1,
+            "partidos": 31,
+            "ganados": 26,
+            "empatados": 1,
+            "perdidos": 4,
+            "goles_favor": 84,
+            "goles_contra": 30,
+            "diferencia": 54,
+            "puntos": 79
+        }
+    },
+    "Celta Vigo": {
+        "corners": {
+            "local": {
+                "partidos": 16,
+                "corners_favor": 4.63,
+                "corners_contra": 4.0
+            },
+            "visitante": {
+                "partidos": 15,
+                "corners_favor": 3.33,
+                "corners_contra": 4.93
+            }
+        },
+        "goals": {
+            "over_1_5": "84%",
+            "over_2_5": "45%",
+            "over_3_5": "23%",
+            "bts": "65%"
+        },
+        "position": {
+            "posicion": 6,
+            "partidos": 31,
+            "ganados": 11,
+            "empatados": 11,
+            "perdidos": 9,
+            "goles_favor": 44,
+            "goles_contra": 40,
+            "diferencia": 4,
+            "puntos": 44
+        }
+    },
+    "Real Sociedad": {
+        "corners": {
+            "local": {
+                "partidos": 16,
+                "corners_favor": 6.25,
+                "corners_contra": 4.81
+            },
+            "visitante": {
+                "partidos": 15,
+                "corners_favor": 5.53,
+                "corners_contra": 4.53
+            }
+        },
+        "goals": {
+            "over_1_5": "84%",
+            "over_2_5": "61%",
+            "over_3_5": "42%",
+            "bts": "81%"
+        },
+        "position": {
+            "posicion": 7,
+            "partidos": 31,
+            "ganados": 11,
+            "empatados": 9,
+            "perdidos": 11,
+            "goles_favor": 49,
+            "goles_contra": 48,
+            "diferencia": 1,
+            "puntos": 42
+        }
+    },
     "_metadata": {
-        "fecha_actualizacion": "2026-04-13T10:58:51.595546",
+        "fecha_actualizacion": "2026-04-14T09:59:46.522710",
         "liga": "spain",
         "fuente_datos": {
             "corners": "https://www.soccerstats.com/table.asp?league=spain&tid=cr",
