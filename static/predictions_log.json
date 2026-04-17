@@ -1217,5 +1217,60 @@
         "reason": "mercado_no_disponible"
       }
     ]
+  },
+  {
+    "fecha": "2026-04-17",
+    "slug": "orlando-magic-vs-charlotte-hornets-nba-2026-04-17",
+    "home": "Orlando Magic",
+    "away": "Charlotte Hornets",
+    "league": "NBA",
+    "prediccion": "Orlando Magic",
+    "confianza": "Probabilidad: 55.4%",
+    "resultado_real": null,
+    "acerto": null,
+    "prob_original": 55.4,
+    "confidence_factor": 1.0,
+    "prob_adjusted": 55.4,
+    "bk_odds": 2.46,
+    "ev": 36.3,
+    "penalty": 0.0,
+    "ev_adjusted": 36.3,
+    "value_score": null,
+    "reason": "ev_excesivo",
+    "tipo_pick": "pick_exploratorio",
+    "base_pick": "Orlando Magic",
+    "value_level": "bajo",
+    "markets_evaluated": [
+      {
+        "market": "Orlando Magic",
+        "ev_adjusted": 36.3,
+        "value_score": null,
+        "reason": "ev_excesivo"
+      },
+      {
+        "market": "Apuesta sin empate: Orlando Magic",
+        "ev_adjusted": null,
+        "value_score": null,
+        "reason": "mercado_no_disponible"
+      },
+      {
+        "market": "Doble oportunidad: Orlando Magic",
+        "ev_adjusted": null,
+        "value_score": null,
+        "reason": "mercado_no_disponible"
+      },
+      {
+        "market": "Over 2.5 goles",
+        "ev_adjusted": null,
+        "value_score": null,
+        "reason": "mercado_no_disponible"
+      },
+      {
+        "market": "Over 1.5 goles",
+        "ev_adjusted": null,
+        "value_score": null,
+        "reason": "mercado_no_disponible"
+      }
+    ]
   }
 ]

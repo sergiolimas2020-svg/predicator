@@ -2176,14 +2176,17 @@ def main():
                         if vs > best_vs:
                             best_vs = vs
                             best_market = {
-                                "raw": ep["raw"],
-                                "prob_adjusted":    prob,
-                                "ev_adjusted":      ev,
-                                "value_score":      vs,
+                                "raw":               ep["raw"],
+                                "home":              ep["home"],
+                                "away":              ep["away"],
+                                "league":            ep["league"],
+                                "prob_adjusted":     prob,
+                                "ev_adjusted":       ev,
+                                "value_score":       vs,
                                 "confidence_factor": cf,
-                                "bk_odds":          e.get("bk_odds"),
-                                "label":            label,
-                                "reason":           "ok",
+                                "bk_odds":           e.get("bk_odds"),
+                                "label":             label,
+                                "reason":            "ok",
                             }
                     if best_market:
                         exploratory_pool.append(best_market)
