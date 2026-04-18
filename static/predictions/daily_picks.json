@@ -1,8 +1,79 @@
 {
-  "date": "2026-04-20",
-  "pick_dia": null,
-  "picks_suscripcion": [],
-  "pick_gratuito": null,
+  "date": "2026-04-18",
+  "pick_dia": {
+    "slug": "tottenham-hotspur-vs-brighton-hove-albion-premier-league-2026-04-18",
+    "matchup": "Tottenham Hotspur vs Brighton & Hove Albion",
+    "league": "Premier League",
+    "tipo": "pick_dia",
+    "market": "Apuesta sin empate: Brighton & Hove Albion",
+    "prob_adjusted": 75.3,
+    "value_score": 7.6044,
+    "confidence_factor": 1.0,
+    "ev_adjusted": 17.2,
+    "bk_odds": 1.556
+  },
+  "picks_suscripcion": [
+    {
+      "slug": "chapecoense-vs-botafogo-brasileirao-2026-04-18",
+      "matchup": "Chapecoense vs Botafogo",
+      "league": "Brasileirao",
+      "tipo": "pick_suscripcion",
+      "market": "Over 2.5 goles",
+      "prob_adjusted": 61.2,
+      "value_score": 19.8955,
+      "confidence_factor": 0.9409,
+      "ev_adjusted": 28.5,
+      "bk_odds": 2.1
+    },
+    {
+      "slug": "chelsea-vs-manchester-united-premier-league-2026-04-18",
+      "matchup": "Chelsea vs Manchester United",
+      "league": "Premier League",
+      "tipo": "pick_suscripcion",
+      "market": "Doble oportunidad: Manchester United",
+      "prob_adjusted": 68.4,
+      "value_score": null,
+      "confidence_factor": 1.0,
+      "ev_adjusted": 27.1,
+      "bk_odds": 1.858
+    },
+    {
+      "slug": "lorient-vs-marseille-ligue-1-2026-04-18",
+      "matchup": "Lorient vs Marseille",
+      "league": "Ligue 1",
+      "tipo": "pick_suscripcion",
+      "market": "Apuesta sin empate: Marseille",
+      "prob_adjusted": 63.7,
+      "value_score": null,
+      "confidence_factor": 1.0,
+      "ev_adjusted": 23.8,
+      "bk_odds": 1.943
+    },
+    {
+      "slug": "vasco-da-gama-vs-sao-paulo-brasileirao-2026-04-18",
+      "matchup": "Vasco da Gama vs São Paulo",
+      "league": "Brasileirao",
+      "tipo": "pick_gratuito",
+      "market": "Doble oportunidad: São Paulo",
+      "prob_adjusted": 71.3,
+      "value_score": null,
+      "confidence_factor": 0.97,
+      "ev_adjusted": 26.3,
+      "bk_odds": 1.772
+    }
+  ],
+  "pick_gratuito": {
+    "slug": "vasco-da-gama-vs-sao-paulo-brasileirao-2026-04-18",
+    "matchup": "Vasco da Gama vs São Paulo",
+    "league": "Brasileirao",
+    "tipo": "pick_gratuito",
+    "market": "Doble oportunidad: São Paulo",
+    "prob_adjusted": 71.3,
+    "value_score": null,
+    "confidence_factor": 0.97,
+    "ev_adjusted": 26.3,
+    "bk_odds": 1.772
+  },
   "pick_exploratorio": null,
   "analisis_goles": []
 }
