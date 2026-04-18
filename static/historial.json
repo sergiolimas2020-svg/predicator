@@ -1,8 +1,63 @@
 {
-  "total": 43,
-  "aciertos": 31,
-  "porcentaje": 72,
+  "total": 44,
+  "aciertos": 32,
+  "porcentaje": 73,
   "ultimos": [
+    {
+      "fecha": "2026-04-17",
+      "slug": "orlando-magic-vs-charlotte-hornets-nba-2026-04-17",
+      "home": "Orlando Magic",
+      "away": "Charlotte Hornets",
+      "league": "NBA",
+      "prediccion": "Orlando Magic",
+      "confianza": "Probabilidad: 55.4%",
+      "resultado_real": "121-90",
+      "acerto": true,
+      "prob_original": 55.4,
+      "confidence_factor": 1.0,
+      "prob_adjusted": 55.4,
+      "bk_odds": 2.46,
+      "ev": 36.3,
+      "penalty": 0.0,
+      "ev_adjusted": 36.3,
+      "value_score": null,
+      "reason": "ev_excesivo",
+      "tipo_pick": "pick_exploratorio",
+      "base_pick": "Orlando Magic",
+      "value_level": "bajo",
+      "markets_evaluated": [
+        {
+          "market": "Orlando Magic",
+          "ev_adjusted": 36.3,
+          "value_score": null,
+          "reason": "ev_excesivo"
+        },
+        {
+          "market": "Apuesta sin empate: Orlando Magic",
+          "ev_adjusted": null,
+          "value_score": null,
+          "reason": "mercado_no_disponible"
+        },
+        {
+          "market": "Doble oportunidad: Orlando Magic",
+          "ev_adjusted": null,
+          "value_score": null,
+          "reason": "mercado_no_disponible"
+        },
+        {
+          "market": "Over 2.5 goles",
+          "ev_adjusted": null,
+          "value_score": null,
+          "reason": "mercado_no_disponible"
+        },
+        {
+          "market": "Over 1.5 goles",
+          "ev_adjusted": null,
+          "value_score": null,
+          "reason": "mercado_no_disponible"
+        }
+      ]
+    },
     {
       "fecha": "2026-04-12",
       "slug": "goztepe-vs-kasimpasa-super-lig-2026-04-12",
@@ -890,22 +945,6 @@
       "base_pick": "Unión (Santa Fe)",
       "cuota_justa": 1.33,
       "value_score": 60.3,
-      "value_level": "alto"
-    },
-    {
-      "fecha": "2026-04-03",
-      "slug": "atletico-junior-vs-deportivo-cali-liga-colombiana-2026-04-03",
-      "home": "Atlético Junior",
-      "away": "Deportivo Cali",
-      "league": "Liga Colombiana",
-      "prediccion": "Apuesta sin empate: Atlético Junior",
-      "confianza": "Probabilidad: 66.1%",
-      "resultado_real": "1-2",
-      "acerto": false,
-      "probabilidad_modelo": 47.9,
-      "base_pick": "Atlético Junior",
-      "cuota_justa": 1.51,
-      "value_score": 66.1,
       "value_level": "alto"
     }
   ]
