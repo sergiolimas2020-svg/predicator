@@ -1,374 +1,74 @@
 {
-    "Bournemouth": {
+    "Brighton": {
         "corners": {
             "local": {
                 "partidos": 16,
-                "corners_favor": 5.5,
-                "corners_contra": 4.25
-            },
-            "visitante": {
-                "partidos": 16,
-                "corners_favor": 5.63,
-                "corners_contra": 6.63
-            }
-        },
-        "goals": {
-            "over_1_5": "75%",
-            "over_2_5": "56%",
-            "over_3_5": "47%",
-            "bts": "66%"
-        },
-        "position": {
-            "posicion": 11,
-            "partidos": 32,
-            "ganados": 10,
-            "empatados": 15,
-            "perdidos": 7,
-            "goles_favor": 48,
-            "goles_contra": 49,
-            "diferencia": -1,
-            "puntos": 45
-        }
-    },
-    "Crystal Palace": {
-        "corners": {
-            "local": {
-                "partidos": 16,
-                "corners_favor": 4.44,
-                "corners_contra": 3.94
-            },
-            "visitante": {
-                "partidos": 15,
-                "corners_favor": 3.93,
-                "corners_contra": 5.73
-            }
-        },
-        "goals": {
-            "over_1_5": "68%",
-            "over_2_5": "48%",
-            "over_3_5": "16%",
-            "bts": "52%"
-        },
-        "position": {
-            "posicion": 13,
-            "partidos": 31,
-            "ganados": 11,
-            "empatados": 9,
-            "perdidos": 11,
-            "goles_favor": 35,
-            "goles_contra": 36,
-            "diferencia": -1,
-            "puntos": 42
-        }
-    },
-    "Fulham": {
-        "corners": {
-            "local": {
-                "partidos": 16,
-                "corners_favor": 5.31,
-                "corners_contra": 5.94
+                "corners_favor": 5.06,
+                "corners_contra": 4.81
             },
             "visitante": {
                 "partidos": 17,
                 "corners_favor": 4.29,
-                "corners_contra": 5.65
+                "corners_contra": 5.18
             }
         },
         "goals": {
-            "over_1_5": "73%",
-            "over_2_5": "55%",
-            "over_3_5": "27%",
-            "bts": "58%"
+            "over_1_5": "82%",
+            "over_2_5": "45%",
+            "over_3_5": "18%",
+            "bts": "61%"
         },
         "position": {
-            "posicion": 12,
+            "posicion": 9,
             "partidos": 33,
-            "ganados": 13,
-            "empatados": 6,
-            "perdidos": 14,
-            "goles_favor": 43,
-            "goles_contra": 46,
-            "diferencia": -3,
-            "puntos": 45
+            "ganados": 12,
+            "empatados": 11,
+            "perdidos": 10,
+            "goles_favor": 45,
+            "goles_contra": 39,
+            "diferencia": 6,
+            "puntos": 47
         }
     },
-    "Arsenal": {
-        "corners": {
-            "local": {
-                "partidos": 16,
-                "corners_favor": 6.19,
-                "corners_contra": 2.75
-            },
-            "visitante": {
-                "partidos": 16,
-                "corners_favor": 5.75,
-                "corners_contra": 3.63
-            }
-        },
+    "League average": {
+        "corners": {},
         "goals": {
-            "over_1_5": "75%",
-            "over_2_5": "53%",
-            "over_3_5": "28%",
-            "bts": "50%"
+            "over_1_5": "53.7%",
+            "over_2_5": "28.1%",
+            "over_3_5": "13.0%",
+            "bts": "26.2%"
         },
-        "position": {
-            "posicion": 1,
-            "partidos": 32,
-            "ganados": 21,
-            "empatados": 7,
-            "perdidos": 4,
-            "goles_favor": 62,
-            "goles_contra": 24,
-            "diferencia": 38,
-            "puntos": 70
-        }
+        "position": {}
     },
-    "Burnley": {
-        "corners": {
-            "local": {
-                "partidos": 16,
-                "corners_favor": 3.69,
-                "corners_contra": 5.38
-            },
-            "visitante": {
-                "partidos": 16,
-                "corners_favor": 3.75,
-                "corners_contra": 6.38
-            }
-        },
-        "goals": {
-            "over_1_5": "88%",
-            "over_2_5": "50%",
-            "over_3_5": "38%",
-            "bts": "56%"
-        },
-        "position": {
-            "posicion": 19,
-            "partidos": 32,
-            "ganados": 4,
-            "empatados": 8,
-            "perdidos": 20,
-            "goles_favor": 33,
-            "goles_contra": 63,
-            "diferencia": -30,
-            "puntos": 20
-        }
-    },
-    "Manchester Utd": {
-        "corners": {
-            "local": {
-                "partidos": 16,
-                "corners_favor": 5.19,
-                "corners_contra": 4.31
-            },
-            "visitante": {
-                "partidos": 16,
-                "corners_favor": 4.38,
-                "corners_contra": 5.44
-            }
-        },
-        "goals": {
-            "over_1_5": "88%",
-            "over_2_5": "62%",
-            "over_3_5": "38%",
-            "bts": "75%"
-        },
-        "position": {
-            "posicion": 3,
-            "partidos": 32,
-            "ganados": 15,
-            "empatados": 10,
-            "perdidos": 7,
-            "goles_favor": 57,
-            "goles_contra": 45,
-            "diferencia": 12,
-            "puntos": 55
-        }
-    },
-    "Brentford": {
+    "Chelsea": {
         "corners": {
             "local": {
                 "partidos": 17,
-                "corners_favor": 4.24,
-                "corners_contra": 4.59
+                "corners_favor": 6.88,
+                "corners_contra": 4.06
             },
             "visitante": {
                 "partidos": 16,
                 "corners_favor": 5.44,
-                "corners_contra": 5.31
+                "corners_contra": 4.5
             }
         },
         "goals": {
-            "over_1_5": "79%",
-            "over_2_5": "48%",
-            "over_3_5": "39%",
-            "bts": "52%"
+            "over_1_5": "85%",
+            "over_2_5": "64%",
+            "over_3_5": "33%",
+            "bts": "61%"
         },
         "position": {
-            "posicion": 7,
+            "posicion": 6,
             "partidos": 33,
             "ganados": 13,
             "empatados": 9,
             "perdidos": 11,
-            "goles_favor": 48,
-            "goles_contra": 44,
-            "diferencia": 4,
+            "goles_favor": 53,
+            "goles_contra": 42,
+            "diferencia": 11,
             "puntos": 48
-        }
-    },
-    "Sunderland": {
-        "corners": {
-            "local": {
-                "partidos": 16,
-                "corners_favor": 3.69,
-                "corners_contra": 4.63
-            },
-            "visitante": {
-                "partidos": 16,
-                "corners_favor": 3.38,
-                "corners_contra": 5.81
-            }
-        },
-        "goals": {
-            "over_1_5": "69%",
-            "over_2_5": "41%",
-            "over_3_5": "12%",
-            "bts": "44%"
-        },
-        "position": {
-            "posicion": 10,
-            "partidos": 32,
-            "ganados": 12,
-            "empatados": 10,
-            "perdidos": 10,
-            "goles_favor": 33,
-            "goles_contra": 36,
-            "diferencia": -3,
-            "puntos": 46
-        }
-    },
-    "Everton": {
-        "corners": {
-            "local": {
-                "partidos": 16,
-                "corners_favor": 5.31,
-                "corners_contra": 4.44
-            },
-            "visitante": {
-                "partidos": 16,
-                "corners_favor": 3.31,
-                "corners_contra": 5.75
-            }
-        },
-        "goals": {
-            "over_1_5": "75%",
-            "over_2_5": "38%",
-            "over_3_5": "16%",
-            "bts": "44%"
-        },
-        "position": {
-            "posicion": 8,
-            "partidos": 32,
-            "ganados": 13,
-            "empatados": 8,
-            "perdidos": 11,
-            "goles_favor": 39,
-            "goles_contra": 37,
-            "diferencia": 2,
-            "puntos": 47
-        }
-    },
-    "Aston Villa": {
-        "corners": {
-            "local": {
-                "partidos": 16,
-                "corners_favor": 5.75,
-                "corners_contra": 4.69
-            },
-            "visitante": {
-                "partidos": 16,
-                "corners_favor": 4.81,
-                "corners_contra": 5.0
-            }
-        },
-        "goals": {
-            "over_1_5": "72%",
-            "over_2_5": "47%",
-            "over_3_5": "25%",
-            "bts": "53%"
-        },
-        "position": {
-            "posicion": 4,
-            "partidos": 32,
-            "ganados": 16,
-            "empatados": 7,
-            "perdidos": 9,
-            "goles_favor": 43,
-            "goles_contra": 38,
-            "diferencia": 5,
-            "puntos": 55
-        }
-    },
-    "Manchester City": {
-        "corners": {
-            "local": {
-                "partidos": 15,
-                "corners_favor": 6.6,
-                "corners_contra": 3.2
-            },
-            "visitante": {
-                "partidos": 16,
-                "corners_favor": 5.19,
-                "corners_contra": 4.19
-            }
-        },
-        "goals": {
-            "over_1_5": "87%",
-            "over_2_5": "61%",
-            "over_3_5": "23%",
-            "bts": "48%"
-        },
-        "position": {
-            "posicion": 2,
-            "partidos": 31,
-            "ganados": 19,
-            "empatados": 7,
-            "perdidos": 5,
-            "goles_favor": 63,
-            "goles_contra": 28,
-            "diferencia": 35,
-            "puntos": 64
-        }
-    },
-    "Leeds Utd": {
-        "corners": {
-            "local": {
-                "partidos": 16,
-                "corners_favor": 5.56,
-                "corners_contra": 4.13
-            },
-            "visitante": {
-                "partidos": 16,
-                "corners_favor": 3.44,
-                "corners_contra": 5.06
-            }
-        },
-        "goals": {
-            "over_1_5": "72%",
-            "over_2_5": "53%",
-            "over_3_5": "38%",
-            "bts": "59%"
-        },
-        "position": {
-            "posicion": 15,
-            "partidos": 32,
-            "ganados": 8,
-            "empatados": 12,
-            "perdidos": 12,
-            "goles_favor": 39,
-            "goles_contra": 49,
-            "diferencia": -10,
-            "puntos": 36
         }
     },
     "West Ham Utd": {
@@ -402,6 +102,316 @@
             "puntos": 32
         }
     },
+    "Burnley": {
+        "corners": {
+            "local": {
+                "partidos": 16,
+                "corners_favor": 3.69,
+                "corners_contra": 5.38
+            },
+            "visitante": {
+                "partidos": 16,
+                "corners_favor": 3.75,
+                "corners_contra": 6.38
+            }
+        },
+        "goals": {
+            "over_1_5": "88%",
+            "over_2_5": "50%",
+            "over_3_5": "38%",
+            "bts": "56%"
+        },
+        "position": {
+            "posicion": 19,
+            "partidos": 32,
+            "ganados": 4,
+            "empatados": 8,
+            "perdidos": 20,
+            "goles_favor": 33,
+            "goles_contra": 63,
+            "diferencia": -30,
+            "puntos": 20
+        }
+    },
+    "Fulham": {
+        "corners": {
+            "local": {
+                "partidos": 16,
+                "corners_favor": 5.31,
+                "corners_contra": 5.94
+            },
+            "visitante": {
+                "partidos": 17,
+                "corners_favor": 4.29,
+                "corners_contra": 5.65
+            }
+        },
+        "goals": {
+            "over_1_5": "73%",
+            "over_2_5": "55%",
+            "over_3_5": "27%",
+            "bts": "58%"
+        },
+        "position": {
+            "posicion": 12,
+            "partidos": 33,
+            "ganados": 13,
+            "empatados": 6,
+            "perdidos": 14,
+            "goles_favor": 43,
+            "goles_contra": 46,
+            "diferencia": -3,
+            "puntos": 45
+        }
+    },
+    "Leeds Utd": {
+        "corners": {
+            "local": {
+                "partidos": 17,
+                "corners_favor": 5.53,
+                "corners_contra": 4.24
+            },
+            "visitante": {
+                "partidos": 16,
+                "corners_favor": 3.44,
+                "corners_contra": 5.06
+            }
+        },
+        "goals": {
+            "over_1_5": "73%",
+            "over_2_5": "55%",
+            "over_3_5": "36%",
+            "bts": "58%"
+        },
+        "position": {
+            "posicion": 15,
+            "partidos": 33,
+            "ganados": 9,
+            "empatados": 12,
+            "perdidos": 12,
+            "goles_favor": 42,
+            "goles_contra": 49,
+            "diferencia": -7,
+            "puntos": 39
+        }
+    },
+    "Everton": {
+        "corners": {
+            "local": {
+                "partidos": 16,
+                "corners_favor": 5.31,
+                "corners_contra": 4.44
+            },
+            "visitante": {
+                "partidos": 16,
+                "corners_favor": 3.31,
+                "corners_contra": 5.75
+            }
+        },
+        "goals": {
+            "over_1_5": "75%",
+            "over_2_5": "38%",
+            "over_3_5": "16%",
+            "bts": "44%"
+        },
+        "position": {
+            "posicion": 10,
+            "partidos": 32,
+            "ganados": 13,
+            "empatados": 8,
+            "perdidos": 11,
+            "goles_favor": 39,
+            "goles_contra": 37,
+            "diferencia": 2,
+            "puntos": 47
+        }
+    },
+    "Wolverhampton": {
+        "corners": {
+            "local": {
+                "partidos": 16,
+                "corners_favor": 2.81,
+                "corners_contra": 5.44
+            },
+            "visitante": {
+                "partidos": 17,
+                "corners_favor": 3.65,
+                "corners_contra": 6.47
+            }
+        },
+        "goals": {
+            "over_1_5": "79%",
+            "over_2_5": "48%",
+            "over_3_5": "27%",
+            "bts": "42%"
+        },
+        "position": {
+            "posicion": 20,
+            "partidos": 33,
+            "ganados": 3,
+            "empatados": 8,
+            "perdidos": 22,
+            "goles_favor": 24,
+            "goles_contra": 61,
+            "diferencia": -37,
+            "puntos": 17
+        }
+    },
+    "Newcastle Utd": {
+        "corners": {
+            "local": {
+                "partidos": 17,
+                "corners_favor": 6.88,
+                "corners_contra": 4.88
+            },
+            "visitante": {
+                "partidos": 16,
+                "corners_favor": 5.81,
+                "corners_contra": 4.88
+            }
+        },
+        "goals": {
+            "over_1_5": "76%",
+            "over_2_5": "67%",
+            "over_3_5": "33%",
+            "bts": "67%"
+        },
+        "position": {
+            "posicion": 14,
+            "partidos": 33,
+            "ganados": 12,
+            "empatados": 6,
+            "perdidos": 15,
+            "goles_favor": 46,
+            "goles_contra": 49,
+            "diferencia": -3,
+            "puntos": 42
+        }
+    },
+    "Aston Villa": {
+        "corners": {
+            "local": {
+                "partidos": 16,
+                "corners_favor": 5.75,
+                "corners_contra": 4.69
+            },
+            "visitante": {
+                "partidos": 16,
+                "corners_favor": 4.81,
+                "corners_contra": 5.0
+            }
+        },
+        "goals": {
+            "over_1_5": "72%",
+            "over_2_5": "47%",
+            "over_3_5": "25%",
+            "bts": "53%"
+        },
+        "position": {
+            "posicion": 4,
+            "partidos": 32,
+            "ganados": 16,
+            "empatados": 7,
+            "perdidos": 9,
+            "goles_favor": 43,
+            "goles_contra": 38,
+            "diferencia": 5,
+            "puntos": 55
+        }
+    },
+    "Bournemouth": {
+        "corners": {
+            "local": {
+                "partidos": 16,
+                "corners_favor": 5.5,
+                "corners_contra": 4.25
+            },
+            "visitante": {
+                "partidos": 17,
+                "corners_favor": 5.47,
+                "corners_contra": 6.35
+            }
+        },
+        "goals": {
+            "over_1_5": "76%",
+            "over_2_5": "58%",
+            "over_3_5": "45%",
+            "bts": "67%"
+        },
+        "position": {
+            "posicion": 8,
+            "partidos": 33,
+            "ganados": 11,
+            "empatados": 15,
+            "perdidos": 7,
+            "goles_favor": 50,
+            "goles_contra": 50,
+            "diferencia": 0,
+            "puntos": 48
+        }
+    },
+    "Manchester City": {
+        "corners": {
+            "local": {
+                "partidos": 15,
+                "corners_favor": 6.6,
+                "corners_contra": 3.2
+            },
+            "visitante": {
+                "partidos": 16,
+                "corners_favor": 5.19,
+                "corners_contra": 4.19
+            }
+        },
+        "goals": {
+            "over_1_5": "87%",
+            "over_2_5": "61%",
+            "over_3_5": "23%",
+            "bts": "48%"
+        },
+        "position": {
+            "posicion": 2,
+            "partidos": 31,
+            "ganados": 19,
+            "empatados": 7,
+            "perdidos": 5,
+            "goles_favor": 63,
+            "goles_contra": 28,
+            "diferencia": 35,
+            "puntos": 64
+        }
+    },
+    "Tottenham": {
+        "corners": {
+            "local": {
+                "partidos": 17,
+                "corners_favor": 5.71,
+                "corners_contra": 5.41
+            },
+            "visitante": {
+                "partidos": 16,
+                "corners_favor": 4.81,
+                "corners_contra": 4.31
+            }
+        },
+        "goals": {
+            "over_1_5": "85%",
+            "over_2_5": "67%",
+            "over_3_5": "30%",
+            "bts": "61%"
+        },
+        "position": {
+            "posicion": 18,
+            "partidos": 33,
+            "ganados": 7,
+            "empatados": 10,
+            "perdidos": 16,
+            "goles_favor": 42,
+            "goles_contra": 53,
+            "diferencia": -11,
+            "puntos": 31
+        }
+    },
     "Liverpool": {
         "corners": {
             "local": {
@@ -433,45 +443,128 @@
             "puntos": 52
         }
     },
-    "League average": {
-        "corners": {},
-        "goals": {
-            "over_1_5": "53.4%",
-            "over_2_5": "28.1%",
-            "over_3_5": "13.1%",
-            "bts": "26.3%"
-        },
-        "position": {}
-    },
-    "Newcastle Utd": {
+    "Brentford": {
         "corners": {
             "local": {
-                "partidos": 16,
-                "corners_favor": 7.19,
-                "corners_contra": 5.0
+                "partidos": 17,
+                "corners_favor": 4.24,
+                "corners_contra": 4.59
             },
             "visitante": {
                 "partidos": 16,
-                "corners_favor": 5.81,
-                "corners_contra": 4.88
+                "corners_favor": 5.44,
+                "corners_contra": 5.31
+            }
+        },
+        "goals": {
+            "over_1_5": "79%",
+            "over_2_5": "48%",
+            "over_3_5": "39%",
+            "bts": "52%"
+        },
+        "position": {
+            "posicion": 7,
+            "partidos": 33,
+            "ganados": 13,
+            "empatados": 9,
+            "perdidos": 11,
+            "goles_favor": 48,
+            "goles_contra": 44,
+            "diferencia": 4,
+            "puntos": 48
+        }
+    },
+    "Manchester Utd": {
+        "corners": {
+            "local": {
+                "partidos": 16,
+                "corners_favor": 5.19,
+                "corners_contra": 4.31
+            },
+            "visitante": {
+                "partidos": 17,
+                "corners_favor": 4.18,
+                "corners_contra": 5.53
+            }
+        },
+        "goals": {
+            "over_1_5": "85%",
+            "over_2_5": "61%",
+            "over_3_5": "36%",
+            "bts": "73%"
+        },
+        "position": {
+            "posicion": 3,
+            "partidos": 33,
+            "ganados": 16,
+            "empatados": 10,
+            "perdidos": 7,
+            "goles_favor": 58,
+            "goles_contra": 45,
+            "diferencia": 13,
+            "puntos": 58
+        }
+    },
+    "Sunderland": {
+        "corners": {
+            "local": {
+                "partidos": 16,
+                "corners_favor": 3.69,
+                "corners_contra": 4.63
+            },
+            "visitante": {
+                "partidos": 16,
+                "corners_favor": 3.38,
+                "corners_contra": 5.81
+            }
+        },
+        "goals": {
+            "over_1_5": "69%",
+            "over_2_5": "41%",
+            "over_3_5": "12%",
+            "bts": "44%"
+        },
+        "position": {
+            "posicion": 11,
+            "partidos": 32,
+            "ganados": 12,
+            "empatados": 10,
+            "perdidos": 10,
+            "goles_favor": 33,
+            "goles_contra": 36,
+            "diferencia": -3,
+            "puntos": 46
+        }
+    },
+    "Arsenal": {
+        "corners": {
+            "local": {
+                "partidos": 16,
+                "corners_favor": 6.19,
+                "corners_contra": 2.75
+            },
+            "visitante": {
+                "partidos": 16,
+                "corners_favor": 5.75,
+                "corners_contra": 3.63
             }
         },
         "goals": {
             "over_1_5": "75%",
-            "over_2_5": "66%",
-            "over_3_5": "34%",
-            "bts": "66%"
+            "over_2_5": "53%",
+            "over_3_5": "28%",
+            "bts": "50%"
         },
         "position": {
-            "posicion": 14,
+            "posicion": 1,
             "partidos": 32,
-            "ganados": 12,
-            "empatados": 6,
-            "perdidos": 14,
-            "goles_favor": 45,
-            "goles_contra": 47,
-            "diferencia": -2,
-            "puntos": 42
+            "ganados": 21,
+            "empatados": 7,
+            "perdidos": 4,
+            "goles_favor": 62,
+            "goles_contra": 24,
+            "diferencia": 38,
+            "puntos": 70
         }
     },
     "Nottm Forest": {
@@ -505,132 +598,39 @@
             "puntos": 33
         }
     },
-    "Chelsea": {
+    "Crystal Palace": {
         "corners": {
             "local": {
                 "partidos": 16,
-                "corners_favor": 6.88,
-                "corners_contra": 4.25
+                "corners_favor": 4.44,
+                "corners_contra": 3.94
             },
             "visitante": {
-                "partidos": 16,
-                "corners_favor": 5.44,
-                "corners_contra": 4.5
+                "partidos": 15,
+                "corners_favor": 3.93,
+                "corners_contra": 5.73
             }
         },
         "goals": {
-            "over_1_5": "88%",
-            "over_2_5": "66%",
-            "over_3_5": "34%",
-            "bts": "62%"
-        },
-        "position": {
-            "posicion": 6,
-            "partidos": 32,
-            "ganados": 13,
-            "empatados": 9,
-            "perdidos": 10,
-            "goles_favor": 53,
-            "goles_contra": 41,
-            "diferencia": 12,
-            "puntos": 48
-        }
-    },
-    "Wolverhampton": {
-        "corners": {
-            "local": {
-                "partidos": 16,
-                "corners_favor": 2.81,
-                "corners_contra": 5.44
-            },
-            "visitante": {
-                "partidos": 16,
-                "corners_favor": 3.5,
-                "corners_contra": 6.56
-            }
-        },
-        "goals": {
-            "over_1_5": "78%",
-            "over_2_5": "47%",
-            "over_3_5": "28%",
-            "bts": "44%"
-        },
-        "position": {
-            "posicion": 20,
-            "partidos": 32,
-            "ganados": 3,
-            "empatados": 8,
-            "perdidos": 21,
-            "goles_favor": 24,
-            "goles_contra": 58,
-            "diferencia": -34,
-            "puntos": 17
-        }
-    },
-    "Brighton": {
-        "corners": {
-            "local": {
-                "partidos": 16,
-                "corners_favor": 5.06,
-                "corners_contra": 4.81
-            },
-            "visitante": {
-                "partidos": 16,
-                "corners_favor": 4.25,
-                "corners_contra": 5.06
-            }
-        },
-        "goals": {
-            "over_1_5": "81%",
-            "over_2_5": "44%",
+            "over_1_5": "68%",
+            "over_2_5": "48%",
             "over_3_5": "16%",
-            "bts": "59%"
+            "bts": "52%"
         },
         "position": {
-            "posicion": 9,
-            "partidos": 32,
-            "ganados": 12,
-            "empatados": 10,
-            "perdidos": 10,
-            "goles_favor": 43,
-            "goles_contra": 37,
-            "diferencia": 6,
-            "puntos": 46
-        }
-    },
-    "Tottenham": {
-        "corners": {
-            "local": {
-                "partidos": 16,
-                "corners_favor": 5.63,
-                "corners_contra": 5.44
-            },
-            "visitante": {
-                "partidos": 16,
-                "corners_favor": 4.81,
-                "corners_contra": 4.31
-            }
-        },
-        "goals": {
-            "over_1_5": "84%",
-            "over_2_5": "66%",
-            "over_3_5": "28%",
-            "bts": "59%"
-        },
-        "position": {
-            "posicion": 18,
-            "partidos": 32,
-            "ganados": 7,
+            "posicion": 13,
+            "partidos": 31,
+            "ganados": 11,
             "empatados": 9,
-            "perdidos": 16,
-            "goles_favor": 40,
-            "goles_contra": 51,
-            "diferencia": -11,
-            "puntos": 30
+            "perdidos": 11,
+            "goles_favor": 35,
+            "goles_contra": 36,
+            "diferencia": -1,
+            "puntos": 42
         }
     },
     "_metadata": {
-        "fecha_actualizacion": "2026-04-18T15:51:44.705834",
+        "fecha_actualizacion": "2026-04-19T08:15:03.036995",
         "liga": "england",
         "fuente_datos": {
             "corners": "https://www.soccerstats.com/table.asp?league=england&tid=cr",
