@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Metodología — Cómo Funciona el Motor de PREDIKTOR</title>
+  <meta name="description" content="Explicación técnica completa del motor estadístico de PREDIKTOR: modelo Poisson para goles, cálculo de valor esperado (EV), factor de confianza, penalización por liquidez, y cómo se clasifican los picks en tres niveles.">
+  <meta name="keywords" content="metodología predicciones deportivas, modelo poisson fútbol, valor esperado apuestas, EV ajustado, análisis estadístico deportivo, cómo predecir partidos">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://prediktorcol.com/metodologia.html">
+
+  <meta property="og:title" content="Metodología — Cómo Funciona el Motor de PREDIKTOR">
+  <meta property="og:description" content="Documentación técnica del motor de análisis estadístico detrás de PREDIKTOR.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://prediktorcol.com/metodologia.html">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Metodología — Cómo Funciona el Motor de PREDIKTOR",
+    "description": "Explicación técnica del motor estadístico detrás de PREDIKTOR: Poisson, valor esperado, factor de confianza y clasificación de picks.",
+    "url": "https://prediktorcol.com/metodologia.html",
+    "datePublished": "2026-04-18",
+    "dateModified": "2026-04-18",
+    "author": {"@type": "Organization", "name": "PREDIKTOR"},
+    "publisher": {
+      "@type": "Organization",
+      "name": "PREDIKTOR",
+      "url": "https://prediktorcol.com"
+    }
+  }
+  </script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K3JES4SQS9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-K3JES4SQS9');
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5953880132871590" crossorigin="anonymous"></script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --negro: #0a0a0f; --oscuro: #111118; --card: #16161f; --card2: #1c1c28;
+      --borde: #2a2a3a; --dorado: #f0b429; --dorado2: #c9900a; --verde: #22c55e;
+      --rojo: #ef4444; --azul: #3b82f6; --texto: #e2e8f0; --gris: #94a3b8;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family:'DM Sans',sans-serif; background:var(--negro); color:var(--texto); line-height:1.7; }
+
+    nav {
+      display:flex; justify-content:space-between; align-items:center;
+      padding:1.2rem 2rem; border-bottom:1px solid var(--borde);
+      position:sticky; top:0; background:rgba(10,10,15,0.96);
+      backdrop-filter:blur(12px); z-index:100;
+    }
+    .logo { font-family:'Bebas Neue',sans-serif; font-size:1.8rem; letter-spacing:3px; color:var(--texto); text-decoration:none; }
+    .logo span { color:var(--dorado); }
+    .nav-links { display:flex; gap:1.5rem; align-items:center; flex-wrap:wrap; }
+    .nav-links a { color:var(--gris); text-decoration:none; font-size:0.9rem; font-weight:500; transition:color 0.2s; }
+    .nav-links a:hover { color:var(--dorado); }
+
+    article {
+      max-width:820px; margin:3rem auto; padding:0 1.5rem 5rem;
+    }
+    .breadcrumb { font-size:0.8rem; color:var(--gris); margin-bottom:1.5rem; letter-spacing:1px; text-transform:uppercase; }
+    .breadcrumb a { color:var(--dorado); text-decoration:none; }
+
+    h1 {
+      font-family:'Bebas Neue',sans-serif; font-size:clamp(2.4rem,6vw,3.8rem);
+      line-height:1.05; letter-spacing:1px; margin-bottom:1rem; color:#fff;
+    }
+    h1 span { color:var(--dorado); }
+    .subtitle { font-size:1.1rem; color:var(--gris); margin-bottom:2.5rem; }
+
+    h2 {
+      font-family:'Bebas Neue',sans-serif; font-size:clamp(1.7rem,3.5vw,2.4rem);
+      letter-spacing:1px; color:#fff; margin:3rem 0 1rem;
+      padding-bottom:0.6rem; border-bottom:1px solid var(--borde);
+    }
+    h3 {
+      font-size:1.25rem; font-weight:700; color:var(--dorado);
+      margin:2rem 0 0.8rem; letter-spacing:0.5px;
+    }
+
+    p { margin-bottom:1.2rem; font-size:1rem; color:var(--texto); }
+    p strong { color:#fff; font-weight:600; }
+
+    ul, ol { margin:1rem 0 1.4rem 1.5rem; }
+    li { margin-bottom:0.6rem; color:var(--texto); }
+    li strong { color:#fff; }
+
+    .formula {
+      background:var(--card); border:1px solid var(--borde);
+      border-left:3px solid var(--dorado); border-radius:6px;
+      padding:1.2rem 1.4rem; margin:1.4rem 0;
+      font-family:'Courier New',monospace; font-size:0.95rem;
+      color:var(--dorado); overflow-x:auto;
+    }
+    .callout {
+      background:rgba(240,180,41,0.05); border:1px solid rgba(240,180,41,0.2);
+      border-left:3px solid var(--dorado); border-radius:6px;
+      padding:1rem 1.3rem; margin:1.5rem 0;
+    }
+    .callout strong { color:var(--dorado); }
+
+    table {
+      width:100%; border-collapse:collapse; margin:1.5rem 0;
+      background:var(--card); border:1px solid var(--borde); border-radius:6px;
+      overflow:hidden; font-size:0.92rem;
+    }
+    th, td { padding:0.8rem 1rem; text-align:left; border-bottom:1px solid var(--borde); }
+    th { background:var(--card2); color:var(--dorado); font-weight:700; font-size:0.8rem; text-transform:uppercase; letter-spacing:1px; }
+    tr:last-child td { border-bottom:none; }
+    td code { background:rgba(240,180,41,0.1); padding:2px 6px; border-radius:3px; font-size:0.85em; color:var(--dorado); }
+
+    .tip {
+      background:rgba(34,197,94,0.05); border:1px solid rgba(34,197,94,0.2);
+      border-left:3px solid var(--verde); border-radius:6px;
+      padding:1rem 1.3rem; margin:1.5rem 0;
+      font-size:0.95rem;
+    }
+
+    footer {
+      background:var(--oscuro); border-top:1px solid var(--borde);
+      padding:3rem 2rem 2rem; text-align:center;
+    }
+    .footer-logo { font-family:'Bebas Neue',sans-serif; font-size:2rem; color:var(--dorado); letter-spacing:3px; margin-bottom:0.8rem; }
+    .footer-desc { color:var(--gris); font-size:0.88rem; max-width:480px; margin:0 auto 1.5rem; line-height:1.7; }
+    .footer-links { display:flex; justify-content:center; gap:1.5rem; margin-bottom:2rem; flex-wrap:wrap; }
+    .footer-links a { color:var(--gris); text-decoration:none; font-size:0.85rem; transition:color 0.2s; }
+    .footer-links a:hover { color:var(--dorado); }
+    .footer-copy { color:var(--borde); font-size:0.8rem; }
+
+    .disclaimer {
+      background:rgba(240,180,41,0.04); border-top:1px solid rgba(240,180,41,0.1);
+      border-bottom:1px solid rgba(240,180,41,0.1);
+      padding:1.2rem 2rem; text-align:center;
+      color:var(--gris); font-size:0.82rem; line-height:1.6;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="logo">PREDI<span>KTOR</span></a>
+  <div class="nav-links">
+    <a href="/">Inicio</a>
+    <a href="/metodologia.html">Metodología</a>
+    <a href="/glosario.html">Glosario</a>
+    <a href="/como-interpretar.html">Cómo usar</a>
+    <a href="/about.html">Sobre</a>
+  </div>
+</nav>
+
+<article>
+  <div class="breadcrumb"><a href="/">Inicio</a> · Metodología</div>
+
+  <h1>Metodología del<br><span>Motor PREDIKTOR</span></h1>
+  <p class="subtitle">Documentación técnica completa del sistema de análisis estadístico que genera predicciones diarias basadas en datos reales, modelo probabilístico Poisson, y evaluación de valor esperado frente al mercado de apuestas.</p>
+
+  <h2>1. Filosofía del sistema</h2>
+  <p>PREDIKTOR no es un tipster. No genera predicciones basadas en intuición, corazonadas, o información privilegiada. Es un motor automatizado que cada mañana descarga estadísticas actualizadas de ligas de fútbol y de la NBA, las procesa a través de un modelo probabilístico, las compara contra las cuotas reales de los bookmakers, y publica únicamente aquellos picks donde existe un valor esperado positivo después de ajustar por la confianza del modelo y la liquidez del mercado.</p>
+
+  <p>La diferencia fundamental entre este enfoque y el de un tipster tradicional es la <strong>ausencia de sesgo emocional</strong>. El motor no sabe quién es el equipo favorito del público, no tiene preferencias regionales, y no intenta justificar un pick con narrativas posteriores al resultado. Solo calcula probabilidades y las contrasta con el mercado.</p>
+
+  <div class="callout">
+    <strong>Principio rector:</strong> No se publican picks sin valor. Si en un día determinado ningún partido supera los umbrales estadísticos de calidad, el motor no publica nada. Forzar picks para cumplir una cuota diaria arbitraria destruye el valor a largo plazo.
+  </div>
+
+  <h2>2. Fuentes de datos</h2>
+  <p>El motor se alimenta de tres fuentes independientes, cada una con un propósito distinto:</p>
+
+  <h3>2.1 Fixtures (calendario de partidos)</h3>
+  <p>Los partidos programados se obtienen a través de la API pública de ESPN. Esta API cubre las principales ligas europeas (Premier League, La Liga, Serie A, Bundesliga, Ligue 1), fútbol sudamericano (Liga Colombiana, Liga Argentina, Brasileirão), la Champions League, la Copa Libertadores, la Copa Sudamericana, la Süper Lig turca y la NBA. Se filtran los partidos del día en hora Colombia y se descartan aquellos ya finalizados.</p>
+
+  <h3>2.2 Estadísticas de equipos</h3>
+  <p>Para cada liga se mantiene un archivo JSON con la tabla de posiciones actualizada, el número de partidos jugados, victorias, empates y derrotas, goles a favor y en contra, y porcentajes de Over 1.5 y Over 2.5 por equipo. Estas estadísticas se actualizan diariamente mediante scrapers dedicados por liga.</p>
+
+  <h3>2.3 Cuotas de bookmakers</h3>
+  <p>Las cuotas reales se obtienen de The Odds API, que agrega precios de múltiples casas de apuestas europeas. Para cada partido se extraen las cuotas del mejor bookmaker disponible (<em>line shopping</em>) para los mercados de victoria local, empate, victoria visitante, Over 1.5 goles y Over 2.5 goles. Los mercados derivados (Doble Oportunidad, Apuesta Sin Empate) se calculan a partir de estos tres outcomes básicos.</p>
+
+  <h2>3. El modelo probabilístico</h2>
+  <p>El motor combina dos modelos complementarios: un modelo de resultado (victoria, empate, derrota) basado en variables de rendimiento histórico, y un modelo de goles basado en distribución de Poisson.</p>
+
+  <h3>3.1 Modelo de resultado (fútbol)</h3>
+  <p>La probabilidad de victoria de cada equipo se calcula combinando ponderadamente cuatro variables:</p>
+
+  <ul>
+    <li><strong>Posición en la tabla (peso 40%):</strong> cuanto mejor la posición, mayor la fortaleza estimada del equipo.</li>
+    <li><strong>Porcentaje de victorias (peso 30%):</strong> ratio de partidos ganados sobre total jugado.</li>
+    <li><strong>Diferencia de goles (peso 20%):</strong> goles a favor menos goles en contra.</li>
+    <li><strong>Ventaja de local (10% adicional):</strong> bonificación para el equipo que juega en casa.</li>
+  </ul>
+
+  <p>La probabilidad resultante se acota entre un mínimo del 15% y un máximo del 85%: no se admiten extremos porque el fútbol introduce varianza que ningún modelo puede eliminar. Cuando la diferencia entre equipos es pequeña, el motor declara un empate técnico y reparte la probabilidad en un modelo de tres resultados con un componente de empate entre el 20% y el 30% según competitividad.</p>
+
+  <h3>3.2 Modelo de goles (distribución de Poisson)</h3>
+  <p>La probabilidad de que un partido supere una línea de goles (Over 1.5, Over 2.5) se calcula con el modelo Poisson clásico:</p>
+
+  <div class="formula">
+    λ = (goles_esperados_local + goles_esperados_visitante)<br>
+    P(X ≤ k) = Σ (λ^i · e^-λ) / i!  &nbsp;para&nbsp; i = 0, 1, ..., k<br>
+    P(Over k.5) = 1 − P(X ≤ k)
+  </div>
+
+  <p>El parámetro lambda se estima a partir del promedio de goles por partido de cada equipo en su liga, sumando su producción ofensiva y la producción ofensiva del rival ajustada por su defensa. El modelo Poisson es apropiado porque los goles son eventos discretos, relativamente raros e independientes dentro de un partido.</p>
+
+  <h2>4. El factor de confianza (confidence_factor)</h2>
+  <p>La probabilidad cruda del modelo se ajusta a la baja mediante un <strong>factor de confianza</strong> entre 0.85 y 1.00 que refleja cuánto debe confiarse el sistema en su propia estimación para esa liga y ese mercado específico.</p>
+
+  <p>Los factores que reducen la confianza son acumulativos:</p>
+
+  <table>
+    <thead><tr><th>Factor</th><th>Aplica cuando</th><th>Penalización</th></tr></thead>
+    <tbody>
+      <tr><td>Tier de liga</td><td>Liga con menos historia o datos incompletos</td><td>×0.95 a ×0.97</td></tr>
+      <tr><td>Frecuencia del mercado</td><td>Mercado con baja liquidez</td><td>×0.95 a ×0.98</td></tr>
+      <tr><td>Tipo de mercado</td><td>Over/Under (varianza alta)</td><td>×0.97</td></tr>
+    </tbody>
+  </table>
+
+  <p>La probabilidad ajustada se calcula como:</p>
+  <div class="formula">
+    prob_adjusted = prob_modelo × confidence_factor
+  </div>
+
+  <p>Este ajuste es <strong>solo reductor</strong>: nunca aumenta la probabilidad estimada. Es una capa de prudencia diseñada para que el motor no sobreestime su propia precisión en contextos donde los datos son escasos o el mercado es poco eficiente.</p>
+
+  <h2>5. Cálculo del valor esperado (EV)</h2>
+  <p>El valor esperado es la métrica fundamental que determina si una apuesta es rentable a largo plazo. Se calcula comparando la probabilidad estimada del modelo con la cuota ofrecida por el bookmaker:</p>
+
+  <div class="formula">
+    EV = (probabilidad × cuota) − 1
+  </div>
+
+  <p>Un EV positivo significa que, apostando repetidamente en situaciones similares, el resultado esperado en el largo plazo es de ganancia. Un EV negativo implica pérdida esperada, sin importar si el apostante acierta o falla un pick individual.</p>
+
+  <div class="callout">
+    <strong>Ejemplo:</strong> Si el modelo estima que un equipo tiene 60% de probabilidad de ganar y la casa ofrece cuota 1.80, entonces EV = 0.60 × 1.80 − 1 = +8%. En cambio, si el mismo equipo está ofertado a cuota 1.50, EV = 0.60 × 1.50 − 1 = −10% (negativo).
+  </div>
+
+  <p>Tras el EV crudo, el motor aplica una <strong>penalización por liquidez</strong> adicional para mercados poco frecuentes: si un tipo de mercado aparece en menos del 30% de los partidos, se descuenta entre 3 y 6 puntos porcentuales al EV final. Esta penalización absorbe el spread real de la casa y la varianza estadística mayor que producen las muestras pequeñas.</p>
+
+  <h2>6. Filtros de publicación</h2>
+  <p>Un pick solo se publica si pasa todos los filtros simultáneamente:</p>
+
+  <table>
+    <thead><tr><th>Filtro</th><th>Umbral</th><th>Motivo</th></tr></thead>
+    <tbody>
+      <tr><td>Probabilidad ajustada mínima</td><td>50% a 70%</td><td>Señal clara del modelo</td></tr>
+      <tr><td>EV ajustado mínimo</td><td>+8% a +15%</td><td>Absorber el vig de la casa</td></tr>
+      <tr><td>EV ajustado máximo</td><td>+20% a +50%</td><td>Evitar sobreajuste del modelo</td></tr>
+      <tr><td>Factor de confianza</td><td>≥ 0.90 o ≥ 0.95</td><td>Liga y mercado confiables</td></tr>
+      <tr><td>Cuota mínima del bookmaker</td><td>≥ 1.20 a 1.60</td><td>Margen de ganancia real</td></tr>
+    </tbody>
+  </table>
+
+  <p>El cap superior de EV (20% a 50% según el mercado) es tan importante como el mínimo: un valor esperado extremadamente alto usualmente indica que el modelo y el mercado están en desacuerdo fuerte, y el mercado tiene razón más veces que el modelo. El motor descarta estos casos por sospecha de sobreajuste.</p>
+
+  <h2>7. Clasificación en tres niveles</h2>
+  <p>Los picks que superan los filtros se clasifican en tres niveles según la calidad de la señal:</p>
+
+  <h3>7.1 Pick del Día (Premium)</h3>
+  <p>Un solo pick por día, el de mayor <em>value score</em> entre los que cumplen los umbrales más estrictos: probabilidad ajustada ≥ 70%, EV ajustado ≥ 15%, factor de confianza ≥ 0.95, y estadísticas disponibles para ambos equipos. El Pick del Día solo se publica si hay al menos dos picks adicionales que califiquen como Suscripción (regla de seguridad para evitar destacar un pick aislado sin contexto).</p>
+
+  <h3>7.2 Picks Suscripción</h3>
+  <p>De dos a cuatro picks adicionales con umbrales más flexibles: probabilidad ajustada ≥ 50%, EV ajustado ≥ 8%, factor de confianza ≥ 0.90. Estos picks incluyen oportunidades donde el modelo tiene señal parcial pero la casa está ofreciendo una cuota favorable.</p>
+
+  <h3>7.3 Pick Gratuito</h3>
+  <p>El más estable de los picks de Suscripción (mayor probabilidad, mercado entendible). Se publica libremente en el canal de Telegram y en el home del sitio.</p>
+
+  <h2>8. Métrica de ranking: value score</h2>
+  <p>Cuando varios picks califican, el motor los ordena mediante la métrica <em>value score</em>:</p>
+
+  <div class="formula">
+    value_score = EV_ajustado × confidence_factor × log(cuota)
+  </div>
+
+  <p>Cada componente tiene un rol: el EV ajustado es el factor dominante, el factor de confianza prioriza ligas y mercados donde el modelo es más fiable, y el logaritmo de la cuota modera los picks con cuotas extremas sin descartar el <em>upside</em> de las cuotas altas.</p>
+
+  <h2>9. Análisis de goles complementario</h2>
+  <p>Cuando el pick principal de un partido es un mercado de resultado (1X2, DNB, DC) pero el mercado Over 2.5 también presenta valor, el motor publica ese Over como <strong>análisis complementario</strong>, no como pick oficial. Es información adicional para el lector, claramente etiquetada como insight.</p>
+
+  <h2>10. Limitaciones honestas</h2>
+  <p>Ningún modelo estadístico de apuestas deportivas es infalible. Las limitaciones principales del motor son:</p>
+
+  <ul>
+    <li><strong>Eventos no modelados:</strong> lesiones de último momento, expulsiones tempranas, motivación atípica (eliminatorias, derbis). El motor no lee noticias.</li>
+    <li><strong>Calidad de las estadísticas:</strong> en ligas menores o competiciones cortas (CONMEBOL), los datos disponibles son limitados y el modelo se apoya en ligas locales como fallback.</li>
+    <li><strong>Eficiencia del mercado:</strong> los bookmakers ajustan sus cuotas con equipos de analistas y algoritmos. Encontrar valor real es cada vez más difícil, especialmente en las ligas grandes.</li>
+    <li><strong>Varianza a corto plazo:</strong> un pick con EV positivo puede perder varias veces seguidas. El valor solo se materializa a lo largo de decenas o cientos de apuestas.</li>
+  </ul>
+
+  <div class="tip">
+    Por estas razones, PREDIKTOR insiste en que sus predicciones son <strong>orientativas, no garantizadas</strong>, y deben usarse como una herramienta más de análisis, nunca como un reemplazo del criterio propio ni de la gestión responsable de un bankroll.
+  </div>
+
+  <h2>11. Transparencia y track record</h2>
+  <p>Cada predicción publicada se registra con su probabilidad, cuota, EV, resultado esperado y resultado real tras el partido. Estas bitácoras permiten verificar si el rendimiento histórico del motor está dentro de las expectativas estadísticas derivadas de su diseño.</p>
+
+  <p>El sitio publica su tasa de acierto global, la tasa por tipo de mercado, y el listado de las últimas predicciones con su desenlace. Esta transparencia es condición necesaria para que cualquier sistema de predicciones sea evaluable por terceros.</p>
+
+</article>
+
+<div class="disclaimer">⚠️ <strong>Aviso:</strong> Las predicciones de PREDIKTOR son orientativas y no constituyen asesoramiento financiero ni de apuestas. El sistema es una herramienta de análisis estadístico. Apuesta con responsabilidad.</div>
+
+<footer>
+  <div class="footer-logo">PREDIKTOR</div>
+  <div class="footer-desc">Sistema automatizado de análisis estadístico deportivo. Metodología abierta, datos verificables.</div>
+  <div class="footer-links">
+    <a href="/">Inicio</a>
+    <a href="/metodologia.html">Metodología</a>
+    <a href="/glosario.html">Glosario</a>
+    <a href="/como-interpretar.html">Cómo usar</a>
+    <a href="/about.html">Sobre</a>
+    <a href="/privacy.html">Privacidad</a>
+  </div>
+  <div class="footer-copy">© 2026 PREDIKTOR · contacto@prediktor.app</div>
+</footer>
+
+</body>
+</html>
