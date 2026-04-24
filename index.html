@@ -467,6 +467,39 @@
 
     .pw-empty { text-align:center; padding:3rem 1rem; color:var(--gris); font-size:1rem; }
 
+    /* ── Contenido mínimo diario (cuando no hay picks) ── */
+    .pw-minimal {
+      background:linear-gradient(135deg, rgba(74,122,191,0.06) 0%, rgba(22,22,31,0.9) 60%);
+      border:1px solid rgba(74,122,191,0.25);
+      border-left:3px solid #4a7abf;
+      border-radius:12px;
+      padding:1.8rem 1.8rem 1.4rem;
+      margin-bottom:2rem;
+    }
+    .pw-minimal-header {
+      display:flex; justify-content:space-between; align-items:center;
+      margin-bottom:1.2rem; padding-bottom:0.7rem;
+      border-bottom:1px solid rgba(255,255,255,0.06);
+      flex-wrap:wrap; gap:0.5rem;
+    }
+    .pw-minimal-badge {
+      font-family:'Bebas Neue',sans-serif; font-size:1rem;
+      letter-spacing:2px; color:#6b9bd2; font-weight:700;
+    }
+    .pw-minimal-body {
+      font-size:0.97rem; line-height:1.7; color:var(--texto);
+    }
+    .pw-minimal-body p {
+      margin-bottom:1rem;
+    }
+    .pw-minimal-body p:last-child { margin-bottom:0; }
+    .pw-minimal-body strong { color:#fff; font-weight:600; }
+    .pw-minimal-footer {
+      margin-top:1.2rem; padding-top:0.9rem;
+      border-top:1px solid rgba(255,255,255,0.05);
+      font-size:0.82rem; color:var(--gris); font-style:italic;
+    }
+
     /* ── Análisis de goles (informativo) ── */
     .pw-section-goals { margin-top:3rem; padding-top:2rem; border-top:1px dashed var(--borde); }
     .pw-goals-header .pw-badge-goals {

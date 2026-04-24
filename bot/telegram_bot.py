@@ -16,6 +16,9 @@ from telegram.ext import Application, CommandHandler, ContextTypes
 from bot.config import (
     BOT_TOKEN, CHANNEL_ID, DAILY_PICKS_PATH, PUBLISH_LOG_PATH,
 )
+from bot.content_generator import (
+    generate_daily_content, save_daily_content, format_content_for_telegram,
+)
 
 logging.basicConfig(
     format="%(asctime)s [%(levelname)s] %(message)s",
@@ -353,9 +356,21 @@ async def publish_today_picks():
 
             elif state == STATE_NO_VALUE:
                 # B) JSON actual pero sin picks — motor fue selectivo
-                msg = format_state_no_value(date_str)
+                #    Usamos el content generator para publicar contenido mínimo
+                #    (análisis / agenda / explicación) en vez de mensaje genérico.
+                try:
+                    content = generate_daily_content(today_col)
+                    save_daily_content(content)  # para que la web lo lea
+                    msg = format_content_for_telegram(content)
+                    log.info("📝 Contenido mínimo generado: tipo=%s (%d fixtures)",
+                             content.get("type"), content.get("total_fixtures", 0))
+                except Exception as e:
+                    # Si falla el content generator, fallback al mensaje estático
+                    log.warning("Content generator falló (%s), usando fallback", e)
+                    msg = format_state_no_value(date_str)
+
                 await bot.send_message(chat_id=CHANNEL_ID, text=msg, parse_mode=ParseMode.HTML)
-                log.info("📅 Estado B publicado (NO_VALUE)")
+                log.info("📅 Estado B publicado (NO_VALUE + contenido mínimo)")
                 messages_sent += 1
 
             elif state == STATE_ODDS_FAILURE:

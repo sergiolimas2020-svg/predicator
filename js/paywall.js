@@ -27,6 +27,20 @@ async function initPaywall() {
     if (!res.ok) throw new Error(res.status);
     const data = await res.json();
     window._lastDailyData = data;
+
+    // Si no hay picks, intentar cargar contenido mínimo diario
+    const hasAnyPick = data.pick_gratuito || data.pick_dia
+                    || (data.picks_suscripcion && data.picks_suscripcion.length > 0)
+                    || data.pick_exploratorio;
+    if (!hasAnyPick) {
+      try {
+        const cres = await fetch('static/predictions/daily_content.json');
+        if (cres.ok) {
+          data._minimal_content = await cres.json();
+        }
+      } catch (_) { /* sin contenido mínimo — usar fallback */ }
+    }
+
     renderPaywall(data);
   } catch (e) {
     container.innerHTML = `
@@ -115,16 +129,47 @@ function renderPaywall(data) {
     </div>`;
   }
 
-  // ═══ Sin picks ═══
+  // ═══ Sin picks — mostrar contenido mínimo diario ═══
   if (!pick_gratuito && (!picks_suscripcion || picks_suscripcion.length === 0) && !pick_dia) {
-    html = `
+    html = renderMinimalContent(data._minimal_content, dateStr);
+  }
+
+  container.innerHTML = html;
+}
+
+// ── Contenido mínimo diario (cuando no hay picks de valor) ──
+function renderMinimalContent(content, dateStr) {
+  // Sin contenido mínimo → fallback al mensaje genérico
+  if (!content) {
+    return `
     <div class="pw-empty">
       <p>Hoy el motor no encontró picks con valor suficiente.</p>
       <p style="font-size:0.85rem;color:var(--gris);margin-top:0.5rem">No forzamos apuestas — a veces el mejor pick es no apostar.</p>
     </div>`;
   }
 
-  container.innerHTML = html;
+  const icon = content.icon || '📝';
+  const title = content.title || 'Información del día';
+  const body = content.body || '';
+
+  // Convertir saltos de línea a <br> y <b> tags del body (viene de Python)
+  const bodyHtml = body
+    .replace(/<b>/g, '<strong>')
+    .replace(/<\/b>/g, '</strong>')
+    .replace(/\n\n/g, '</p><p>')
+    .replace(/\n/g, '<br>');
+
+  return `
+  <div class="pw-minimal">
+    <div class="pw-minimal-header">
+      <span class="pw-minimal-badge">${icon} ${title.toUpperCase()}</span>
+      <span class="pw-date">${dateStr}</span>
+    </div>
+    <div class="pw-minimal-body"><p>${bodyHtml}</p></div>
+    <div class="pw-minimal-footer">
+      <span>🔔 Volvemos a publicar picks cuando haya valor real</span>
+    </div>
+  </div>`;
 }
 
 // ── Card completa (desbloqueada) ──
