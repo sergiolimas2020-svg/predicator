@@ -1547,5 +1547,60 @@
         "reason": "mercado_no_disponible"
       }
     ]
+  },
+  {
+    "fecha": "2026-04-24",
+    "slug": "sunderland-vs-nottingham-forest-premier-league-2026-04-24",
+    "home": "Sunderland",
+    "away": "Nottingham Forest",
+    "league": "Premier League",
+    "prediccion": "Doble oportunidad: Sunderland",
+    "confianza": "Probabilidad: 74.6%",
+    "resultado_real": null,
+    "acerto": null,
+    "prob_original": 74.6,
+    "confidence_factor": 1.0,
+    "prob_adjusted": 74.6,
+    "bk_odds": 1.553,
+    "ev": 15.8,
+    "penalty": 0.0,
+    "ev_adjusted": 15.8,
+    "value_score": 6.955,
+    "reason": "ok",
+    "tipo_pick": "pick_gratuito",
+    "base_pick": "Sunderland",
+    "value_level": "medio",
+    "markets_evaluated": [
+      {
+        "market": "Doble oportunidad: Sunderland",
+        "ev_adjusted": 15.8,
+        "value_score": 6.955,
+        "reason": "ok"
+      },
+      {
+        "market": "Sunderland",
+        "ev_adjusted": 47.0,
+        "value_score": null,
+        "reason": "ev_excesivo"
+      },
+      {
+        "market": "Apuesta sin empate: Sunderland",
+        "ev_adjusted": 26.9,
+        "value_score": null,
+        "reason": "ev_excesivo"
+      },
+      {
+        "market": "Over 2.5 goles",
+        "ev_adjusted": -6.5,
+        "value_score": null,
+        "reason": "ev_negativo"
+      },
+      {
+        "market": "Over 1.5 goles",
+        "ev_adjusted": null,
+        "value_score": null,
+        "reason": "mercado_no_disponible"
+      }
+    ]
   }
 ]
