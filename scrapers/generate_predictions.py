@@ -2137,15 +2137,29 @@ def main():
 
         pick_gratuito = max(subscription_picks, key=_gratuito_sort_key) if subscription_picks else None
 
-        # ── PASO 6: Pick del Día (Premium) — lógica estricta ──
+        # ══════════════════════════════════════════════════════════
+        #  PASO 6 — PICK DEL DÍA (PREMIUM) — Decisión de producto
+        # ══════════════════════════════════════════════════════════
+        # Regla actualizada (Paso 2 del rediseño comercial):
+        # Publicamos pick_dia siempre que exista al menos UN candidato
+        # premium, sin importar cuántos picks de suscripción haya.
+        #
+        # Antes: se exigía len(subscription_picks) >= 2 (bloqueaba días
+        # con 1 solo pick excelente). Ahora: el mejor pick premium del
+        # día se destaca como Pick del Día aunque sea el único.
+        #
+        # Si pick_dia coincide con pick_gratuito (caso de 1 solo pick),
+        # pick_dia prevalece y reasignamos pick_gratuito al siguiente
+        # subscription_pick disponible — o queda None si no hay más.
         pick_dia = None
-        if len(subscription_picks) >= TIER_SUSCRIPCION_MIN and premium_candidates:
+        if premium_candidates:
             premium_candidates.sort(key=lambda p: p["value_score"], reverse=True)
-            # Excluir el pick gratuito del premium
-            for pc in premium_candidates:
-                if pc is not pick_gratuito:
-                    pick_dia = pc
-                    break
+            pick_dia = premium_candidates[0]
+
+            # Resolver conflicto pick_dia == pick_gratuito (mismo pick)
+            if pick_dia is pick_gratuito:
+                alt = [p for p in subscription_picks if p is not pick_dia]
+                pick_gratuito = max(alt, key=_gratuito_sort_key) if alt else None
 
         # ══════════════════════════════════════════════════════════
         #  PASO 7 — PICK EXPLORATORIO (fallback de publicación)
