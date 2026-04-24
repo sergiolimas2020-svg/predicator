@@ -26,6 +26,18 @@ log = logging.getLogger("prediktor_bot")
 # ── Hora Colombia (UTC-5) ──
 _COL_TZ = timezone(timedelta(hours=-5))
 
+# ══════════════════════════════════════════════════════════════
+#  ESTADOS POSIBLES DE PUBLICACIÓN
+#  El bot SIEMPRE comunica algo al canal — nunca queda mudo.
+# ══════════════════════════════════════════════════════════════
+STATE_SUCCESS            = "success"           # A — hay picks del día
+STATE_NO_VALUE           = "no_value"          # B — JSON OK pero sin valor
+STATE_ODDS_FAILURE       = "odds_failure"      # C — no se pudo traer odds
+STATE_EXECUTION_FAILURE  = "execution_failure" # D — motor falló / JSON viejo
+
+# Path al archivo de odds (para detectar fallos de odds fetch)
+_ODDS_JSON_PATH = DAILY_PICKS_PATH.parent.parent / "odds.json"
+
 
 # ══════════════════════════════════════════════════════════════
 #  LECTURA DEL JSON DIARIO
@@ -95,7 +107,7 @@ def format_teaser_premium(pick_dia: dict, date_str: str) -> str:
 
 
 def format_no_picks(date_str: str) -> str:
-    """Mensaje cuando no hay picks para el día."""
+    """Mensaje cuando no hay picks para el día (legacy — estado B genérico)."""
     return (
         f"📅 <b>PREDIKTOR — {date_str}</b>\n"
         f"\n"
@@ -104,6 +116,113 @@ def format_no_picks(date_str: str) -> str:
         f"\n"
         f"🔔 Mañana volvemos con nuevas oportunidades"
     )
+
+
+def format_state_no_value(date_str: str) -> str:
+    """Estado B: JSON OK, pero todos los picks son null (sin valor estadístico)."""
+    return (
+        f"📅 <b>PREDIKTOR — {date_str}</b>\n"
+        f"\n"
+        f"Hoy el motor no encontró picks con valor estadístico suficiente.\n"
+        f"\n"
+        f"Esto no es un error: significa que las cuotas del mercado están "
+        f"alineadas con nuestras probabilidades, y no hay diferencial aprovechable.\n"
+        f"\n"
+        f"No forzamos picks sin valor real.\n"
+        f"\n"
+        f"━━━━━━━━━━━━━━━━━━━━━\n"
+        f"🔔 Mañana volvemos con nuevas oportunidades"
+    )
+
+
+def format_state_odds_failure(date_str: str) -> str:
+    """Estado C: no se pudo acceder a las cuotas de los bookmakers."""
+    return (
+        f"⚠️ <b>PREDIKTOR — {date_str}</b>\n"
+        f"\n"
+        f"Hoy no pudimos acceder a las cuotas de los bookmakers.\n"
+        f"\n"
+        f"Por seguridad, no publicamos picks sin datos verificados de mercado. "
+        f"El análisis estadístico se reanudará en cuanto la conexión con las "
+        f"casas de apuestas se restablezca.\n"
+        f"\n"
+        f"━━━━━━━━━━━━━━━━━━━━━\n"
+        f"🔔 Volvemos a publicar en cuanto se resuelva"
+    )
+
+
+def format_state_execution_failure(date_str: str) -> str:
+    """Estado D: inconveniente técnico (motor no corrió o JSON obsoleto)."""
+    return (
+        f"⚠️ <b>PREDIKTOR — {date_str}</b>\n"
+        f"\n"
+        f"Tenemos un inconveniente técnico en el motor de predicciones.\n"
+        f"\n"
+        f"Nuestro equipo ya está trabajando en resolverlo. Cuando el sistema "
+        f"vuelva a generar picks, se publicará automáticamente.\n"
+        f"\n"
+        f"━━━━━━━━━━━━━━━━━━━━━\n"
+        f"🔔 Gracias por tu paciencia"
+    )
+
+
+# ══════════════════════════════════════════════════════════════
+#  DETECCIÓN DE ESTADO
+#  Decide qué mensaje se debe publicar basándose en los datos
+#  disponibles. El bot nunca queda mudo: SIEMPRE hay un estado.
+# ══════════════════════════════════════════════════════════════
+
+def _odds_json_is_usable() -> bool:
+    """Retorna True si odds.json existe y tiene al menos un partido."""
+    if not _ODDS_JSON_PATH.exists():
+        return False
+    try:
+        data = json.loads(_ODDS_JSON_PATH.read_text(encoding="utf-8"))
+        return isinstance(data, dict) and len(data) > 0
+    except (json.JSONDecodeError, OSError):
+        return False
+
+
+def detect_state(data: dict | None, today_str: str) -> str:
+    """
+    Clasifica la situación del día en uno de 4 estados.
+    Nunca retorna None — siempre hay un estado válido.
+
+    A) STATE_SUCCESS            → hay al menos un pick publicable
+    B) STATE_NO_VALUE           → JSON actual pero sin picks (motor descartó)
+    C) STATE_ODDS_FAILURE       → JSON vacío y odds.json no usable
+    D) STATE_EXECUTION_FAILURE  → JSON no existe o fecha desactualizada
+    """
+    # D1: Sin JSON → fallo de ejecución
+    if data is None:
+        log.info("Estado detectado: EXECUTION_FAILURE (JSON no existe)")
+        return STATE_EXECUTION_FAILURE
+
+    # D2: JSON con fecha distinta de hoy → motor no corrió hoy
+    json_date = data.get("date", "")
+    if json_date != today_str:
+        log.info("Estado detectado: EXECUTION_FAILURE (fecha JSON=%s, hoy=%s)",
+                 json_date, today_str)
+        return STATE_EXECUTION_FAILURE
+
+    # A: JSON actual con al menos un pick publicable
+    has_picks = any([
+        data.get("pick_gratuito"),
+        data.get("pick_dia"),
+        data.get("pick_exploratorio"),
+        data.get("picks_suscripcion"),
+    ])
+    if has_picks:
+        log.info("Estado detectado: SUCCESS")
+        return STATE_SUCCESS
+
+    # B vs C: JSON vacío — ¿es por falta de valor o por fallo de odds?
+    if _odds_json_is_usable():
+        log.info("Estado detectado: NO_VALUE (odds disponibles, sin valor)")
+        return STATE_NO_VALUE
+    else:
+        log.info("Estado detectado: ODDS_FAILURE (odds.json no usable)")
+        return STATE_ODDS_FAILURE
 
 
 # ══════════════════════════════════════════════════════════════
@@ -125,16 +244,24 @@ def _save_publish_log(data: dict):
     )
 
 
-def _already_published(date_str: str) -> bool:
-    """Retorna True si ya se publicó para esta fecha."""
+def _already_published(date_str: str, state: str) -> bool:
+    """
+    Retorna True si YA se publicó el MISMO estado el MISMO día.
+    Permite recuperación: si antes publicamos estado D (fallo) y luego
+    el motor se arregla a estado A (éxito), se re-publica.
+    """
     publish_log = _load_publish_log()
-    return publish_log.get("last_published") == date_str
+    return (
+        publish_log.get("last_published") == date_str
+        and publish_log.get("last_state") == state
+    )
 
 
-def _mark_published(date_str: str):
-    """Marca la fecha como publicada."""
+def _mark_published(date_str: str, state: str):
+    """Marca la fecha+estado como publicados."""
     publish_log = _load_publish_log()
     publish_log["last_published"] = date_str
+    publish_log["last_state"] = state
     publish_log["timestamp"] = datetime.now(_COL_TZ).isoformat()
     _save_publish_log(publish_log)
 
@@ -145,16 +272,18 @@ def _mark_published(date_str: str):
 
 async def publish_today_picks():
     """
-    Lee el JSON diario y publica en el canal público.
-    Puede llamarse desde cron, GitHub Actions, o el comando /publish.
-    No reenvía si ya se publicó hoy.
+    Lee el JSON diario, detecta el estado del sistema y publica en el canal.
+    El bot SIEMPRE comunica algo al canal — nunca queda mudo.
 
-    Regla clave: el pick_gratuito SIEMPRE se publica si existe,
-    aunque no haya picks de suscripción ni pick_dia premium.
+    Estados manejados:
+      A) SUCCESS           → publica pick gratuito + teaser premium
+      B) NO_VALUE          → "hoy no hay valor estadístico suficiente"
+      C) ODDS_FAILURE      → "no pudimos acceder a las cuotas hoy"
+      D) EXECUTION_FAILURE → "inconveniente técnico en el motor"
 
-    En python-telegram-bot v20+ el Bot DEBE inicializarse antes de
-    enviar mensajes. Usamos 'async with Bot(...) as bot:' que maneja
-    initialize() y shutdown() automáticamente.
+    Control de duplicados: no reenvía si el mismo estado ya se publicó
+    hoy. Pero si cambia el estado (ej: D → A cuando el motor se arregla),
+    re-publica con el estado nuevo.
     """
     log.info("=== BOT PREDIKTOR — publish_today_picks() ===")
 
@@ -167,60 +296,81 @@ async def publish_today_picks():
 
     log.info("✓ Credenciales detectadas (canal: %s)", CHANNEL_ID)
 
+    # Determinar "hoy" en hora Colombia
+    today_col = datetime.now(_COL_TZ).strftime("%Y-%m-%d")
+
+    # Cargar datos y detectar estado
     data = load_daily_picks()
-    if data is None:
-        log.error("❌ No se pudo cargar el JSON diario — abortando")
-        return False
+    state = detect_state(data, today_col)
 
-    date_str = data.get("date", "—")
-    pick_gratuito = data.get("pick_gratuito")
-    pick_dia = data.get("pick_dia")
-    picks_sub = data.get("picks_suscripcion", [])
+    # Fecha para mostrar en el mensaje (la del JSON si existe, sino hoy)
+    date_str = data.get("date", today_col) if data else today_col
 
-    log.info("✓ JSON cargado: fecha=%s | gratuito=%s | premium=%s | suscripcion=%d",
-             date_str,
-             "SI" if pick_gratuito else "NO",
-             "SI" if pick_dia else "NO",
-             len(picks_sub))
+    if data:
+        pick_gratuito = data.get("pick_gratuito")
+        pick_dia = data.get("pick_dia")
+        picks_sub = data.get("picks_suscripcion", [])
+        log.info("✓ JSON: fecha=%s | gratuito=%s | premium=%s | suscripcion=%d | estado=%s",
+                 data.get("date", "?"),
+                 "SI" if pick_gratuito else "NO",
+                 "SI" if pick_dia else "NO",
+                 len(picks_sub),
+                 state)
+    else:
+        pick_gratuito = pick_dia = None
+        picks_sub = []
+        log.warning("⚠  JSON no disponible | estado=%s", state)
 
-    # Evitar duplicados
-    if _already_published(date_str):
-        log.info("⏭  Picks del %s ya publicados — sin reenviar", date_str)
+    # Control de duplicados por estado
+    if _already_published(today_col, state):
+        log.info("⏭  Estado '%s' del %s ya publicado — sin reenviar", state, today_col)
         return True
 
-    # async with inicializa la sesión HTTP y la cierra al salir.
-    # Sin esto, Bot(token) NO conecta y send_message() falla silenciosamente.
+    # Publicar según estado
     messages_sent = 0
     try:
         async with Bot(token=BOT_TOKEN) as bot:
-            # 1. PICK GRATUITO — prioridad absoluta.
-            #    Se publica SIEMPRE que exista, sin depender de otros picks.
-            if pick_gratuito:
-                msg = format_pick_gratuito(pick_gratuito, date_str)
-                await bot.send_message(
-                    chat_id=CHANNEL_ID, text=msg, parse_mode=ParseMode.HTML,
-                )
-                log.info("✅ Pick gratuito publicado: %s", pick_gratuito.get("matchup"))
-                messages_sent += 1
-            else:
-                log.warning("⚠  pick_gratuito es null en daily_picks.json")
 
-            # 2. Teaser del Pick del Día (solo si hay premium)
-            if pick_dia:
-                msg = format_teaser_premium(pick_dia, date_str)
-                await bot.send_message(
-                    chat_id=CHANNEL_ID, text=msg, parse_mode=ParseMode.HTML,
-                )
-                log.info("🔥 Teaser premium publicado: %s", pick_dia.get("matchup"))
+            if state == STATE_SUCCESS:
+                # A) Publicar pick gratuito + teaser premium si aplica
+                if pick_gratuito:
+                    msg = format_pick_gratuito(pick_gratuito, date_str)
+                    await bot.send_message(chat_id=CHANNEL_ID, text=msg, parse_mode=ParseMode.HTML)
+                    log.info("✅ Pick gratuito publicado: %s", pick_gratuito.get("matchup"))
+                    messages_sent += 1
+                if pick_dia:
+                    msg = format_teaser_premium(pick_dia, date_str)
+                    await bot.send_message(chat_id=CHANNEL_ID, text=msg, parse_mode=ParseMode.HTML)
+                    log.info("🔥 Teaser premium publicado: %s", pick_dia.get("matchup"))
+                    messages_sent += 1
+                # Safety net: si state==SUCCESS pero no había ni gratuito ni pick_dia
+                # (solo suscripción), publicar al menos un mensaje informativo
+                if messages_sent == 0:
+                    msg = format_no_picks(date_str)
+                    await bot.send_message(chat_id=CHANNEL_ID, text=msg, parse_mode=ParseMode.HTML)
+                    log.info("📅 Mensaje fallback publicado (success sin gratuito/premium)")
+                    messages_sent += 1
+
+            elif state == STATE_NO_VALUE:
+                # B) JSON actual pero sin picks — motor fue selectivo
+                msg = format_state_no_value(date_str)
+                await bot.send_message(chat_id=CHANNEL_ID, text=msg, parse_mode=ParseMode.HTML)
+                log.info("📅 Estado B publicado (NO_VALUE)")
                 messages_sent += 1
 
-            # 3. Sin picks — fallback honesto
-            if messages_sent == 0:
-                msg = format_no_picks(date_str)
-                await bot.send_message(
-                    chat_id=CHANNEL_ID, text=msg, parse_mode=ParseMode.HTML,
-                )
-                log.info("📅 Mensaje 'sin picks' publicado")
+            elif state == STATE_ODDS_FAILURE:
+                # C) No se pudo acceder a odds
+                msg = format_state_odds_failure(today_col)
+                await bot.send_message(chat_id=CHANNEL_ID, text=msg, parse_mode=ParseMode.HTML)
+                log.info("⚠  Estado C publicado (ODDS_FAILURE)")
+                messages_sent += 1
+
+            elif state == STATE_EXECUTION_FAILURE:
+                # D) Motor no corrió o JSON viejo
+                msg = format_state_execution_failure(today_col)
+                await bot.send_message(chat_id=CHANNEL_ID, text=msg, parse_mode=ParseMode.HTML)
+                log.info("⚠  Estado D publicado (EXECUTION_FAILURE)")
+                messages_sent += 1
 
     except TelegramError as e:
         log.error("❌ Error de Telegram: %s", e)
@@ -229,8 +379,10 @@ async def publish_today_picks():
         log.error("❌ Error inesperado: %s", e)
         return False
 
-    _mark_published(date_str)
-    log.info("✅ Publicación completada para %s (%d mensajes enviados)", date_str, messages_sent)
+    # Registrar el estado publicado (para no duplicar el mismo estado)
+    _mark_published(today_col, state)
+    log.info("✅ Publicación completada | fecha=%s | estado=%s | mensajes=%d",
+             today_col, state, messages_sent)
     return True
 
 
