@@ -1433,21 +1433,47 @@ def save(league, home, away, art):
     return slug
 
 def generate_sitemap(slugs):
-    """Genera sitemap.xml con todas las URLs del sitio."""
+    """Genera sitemap.xml con todas las URLs del sitio (incluye páginas de contenido SEO)."""
     static_urls = [
         f"{SITE_URL}/index.html",
         f"{SITE_URL}/static/predictions/index.html",
         f"{SITE_URL}/privacy.html",
     ]
+    # Páginas de contenido educativo (críticas para AdSense)
+    content_urls = [
+        f"{SITE_URL}/metodologia.html",
+        f"{SITE_URL}/glosario.html",
+        f"{SITE_URL}/como-interpretar.html",
+        f"{SITE_URL}/about.html",
+    ]
     pred_urls = [f"{SITE_URL}/static/predictions/{s}.html" for s in slugs]
-    all_urls  = static_urls + pred_urls
+    all_urls  = static_urls + content_urls + pred_urls
+
+    def _priority(url):
+        if url == f"{SITE_URL}/index.html":
+            return "1.0"
+        if url in content_urls:
+            # Páginas de contenido importantes para SEO y AdSense
+            if "metodologia" in url:       return "0.9"
+            if "glosario" in url:          return "0.8"
+            if "como-interpretar" in url:  return "0.8"
+            return "0.6"  # about
+        if "predictions" in url and "index" not in url:
+            return "0.9"
+        return "0.7"
+
+    def _changefreq(url):
+        # Páginas de contenido cambian poco → monthly
+        if url in content_urls:
+            return "monthly"
+        return "daily"
 
     entries = "\n".join(
         f"""  <url>
     <loc>{u}</loc>
     <lastmod>{today}</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>{"1.0" if u == f"{SITE_URL}/index.html" else "0.9" if "predictions" in u and "index" not in u else "0.7"}</priority>
+    <changefreq>{_changefreq(u)}</changefreq>
+    <priority>{_priority(u)}</priority>
   </url>"""
         for u in all_urls
     )
