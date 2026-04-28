@@ -556,6 +556,274 @@
     }
     .pw-telegram-btn:hover { transform:translateY(-2px); box-shadow:0 6px 16px rgba(42,171,238,0.3); }
 
+    /* ═══════════════════════════════════════════════════════════════
+       DASHBOARD — Arquitectura de 3 niveles (mobile-first)
+       Base: <600px | Tablet: ≥768px | Desktop: ≥1024px
+       Touch targets ≥44x44 (Apple HIG)
+       ═══════════════════════════════════════════════════════════════ */
+    .dash {
+      padding:2rem 1rem;
+      border-bottom:1px solid var(--borde);
+    }
+    .dash-container {
+      max-width:1100px;
+      margin:0 auto;
+    }
+    .dash-section-label {
+      font-size:0.7rem; font-weight:600; letter-spacing:2px;
+      color:var(--dorado); text-transform:uppercase;
+      margin-bottom:0.6rem;
+    }
+    .dash-section-sub {
+      color:var(--gris); font-size:0.9rem;
+      margin-bottom:1.4rem; line-height:1.6;
+    }
+
+    /* ── Sección 1 — HERO Featured Pick ─────────────────────── */
+    .dash-hero {
+      background:linear-gradient(135deg, rgba(240,180,41,0.08) 0%, rgba(10,22,40,0.95) 60%, var(--negro) 100%);
+      padding:2.5rem 1rem 2rem;
+    }
+    .featured-card {
+      background:var(--card);
+      border:1px solid rgba(240,180,41,0.25);
+      border-top:3px solid var(--dorado);
+      border-radius:12px;
+      padding:1.5rem 1.3rem;
+      box-shadow:0 8px 32px rgba(0,0,0,0.4);
+      position:relative;
+    }
+    .featured-badges {
+      display:flex; gap:0.5rem; flex-wrap:wrap; margin-bottom:0.9rem;
+    }
+    .featured-badge {
+      font-family:'Bebas Neue',sans-serif;
+      font-size:0.72rem; letter-spacing:1.5px;
+      padding:0.3rem 0.7rem; border-radius:4px;
+      display:inline-block;
+    }
+    .featured-badge-league {
+      background:rgba(240,180,41,0.12);
+      color:var(--dorado);
+      border:1px solid rgba(240,180,41,0.3);
+    }
+    .featured-badge-value {
+      background:linear-gradient(135deg, var(--dorado), var(--dorado2));
+      color:var(--negro); font-weight:700;
+    }
+    .featured-matchup {
+      font-family:'Bebas Neue',sans-serif;
+      font-size:clamp(1.7rem, 6vw, 2.4rem);
+      letter-spacing:0.5px; line-height:1.1;
+      color:var(--texto);
+      margin-bottom:0.4rem;
+    }
+    .featured-market {
+      color:var(--gris); font-size:0.95rem;
+      margin-bottom:1.2rem; line-height:1.5;
+    }
+    .featured-market strong { color:var(--texto); font-weight:600; }
+    .featured-stats {
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:0.6rem;
+      padding:1rem 0;
+      border-top:1px solid var(--borde);
+      border-bottom:1px solid var(--borde);
+    }
+    .featured-stat { text-align:center; min-height:44px; }
+    .featured-stat-val {
+      font-family:'Bebas Neue',sans-serif;
+      font-size:clamp(1.5rem, 5vw, 1.9rem);
+      line-height:1; color:var(--dorado);
+    }
+    .featured-stat-val.confidence-alta { color:var(--verde); }
+    .featured-stat-val.confidence-media { color:var(--dorado); }
+    .featured-stat-val.confidence-media-alta { color:var(--dorado); }
+    .featured-stat-lbl {
+      font-size:0.65rem; color:var(--gris);
+      text-transform:uppercase; letter-spacing:0.8px;
+      margin-top:0.25rem;
+    }
+    .featured-note {
+      font-size:0.8rem; color:var(--gris);
+      margin-top:0.9rem; text-align:center;
+      font-style:italic;
+    }
+    /* Estado vacío del Hero */
+    .featured-empty {
+      background:var(--card);
+      border:1px dashed var(--borde);
+      border-radius:12px;
+      padding:2rem 1.5rem;
+      text-align:center;
+    }
+    .featured-empty-title {
+      font-family:'Bebas Neue',sans-serif;
+      font-size:1.4rem; color:var(--texto);
+      letter-spacing:1px; margin-bottom:0.5rem;
+    }
+    .featured-empty-msg {
+      color:var(--gris); font-size:0.9rem; line-height:1.6;
+    }
+
+    /* ── Sección 3 — Análisis del Día ───────────────────────── */
+    .dash-analysis { background:var(--negro); }
+    .analysis-list {
+      display:flex; flex-direction:column; gap:0.6rem;
+    }
+    .analysis-row {
+      background:var(--card);
+      border:1px solid var(--borde);
+      border-radius:8px;
+      overflow:hidden;
+      transition:border-color 0.2s;
+    }
+    .analysis-row[open] { border-color:rgba(240,180,41,0.25); }
+    .analysis-summary {
+      padding:0.95rem 1rem; cursor:pointer; min-height:44px;
+      display:flex; align-items:center; gap:0.8rem;
+      list-style:none;  /* eliminar marker default */
+    }
+    .analysis-summary::-webkit-details-marker { display:none; }
+    .analysis-summary::marker { content:""; }
+    .analysis-summary:hover { background:rgba(240,180,41,0.04); }
+    .analysis-row[open] .analysis-summary { border-bottom:1px solid var(--borde); }
+    .analysis-summary-content {
+      flex:1; min-width:0;  /* permite truncar */
+    }
+    .analysis-summary-matchup {
+      font-weight:600; font-size:0.92rem;
+      color:var(--texto); line-height:1.3;
+      overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+    }
+    .analysis-summary-league {
+      font-size:0.72rem; color:var(--gris);
+      text-transform:uppercase; letter-spacing:0.5px;
+      margin-top:0.15rem;
+    }
+    .analysis-summary-icon {
+      flex:none; color:var(--dorado); font-size:1rem;
+      transition:transform 0.2s;
+    }
+    .analysis-row[open] .analysis-summary-icon { transform:rotate(90deg); }
+
+    /* Mini barra de probabilidades 1X2 */
+    .prob-bar {
+      display:flex; height:6px; border-radius:3px; overflow:hidden;
+      background:var(--borde); margin-top:0.5rem;
+    }
+    .prob-bar-home  { background:var(--verde); }
+    .prob-bar-draw  { background:var(--gris); }
+    .prob-bar-away  { background:#3b82f6; }
+
+    /* Detalles expandidos */
+    .analysis-details {
+      padding:1rem; background:rgba(0,0,0,0.2);
+      font-size:0.88rem; line-height:1.6;
+    }
+    .analysis-probs-grid {
+      display:grid; grid-template-columns:repeat(3, 1fr);
+      gap:0.6rem; margin-bottom:0.9rem;
+    }
+    .analysis-prob-cell {
+      text-align:center; padding:0.6rem 0.4rem;
+      background:var(--card2); border-radius:6px;
+    }
+    .analysis-prob-val {
+      font-family:'Bebas Neue',sans-serif; font-size:1.4rem;
+      color:var(--texto);
+    }
+    .analysis-prob-lbl {
+      font-size:0.65rem; color:var(--gris);
+      text-transform:uppercase; letter-spacing:0.5px;
+    }
+    .analysis-overs {
+      display:flex; gap:0.8rem; flex-wrap:wrap;
+      font-size:0.82rem; color:var(--gris);
+    }
+    .analysis-overs strong { color:var(--texto); font-weight:600; }
+    .analysis-favorite {
+      margin-top:0.7rem; padding-top:0.7rem;
+      border-top:1px solid var(--borde);
+      font-size:0.85rem; color:var(--gris);
+    }
+    .analysis-favorite strong { color:var(--dorado); font-weight:600; }
+
+    /* ── Skeleton screens ───────────────────────────────────── */
+    @keyframes sk-pulse {
+      0%, 100% { opacity:1; }
+      50%      { opacity:0.5; }
+    }
+    .dash-skeleton {
+      background:var(--card); border-radius:12px;
+      padding:1.5rem; animation:sk-pulse 1.5s ease-in-out infinite;
+    }
+    .sk-line {
+      height:14px; background:var(--borde);
+      border-radius:4px; margin-bottom:0.7rem;
+    }
+    .sk-line-sm { width:30%; height:10px; }
+    .sk-line-lg { width:80%; height:24px; }
+    .sk-line-md { width:60%; }
+    .sk-stats-grid {
+      display:grid; grid-template-columns:repeat(3,1fr);
+      gap:0.6rem; margin-top:1rem;
+    }
+    .sk-stat {
+      height:60px; background:var(--borde); border-radius:6px;
+    }
+    .dash-skeleton-list { padding:0.5rem; }
+    .sk-row {
+      height:64px; background:var(--card);
+      border:1px solid var(--borde); border-radius:8px;
+      margin-bottom:0.6rem;
+      animation:sk-pulse 1.5s ease-in-out infinite;
+    }
+
+    /* ── Mensajes de error con retry ────────────────────────── */
+    .dash-error {
+      background:rgba(239,68,68,0.05);
+      border:1px solid rgba(239,68,68,0.25);
+      border-radius:8px; padding:1rem 1.2rem;
+      color:var(--gris); font-size:0.88rem;
+      text-align:center;
+    }
+    .dash-error-btn {
+      display:inline-block; margin-top:0.7rem;
+      padding:0.5rem 1.2rem; min-height:44px; line-height:1.2;
+      background:var(--card); color:var(--dorado);
+      border:1px solid rgba(240,180,41,0.3);
+      border-radius:6px; font-size:0.85rem; font-weight:600;
+      cursor:pointer; text-decoration:none;
+    }
+    .dash-error-btn:hover { background:rgba(240,180,41,0.08); }
+
+    /* ── Aviso de fecha distinta ────────────────────────────── */
+    .dash-date-warning {
+      background:rgba(240,180,41,0.05);
+      border-left:3px solid var(--dorado);
+      padding:0.6rem 1rem; margin-bottom:1rem;
+      font-size:0.82rem; color:var(--gris);
+      border-radius:0 4px 4px 0;
+    }
+
+    /* ── BREAKPOINTS ─────────────────────────────────────────── */
+    @media (min-width: 768px) {
+      .dash { padding:3rem 2rem; }
+      .dash-hero { padding:3.5rem 2rem 2.5rem; }
+      .featured-card { padding:2rem 1.8rem; }
+      .featured-stats { gap:1rem; padding:1.2rem 0; }
+      .featured-matchup { font-size:2.2rem; }
+    }
+    @media (min-width: 1024px) {
+      .dash-analysis .analysis-list {
+        display:grid; grid-template-columns:1fr 1fr;
+        gap:0.8rem;
+      }
+      .featured-card { padding:2.5rem 2.2rem; }
+    }
+
     @media(max-width:768px) {
       .vip-grid { grid-template-columns:1fr; }
       .pick-stats { grid-template-columns:repeat(3,1fr); }
@@ -706,15 +974,58 @@ fetch('static/historial.json').then(r=>r.json()).then(h=>{
 });
 </script>
 
-<!-- PAYWALL — Picks del día con niveles de acceso -->
-<section style="background:linear-gradient(135deg,#0d0d1a,#0a0a0f);border-top:1px solid var(--borde);border-bottom:1px solid var(--borde);">
-  <div class="pw-container">
-    <div class="pw-container-title">Picks de hoy</div>
-    <div class="pw-container-sub">Generados automáticamente por el motor · Solo partidos con valor real</div>
+<!-- ═══════════════════════════════════════════════════════════════════
+     ARQUITECTURA DE 3 NIVELES (mobile-first)
+     1) HERO — Pick Destacado del Día (siempre visible)
+     2) VALUE PICKS — Cards bloqueadas para suscriptores (condicional)
+     3) ANÁLISIS DEL DÍA — Lista colapsable de todos los partidos
+     ═══════════════════════════════════════════════════════════════════ -->
+
+<!-- ── SECCIÓN 1: HERO — Pick Destacado del Día ───────────────────── -->
+<section class="dash dash-hero" id="featured-section" aria-label="Pick Destacado del Día">
+  <div class="dash-container">
+    <div class="dash-section-label">Pick destacado del día</div>
+    <div id="featured-container">
+      <!-- Skeleton inicial (reemplazado por dashboard.js) -->
+      <div class="dash-skeleton dash-skeleton-hero" aria-hidden="true">
+        <div class="sk-line sk-line-sm"></div>
+        <div class="sk-line sk-line-lg"></div>
+        <div class="sk-line sk-line-md"></div>
+        <div class="sk-stats-grid">
+          <div class="sk-stat"></div><div class="sk-stat"></div><div class="sk-stat"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SECCIÓN 2: VALUE PICKS (condicional — manejada por paywall.js) ── -->
+<section class="dash dash-values" id="value-picks-section">
+  <div class="dash-container">
+    <div class="dash-section-label">Value bets del día</div>
+    <p class="dash-section-sub">Picks con valor esperado positivo detectados por el motor.</p>
     <div id="paywall-container"></div>
   </div>
 </section>
-<script src="js/paywall.js"></script>
+
+<!-- ── SECCIÓN 3: ANÁLISIS DEL DÍA ────────────────────────────────── -->
+<section class="dash dash-analysis" id="analysis-section">
+  <div class="dash-container">
+    <div class="dash-section-label">Análisis del día</div>
+    <p class="dash-section-sub" id="analysis-subtitle">Cargando partidos…</p>
+    <div id="analysis-container">
+      <!-- Skeleton inicial -->
+      <div class="dash-skeleton dash-skeleton-list" aria-hidden="true">
+        <div class="sk-row"></div>
+        <div class="sk-row"></div>
+        <div class="sk-row"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="js/paywall.js" defer></script>
+<script src="js/dashboard.js" defer></script>
 
 <!-- AD -->
 <div class="ad-banner">

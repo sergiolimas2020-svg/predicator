@@ -28,6 +28,19 @@ async function initPaywall() {
     const data = await res.json();
     window._lastDailyData = data;
 
+    // Detectar si existe Featured Pick (Nivel 3 de la arquitectura).
+    // Si existe, NO renderizamos el Hero verde acá — queda solo el Hero
+    // dorado del Featured Pick arriba (dashboard.js). Los picks gratuitos
+    // se muestran como cards normales si no son el Hero.
+    if (data.date) {
+      try {
+        const fres = await fetch(`static/predictions/featured_pick_${data.date}.json`);
+        if (fres.ok) {
+          data._has_featured = true;
+        }
+      } catch (_) { /* sin featured — render normal */ }
+    }
+
     // Si no hay picks, intentar cargar contenido mínimo diario
     const hasAnyPick = data.pick_gratuito || data.pick_dia
                     || (data.picks_suscripcion && data.picks_suscripcion.length > 0)
@@ -58,9 +71,11 @@ function renderPaywall(data) {
 
   let html = '';
 
-  // ═══ 1. PICK GRATUITO — HERO, lo PRIMERO que ve el usuario ═══
-  //     Card destacada, completa, sin blur, con CTA a Telegram.
-  if (pick_gratuito) {
+  // ═══ 1. PICK GRATUITO — HERO ═══
+  //     Solo se renderiza acá si NO existe Featured Pick. Con Featured
+  //     Pick activo, el Hero principal del sitio es ése (dashboard.js)
+  //     y mostramos el pick gratuito como card normal abajo (sección 2).
+  if (pick_gratuito && !data._has_featured) {
     html += `
     <div class="pw-hero">
       <div class="pw-hero-badge">✅ PICK GRATUITO DEL DÍA</div>
