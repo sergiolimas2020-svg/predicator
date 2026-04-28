@@ -14,6 +14,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # ── Step 0: Checkout ────────────────────────────────────────
       - name: Clonar repositorio
         uses: actions/checkout@v4
         with:
@@ -24,27 +25,71 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+          cache: 'pip'
 
-      - name: Instalar dependencias
-        run: pip install requests beautifulsoup4 lxml nba_api python-telegram-bot
+      # ── Step 1: Instalar dependencias (pin de versiones en requirements.txt) ─
+      - name: Instalar dependencias pineadas
+        run: |
+          python3 -m pip install --upgrade pip
+          pip install -r requirements.txt
+          echo ""
+          echo "── Paquetes instalados ──"
+          pip list | grep -E "requests|beautifulsoup|lxml|nba_api|telegram|certifi"
 
-      # PASO 1: Registrar resultados de los partidos de ayer (ESPN)
-      - name: Registrar resultados
+      # ── Step 1b: Validar imports críticos ───────────────────────
+      - name: Validar imports críticos
+        run: |
+          python3 -c "
+          import sys
+          critical_imports = {
+              'requests':    'HTTP client (todos los scrapers)',
+              'bs4':         'HTML parsing',
+              'lxml':        'parser para bs4',
+              'nba_api.stats.endpoints': 'NBA stats',
+              'telegram':    'bot Telegram',
+              'certifi':     'SSL certs',
+          }
+          failed = []
+          for mod, desc in critical_imports.items():
+              try:
+                  __import__(mod)
+                  print(f'  ✓ {mod} ({desc})')
+              except ImportError as e:
+                  print(f'  ✗ {mod} ({desc}) — {e}')
+                  failed.append(mod)
+          if failed:
+              print(f'\nFALTAN: {failed}')
+              sys.exit(1)
+          print('\nTodos los imports OK')
+          "
+
+      # ── Step 2: Verificar secrets (CRÍTICO — falla rápido si algo no funciona) ─
+      - name: Verificar secrets
+        env:
+          ODDS_API_KEY:             ${{ secrets.ODDS_API_KEY }}
+          TELEGRAM_BOT_TOKEN:       ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHANNEL_ID:      ${{ secrets.TELEGRAM_CHANNEL_ID }}
+          RAPIDAPI_KEY:             ${{ secrets.RAPIDAPI_KEY }}
+          TELEGRAM_ADMIN_CHAT_ID:   ${{ secrets.TELEGRAM_ADMIN_CHAT_ID }}
+        run: python3 scripts/verify_secrets.py
+
+      # ── Step 3: Registrar resultados de ayer (no crítico) ───────
+      - name: Registrar resultados de ayer
         run: python3 scrapers/update_results.py
         continue-on-error: true
 
-      # PASO 1b: Descargar cuotas reales de bookmakers
+      # ── Step 4: Fetch cuotas bookmakers (CRÍTICO — sin odds no hay picks) ─
       - name: Fetch cuotas bookmakers
-        run: python3 scrapers/fetch_odds.py
-        continue-on-error: true
         env:
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+        run: python3 scrapers/fetch_odds.py
 
-      - name: Generar estadísticas
+      # ── Step 5: Stats Tracker (no crítico) ──────────────────────
+      - name: Generar estadísticas tracker
         run: python3 scrapers/stats_tracker.py
         continue-on-error: true
 
-      # PASO 2: Actualizar estadísticas de todas las ligas
+      # ── Step 6: Scrapers por liga (no críticos individualmente) ─
       - name: Stats Colombia
         run: python3 scrapers/colombia.py
         continue-on-error: true
@@ -85,27 +130,82 @@ jobs:
         run: python3 scrapers/nba_scraper.py
         continue-on-error: true
 
-      # PASO 3: Generar picks del día con datos frescos
+      # ── Step 7: Generar predicciones (CRÍTICO — sin esto no hay producto) ─
       - name: Generar predicciones
-        run: python3 scrapers/generate_predictions.py
-        continue-on-error: true
         env:
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+        run: python3 scrapers/generate_predictions.py
 
-      # PASO 3b: Publicar en canal de Telegram
+      # ── Step 8: Validar que se generó JSON con fecha de hoy ─────
+      - name: Validar daily_picks.json
+        run: |
+          python3 -c "
+          import json, sys
+          from datetime import datetime, timezone, timedelta
+          col_tz = timezone(timedelta(hours=-5))
+          today = datetime.now(col_tz).strftime('%Y-%m-%d')
+          try:
+              data = json.load(open('static/predictions/daily_picks.json'))
+              json_date = data.get('date', '?')
+              if json_date != today:
+                  print(f'✗ daily_picks.json fecha={json_date}, esperaba {today}')
+                  sys.exit(1)
+              n_picks = ((1 if data.get('pick_dia') else 0)
+                       + (1 if data.get('pick_gratuito') else 0)
+                       + len(data.get('picks_suscripcion', [])))
+              print(f'✓ daily_picks.json OK: fecha={json_date}, picks={n_picks}')
+          except Exception as e:
+              print(f'✗ Error validando daily_picks.json: {e}')
+              sys.exit(1)
+          "
+
+      # ── Step 9: Publicar en Telegram (no crítico — bot ya tiene fallback) ─
       - name: Publicar en Telegram
+        env:
+          TELEGRAM_BOT_TOKEN:  ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHANNEL_ID: ${{ secrets.TELEGRAM_CHANNEL_ID }}
         run: python3 -m bot.publish --force
         continue-on-error: true
-        env:
-          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          TELEGRAM_CHANNEL_ID: ${{ secrets.TELEGRAM_CHANNEL_ID }}
 
-      # PASO 4: Publicar todos los cambios
+      # ── Step 10: Commit y push (CRÍTICO — sin esto no llega a producción) ─
       - name: Commit y push
         run: |
           git config user.name "PREDIKTOR Bot"
           git config user.email "bot@prediktor.app"
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/sergiolimas2020-svg/predicator.git
           git add -A
-          git diff --cached --quiet && echo "Sin cambios" || git commit -m "chore: update diario $(date '+%Y-%m-%d')"
+          git diff --cached --quiet && echo "Sin cambios para commitear" || git commit -m "chore: update diario $(date '+%Y-%m-%d')"
           git push origin main
+
+      # ── Step 11: Notificar éxito a admin ────────────────────────
+      - name: Notificar éxito a admin
+        if: success()
+        env:
+          TELEGRAM_BOT_TOKEN:     ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_ADMIN_CHAT_ID: ${{ secrets.TELEGRAM_ADMIN_CHAT_ID }}
+        run: |
+          PICKS=$(python3 -c "
+          import json
+          d = json.load(open('static/predictions/daily_picks.json'))
+          n = (1 if d.get('pick_dia') else 0) + (1 if d.get('pick_gratuito') else 0) + len(d.get('picks_suscripcion', []))
+          print(n)
+          ")
+          DATE=$(python3 -c "
+          import json
+          print(json.load(open('static/predictions/daily_picks.json'))['date'])
+          ")
+          python3 scripts/notify_telegram.py success --picks "$PICKS" --date "$DATE"
+        continue-on-error: true
+
+      # ── Step 12: Notificar fallo a admin ────────────────────────
+      - name: Notificar fallo a admin
+        if: failure()
+        env:
+          TELEGRAM_BOT_TOKEN:     ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_ADMIN_CHAT_ID: ${{ secrets.TELEGRAM_ADMIN_CHAT_ID }}
+        run: |
+          python3 scripts/notify_telegram.py error \
+            --step "workflow" \
+            --msg "Algún step crítico falló. Revisar logs en GitHub Actions." \
+            --logs-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+        continue-on-error: true
