@@ -1,7 +1,14 @@
-import json, os, time, requests
+import json, os, sys, time, requests
 from datetime import datetime, timedelta
 
-API_KEY    = "50ae75b6ffda6c2ddfb182f715be3648"
+API_KEY    = os.environ.get("APISPORTS_KEY", "")
+if not API_KEY:
+    print("⚠️  APISPORTS_KEY no está configurada en variables de entorno",
+          file=sys.stderr)
+    print("   Este script no se puede ejecutar sin ella.",
+          file=sys.stderr)
+    sys.exit(1)
+
 HEADERS    = {"x-apisports-key": API_KEY}
 BASE       = "https://v3.football.api-sports.io"
 LEAGUE_ID  = 128  # Copa de la Liga Profesional Argentina

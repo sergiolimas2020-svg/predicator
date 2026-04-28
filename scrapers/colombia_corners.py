@@ -13,10 +13,17 @@
 ════════════════════════════════════════════════════════════════
 """
 
-import json, os, time, requests
+import json, os, sys, time, requests
 from datetime import datetime
 
-RAPIDAPI_KEY = "d0650e7ba0mshaac198e4fe16149p17af5cjsnc046f75386a0"
+RAPIDAPI_KEY = os.environ.get("RAPIDAPI_KEY", "")
+if not RAPIDAPI_KEY:
+    print("⚠️  RAPIDAPI_KEY no está configurada en variables de entorno",
+          file=sys.stderr)
+    print("   Este script no se puede ejecutar sin ella.",
+          file=sys.stderr)
+    sys.exit(1)
+
 LEAGUE_ID    = 274   # Primera A — Liga BetPlay Colombia
 SEASON       = 2026
 OUTPUT_FILE  = "static/colombia_stats.json"
