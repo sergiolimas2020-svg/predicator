@@ -1,62 +1,95 @@
 /**
  * CALCULATOR MODULE
- * Responsable de calcular predicciones basadas en estadísticas
+ * Responsable de calcular predicciones basadas en estadísticas.
+ *
+ * IMPORTANTE — paridad con Python:
+ * Los resultados de predictWinner() coinciden 1:1 con prob_futbol() en
+ * scrapers/generate_predictions.py. Si modificás constantes acá, hay que
+ * sincronizarlas allá también. Ver tests/test_consistency.py.
  */
 
+// ── Constantes del modelo (espejo de generate_predictions.py) ──
+const MODEL = {
+    POSITION_RANGE:        21,    // = max_posicion + 1
+    WEIGHT_POSITION:       0.4,
+    WEIGHT_WIN_RATE:       0.3,
+    WEIGHT_GOAL_DIFF:      0.2,
+    HOME_ADVANTAGE_PCT:    0.1,
+    MIN_PROB:             15.0,   // cap inferior (Python: MODEL_MIN_PROB)
+    MAX_PROB:             85.0,   // cap superior (Python: MODEL_MAX_PROB)
+    DRAW_DIFF_THRESHOLD:  10.0,   // empate técnico (Python: MODEL_DRAW_DIFF)
+    DRAW_PCT_MIN:         20.0,
+    DRAW_PCT_MAX:         30.0,
+    DRAW_DIFF_FACTOR:      0.20,
+};
+
 const Calculator = {
-    
+
     /**
-     * Calcula el ganador más probable
+     * Calcula el ganador más probable.
+     * Espejo de prob_futbol() en Python.
+     *
      * @param {Object} homeStats - Estadísticas del equipo local
      * @param {Object} awayStats - Estadísticas del equipo visitante
      * @param {string} homeTeam - Nombre del equipo local
      * @param {string} awayTeam - Nombre del equipo visitante
-     * @returns {Object} Predicción del ganador
+     * @returns {Object} {winner, confidence, probability, homeWinProb, awayWinProb, drawProb}
      */
     predictWinner(homeStats, awayStats, homeTeam, awayTeam) {
         const homePos = homeStats.position;
         const awayPos = awayStats.position;
-        
+
         // Calcular puntuación basada en múltiples factores
         let homeScore = 0;
         let awayScore = 0;
-        
+
         // Factor 1: Posición en la tabla (40% peso)
-        const positionWeight = 0.4;
-        homeScore += (21 - homePos.posicion) * positionWeight * 5;
-        awayScore += (21 - awayPos.posicion) * positionWeight * 5;
-        
+        homeScore += (MODEL.POSITION_RANGE - homePos.posicion) * MODEL.WEIGHT_POSITION * 5;
+        awayScore += (MODEL.POSITION_RANGE - awayPos.posicion) * MODEL.WEIGHT_POSITION * 5;
+
         // Factor 2: Forma reciente - Win rate (30% peso)
-        const formWeight = 0.3;
-        const homeWinRate = (homePos.ganados / homePos.partidos) * 100;
-        const awayWinRate = (awayPos.ganados / awayPos.partidos) * 100;
-        homeScore += homeWinRate * formWeight;
-        awayScore += awayWinRate * formWeight;
-        
+        const homeGames = homePos.partidos || 1;
+        const awayGames = awayPos.partidos || 1;
+        const homeWinRate = (homePos.ganados / homeGames) * 100;
+        const awayWinRate = (awayPos.ganados / awayGames) * 100;
+        homeScore += homeWinRate * MODEL.WEIGHT_WIN_RATE;
+        awayScore += awayWinRate * MODEL.WEIGHT_WIN_RATE;
+
         // Factor 3: Diferencia de goles (20% peso)
-        const goalDiffWeight = 0.2;
-        homeScore += homePos.diferencia * goalDiffWeight;
-        awayScore += awayPos.diferencia * goalDiffWeight;
-        
-        // Factor 4: Ventaja de local (10% peso adicional para home)
-        const homeAdvantage = 0.1;
-        homeScore += homeScore * homeAdvantage;
-        
-        // Determinar ganador
-        const totalScore = homeScore + awayScore;
-        const homeWinProbability = (homeScore / totalScore) * 100;
-        const awayWinProbability = (awayScore / totalScore) * 100;
-        const drawProbability = 100 - homeWinProbability - awayWinProbability;
-        
+        homeScore += (homePos.diferencia || 0) * MODEL.WEIGHT_GOAL_DIFF;
+        awayScore += (awayPos.diferencia || 0) * MODEL.WEIGHT_GOAL_DIFF;
+
+        // Factor 4: Ventaja de local (10% adicional sobre el score local)
+        homeScore += homeScore * MODEL.HOME_ADVANTAGE_PCT;
+
+        // ── Cálculo 1X2 con caps [MIN_PROB, MAX_PROB] ──
+        // Espejo de prob_futbol() en Python (que retorna hp, ap)
+        const totalScore = (homeScore + awayScore) || 1;
+        let hp = (homeScore / totalScore) * 100;
+        hp = Math.min(MODEL.MAX_PROB, Math.max(MODEL.MIN_PROB, hp));
+        hp = Math.round(hp * 10) / 10;
+        let ap = Math.round((100 - hp) * 10) / 10;
+
+        // Empate técnico: si diff < 10, ambos a 50/50 (igual que Python)
+        if (Math.abs(hp - ap) < MODEL.DRAW_DIFF_THRESHOLD) {
+            hp = 50.0;
+            ap = 50.0;
+        }
+
+        const homeWinProbability = hp;
+        const awayWinProbability = ap;
+        const drawProbability = Math.max(0, 100 - hp - ap);
+
+        // Lógica de presentación (winner + confidence label)
         let prediction = '';
         let confidence = '';
         let probability = 0;
-        
         const diff = Math.abs(homeWinProbability - awayWinProbability);
-        
-        if (diff < 10) {
-            prediction = 'EMPATE';
-            probability = 33;
+
+        if (diff < MODEL.DRAW_DIFF_THRESHOLD) {
+            // Empate técnico — coherente con Python (50/50)
+            prediction = 'EMPATE TÉCNICO';
+            probability = 50;
             confidence = 'media';
         } else if (homeWinProbability > awayWinProbability) {
             prediction = homeTeam;
@@ -67,15 +100,39 @@ const Calculator = {
             probability = awayWinProbability;
             confidence = diff > 25 ? 'alta' : diff > 15 ? 'media' : 'baja';
         }
-        
+
         return {
-            winner: prediction,
-            confidence: confidence,
+            winner:      prediction,
+            confidence:  confidence,
             probability: probability.toFixed(1),
             homeWinProb: homeWinProbability.toFixed(1),
             awayWinProb: awayWinProbability.toFixed(1),
-            drawProb: (100 - homeWinProbability - awayWinProbability).toFixed(1)
+            drawProb:    drawProbability.toFixed(1),
         };
+    },
+
+    /**
+     * Predicción 3-way: probabilidades de win / draw / lose que SÍ suman 100%.
+     * Espejo de prob_futbol_3way() en Python.
+     *
+     * @param {Object} homeStats - Estadísticas del equipo local
+     * @param {Object} awayStats - Estadísticas del equipo visitante
+     * @returns {Object} {win, draw, lose} — porcentajes redondeados
+     */
+    predictWinner3Way(homeStats, awayStats) {
+        const winner = this.predictWinner(homeStats, awayStats, 'home', 'away');
+        const hp = parseFloat(winner.homeWinProb);
+        const ap = parseFloat(winner.awayWinProb);
+        const diff = Math.abs(hp - ap);
+        const drawPct = Math.max(
+            MODEL.DRAW_PCT_MIN,
+            MODEL.DRAW_PCT_MAX - diff * MODEL.DRAW_DIFF_FACTOR
+        );
+        const scale = (100 - drawPct) / 100;
+        const win  = Math.round(hp * scale * 10) / 10;
+        const lose = Math.round(ap * scale * 10) / 10;
+        const draw = Math.round((100 - win - lose) * 10) / 10;
+        return { win, draw, lose };
     },
 
     /**
@@ -260,5 +317,13 @@ const Calculator = {
     }
 };
 
-// Exportar para uso global
-window.Calculator = Calculator;
+// Exportar para uso global (navegador)
+if (typeof window !== 'undefined') {
+    window.Calculator = Calculator;
+}
+
+// Exportar para Node (tests de paridad — tests/test_consistency.py)
+// No afecta el uso en navegador porque `module` solo existe en CommonJS.
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = { Calculator, MODEL };
+}

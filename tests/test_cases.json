@@ -1,0 +1,145 @@
+{
+  "_doc": "Casos de prueba compartidos entre test_consistency.py (Python) y run_calculator.js (Node). Cada caso valida un escenario distinto. Ver test_consistency.py para detalles.",
+  "cases": [
+    {
+      "name": "1. Lider vs Colero (extremo positivo)",
+      "description": "Equipo top de la liga vs último de la tabla. Esperamos cap [85%, 15%] aplicado.",
+      "home": {
+        "position": {"posicion": 1, "partidos": 30, "ganados": 22, "empatados": 5,
+                     "perdidos": 3, "diferencia": 35, "goles_favor": 60,
+                     "goles_contra": 25, "puntos": 71}
+      },
+      "away": {
+        "position": {"posicion": 19, "partidos": 30, "ganados": 4, "empatados": 6,
+                     "perdidos": 20, "diferencia": -28, "goles_favor": 18,
+                     "goles_contra": 46, "puntos": 18}
+      }
+    },
+    {
+      "name": "2. Empate tecnico (parejos)",
+      "description": "Equipos con stats casi idénticas. diff < 10 → ambos a 50%.",
+      "home": {
+        "position": {"posicion": 8, "partidos": 30, "ganados": 12, "empatados": 8,
+                     "perdidos": 10, "diferencia": 5, "goles_favor": 35,
+                     "goles_contra": 30, "puntos": 44}
+      },
+      "away": {
+        "position": {"posicion": 9, "partidos": 30, "ganados": 12, "empatados": 7,
+                     "perdidos": 11, "diferencia": 3, "goles_favor": 33,
+                     "goles_contra": 30, "puntos": 43}
+      }
+    },
+    {
+      "name": "3. Local fuerte (Top 3 vs medio)",
+      "description": "Top 3 jugando en casa vs equipo medio. Caso típico de ventaja moderada.",
+      "home": {
+        "position": {"posicion": 3, "partidos": 30, "ganados": 18, "empatados": 7,
+                     "perdidos": 5, "diferencia": 20, "goles_favor": 50,
+                     "goles_contra": 30, "puntos": 61}
+      },
+      "away": {
+        "position": {"posicion": 11, "partidos": 30, "ganados": 11, "empatados": 8,
+                     "perdidos": 11, "diferencia": 0, "goles_favor": 32,
+                     "goles_contra": 32, "puntos": 41}
+      }
+    },
+    {
+      "name": "4. Visitante fuerte (medio vs top 3)",
+      "description": "Equipo medio recibe a top 3. La ventaja local debe parcialmente compensar.",
+      "home": {
+        "position": {"posicion": 11, "partidos": 30, "ganados": 11, "empatados": 8,
+                     "perdidos": 11, "diferencia": 0, "goles_favor": 32,
+                     "goles_contra": 32, "puntos": 41}
+      },
+      "away": {
+        "position": {"posicion": 3, "partidos": 30, "ganados": 18, "empatados": 7,
+                     "perdidos": 5, "diferencia": 20, "goles_favor": 50,
+                     "goles_contra": 30, "puntos": 61}
+      }
+    },
+    {
+      "name": "5. Diferencia de goles negativa extrema (-50)",
+      "description": "Equipo con dif gol -50 (defensa colapsada). Cap inferior 15% debe activarse.",
+      "home": {
+        "position": {"posicion": 5, "partidos": 30, "ganados": 15, "empatados": 8,
+                     "perdidos": 7, "diferencia": 12, "goles_favor": 40,
+                     "goles_contra": 28, "puntos": 53}
+      },
+      "away": {
+        "position": {"posicion": 18, "partidos": 30, "ganados": 3, "empatados": 5,
+                     "perdidos": 22, "diferencia": -50, "goles_favor": 12,
+                     "goles_contra": 62, "puntos": 14}
+      }
+    },
+    {
+      "name": "6. Posiciones similares (5 vs 6)",
+      "description": "Equipos casi al mismo nivel. Probable empate técnico (50/50).",
+      "home": {
+        "position": {"posicion": 5, "partidos": 30, "ganados": 14, "empatados": 8,
+                     "perdidos": 8, "diferencia": 8, "goles_favor": 38,
+                     "goles_contra": 30, "puntos": 50}
+      },
+      "away": {
+        "position": {"posicion": 6, "partidos": 30, "ganados": 13, "empatados": 9,
+                     "perdidos": 8, "diferencia": 7, "goles_favor": 37,
+                     "goles_contra": 30, "puntos": 48}
+      }
+    },
+    {
+      "name": "7. Stats con valores faltantes (None)",
+      "description": "Posicion con goles_favor null. Verifica fallback a 0.",
+      "home": {
+        "position": {"posicion": 7, "partidos": 30, "ganados": 13, "empatados": 7,
+                     "perdidos": 10, "diferencia": null, "goles_favor": null,
+                     "goles_contra": null, "puntos": 46}
+      },
+      "away": {
+        "position": {"posicion": 12, "partidos": 30, "ganados": 10, "empatados": 9,
+                     "perdidos": 11, "diferencia": -3, "goles_favor": 28,
+                     "goles_contra": 31, "puntos": 39}
+      }
+    },
+    {
+      "name": "8. Equipo recien promovido (pocos partidos jugados)",
+      "description": "Inicio de temporada: solo 5 partidos jugados. Sin division por cero.",
+      "home": {
+        "position": {"posicion": 4, "partidos": 5, "ganados": 4, "empatados": 0,
+                     "perdidos": 1, "diferencia": 6, "goles_favor": 10,
+                     "goles_contra": 4, "puntos": 12}
+      },
+      "away": {
+        "position": {"posicion": 14, "partidos": 5, "ganados": 1, "empatados": 1,
+                     "perdidos": 3, "diferencia": -4, "goles_favor": 3,
+                     "goles_contra": 7, "puntos": 4}
+      }
+    },
+    {
+      "name": "9. Team cero partidos (edge case division por cero)",
+      "description": "partidos=0 — debe usar fallback (no crash). Validacion robustez.",
+      "home": {
+        "position": {"posicion": 10, "partidos": 0, "ganados": 0, "empatados": 0,
+                     "perdidos": 0, "diferencia": 0, "goles_favor": 0,
+                     "goles_contra": 0, "puntos": 0}
+      },
+      "away": {
+        "position": {"posicion": 10, "partidos": 0, "ganados": 0, "empatados": 0,
+                     "perdidos": 0, "diferencia": 0, "goles_favor": 0,
+                     "goles_contra": 0, "puntos": 0}
+      }
+    },
+    {
+      "name": "10. Diferencia minima entre lideres",
+      "description": "Dos top 5. Ligera ventaja del local por home advantage.",
+      "home": {
+        "position": {"posicion": 2, "partidos": 30, "ganados": 19, "empatados": 6,
+                     "perdidos": 5, "diferencia": 25, "goles_favor": 55,
+                     "goles_contra": 30, "puntos": 63}
+      },
+      "away": {
+        "position": {"posicion": 4, "partidos": 30, "ganados": 17, "empatados": 7,
+                     "perdidos": 6, "diferencia": 18, "goles_favor": 48,
+                     "goles_contra": 30, "puntos": 58}
+      }
+    }
+  ]
+}

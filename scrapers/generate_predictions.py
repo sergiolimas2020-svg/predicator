@@ -1869,6 +1869,185 @@ def _market_simplicity(label: str) -> int:
     return 1   # victoria directa u otro
 
 
+# ══════════════════════════════════════════════════════════════
+#  ARQUITECTURA DE 3 NIVELES — Outputs separados por capa
+#  Nivel 1: Análisis del Día (todos los partidos, sin filtro EV)
+#  Nivel 2: Value Picks (mismos filtros premium/suscripción actuales)
+#  Nivel 3: Featured Pick (1 pick estable garantizado, prob ≥55%)
+# ══════════════════════════════════════════════════════════════
+
+# Umbrales del Featured Pick (Nivel 3) — DECISIÓN DE PRODUCTO
+FEATURED_MIN_PROB = 55.0   # prob_adjusted mínima — bajo de 55% NO se publica
+FEATURED_STABLE_MARKETS = {"win_home", "win_away", "dnb_home", "dnb_away",
+                            "dc_home", "dc_away"}
+# NOTA: Over/Under, BTTS, mercados raros NO califican para featured.
+# Razón: el Featured Pick es la "señal estadística más sólida" del día.
+# Mercados de goles tienen varianza alta y no son representativos.
+
+
+def _build_analysis_output(evaluated_picks: list, today_str: str) -> dict:
+    """
+    Nivel 1 — Análisis del Día.
+    Lista TODOS los partidos evaluados con sus probabilidades 1X2 y Over.
+    Sin filtro EV, sin recomendación. Es información cruda del modelo.
+
+    Las probabilidades 1X2 se calculan llamando a get_probabilities() que
+    retorna las probabilidades crudas del modelo (no las ajustadas por
+    confidence_factor, esas son para decisión de pick, no para mostrar).
+
+    Schema:
+    {
+        "date": "YYYY-MM-DD",
+        "total_fixtures": int,
+        "matches": [{matchup, league, home, away, probabilities, favorite, ...}]
+    }
+    """
+    matches = []
+    for ep in evaluated_picks:
+        raw = ep.get("raw")
+        if not raw:
+            continue
+        # raw es la tupla original con (vs, league, home, hd, away, ad, nba, ...)
+        # Recalcular probabilidades crudas del modelo
+        hd = raw[3]
+        ad = raw[5]
+        nba = raw[6]
+        try:
+            model_probs = get_probabilities(hd, ad, nba=nba)
+        except Exception:
+            continue
+
+        # 1X2 (porcentajes redondeados)
+        win_home = round(model_probs["win_home"] * 100, 1)
+        win_away = round(model_probs["win_away"] * 100, 1)
+        draw     = round(model_probs["draw"]     * 100, 1)
+        over_2_5 = (round(model_probs["over_2_5"] * 100, 1)
+                    if model_probs.get("over_2_5") else None)
+        over_1_5 = (round(model_probs["over_1_5"] * 100, 1)
+                    if model_probs.get("over_1_5") else None)
+
+        # Determinar favorito por probabilidad mayor
+        if win_home >= win_away and win_home >= draw:
+            favorite = ep.get("home", "?")
+        elif win_away >= win_home and win_away >= draw:
+            favorite = ep.get("away", "?")
+        else:
+            favorite = "Empate técnico"
+
+        matches.append({
+            "matchup":           f"{ep.get('home','?')} vs {ep.get('away','?')}",
+            "league":            ep.get("league", ""),
+            "home":              ep.get("home", "?"),
+            "away":              ep.get("away", "?"),
+            "probabilities":     {
+                "win_home": win_home,
+                "draw":     draw,
+                "win_away": win_away,
+                "over_2_5": over_2_5,
+                "over_1_5": over_1_5,
+            },
+            "favorite":          favorite,
+            "stats_complete":    ep.get("stats_complete", False),
+            "confidence_factor": ep.get("confidence_factor", 1.0),
+            "is_nba":            bool(nba),
+        })
+
+    return {
+        "date":           today_str,
+        "total_fixtures": len(matches),
+        "matches":        matches,
+        "nota":           "Análisis estadístico de todos los partidos del día. "
+                          "Probabilidades crudas del modelo (sin ajuste por liga "
+                          "ni mercado). No incluye recomendación de apuesta — "
+                          "ver value_picks y featured_pick para picks oficiales.",
+    }
+
+
+def _build_featured_pick_output(evaluated_picks: list, value_picks_dict: dict,
+                                  today_str: str) -> dict | None:
+    """
+    Nivel 3 — Featured Pick (Pick Destacado).
+    Garantiza 1 pick por día CON umbral mínimo de 55% prob_adjusted en
+    mercados estables (1X2, DNB, DC). Si nada cumple, retorna None.
+
+    Reglas:
+      1. Filtra evaluated_picks por mercado estable (no Over/Under)
+      2. Filtra por prob_adjusted ≥ FEATURED_MIN_PROB (55%)
+      3. Ordena por prob_adjusted desc → confidence_factor desc
+      4. Retorna el primero (o None si no hay)
+
+    El pick puede coincidir con un value_pick (si lo hay) o ser solo
+    estadístico (sin EV+). El campo `tier_origin` distingue:
+      - "value_pick" → también es un value pick oficial
+      - "statistical_only" → solo estadística sólida, sin EV+
+    """
+    candidates = []
+    for ep in evaluated_picks:
+        # Solo mercados estables (h2h)
+        market_type = ep.get("market_type", "h2h")
+        if market_type != "h2h":
+            continue
+        # Etiqueta NO debe ser Over/DC/DNB (queremos victoria directa u otra h2h estable)
+        label = (ep.get("label") or "").lower()
+        if "over" in label:
+            continue
+        # Umbral mínimo
+        prob = ep.get("prob_adjusted") or 0.0
+        if prob < FEATURED_MIN_PROB:
+            continue
+        candidates.append(ep)
+
+    if not candidates:
+        return None
+
+    # Ordenar: mayor prob_adjusted desc, desempate por confidence_factor desc
+    candidates.sort(
+        key=lambda p: (p.get("prob_adjusted") or 0, p.get("confidence_factor") or 0),
+        reverse=True
+    )
+    best = candidates[0]
+
+    # Determinar si es también un value_pick (cruzar con value_picks_dict)
+    home, away = best.get("home", ""), best.get("away", "")
+    matchup = f"{home} vs {away}"
+    is_value_pick = False
+    for level_key in ("pick_dia", "pick_gratuito"):
+        vp = value_picks_dict.get(level_key)
+        if vp and vp.get("matchup") == matchup:
+            is_value_pick = True
+            break
+    if not is_value_pick:
+        for vp in value_picks_dict.get("picks_suscripcion", []):
+            if vp.get("matchup") == matchup:
+                is_value_pick = True
+                break
+
+    prob = best.get("prob_adjusted") or 0.0
+    if prob >= 70:
+        confidence_label = "alta"
+    elif prob >= 60:
+        confidence_label = "media-alta"
+    else:
+        confidence_label = "media"
+
+    return {
+        "date":              today_str,
+        "matchup":           matchup,
+        "home":              home,
+        "away":              away,
+        "league":            best.get("league", ""),
+        "market":            best.get("label", ""),
+        "prob_adjusted":     round(prob, 1),
+        "confidence_factor": best.get("confidence_factor", 1.0),
+        "confidence_label":  confidence_label,
+        "tier_origin":       "value_pick" if is_value_pick else "statistical_only",
+        "bk_odds":           best.get("bk_odds"),
+        "nota":              ("Pick destacado del día — máxima confianza estadística"
+                              if not is_value_pick else
+                              "Pick destacado del día — coincide con un value pick"),
+    }
+
+
 def main():
     import sys
     force     = "--force"     in sys.argv
@@ -1960,6 +2139,9 @@ def main():
 
     # Inicializar análisis de goles (display complementario, se llena en modo normal)
     analisis_goles = []
+    # Inicializar evaluated_picks al scope superior para que esté accesible
+    # al construir los outputs de Nivel 1 (Análisis) y Nivel 3 (Featured Pick).
+    evaluated_picks = []
 
     if adicional:
         # ── MODO TRANSICIÓN (solo hoy, --adicional) ──
@@ -2581,7 +2763,10 @@ def main():
         }
 
     if not adicional:
-        daily_output = {
+        # ═══════════════════════════════════════════════════════════
+        # NIVEL 2 — VALUE PICKS (única fuente de verdad para picks)
+        # ═══════════════════════════════════════════════════════════
+        value_picks_output = {
             "date": today,
             "pick_dia": None,
             "picks_suscripcion": [],
@@ -2592,24 +2777,20 @@ def main():
         for slug, matchup, lg, prob, cj_d, vs, vl, base_pick, cf, best_eval, all_evals, tipo_pick in preds:
             entry = _pick_to_dict(slug, matchup, lg, tipo_pick, best_eval, cj_d, cf)
             if tipo_pick == "pick_dia":
-                daily_output["pick_dia"] = entry
+                value_picks_output["pick_dia"] = entry
             elif tipo_pick == "pick_gratuito":
-                daily_output["pick_gratuito"] = entry
-                daily_output["picks_suscripcion"].append(entry)
+                value_picks_output["pick_gratuito"] = entry
+                value_picks_output["picks_suscripcion"].append(entry)
             elif tipo_pick == "pick_suscripcion":
-                daily_output["picks_suscripcion"].append(entry)
+                value_picks_output["picks_suscripcion"].append(entry)
             elif tipo_pick == "pick_exploratorio":
-                # Fallback: se expone en ambos campos — como exploratorio
-                # (etiqueta honesta) y también como gratuito (para que
-                # Telegram tenga contenido que publicar)
                 entry["riesgo"] = "medio"
                 entry["nota"] = "Pick exploratorio — hoy no hay valor premium claro"
-                daily_output["pick_exploratorio"] = entry
-                if daily_output["pick_gratuito"] is None:
-                    daily_output["pick_gratuito"] = entry
-        # Análisis de goles (insight, no es pick)
+                value_picks_output["pick_exploratorio"] = entry
+                if value_picks_output["pick_gratuito"] is None:
+                    value_picks_output["pick_gratuito"] = entry
         for g in analisis_goles:
-            daily_output["analisis_goles"].append({
+            value_picks_output["analisis_goles"].append({
                 "league":             g["league"],
                 "matchup":            g["matchup"],
                 "market":             g["market"],
@@ -2620,9 +2801,52 @@ def main():
                 "nota":               "Análisis de goles — no es pick oficial",
             })
 
+        _value_picks_path = OUTPUT_DIR / f"value_picks_{today}.json"
+        _value_picks_path.write_text(
+            json.dumps(value_picks_output, ensure_ascii=False, indent=2),
+            encoding="utf-8"
+        )
+        print(f"  ✓ Nivel 2 (value picks) → {_value_picks_path}")
+
+        # ═══════════════════════════════════════════════════════════
+        # daily_picks.json — DERIVADO de value_picks (compatibilidad)
+        # Una sola fuente de verdad: el contenido es idéntico a value_picks.
+        # ═══════════════════════════════════════════════════════════
         _daily_path = OUTPUT_DIR / "daily_picks.json"
-        _daily_path.write_text(json.dumps(daily_output, ensure_ascii=False, indent=2), encoding="utf-8")
-        print(f"JSON diario generado: {_daily_path}")
+        _daily_path.write_text(
+            json.dumps(value_picks_output, ensure_ascii=False, indent=2),
+            encoding="utf-8"
+        )
+        print(f"  ✓ daily_picks.json (derivado) → {_daily_path}")
+
+        # ═══════════════════════════════════════════════════════════
+        # NIVEL 1 — ANÁLISIS DEL DÍA (todos los partidos, sin filtros)
+        # ═══════════════════════════════════════════════════════════
+        analysis_output = _build_analysis_output(evaluated_picks, today)
+        _analysis_path = OUTPUT_DIR / f"analysis_{today}.json"
+        _analysis_path.write_text(
+            json.dumps(analysis_output, ensure_ascii=False, indent=2),
+            encoding="utf-8"
+        )
+        print(f"  ✓ Nivel 1 (análisis del día) → {_analysis_path} "
+              f"({analysis_output['total_fixtures']} partidos)")
+
+        # ═══════════════════════════════════════════════════════════
+        # NIVEL 3 — FEATURED PICK (1 pick estable garantizado, ≥55%)
+        # ═══════════════════════════════════════════════════════════
+        featured_output = _build_featured_pick_output(
+            evaluated_picks, value_picks_output, today
+        )
+        if featured_output:
+            _featured_path = OUTPUT_DIR / f"featured_pick_{today}.json"
+            _featured_path.write_text(
+                json.dumps(featured_output, ensure_ascii=False, indent=2),
+                encoding="utf-8"
+            )
+            print(f"  ✓ Nivel 3 (featured pick) → {_featured_path} "
+                  f"({featured_output['matchup']} {featured_output['prob_adjusted']}%)")
+        else:
+            print(f"  ⚠ Nivel 3 (featured pick) → ningún candidato ≥{FEATURED_MIN_PROB}% — no se publica")
 
     # ── SEO: sitemap y robots ──
     print("\nGenerando archivos SEO...")

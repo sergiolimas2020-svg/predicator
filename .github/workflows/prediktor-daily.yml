@@ -27,14 +27,23 @@ jobs:
           python-version: '3.11'
           cache: 'pip'
 
+      # ── Node.js (para tests de paridad Python ↔ JavaScript) ────
+      - name: Instalar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
       # ── Step 1: Instalar dependencias (pin de versiones en requirements.txt) ─
       - name: Instalar dependencias pineadas
         run: |
           python3 -m pip install --upgrade pip
-          pip install -r requirements.txt
+          pip install -r requirements.txt pytest
           echo ""
           echo "── Paquetes instalados ──"
-          pip list | grep -E "requests|beautifulsoup|lxml|nba_api|telegram|certifi"
+          pip list | grep -E "requests|beautifulsoup|lxml|nba_api|telegram|certifi|pytest"
+          echo ""
+          echo "── Node version ──"
+          node --version
 
       # ── Step 1b: Validar imports críticos ───────────────────────
       - name: Validar imports críticos
@@ -72,6 +81,24 @@ jobs:
           RAPIDAPI_KEY:             ${{ secrets.RAPIDAPI_KEY }}
           TELEGRAM_ADMIN_CHAT_ID:   ${{ secrets.TELEGRAM_ADMIN_CHAT_ID }}
         run: python3 scripts/verify_secrets.py
+
+      # ── Step 2b: Tests de paridad Python ↔ JavaScript (CRÍTICO) ─
+      # Si alguien edita prob_futbol() o calculator.js y rompe la
+      # paridad, el workflow falla aquí ANTES de generar picks.
+      - name: Tests de paridad Python ↔ JS
+        run: pytest tests/test_consistency.py -v --tb=short
+
+      # ── Step 2c: Notificar fallo del test de paridad ────────────
+      - name: Notificar test fallido
+        if: failure()
+        env:
+          TELEGRAM_BOT_TOKEN:     ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_ADMIN_CHAT_ID: ${{ secrets.TELEGRAM_ADMIN_CHAT_ID }}
+        run: |
+          python3 scripts/notify_telegram.py error \
+            --step "tests_paridad" \
+            --msg "Test de paridad Python ↔ JS FALLÓ — alguien rompió la coherencia entre prob_futbol() y Calculator.predictWinner(). Revisar generate_predictions.py o calculator.js." \
+            --logs-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 
       # ── Step 3: Registrar resultados de ayer (no crítico) ───────
       - name: Registrar resultados de ayer
