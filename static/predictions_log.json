@@ -1602,5 +1602,60 @@
         "reason": "mercado_no_disponible"
       }
     ]
+  },
+  {
+    "fecha": "2026-04-28",
+    "slug": "san-lorenzo-vs-santos-copa-sudamericana-2026-04-28",
+    "home": "San Lorenzo",
+    "away": "Santos",
+    "league": "Copa Sudamericana",
+    "prediccion": "Doble oportunidad: San Lorenzo",
+    "confianza": "Probabilidad: 76.2%",
+    "resultado_real": null,
+    "acerto": null,
+    "prob_original": 78.6,
+    "confidence_factor": 0.97,
+    "prob_adjusted": 76.2,
+    "bk_odds": 1.512,
+    "ev": 18.8,
+    "penalty": 0.0,
+    "ev_adjusted": 15.3,
+    "value_score": 6.1358,
+    "reason": "ok",
+    "tipo_pick": "pick_dia",
+    "base_pick": "San Lorenzo",
+    "value_level": "medio",
+    "markets_evaluated": [
+      {
+        "market": "Doble oportunidad: San Lorenzo",
+        "ev_adjusted": 15.3,
+        "value_score": 6.1358,
+        "reason": "ok"
+      },
+      {
+        "market": "San Lorenzo",
+        "ev_adjusted": 68.2,
+        "value_score": null,
+        "reason": "ev_excesivo"
+      },
+      {
+        "market": "Apuesta sin empate: San Lorenzo",
+        "ev_adjusted": 41.5,
+        "value_score": null,
+        "reason": "ev_excesivo"
+      },
+      {
+        "market": "Over 2.5 goles",
+        "ev_adjusted": 1.8,
+        "value_score": null,
+        "reason": "ev_insuficiente"
+      },
+      {
+        "market": "Over 1.5 goles",
+        "ev_adjusted": -3.8,
+        "value_score": null,
+        "reason": "ev_negativo"
+      }
+    ]
   }
 ]
