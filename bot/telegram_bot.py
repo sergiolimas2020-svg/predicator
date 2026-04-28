@@ -60,6 +60,25 @@ def load_daily_picks() -> dict | None:
         return None
 
 
+def load_featured_pick(date_str: str) -> dict | None:
+    """
+    Lee featured_pick_YYYY-MM-DD.json (Nivel 3 de la arquitectura).
+    Retorna None si no existe o está corrupto.
+
+    Si el motor no encontró ningún candidato con prob ≥ 55% en mercado
+    estable, este archivo no se genera ese día.
+    """
+    path = DAILY_PICKS_PATH.parent / f"featured_pick_{date_str}.json"
+    if not path.exists():
+        log.info("Featured Pick no existe para %s (motor no publicó)", date_str)
+        return None
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError) as e:
+        log.error("Error al leer Featured Pick: %s", e)
+        return None
+
+
 # ══════════════════════════════════════════════════════════════
 #  FORMATEO DE MENSAJES
 # ══════════════════════════════════════════════════════════════
@@ -86,6 +105,102 @@ def format_pick_gratuito(pick: dict, date_str: str) -> str:
         f"\n"
         f"━━━━━━━━━━━━━━━━━━━━━\n"
         f"🔔 Síguenos para picks diarios gratuitos"
+    )
+
+
+def format_value_bet(pick: dict, date_str: str) -> str:
+    """
+    Escenario 1 — Hay value pick (motor detectó EV+).
+    Mensaje destaca con badge VALUE BET.
+    """
+    league = pick.get("league", "—")
+    matchup = pick.get("matchup", "—")
+    market = pick.get("market", "—")
+    odds = pick.get("bk_odds")
+    prob = pick.get("prob_adjusted")
+    ev = pick.get("ev_adjusted")
+
+    odds_str = f" @{odds}" if odds else ""
+    prob_str = f"{prob:.0f}%" if prob else "—"
+
+    return (
+        f"🎯 <b>VALUE BET DEL DÍA</b>\n"
+        f"📅 {date_str}\n"
+        f"\n"
+        f"🏆 Liga: {league}\n"
+        f"⚽ Partido: {matchup}\n"
+        f"🎯 Mercado: <b>{market}{odds_str}</b>\n"
+        f"📊 Probabilidad: <b>{prob_str}</b>\n"
+        f"💎 Valor detectado: <b>positivo (EV+)</b>\n"
+        f"\n"
+        f"━━━━━━━━━━━━━━━━━━━━━\n"
+        f"🌐 Análisis completo: https://prediktorcol.com\n"
+        f"⚠️ Apuesta con responsabilidad\n"
+        f"\n"
+        f"#valuebet #apuestasdeportivas #picks"
+    )
+
+
+def format_featured_pick(featured: dict, date_str: str) -> str:
+    """
+    Escenario 2 — No hay value pick pero existe Featured Pick.
+    Mensaje aclara que es estadística sólida, NO value bet.
+    """
+    league = featured.get("league", "—")
+    matchup = featured.get("matchup", "—")
+    market = featured.get("market", "—")
+    prob = featured.get("prob_adjusted")
+    confidence = featured.get("confidence_label", "media")
+    odds = featured.get("bk_odds")
+
+    odds_str = f" @{odds}" if odds else ""
+    prob_str = f"{prob:.0f}%" if prob else "—"
+
+    return (
+        f"📊 <b>PICK DEL DÍA — Estadística sólida</b>\n"
+        f"📅 {date_str}\n"
+        f"\n"
+        f"<i>Hoy no detectamos value bets, pero compartimos nuestro pick "
+        f"con mayor confianza estadística del día.</i>\n"
+        f"\n"
+        f"🏆 Liga: {league}\n"
+        f"⚽ Partido: {matchup}\n"
+        f"🎯 Mercado: <b>{market}{odds_str}</b>\n"
+        f"📊 Probabilidad: <b>{prob_str}</b>\n"
+        f"📈 Confianza: <b>{confidence.upper()}</b>\n"
+        f"\n"
+        f"<i>Nota: este pick NO tiene EV positivo verificado vs el "
+        f"mercado. Es solo señal estadística.</i>\n"
+        f"\n"
+        f"━━━━━━━━━━━━━━━━━━━━━\n"
+        f"🌐 Análisis completo: https://prediktorcol.com\n"
+        f"⚠️ Apuesta con responsabilidad\n"
+        f"\n"
+        f"#pickdeldía #estadística #apuestasdeportivas"
+    )
+
+
+def format_no_pick_today(date_str: str) -> str:
+    """
+    Escenario 3 — Ni value picks ni Featured Pick.
+    Mensaje breve + redirección al Análisis del Día.
+    """
+    return (
+        f"📅 <b>PREDIKTOR — {date_str}</b>\n"
+        f"\n"
+        f"Hoy el motor no detectó partidos con confianza estadística "
+        f"suficiente para publicar pick.\n"
+        f"\n"
+        f"<i>No forzamos picks. Mañana volvemos.</i>\n"
+        f"\n"
+        f"📊 Mientras tanto, podés ver el <b>Análisis del Día</b> "
+        f"con todos los partidos y sus probabilidades:\n"
+        f"🌐 https://prediktorcol.com\n"
+        f"\n"
+        f"━━━━━━━━━━━━━━━━━━━━━\n"
+        f"⚠️ Apuesta con responsabilidad\n"
+        f"\n"
+        f"#prediktor #analisisdeportivo"
     )
 
 
@@ -329,48 +444,55 @@ async def publish_today_picks():
         log.info("⏭  Estado '%s' del %s ya publicado — sin reenviar", state, today_col)
         return True
 
-    # Publicar según estado
+    # Publicar según estado (con arquitectura 3-tier)
     messages_sent = 0
     try:
         async with Bot(token=BOT_TOKEN) as bot:
 
             if state == STATE_SUCCESS:
-                # A) Publicar pick gratuito + teaser premium si aplica
+                # ─── ESCENARIO 1 — VALUE BET ─────────────────────────
+                # Hay value pick detectado por el motor (EV+ verificado).
+                # Usamos pick_gratuito (es el value pick público).
                 if pick_gratuito:
-                    msg = format_pick_gratuito(pick_gratuito, date_str)
+                    msg = format_value_bet(pick_gratuito, date_str)
                     await bot.send_message(chat_id=CHANNEL_ID, text=msg, parse_mode=ParseMode.HTML)
-                    log.info("✅ Pick gratuito publicado: %s", pick_gratuito.get("matchup"))
+                    log.info("🎯 Escenario 1 (VALUE BET) publicado: %s",
+                             pick_gratuito.get("matchup"))
                     messages_sent += 1
                 if pick_dia:
                     msg = format_teaser_premium(pick_dia, date_str)
                     await bot.send_message(chat_id=CHANNEL_ID, text=msg, parse_mode=ParseMode.HTML)
                     log.info("🔥 Teaser premium publicado: %s", pick_dia.get("matchup"))
                     messages_sent += 1
-                # Safety net: si state==SUCCESS pero no había ni gratuito ni pick_dia
-                # (solo suscripción), publicar al menos un mensaje informativo
+                # Safety net: SUCCESS sin gratuito ni pick_dia (solo suscripción)
+                # — intentamos Featured Pick antes del fallback genérico.
                 if messages_sent == 0:
-                    msg = format_no_picks(date_str)
+                    featured = load_featured_pick(today_col)
+                    if featured:
+                        msg = format_featured_pick(featured, date_str)
+                        log.info("📊 Escenario 2 (FEATURED) usado como fallback en SUCCESS")
+                    else:
+                        msg = format_no_pick_today(date_str)
+                        log.info("📅 Escenario 3 (NO_PICK) usado como fallback en SUCCESS")
                     await bot.send_message(chat_id=CHANNEL_ID, text=msg, parse_mode=ParseMode.HTML)
-                    log.info("📅 Mensaje fallback publicado (success sin gratuito/premium)")
                     messages_sent += 1
 
             elif state == STATE_NO_VALUE:
-                # B) JSON actual pero sin picks — motor fue selectivo
-                #    Usamos el content generator para publicar contenido mínimo
-                #    (análisis / agenda / explicación) en vez de mensaje genérico.
-                try:
-                    content = generate_daily_content(today_col)
-                    save_daily_content(content)  # para que la web lo lea
-                    msg = format_content_for_telegram(content)
-                    log.info("📝 Contenido mínimo generado: tipo=%s (%d fixtures)",
-                             content.get("type"), content.get("total_fixtures", 0))
-                except Exception as e:
-                    # Si falla el content generator, fallback al mensaje estático
-                    log.warning("Content generator falló (%s), usando fallback", e)
-                    msg = format_state_no_value(date_str)
-
-                await bot.send_message(chat_id=CHANNEL_ID, text=msg, parse_mode=ParseMode.HTML)
-                log.info("📅 Estado B publicado (NO_VALUE + contenido mínimo)")
+                # JSON actual pero sin value picks — el motor fue selectivo.
+                # Intentamos Escenario 2 (Featured Pick estadístico) antes
+                # de caer al Escenario 3 (no-pick).
+                featured = load_featured_pick(today_col)
+                if featured:
+                    # ─── ESCENARIO 2 — FEATURED PICK ESTADÍSTICO ─────
+                    msg = format_featured_pick(featured, date_str)
+                    await bot.send_message(chat_id=CHANNEL_ID, text=msg, parse_mode=ParseMode.HTML)
+                    log.info("📊 Escenario 2 (FEATURED) publicado: %s",
+                             featured.get("matchup"))
+                else:
+                    # ─── ESCENARIO 3 — NO-PICK + REDIRECT WEB ────────
+                    msg = format_no_pick_today(date_str)
+                    await bot.send_message(chat_id=CHANNEL_ID, text=msg, parse_mode=ParseMode.HTML)
+                    log.info("📅 Escenario 3 (NO_PICK) publicado")
                 messages_sent += 1
 
             elif state == STATE_ODDS_FAILURE:
