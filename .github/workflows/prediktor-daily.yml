@@ -86,11 +86,12 @@ jobs:
       # Si alguien edita prob_futbol() o calculator.js y rompe la
       # paridad, el workflow falla aquí ANTES de generar picks.
       - name: Tests de paridad Python ↔ JS
+        id: tests_paridad
         run: pytest tests/test_consistency.py -v --tb=short
 
       # ── Step 2c: Notificar fallo del test de paridad ────────────
       - name: Notificar test fallido
-        if: failure()
+        if: failure() && steps.tests_paridad.outcome == 'failure'
         env:
           TELEGRAM_BOT_TOKEN:     ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_ADMIN_CHAT_ID: ${{ secrets.TELEGRAM_ADMIN_CHAT_ID }}
