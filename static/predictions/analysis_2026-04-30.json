@@ -1,0 +1,92 @@
+{
+  "date": "2026-04-30",
+  "total_fixtures": 5,
+  "matches": [
+    {
+      "matchup": "Tigre vs América de Cali",
+      "league": "Copa Sudamericana",
+      "home": "Tigre",
+      "away": "América de Cali",
+      "probabilities": {
+        "win_home": 25.5,
+        "draw": 23.3,
+        "win_away": 51.2,
+        "over_2_5": 9.6,
+        "over_1_5": 29.5
+      },
+      "favorite": "América de Cali",
+      "stats_complete": false,
+      "confidence_factor": 1.0,
+      "is_nba": false
+    },
+    {
+      "matchup": "Red Bull Bragantino vs River Plate",
+      "league": "Copa Sudamericana",
+      "home": "Red Bull Bragantino",
+      "away": "River Plate",
+      "probabilities": {
+        "win_home": 42.6,
+        "draw": 26.7,
+        "win_away": 30.7,
+        "over_2_5": 39.2,
+        "over_1_5": 65.8
+      },
+      "favorite": "Red Bull Bragantino",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false
+    },
+    {
+      "matchup": "Atlanta Hawks vs New York Knicks",
+      "league": "NBA",
+      "home": "Atlanta Hawks",
+      "away": "New York Knicks",
+      "probabilities": {
+        "win_home": 45.5,
+        "draw": 0.0,
+        "win_away": 54.5,
+        "over_2_5": null,
+        "over_1_5": null
+      },
+      "favorite": "New York Knicks",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": true
+    },
+    {
+      "matchup": "Philadelphia 76ers vs Boston Celtics",
+      "league": "NBA",
+      "home": "Philadelphia 76ers",
+      "away": "Boston Celtics",
+      "probabilities": {
+        "win_home": 40.1,
+        "draw": 0.0,
+        "win_away": 59.9,
+        "over_2_5": null,
+        "over_1_5": null
+      },
+      "favorite": "Boston Celtics",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": true
+    },
+    {
+      "matchup": "Minnesota Timberwolves vs Denver Nuggets",
+      "league": "NBA",
+      "home": "Minnesota Timberwolves",
+      "away": "Denver Nuggets",
+      "probabilities": {
+        "win_home": 44.8,
+        "draw": 0.0,
+        "win_away": 55.2,
+        "over_2_5": null,
+        "over_1_5": null
+      },
+      "favorite": "Denver Nuggets",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": true
+    }
+  ],
+  "nota": "Análisis estadístico de todos los partidos del día. Probabilidades crudas del modelo (sin ajuste por liga ni mercado). No incluye recomendación de apuesta — ver value_picks y featured_pick para picks oficiales."
+}
