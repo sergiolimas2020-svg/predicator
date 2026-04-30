@@ -1432,6 +1432,32 @@ def save(league, home, away, art):
     (OUTPUT_DIR / f"{slug}.html").write_text(html, encoding='utf-8')
     return slug
 
+def _discover_guias_slugs():
+    """
+    Lee /content/guias/*.md y extrae el slug del frontmatter de cada uno.
+    Retorna lista de slugs. Si la carpeta no existe o python-frontmatter
+    no está instalado, retorna []. Falla silenciosa: el sitemap no debe
+    bloquearse por una guía mal escrita.
+    """
+    content_dir = Path("content/guias")
+    if not content_dir.exists():
+        return []
+    try:
+        import frontmatter
+    except ImportError:
+        return []
+    slugs = []
+    for md_path in sorted(content_dir.glob("*.md")):
+        try:
+            post = frontmatter.load(md_path)
+            slug = post.metadata.get("slug")
+            if slug:
+                slugs.append(slug)
+        except Exception:
+            continue  # archivo malformado: omite, no rompe el cron
+    return slugs
+
+
 def generate_sitemap(slugs):
     """Genera sitemap.xml con todas las URLs del sitio (incluye páginas de contenido SEO)."""
     static_urls = [
@@ -1445,10 +1471,14 @@ def generate_sitemap(slugs):
         f"{SITE_URL}/glosario.html",
         f"{SITE_URL}/como-interpretar.html",
         f"{SITE_URL}/historial.html",
+        f"{SITE_URL}/guias/",
         f"{SITE_URL}/about.html",
     ]
-    pred_urls = [f"{SITE_URL}/static/predictions/{s}.html" for s in slugs]
-    all_urls  = static_urls + content_urls + pred_urls
+    # Guías individuales (descubiertas leyendo /content/guias/*.md)
+    guias_slugs = _discover_guias_slugs()
+    guias_urls  = [f"{SITE_URL}/guias/{s}.html" for s in guias_slugs]
+    pred_urls   = [f"{SITE_URL}/static/predictions/{s}.html" for s in slugs]
+    all_urls    = static_urls + content_urls + guias_urls + pred_urls
 
     def _priority(url):
         if url == f"{SITE_URL}/index.html":
@@ -1457,9 +1487,12 @@ def generate_sitemap(slugs):
             # Páginas de contenido importantes para SEO y AdSense
             if "metodologia" in url:       return "0.9"
             if "historial" in url:         return "0.9"
+            if url.endswith("/guias/"):    return "0.85"
             if "glosario" in url:          return "0.8"
             if "como-interpretar" in url:  return "0.8"
             return "0.6"  # about
+        if url in guias_urls:
+            return "0.7"
         if "predictions" in url and "index" not in url:
             return "0.9"
         return "0.7"
@@ -1469,7 +1502,7 @@ def generate_sitemap(slugs):
         if "historial" in url:
             return "daily"
         # Resto del contenido educativo cambia poco → monthly
-        if url in content_urls:
+        if url in content_urls or url in guias_urls:
             return "monthly"
         return "daily"
 
@@ -1489,7 +1522,7 @@ def generate_sitemap(slugs):
 </urlset>"""
 
     Path("sitemap.xml").write_text(sitemap, encoding='utf-8')
-    print(f"   sitemap.xml → {len(all_urls)} URLs")
+    print(f"   sitemap.xml → {len(all_urls)} URLs ({len(guias_urls)} guías)")
 
 def generate_robots():
     """Genera robots.txt permitiendo todo e indicando el sitemap."""

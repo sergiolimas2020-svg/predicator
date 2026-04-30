@@ -13,3 +13,8 @@ nba_api==1.7.0
 
 # Bot de Telegram (bot/telegram_bot.py + scripts/notify_telegram.py)
 python-telegram-bot==21.6
+
+# Generación de /guias/ (scripts/generate_guias.py + lectura de
+# /content/guias/*.md desde scrapers/generate_predictions.py para sitemap)
+markdown==3.7
+python-frontmatter==1.1.0

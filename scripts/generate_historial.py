@@ -287,6 +287,7 @@ def render_html(stats: dict) -> str:
       <a href="/metodologia.html">Metodología</a>
       <a href="/glosario.html">Glosario</a>
       <a href="/como-interpretar.html">Cómo usar</a>
+      <a href="/guias/">Guías</a>
       <a href="/historial.html" class="active">Historial</a>
       <a href="/about.html">Sobre</a>
     </div>
@@ -331,6 +332,7 @@ def render_html(stats: dict) -> str:
       <a href="/metodologia.html">Metodología</a>
       <a href="/glosario.html">Glosario</a>
       <a href="/como-interpretar.html">Cómo usar</a>
+      <a href="/guias/">Guías</a>
       <a href="/historial.html">Historial</a>
       <a href="/about.html">Sobre</a>
       <a href="/privacy.html">Privacidad</a>
