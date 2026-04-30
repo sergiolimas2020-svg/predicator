@@ -106,6 +106,13 @@ jobs:
         run: python3 scrapers/update_results.py
         continue-on-error: true
 
+      # ── Step 3b: Generar página historial estática (SEO + AdSense) ─
+      # Lee predictions_log.json y reescribe historial.html + patches
+      # los contadores del home en index.html (server-rendered).
+      - name: Generar página historial
+        run: python3 scripts/generate_historial.py
+        continue-on-error: true
+
       # ── Step 4: Fetch cuotas bookmakers (CRÍTICO — sin odds no hay picks) ─
       - name: Fetch cuotas bookmakers
         env:

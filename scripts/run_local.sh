@@ -98,6 +98,11 @@ step "2/7 Registrar resultados de ayer" \
   "python3 scrapers/update_results.py" \
   "false"
 
+# ── Step 2b: Generar página historial estática (SEO + AdSense) ──
+step "2b/7 Generar página historial" \
+  "python3 scripts/generate_historial.py" \
+  "false"
+
 # ── Step 3: Fetch odds (CRÍTICO) ──
 step "3/7 Fetch cuotas bookmakers" \
   "python3 scrapers/fetch_odds.py" \

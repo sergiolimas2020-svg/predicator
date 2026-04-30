@@ -1444,6 +1444,7 @@ def generate_sitemap(slugs):
         f"{SITE_URL}/metodologia.html",
         f"{SITE_URL}/glosario.html",
         f"{SITE_URL}/como-interpretar.html",
+        f"{SITE_URL}/historial.html",
         f"{SITE_URL}/about.html",
     ]
     pred_urls = [f"{SITE_URL}/static/predictions/{s}.html" for s in slugs]
@@ -1455,6 +1456,7 @@ def generate_sitemap(slugs):
         if url in content_urls:
             # Páginas de contenido importantes para SEO y AdSense
             if "metodologia" in url:       return "0.9"
+            if "historial" in url:         return "0.9"
             if "glosario" in url:          return "0.8"
             if "como-interpretar" in url:  return "0.8"
             return "0.6"  # about
@@ -1463,7 +1465,10 @@ def generate_sitemap(slugs):
         return "0.7"
 
     def _changefreq(url):
-        # Páginas de contenido cambian poco → monthly
+        # historial cambia diario (cron lo regenera con nuevos verificados)
+        if "historial" in url:
+            return "daily"
+        # Resto del contenido educativo cambia poco → monthly
         if url in content_urls:
             return "monthly"
         return "daily"

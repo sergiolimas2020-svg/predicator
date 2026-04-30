@@ -841,6 +841,7 @@
     <a href="/metodologia.html" class="btn-secondary-nav">Metodología</a>
     <a href="/glosario.html" class="btn-secondary-nav">Glosario</a>
     <a href="/como-interpretar.html" class="btn-secondary-nav">Cómo usar</a>
+    <a href="/historial.html" class="btn-secondary-nav">Historial</a>
     <a href="/about.html" class="btn-secondary-nav">Sobre</a>
     <a href="static/predictions/index.html">Ver predicciones</a>
   </div>
@@ -859,18 +860,19 @@
 
 <!-- STATS -->
 <div class="stats-bar">
-  <div class="stat"><div id="sb-pct" class="stat-num">…</div><div class="stat-label">Tasa de acierto</div></div>
-  <div class="stat"><div id="sb-total" class="stat-num">…</div><div class="stat-label">Predicciones verificadas</div></div>
-  <div class="stat"><div class="stat-num">10+</div><div class="stat-label">Ligas analizadas</div></div>
-  <div class="stat"><div class="stat-num">Diaria</div><div class="stat-label">Actualización</div></div>
+  <div class="stat"><div id="sb-pct" class="stat-num">69%</div><div class="stat-label">Tasa de acierto</div></div>
+  <a href="/historial.html" class="stat" style="text-decoration:none;color:inherit"><div id="sb-total" class="stat-num">49</div><div class="stat-label">Predicciones verificadas</div></a>
+  <div class="stat"><div id="sb-correctas" class="stat-num">34</div><div class="stat-label">Correctas</div></div>
 </div>
 <script>
 fetch('static/historial.json').then(r=>r.json()).then(h=>{
   document.getElementById('sb-pct').textContent = h.total > 0 ? h.porcentaje + '%' : '—';
   document.getElementById('sb-total').textContent = h.total > 0 ? h.total : '—';
+  document.getElementById('sb-correctas').textContent = h.total > 0 ? h.aciertos : '—';
 }).catch(()=>{
   document.getElementById('sb-pct').textContent = '—';
   document.getElementById('sb-total').textContent = '—';
+  document.getElementById('sb-correctas').textContent = '—';
 });
 </script>
 
@@ -940,7 +942,7 @@ fetch('static/stats.json').then(r=>r.json()).then(s=>{
     </div>
   </div>
   <div id="hist-tabla" style="max-width:700px;margin:0 auto 2rem;"></div>
-  <a href="app.html?seccion=historial" class="cta-btn" style="display:inline-block;padding:1rem 2.5rem;background:var(--dorado);color:#000;font-weight:800;border-radius:8px;text-decoration:none;font-size:1.1rem;opacity:1;">Ver historial completo →</a>
+  <a href="/historial.html" class="cta-btn" style="display:inline-block;padding:1rem 2.5rem;background:var(--dorado);color:#000;font-weight:800;border-radius:8px;text-decoration:none;font-size:1.1rem;opacity:1;">Ver historial completo →</a>
 </section>
 
 <script>
@@ -1109,6 +1111,7 @@ fetch('static/historial.json').then(r=>r.json()).then(h=>{
     <a href="/metodologia.html">Metodología</a>
     <a href="/glosario.html">Glosario</a>
     <a href="/como-interpretar.html">Cómo usar</a>
+    <a href="/historial.html">Historial</a>
     <a href="/about.html">Sobre</a>
     <a href="static/predictions/index.html">Predicciones de hoy</a>
     <a href="/privacy.html">Privacidad</a>
