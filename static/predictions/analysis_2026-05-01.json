@@ -1,0 +1,160 @@
+{
+  "date": "2026-05-01",
+  "total_fixtures": 9,
+  "matches": [
+    {
+      "matchup": "Leeds United vs Burnley",
+      "league": "Premier League",
+      "home": "Leeds United",
+      "away": "Burnley",
+      "probabilities": {
+        "win_home": 68.0,
+        "draw": 20.0,
+        "win_away": 12.0,
+        "over_2_5": 55.3,
+        "over_1_5": 78.5
+      },
+      "favorite": "Leeds United",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false
+    },
+    {
+      "matchup": "Girona vs Mallorca",
+      "league": "La Liga",
+      "home": "Girona",
+      "away": "Mallorca",
+      "probabilities": {
+        "win_home": 41.9,
+        "draw": 27.0,
+        "win_away": 31.1,
+        "over_2_5": 50.6,
+        "over_1_5": 75.1
+      },
+      "favorite": "Girona",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false
+    },
+    {
+      "matchup": "Pisa vs Lecce",
+      "league": "Serie A",
+      "home": "Pisa",
+      "away": "Lecce",
+      "probabilities": {
+        "win_home": 12.0,
+        "draw": 20.0,
+        "win_away": 68.0,
+        "over_2_5": 39.1,
+        "over_1_5": 65.8
+      },
+      "favorite": "Lecce",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false
+    },
+    {
+      "matchup": "Once Caldas vs Atlético Nacional",
+      "league": "Liga Colombiana",
+      "home": "Once Caldas",
+      "away": "Atlético Nacional",
+      "probabilities": {
+        "win_home": 30.7,
+        "draw": 26.7,
+        "win_away": 42.6,
+        "over_2_5": 53.2,
+        "over_1_5": 77.0
+      },
+      "favorite": "Atlético Nacional",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false
+    },
+    {
+      "matchup": "Caykur Rizespor vs Konyaspor",
+      "league": "Super Lig",
+      "home": "Caykur Rizespor",
+      "away": "Konyaspor",
+      "probabilities": {
+        "win_home": 40.0,
+        "draw": 27.8,
+        "win_away": 32.2,
+        "over_2_5": 48.3,
+        "over_1_5": 73.3
+      },
+      "favorite": "Caykur Rizespor",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false
+    },
+    {
+      "matchup": "Gaziantep FK vs Besiktas",
+      "league": "Super Lig",
+      "home": "Gaziantep FK",
+      "away": "Besiktas",
+      "probabilities": {
+        "win_home": 28.7,
+        "draw": 25.4,
+        "win_away": 45.9,
+        "over_2_5": 57.7,
+        "over_1_5": 80.1
+      },
+      "favorite": "Besiktas",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false
+    },
+    {
+      "matchup": "Orlando Magic vs Detroit Pistons",
+      "league": "NBA",
+      "home": "Orlando Magic",
+      "away": "Detroit Pistons",
+      "probabilities": {
+        "win_home": 33.6,
+        "draw": 0.0,
+        "win_away": 66.3,
+        "over_2_5": null,
+        "over_1_5": null
+      },
+      "favorite": "Detroit Pistons",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": true
+    },
+    {
+      "matchup": "Toronto Raptors vs Cleveland Cavaliers",
+      "league": "NBA",
+      "home": "Toronto Raptors",
+      "away": "Cleveland Cavaliers",
+      "probabilities": {
+        "win_home": 43.2,
+        "draw": 0.0,
+        "win_away": 56.8,
+        "over_2_5": null,
+        "over_1_5": null
+      },
+      "favorite": "Cleveland Cavaliers",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": true
+    },
+    {
+      "matchup": "Houston Rockets vs Los Angeles Lakers",
+      "league": "NBA",
+      "home": "Houston Rockets",
+      "away": "Los Angeles Lakers",
+      "probabilities": {
+        "win_home": 51.3,
+        "draw": 0.0,
+        "win_away": 48.7,
+        "over_2_5": null,
+        "over_1_5": null
+      },
+      "favorite": "Houston Rockets",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": true
+    }
+  ],
+  "nota": "Análisis estadístico de todos los partidos del día. Probabilidades crudas del modelo (sin ajuste por liga ni mercado). No incluye recomendación de apuesta — ver value_picks y featured_pick para picks oficiales."
+}

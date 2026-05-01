@@ -1657,5 +1657,115 @@
         "reason": "ev_negativo"
       }
     ]
+  },
+  {
+    "fecha": "2026-05-01",
+    "slug": "pisa-vs-lecce-serie-a-2026-05-01",
+    "home": "Pisa",
+    "away": "Lecce",
+    "league": "Serie A",
+    "prediccion": "Doble oportunidad: Lecce",
+    "confianza": "Probabilidad: 88.0%",
+    "resultado_real": null,
+    "acerto": null,
+    "prob_original": 88.0,
+    "confidence_factor": 1.0,
+    "prob_adjusted": 88.0,
+    "bk_odds": 1.387,
+    "ev": 22.1,
+    "penalty": 0.0,
+    "ev_adjusted": 22.1,
+    "value_score": null,
+    "reason": "ev_excesivo",
+    "tipo_pick": "pick_gratuito",
+    "base_pick": "Lecce",
+    "value_level": "bajo",
+    "markets_evaluated": [
+      {
+        "market": "Lecce",
+        "ev_adjusted": 64.6,
+        "value_score": null,
+        "reason": "ev_excesivo"
+      },
+      {
+        "market": "Apuesta sin empate: Lecce",
+        "ev_adjusted": 34.8,
+        "value_score": null,
+        "reason": "ev_excesivo"
+      },
+      {
+        "market": "Doble oportunidad: Lecce",
+        "ev_adjusted": 22.1,
+        "value_score": null,
+        "reason": "ev_excesivo"
+      },
+      {
+        "market": "Over 2.5 goles",
+        "ev_adjusted": -0.7,
+        "value_score": null,
+        "reason": "ev_negativo"
+      },
+      {
+        "market": "Over 1.5 goles",
+        "ev_adjusted": -3.0,
+        "value_score": null,
+        "reason": "ev_negativo"
+      }
+    ]
+  },
+  {
+    "fecha": "2026-05-01",
+    "slug": "orlando-magic-vs-detroit-pistons-nba-2026-05-01",
+    "home": "Orlando Magic",
+    "away": "Detroit Pistons",
+    "league": "NBA",
+    "prediccion": "Detroit Pistons",
+    "confianza": "Probabilidad: 66.3%",
+    "resultado_real": null,
+    "acerto": null,
+    "prob_original": 66.3,
+    "confidence_factor": 1.0,
+    "prob_adjusted": 66.3,
+    "bk_odds": 1.67,
+    "ev": 10.7,
+    "penalty": 0.0,
+    "ev_adjusted": 10.7,
+    "value_score": null,
+    "reason": "ev_insuficiente",
+    "tipo_pick": "pick_suscripcion",
+    "base_pick": "Detroit Pistons",
+    "value_level": "bajo",
+    "markets_evaluated": [
+      {
+        "market": "Detroit Pistons",
+        "ev_adjusted": 10.7,
+        "value_score": null,
+        "reason": "ev_insuficiente"
+      },
+      {
+        "market": "Apuesta sin empate: Detroit Pistons",
+        "ev_adjusted": null,
+        "value_score": null,
+        "reason": "mercado_no_disponible"
+      },
+      {
+        "market": "Doble oportunidad: Detroit Pistons",
+        "ev_adjusted": null,
+        "value_score": null,
+        "reason": "mercado_no_disponible"
+      },
+      {
+        "market": "Over 2.5 goles",
+        "ev_adjusted": null,
+        "value_score": null,
+        "reason": "mercado_no_disponible"
+      },
+      {
+        "market": "Over 1.5 goles",
+        "ev_adjusted": null,
+        "value_score": null,
+        "reason": "mercado_no_disponible"
+      }
+    ]
   }
 ]
