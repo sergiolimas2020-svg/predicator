@@ -1,8 +1,283 @@
 {
-  "total": 51,
-  "aciertos": 36,
-  "porcentaje": 71,
+  "total": 56,
+  "aciertos": 37,
+  "porcentaje": 66,
   "ultimos": [
+    {
+      "fecha": "2026-05-02",
+      "slug": "alaves-vs-athletic-club-la-liga-2026-05-02",
+      "home": "Alavés",
+      "away": "Athletic Club",
+      "league": "La Liga",
+      "prediccion": "Apuesta sin empate: Athletic Club",
+      "confianza": "Probabilidad: 68.5%",
+      "resultado_real": "2-4",
+      "acerto": true,
+      "prob_original": 68.5,
+      "confidence_factor": 1.0,
+      "prob_adjusted": 68.5,
+      "bk_odds": 1.774,
+      "ev": 21.5,
+      "penalty": 0.0,
+      "ev_adjusted": 21.5,
+      "value_score": null,
+      "reason": "ev_excesivo",
+      "tipo_pick": "pick_suscripcion",
+      "base_pick": "Athletic Club",
+      "value_level": "bajo",
+      "markets_evaluated": [
+        {
+          "market": "Athletic Club",
+          "ev_adjusted": 39.5,
+          "value_score": null,
+          "reason": "ev_excesivo"
+        },
+        {
+          "market": "Apuesta sin empate: Athletic Club",
+          "ev_adjusted": 21.5,
+          "value_score": null,
+          "reason": "ev_excesivo"
+        },
+        {
+          "market": "Doble oportunidad: Athletic Club",
+          "ev_adjusted": 14.8,
+          "value_score": null,
+          "reason": "ev_insuficiente"
+        },
+        {
+          "market": "Over 2.5 goles",
+          "ev_adjusted": -1.4,
+          "value_score": null,
+          "reason": "ev_negativo"
+        },
+        {
+          "market": "Over 1.5 goles",
+          "ev_adjusted": null,
+          "value_score": null,
+          "reason": "mercado_no_disponible"
+        }
+      ]
+    },
+    {
+      "fecha": "2026-05-02",
+      "slug": "nantes-vs-marseille-ligue-1-2026-05-02",
+      "home": "Nantes",
+      "away": "Marseille",
+      "league": "Ligue 1",
+      "prediccion": "Marseille",
+      "confianza": "Probabilidad: 68.0%",
+      "resultado_real": "3-0",
+      "acerto": false,
+      "prob_original": 68.0,
+      "confidence_factor": 1.0,
+      "prob_adjusted": 68.0,
+      "bk_odds": 1.81,
+      "ev": 23.1,
+      "penalty": 0.0,
+      "ev_adjusted": 23.1,
+      "value_score": null,
+      "reason": "ev_excesivo",
+      "tipo_pick": "pick_suscripcion",
+      "base_pick": "Marseille",
+      "value_level": "bajo",
+      "markets_evaluated": [
+        {
+          "market": "Marseille",
+          "ev_adjusted": 23.1,
+          "value_score": null,
+          "reason": "ev_excesivo"
+        },
+        {
+          "market": "Apuesta sin empate: Marseille",
+          "ev_adjusted": 9.8,
+          "value_score": null,
+          "reason": "ev_insuficiente"
+        },
+        {
+          "market": "Doble oportunidad: Marseille",
+          "ev_adjusted": 12.1,
+          "value_score": null,
+          "reason": "ev_insuficiente"
+        },
+        {
+          "market": "Over 2.5 goles",
+          "ev_adjusted": -10.9,
+          "value_score": null,
+          "reason": "ev_negativo"
+        },
+        {
+          "market": "Over 1.5 goles",
+          "ev_adjusted": null,
+          "value_score": null,
+          "reason": "mercado_no_disponible"
+        }
+      ]
+    },
+    {
+      "fecha": "2026-05-02",
+      "slug": "vitoria-vs-coritiba-brasileirao-2026-05-02",
+      "home": "Vitória",
+      "away": "Coritiba",
+      "league": "Brasileirao",
+      "prediccion": "Doble oportunidad: Coritiba",
+      "confianza": "Probabilidad: 69.0%",
+      "resultado_real": "4-1",
+      "acerto": false,
+      "prob_original": 71.1,
+      "confidence_factor": 0.97,
+      "prob_adjusted": 69.0,
+      "bk_odds": 1.838,
+      "ev": 30.7,
+      "penalty": 0.0,
+      "ev_adjusted": 26.8,
+      "value_score": null,
+      "reason": "ev_excesivo",
+      "tipo_pick": "pick_gratuito",
+      "base_pick": "Coritiba",
+      "value_level": "bajo",
+      "markets_evaluated": [
+        {
+          "market": "Coritiba",
+          "ev_adjusted": 76.9,
+          "value_score": null,
+          "reason": "ev_excesivo"
+        },
+        {
+          "market": "Apuesta sin empate: Coritiba",
+          "ev_adjusted": 35.4,
+          "value_score": null,
+          "reason": "ev_excesivo"
+        },
+        {
+          "market": "Doble oportunidad: Coritiba",
+          "ev_adjusted": 26.8,
+          "value_score": null,
+          "reason": "ev_excesivo"
+        },
+        {
+          "market": "Over 2.5 goles",
+          "ev_adjusted": -11.2,
+          "value_score": null,
+          "reason": "ev_negativo"
+        },
+        {
+          "market": "Over 1.5 goles",
+          "ev_adjusted": null,
+          "value_score": null,
+          "reason": "mercado_no_disponible"
+        }
+      ]
+    },
+    {
+      "fecha": "2026-05-02",
+      "slug": "lanus-vs-deportivo-riestra-liga-argentina-2026-05-02",
+      "home": "Lanús",
+      "away": "Deportivo Riestra",
+      "league": "Liga Argentina",
+      "prediccion": "Lanús",
+      "confianza": "Probabilidad: 59.8%",
+      "resultado_real": "0-0",
+      "acerto": false,
+      "prob_original": 61.7,
+      "confidence_factor": 0.97,
+      "prob_adjusted": 59.8,
+      "bk_odds": 2.12,
+      "ev": 30.8,
+      "penalty": 0.0,
+      "ev_adjusted": 26.9,
+      "value_score": null,
+      "reason": "ev_excesivo",
+      "tipo_pick": "pick_suscripcion",
+      "base_pick": "Lanús",
+      "value_level": "bajo",
+      "markets_evaluated": [
+        {
+          "market": "Lanús",
+          "ev_adjusted": 26.9,
+          "value_score": null,
+          "reason": "ev_excesivo"
+        },
+        {
+          "market": "Apuesta sin empate: Lanús",
+          "ev_adjusted": 22.6,
+          "value_score": null,
+          "reason": "ev_excesivo"
+        },
+        {
+          "market": "Doble oportunidad: Lanús",
+          "ev_adjusted": 0.4,
+          "value_score": null,
+          "reason": "ev_insuficiente"
+        },
+        {
+          "market": "Over 2.5 goles",
+          "ev_adjusted": -35.0,
+          "value_score": null,
+          "reason": "ev_negativo"
+        },
+        {
+          "market": "Over 1.5 goles",
+          "ev_adjusted": -27.5,
+          "value_score": null,
+          "reason": "ev_negativo"
+        }
+      ]
+    },
+    {
+      "fecha": "2026-05-02",
+      "slug": "newcastle-united-vs-brighton-hove-albion-premier-league-2026-05-02",
+      "home": "Newcastle United",
+      "away": "Brighton & Hove Albion",
+      "league": "Premier League",
+      "prediccion": "Doble oportunidad: Brighton & Hove Albion",
+      "confianza": "Probabilidad: 73.0%",
+      "resultado_real": "3-1",
+      "acerto": false,
+      "prob_original": 73.0,
+      "confidence_factor": 1.0,
+      "prob_adjusted": 73.0,
+      "bk_odds": 1.594,
+      "ev": 16.4,
+      "penalty": 0.0,
+      "ev_adjusted": 16.4,
+      "value_score": 7.6464,
+      "reason": "ok",
+      "tipo_pick": "pick_dia",
+      "base_pick": "Brighton & Hove Albion",
+      "value_level": "medio",
+      "markets_evaluated": [
+        {
+          "market": "Doble oportunidad: Brighton & Hove Albion",
+          "ev_adjusted": 16.4,
+          "value_score": 7.6464,
+          "reason": "ok"
+        },
+        {
+          "market": "Brighton & Hove Albion",
+          "ev_adjusted": 32.7,
+          "value_score": null,
+          "reason": "ev_excesivo"
+        },
+        {
+          "market": "Apuesta sin empate: Brighton & Hove Albion",
+          "ev_adjusted": 14.0,
+          "value_score": null,
+          "reason": "ev_insuficiente"
+        },
+        {
+          "market": "Over 2.5 goles",
+          "ev_adjusted": -14.4,
+          "value_score": null,
+          "reason": "ev_negativo"
+        },
+        {
+          "market": "Over 1.5 goles",
+          "ev_adjusted": null,
+          "value_score": null,
+          "reason": "mercado_no_disponible"
+        }
+      ]
+    },
     {
       "fecha": "2026-05-01",
       "slug": "orlando-magic-vs-detroit-pistons-nba-2026-05-01",
@@ -817,281 +1092,6 @@
         {
           "market": "Over 2.5 goles",
           "ev_adjusted": 9.5,
-          "value_score": null,
-          "reason": "ev_insuficiente"
-        },
-        {
-          "market": "Over 1.5 goles",
-          "ev_adjusted": null,
-          "value_score": null,
-          "reason": "mercado_no_disponible"
-        }
-      ]
-    },
-    {
-      "fecha": "2026-04-08",
-      "slug": "cleveland-cavaliers-vs-atlanta-hawks-nba-2026-04-08",
-      "home": "Cleveland Cavaliers",
-      "away": "Atlanta Hawks",
-      "league": "NBA",
-      "prediccion": "Cleveland Cavaliers",
-      "confianza": "Probabilidad: 59.9%",
-      "resultado_real": "122-116",
-      "acerto": true,
-      "prob_original": 59.9,
-      "confidence_factor": 1.0,
-      "prob_adjusted": 59.9,
-      "bk_odds": 1.92,
-      "ev": 15.0,
-      "penalty": 0.0,
-      "ev_adjusted": 15.0,
-      "value_score": 9.7849,
-      "reason": "ok",
-      "tipo_pick": "extra",
-      "base_pick": "Cleveland Cavaliers",
-      "value_level": "medio",
-      "markets_evaluated": [
-        {
-          "market": "Cleveland Cavaliers",
-          "ev_adjusted": 15.0,
-          "value_score": 9.7849,
-          "reason": "ok"
-        },
-        {
-          "market": "Apuesta sin empate: Cleveland Cavaliers",
-          "ev_adjusted": null,
-          "value_score": null,
-          "reason": "mercado_no_disponible"
-        },
-        {
-          "market": "Doble oportunidad: Cleveland Cavaliers",
-          "ev_adjusted": null,
-          "value_score": null,
-          "reason": "mercado_no_disponible"
-        },
-        {
-          "market": "Over 2.5 goles",
-          "ev_adjusted": null,
-          "value_score": null,
-          "reason": "mercado_no_disponible"
-        },
-        {
-          "market": "Over 1.5 goles",
-          "ev_adjusted": null,
-          "value_score": null,
-          "reason": "mercado_no_disponible"
-        }
-      ]
-    },
-    {
-      "fecha": "2026-04-07",
-      "slug": "brooklyn-nets-vs-milwaukee-bucks-nba-2026-04-07",
-      "home": "Brooklyn Nets",
-      "away": "Milwaukee Bucks",
-      "league": "NBA",
-      "prediccion": "Milwaukee Bucks",
-      "confianza": "Probabilidad: 64.8%",
-      "resultado_real": "96-90",
-      "acerto": false,
-      "prob_original": 64.8,
-      "confidence_factor": 1.0,
-      "prob_adjusted": 64.8,
-      "bk_odds": 1.83,
-      "ev": 18.6,
-      "penalty": 0.0,
-      "ev_adjusted": 18.6,
-      "value_score": 11.2403,
-      "reason": "ok",
-      "tipo_pick": "extra",
-      "base_pick": "Milwaukee Bucks",
-      "value_level": "medio",
-      "markets_evaluated": [
-        {
-          "market": "Milwaukee Bucks",
-          "ev_adjusted": 18.6,
-          "value_score": 11.2403,
-          "reason": "ok"
-        },
-        {
-          "market": "Apuesta sin empate: Milwaukee Bucks",
-          "ev_adjusted": null,
-          "value_score": null,
-          "reason": "mercado_no_disponible"
-        },
-        {
-          "market": "Doble oportunidad: Milwaukee Bucks",
-          "ev_adjusted": null,
-          "value_score": null,
-          "reason": "mercado_no_disponible"
-        },
-        {
-          "market": "Over 2.5 goles",
-          "ev_adjusted": null,
-          "value_score": null,
-          "reason": "mercado_no_disponible"
-        },
-        {
-          "market": "Over 1.5 goles",
-          "ev_adjusted": null,
-          "value_score": null,
-          "reason": "mercado_no_disponible"
-        }
-      ]
-    },
-    {
-      "fecha": "2026-04-06",
-      "slug": "lecce-vs-atalanta-serie-a-2026-04-06",
-      "home": "Lecce",
-      "away": "Atalanta",
-      "league": "Serie A",
-      "prediccion": "Atalanta",
-      "confianza": "Probabilidad: 65.0%",
-      "resultado_real": "0-3",
-      "acerto": true,
-      "prob_original": 65.0,
-      "confidence_factor": 1.0,
-      "prob_adjusted": 65.0,
-      "bk_odds": 1.79,
-      "ev": 16.4,
-      "penalty": 0.0,
-      "ev_adjusted": 16.4,
-      "value_score": 9.5483,
-      "reason": "ok",
-      "tipo_pick": "extra",
-      "base_pick": "Atalanta",
-      "value_level": "medio",
-      "markets_evaluated": [
-        {
-          "market": "Atalanta",
-          "ev_adjusted": 16.4,
-          "value_score": 9.5483,
-          "reason": "ok"
-        },
-        {
-          "market": "Apuesta sin empate: Atalanta",
-          "ev_adjusted": 12.0,
-          "value_score": null,
-          "reason": "ev_insuficiente"
-        },
-        {
-          "market": "Doble oportunidad: Atalanta",
-          "ev_adjusted": 3.9,
-          "value_score": null,
-          "reason": "ev_insuficiente"
-        },
-        {
-          "market": "Over 2.5 goles",
-          "ev_adjusted": -26.2,
-          "value_score": null,
-          "reason": "ev_negativo"
-        },
-        {
-          "market": "Over 1.5 goles",
-          "ev_adjusted": null,
-          "value_score": null,
-          "reason": "mercado_no_disponible"
-        }
-      ]
-    },
-    {
-      "fecha": "2026-04-06",
-      "slug": "orlando-magic-vs-detroit-pistons-nba-2026-04-06",
-      "home": "Orlando Magic",
-      "away": "Detroit Pistons",
-      "league": "NBA",
-      "prediccion": "Detroit Pistons",
-      "confianza": "Probabilidad: 67.5%",
-      "resultado_real": "123-107",
-      "acerto": false,
-      "prob_original": 67.5,
-      "confidence_factor": 1.0,
-      "prob_adjusted": 67.5,
-      "bk_odds": 1.73,
-      "ev": 16.8,
-      "penalty": 0.0,
-      "ev_adjusted": 16.8,
-      "value_score": 9.2084,
-      "reason": "ok",
-      "tipo_pick": "pick_dia",
-      "base_pick": "Detroit Pistons",
-      "value_level": "medio",
-      "markets_evaluated": [
-        {
-          "market": "Detroit Pistons",
-          "ev_adjusted": 16.8,
-          "value_score": 9.2084,
-          "reason": "ok"
-        },
-        {
-          "market": "Apuesta sin empate: Detroit Pistons",
-          "ev_adjusted": null,
-          "value_score": null,
-          "reason": "mercado_no_disponible"
-        },
-        {
-          "market": "Doble oportunidad: Detroit Pistons",
-          "ev_adjusted": null,
-          "value_score": null,
-          "reason": "mercado_no_disponible"
-        },
-        {
-          "market": "Over 2.5 goles",
-          "ev_adjusted": null,
-          "value_score": null,
-          "reason": "mercado_no_disponible"
-        },
-        {
-          "market": "Over 1.5 goles",
-          "ev_adjusted": null,
-          "value_score": null,
-          "reason": "mercado_no_disponible"
-        }
-      ]
-    },
-    {
-      "fecha": "2026-04-05",
-      "slug": "valencia-vs-celta-vigo-la-liga-2026-04-05",
-      "home": "Valencia",
-      "away": "Celta Vigo",
-      "league": "La Liga",
-      "prediccion": "Doble oportunidad: Celta Vigo",
-      "confianza": "Probabilidad: 70.8%",
-      "resultado_real": "2-3",
-      "acerto": true,
-      "prob_original": 70.8,
-      "confidence_factor": 1.0,
-      "prob_adjusted": 70.8,
-      "bk_odds": 1.687,
-      "ev": 19.4,
-      "penalty": 0.0,
-      "ev_adjusted": 19.4,
-      "value_score": 10.1453,
-      "reason": "ok",
-      "tipo_pick": "extra",
-      "base_pick": "Celta Vigo",
-      "value_level": "medio",
-      "markets_evaluated": [
-        {
-          "market": "Doble oportunidad: Celta Vigo",
-          "ev_adjusted": 19.4,
-          "value_score": 10.1453,
-          "reason": "ok"
-        },
-        {
-          "market": "Celta Vigo",
-          "ev_adjusted": 51.1,
-          "value_score": null,
-          "reason": "ev_excesivo"
-        },
-        {
-          "market": "Apuesta sin empate: Celta Vigo",
-          "ev_adjusted": 26.5,
-          "value_score": null,
-          "reason": "ev_excesivo"
-        },
-        {
-          "market": "Over 2.5 goles",
-          "ev_adjusted": 5.7,
           "value_score": null,
           "reason": "ev_insuficiente"
         },

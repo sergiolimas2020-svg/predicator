@@ -1776,8 +1776,8 @@
     "league": "Premier League",
     "prediccion": "Doble oportunidad: Brighton & Hove Albion",
     "confianza": "Probabilidad: 73.0%",
-    "resultado_real": null,
-    "acerto": null,
+    "resultado_real": "3-1",
+    "acerto": false,
     "prob_original": 73.0,
     "confidence_factor": 1.0,
     "prob_adjusted": 73.0,
@@ -1831,8 +1831,8 @@
     "league": "Liga Argentina",
     "prediccion": "Lanús",
     "confianza": "Probabilidad: 59.8%",
-    "resultado_real": null,
-    "acerto": null,
+    "resultado_real": "0-0",
+    "acerto": false,
     "prob_original": 61.7,
     "confidence_factor": 0.97,
     "prob_adjusted": 59.8,
@@ -1886,8 +1886,8 @@
     "league": "Brasileirao",
     "prediccion": "Doble oportunidad: Coritiba",
     "confianza": "Probabilidad: 69.0%",
-    "resultado_real": null,
-    "acerto": null,
+    "resultado_real": "4-1",
+    "acerto": false,
     "prob_original": 71.1,
     "confidence_factor": 0.97,
     "prob_adjusted": 69.0,
@@ -1941,8 +1941,8 @@
     "league": "Ligue 1",
     "prediccion": "Marseille",
     "confianza": "Probabilidad: 68.0%",
-    "resultado_real": null,
-    "acerto": null,
+    "resultado_real": "3-0",
+    "acerto": false,
     "prob_original": 68.0,
     "confidence_factor": 1.0,
     "prob_adjusted": 68.0,
@@ -1996,8 +1996,8 @@
     "league": "La Liga",
     "prediccion": "Apuesta sin empate: Athletic Club",
     "confianza": "Probabilidad: 68.5%",
-    "resultado_real": null,
-    "acerto": null,
+    "resultado_real": "2-4",
+    "acerto": true,
     "prob_original": 68.5,
     "confidence_factor": 1.0,
     "prob_adjusted": 68.5,
@@ -2032,6 +2032,281 @@
       {
         "market": "Over 2.5 goles",
         "ev_adjusted": -1.4,
+        "value_score": null,
+        "reason": "ev_negativo"
+      },
+      {
+        "market": "Over 1.5 goles",
+        "ev_adjusted": null,
+        "value_score": null,
+        "reason": "mercado_no_disponible"
+      }
+    ]
+  },
+  {
+    "fecha": "2026-05-03",
+    "slug": "st-pauli-vs-mainz-bundesliga-2026-05-03",
+    "home": "St. Pauli",
+    "away": "Mainz",
+    "league": "Bundesliga",
+    "prediccion": "Doble oportunidad: Mainz",
+    "confianza": "Probabilidad: 77.1%",
+    "resultado_real": null,
+    "acerto": null,
+    "prob_original": 77.1,
+    "confidence_factor": 1.0,
+    "prob_adjusted": 77.1,
+    "bk_odds": 1.526,
+    "ev": 17.6,
+    "penalty": 0.0,
+    "ev_adjusted": 17.6,
+    "value_score": 7.4386,
+    "reason": "ok",
+    "tipo_pick": "pick_dia",
+    "base_pick": "Mainz",
+    "value_level": "medio",
+    "markets_evaluated": [
+      {
+        "market": "Doble oportunidad: Mainz",
+        "ev_adjusted": 17.6,
+        "value_score": 7.4386,
+        "reason": "ok"
+      },
+      {
+        "market": "Mainz",
+        "ev_adjusted": 47.1,
+        "value_score": null,
+        "reason": "ev_excesivo"
+      },
+      {
+        "market": "Apuesta sin empate: Mainz",
+        "ev_adjusted": 25.0,
+        "value_score": null,
+        "reason": "ev_excesivo"
+      },
+      {
+        "market": "Over 2.5 goles",
+        "ev_adjusted": 2.8,
+        "value_score": null,
+        "reason": "ev_insuficiente"
+      },
+      {
+        "market": "Over 1.5 goles",
+        "ev_adjusted": null,
+        "value_score": null,
+        "reason": "mercado_no_disponible"
+      }
+    ]
+  },
+  {
+    "fecha": "2026-05-03",
+    "slug": "gimnasia-la-plata-vs-argentinos-juniors-liga-argentina-2026-05-03",
+    "home": "Gimnasia La Plata",
+    "away": "Argentinos Juniors",
+    "league": "Liga Argentina",
+    "prediccion": "Argentinos Juniors",
+    "confianza": "Probabilidad: 52.7%",
+    "resultado_real": null,
+    "acerto": null,
+    "prob_original": 54.3,
+    "confidence_factor": 0.97,
+    "prob_adjusted": 52.7,
+    "bk_odds": 2.42,
+    "ev": 31.4,
+    "penalty": 0.0,
+    "ev_adjusted": 27.5,
+    "value_score": null,
+    "reason": "ev_excesivo",
+    "tipo_pick": "pick_suscripcion",
+    "base_pick": "Argentinos Juniors",
+    "value_level": "bajo",
+    "markets_evaluated": [
+      {
+        "market": "Argentinos Juniors",
+        "ev_adjusted": 27.5,
+        "value_score": null,
+        "reason": "ev_excesivo"
+      },
+      {
+        "market": "Apuesta sin empate: Argentinos Juniors",
+        "ev_adjusted": 21.9,
+        "value_score": null,
+        "reason": "ev_excesivo"
+      },
+      {
+        "market": "Doble oportunidad: Argentinos Juniors",
+        "ev_adjusted": 1.5,
+        "value_score": null,
+        "reason": "ev_insuficiente"
+      },
+      {
+        "market": "Over 2.5 goles",
+        "ev_adjusted": -82.5,
+        "value_score": null,
+        "reason": "ev_negativo"
+      },
+      {
+        "market": "Over 1.5 goles",
+        "ev_adjusted": null,
+        "value_score": null,
+        "reason": "mercado_no_disponible"
+      }
+    ]
+  },
+  {
+    "fecha": "2026-05-03",
+    "slug": "borussia-monchengladbach-vs-borussia-dortmund-bundesliga-2026-05-03",
+    "home": "Borussia Mönchengladbach",
+    "away": "Borussia Dortmund",
+    "league": "Bundesliga",
+    "prediccion": "Borussia Dortmund",
+    "confianza": "Probabilidad: 61.1%",
+    "resultado_real": null,
+    "acerto": null,
+    "prob_original": 61.1,
+    "confidence_factor": 1.0,
+    "prob_adjusted": 61.1,
+    "bk_odds": 2.04,
+    "ev": 24.6,
+    "penalty": 0.0,
+    "ev_adjusted": 24.6,
+    "value_score": null,
+    "reason": "ev_excesivo",
+    "tipo_pick": "pick_suscripcion",
+    "base_pick": "Borussia Dortmund",
+    "value_level": "bajo",
+    "markets_evaluated": [
+      {
+        "market": "Borussia Dortmund",
+        "ev_adjusted": 24.6,
+        "value_score": null,
+        "reason": "ev_excesivo"
+      },
+      {
+        "market": "Apuesta sin empate: Borussia Dortmund",
+        "ev_adjusted": 12.9,
+        "value_score": null,
+        "reason": "ev_insuficiente"
+      },
+      {
+        "market": "Doble oportunidad: Borussia Dortmund",
+        "ev_adjusted": 10.5,
+        "value_score": null,
+        "reason": "ev_insuficiente"
+      },
+      {
+        "market": "Over 2.5 goles",
+        "ev_adjusted": -11.1,
+        "value_score": null,
+        "reason": "ev_negativo"
+      },
+      {
+        "market": "Over 1.5 goles",
+        "ev_adjusted": null,
+        "value_score": null,
+        "reason": "mercado_no_disponible"
+      }
+    ]
+  },
+  {
+    "fecha": "2026-05-03",
+    "slug": "mirassol-vs-corinthians-brasileirao-2026-05-03",
+    "home": "Mirassol",
+    "away": "Corinthians",
+    "league": "Brasileirao",
+    "prediccion": "Doble oportunidad: Corinthians",
+    "confianza": "Probabilidad: 72.9%",
+    "resultado_real": null,
+    "acerto": null,
+    "prob_original": 75.2,
+    "confidence_factor": 0.97,
+    "prob_adjusted": 72.9,
+    "bk_odds": 1.685,
+    "ev": 26.7,
+    "penalty": 0.0,
+    "ev_adjusted": 22.9,
+    "value_score": null,
+    "reason": "ev_excesivo",
+    "tipo_pick": "pick_suscripcion",
+    "base_pick": "Corinthians",
+    "value_level": "bajo",
+    "markets_evaluated": [
+      {
+        "market": "Corinthians",
+        "ev_adjusted": 77.6,
+        "value_score": null,
+        "reason": "ev_excesivo"
+      },
+      {
+        "market": "Apuesta sin empate: Corinthians",
+        "ev_adjusted": 40.1,
+        "value_score": null,
+        "reason": "ev_excesivo"
+      },
+      {
+        "market": "Doble oportunidad: Corinthians",
+        "ev_adjusted": 22.9,
+        "value_score": null,
+        "reason": "ev_excesivo"
+      },
+      {
+        "market": "Over 2.5 goles",
+        "ev_adjusted": -21.7,
+        "value_score": null,
+        "reason": "ev_negativo"
+      },
+      {
+        "market": "Over 1.5 goles",
+        "ev_adjusted": null,
+        "value_score": null,
+        "reason": "mercado_no_disponible"
+      }
+    ]
+  },
+  {
+    "fecha": "2026-05-03",
+    "slug": "aston-villa-vs-tottenham-hotspur-premier-league-2026-05-03",
+    "home": "Aston Villa",
+    "away": "Tottenham Hotspur",
+    "league": "Premier League",
+    "prediccion": "Apuesta sin empate: Aston Villa",
+    "confianza": "Probabilidad: 76.8%",
+    "resultado_real": null,
+    "acerto": null,
+    "prob_original": 76.8,
+    "confidence_factor": 1.0,
+    "prob_adjusted": 76.8,
+    "bk_odds": 1.579,
+    "ev": 21.3,
+    "penalty": 0.0,
+    "ev_adjusted": 21.3,
+    "value_score": null,
+    "reason": "ev_excesivo",
+    "tipo_pick": "pick_gratuito",
+    "base_pick": "Aston Villa",
+    "value_level": "bajo",
+    "markets_evaluated": [
+      {
+        "market": "Aston Villa",
+        "ev_adjusted": 45.6,
+        "value_score": null,
+        "reason": "ev_excesivo"
+      },
+      {
+        "market": "Apuesta sin empate: Aston Villa",
+        "ev_adjusted": 21.3,
+        "value_score": null,
+        "reason": "ev_excesivo"
+      },
+      {
+        "market": "Doble oportunidad: Aston Villa",
+        "ev_adjusted": 20.1,
+        "value_score": null,
+        "reason": "ev_excesivo"
+      },
+      {
+        "market": "Over 2.5 goles",
+        "ev_adjusted": -10.2,
         "value_score": null,
         "reason": "ev_negativo"
       },
