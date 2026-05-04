@@ -1,8 +1,283 @@
 {
-  "total": 56,
-  "aciertos": 37,
-  "porcentaje": 66,
+  "total": 61,
+  "aciertos": 38,
+  "porcentaje": 62,
   "ultimos": [
+    {
+      "fecha": "2026-05-03",
+      "slug": "aston-villa-vs-tottenham-hotspur-premier-league-2026-05-03",
+      "home": "Aston Villa",
+      "away": "Tottenham Hotspur",
+      "league": "Premier League",
+      "prediccion": "Apuesta sin empate: Aston Villa",
+      "confianza": "Probabilidad: 76.8%",
+      "resultado_real": "1-2",
+      "acerto": false,
+      "prob_original": 76.8,
+      "confidence_factor": 1.0,
+      "prob_adjusted": 76.8,
+      "bk_odds": 1.579,
+      "ev": 21.3,
+      "penalty": 0.0,
+      "ev_adjusted": 21.3,
+      "value_score": null,
+      "reason": "ev_excesivo",
+      "tipo_pick": "pick_gratuito",
+      "base_pick": "Aston Villa",
+      "value_level": "bajo",
+      "markets_evaluated": [
+        {
+          "market": "Aston Villa",
+          "ev_adjusted": 45.6,
+          "value_score": null,
+          "reason": "ev_excesivo"
+        },
+        {
+          "market": "Apuesta sin empate: Aston Villa",
+          "ev_adjusted": 21.3,
+          "value_score": null,
+          "reason": "ev_excesivo"
+        },
+        {
+          "market": "Doble oportunidad: Aston Villa",
+          "ev_adjusted": 20.1,
+          "value_score": null,
+          "reason": "ev_excesivo"
+        },
+        {
+          "market": "Over 2.5 goles",
+          "ev_adjusted": -10.2,
+          "value_score": null,
+          "reason": "ev_negativo"
+        },
+        {
+          "market": "Over 1.5 goles",
+          "ev_adjusted": null,
+          "value_score": null,
+          "reason": "mercado_no_disponible"
+        }
+      ]
+    },
+    {
+      "fecha": "2026-05-03",
+      "slug": "mirassol-vs-corinthians-brasileirao-2026-05-03",
+      "home": "Mirassol",
+      "away": "Corinthians",
+      "league": "Brasileirao",
+      "prediccion": "Doble oportunidad: Corinthians",
+      "confianza": "Probabilidad: 72.9%",
+      "resultado_real": "2-1",
+      "acerto": false,
+      "prob_original": 75.2,
+      "confidence_factor": 0.97,
+      "prob_adjusted": 72.9,
+      "bk_odds": 1.685,
+      "ev": 26.7,
+      "penalty": 0.0,
+      "ev_adjusted": 22.9,
+      "value_score": null,
+      "reason": "ev_excesivo",
+      "tipo_pick": "pick_suscripcion",
+      "base_pick": "Corinthians",
+      "value_level": "bajo",
+      "markets_evaluated": [
+        {
+          "market": "Corinthians",
+          "ev_adjusted": 77.6,
+          "value_score": null,
+          "reason": "ev_excesivo"
+        },
+        {
+          "market": "Apuesta sin empate: Corinthians",
+          "ev_adjusted": 40.1,
+          "value_score": null,
+          "reason": "ev_excesivo"
+        },
+        {
+          "market": "Doble oportunidad: Corinthians",
+          "ev_adjusted": 22.9,
+          "value_score": null,
+          "reason": "ev_excesivo"
+        },
+        {
+          "market": "Over 2.5 goles",
+          "ev_adjusted": -21.7,
+          "value_score": null,
+          "reason": "ev_negativo"
+        },
+        {
+          "market": "Over 1.5 goles",
+          "ev_adjusted": null,
+          "value_score": null,
+          "reason": "mercado_no_disponible"
+        }
+      ]
+    },
+    {
+      "fecha": "2026-05-03",
+      "slug": "borussia-monchengladbach-vs-borussia-dortmund-bundesliga-2026-05-03",
+      "home": "Borussia Mönchengladbach",
+      "away": "Borussia Dortmund",
+      "league": "Bundesliga",
+      "prediccion": "Borussia Dortmund",
+      "confianza": "Probabilidad: 61.1%",
+      "resultado_real": "1-0",
+      "acerto": false,
+      "prob_original": 61.1,
+      "confidence_factor": 1.0,
+      "prob_adjusted": 61.1,
+      "bk_odds": 2.04,
+      "ev": 24.6,
+      "penalty": 0.0,
+      "ev_adjusted": 24.6,
+      "value_score": null,
+      "reason": "ev_excesivo",
+      "tipo_pick": "pick_suscripcion",
+      "base_pick": "Borussia Dortmund",
+      "value_level": "bajo",
+      "markets_evaluated": [
+        {
+          "market": "Borussia Dortmund",
+          "ev_adjusted": 24.6,
+          "value_score": null,
+          "reason": "ev_excesivo"
+        },
+        {
+          "market": "Apuesta sin empate: Borussia Dortmund",
+          "ev_adjusted": 12.9,
+          "value_score": null,
+          "reason": "ev_insuficiente"
+        },
+        {
+          "market": "Doble oportunidad: Borussia Dortmund",
+          "ev_adjusted": 10.5,
+          "value_score": null,
+          "reason": "ev_insuficiente"
+        },
+        {
+          "market": "Over 2.5 goles",
+          "ev_adjusted": -11.1,
+          "value_score": null,
+          "reason": "ev_negativo"
+        },
+        {
+          "market": "Over 1.5 goles",
+          "ev_adjusted": null,
+          "value_score": null,
+          "reason": "mercado_no_disponible"
+        }
+      ]
+    },
+    {
+      "fecha": "2026-05-03",
+      "slug": "gimnasia-la-plata-vs-argentinos-juniors-liga-argentina-2026-05-03",
+      "home": "Gimnasia La Plata",
+      "away": "Argentinos Juniors",
+      "league": "Liga Argentina",
+      "prediccion": "Argentinos Juniors",
+      "confianza": "Probabilidad: 52.7%",
+      "resultado_real": "2-0",
+      "acerto": false,
+      "prob_original": 54.3,
+      "confidence_factor": 0.97,
+      "prob_adjusted": 52.7,
+      "bk_odds": 2.42,
+      "ev": 31.4,
+      "penalty": 0.0,
+      "ev_adjusted": 27.5,
+      "value_score": null,
+      "reason": "ev_excesivo",
+      "tipo_pick": "pick_suscripcion",
+      "base_pick": "Argentinos Juniors",
+      "value_level": "bajo",
+      "markets_evaluated": [
+        {
+          "market": "Argentinos Juniors",
+          "ev_adjusted": 27.5,
+          "value_score": null,
+          "reason": "ev_excesivo"
+        },
+        {
+          "market": "Apuesta sin empate: Argentinos Juniors",
+          "ev_adjusted": 21.9,
+          "value_score": null,
+          "reason": "ev_excesivo"
+        },
+        {
+          "market": "Doble oportunidad: Argentinos Juniors",
+          "ev_adjusted": 1.5,
+          "value_score": null,
+          "reason": "ev_insuficiente"
+        },
+        {
+          "market": "Over 2.5 goles",
+          "ev_adjusted": -82.5,
+          "value_score": null,
+          "reason": "ev_negativo"
+        },
+        {
+          "market": "Over 1.5 goles",
+          "ev_adjusted": null,
+          "value_score": null,
+          "reason": "mercado_no_disponible"
+        }
+      ]
+    },
+    {
+      "fecha": "2026-05-03",
+      "slug": "st-pauli-vs-mainz-bundesliga-2026-05-03",
+      "home": "St. Pauli",
+      "away": "Mainz",
+      "league": "Bundesliga",
+      "prediccion": "Doble oportunidad: Mainz",
+      "confianza": "Probabilidad: 77.1%",
+      "resultado_real": "1-2",
+      "acerto": true,
+      "prob_original": 77.1,
+      "confidence_factor": 1.0,
+      "prob_adjusted": 77.1,
+      "bk_odds": 1.526,
+      "ev": 17.6,
+      "penalty": 0.0,
+      "ev_adjusted": 17.6,
+      "value_score": 7.4386,
+      "reason": "ok",
+      "tipo_pick": "pick_dia",
+      "base_pick": "Mainz",
+      "value_level": "medio",
+      "markets_evaluated": [
+        {
+          "market": "Doble oportunidad: Mainz",
+          "ev_adjusted": 17.6,
+          "value_score": 7.4386,
+          "reason": "ok"
+        },
+        {
+          "market": "Mainz",
+          "ev_adjusted": 47.1,
+          "value_score": null,
+          "reason": "ev_excesivo"
+        },
+        {
+          "market": "Apuesta sin empate: Mainz",
+          "ev_adjusted": 25.0,
+          "value_score": null,
+          "reason": "ev_excesivo"
+        },
+        {
+          "market": "Over 2.5 goles",
+          "ev_adjusted": 2.8,
+          "value_score": null,
+          "reason": "ev_insuficiente"
+        },
+        {
+          "market": "Over 1.5 goles",
+          "ev_adjusted": null,
+          "value_score": null,
+          "reason": "mercado_no_disponible"
+        }
+      ]
+    },
     {
       "fecha": "2026-05-02",
       "slug": "alaves-vs-athletic-club-la-liga-2026-05-02",
@@ -819,281 +1094,6 @@
           "ev_adjusted": -5.2,
           "value_score": null,
           "reason": "ev_negativo"
-        },
-        {
-          "market": "Over 1.5 goles",
-          "ev_adjusted": null,
-          "value_score": null,
-          "reason": "mercado_no_disponible"
-        }
-      ]
-    },
-    {
-      "fecha": "2026-04-12",
-      "slug": "bologna-vs-lecce-serie-a-2026-04-12",
-      "home": "Bologna",
-      "away": "Lecce",
-      "league": "Serie A",
-      "prediccion": "Apuesta sin empate: Bologna",
-      "confianza": "Probabilidad: 77.0%",
-      "resultado_real": "2-0",
-      "acerto": true,
-      "prob_original": 77.0,
-      "confidence_factor": 1.0,
-      "prob_adjusted": 77.0,
-      "bk_odds": 1.532,
-      "ev": 18.0,
-      "penalty": 0.0,
-      "ev_adjusted": 18.0,
-      "value_score": 7.6783,
-      "reason": "ok",
-      "tipo_pick": "pick_dia",
-      "base_pick": "Bologna",
-      "value_level": "medio",
-      "markets_evaluated": [
-        {
-          "market": "Apuesta sin empate: Bologna",
-          "ev_adjusted": 18.0,
-          "value_score": 7.6783,
-          "reason": "ok"
-        },
-        {
-          "market": "Bologna",
-          "ev_adjusted": 26.6,
-          "value_score": null,
-          "reason": "ev_excesivo"
-        },
-        {
-          "market": "Doble oportunidad: Bologna",
-          "ev_adjusted": 7.3,
-          "value_score": null,
-          "reason": "ev_insuficiente"
-        },
-        {
-          "market": "Over 2.5 goles",
-          "ev_adjusted": -10.6,
-          "value_score": null,
-          "reason": "ev_negativo"
-        },
-        {
-          "market": "Over 1.5 goles",
-          "ev_adjusted": null,
-          "value_score": null,
-          "reason": "mercado_no_disponible"
-        }
-      ]
-    },
-    {
-      "fecha": "2026-04-11",
-      "slug": "elche-vs-valencia-la-liga-2026-04-11",
-      "home": "Elche",
-      "away": "Valencia",
-      "league": "La Liga",
-      "prediccion": "Doble oportunidad: Valencia",
-      "confianza": "Probabilidad: 73.4%",
-      "resultado_real": "1-0",
-      "acerto": false,
-      "prob_original": 73.4,
-      "confidence_factor": 1.0,
-      "prob_adjusted": 73.4,
-      "bk_odds": 1.615,
-      "ev": 18.5,
-      "penalty": 0.0,
-      "ev_adjusted": 18.5,
-      "value_score": 8.8677,
-      "reason": "ok",
-      "tipo_pick": "extra",
-      "base_pick": "Valencia",
-      "value_level": "medio",
-      "markets_evaluated": [
-        {
-          "market": "Doble oportunidad: Valencia",
-          "ev_adjusted": 18.5,
-          "value_score": 8.8677,
-          "reason": "ok"
-        },
-        {
-          "market": "Valencia",
-          "ev_adjusted": 48.2,
-          "value_score": null,
-          "reason": "ev_excesivo"
-        },
-        {
-          "market": "Apuesta sin empate: Valencia",
-          "ev_adjusted": 25.0,
-          "value_score": null,
-          "reason": "ev_excesivo"
-        },
-        {
-          "market": "Over 2.5 goles",
-          "ev_adjusted": 4.8,
-          "value_score": null,
-          "reason": "ev_insuficiente"
-        },
-        {
-          "market": "Over 1.5 goles",
-          "ev_adjusted": null,
-          "value_score": null,
-          "reason": "mercado_no_disponible"
-        }
-      ]
-    },
-    {
-      "fecha": "2026-04-11",
-      "slug": "burnley-vs-brighton-hove-albion-premier-league-2026-04-11",
-      "home": "Burnley",
-      "away": "Brighton & Hove Albion",
-      "league": "Premier League",
-      "prediccion": "Brighton & Hove Albion",
-      "confianza": "Probabilidad: 68.0%",
-      "resultado_real": "0-2",
-      "acerto": true,
-      "prob_original": 68.0,
-      "confidence_factor": 1.0,
-      "prob_adjusted": 68.0,
-      "bk_odds": 1.75,
-      "ev": 19.0,
-      "penalty": 0.0,
-      "ev_adjusted": 19.0,
-      "value_score": 10.6327,
-      "reason": "ok",
-      "tipo_pick": "extra",
-      "base_pick": "Brighton & Hove Albion",
-      "value_level": "medio",
-      "markets_evaluated": [
-        {
-          "market": "Brighton & Hove Albion",
-          "ev_adjusted": 19.0,
-          "value_score": 10.6327,
-          "reason": "ok"
-        },
-        {
-          "market": "Apuesta sin empate: Brighton & Hove Albion",
-          "ev_adjusted": 8.0,
-          "value_score": null,
-          "reason": "ev_insuficiente"
-        },
-        {
-          "market": "Doble oportunidad: Brighton & Hove Albion",
-          "ev_adjusted": 10.2,
-          "value_score": null,
-          "reason": "ev_insuficiente"
-        },
-        {
-          "market": "Over 2.5 goles",
-          "ev_adjusted": -12.5,
-          "value_score": null,
-          "reason": "ev_negativo"
-        },
-        {
-          "market": "Over 1.5 goles",
-          "ev_adjusted": null,
-          "value_score": null,
-          "reason": "mercado_no_disponible"
-        }
-      ]
-    },
-    {
-      "fecha": "2026-04-11",
-      "slug": "torino-vs-hellas-verona-serie-a-2026-04-11",
-      "home": "Torino",
-      "away": "Hellas Verona",
-      "league": "Serie A",
-      "prediccion": "Over 2.5 goles",
-      "confianza": "Probabilidad: 47.4%",
-      "resultado_real": "2-1",
-      "acerto": true,
-      "prob_original": 48.9,
-      "confidence_factor": 0.97,
-      "prob_adjusted": 47.4,
-      "bk_odds": 2.54,
-      "ev": 24.2,
-      "penalty": 0.0,
-      "ev_adjusted": 20.4,
-      "value_score": 18.4457,
-      "reason": "ok",
-      "tipo_pick": "extra",
-      "base_pick": "Torino",
-      "value_level": "medio",
-      "markets_evaluated": [
-        {
-          "market": "Over 2.5 goles",
-          "ev_adjusted": 20.4,
-          "value_score": 18.4457,
-          "reason": "ok"
-        },
-        {
-          "market": "Torino",
-          "ev_adjusted": 36.7,
-          "value_score": null,
-          "reason": "ev_excesivo"
-        },
-        {
-          "market": "Apuesta sin empate: Torino",
-          "ev_adjusted": 22.3,
-          "value_score": null,
-          "reason": "ev_excesivo"
-        },
-        {
-          "market": "Doble oportunidad: Torino",
-          "ev_adjusted": 11.8,
-          "value_score": null,
-          "reason": "ev_insuficiente"
-        },
-        {
-          "market": "Over 1.5 goles",
-          "ev_adjusted": null,
-          "value_score": null,
-          "reason": "mercado_no_disponible"
-        }
-      ]
-    },
-    {
-      "fecha": "2026-04-11",
-      "slug": "remo-vs-vasco-da-gama-brasileirao-2026-04-11",
-      "home": "Remo",
-      "away": "Vasco da Gama",
-      "league": "Brasileirao",
-      "prediccion": "Doble oportunidad: Vasco da Gama",
-      "confianza": "Probabilidad: 79.5%",
-      "resultado_real": "1-1",
-      "acerto": true,
-      "prob_original": 82.0,
-      "confidence_factor": 0.97,
-      "prob_adjusted": 79.5,
-      "bk_odds": 1.505,
-      "ev": 23.4,
-      "penalty": 0.0,
-      "ev_adjusted": 19.7,
-      "value_score": 7.8116,
-      "reason": "ok",
-      "tipo_pick": "pick_dia",
-      "base_pick": "Vasco da Gama",
-      "value_level": "medio",
-      "markets_evaluated": [
-        {
-          "market": "Doble oportunidad: Vasco da Gama",
-          "ev_adjusted": 19.7,
-          "value_score": 7.8116,
-          "reason": "ok"
-        },
-        {
-          "market": "Vasco da Gama",
-          "ev_adjusted": 58.8,
-          "value_score": null,
-          "reason": "ev_excesivo"
-        },
-        {
-          "market": "Apuesta sin empate: Vasco da Gama",
-          "ev_adjusted": 28.6,
-          "value_score": null,
-          "reason": "ev_excesivo"
-        },
-        {
-          "market": "Over 2.5 goles",
-          "ev_adjusted": 9.5,
-          "value_score": null,
-          "reason": "ev_insuficiente"
         },
         {
           "market": "Over 1.5 goles",

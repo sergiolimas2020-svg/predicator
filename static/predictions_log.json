@@ -2051,8 +2051,8 @@
     "league": "Bundesliga",
     "prediccion": "Doble oportunidad: Mainz",
     "confianza": "Probabilidad: 77.1%",
-    "resultado_real": null,
-    "acerto": null,
+    "resultado_real": "1-2",
+    "acerto": true,
     "prob_original": 77.1,
     "confidence_factor": 1.0,
     "prob_adjusted": 77.1,
@@ -2106,8 +2106,8 @@
     "league": "Liga Argentina",
     "prediccion": "Argentinos Juniors",
     "confianza": "Probabilidad: 52.7%",
-    "resultado_real": null,
-    "acerto": null,
+    "resultado_real": "2-0",
+    "acerto": false,
     "prob_original": 54.3,
     "confidence_factor": 0.97,
     "prob_adjusted": 52.7,
@@ -2161,8 +2161,8 @@
     "league": "Bundesliga",
     "prediccion": "Borussia Dortmund",
     "confianza": "Probabilidad: 61.1%",
-    "resultado_real": null,
-    "acerto": null,
+    "resultado_real": "1-0",
+    "acerto": false,
     "prob_original": 61.1,
     "confidence_factor": 1.0,
     "prob_adjusted": 61.1,
@@ -2216,8 +2216,8 @@
     "league": "Brasileirao",
     "prediccion": "Doble oportunidad: Corinthians",
     "confianza": "Probabilidad: 72.9%",
-    "resultado_real": null,
-    "acerto": null,
+    "resultado_real": "2-1",
+    "acerto": false,
     "prob_original": 75.2,
     "confidence_factor": 0.97,
     "prob_adjusted": 72.9,
@@ -2271,8 +2271,8 @@
     "league": "Premier League",
     "prediccion": "Apuesta sin empate: Aston Villa",
     "confianza": "Probabilidad: 76.8%",
-    "resultado_real": null,
-    "acerto": null,
+    "resultado_real": "1-2",
+    "acerto": false,
     "prob_original": 76.8,
     "confidence_factor": 1.0,
     "prob_adjusted": 76.8,
@@ -2307,6 +2307,116 @@
       {
         "market": "Over 2.5 goles",
         "ev_adjusted": -10.2,
+        "value_score": null,
+        "reason": "ev_negativo"
+      },
+      {
+        "market": "Over 1.5 goles",
+        "ev_adjusted": null,
+        "value_score": null,
+        "reason": "mercado_no_disponible"
+      }
+    ]
+  },
+  {
+    "fecha": "2026-05-04",
+    "slug": "sevilla-vs-real-sociedad-la-liga-2026-05-04",
+    "home": "Sevilla",
+    "away": "Real Sociedad",
+    "league": "La Liga",
+    "prediccion": "Doble oportunidad: Real Sociedad",
+    "confianza": "Probabilidad: 78.9%",
+    "resultado_real": null,
+    "acerto": null,
+    "prob_original": 78.9,
+    "confidence_factor": 1.0,
+    "prob_adjusted": 78.9,
+    "bk_odds": 1.626,
+    "ev": 28.3,
+    "penalty": 0.0,
+    "ev_adjusted": 28.3,
+    "value_score": null,
+    "reason": "ev_excesivo",
+    "tipo_pick": "pick_suscripcion",
+    "base_pick": "Real Sociedad",
+    "value_level": "bajo",
+    "markets_evaluated": [
+      {
+        "market": "Real Sociedad",
+        "ev_adjusted": 74.9,
+        "value_score": null,
+        "reason": "ev_excesivo"
+      },
+      {
+        "market": "Apuesta sin empate: Real Sociedad",
+        "ev_adjusted": 36.3,
+        "value_score": null,
+        "reason": "ev_excesivo"
+      },
+      {
+        "market": "Doble oportunidad: Real Sociedad",
+        "ev_adjusted": 28.3,
+        "value_score": null,
+        "reason": "ev_excesivo"
+      },
+      {
+        "market": "Over 2.5 goles",
+        "ev_adjusted": 14.8,
+        "value_score": null,
+        "reason": "ev_insuficiente"
+      },
+      {
+        "market": "Over 1.5 goles",
+        "ev_adjusted": null,
+        "value_score": null,
+        "reason": "mercado_no_disponible"
+      }
+    ]
+  },
+  {
+    "fecha": "2026-05-04",
+    "slug": "cremonese-vs-lazio-serie-a-2026-05-04",
+    "home": "Cremonese",
+    "away": "Lazio",
+    "league": "Serie A",
+    "prediccion": "Doble oportunidad: Lazio",
+    "confianza": "Probabilidad: 86.2%",
+    "resultado_real": null,
+    "acerto": null,
+    "prob_original": 86.2,
+    "confidence_factor": 1.0,
+    "prob_adjusted": 86.2,
+    "bk_odds": 1.47,
+    "ev": 26.7,
+    "penalty": 0.0,
+    "ev_adjusted": 26.7,
+    "value_score": null,
+    "reason": "ev_excesivo",
+    "tipo_pick": "pick_gratuito",
+    "base_pick": "Lazio",
+    "value_level": "bajo",
+    "markets_evaluated": [
+      {
+        "market": "Lazio",
+        "ev_adjusted": 73.4,
+        "value_score": null,
+        "reason": "ev_excesivo"
+      },
+      {
+        "market": "Apuesta sin empate: Lazio",
+        "ev_adjusted": 36.9,
+        "value_score": null,
+        "reason": "ev_excesivo"
+      },
+      {
+        "market": "Doble oportunidad: Lazio",
+        "ev_adjusted": 26.7,
+        "value_score": null,
+        "reason": "ev_excesivo"
+      },
+      {
+        "market": "Over 2.5 goles",
+        "ev_adjusted": -19.6,
         "value_score": null,
         "reason": "ev_negativo"
       },

@@ -1,0 +1,143 @@
+{
+  "date": "2026-05-04",
+  "total_fixtures": 8,
+  "matches": [
+    {
+      "matchup": "Chelsea vs Nottingham Forest",
+      "league": "Premier League",
+      "home": "Chelsea",
+      "away": "Nottingham Forest",
+      "probabilities": {
+        "win_home": 53.9,
+        "draw": 22.2,
+        "win_away": 23.9,
+        "over_2_5": 50.8,
+        "over_1_5": 75.2
+      },
+      "favorite": "Chelsea",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false
+    },
+    {
+      "matchup": "Everton vs Manchester City",
+      "league": "Premier League",
+      "home": "Everton",
+      "away": "Manchester City",
+      "probabilities": {
+        "win_home": 26.5,
+        "draw": 24.0,
+        "win_away": 49.5,
+        "over_2_5": 49.3,
+        "over_1_5": 74.1
+      },
+      "favorite": "Manchester City",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false
+    },
+    {
+      "matchup": "Sevilla vs Real Sociedad",
+      "league": "La Liga",
+      "home": "Sevilla",
+      "away": "Real Sociedad",
+      "probabilities": {
+        "win_home": 21.1,
+        "draw": 20.6,
+        "win_away": 58.3,
+        "over_2_5": 58.0,
+        "over_1_5": 80.3
+      },
+      "favorite": "Real Sociedad",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false
+    },
+    {
+      "matchup": "Cremonese vs Lazio",
+      "league": "Serie A",
+      "home": "Cremonese",
+      "away": "Lazio",
+      "probabilities": {
+        "win_home": 13.8,
+        "draw": 20.0,
+        "win_away": 66.2,
+        "over_2_5": 36.7,
+        "over_1_5": 63.6
+      },
+      "favorite": "Lazio",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false
+    },
+    {
+      "matchup": "AS Roma vs Fiorentina",
+      "league": "Serie A",
+      "home": "AS Roma",
+      "away": "Fiorentina",
+      "probabilities": {
+        "win_home": 62.4,
+        "draw": 20.0,
+        "win_away": 17.6,
+        "over_2_5": 41.8,
+        "over_1_5": 68.1
+      },
+      "favorite": "AS Roma",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false
+    },
+    {
+      "matchup": "Estudiantes de Río Cuarto vs Instituto (Córdoba)",
+      "league": "Liga Argentina",
+      "home": "Estudiantes de Río Cuarto",
+      "away": "Instituto (Córdoba)",
+      "probabilities": {
+        "win_home": 59.8,
+        "draw": 20.1,
+        "win_away": 20.1,
+        "over_2_5": 4.9,
+        "over_1_5": 19.6
+      },
+      "favorite": "Estudiantes de Río Cuarto",
+      "stats_complete": false,
+      "confidence_factor": 1.0,
+      "is_nba": false
+    },
+    {
+      "matchup": "New York Knicks vs Philadelphia 76ers",
+      "league": "NBA",
+      "home": "New York Knicks",
+      "away": "Philadelphia 76ers",
+      "probabilities": {
+        "win_home": 63.0,
+        "draw": 0.0,
+        "win_away": 37.0,
+        "over_2_5": null,
+        "over_1_5": null
+      },
+      "favorite": "New York Knicks",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": true
+    },
+    {
+      "matchup": "San Antonio Spurs vs Minnesota Timberwolves",
+      "league": "NBA",
+      "home": "San Antonio Spurs",
+      "away": "Minnesota Timberwolves",
+      "probabilities": {
+        "win_home": 69.7,
+        "draw": 0.0,
+        "win_away": 30.3,
+        "over_2_5": null,
+        "over_1_5": null
+      },
+      "favorite": "San Antonio Spurs",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": true
+    }
+  ],
+  "nota": "Análisis estadístico de todos los partidos del día. Probabilidades crudas del modelo (sin ajuste por liga ni mercado). No incluye recomendación de apuesta — ver value_picks y featured_pick para picks oficiales."
+}
