@@ -124,15 +124,42 @@
           </div>
           <div class="featured-stat">
             <div class="featured-stat-val">${data.bk_odds ? data.bk_odds.toFixed(2) : '—'}</div>
-            <div class="featured-stat-lbl">Cuota mín.</div>
+            <div class="featured-stat-lbl">Cuota europea</div>
           </div>
           <div class="featured-stat">
             <div class="featured-stat-val ${probClass}">${data.confidence_label.toUpperCase()}</div>
             <div class="featured-stat-lbl">Confianza</div>
           </div>
         </div>
+        ${renderFeaturedBetplay(data)}
         <div class="featured-note">${escapeHtml(data.nota || '')}</div>
       </div>`;
+  }
+
+  // ──────────────────────────────────────────────────────────────
+  // Bloque Betplay (aditivo, opcional) — solo si campos presentes
+  // ──────────────────────────────────────────────────────────────
+  function renderFeaturedBetplay(d) {
+    if (d.cuota_betplay_estimada == null && d.ev_betplay_estimado == null) return '';
+    const cuota = d.cuota_betplay_estimada != null ? d.cuota_betplay_estimada.toFixed(2) : '—';
+    const ev = d.ev_betplay_estimado != null
+      ? `${d.ev_betplay_estimado >= 0 ? '+' : ''}${d.ev_betplay_estimado.toFixed(1)}%`
+      : '—';
+    return `
+        <div class="featured-betplay">
+          <div class="featured-betplay-title">Estimado en Betplay (descuento ~10%)</div>
+          <div class="featured-betplay-grid">
+            <div class="featured-betplay-stat">
+              <div class="featured-betplay-val">${cuota}</div>
+              <div class="featured-betplay-lbl">Cuota estimada</div>
+            </div>
+            <div class="featured-betplay-stat">
+              <div class="featured-betplay-val">${ev}</div>
+              <div class="featured-betplay-lbl">EV estimado</div>
+            </div>
+          </div>
+          <div class="featured-betplay-note">⚠️ Verifica la cuota real en tu casa antes de apostar.</div>
+        </div>`;
   }
 
   // ──────────────────────────────────────────────────────────────

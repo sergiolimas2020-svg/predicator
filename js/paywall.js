@@ -187,6 +187,26 @@ function renderMinimalContent(content, dateStr) {
   </div>`;
 }
 
+// ── Bloque de transparencia Betplay (aditivo, opcional) ──
+// Se muestra solo si el pick tiene los campos cuota_betplay_estimada
+// y ev_betplay_estimado generados por _betplay_fields() en el motor.
+function renderBetplaySection(pick) {
+  if (pick.cuota_betplay_estimada == null && pick.ev_betplay_estimado == null) return '';
+  const cuotaBp = pick.cuota_betplay_estimada != null ? pick.cuota_betplay_estimada.toFixed(2) : '—';
+  const evBp    = pick.ev_betplay_estimado != null
+    ? `${pick.ev_betplay_estimado >= 0 ? '+' : ''}${pick.ev_betplay_estimado.toFixed(1)}%`
+    : '—';
+  return `
+    <div class="pw-betplay">
+      <div class="pw-betplay-title">Estimado en Betplay (descuento ~10%)</div>
+      <div class="pw-betplay-grid">
+        <div class="pw-betplay-stat"><span class="pw-betplay-label">Cuota estimada</span><span class="pw-betplay-value">${cuotaBp}</span></div>
+        <div class="pw-betplay-stat"><span class="pw-betplay-label">EV estimado</span><span class="pw-betplay-value">${evBp}</span></div>
+      </div>
+      <div class="pw-betplay-note">⚠️ Verifica la cuota real en tu casa antes de apostar.</div>
+    </div>`;
+}
+
 // ── Card completa (desbloqueada) ──
 function renderPickCard(pick, tier) {
   const icon = (pick.league || '').includes('NBA') ? '🏀' : '⚽';
@@ -201,7 +221,7 @@ function renderPickCard(pick, tier) {
     <div class="pw-card-matchup">${pick.matchup || '—'}</div>
     <div class="pw-card-details">
       <div class="pw-detail">
-        <div class="pw-detail-label">Mercado</div>
+        <div class="pw-detail-label">Mercado <small>(referencia europea)</small></div>
         <div class="pw-detail-value">${pick.market || '—'} ${odds}</div>
       </div>
       <div class="pw-detail">
@@ -210,10 +230,11 @@ function renderPickCard(pick, tier) {
       </div>
       ${ev ? `
       <div class="pw-detail">
-        <div class="pw-detail-label">EV ajustado</div>
+        <div class="pw-detail-label">EV ajustado <small>(referencia)</small></div>
         <div class="pw-detail-value pw-ev">${ev}</div>
       </div>` : ''}
     </div>
+    ${renderBetplaySection(pick)}
   </div>`;
 }
 
@@ -231,7 +252,7 @@ function renderHeroCard(pick) {
     <div class="pw-hero-market">${pick.market || '—'}</div>
     <div class="pw-hero-stats">
       <div class="pw-hero-stat">
-        <div class="pw-hero-stat-label">Cuota</div>
+        <div class="pw-hero-stat-label">Cuota <small>(europeo)</small></div>
         <div class="pw-hero-stat-value pw-hero-odds">${odds}</div>
       </div>
       <div class="pw-hero-stat">
@@ -240,10 +261,11 @@ function renderHeroCard(pick) {
       </div>
       ${ev ? `
       <div class="pw-hero-stat">
-        <div class="pw-hero-stat-label">EV ajustado</div>
+        <div class="pw-hero-stat-label">EV <small>(referencia)</small></div>
         <div class="pw-hero-stat-value pw-hero-ev">${ev}</div>
       </div>` : ''}
     </div>
+    ${renderBetplaySection(pick)}
   </div>`;
 }
 
@@ -264,10 +286,11 @@ function renderGoalsAnalysisCard(item) {
         <span class="pw-goals-stat-value">${prob}</span>
       </span>
       <span class="pw-goals-stat">
-        <span class="pw-goals-stat-label">EV ajustado</span>
+        <span class="pw-goals-stat-label">EV <small>(ref)</small></span>
         <span class="pw-goals-stat-value">${ev}</span>
       </span>
     </div>
+    ${renderBetplaySection(item)}
     <div class="pw-goals-note">Análisis estadístico — no es pick oficial</div>
   </div>`;
 }

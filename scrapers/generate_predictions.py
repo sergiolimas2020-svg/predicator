@@ -162,6 +162,14 @@ MIN_CONF_SUBSCRIPTION = 40.0  # pre-filtro para candidatos de suscripción
 # ── CONFIGURACIÓN CENTRAL — único lugar para cambiar umbrales de valor ──
 MIN_EV            = 0.15   # EV mínimo para publicar (absorbe descuento BetPlay ~15%)
 MAX_EV_H2H        = 0.20   # EV máximo para victoria directa, DNB y DC
+
+# ── Transparencia de cuotas BetPlay (NO toca filtros del motor) ──
+# Solo se usa para enriquecer el output con campos informativos
+# (cuota_betplay_estimada, ev_betplay_estimado). El filtro real sigue
+# siendo MIN_EV=0.15 sobre cuota europea — ver README sección Filosofía.
+BETPLAY_DISCOUNT  = 0.90   # Betplay paga ~10% menos que mercado europeo (validado con 3+ samples)
+MERCADO_REFERENCIA = "Pinnacle/Bet365 (europeo)"
+BETPLAY_DISCLAIMER = "Cuota Betplay estimada con descuento del 10% promedio. Verifica antes de apostar."
 MAX_EV_GOALS      = 0.35   # EV máximo para Over (más varianza)
 MIN_CUOTA_WIN     = 1.60   # cuota mínima para victoria directa
 MIN_CUOTA_DNB     = 1.30   # cuota mínima para DNB (apuesta sin empate)
@@ -353,6 +361,38 @@ def cuota_justa(wp):
     """Devuelve la cuota decimal justa para una probabilidad wp (%)."""
     if wp <= 0: return CUOTA_INFINITA
     return round(100 / wp, 2)
+
+
+def _betplay_fields(bk_odds, prob_pct, ev_adjusted_pct):
+    """
+    Calcula los campos de transparencia BetPlay (aditivos, no afectan filtros).
+
+    Args:
+      bk_odds:           cuota europea de referencia (decimal, ej. 1.85). Puede ser None.
+      prob_pct:          probabilidad ajustada en porcentaje 0-100 (ej. 62.5). Puede ser None.
+      ev_adjusted_pct:   EV ajustado en porcentaje (ej. 8.5). Puede ser None.
+
+    Returns:
+      Dict con 6 campos: cuota_referencia, cuota_betplay_estimada,
+      ev_referencia, ev_betplay_estimado, mercado_referencia, disclaimer.
+      Cuota/EV BetPlay son None si bk_odds o prob_pct son None.
+    """
+    cuota_bp = None
+    ev_bp    = None
+    if bk_odds and bk_odds > 1.0:
+        cuota_bp = round(bk_odds * BETPLAY_DISCOUNT, 2)
+        if prob_pct is not None:
+            ev_bp = round((prob_pct / 100.0) * cuota_bp - 1, 4) * 100
+            ev_bp = round(ev_bp, 1)
+    return {
+        "cuota_referencia":        bk_odds,
+        "cuota_betplay_estimada":  cuota_bp,
+        "ev_referencia":           ev_adjusted_pct,
+        "ev_betplay_estimado":     ev_bp,
+        "mercado_referencia":      MERCADO_REFERENCIA,
+        "disclaimer":              BETPLAY_DISCLAIMER,
+    }
+
 
 def value_level(vs):
     if vs >= VALUE_ALTO_THRESHOLD: return "alto"
@@ -2068,7 +2108,9 @@ def _build_featured_pick_output(evaluated_picks: list, value_picks_dict: dict,
     else:
         confidence_label = "media"
 
-    return {
+    bk_o   = best.get("bk_odds")
+    ev_adj = best.get("ev_adjusted")
+    out = {
         "date":              today_str,
         "matchup":           matchup,
         "home":              home,
@@ -2079,11 +2121,14 @@ def _build_featured_pick_output(evaluated_picks: list, value_picks_dict: dict,
         "confidence_factor": best.get("confidence_factor", 1.0),
         "confidence_label":  confidence_label,
         "tier_origin":       "value_pick" if is_value_pick else "statistical_only",
-        "bk_odds":           best.get("bk_odds"),
+        "bk_odds":           bk_o,
+        "ev_adjusted":       ev_adj,
         "nota":              ("Pick destacado del día — máxima confianza estadística"
                               if not is_value_pick else
                               "Pick destacado del día — coincide con un value pick"),
     }
+    out.update(_betplay_fields(bk_o, round(prob, 1), ev_adj))
+    return out
 
 
 def main():
@@ -2787,18 +2832,23 @@ def main():
     # ── JSON DIARIO — estructura de 3 niveles ──
     def _pick_to_dict(slug, matchup, league, tipo, best_eval, bk_odds, cf):
         be = best_eval or {}
-        return {
+        bk_o = be.get("bk_odds", bk_odds)
+        prob = be.get("prob_adjusted")
+        ev   = be.get("ev_adjusted")
+        entry = {
             "slug": slug,
             "matchup": matchup,
             "league": league,
             "tipo": tipo,
             "market": be.get("label", ""),
-            "prob_adjusted": be.get("prob_adjusted"),
+            "prob_adjusted": prob,
             "value_score": be.get("value_score"),
             "confidence_factor": be.get("confidence_factor", cf),
-            "ev_adjusted": be.get("ev_adjusted"),
-            "bk_odds": be.get("bk_odds", bk_odds),
+            "ev_adjusted": ev,
+            "bk_odds": bk_o,
         }
+        entry.update(_betplay_fields(bk_o, prob, ev))
+        return entry
 
     if not adicional:
         # ═══════════════════════════════════════════════════════════
@@ -2828,7 +2878,7 @@ def main():
                 if value_picks_output["pick_gratuito"] is None:
                     value_picks_output["pick_gratuito"] = entry
         for g in analisis_goles:
-            value_picks_output["analisis_goles"].append({
+            entry = {
                 "league":             g["league"],
                 "matchup":            g["matchup"],
                 "market":             g["market"],
@@ -2837,7 +2887,9 @@ def main():
                 "ev_adjusted":        g["ev_adjusted"],
                 "confidence_factor":  g["confidence_factor"],
                 "nota":               "Análisis de goles — no es pick oficial",
-            })
+            }
+            entry.update(_betplay_fields(g["bk_odds"], g["prob_adjusted"], g["ev_adjusted"]))
+            value_picks_output["analisis_goles"].append(entry)
 
         _value_picks_path = OUTPUT_DIR / f"value_picks_{today}.json"
         _value_picks_path.write_text(
@@ -2915,6 +2967,10 @@ def main():
         except: pass
         # Trazabilidad completa del pick ganador
         _be = _best_eval or {}
+        _bk_o   = _be.get("bk_odds", _cj)
+        _prob   = _be.get("prob_adjusted")
+        _ev_adj = _be.get("ev_adjusted")
+        _bp     = _betplay_fields(_bk_o, _prob, _ev_adj)
         _log.append({
             "fecha":             today,
             "slug":              slug,
@@ -2928,13 +2984,16 @@ def main():
             # Pipeline completo del mercado elegido
             "prob_original":     _be.get("prob_original"),
             "confidence_factor": _be.get("confidence_factor", _cf),
-            "prob_adjusted":     _be.get("prob_adjusted"),
-            "bk_odds":           _be.get("bk_odds", _cj),
+            "prob_adjusted":     _prob,
+            "bk_odds":           _bk_o,
             "ev":                _be.get("ev"),
             "penalty":           _be.get("penalty"),
-            "ev_adjusted":       _be.get("ev_adjusted"),
+            "ev_adjusted":       _ev_adj,
             "value_score":       _be.get("value_score"),
             "reason":            _be.get("reason"),
+            # Transparencia Betplay (aditivo)
+            "cuota_betplay_estimada": _bp["cuota_betplay_estimada"],
+            "ev_betplay_estimado":    _bp["ev_betplay_estimado"],
             # Clasificación del pick
             "tipo_pick":         _tipo_pick,
             # Campos de resumen

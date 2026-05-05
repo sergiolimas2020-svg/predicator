@@ -131,6 +131,20 @@ def _render_pick_row(idx: int, e: dict) -> str:
         cls, mark, label = "ok",   "✓", "Acertó"
     else:
         cls, mark, label = "fail", "✗", "Falló"
+
+    # Betplay info (solo si campos presentes — retrocompat con picks antiguos)
+    bp_inline = ""
+    cuota_bp = e.get("cuota_betplay_estimada")
+    ev_bp    = e.get("ev_betplay_estimado")
+    if cuota_bp is not None or ev_bp is not None:
+        cuota_str = f"{cuota_bp:.2f}" if cuota_bp is not None else "—"
+        ev_str    = (f"{'+' if ev_bp >= 0 else ''}{ev_bp:.1f}%"
+                     if ev_bp is not None else "—")
+        bp_inline = (
+            f'<small class="pick-bp" title="Cuota Betplay estimada con descuento del 10% promedio. Verifica antes de apostar.">'
+            f' · Betplay est: {cuota_str} ({ev_str})</small>'
+        )
+
     return (
         f'<div class="pick-row">'
         f'<span class="pick-fecha">{fecha}</span>'
@@ -139,7 +153,7 @@ def _render_pick_row(idx: int, e: dict) -> str:
         f'<strong>{matchup}</strong> '
         f'<span class="pick-league">({league})</span>'
         f'</span>'
-        f'<span class="pick-pred">{pred}</span>'
+        f'<span class="pick-pred">{pred}{bp_inline}</span>'
         f'<span class="pick-result">{res}</span>'
         f'<span class="pick-acerto {cls}" title="{label}">{mark}</span>'
         f'</div>'
@@ -240,6 +254,7 @@ def render_html(stats: dict) -> str:
     .pick-matchup strong {{ color:#fff; font-weight:600; }}
     .pick-league {{ color:var(--gris); font-size:0.8rem; }}
     .pick-pred {{ color:var(--gris); font-size:0.86rem; }}
+    .pick-bp   {{ color:var(--dorado); font-size:0.78rem; opacity:0.85; cursor:help; }}
     .pick-result {{ color:var(--gris); font-family:monospace; text-align:center; }}
     .pick-acerto {{ font-size:1.15rem; font-weight:bold; text-align:center; }}
     .pick-acerto.ok   {{ color:var(--verde); }}

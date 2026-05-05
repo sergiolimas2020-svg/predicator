@@ -645,6 +645,41 @@
       text-transform:uppercase; letter-spacing:0.8px;
       margin-top:0.25rem;
     }
+    /* Bloque transparencia Betplay (aditivo, opcional) */
+    .featured-betplay, .pw-betplay {
+      margin-top:0.9rem;
+      padding:0.8rem 1rem;
+      background:rgba(240,180,41,0.06);
+      border:1px solid rgba(240,180,41,0.2);
+      border-left:3px solid var(--dorado);
+      border-radius:6px;
+    }
+    .featured-betplay-title, .pw-betplay-title {
+      font-size:0.7rem; color:var(--dorado);
+      text-transform:uppercase; letter-spacing:1px; font-weight:700;
+      margin-bottom:0.5rem;
+    }
+    .featured-betplay-grid, .pw-betplay-grid {
+      display:grid; grid-template-columns:1fr 1fr; gap:0.6rem;
+    }
+    .featured-betplay-stat, .pw-betplay-stat {
+      text-align:center;
+    }
+    .pw-betplay-stat { display:flex; flex-direction:column; }
+    .featured-betplay-val, .pw-betplay-value {
+      font-family:'Bebas Neue',sans-serif;
+      font-size:1.4rem; color:var(--texto); line-height:1;
+    }
+    .featured-betplay-lbl, .pw-betplay-label {
+      font-size:0.65rem; color:var(--gris);
+      text-transform:uppercase; letter-spacing:0.8px;
+      margin-top:0.2rem;
+    }
+    .featured-betplay-note, .pw-betplay-note {
+      font-size:0.72rem; color:var(--gris);
+      text-align:center; margin-top:0.5rem; line-height:1.4;
+    }
+
     .featured-note {
       font-size:0.8rem; color:var(--gris);
       margin-top:0.9rem; text-align:center;
