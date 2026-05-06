@@ -1,0 +1,109 @@
+{
+  "date": "2026-05-06",
+  "total_fixtures": 6,
+  "matches": [
+    {
+      "matchup": "Independiente Rivadavia vs Fluminense",
+      "league": "Copa Libertadores",
+      "home": "Independiente Rivadavia",
+      "away": "Fluminense",
+      "probabilities": {
+        "win_home": 29.1,
+        "draw": 25.6,
+        "win_away": 45.3,
+        "over_2_5": 54.0,
+        "over_1_5": 77.5
+      },
+      "favorite": "Fluminense",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false
+    },
+    {
+      "matchup": "Independiente Santa Fe vs Corinthians",
+      "league": "Copa Libertadores",
+      "home": "Independiente Santa Fe",
+      "away": "Corinthians",
+      "probabilities": {
+        "win_home": 62.2,
+        "draw": 20.0,
+        "win_away": 17.8,
+        "over_2_5": 37.6,
+        "over_1_5": 64.5
+      },
+      "favorite": "Independiente Santa Fe",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false
+    },
+    {
+      "matchup": "Deportes Tolima vs Nacional",
+      "league": "Copa Libertadores",
+      "home": "Deportes Tolima",
+      "away": "Nacional",
+      "probabilities": {
+        "win_home": 46.0,
+        "draw": 25.3,
+        "win_away": 28.7,
+        "over_2_5": 36.6,
+        "over_1_5": 63.5
+      },
+      "favorite": "Deportes Tolima",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false
+    },
+    {
+      "matchup": "Botafogo vs Racing Club",
+      "league": "Copa Sudamericana",
+      "home": "Botafogo",
+      "away": "Racing Club",
+      "probabilities": {
+        "win_home": 45.4,
+        "draw": 25.6,
+        "win_away": 29.0,
+        "over_2_5": 31.3,
+        "over_1_5": 58.4
+      },
+      "favorite": "Botafogo",
+      "stats_complete": false,
+      "confidence_factor": 1.0,
+      "is_nba": false
+    },
+    {
+      "matchup": "New York Knicks vs Philadelphia 76ers",
+      "league": "NBA",
+      "home": "New York Knicks",
+      "away": "Philadelphia 76ers",
+      "probabilities": {
+        "win_home": 63.0,
+        "draw": 0.0,
+        "win_away": 37.0,
+        "over_2_5": null,
+        "over_1_5": null
+      },
+      "favorite": "New York Knicks",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": true
+    },
+    {
+      "matchup": "San Antonio Spurs vs Minnesota Timberwolves",
+      "league": "NBA",
+      "home": "San Antonio Spurs",
+      "away": "Minnesota Timberwolves",
+      "probabilities": {
+        "win_home": 69.7,
+        "draw": 0.0,
+        "win_away": 30.3,
+        "over_2_5": null,
+        "over_1_5": null
+      },
+      "favorite": "San Antonio Spurs",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": true
+    }
+  ],
+  "nota": "Análisis estadístico de todos los partidos del día. Probabilidades crudas del modelo (sin ajuste por liga ni mercado). No incluye recomendación de apuesta — ver value_picks y featured_pick para picks oficiales."
+}
