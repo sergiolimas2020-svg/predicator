@@ -157,6 +157,10 @@ jobs:
         run: python3 scrapers/brazil.py
         continue-on-error: true
 
+      - name: Stats Uruguay
+        run: python3 scrapers/uruguay.py
+        continue-on-error: true
+
       - name: Stats Champions League
         run: python3 scrapers/champions.py
         continue-on-error: true

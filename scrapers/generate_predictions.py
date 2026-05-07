@@ -718,6 +718,7 @@ _CONMEBOL_FALLBACK_FILES = [
     "argentina_stats.json",
     "brazil_stats.json",
     "colombia_stats.json",
+    "uruguay_stats.json",
 ]
 
 def _find_in_local_leagues(name):

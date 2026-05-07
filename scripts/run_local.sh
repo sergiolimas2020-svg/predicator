@@ -120,6 +120,7 @@ declare -a SCRAPERS=(
   "scrapers/bundesliga.py:Bundesliga"
   "scrapers/francia.py:Ligue 1"
   "scrapers/brazil.py:Brasileirao"
+  "scrapers/uruguay.py:Uruguay"
   "scrapers/champions.py:Champions"
   "scrapers/nba_scraper.py:NBA"
 )
