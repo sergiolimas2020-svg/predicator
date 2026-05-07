@@ -161,6 +161,18 @@ jobs:
         run: python3 scrapers/uruguay.py
         continue-on-error: true
 
+      - name: Stats Ecuador
+        run: python3 scrapers/ecuador.py
+        continue-on-error: true
+
+      - name: Stats Chile
+        run: python3 scrapers/chile.py
+        continue-on-error: true
+
+      - name: Stats Paraguay
+        run: python3 scrapers/paraguay.py
+        continue-on-error: true
+
       - name: Stats Champions League
         run: python3 scrapers/champions.py
         continue-on-error: true
