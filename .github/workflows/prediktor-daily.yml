@@ -5,6 +5,11 @@ on:
     # 05:00 UTC = 00:00 Colombia (UTC-5) — al cambiar de día
     - cron: '0 5 * * *'
   workflow_dispatch:
+    inputs:
+      force:
+        description: 'Pasar --force a generate_predictions.py (regenera aunque ya haya picks publicados hoy)'
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -182,10 +187,19 @@ jobs:
         continue-on-error: true
 
       # ── Step 7: Generar predicciones (CRÍTICO — sin esto no hay producto) ─
+      # Pasa --force solo cuando se dispara manualmente con el toggle activado.
+      # El cron normal (schedule) corre sin --force, preservando la protección
+      # de "ya publicado" que evita cambiar picks ya enviados al canal.
       - name: Generar predicciones
         env:
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
-        run: python3 scrapers/generate_predictions.py
+        run: |
+          if [ "${{ github.event.inputs.force }}" = "true" ]; then
+            echo "🔄 Modo --force activado (workflow_dispatch)"
+            python3 scrapers/generate_predictions.py --force
+          else
+            python3 scrapers/generate_predictions.py
+          fi
 
       # ── Step 8: Validar que se generó JSON con fecha de hoy ─────
       - name: Validar daily_picks.json
