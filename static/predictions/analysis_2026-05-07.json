@@ -1,0 +1,41 @@
+{
+  "date": "2026-05-07",
+  "total_fixtures": 2,
+  "matches": [
+    {
+      "matchup": "Detroit Pistons vs Cleveland Cavaliers",
+      "league": "NBA",
+      "home": "Detroit Pistons",
+      "away": "Cleveland Cavaliers",
+      "probabilities": {
+        "win_home": 62.0,
+        "draw": 0.0,
+        "win_away": 38.0,
+        "over_2_5": null,
+        "over_1_5": null
+      },
+      "favorite": "Detroit Pistons",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": true
+    },
+    {
+      "matchup": "Oklahoma City Thunder vs Los Angeles Lakers",
+      "league": "NBA",
+      "home": "Oklahoma City Thunder",
+      "away": "Los Angeles Lakers",
+      "probabilities": {
+        "win_home": 67.8,
+        "draw": 0.0,
+        "win_away": 32.2,
+        "over_2_5": null,
+        "over_1_5": null
+      },
+      "favorite": "Oklahoma City Thunder",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": true
+    }
+  ],
+  "nota": "Análisis estadístico de todos los partidos del día. Probabilidades crudas del modelo (sin ajuste por liga ni mercado). No incluye recomendación de apuesta — ver value_picks y featured_pick para picks oficiales."
+}
