@@ -1,7 +1,75 @@
 {
   "date": "2026-05-07",
-  "total_fixtures": 2,
+  "total_fixtures": 6,
   "matches": [
+    {
+      "matchup": "Mirassol vs Liga de Quito",
+      "league": "Copa Libertadores",
+      "home": "Mirassol",
+      "away": "Liga de Quito",
+      "probabilities": {
+        "win_home": 19.1,
+        "draw": 20.0,
+        "win_away": 60.9,
+        "over_2_5": 36.1,
+        "over_1_5": 63.1
+      },
+      "favorite": "Liga de Quito",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false
+    },
+    {
+      "matchup": "Platense vs Peñarol",
+      "league": "Copa Libertadores",
+      "home": "Platense",
+      "away": "Peñarol",
+      "probabilities": {
+        "win_home": 26.6,
+        "draw": 24.0,
+        "win_away": 49.4,
+        "over_2_5": 32.2,
+        "over_1_5": 59.3
+      },
+      "favorite": "Peñarol",
+      "stats_complete": true,
+      "confidence_factor": 0.97,
+      "is_nba": false
+    },
+    {
+      "matchup": "Coquimbo Unido vs Universitario",
+      "league": "Copa Libertadores",
+      "home": "Coquimbo Unido",
+      "away": "Universitario",
+      "probabilities": {
+        "win_home": 54.6,
+        "draw": 22.0,
+        "win_away": 23.4,
+        "over_2_5": 39.9,
+        "over_1_5": 66.5
+      },
+      "favorite": "Coquimbo Unido",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false
+    },
+    {
+      "matchup": "Atlético Junior vs Cerro Porteño",
+      "league": "Copa Libertadores",
+      "home": "Atlético Junior",
+      "away": "Cerro Porteño",
+      "probabilities": {
+        "win_home": 67.2,
+        "draw": 20.0,
+        "win_away": 12.8,
+        "over_2_5": 44.3,
+        "over_1_5": 70.2
+      },
+      "favorite": "Atlético Junior",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false
+    },
     {
       "matchup": "Detroit Pistons vs Cleveland Cavaliers",
       "league": "NBA",

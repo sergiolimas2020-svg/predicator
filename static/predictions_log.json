@@ -2537,5 +2537,62 @@
         "reason": "mercado_no_disponible"
       }
     ]
+  },
+  {
+    "fecha": "2026-05-07",
+    "slug": "platense-vs-penarol-copa-libertadores-2026-05-07",
+    "home": "Platense",
+    "away": "Peñarol",
+    "league": "Copa Libertadores",
+    "prediccion": "Doble oportunidad: Peñarol",
+    "confianza": "Probabilidad: 71.2%",
+    "resultado_real": null,
+    "acerto": null,
+    "prob_original": 73.4,
+    "confidence_factor": 0.97,
+    "prob_adjusted": 71.2,
+    "bk_odds": 1.76,
+    "ev": 29.2,
+    "penalty": 0.0,
+    "ev_adjusted": 25.3,
+    "value_score": null,
+    "reason": "ev_excesivo",
+    "cuota_betplay_estimada": 1.58,
+    "ev_betplay_estimado": 12.5,
+    "tipo_pick": "pick_gratuito",
+    "base_pick": "Peñarol",
+    "value_level": "bajo",
+    "markets_evaluated": [
+      {
+        "market": "Peñarol",
+        "ev_adjusted": 106.0,
+        "value_score": null,
+        "reason": "ev_excesivo"
+      },
+      {
+        "market": "Apuesta sin empate: Peñarol",
+        "ev_adjusted": 59.5,
+        "value_score": null,
+        "reason": "ev_excesivo"
+      },
+      {
+        "market": "Doble oportunidad: Peñarol",
+        "ev_adjusted": 25.3,
+        "value_score": null,
+        "reason": "ev_excesivo"
+      },
+      {
+        "market": "Over 2.5 goles",
+        "ev_adjusted": -6.7,
+        "value_score": null,
+        "reason": "ev_negativo"
+      },
+      {
+        "market": "Over 1.5 goles",
+        "ev_adjusted": -14.3,
+        "value_score": null,
+        "reason": "ev_negativo"
+      }
+    ]
   }
 ]
