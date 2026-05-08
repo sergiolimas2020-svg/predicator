@@ -218,13 +218,17 @@ CONF_LEAGUE_MID         = 0.97   # ligas con buen histórico pero menor eficienc
 CONF_LEAGUE_MINOR       = 0.95   # ligas menores (histórico corto o datos incompletos)
 
 CONF_LEAGUE_TIERS = {
-    "Premier League":   CONF_LEAGUE_TOP,
-    "La Liga":          CONF_LEAGUE_TOP,
-    "Serie A":          CONF_LEAGUE_TOP,
-    "Bundesliga":       CONF_LEAGUE_TOP,
-    "Ligue 1":          CONF_LEAGUE_TOP,
-    "Champions League": CONF_LEAGUE_TOP,
-    "NBA":              CONF_LEAGUE_TOP,
+    # Bug #3 auditoría (p=0.021 vs benchmark 62.5%): subset conservador.
+    # Solo Premier (40%, n=5) y Ligue 1 (0%, n=2) movidas a MID.
+    # La Liga (40%, n=5) y Bundesliga (33%, n=3) quedan en TOP: la simulación
+    # mostraba pérdida de 1 acierto en Bundes y datos no contundentes en La Liga.
+    "Premier League":   CONF_LEAGUE_MID,   # 1.00 → 0.97 (40% histórico, n=5)
+    "La Liga":          CONF_LEAGUE_TOP,   # 40% histórico (n=5) — datos no contundentes, mantiene
+    "Serie A":          CONF_LEAGUE_TOP,   # 83% histórico (n=6) — mantiene
+    "Bundesliga":       CONF_LEAGUE_TOP,   # 33% histórico (n=3) — pierde 1 acierto en sim, mantiene
+    "Ligue 1":          CONF_LEAGUE_MID,   # 1.00 → 0.97 (0% histórico, n=2)
+    "Champions League": CONF_LEAGUE_TOP,   # sin data verificada (n=0) — asunción
+    "NBA":              CONF_LEAGUE_TOP,   # 76% histórico (n=17) — mantiene
     "Liga Argentina":      CONF_LEAGUE_MID,
     "Brasileirao":         CONF_LEAGUE_MID,
     "Super Lig":           CONF_LEAGUE_MID,
