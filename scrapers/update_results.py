@@ -10,18 +10,20 @@ LOG_PATH = Path("static/predictions_log.json")
 HISTORIAL_PATH = Path("static/historial.json")
 
 ESPN_SPORT_MAP = {
-    "Liga Colombiana":  "soccer/col.1",
-    "Liga Argentina":   "soccer/arg.1",
-    "Premier League":   "soccer/eng.1",
-    "La Liga":          "soccer/esp.1",
-    "Serie A":          "soccer/ita.1",
-    "Bundesliga":       "soccer/ger.1",
-    "Ligue 1":          "soccer/fra.1",
-    "Brasileirao":      "soccer/bra.1",
-    "Super Lig":        "soccer/tur.1",
-    "Champions League": "soccer/uefa.champions",
-    "NBA":              "basketball/nba",
-    "NBA 2025-26":      "basketball/nba",
+    "Liga Colombiana":   "soccer/col.1",
+    "Liga Argentina":    "soccer/arg.1",
+    "Premier League":    "soccer/eng.1",
+    "La Liga":           "soccer/esp.1",
+    "Serie A":           "soccer/ita.1",
+    "Bundesliga":        "soccer/ger.1",
+    "Ligue 1":           "soccer/fra.1",
+    "Brasileirao":       "soccer/bra.1",
+    "Super Lig":         "soccer/tur.1",
+    "Champions League":  "soccer/uefa.champions",
+    "Copa Libertadores": "soccer/conmebol.libertadores",
+    "Copa Sudamericana": "soccer/conmebol.sudamericana",
+    "NBA":               "basketball/nba",
+    "NBA 2025-26":       "basketball/nba",
 }
 
 FINAL_STATUSES = {"Full Time", "Final", "FT", "Finalizado", "AET", "Pen"}
