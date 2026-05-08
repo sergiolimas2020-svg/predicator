@@ -1,0 +1,109 @@
+{
+  "date": "2026-05-08",
+  "total_fixtures": 6,
+  "matches": [
+    {
+      "matchup": "Levante vs Osasuna",
+      "league": "La Liga",
+      "home": "Levante",
+      "away": "Osasuna",
+      "probabilities": {
+        "win_home": 17.0,
+        "draw": 20.0,
+        "win_away": 63.0,
+        "over_2_5": 47.5,
+        "over_1_5": 72.8
+      },
+      "favorite": "Osasuna",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false
+    },
+    {
+      "matchup": "Torino vs Sassuolo",
+      "league": "Serie A",
+      "home": "Torino",
+      "away": "Sassuolo",
+      "probabilities": {
+        "win_home": 30.3,
+        "draw": 26.6,
+        "win_away": 43.1,
+        "over_2_5": 48.9,
+        "over_1_5": 73.8
+      },
+      "favorite": "Sassuolo",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false
+    },
+    {
+      "matchup": "Borussia Dortmund vs Eintracht Frankfurt",
+      "league": "Bundesliga",
+      "home": "Borussia Dortmund",
+      "away": "Eintracht Frankfurt",
+      "probabilities": {
+        "win_home": 50.5,
+        "draw": 23.6,
+        "win_away": 25.9,
+        "over_2_5": 64.9,
+        "over_1_5": 84.7
+      },
+      "favorite": "Borussia Dortmund",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false
+    },
+    {
+      "matchup": "Lens vs Nantes",
+      "league": "Ligue 1",
+      "home": "Lens",
+      "away": "Nantes",
+      "probabilities": {
+        "win_home": 68.0,
+        "draw": 20.0,
+        "win_away": 12.0,
+        "over_2_5": 52.2,
+        "over_1_5": 76.3
+      },
+      "favorite": "Lens",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false
+    },
+    {
+      "matchup": "Philadelphia 76ers vs New York Knicks",
+      "league": "NBA",
+      "home": "Philadelphia 76ers",
+      "away": "New York Knicks",
+      "probabilities": {
+        "win_home": 43.0,
+        "draw": 0.0,
+        "win_away": 57.0,
+        "over_2_5": null,
+        "over_1_5": null
+      },
+      "favorite": "New York Knicks",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": true
+    },
+    {
+      "matchup": "Minnesota Timberwolves vs San Antonio Spurs",
+      "league": "NBA",
+      "home": "Minnesota Timberwolves",
+      "away": "San Antonio Spurs",
+      "probabilities": {
+        "win_home": 36.3,
+        "draw": 0.0,
+        "win_away": 63.7,
+        "over_2_5": null,
+        "over_1_5": null
+      },
+      "favorite": "San Antonio Spurs",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": true
+    }
+  ],
+  "nota": "Análisis estadístico de todos los partidos del día. Probabilidades crudas del modelo (sin ajuste por liga ni mercado). No incluye recomendación de apuesta — ver value_picks y featured_pick para picks oficiales."
+}
