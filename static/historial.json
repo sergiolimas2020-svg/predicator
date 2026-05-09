@@ -1,8 +1,122 @@
 {
-  "total": 67,
-  "aciertos": 43,
+  "total": 69,
+  "aciertos": 44,
   "porcentaje": 64,
   "ultimos": [
+    {
+      "fecha": "2026-05-08",
+      "slug": "torino-vs-sassuolo-serie-a-2026-05-08",
+      "home": "Torino",
+      "away": "Sassuolo",
+      "league": "Serie A",
+      "prediccion": "Apuesta sin empate: Sassuolo",
+      "confianza": "Probabilidad: 61.8%",
+      "resultado_real": "2-1",
+      "acerto": false,
+      "prob_original": 61.8,
+      "confidence_factor": 1.0,
+      "prob_adjusted": 61.8,
+      "bk_odds": 1.912,
+      "ev": 18.2,
+      "penalty": 0.0,
+      "ev_adjusted": 18.2,
+      "value_score": 11.7963,
+      "reason": "ok",
+      "cuota_betplay_estimada": 1.72,
+      "ev_betplay_estimado": 6.3,
+      "tipo_pick": "pick_gratuito",
+      "base_pick": "Sassuolo",
+      "value_level": "medio",
+      "markets_evaluated": [
+        {
+          "market": "Apuesta sin empate: Sassuolo",
+          "ev_adjusted": 18.2,
+          "value_score": 11.7963,
+          "reason": "ok"
+        },
+        {
+          "market": "Sassuolo",
+          "ev_adjusted": 33.6,
+          "value_score": null,
+          "reason": "ev_excesivo"
+        },
+        {
+          "market": "Doble oportunidad: Sassuolo",
+          "ev_adjusted": 13.1,
+          "value_score": null,
+          "reason": "ev_insuficiente"
+        },
+        {
+          "market": "Over 2.5 goles",
+          "ev_adjusted": -5.2,
+          "value_score": null,
+          "reason": "ev_negativo"
+        },
+        {
+          "market": "Over 1.5 goles",
+          "ev_adjusted": null,
+          "value_score": null,
+          "reason": "mercado_no_disponible"
+        }
+      ]
+    },
+    {
+      "fecha": "2026-05-08",
+      "slug": "philadelphia-76ers-vs-new-york-knicks-nba-2026-05-08",
+      "home": "Philadelphia 76ers",
+      "away": "New York Knicks",
+      "league": "NBA",
+      "prediccion": "New York Knicks",
+      "confianza": "Probabilidad: 57.0%",
+      "resultado_real": "94-108",
+      "acerto": true,
+      "prob_original": 57.0,
+      "confidence_factor": 1.0,
+      "prob_adjusted": 57.0,
+      "bk_odds": 2.1,
+      "ev": 19.7,
+      "penalty": 0.0,
+      "ev_adjusted": 19.7,
+      "value_score": 14.6162,
+      "reason": "ok",
+      "cuota_betplay_estimada": 1.89,
+      "ev_betplay_estimado": 7.7,
+      "tipo_pick": "pick_suscripcion",
+      "base_pick": "New York Knicks",
+      "value_level": "medio",
+      "markets_evaluated": [
+        {
+          "market": "New York Knicks",
+          "ev_adjusted": 19.7,
+          "value_score": 14.6162,
+          "reason": "ok"
+        },
+        {
+          "market": "Apuesta sin empate: New York Knicks",
+          "ev_adjusted": null,
+          "value_score": null,
+          "reason": "mercado_no_disponible"
+        },
+        {
+          "market": "Doble oportunidad: New York Knicks",
+          "ev_adjusted": null,
+          "value_score": null,
+          "reason": "mercado_no_disponible"
+        },
+        {
+          "market": "Over 2.5 goles",
+          "ev_adjusted": null,
+          "value_score": null,
+          "reason": "mercado_no_disponible"
+        },
+        {
+          "market": "Over 1.5 goles",
+          "ev_adjusted": null,
+          "value_score": null,
+          "reason": "mercado_no_disponible"
+        }
+      ]
+    },
     {
       "fecha": "2026-05-07",
       "slug": "platense-vs-penarol-copa-libertadores-2026-05-07",
@@ -992,116 +1106,6 @@
           "ev_adjusted": -3.8,
           "value_score": null,
           "reason": "ev_negativo"
-        }
-      ]
-    },
-    {
-      "fecha": "2026-04-24",
-      "slug": "sunderland-vs-nottingham-forest-premier-league-2026-04-24",
-      "home": "Sunderland",
-      "away": "Nottingham Forest",
-      "league": "Premier League",
-      "prediccion": "Doble oportunidad: Sunderland",
-      "confianza": "Probabilidad: 74.6%",
-      "resultado_real": "0-5",
-      "acerto": false,
-      "prob_original": 74.6,
-      "confidence_factor": 1.0,
-      "prob_adjusted": 74.6,
-      "bk_odds": 1.553,
-      "ev": 15.8,
-      "penalty": 0.0,
-      "ev_adjusted": 15.8,
-      "value_score": 6.955,
-      "reason": "ok",
-      "tipo_pick": "pick_gratuito",
-      "base_pick": "Sunderland",
-      "value_level": "medio",
-      "markets_evaluated": [
-        {
-          "market": "Doble oportunidad: Sunderland",
-          "ev_adjusted": 15.8,
-          "value_score": 6.955,
-          "reason": "ok"
-        },
-        {
-          "market": "Sunderland",
-          "ev_adjusted": 47.0,
-          "value_score": null,
-          "reason": "ev_excesivo"
-        },
-        {
-          "market": "Apuesta sin empate: Sunderland",
-          "ev_adjusted": 26.9,
-          "value_score": null,
-          "reason": "ev_excesivo"
-        },
-        {
-          "market": "Over 2.5 goles",
-          "ev_adjusted": -6.5,
-          "value_score": null,
-          "reason": "ev_negativo"
-        },
-        {
-          "market": "Over 1.5 goles",
-          "ev_adjusted": null,
-          "value_score": null,
-          "reason": "mercado_no_disponible"
-        }
-      ]
-    },
-    {
-      "fecha": "2026-04-18",
-      "slug": "vasco-da-gama-vs-sao-paulo-brasileirao-2026-04-18",
-      "home": "Vasco da Gama",
-      "away": "São Paulo",
-      "league": "Brasileirao",
-      "prediccion": "Doble oportunidad: São Paulo",
-      "confianza": "Probabilidad: 71.3%",
-      "resultado_real": "2-1",
-      "acerto": false,
-      "prob_original": 73.5,
-      "confidence_factor": 0.97,
-      "prob_adjusted": 71.3,
-      "bk_odds": 1.772,
-      "ev": 30.2,
-      "penalty": 0.0,
-      "ev_adjusted": 26.3,
-      "value_score": null,
-      "reason": "ev_excesivo",
-      "tipo_pick": "pick_gratuito",
-      "base_pick": "São Paulo",
-      "value_level": "bajo",
-      "markets_evaluated": [
-        {
-          "market": "São Paulo",
-          "ev_adjusted": 78.0,
-          "value_score": null,
-          "reason": "ev_excesivo"
-        },
-        {
-          "market": "Apuesta sin empate: São Paulo",
-          "ev_adjusted": 36.7,
-          "value_score": null,
-          "reason": "ev_excesivo"
-        },
-        {
-          "market": "Doble oportunidad: São Paulo",
-          "ev_adjusted": 26.3,
-          "value_score": null,
-          "reason": "ev_excesivo"
-        },
-        {
-          "market": "Over 2.5 goles",
-          "ev_adjusted": 1.9,
-          "value_score": null,
-          "reason": "ev_insuficiente"
-        },
-        {
-          "market": "Over 1.5 goles",
-          "ev_adjusted": null,
-          "value_score": null,
-          "reason": "mercado_no_disponible"
         }
       ]
     }

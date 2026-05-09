@@ -2603,8 +2603,8 @@
     "league": "NBA",
     "prediccion": "New York Knicks",
     "confianza": "Probabilidad: 57.0%",
-    "resultado_real": null,
-    "acerto": null,
+    "resultado_real": "94-108",
+    "acerto": true,
     "prob_original": 57.0,
     "confidence_factor": 1.0,
     "prob_adjusted": 57.0,
@@ -2660,8 +2660,8 @@
     "league": "Serie A",
     "prediccion": "Apuesta sin empate: Sassuolo",
     "confianza": "Probabilidad: 61.8%",
-    "resultado_real": null,
-    "acerto": null,
+    "resultado_real": "2-1",
+    "acerto": false,
     "prob_original": 61.8,
     "confidence_factor": 1.0,
     "prob_adjusted": 61.8,
@@ -2698,6 +2698,234 @@
       {
         "market": "Over 2.5 goles",
         "ev_adjusted": -5.2,
+        "value_score": null,
+        "reason": "ev_negativo"
+      },
+      {
+        "market": "Over 1.5 goles",
+        "ev_adjusted": null,
+        "value_score": null,
+        "reason": "mercado_no_disponible"
+      }
+    ]
+  },
+  {
+    "fecha": "2026-05-09",
+    "slug": "cagliari-vs-udinese-serie-a-2026-05-09",
+    "home": "Cagliari",
+    "away": "Udinese",
+    "league": "Serie A",
+    "prediccion": "Apuesta sin empate: Udinese",
+    "confianza": "Probabilidad: 64.8%",
+    "resultado_real": null,
+    "acerto": null,
+    "prob_original": 64.8,
+    "confidence_factor": 1.0,
+    "prob_adjusted": 64.8,
+    "bk_odds": 1.984,
+    "ev": 28.5,
+    "penalty": 0.0,
+    "ev_adjusted": 28.5,
+    "value_score": null,
+    "reason": "ev_excesivo",
+    "cuota_betplay_estimada": 1.79,
+    "ev_betplay_estimado": 16.0,
+    "tipo_pick": "pick_suscripcion",
+    "base_pick": "Udinese",
+    "value_level": "bajo",
+    "markets_evaluated": [
+      {
+        "market": "Udinese",
+        "ev_adjusted": 45.8,
+        "value_score": null,
+        "reason": "ev_excesivo"
+      },
+      {
+        "market": "Apuesta sin empate: Udinese",
+        "ev_adjusted": 28.5,
+        "value_score": null,
+        "reason": "ev_excesivo"
+      },
+      {
+        "market": "Doble oportunidad: Udinese",
+        "ev_adjusted": 13.5,
+        "value_score": null,
+        "reason": "ev_insuficiente"
+      },
+      {
+        "market": "Over 2.5 goles",
+        "ev_adjusted": 3.1,
+        "value_score": null,
+        "reason": "ev_insuficiente"
+      },
+      {
+        "market": "Over 1.5 goles",
+        "ev_adjusted": null,
+        "value_score": null,
+        "reason": "mercado_no_disponible"
+      }
+    ]
+  },
+  {
+    "fecha": "2026-05-09",
+    "slug": "kocaelispor-vs-fatih-karagumruk-super-lig-2026-05-09",
+    "home": "Kocaelispor",
+    "away": "Fatih Karagümrük",
+    "league": "Super Lig",
+    "prediccion": "Apuesta sin empate: Kocaelispor",
+    "confianza": "Probabilidad: 75.0%",
+    "resultado_real": null,
+    "acerto": null,
+    "prob_original": 77.3,
+    "confidence_factor": 0.97,
+    "prob_adjusted": 75.0,
+    "bk_odds": 1.73,
+    "ev": 33.7,
+    "penalty": 0.0,
+    "ev_adjusted": 29.7,
+    "value_score": null,
+    "reason": "ev_excesivo",
+    "cuota_betplay_estimada": 1.56,
+    "ev_betplay_estimado": 17.0,
+    "tipo_pick": "pick_suscripcion",
+    "base_pick": "Kocaelispor",
+    "value_level": "bajo",
+    "markets_evaluated": [
+      {
+        "market": "Kocaelispor",
+        "ev_adjusted": 66.2,
+        "value_score": null,
+        "reason": "ev_excesivo"
+      },
+      {
+        "market": "Apuesta sin empate: Kocaelispor",
+        "ev_adjusted": 29.7,
+        "value_score": null,
+        "reason": "ev_excesivo"
+      },
+      {
+        "market": "Doble oportunidad: Kocaelispor",
+        "ev_adjusted": 24.3,
+        "value_score": null,
+        "reason": "ev_excesivo"
+      },
+      {
+        "market": "Over 2.5 goles",
+        "ev_adjusted": -16.9,
+        "value_score": null,
+        "reason": "ev_negativo"
+      },
+      {
+        "market": "Over 1.5 goles",
+        "ev_adjusted": null,
+        "value_score": null,
+        "reason": "mercado_no_disponible"
+      }
+    ]
+  },
+  {
+    "fecha": "2026-05-09",
+    "slug": "eyupspor-vs-caykur-rizespor-super-lig-2026-05-09",
+    "home": "Eyupspor",
+    "away": "Caykur Rizespor",
+    "league": "Super Lig",
+    "prediccion": "Doble oportunidad: Caykur Rizespor",
+    "confianza": "Probabilidad: 75.5%",
+    "resultado_real": null,
+    "acerto": null,
+    "prob_original": 77.8,
+    "confidence_factor": 0.97,
+    "prob_adjusted": 75.5,
+    "bk_odds": 1.719,
+    "ev": 33.7,
+    "penalty": 0.0,
+    "ev_adjusted": 29.7,
+    "value_score": null,
+    "reason": "ev_excesivo",
+    "cuota_betplay_estimada": 1.55,
+    "ev_betplay_estimado": 17.0,
+    "tipo_pick": "pick_gratuito",
+    "base_pick": "Caykur Rizespor",
+    "value_level": "bajo",
+    "markets_evaluated": [
+      {
+        "market": "Caykur Rizespor",
+        "ev_adjusted": 62.2,
+        "value_score": null,
+        "reason": "ev_excesivo"
+      },
+      {
+        "market": "Apuesta sin empate: Caykur Rizespor",
+        "ev_adjusted": 21.3,
+        "value_score": null,
+        "reason": "ev_excesivo"
+      },
+      {
+        "market": "Doble oportunidad: Caykur Rizespor",
+        "ev_adjusted": 29.7,
+        "value_score": null,
+        "reason": "ev_excesivo"
+      },
+      {
+        "market": "Over 2.5 goles",
+        "ev_adjusted": -28.3,
+        "value_score": null,
+        "reason": "ev_negativo"
+      },
+      {
+        "market": "Over 1.5 goles",
+        "ev_adjusted": null,
+        "value_score": null,
+        "reason": "mercado_no_disponible"
+      }
+    ]
+  },
+  {
+    "fecha": "2026-05-09",
+    "slug": "alanyaspor-vs-kayserispor-super-lig-2026-05-09",
+    "home": "Alanyaspor",
+    "away": "Kayserispor",
+    "league": "Super Lig",
+    "prediccion": "Apuesta sin empate: Alanyaspor",
+    "confianza": "Probabilidad: 73.4%",
+    "resultado_real": null,
+    "acerto": null,
+    "prob_original": 75.7,
+    "confidence_factor": 0.97,
+    "prob_adjusted": 73.4,
+    "bk_odds": 1.745,
+    "ev": 32.0,
+    "penalty": 0.0,
+    "ev_adjusted": 28.1,
+    "value_score": null,
+    "reason": "ev_excesivo",
+    "cuota_betplay_estimada": 1.57,
+    "ev_betplay_estimado": 15.2,
+    "tipo_pick": "pick_suscripcion",
+    "base_pick": "Alanyaspor",
+    "value_level": "bajo",
+    "markets_evaluated": [
+      {
+        "market": "Alanyaspor",
+        "ev_adjusted": 64.1,
+        "value_score": null,
+        "reason": "ev_excesivo"
+      },
+      {
+        "market": "Apuesta sin empate: Alanyaspor",
+        "ev_adjusted": 28.1,
+        "value_score": null,
+        "reason": "ev_excesivo"
+      },
+      {
+        "market": "Doble oportunidad: Alanyaspor",
+        "ev_adjusted": 24.3,
+        "value_score": null,
+        "reason": "ev_excesivo"
+      },
+      {
+        "market": "Over 2.5 goles",
+        "ev_adjusted": -21.0,
         "value_score": null,
         "reason": "ev_negativo"
       },
