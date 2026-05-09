@@ -679,13 +679,29 @@
       font-size:0.72rem; color:var(--gris);
       text-align:center; margin-top:0.5rem; line-height:1.4;
     }
+    /* Cuota estimada (sin EV exacto — coherencia con bot) */
+    .featured-betplay-cuota, .pw-betplay-cuota {
+      display:flex; justify-content:center; align-items:baseline;
+      gap:0.6rem; padding:0.3rem 0;
+    }
+    .featured-betplay-cuota .featured-betplay-val,
+    .pw-betplay-cuota .pw-betplay-value {
+      font-family:'Bebas Neue',sans-serif;
+      font-size:1.5rem; color:var(--texto); letter-spacing:0.5px;
+    }
+    .featured-betplay-cuota .featured-betplay-lbl,
+    .pw-betplay-cuota .pw-betplay-label {
+      font-size:0.78rem; color:var(--gris);
+      text-transform:none; letter-spacing:0;
+      margin:0;
+    }
 
     .featured-note {
       font-size:0.8rem; color:var(--gris);
       margin-top:0.9rem; text-align:center;
       font-style:italic;
     }
-    /* Estado vacío del Hero */
+    /* Estado vacío del Hero (C1 / C2) */
     .featured-empty {
       background:var(--card);
       border:1px dashed var(--borde);
@@ -693,14 +709,100 @@
       padding:2rem 1.5rem;
       text-align:center;
     }
+    .featured-empty-eyebrow {
+      font-size:0.7rem; font-weight:700; letter-spacing:1.5px;
+      text-transform:uppercase; color:var(--gris);
+      margin-bottom:0.7rem;
+    }
     .featured-empty-title {
       font-family:'Bebas Neue',sans-serif;
-      font-size:1.4rem; color:var(--texto);
-      letter-spacing:1px; margin-bottom:0.5rem;
+      font-size:1.6rem; color:var(--texto);
+      letter-spacing:1px; margin-bottom:0.7rem;
     }
     .featured-empty-msg {
-      color:var(--gris); font-size:0.9rem; line-height:1.6;
+      color:var(--gris); font-size:0.92rem; line-height:1.6;
+      max-width:440px; margin:0 auto;
     }
+    .featured-empty-msg strong { color:var(--texto); }
+    .featured-empty-sub {
+      color:var(--gris); font-size:0.82rem; line-height:1.5;
+      margin-top:1.2rem; padding-top:1rem;
+      border-top:1px solid var(--borde);
+    }
+    .featured-empty-ctas {
+      display:flex; gap:0.8rem; justify-content:center; flex-wrap:wrap;
+      margin-top:1.4rem;
+    }
+    .featured-empty-cta {
+      display:inline-block; padding:0.6rem 1.1rem;
+      background:var(--card2); border:1px solid var(--borde);
+      border-radius:6px; color:var(--texto); text-decoration:none;
+      font-size:0.85rem; transition:border-color 0.2s, color 0.2s;
+    }
+    .featured-empty-cta:hover { border-color:var(--dorado); color:var(--dorado); }
+    /* C1 separa visualmente el bloque de "no hay pick" del card secundario */
+    .featured-empty-c1 { margin-bottom:1rem; }
+
+    /* Eyebrow del Hero (Estado A y B) */
+    .featured-eyebrow {
+      font-size:0.7rem; font-weight:700; letter-spacing:1.5px;
+      text-transform:uppercase; color:var(--dorado);
+      margin-bottom:0.8rem;
+    }
+    .featured-eyebrow-muted { color:var(--gris); }
+
+    /* Explainer corto (debajo del market) */
+    .featured-explainer {
+      color:var(--gris); font-size:0.88rem; line-height:1.55;
+      margin:0.8rem 0 1rem;
+    }
+    .featured-explainer-sm { font-size:0.82rem; }
+
+    /* Disclaimer del Hero principal */
+    .featured-disclaimer {
+      font-size:0.78rem; color:var(--gris);
+      text-align:center; margin-top:0.8rem; padding-top:0.8rem;
+      border-top:1px solid var(--borde);
+    }
+
+    /* Card secundaria — Estado B y C1 (gris, menor) */
+    .featured-card-secondary {
+      background:var(--card2);
+      border:1px solid var(--borde);
+      border-top:2px solid var(--gris);
+      box-shadow:none;
+      padding:1.4rem 1.2rem;
+      margin-top:0.8rem;
+      opacity:0.95;
+    }
+    .featured-card-secondary .featured-matchup-sm {
+      font-family:'Bebas Neue',sans-serif;
+      font-size:1.5rem; line-height:1.1;
+      color:var(--texto); letter-spacing:0.5px;
+      margin:0.3rem 0 0.4rem;
+    }
+    .featured-card-secondary .featured-market-sm {
+      font-size:0.85rem; color:var(--gris); margin-bottom:0.4rem;
+    }
+    .featured-stats-sm {
+      grid-template-columns:repeat(2, 1fr) !important;
+      padding:0.8rem 0 !important;
+    }
+    .featured-stats-sm .featured-stat-val {
+      font-size:clamp(1.3rem, 4vw, 1.6rem) !important;
+      color:var(--texto);
+    }
+    .featured-badge-noev {
+      background:rgba(148,163,184,0.12);
+      color:var(--gris);
+      border:1px solid rgba(148,163,184,0.25);
+    }
+    .featured-secondary-link {
+      display:inline-block; margin-top:0.8rem;
+      color:var(--dorado); text-decoration:none;
+      font-size:0.85rem; font-weight:500;
+    }
+    .featured-secondary-link:hover { text-decoration:underline; }
 
     /* ── Sección 3 — Análisis del Día ───────────────────────── */
     .dash-analysis { background:var(--negro); }

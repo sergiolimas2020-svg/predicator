@@ -43,8 +43,12 @@
     safeFetch(`static/predictions/analysis_${date}.json`),
   ]);
 
-  // ── Renderizar Hero (Nivel 3) ──
-  renderFeatured(featured, date, todayCol);
+  // pick_gratuito viene en daily.pick_gratuito (Nivel 2)
+  const pickGratuito = daily && daily.pick_gratuito;
+  const analysisCount = (analysis && analysis.total_fixtures) || 0;
+
+  // ── Renderizar Hero unificado (decide A/B/C1/C2 según contenido) ──
+  renderHero(featured, pickGratuito, analysisCount, date, todayCol);
 
   // ── Renderizar Análisis (Nivel 1) ──
   renderAnalysis(analysis, date, todayCol);
@@ -78,61 +82,190 @@
   }
 
   // ──────────────────────────────────────────────────────────────
-  // RENDER: Featured Pick (Hero — Nivel 3)
+  // RENDER: Hero unificado — decide entre 4 estados A/B/C1/C2
   // ──────────────────────────────────────────────────────────────
-  function renderFeatured(data, dataDate, todayDate) {
+  // featured        — featured_pick_*.json o null
+  // pickGratuito    — daily.pick_gratuito o null/undefined
+  // analysisCount   — analysis.total_fixtures (para Estado C2)
+  //
+  // Estados:
+  //   A  = pick_gratuito existe (con o sin featured value_pick coincidente)
+  //   B  = pick_gratuito existe + featured statistical_only DISTINTO al pick_gratuito
+  //   C1 = solo featured statistical_only, sin pick_gratuito
+  //   C2 = ni featured ni pick_gratuito
+  function renderHero(featured, pickGratuito, analysisCount, dataDate, todayDate) {
     const container = document.getElementById('featured-container');
     if (!container) return;
 
-    if (!data) {
-      // No hay featured_pick.json hoy → mensaje elegante
-      container.innerHTML = `
-        <div class="featured-empty">
-          <div class="featured-empty-title">Hoy no hay pick destacado</div>
-          <div class="featured-empty-msg">
-            Ningún partido del día tiene confianza estadística suficiente
-            (umbral mínimo 55%). Mañana volvemos con análisis completo.
-          </div>
-        </div>`;
-      return;
-    }
-
-    const isStale = dataDate !== todayDate;
+    const isStale = featured && dataDate !== todayDate;
     const stale = isStale
       ? `<div class="dash-date-warning">⚠ Datos del ${dataDate} (no es hoy)</div>` : '';
 
-    const isValuePick = data.tier_origin === 'value_pick';
-    const probClass = `confidence-${data.confidence_label.replace(' ', '-').replace('media-alta', 'media-alta')}`;
+    // Compat: si tier_origin no existe (JSON viejo), asumir "value_pick"
+    const tierOrigin = featured ? (featured.tier_origin || 'value_pick') : null;
+    const featuredIsStatistical = featured && tierOrigin === 'statistical_only';
 
-    container.innerHTML = `
-      ${stale}
+    // ¿El featured coincide con el pick_gratuito?
+    const featuredMatchesGratuito = featured && pickGratuito
+      && featured.matchup === pickGratuito.matchup;
+
+    // Decisión de estado
+    let state;
+    if (!featured && !pickGratuito) {
+      state = 'C2';
+    } else if (featuredIsStatistical && !pickGratuito) {
+      state = 'C1';
+    } else if (pickGratuito && featuredIsStatistical && !featuredMatchesGratuito) {
+      state = 'B';
+    } else {
+      state = 'A';
+    }
+
+    let html = stale;
+
+    if (state === 'A') {
+      // Card principal = pick_gratuito (si existe) o featured value_pick
+      const main = pickGratuito || featured;
+      html += renderMainCard(main, /*isValueBet=*/true);
+    }
+    else if (state === 'B') {
+      // Principal = pick_gratuito (value bet)
+      html += renderMainCard(pickGratuito, /*isValueBet=*/true);
+      // Secundario = featured estadístico
+      html += renderSecondaryCard(featured);
+    }
+    else if (state === 'C1') {
+      // Pre-mensaje + featured estadístico como secundario
+      html += `
+        <div class="featured-empty featured-empty-c1">
+          <div class="featured-empty-eyebrow">Hoy · Sin value bets detectados</div>
+          <div class="featured-empty-title">El mercado no ofrece valor hoy</div>
+          <div class="featured-empty-msg">
+            Analizamos los partidos del día y ninguno cumple nuestros criterios
+            de EV+. Preferimos no recomendar antes que recomendar mal.
+          </div>
+          <div class="featured-empty-sub">
+            Como referencia estadística, el partido con mayor probabilidad
+            del modelo es:
+          </div>
+        </div>`;
+      html += renderSecondaryCard(featured);
+    }
+    else {
+      // C2: nada del todo
+      const n = analysisCount > 0 ? analysisCount : '—';
+      html += `
+        <div class="featured-empty featured-empty-c2">
+          <div class="featured-empty-eyebrow">Hoy · Día sin picks</div>
+          <div class="featured-empty-title">Hoy el mercado no da valor</div>
+          <div class="featured-empty-msg">
+            Analizamos <strong>${n}</strong> partidos. Ninguno cumple
+            nuestros criterios. Volvé mañana — no apostamos por apostar.
+          </div>
+          <div class="featured-empty-ctas">
+            <a href="#analysis-section" class="featured-empty-cta">
+              Ver análisis del día →
+            </a>
+            <a href="/historial.html" class="featured-empty-cta">
+              Ver historial verificado →
+            </a>
+          </div>
+        </div>`;
+    }
+
+    container.innerHTML = html;
+  }
+
+  // Card principal (Hero dorado) — Estado A y B usan esto
+  function renderMainCard(pick, isValueBet) {
+    const probAdj = pick.prob_adjusted != null ? pick.prob_adjusted : '—';
+    const cuota = pick.bk_odds ? pick.bk_odds.toFixed(2) : '—';
+    const confLabel = (pick.confidence_label || 'media').replace(' ', '-');
+    const probClass = `confidence-${confLabel}`;
+    const confDisplay = (pick.confidence_label || 'media').toUpperCase();
+    const market = pick.market || '';
+
+    const eyebrow = isValueBet
+      ? 'Pick del día · Value bet detectada'
+      : 'Pick destacado del día';
+
+    const explainer = isValueBet
+      ? `Nuestro motor detectó valor positivo: la cuota actual paga más
+         de lo que vale la probabilidad real estimada.`
+      : '';
+
+    return `
       <div class="featured-card">
+        <div class="featured-eyebrow">${eyebrow}</div>
         <div class="featured-badges">
-          <span class="featured-badge featured-badge-league">${escapeHtml(data.league || '')}</span>
-          ${isValuePick
+          <span class="featured-badge featured-badge-league">${escapeHtml(pick.league || '')}</span>
+          ${isValueBet
             ? `<span class="featured-badge featured-badge-value">⚡ VALUE BET</span>`
             : ''}
         </div>
-        <div class="featured-matchup">${escapeHtml(data.matchup || '')}</div>
+        <div class="featured-matchup">${escapeHtml(pick.matchup || '')}</div>
         <div class="featured-market">
-          Mercado recomendado: <strong>${escapeHtml(data.market || '')}</strong>
+          Mercado recomendado: <strong>${escapeHtml(market)}</strong>
         </div>
+        ${explainer ? `<div class="featured-explainer">${explainer}</div>` : ''}
         <div class="featured-stats">
           <div class="featured-stat">
-            <div class="featured-stat-val ${probClass}">${data.prob_adjusted}%</div>
+            <div class="featured-stat-val ${probClass}">${probAdj}%</div>
             <div class="featured-stat-lbl">Probabilidad</div>
           </div>
           <div class="featured-stat">
-            <div class="featured-stat-val">${data.bk_odds ? data.bk_odds.toFixed(2) : '—'}</div>
+            <div class="featured-stat-val">${cuota}</div>
             <div class="featured-stat-lbl">Cuota europea</div>
           </div>
           <div class="featured-stat">
-            <div class="featured-stat-val ${probClass}">${data.confidence_label.toUpperCase()}</div>
+            <div class="featured-stat-val ${probClass}">${confDisplay}</div>
             <div class="featured-stat-lbl">Confianza</div>
           </div>
         </div>
-        ${renderFeaturedBetplay(data)}
-        <div class="featured-note">${escapeHtml(data.nota || '')}</div>
+        ${renderFeaturedBetplay(pick)}
+        <div class="featured-disclaimer">
+          ⚠️ Verificá la cuota en tu casa antes de apostar.
+        </div>
+      </div>`;
+  }
+
+  // Card secundaria (gris, menor) — Estado B y C1 usan esto
+  function renderSecondaryCard(pick) {
+    const probAdj = pick.prob_adjusted != null ? pick.prob_adjusted : '—';
+    const cuota = pick.bk_odds ? pick.bk_odds.toFixed(2) : '—';
+    const market = pick.market || '';
+
+    return `
+      <div class="featured-card featured-card-secondary">
+        <div class="featured-eyebrow featured-eyebrow-muted">
+          También hoy · Alta probabilidad, sin value verificado
+        </div>
+        <div class="featured-badges">
+          <span class="featured-badge featured-badge-league">${escapeHtml(pick.league || '')}</span>
+          <span class="featured-badge featured-badge-noev">Sin EV+ verificado</span>
+        </div>
+        <div class="featured-matchup featured-matchup-sm">${escapeHtml(pick.matchup || '')}</div>
+        <div class="featured-market featured-market-sm">
+          Mercado: <strong>${escapeHtml(market)}</strong>
+        </div>
+        <div class="featured-explainer featured-explainer-sm">
+          Nuestro modelo le da alta probabilidad estadística, pero la cuota
+          actual no ofrece valor positivo verificado vs el mercado.
+          Lo mostramos como referencia, no como recomendación de apuesta.
+        </div>
+        <div class="featured-stats featured-stats-sm">
+          <div class="featured-stat">
+            <div class="featured-stat-val">${probAdj}%</div>
+            <div class="featured-stat-lbl">Probabilidad</div>
+          </div>
+          <div class="featured-stat">
+            <div class="featured-stat-val">${cuota}</div>
+            <div class="featured-stat-lbl">Cuota europea</div>
+          </div>
+        </div>
+        <a href="#analysis-section" class="featured-secondary-link">
+          Ver análisis completo →
+        </a>
       </div>`;
   }
 
@@ -140,25 +273,18 @@
   // Bloque Betplay (aditivo, opcional) — solo si campos presentes
   // ──────────────────────────────────────────────────────────────
   function renderFeaturedBetplay(d) {
-    if (d.cuota_betplay_estimada == null && d.ev_betplay_estimado == null) return '';
-    const cuota = d.cuota_betplay_estimada != null ? d.cuota_betplay_estimada.toFixed(2) : '—';
-    const ev = d.ev_betplay_estimado != null
-      ? `${d.ev_betplay_estimado >= 0 ? '+' : ''}${d.ev_betplay_estimado.toFixed(1)}%`
-      : '—';
+    // Solo mostramos cuota estimada (no número exacto de EV — coherencia
+    // con el bot: la metodología detallada vive en /metodologia.html).
+    // El disclaimer va una sola vez en el pie de card (.featured-disclaimer).
+    if (d.cuota_betplay_estimada == null) return '';
+    const cuota = d.cuota_betplay_estimada.toFixed(2);
     return `
         <div class="featured-betplay">
           <div class="featured-betplay-title">Estimado en Betplay (descuento ~10%)</div>
-          <div class="featured-betplay-grid">
-            <div class="featured-betplay-stat">
-              <div class="featured-betplay-val">${cuota}</div>
-              <div class="featured-betplay-lbl">Cuota estimada</div>
-            </div>
-            <div class="featured-betplay-stat">
-              <div class="featured-betplay-val">${ev}</div>
-              <div class="featured-betplay-lbl">EV estimado</div>
-            </div>
+          <div class="featured-betplay-cuota">
+            <span class="featured-betplay-lbl">Cuota estimada:</span>
+            <span class="featured-betplay-val">${cuota}</span>
           </div>
-          <div class="featured-betplay-note">⚠️ Verifica la cuota real en tu casa antes de apostar.</div>
         </div>`;
   }
 

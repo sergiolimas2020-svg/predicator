@@ -72,23 +72,12 @@ function renderPaywall(data) {
   let html = '';
 
   // ═══ 1. PICK GRATUITO — HERO ═══
-  //     Solo se renderiza acá si NO existe Featured Pick. Con Featured
-  //     Pick activo, el Hero principal del sitio es ése (dashboard.js)
-  //     y mostramos el pick gratuito como card normal abajo (sección 2).
-  if (pick_gratuito && !data._has_featured) {
-    html += `
-    <div class="pw-hero">
-      <div class="pw-hero-badge">✅ PICK GRATUITO DEL DÍA</div>
-      <div class="pw-hero-date">${dateStr}</div>
-      ${renderHeroCard(pick_gratuito)}
-      <div class="pw-hero-telegram">
-        <p>📲 Este mismo pick se publica gratis en nuestro canal de Telegram</p>
-        <a href="https://t.me/prediktorcol" target="_blank" rel="noopener" class="pw-hero-telegram-btn">
-          Seguirnos en Telegram
-        </a>
-      </div>
-    </div>`;
-  }
+  //     ELIMINADO: dashboard.js es ahora el único responsable del Hero
+  //     principal del sitio. Maneja 4 estados (A: value bet, B: value +
+  //     featured estadístico, C1: sin value, C2: sin nada) leyendo
+  //     daily_picks.json y featured_pick_*.json. El paywall queda solo
+  //     con cards de listado (suscripción/premium).
+  //     Ver js/dashboard.js → renderHero().
 
   // ═══ 2. PICKS SUSCRIPCIÓN — bloqueados o visibles ═══
   if (picks_suscripcion && picks_suscripcion.length > 0) {
@@ -191,17 +180,17 @@ function renderMinimalContent(content, dateStr) {
 // Se muestra solo si el pick tiene los campos cuota_betplay_estimada
 // y ev_betplay_estimado generados por _betplay_fields() en el motor.
 function renderBetplaySection(pick) {
-  if (pick.cuota_betplay_estimada == null && pick.ev_betplay_estimado == null) return '';
-  const cuotaBp = pick.cuota_betplay_estimada != null ? pick.cuota_betplay_estimada.toFixed(2) : '—';
-  const evBp    = pick.ev_betplay_estimado != null
-    ? `${pick.ev_betplay_estimado >= 0 ? '+' : ''}${pick.ev_betplay_estimado.toFixed(1)}%`
-    : '—';
+  // Solo mostramos cuota estimada — coherencia con el bot (no regalar
+  // número exacto de EV). El disclaimer queda en el bloque porque las
+  // cards del paywall no tienen disclaimer global como el Hero.
+  if (pick.cuota_betplay_estimada == null) return '';
+  const cuotaBp = pick.cuota_betplay_estimada.toFixed(2);
   return `
     <div class="pw-betplay">
       <div class="pw-betplay-title">Estimado en Betplay (descuento ~10%)</div>
-      <div class="pw-betplay-grid">
-        <div class="pw-betplay-stat"><span class="pw-betplay-label">Cuota estimada</span><span class="pw-betplay-value">${cuotaBp}</span></div>
-        <div class="pw-betplay-stat"><span class="pw-betplay-label">EV estimado</span><span class="pw-betplay-value">${evBp}</span></div>
+      <div class="pw-betplay-cuota">
+        <span class="pw-betplay-label">Cuota estimada:</span>
+        <span class="pw-betplay-value">${cuotaBp}</span>
       </div>
       <div class="pw-betplay-note">⚠️ Verifica la cuota real en tu casa antes de apostar.</div>
     </div>`;
