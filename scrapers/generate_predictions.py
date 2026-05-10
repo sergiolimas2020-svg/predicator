@@ -133,6 +133,23 @@ CORE_LEAGUES = {
     "NBA",
 }
 
+# ── Ligas EXCLUIDAS de value picks y featured pick ──
+# Bug auditoría retrospectiva (9-may): estas ligas generan yield negativo
+# sostenido en el histórico cuantificable:
+#   Bundesliga    -49.1%  (n=3)
+#   Brasileirao   -39.9%  (n=6)
+#   Super Lig     -37.3%  (n=3)
+#   Ligue 1      -100.0%  (n=2)
+# Los partidos de estas ligas siguen apareciendo en Análisis del Día
+# (Nivel 1, informativo) pero NO se publican como recomendación de
+# apuesta (Nivel 2 / Nivel 3). Reversible con git revert.
+EXCLUDED_LEAGUES = {
+    "Bundesliga",
+    "Brasileirao",
+    "Super Lig",
+    "Ligue 1",
+}
+
 # ── Regla de PICK EXPLORATORIO ──
 # Fallback de publicación para evitar días en blanco cuando hay
 # ligas CORE activas pero ningún pick pasa suscripción.
@@ -173,7 +190,12 @@ BETPLAY_DISCLAIMER = "Cuota Betplay estimada con descuento del 10% promedio. Ver
 MAX_EV_GOALS      = 0.35   # EV máximo para Over (más varianza)
 MIN_CUOTA_WIN     = 1.60   # cuota mínima para victoria directa
 MIN_CUOTA_DNB     = 1.30   # cuota mínima para DNB (apuesta sin empate)
-MIN_CUOTA_DC      = 1.20   # cuota mínima para DC (doble oportunidad)
+MIN_CUOTA_DC      = 1.50   # cuota mínima para DC (doble oportunidad)
+                           # Bug auditoría retrospectiva (9-may): DC con cuota
+                           # 1.20-1.50 generaba yield -25.1% (n=17). A cuota
+                           # 1.50 el break-even teórico baja a 67% hit rate
+                           # (vs 47% real actual). Subido de 1.20 → 1.50 para
+                           # eliminar el peor bucket. Reversible con git revert.
 MIN_CUOTA_OVER25  = 1.60   # cuota mínima para Over 2.5 goles
 MIN_CUOTA_OVER15  = 1.40   # cuota mínima para Over 1.5 goles
 COLOMBIA_MIN_CONF       = 70.0  # prob mínima para picks estadísticos (Liga Colombiana)
@@ -2069,6 +2091,9 @@ def _build_featured_pick_output(evaluated_picks: list, value_picks_dict: dict,
     """
     candidates = []
     for ep in evaluated_picks:
+        # Bug auditoría: ligas excluidas tampoco entran a Featured Pick
+        if ep.get("league") in EXCLUDED_LEAGUES:
+            continue
         # Solo mercados estables (h2h)
         market_type = ep.get("market_type", "h2h")
         if market_type != "h2h":
@@ -2171,6 +2196,10 @@ def main():
             if not hd: hd = ad
             if not ad: ad = hd
             base_pick, base_prob, display_pick, display_prob, vs, cj, vl, bk_odds, cf, best_eval, all_evals = calc_wp(league, home, hd, away, ad, nba=False)
+            # Bug auditoría: excluir ligas con yield negativo sostenido del
+            # pipeline de value picks. Análisis del Día sigue listándolas.
+            if league in EXCLUDED_LEAGUES:
+                continue
             if base_prob >= MIN_CONF_SUBSCRIPTION:
                 # Enriquecer con API externa (solo contexto, no decisor)
                 ext_ctx = enrich_match_context(home, away, league)
