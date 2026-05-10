@@ -128,13 +128,14 @@ def collect_for_match(
     except APIFootballError as e:
         record["errors"].append(f"h2h: {e}")
 
-    # forma reciente
+    # forma reciente — last=10 (no 5) para que el motor pueda filtrar a
+    # los 5 más recientes en liga doméstica aunque haya copas mezcladas.
     try:
-        record["home_form"] = client.get_team_last_fixtures(home_t["id"], last=5).get("response")
+        record["home_form"] = client.get_team_last_fixtures(home_t["id"], last=10).get("response")
     except APIFootballError as e:
         record["errors"].append(f"home_form: {e}")
     try:
-        record["away_form"] = client.get_team_last_fixtures(away_t["id"], last=5).get("response")
+        record["away_form"] = client.get_team_last_fixtures(away_t["id"], last=10).get("response")
     except APIFootballError as e:
         record["errors"].append(f"away_form: {e}")
 

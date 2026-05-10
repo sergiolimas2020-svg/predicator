@@ -186,6 +186,19 @@ jobs:
         run: python3 scrapers/nba_scraper.py
         continue-on-error: true
 
+      # ── Step 6b: Recolectar datos API-Football (no crítico) ────
+      # Insumo del Filtro 1 (forma reciente del favorito) en generate_predictions.
+      # Si falla, el motor opera en modo conservador (no filtra).
+      # Usa la fecha actual en Colombia (UTC-5) para alinear con `today` del motor.
+      - name: Recolectar datos API-Football
+        env:
+          API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
+        run: |
+          TODAY=$(TZ='America/Bogota' date +%Y-%m-%d)
+          echo "Recolectando datos para $TODAY"
+          python3 -m scrapers.api_football.collect_daily "$TODAY"
+        continue-on-error: true
+
       # ── Step 7: Generar predicciones (CRÍTICO — sin esto no hay producto) ─
       # Pasa --force solo cuando se dispara manualmente con el toggle activado.
       # El cron normal (schedule) corre sin --force, preservando la protección

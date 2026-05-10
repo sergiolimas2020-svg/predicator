@@ -138,15 +138,18 @@ CORE_LEAGUES = {
 # sostenido en el histórico cuantificable:
 #   Bundesliga    -49.1%  (n=3)
 #   Brasileirao   -39.9%  (n=6)
-#   Super Lig     -37.3%  (n=3)
 #   Ligue 1      -100.0%  (n=2)
 # Los partidos de estas ligas siguen apareciendo en Análisis del Día
 # (Nivel 1, informativo) pero NO se publican como recomendación de
 # apuesta (Nivel 2 / Nivel 3). Reversible con git revert.
+#
+# 11-may: Super Lig sale de la lista de exclusión y vuelve al pipeline
+# con tier 0.92 + Filtro 1 (forma reciente). La simulación retrospectiva
+# muestra que combinar tier menor + filtro permite recuperar la liga sin
+# regresar a yield -39%. Monitoreo prospectivo.
 EXCLUDED_LEAGUES = {
     "Bundesliga",
     "Brasileirao",
-    "Super Lig",
     "Ligue 1",
 }
 
@@ -253,10 +256,35 @@ CONF_LEAGUE_TIERS = {
     "NBA":              CONF_LEAGUE_TOP,   # 76% histórico (n=17) — mantiene
     "Liga Argentina":      CONF_LEAGUE_MID,
     "Brasileirao":         CONF_LEAGUE_MID,
-    "Super Lig":           CONF_LEAGUE_MID,
+    # Super Lig: bajado de 0.97 → 0.92 tras simulación retrospectiva del 11-may.
+    # Yield -37% incluso con Filtro 1 aplicado (3/6 publicados después de filtro).
+    # Necesita más conservadurismo hasta investigar causa raíz específica de la liga.
+    "Super Lig":           0.92,
     "Copa Libertadores":   CONF_LEAGUE_MID,
     "Copa Sudamericana":   CONF_LEAGUE_MID,
     # Liga Colombiana y demás → CONF_LEAGUE_MINOR (default)
+}
+
+# ── Filtro 1: forma reciente del favorito (motor v2 — fase 1) ────
+# Rechaza picks cuyo equipo favorito tiene <RECENT_FORM_MIN_WINS victorias
+# en sus últimos RECENT_FORM_LOOKBACK partidos en su liga doméstica antes
+# del partido. Validado en simulación retrospectiva del 11-may sobre 38
+# picks: yield -16.19% → +2.66% (Δ +18.85 pp), precisión rechazo 75%.
+#
+# Datos: static/api_football/data/{today}.json (poblado por collect_daily.py
+# antes del motor en el cron). Si no hay datos → modo conservador (no filtra).
+# NO aplica a NBA ni a picks Over/Under (sin equipo favorito).
+USE_RECENT_FORM_FILTER  = True       # toggle reversible — bajar a False para desactivar
+RECENT_FORM_MIN_WINS    = 2          # mínimo de victorias para no rechazar
+RECENT_FORM_LOOKBACK    = 5          # ventana de partidos previos en doméstica
+RECENT_FORM_DATA_DIR    = "static/api_football/data"
+# IDs de torneos NO domésticos en API-Football (la forma se calcula solo
+# en liga doméstica para evitar contaminación con copas continentales).
+RECENT_FORM_INTL_LEAGUE_IDS = {
+    2, 3, 848,        # UEFA Champions / Europa / Conference
+    13, 11,           # CONMEBOL Libertadores / Sudamericana
+    9, 1, 4, 32,      # Copa America / WC / Euro / WC qualifiers
+    34, 15, 22, 480,  # CONCACAF / FIFA Club WC / otros
 }
 
 # Factor por frecuencia del mercado (muestra pequeña → calibración menos fiable)
@@ -424,6 +452,169 @@ def value_level(vs):
     if vs >= VALUE_ALTO_THRESHOLD: return "alto"
     if vs > 0:                     return "medio"
     return "bajo"
+
+
+# ─────────────────────────── Filtro 1 (forma reciente) ───────────────────────────
+
+def _rf_load_data(today_str):
+    """Carga static/api_football/data/{today}.json y retorna dict por (home, away)
+    normalizado. Si no existe o falla, retorna {} (modo conservador → no filtra)."""
+    p = Path(RECENT_FORM_DATA_DIR) / f"{today_str}.json"
+    if not p.exists():
+        return {}
+    try:
+        records = json.loads(p.read_text(encoding="utf-8"))
+    except Exception as e:
+        print(f"  ⚠ recent_form load error: {e}")
+        return {}
+    out = {}
+    for r in records:
+        if not isinstance(r, dict):
+            continue
+        key = (_norm(r.get("home", "")), _norm(r.get("away", "")))
+        out[key] = r
+    return out
+
+
+def _rf_favored_team(label, base_pick):
+    """Extrae el equipo favorito del pick. None si es Over/Under (no aplica filtro)."""
+    p = (label or "").strip()
+    if "Over" in p or "Under" in p:
+        return None
+    if base_pick:
+        return base_pick
+    for pref in ("Doble oportunidad:", "Apuesta sin empate:"):
+        if p.startswith(pref):
+            return p.replace(pref, "").strip()
+    return p or None
+
+
+def _rf_count_wins_domestic(form_list, team_id, lookback=RECENT_FORM_LOOKBACK):
+    """Cuenta victorias en los últimos N partidos en liga doméstica.
+
+    Args:
+      form_list: lista de fixtures de API-Football (last=N por equipo).
+      team_id:   ID del equipo en API-Football.
+      lookback:  N partidos a considerar.
+
+    Returns:
+      (wins, n_evaluated, form_string) si hay datos suficientes (≥lookback domésticos).
+      None si no hay form_list o no se llegan a `lookback` partidos en doméstica
+      (modo conservador: no se filtra).
+    """
+    if not form_list or not team_id:
+        return None
+    # Filtrar solo doméstica (excluir copas internacionales)
+    domestic = []
+    for f in form_list:
+        league_id = ((f.get("league") or {}).get("id"))
+        if league_id in RECENT_FORM_INTL_LEAGUE_IDS:
+            continue
+        # Solo partidos terminados
+        status = ((f.get("fixture") or {}).get("status") or {}).get("short")
+        if status not in ("FT", "AET", "PEN"):
+            continue
+        domestic.append(f)
+    domestic.sort(
+        key=lambda f: (f.get("fixture") or {}).get("date") or "",
+        reverse=True,
+    )
+    last_n = domestic[:lookback]
+    if len(last_n) < lookback:
+        return None  # datos insuficientes → no filtrar (modo conservador)
+    wins = 0
+    form_chars = []
+    for f in last_n:
+        teams = f.get("teams") or {}
+        home_id = (teams.get("home") or {}).get("id")
+        away_id = (teams.get("away") or {}).get("id")
+        home_w = (teams.get("home") or {}).get("winner")
+        away_w = (teams.get("away") or {}).get("winner")
+        if team_id == home_id:
+            r = "W" if home_w is True else ("L" if home_w is False else "D")
+        elif team_id == away_id:
+            r = "W" if away_w is True else ("L" if away_w is False else "D")
+        else:
+            r = "?"
+        form_chars.append(r)
+        if r == "W":
+            wins += 1
+    return (wins, len(last_n), "".join(form_chars))
+
+
+def _rf_apply_filter(evaluated_picks, today_str):
+    """Aplica el filtro de forma reciente in-place. Marca cada evaluated_pick con:
+        ep['_rf_rejected']  : bool — True si no pasa el filtro
+        ep['_rf_form']      : str — string W/D/L de los últimos N (None si sin datos)
+        ep['_rf_wins']      : int — victorias en la ventana (None si sin datos)
+        ep['_rf_team']      : str — nombre del equipo evaluado (None si no aplica)
+
+    Retorna lista de dicts (uno por rechazo) lista para loggear en predictions_log.
+    """
+    if not USE_RECENT_FORM_FILTER:
+        return []
+    data = _rf_load_data(today_str)
+    if not data:
+        print("  · Filtro 1 (forma reciente): sin datos de API-Football → modo conservador (no filtra)")
+        return []
+    rejected_log = []
+    for ep in evaluated_picks:
+        ep["_rf_rejected"] = False
+        ep["_rf_form"] = None
+        ep["_rf_wins"] = None
+        ep["_rf_team"] = None
+        if ep.get("nba"):
+            continue
+        label = (ep.get("label") or "")
+        base_pick = ep["raw"][12]  # tupla raw, índice 12 = base_pick
+        team = _rf_favored_team(label, base_pick)
+        if not team:
+            continue
+        ep["_rf_team"] = team
+        key = (_norm(ep.get("home", "")), _norm(ep.get("away", "")))
+        match_data = data.get(key)
+        if not match_data:
+            continue
+        # Identificar si el favorito es home o away del partido
+        team_norm = _norm(team)
+        home_norm = _norm(ep.get("home", ""))
+        away_norm = _norm(ep.get("away", ""))
+        if team_norm == home_norm or team_norm in home_norm or home_norm in team_norm:
+            team_id = match_data.get("home_id")
+            form_list = match_data.get("home_form")
+        elif team_norm == away_norm or team_norm in away_norm or away_norm in team_norm:
+            team_id = match_data.get("away_id")
+            form_list = match_data.get("away_form")
+        else:
+            continue
+        result = _rf_count_wins_domestic(form_list, team_id, RECENT_FORM_LOOKBACK)
+        if result is None:
+            continue  # datos insuficientes → no filtrar
+        wins, _, form_str = result
+        ep["_rf_form"] = form_str
+        ep["_rf_wins"] = wins
+        if wins < RECENT_FORM_MIN_WINS:
+            ep["_rf_rejected"] = True
+            be = ep.get("raw")[15] or {}
+            rejected_log.append({
+                "fecha":          today_str,
+                "league":         ep.get("league"),
+                "home":           ep.get("home"),
+                "away":           ep.get("away"),
+                "team":           team,
+                "label":          label,
+                "wins5":          wins,
+                "forma":          form_str,
+                "bk_odds":        ep.get("bk_odds"),
+                "ev_adjusted":    ep.get("ev_adjusted"),
+                "prob_adjusted": ep.get("prob_adjusted"),
+                "confidence_factor": ep.get("confidence_factor"),
+                "best_eval":      be,
+            })
+            print(f"  · [Filtro 1] rechazado: {ep.get('home')} vs {ep.get('away')} "
+                  f"({ep.get('league')}) | favorito={team} | forma={form_str} "
+                  f"W={wins}/{RECENT_FORM_LOOKBACK}")
+    return rejected_log
 
 
 ADSENSE = '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5953880132871590" crossorigin="anonymous"></script>'
@@ -2094,6 +2285,9 @@ def _build_featured_pick_output(evaluated_picks: list, value_picks_dict: dict,
         # Bug auditoría: ligas excluidas tampoco entran a Featured Pick
         if ep.get("league") in EXCLUDED_LEAGUES:
             continue
+        # Filtro 1: favoritos con mala forma reciente tampoco entran a Featured
+        if ep.get("_rf_rejected"):
+            continue
         # Solo mercados estables (h2h)
         market_type = ep.get("market_type", "h2h")
         if market_type != "h2h":
@@ -2262,6 +2456,8 @@ def main():
     # Inicializar evaluated_picks al scope superior para que esté accesible
     # al construir los outputs de Nivel 1 (Análisis) y Nivel 3 (Featured Pick).
     evaluated_picks = []
+    # Picks rechazados por Filtro 1 — se loggean al final con tipo_pick="rejected_recent_form"
+    rejected_recent_form = []
 
     if adicional:
         # ── MODO TRANSICIÓN (solo hoy, --adicional) ──
@@ -2411,10 +2607,17 @@ def main():
                     }
             return best
 
+        # ── Filtro 1 (forma reciente del favorito) ──
+        # Marca evaluated_picks con _rf_rejected=True si el favorito tiene
+        # <RECENT_FORM_MIN_WINS victorias en sus últimos RECENT_FORM_LOOKBACK
+        # partidos en liga doméstica. Si no hay datos → modo conservador.
+        rejected_recent_form = _rf_apply_filter(evaluated_picks, today)
+
         # ── Clasificar candidatos ──
         subscription_candidates = [
             p for p in evaluated_picks
             if qualifies_for_profile(p, FILTERS_SUBSCRIPTION)
+            and not p.get("_rf_rejected")
         ]
         premium_candidates = [
             p for p in subscription_candidates
@@ -3043,6 +3246,47 @@ def main():
                 for e in _all_evals
             ],
         })
+    # ── Picks rechazados por Filtro 1 (forma reciente del favorito) ──
+    # Se loggean para auditoría prospectiva. tipo_pick="rejected_recent_form"
+    # los excluye de hit_rate / yield (ver update_results.py).
+    if rejected_recent_form:
+        for r in rejected_recent_form:
+            be = r.get("best_eval") or {}
+            _bk_o = r.get("bk_odds")
+            _prob = r.get("prob_adjusted")
+            _ev_adj = r.get("ev_adjusted")
+            _bp = _betplay_fields(_bk_o, _prob, _ev_adj)
+            _log.append({
+                "fecha":             today,
+                "slug":              None,
+                "home":              r["home"],
+                "away":              r["away"],
+                "league":            r["league"],
+                "prediccion":        r["label"],
+                "confianza":         f"Probabilidad: {_prob}%" if _prob is not None else None,
+                "resultado_real":    None,
+                "acerto":            None,                  # nunca se llena para rechazados
+                "prob_original":     be.get("prob_original"),
+                "confidence_factor": r.get("confidence_factor"),
+                "prob_adjusted":     _prob,
+                "bk_odds":           _bk_o,
+                "ev":                be.get("ev"),
+                "penalty":           be.get("penalty"),
+                "ev_adjusted":       _ev_adj,
+                "value_score":       be.get("value_score"),
+                "reason":            "rejected_recent_form",
+                "cuota_betplay_estimada": _bp["cuota_betplay_estimada"],
+                "ev_betplay_estimado":    _bp["ev_betplay_estimado"],
+                "tipo_pick":         "rejected_recent_form",
+                "base_pick":         r.get("team"),
+                "value_level":       None,
+                # Auditoría del filtro
+                "rf_wins":           r["wins5"],
+                "rf_forma":          r["forma"],
+                "markets_evaluated": [],
+            })
+        print(f"  · Filtro 1: {len(rejected_recent_form)} pick(s) rechazado(s) y loggeado(s)")
+
     _log_path.write_text(_json.dumps(_log, ensure_ascii=False, indent=2))
     print(f"Log guardado: {len(_log)} predicciones")
 

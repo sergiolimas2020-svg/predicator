@@ -104,8 +104,14 @@ def check_acerto(pred, result, nba):
     return norm(p) in norm(winner) or norm(winner) in norm(p)
 
 def update_historial(log):
-    """Recalcula historial.json desde el log completo."""
-    completados = [e for e in log if e.get("acerto") is not None]
+    """Recalcula historial.json desde el log completo.
+    Excluye picks tipo_pick='rejected_recent_form' (rechazados por Filtro 1) —
+    no se publican, no entran a hit_rate ni yield."""
+    completados = [
+        e for e in log
+        if e.get("acerto") is not None
+        and e.get("tipo_pick") != "rejected_recent_form"
+    ]
     if not completados:
         return
     total    = len(completados)
@@ -156,9 +162,17 @@ def main():
             res = results[key]
             acerto = check_acerto(e["prediccion"], res, nba)
             e["resultado_real"] = res["score"]
-            e["acerto"] = acerto
-            marca = "✅" if acerto else "❌"
-            print(f"   {marca} {e['home']} vs {e['away']}: {res['score']} | pred={e['prediccion']}")
+            if e.get("tipo_pick") == "rejected_recent_form":
+                # Rechazado por Filtro 1: NO se publica, no cuenta para hit_rate.
+                # Guardamos el "would_have_acerto" para auditoría prospectiva del filtro.
+                e["would_have_acerto"] = acerto
+                marca = "👁"  # observado, no contabilizado
+                print(f"   {marca} [RECHAZADO] {e['home']} vs {e['away']}: {res['score']} | "
+                      f"pred={e['prediccion']} | wha={acerto}")
+            else:
+                e["acerto"] = acerto
+                marca = "✅" if acerto else "❌"
+                print(f"   {marca} {e['home']} vs {e['away']}: {res['score']} | pred={e['prediccion']}")
             actualizados += 1
 
     if actualizados > 0:
