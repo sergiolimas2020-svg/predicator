@@ -2945,8 +2945,8 @@
     "league": "Serie A",
     "prediccion": "Apuesta sin empate: Cremonese",
     "confianza": "Probabilidad: 77.3%",
-    "resultado_real": null,
-    "acerto": null,
+    "resultado_real": "3-0",
+    "acerto": true,
     "prob_original": 77.3,
     "confidence_factor": 1.0,
     "prob_adjusted": 77.3,
@@ -3002,8 +3002,8 @@
     "league": "NBA",
     "prediccion": "New York Knicks",
     "confianza": "Probabilidad: 57.0%",
-    "resultado_real": null,
-    "acerto": null,
+    "resultado_real": "114-144",
+    "acerto": true,
     "prob_original": 57.0,
     "confidence_factor": 1.0,
     "prob_adjusted": 57.0,
@@ -3059,8 +3059,8 @@
     "league": "Premier League",
     "prediccion": "Aston Villa",
     "confianza": "Probabilidad: 66.0%",
-    "resultado_real": null,
-    "acerto": null,
+    "resultado_real": "2-2",
+    "acerto": false,
     "prob_original": 68.0,
     "confidence_factor": 0.97,
     "prob_adjusted": 66.0,
@@ -3116,8 +3116,8 @@
     "league": "Premier League",
     "prediccion": "Arsenal",
     "confianza": "Probabilidad: 66.0%",
-    "resultado_real": null,
-    "acerto": null,
+    "resultado_real": "0-1",
+    "acerto": true,
     "prob_original": 68.0,
     "confidence_factor": 0.97,
     "prob_adjusted": 66.0,
@@ -3154,6 +3154,63 @@
       {
         "market": "Over 2.5 goles",
         "ev_adjusted": -11.2,
+        "value_score": null,
+        "reason": "ev_negativo"
+      },
+      {
+        "market": "Over 1.5 goles",
+        "ev_adjusted": null,
+        "value_score": null,
+        "reason": "mercado_no_disponible"
+      }
+    ]
+  },
+  {
+    "fecha": "2026-05-11",
+    "slug": "rayo-vallecano-vs-girona-la-liga-2026-05-11",
+    "home": "Rayo Vallecano",
+    "away": "Girona",
+    "league": "La Liga",
+    "prediccion": "Apuesta sin empate: Rayo Vallecano",
+    "confianza": "Probabilidad: 71.3%",
+    "resultado_real": null,
+    "acerto": null,
+    "prob_original": 71.3,
+    "confidence_factor": 1.0,
+    "prob_adjusted": 71.3,
+    "bk_odds": 1.776,
+    "ev": 26.7,
+    "penalty": 0.0,
+    "ev_adjusted": 26.7,
+    "value_score": null,
+    "reason": "ev_excesivo",
+    "cuota_betplay_estimada": 1.6,
+    "ev_betplay_estimado": 14.1,
+    "tipo_pick": "pick_gratuito",
+    "base_pick": "Rayo Vallecano",
+    "value_level": "bajo",
+    "markets_evaluated": [
+      {
+        "market": "Rayo Vallecano",
+        "ev_adjusted": 42.2,
+        "value_score": null,
+        "reason": "ev_excesivo"
+      },
+      {
+        "market": "Apuesta sin empate: Rayo Vallecano",
+        "ev_adjusted": 26.7,
+        "value_score": null,
+        "reason": "ev_excesivo"
+      },
+      {
+        "market": "Doble oportunidad: Rayo Vallecano",
+        "ev_adjusted": null,
+        "value_score": null,
+        "reason": "cuota_baja"
+      },
+      {
+        "market": "Over 2.5 goles",
+        "ev_adjusted": -15.0,
         "value_score": null,
         "reason": "ev_negativo"
       },

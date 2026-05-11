@@ -1,8 +1,236 @@
 {
-  "total": 73,
-  "aciertos": 46,
-  "porcentaje": 63,
+  "total": 77,
+  "aciertos": 49,
+  "porcentaje": 64,
   "ultimos": [
+    {
+      "fecha": "2026-05-10",
+      "slug": "west-ham-united-vs-arsenal-premier-league-2026-05-10",
+      "home": "West Ham United",
+      "away": "Arsenal",
+      "league": "Premier League",
+      "prediccion": "Arsenal",
+      "confianza": "Probabilidad: 66.0%",
+      "resultado_real": "0-1",
+      "acerto": true,
+      "prob_original": 68.0,
+      "confidence_factor": 0.97,
+      "prob_adjusted": 66.0,
+      "bk_odds": 1.65,
+      "ev": 12.2,
+      "penalty": 0.0,
+      "ev_adjusted": 8.8,
+      "value_score": null,
+      "reason": "ev_insuficiente",
+      "cuota_betplay_estimada": 1.48,
+      "ev_betplay_estimado": -2.3,
+      "tipo_pick": "pick_suscripcion",
+      "base_pick": "Arsenal",
+      "value_level": "bajo",
+      "markets_evaluated": [
+        {
+          "market": "Arsenal",
+          "ev_adjusted": 8.8,
+          "value_score": null,
+          "reason": "ev_insuficiente"
+        },
+        {
+          "market": "Apuesta sin empate: Arsenal",
+          "ev_adjusted": 1.9,
+          "value_score": null,
+          "reason": "ev_insuficiente"
+        },
+        {
+          "market": "Doble oportunidad: Arsenal",
+          "ev_adjusted": null,
+          "value_score": null,
+          "reason": "cuota_baja"
+        },
+        {
+          "market": "Over 2.5 goles",
+          "ev_adjusted": -11.2,
+          "value_score": null,
+          "reason": "ev_negativo"
+        },
+        {
+          "market": "Over 1.5 goles",
+          "ev_adjusted": null,
+          "value_score": null,
+          "reason": "mercado_no_disponible"
+        }
+      ]
+    },
+    {
+      "fecha": "2026-05-10",
+      "slug": "burnley-vs-aston-villa-premier-league-2026-05-10",
+      "home": "Burnley",
+      "away": "Aston Villa",
+      "league": "Premier League",
+      "prediccion": "Aston Villa",
+      "confianza": "Probabilidad: 66.0%",
+      "resultado_real": "2-2",
+      "acerto": false,
+      "prob_original": 68.0,
+      "confidence_factor": 0.97,
+      "prob_adjusted": 66.0,
+      "bk_odds": 1.66,
+      "ev": 12.9,
+      "penalty": 0.0,
+      "ev_adjusted": 9.5,
+      "value_score": null,
+      "reason": "ev_insuficiente",
+      "cuota_betplay_estimada": 1.49,
+      "ev_betplay_estimado": -1.7,
+      "tipo_pick": "pick_gratuito",
+      "base_pick": "Aston Villa",
+      "value_level": "bajo",
+      "markets_evaluated": [
+        {
+          "market": "Aston Villa",
+          "ev_adjusted": 9.5,
+          "value_score": null,
+          "reason": "ev_insuficiente"
+        },
+        {
+          "market": "Apuesta sin empate: Aston Villa",
+          "ev_adjusted": 2.6,
+          "value_score": null,
+          "reason": "ev_insuficiente"
+        },
+        {
+          "market": "Doble oportunidad: Aston Villa",
+          "ev_adjusted": null,
+          "value_score": null,
+          "reason": "cuota_baja"
+        },
+        {
+          "market": "Over 2.5 goles",
+          "ev_adjusted": -4.5,
+          "value_score": null,
+          "reason": "ev_negativo"
+        },
+        {
+          "market": "Over 1.5 goles",
+          "ev_adjusted": null,
+          "value_score": null,
+          "reason": "mercado_no_disponible"
+        }
+      ]
+    },
+    {
+      "fecha": "2026-05-10",
+      "slug": "philadelphia-76ers-vs-new-york-knicks-nba-2026-05-10",
+      "home": "Philadelphia 76ers",
+      "away": "New York Knicks",
+      "league": "NBA",
+      "prediccion": "New York Knicks",
+      "confianza": "Probabilidad: 57.0%",
+      "resultado_real": "114-144",
+      "acerto": true,
+      "prob_original": 57.0,
+      "confidence_factor": 1.0,
+      "prob_adjusted": 57.0,
+      "bk_odds": 1.91,
+      "ev": 8.9,
+      "penalty": 0.0,
+      "ev_adjusted": 8.9,
+      "value_score": null,
+      "reason": "ev_insuficiente",
+      "cuota_betplay_estimada": 1.72,
+      "ev_betplay_estimado": -2.0,
+      "tipo_pick": "pick_suscripcion",
+      "base_pick": "New York Knicks",
+      "value_level": "bajo",
+      "markets_evaluated": [
+        {
+          "market": "New York Knicks",
+          "ev_adjusted": 8.9,
+          "value_score": null,
+          "reason": "ev_insuficiente"
+        },
+        {
+          "market": "Apuesta sin empate: New York Knicks",
+          "ev_adjusted": null,
+          "value_score": null,
+          "reason": "mercado_no_disponible"
+        },
+        {
+          "market": "Doble oportunidad: New York Knicks",
+          "ev_adjusted": null,
+          "value_score": null,
+          "reason": "mercado_no_disponible"
+        },
+        {
+          "market": "Over 2.5 goles",
+          "ev_adjusted": null,
+          "value_score": null,
+          "reason": "mercado_no_disponible"
+        },
+        {
+          "market": "Over 1.5 goles",
+          "ev_adjusted": null,
+          "value_score": null,
+          "reason": "mercado_no_disponible"
+        }
+      ]
+    },
+    {
+      "fecha": "2026-05-10",
+      "slug": "cremonese-vs-pisa-serie-a-2026-05-10",
+      "home": "Cremonese",
+      "away": "Pisa",
+      "league": "Serie A",
+      "prediccion": "Apuesta sin empate: Cremonese",
+      "confianza": "Probabilidad: 77.3%",
+      "resultado_real": "3-0",
+      "acerto": true,
+      "prob_original": 77.3,
+      "confidence_factor": 1.0,
+      "prob_adjusted": 77.3,
+      "bk_odds": 1.507,
+      "ev": 16.4,
+      "penalty": 0.0,
+      "ev_adjusted": 16.4,
+      "value_score": 6.726,
+      "reason": "ok",
+      "cuota_betplay_estimada": 1.36,
+      "ev_betplay_estimado": 5.1,
+      "tipo_pick": "pick_dia",
+      "base_pick": "Cremonese",
+      "value_level": "medio",
+      "markets_evaluated": [
+        {
+          "market": "Apuesta sin empate: Cremonese",
+          "ev_adjusted": 16.4,
+          "value_score": 6.726,
+          "reason": "ok"
+        },
+        {
+          "market": "Cremonese",
+          "ev_adjusted": 29.2,
+          "value_score": null,
+          "reason": "ev_excesivo"
+        },
+        {
+          "market": "Doble oportunidad: Cremonese",
+          "ev_adjusted": null,
+          "value_score": null,
+          "reason": "cuota_baja"
+        },
+        {
+          "market": "Over 2.5 goles",
+          "ev_adjusted": -6.1,
+          "value_score": null,
+          "reason": "ev_negativo"
+        },
+        {
+          "market": "Over 1.5 goles",
+          "ev_adjusted": null,
+          "value_score": null,
+          "reason": "mercado_no_disponible"
+        }
+      ]
+    },
     {
       "fecha": "2026-05-09",
       "slug": "alanyaspor-vs-kayserispor-super-lig-2026-05-09",
@@ -894,226 +1122,6 @@
           "ev_adjusted": null,
           "value_score": null,
           "reason": "mercado_no_disponible"
-        }
-      ]
-    },
-    {
-      "fecha": "2026-05-02",
-      "slug": "alaves-vs-athletic-club-la-liga-2026-05-02",
-      "home": "Alavés",
-      "away": "Athletic Club",
-      "league": "La Liga",
-      "prediccion": "Apuesta sin empate: Athletic Club",
-      "confianza": "Probabilidad: 68.5%",
-      "resultado_real": "2-4",
-      "acerto": true,
-      "prob_original": 68.5,
-      "confidence_factor": 1.0,
-      "prob_adjusted": 68.5,
-      "bk_odds": 1.774,
-      "ev": 21.5,
-      "penalty": 0.0,
-      "ev_adjusted": 21.5,
-      "value_score": null,
-      "reason": "ev_excesivo",
-      "tipo_pick": "pick_suscripcion",
-      "base_pick": "Athletic Club",
-      "value_level": "bajo",
-      "markets_evaluated": [
-        {
-          "market": "Athletic Club",
-          "ev_adjusted": 39.5,
-          "value_score": null,
-          "reason": "ev_excesivo"
-        },
-        {
-          "market": "Apuesta sin empate: Athletic Club",
-          "ev_adjusted": 21.5,
-          "value_score": null,
-          "reason": "ev_excesivo"
-        },
-        {
-          "market": "Doble oportunidad: Athletic Club",
-          "ev_adjusted": 14.8,
-          "value_score": null,
-          "reason": "ev_insuficiente"
-        },
-        {
-          "market": "Over 2.5 goles",
-          "ev_adjusted": -1.4,
-          "value_score": null,
-          "reason": "ev_negativo"
-        },
-        {
-          "market": "Over 1.5 goles",
-          "ev_adjusted": null,
-          "value_score": null,
-          "reason": "mercado_no_disponible"
-        }
-      ]
-    },
-    {
-      "fecha": "2026-05-02",
-      "slug": "nantes-vs-marseille-ligue-1-2026-05-02",
-      "home": "Nantes",
-      "away": "Marseille",
-      "league": "Ligue 1",
-      "prediccion": "Marseille",
-      "confianza": "Probabilidad: 68.0%",
-      "resultado_real": "3-0",
-      "acerto": false,
-      "prob_original": 68.0,
-      "confidence_factor": 1.0,
-      "prob_adjusted": 68.0,
-      "bk_odds": 1.81,
-      "ev": 23.1,
-      "penalty": 0.0,
-      "ev_adjusted": 23.1,
-      "value_score": null,
-      "reason": "ev_excesivo",
-      "tipo_pick": "pick_suscripcion",
-      "base_pick": "Marseille",
-      "value_level": "bajo",
-      "markets_evaluated": [
-        {
-          "market": "Marseille",
-          "ev_adjusted": 23.1,
-          "value_score": null,
-          "reason": "ev_excesivo"
-        },
-        {
-          "market": "Apuesta sin empate: Marseille",
-          "ev_adjusted": 9.8,
-          "value_score": null,
-          "reason": "ev_insuficiente"
-        },
-        {
-          "market": "Doble oportunidad: Marseille",
-          "ev_adjusted": 12.1,
-          "value_score": null,
-          "reason": "ev_insuficiente"
-        },
-        {
-          "market": "Over 2.5 goles",
-          "ev_adjusted": -10.9,
-          "value_score": null,
-          "reason": "ev_negativo"
-        },
-        {
-          "market": "Over 1.5 goles",
-          "ev_adjusted": null,
-          "value_score": null,
-          "reason": "mercado_no_disponible"
-        }
-      ]
-    },
-    {
-      "fecha": "2026-05-02",
-      "slug": "vitoria-vs-coritiba-brasileirao-2026-05-02",
-      "home": "Vitória",
-      "away": "Coritiba",
-      "league": "Brasileirao",
-      "prediccion": "Doble oportunidad: Coritiba",
-      "confianza": "Probabilidad: 69.0%",
-      "resultado_real": "4-1",
-      "acerto": false,
-      "prob_original": 71.1,
-      "confidence_factor": 0.97,
-      "prob_adjusted": 69.0,
-      "bk_odds": 1.838,
-      "ev": 30.7,
-      "penalty": 0.0,
-      "ev_adjusted": 26.8,
-      "value_score": null,
-      "reason": "ev_excesivo",
-      "tipo_pick": "pick_gratuito",
-      "base_pick": "Coritiba",
-      "value_level": "bajo",
-      "markets_evaluated": [
-        {
-          "market": "Coritiba",
-          "ev_adjusted": 76.9,
-          "value_score": null,
-          "reason": "ev_excesivo"
-        },
-        {
-          "market": "Apuesta sin empate: Coritiba",
-          "ev_adjusted": 35.4,
-          "value_score": null,
-          "reason": "ev_excesivo"
-        },
-        {
-          "market": "Doble oportunidad: Coritiba",
-          "ev_adjusted": 26.8,
-          "value_score": null,
-          "reason": "ev_excesivo"
-        },
-        {
-          "market": "Over 2.5 goles",
-          "ev_adjusted": -11.2,
-          "value_score": null,
-          "reason": "ev_negativo"
-        },
-        {
-          "market": "Over 1.5 goles",
-          "ev_adjusted": null,
-          "value_score": null,
-          "reason": "mercado_no_disponible"
-        }
-      ]
-    },
-    {
-      "fecha": "2026-05-02",
-      "slug": "lanus-vs-deportivo-riestra-liga-argentina-2026-05-02",
-      "home": "Lanús",
-      "away": "Deportivo Riestra",
-      "league": "Liga Argentina",
-      "prediccion": "Lanús",
-      "confianza": "Probabilidad: 59.8%",
-      "resultado_real": "0-0",
-      "acerto": false,
-      "prob_original": 61.7,
-      "confidence_factor": 0.97,
-      "prob_adjusted": 59.8,
-      "bk_odds": 2.12,
-      "ev": 30.8,
-      "penalty": 0.0,
-      "ev_adjusted": 26.9,
-      "value_score": null,
-      "reason": "ev_excesivo",
-      "tipo_pick": "pick_suscripcion",
-      "base_pick": "Lanús",
-      "value_level": "bajo",
-      "markets_evaluated": [
-        {
-          "market": "Lanús",
-          "ev_adjusted": 26.9,
-          "value_score": null,
-          "reason": "ev_excesivo"
-        },
-        {
-          "market": "Apuesta sin empate: Lanús",
-          "ev_adjusted": 22.6,
-          "value_score": null,
-          "reason": "ev_excesivo"
-        },
-        {
-          "market": "Doble oportunidad: Lanús",
-          "ev_adjusted": 0.4,
-          "value_score": null,
-          "reason": "ev_insuficiente"
-        },
-        {
-          "market": "Over 2.5 goles",
-          "ev_adjusted": -35.0,
-          "value_score": null,
-          "reason": "ev_negativo"
-        },
-        {
-          "market": "Over 1.5 goles",
-          "ev_adjusted": -27.5,
-          "value_score": null,
-          "reason": "ev_negativo"
         }
       ]
     }
