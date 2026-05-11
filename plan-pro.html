@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plan Pro — PREDIKTOR · Análisis estadístico para apostadores serios</title>
+  <meta name="description" content="Plan Pro de PREDIKTOR: todos los picks del día, análisis pre-partido detallado, canal VIP en Telegram y herramientas de tracking. Lanzamiento julio 2026.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://prediktorcol.com/plan-pro.html">
+  <meta property="og:title" content="Plan Pro — PREDIKTOR">
+  <meta property="og:description" content="Análisis estadístico para apostadores serios. Lista de espera abierta — descuento 50% el primer mes.">
+  <meta property="og:type" content="website">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K3JES4SQS9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-K3JES4SQS9');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --negro: #0a0a0f; --oscuro: #111118; --card: #16161f; --card2: #1c1c28;
+      --borde: #2a2a3a; --dorado: #f0b429; --dorado2: #c9900a;
+      --verde: #22c55e; --rojo: #ef4444; --azul: #3b82f6;
+      --texto: #e2e8f0; --gris: #94a3b8;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { font-family:'DM Sans',sans-serif; background:var(--negro); color:var(--texto); line-height:1.6; }
+
+    /* NAV (idéntico a index.html) */
+    nav {
+      display:flex; justify-content:space-between; align-items:center;
+      padding:1.2rem 2rem; border-bottom:1px solid var(--borde);
+      position:sticky; top:0; background:rgba(10,10,15,0.96);
+      backdrop-filter:blur(12px); z-index:100;
+    }
+    .logo { font-family:'Bebas Neue',sans-serif; font-size:1.8rem; letter-spacing:3px; color:var(--texto); text-decoration:none; }
+    .logo span { color:var(--dorado); }
+    .nav-links { display:flex; gap:1.5rem; align-items:center; }
+    .nav-links a { color:var(--gris); text-decoration:none; font-size:0.9rem; font-weight:500; transition:color 0.2s; }
+    .nav-links a:hover { color:var(--dorado); }
+    .nav-link-telegram { color:var(--dorado) !important; font-weight:700 !important; }
+    .nav-toggle {
+      display:none; background:transparent; border:1px solid var(--borde);
+      color:var(--texto); padding:0.45rem 0.7rem; border-radius:6px; cursor:pointer; font-size:1.1rem;
+    }
+    @media(max-width:760px) {
+      .nav-toggle { display:inline-flex; align-items:center; }
+      .nav-links {
+        display:none; position:absolute; top:100%; right:0; left:0;
+        background:rgba(10,10,15,0.98); backdrop-filter:blur(12px);
+        border-top:1px solid var(--borde); border-bottom:1px solid var(--borde);
+        flex-direction:column; padding:1rem 1.5rem; gap:1.2rem;
+      }
+      .nav-links.open { display:flex; }
+      .nav-links a { font-size:1rem; padding:0.4rem 0; }
+    }
+
+    /* CONTENIDO */
+    main.plan-pro-page {
+      max-width:920px; margin:0 auto; padding:3rem 1.5rem 5rem;
+    }
+    header.plan-pro-header { text-align:center; margin-bottom:3.5rem; }
+    header.plan-pro-header h1 {
+      font-family:'Bebas Neue',sans-serif;
+      font-size:clamp(2.8rem, 7vw, 5rem); line-height:0.95; letter-spacing:2px;
+    }
+    header.plan-pro-header h1 span { color:var(--dorado); }
+    header.plan-pro-header .subtitle {
+      color:var(--gris); font-size:clamp(1rem, 2.4vw, 1.2rem);
+      margin-top:0.8rem; max-width:560px; margin-left:auto; margin-right:auto;
+    }
+
+    .plan-pro-benefits, .plan-pro-pricing, .plan-pro-waitlist, .plan-pro-alternative {
+      background:var(--card); border:1px solid var(--borde);
+      border-radius:14px; padding:2rem 1.8rem; margin-bottom:1.8rem;
+    }
+    .plan-pro-benefits h2, .plan-pro-waitlist h2 {
+      font-family:'Bebas Neue',sans-serif;
+      font-size:clamp(1.6rem, 4vw, 2.2rem); letter-spacing:1px;
+      margin-bottom:1.2rem; color:var(--texto);
+    }
+    .plan-pro-benefits ul, .plan-pro-waitlist ul {
+      list-style:none; padding:0;
+    }
+    .plan-pro-benefits li, .plan-pro-waitlist li {
+      padding:0.7rem 0; border-bottom:1px solid var(--borde); font-size:1rem;
+    }
+    .plan-pro-benefits li:last-child, .plan-pro-waitlist li:last-child { border-bottom:none; }
+    .plan-pro-benefits li:first-of-type, .plan-pro-waitlist li:first-of-type { padding-top:0.3rem; }
+
+    /* PRICING CARD */
+    .plan-pro-pricing { text-align:center; }
+    .price-card {
+      max-width:420px; margin:0 auto; padding:1.8rem 1.4rem;
+      background:linear-gradient(135deg, rgba(240,180,41,0.08), rgba(240,180,41,0.02));
+      border:1px solid rgba(240,180,41,0.35); border-radius:14px;
+    }
+    .price-launch {
+      font-family:'Bebas Neue',sans-serif;
+      font-size:clamp(3.4rem, 9vw, 5rem); line-height:1; color:var(--dorado);
+      letter-spacing:1px;
+    }
+    .price-label {
+      font-size:0.95rem; color:var(--texto); margin-top:0.3rem;
+      font-weight:600;
+    }
+    .price-regular {
+      color:var(--gris); font-size:0.92rem; margin-top:1rem;
+      padding-top:0.9rem; border-top:1px solid var(--borde);
+    }
+    .price-detail { color:var(--gris); font-size:0.85rem; margin-top:0.4rem; }
+
+    /* WAITLIST FORM */
+    .waitlist-form {
+      display:flex; gap:0.8rem; margin-top:1.5rem;
+      flex-wrap:wrap;
+    }
+    .waitlist-form input[type=email] {
+      flex:1; min-width:220px;
+      padding:0.95rem 1.1rem; border-radius:8px;
+      background:var(--negro); border:1px solid var(--borde);
+      color:var(--texto); font-size:1rem; font-family:inherit;
+    }
+    .waitlist-form input[type=email]:focus {
+      outline:none; border-color:var(--dorado);
+    }
+    .waitlist-form button {
+      padding:0.95rem 1.8rem; border-radius:8px;
+      background:var(--dorado); color:var(--negro);
+      font-weight:800; font-size:1rem; font-family:inherit;
+      border:none; cursor:pointer;
+      transition:transform 0.2s, box-shadow 0.2s;
+    }
+    .waitlist-form button:hover {
+      transform:translateY(-2px); box-shadow:0 8px 24px rgba(240,180,41,0.32);
+    }
+    .form-disclaimer {
+      color:var(--gris); font-size:0.82rem; margin-top:1rem;
+      line-height:1.6;
+    }
+
+    .plan-pro-alternative {
+      text-align:center;
+      background:var(--card2);
+    }
+    .plan-pro-alternative h3 {
+      font-family:'Bebas Neue',sans-serif;
+      font-size:clamp(1.4rem, 3.5vw, 1.8rem); letter-spacing:1px;
+      margin-bottom:0.8rem;
+    }
+    .plan-pro-alternative p { color:var(--gris); margin-bottom:1.3rem; }
+    .telegram-cta {
+      display:inline-flex; align-items:center; gap:0.5rem;
+      background:#2AABEE; color:#fff;
+      padding:0.9rem 1.8rem; border-radius:8px;
+      font-weight:700; text-decoration:none;
+      transition:transform 0.2s, box-shadow 0.2s;
+    }
+    .telegram-cta:hover {
+      transform:translateY(-2px); box-shadow:0 8px 24px rgba(42,171,238,0.35);
+    }
+
+    /* FOOTER (idéntico a index.html) */
+    footer {
+      background:var(--oscuro); border-top:1px solid var(--borde);
+      padding:3rem 2rem 2rem; text-align:center;
+    }
+    .footer-logo { font-family:'Bebas Neue',sans-serif; font-size:2rem; color:var(--dorado); letter-spacing:3px; margin-bottom:0.8rem; }
+    .footer-desc { color:var(--gris); font-size:0.88rem; max-width:480px; margin:0 auto 1.5rem; line-height:1.7; }
+    .footer-links { display:flex; justify-content:center; gap:2rem; margin-bottom:2rem; flex-wrap:wrap; }
+    .footer-links a { color:var(--gris); text-decoration:none; font-size:0.85rem; transition:color 0.2s; }
+    .footer-links a:hover { color:var(--dorado); }
+    .footer-copy { color:var(--borde); font-size:0.8rem; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="logo">PREDI<span>KTOR</span></a>
+  <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false"
+          onclick="this.setAttribute('aria-expanded', this.getAttribute('aria-expanded')==='true'?'false':'true'); document.getElementById('nav-links').classList.toggle('open');">☰</button>
+  <div class="nav-links" id="nav-links">
+    <a href="static/predictions/index.html">Predicciones</a>
+    <a href="/historial.html">Historial</a>
+    <a href="/plan-pro.html">Plan Pro</a>
+    <a href="https://t.me/prediktorcol" target="_blank" rel="noopener" class="nav-link-telegram">📲 Telegram</a>
+  </div>
+</nav>
+
+<main class="plan-pro-page">
+
+  <header class="plan-pro-header">
+    <h1>Plan <span>Pro</span></h1>
+    <p class="subtitle">Análisis estadístico para apostadores serios.</p>
+  </header>
+
+  <section class="plan-pro-benefits">
+    <h2>Lo que incluye</h2>
+    <ul>
+      <li>✓ TODOS los picks del día (no solo el gratuito)</li>
+      <li>✓ Análisis pre-partido detallado de cada pick</li>
+      <li>✓ Canal Telegram VIP con alertas en tiempo real</li>
+      <li>✓ Historial completo filtrable por liga y mercado</li>
+      <li>✓ Próximamente: calculadora de stake con Kelly fraccional</li>
+      <li>✓ Próximamente: tracker personal de apuestas con yield</li>
+    </ul>
+  </section>
+
+  <section class="plan-pro-pricing">
+    <div class="price-card">
+      <div class="price-launch">$9 USD</div>
+      <div class="price-label">primer mes (descuento de lanzamiento)</div>
+      <div class="price-regular">después $19 USD/mes</div>
+      <div class="price-detail">Cancelás cuando quieras.</div>
+    </div>
+  </section>
+
+  <section class="plan-pro-waitlist">
+    <h2>Lanzamiento: julio 2026</h2>
+    <p style="color:var(--gris); margin-bottom:1.2rem;">
+      Estamos terminando los últimos detalles del Plan Pro.
+      Anotate en la lista de espera y obtené:
+    </p>
+    <ul>
+      <li>✓ Acceso prioritario antes del lanzamiento público</li>
+      <li>✓ Descuento del 50% el primer mes</li>
+      <li>✓ Cero spam — te avisamos solo cuando lance</li>
+    </ul>
+
+    <!-- Formspree configurado por Sergio (form xvzlddkk) — plan free 50 envíos/mes. -->
+    <form action="https://formspree.io/f/xvzlddkk" method="POST" class="waitlist-form">
+      <input type="email" name="email" placeholder="tu@email.com" required>
+      <input type="hidden" name="source" value="plan-pro-page">
+      <input type="hidden" name="_subject" value="Nuevo registro en lista de espera Plan Pro">
+      <button type="submit">Anotarme en la lista</button>
+    </form>
+    <p class="form-disclaimer">
+      Al anotarte aceptás recibir un único email cuando el Plan Pro esté
+      disponible. Sin newsletter, sin promociones cruzadas.
+    </p>
+  </section>
+
+  <section class="plan-pro-alternative">
+    <h3>¿No estás listo para Pro todavía?</h3>
+    <p>Empezá gratis recibiendo el pick del día en nuestro canal de Telegram:</p>
+    <a href="https://t.me/prediktorcol" class="telegram-cta" target="_blank" rel="noopener">
+      📲 Unirme al canal gratuito
+    </a>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-logo">PREDIKTOR</div>
+  <div class="footer-desc">Sistema automatizado de predicciones deportivas basado en análisis estadístico real. Fútbol y NBA actualizados diariamente.</div>
+  <div class="footer-links">
+    <a href="/">Inicio</a>
+    <a href="static/predictions/index.html">Predicciones de hoy</a>
+    <a href="/historial.html">Historial</a>
+    <a href="/plan-pro.html">Plan Pro</a>
+    <a href="/metodologia.html">Metodología</a>
+    <a href="/glosario.html">Glosario</a>
+    <a href="/como-interpretar.html">Cómo usar</a>
+    <a href="/guias/">Guías</a>
+    <a href="/about.html">Sobre</a>
+    <a href="/privacy.html">Privacidad</a>
+    <a href="mailto:contacto@prediktor.app">Contacto</a>
+  </div>
+  <div class="footer-copy">© 2026 PREDIKTOR — Sistema de predicción deportiva basado en datos · contacto@prediktor.app</div>
+</footer>
+
+</body>
+</html>

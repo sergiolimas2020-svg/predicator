@@ -968,50 +968,154 @@
       .hero { padding:3rem 1rem 2.5rem; }
       .nav-links .btn-secondary-nav { display:none; }
     }
+
+    /* ─── NAV: hamburguesa mobile + link Telegram destacado ─── */
+    .nav-link-telegram {
+      display:inline-flex; align-items:center; gap:0.4rem;
+      color:var(--dorado) !important; font-weight:700 !important;
+    }
+    .nav-toggle {
+      display:none;
+      background:transparent; border:1px solid var(--borde);
+      color:var(--texto); padding:0.45rem 0.7rem; border-radius:6px;
+      cursor:pointer; font-size:1.1rem;
+    }
+    @media(max-width:760px) {
+      .nav-toggle { display:inline-flex; align-items:center; }
+      .nav-links {
+        display:none;
+        position:absolute; top:100%; right:0; left:0;
+        background:rgba(10,10,15,0.98); backdrop-filter:blur(12px);
+        border-top:1px solid var(--borde); border-bottom:1px solid var(--borde);
+        flex-direction:column; padding:1rem 1.5rem; gap:1.2rem;
+      }
+      .nav-links.open { display:flex; }
+      .nav-links a { font-size:1rem; padding:0.4rem 0; }
+    }
+
+    /* ─── HERO CONVERSION (nuevo, encima del Hero 4-estados) ─── */
+    .hero-conversion {
+      text-align:center; padding:5rem 1.5rem 3.5rem;
+      background:radial-gradient(ellipse at 50% 0%, rgba(240,180,41,0.08) 0%, transparent 65%);
+      border-bottom:1px solid var(--borde);
+    }
+    .hero-conversion h1 {
+      font-family:'Bebas Neue',sans-serif;
+      font-size:clamp(2.4rem, 7vw, 4.8rem);
+      line-height:0.95; letter-spacing:2px;
+      margin-bottom:0.6rem; color:var(--texto);
+    }
+    .hero-conversion h2 {
+      font-family:'Bebas Neue',sans-serif;
+      font-size:clamp(2rem, 6vw, 4rem);
+      line-height:0.95; letter-spacing:1.5px;
+      color:var(--dorado); margin-bottom:1.6rem;
+    }
+    .hero-subtitle {
+      color:var(--gris); font-size:clamp(0.98rem, 2.2vw, 1.15rem);
+      max-width:560px; margin:0 auto 2.5rem; line-height:1.7;
+    }
+    .cta-dual {
+      display:grid; grid-template-columns:1fr 1fr; gap:1.2rem;
+      max-width:760px; margin:0 auto;
+    }
+    @media(max-width:680px) { .cta-dual { grid-template-columns:1fr; } }
+    .cta-primary, .cta-secondary {
+      display:flex; flex-direction:column; gap:0.4rem;
+      padding:1.6rem 1.4rem; border-radius:12px;
+      text-decoration:none; text-align:left;
+      transition:transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    }
+    .cta-primary {
+      background:var(--dorado); color:var(--negro);
+      border:2px solid var(--dorado);
+      box-shadow:0 6px 24px rgba(240,180,41,0.18);
+    }
+    .cta-primary:hover {
+      transform:translateY(-3px);
+      box-shadow:0 10px 32px rgba(240,180,41,0.32);
+    }
+    .cta-secondary {
+      background:var(--card2); color:var(--texto);
+      border:2px solid var(--dorado);
+    }
+    .cta-secondary:hover {
+      transform:translateY(-3px);
+      border-color:#ffd95e;
+      box-shadow:0 8px 24px rgba(0,0,0,0.4);
+    }
+    .cta-icon { font-size:1.8rem; line-height:1; margin-bottom:0.2rem; }
+    .cta-title { font-weight:800; font-size:1.15rem; line-height:1.2; }
+    .cta-price {
+      font-family:'Bebas Neue',sans-serif; font-size:1.6rem;
+      color:var(--dorado); letter-spacing:1px; line-height:1;
+    }
+    .cta-subtitle {
+      font-size:0.88rem; opacity:0.85; line-height:1.4;
+    }
+    .cta-primary .cta-subtitle { color:rgba(10,10,15,0.78); }
+    .cta-action {
+      margin-top:0.4rem; font-weight:700; font-size:0.95rem;
+      letter-spacing:0.3px;
+    }
+    .cta-secondary .cta-action { color:var(--dorado); }
+    .hero-scroll-hint {
+      margin-top:2.5rem; color:var(--gris); font-size:0.85rem;
+      letter-spacing:0.5px;
+    }
   </style>
 </head>
 <body>
 
 <nav>
   <a href="/" class="logo">PREDI<span>KTOR</span></a>
-  <div class="nav-links">
-    <a href="/metodologia.html" class="btn-secondary-nav">Metodología</a>
-    <a href="/glosario.html" class="btn-secondary-nav">Glosario</a>
-    <a href="/como-interpretar.html" class="btn-secondary-nav">Cómo usar</a>
-    <a href="/guias/" class="btn-secondary-nav">Guías</a>
-    <a href="/historial.html" class="btn-secondary-nav">Historial</a>
-    <a href="/about.html" class="btn-secondary-nav">Sobre</a>
-    <a href="static/predictions/index.html">Ver predicciones</a>
+  <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false"
+          onclick="this.setAttribute('aria-expanded', this.getAttribute('aria-expanded')==='true'?'false':'true'); document.getElementById('nav-links').classList.toggle('open');">☰</button>
+  <div class="nav-links" id="nav-links">
+    <a href="static/predictions/index.html">Predicciones</a>
+    <a href="/historial.html">Historial</a>
+    <a href="/plan-pro.html">Plan Pro</a>
+    <a href="https://t.me/prediktorcol" target="_blank" rel="noopener" class="nav-link-telegram">📲 Telegram</a>
   </div>
 </nav>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-badge">📊 Sistema automatizado · Datos reales · Actualización diaria</div>
-  <h1>Predicciones<br><span>Deportivas</span><br>con Datos Reales</h1>
-  <p>Nuestro sistema analiza estadísticas de más de 10 ligas de fútbol y la NBA para detectar las apuestas con mayor valor cada día. Sin intuición — solo números.</p>
-  <div class="hero-btns">
-    <a href="static/predictions/index.html" class="btn-primary">Ver picks de valor de hoy — gratis →</a>
-    <a href="https://t.me/prediktorcol" target="_blank" rel="noopener" class="btn-telegram">📲 Ir al canal de Telegram</a>
+<!-- HERO CONVERSION (nuevo) ───────────────────────────────────────── -->
+<section class="hero-conversion">
+  <h1>Análisis estadístico de fútbol.</h1>
+  <h2><span id="hc-pct">64%</span> de acierto en <span id="hc-total">77</span> picks verificados.</h2>
+  <p class="hero-subtitle">
+    Sin corazonadas. Sin promesas vacías.<br>
+    Picks justificados con datos. Histórico abierto.
+  </p>
+  <div class="cta-dual">
+    <a class="cta-primary" href="https://t.me/prediktorcol" target="_blank" rel="noopener">
+      <div class="cta-icon">📲</div>
+      <div class="cta-title">Picks gratis en Telegram</div>
+      <div class="cta-subtitle">10+ apostadores ya están aquí</div>
+      <div class="cta-action">Unirme gratis →</div>
+    </a>
+    <a class="cta-secondary" href="/plan-pro.html">
+      <div class="cta-icon">💎</div>
+      <div class="cta-title">Plan Pro</div>
+      <div class="cta-price">$19/mes</div>
+      <div class="cta-subtitle">Todos los picks + análisis VIP</div>
+      <div class="cta-action">Saber más →</div>
+    </a>
   </div>
+  <p class="hero-scroll-hint">
+    <a href="#featured-section" style="color:inherit; text-decoration:none;">
+      O mirá el pick gratuito de hoy ↓
+    </a>
+  </p>
 </section>
-
-<!-- STATS -->
-<div class="stats-bar">
-  <div class="stat"><div id="sb-pct" class="stat-num">64%</div><div class="stat-label">Tasa de acierto</div></div>
-  <a href="/historial.html" class="stat" style="text-decoration:none;color:inherit"><div id="sb-total" class="stat-num">77</div><div class="stat-label">Predicciones verificadas</div></a>
-  <div class="stat"><div id="sb-correctas" class="stat-num">49</div><div class="stat-label">Correctas</div></div>
-</div>
 <script>
+// Sustituye los placeholders del Hero conversión con los números reales del histórico.
 fetch('static/historial.json').then(r=>r.json()).then(h=>{
-  document.getElementById('sb-pct').textContent = h.total > 0 ? h.porcentaje + '%' : '—';
-  document.getElementById('sb-total').textContent = h.total > 0 ? h.total : '—';
-  document.getElementById('sb-correctas').textContent = h.total > 0 ? h.aciertos : '—';
-}).catch(()=>{
-  document.getElementById('sb-pct').textContent = '—';
-  document.getElementById('sb-total').textContent = '—';
-  document.getElementById('sb-correctas').textContent = '—';
-});
+  if (h && h.total > 0) {
+    document.getElementById('hc-pct').textContent = h.porcentaje + '%';
+    document.getElementById('hc-total').textContent = h.total;
+  }
+}).catch(()=>{});
 </script>
 
 <!-- TRACK RECORD -->
@@ -1124,7 +1228,7 @@ fetch('static/historial.json').then(r=>r.json()).then(h=>{
 <!-- ── SECCIÓN 1: HERO — Pick Destacado del Día ───────────────────── -->
 <section class="dash dash-hero" id="featured-section" aria-label="Pick Destacado del Día">
   <div class="dash-container">
-    <div class="dash-section-label">Pick destacado del día</div>
+    <div class="dash-section-label">Pick gratuito de hoy</div>
     <div id="featured-container">
       <!-- Skeleton inicial (reemplazado por dashboard.js) -->
       <div class="dash-skeleton dash-skeleton-hero" aria-hidden="true">
@@ -1246,13 +1350,14 @@ fetch('static/historial.json').then(r=>r.json()).then(h=>{
   <div class="footer-desc">Sistema automatizado de predicciones deportivas basado en análisis estadístico real. Fútbol y NBA actualizados diariamente.</div>
   <div class="footer-links">
     <a href="/">Inicio</a>
+    <a href="static/predictions/index.html">Predicciones de hoy</a>
+    <a href="/historial.html">Historial</a>
+    <a href="/plan-pro.html">Plan Pro</a>
     <a href="/metodologia.html">Metodología</a>
     <a href="/glosario.html">Glosario</a>
     <a href="/como-interpretar.html">Cómo usar</a>
     <a href="/guias/">Guías</a>
-    <a href="/historial.html">Historial</a>
     <a href="/about.html">Sobre</a>
-    <a href="static/predictions/index.html">Predicciones de hoy</a>
     <a href="/privacy.html">Privacidad</a>
     <a href="mailto:contacto@prediktor.app">Contacto</a>
   </div>
