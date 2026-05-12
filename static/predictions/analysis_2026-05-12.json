@@ -1,0 +1,126 @@
+{
+  "date": "2026-05-12",
+  "total_fixtures": 7,
+  "matches": [
+    {
+      "matchup": "Celta Vigo vs Levante",
+      "league": "La Liga",
+      "home": "Celta Vigo",
+      "away": "Levante",
+      "probabilities": {
+        "win_home": 67.6,
+        "draw": 20.0,
+        "win_away": 12.4,
+        "over_2_5": 51.3,
+        "over_1_5": 75.6
+      },
+      "favorite": "Celta Vigo",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false
+    },
+    {
+      "matchup": "Real Betis vs Elche",
+      "league": "La Liga",
+      "home": "Real Betis",
+      "away": "Elche",
+      "probabilities": {
+        "win_home": 56.0,
+        "draw": 21.5,
+        "win_away": 22.5,
+        "over_2_5": 53.4,
+        "over_1_5": 77.1
+      },
+      "favorite": "Real Betis",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false
+    },
+    {
+      "matchup": "Osasuna vs Atlético Madrid",
+      "league": "La Liga",
+      "home": "Osasuna",
+      "away": "Atlético Madrid",
+      "probabilities": {
+        "win_home": 27.8,
+        "draw": 24.7,
+        "win_away": 47.5,
+        "over_2_5": 48.5,
+        "over_1_5": 73.5
+      },
+      "favorite": "Atlético Madrid",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false
+    },
+    {
+      "matchup": "Atlético Nacional vs Internacional de Bogotá",
+      "league": "Liga Colombiana",
+      "home": "Atlético Nacional",
+      "away": "Internacional de Bogotá",
+      "probabilities": {
+        "win_home": 50.1,
+        "draw": 23.7,
+        "win_away": 26.2,
+        "over_2_5": 50.2,
+        "over_1_5": 74.9
+      },
+      "favorite": "Atlético Nacional",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false
+    },
+    {
+      "matchup": "Belgrano (Córdoba) vs Unión (Santa Fe)",
+      "league": "Liga Argentina",
+      "home": "Belgrano (Córdoba)",
+      "away": "Unión (Santa Fe)",
+      "probabilities": {
+        "win_home": 25.1,
+        "draw": 23.0,
+        "win_away": 51.9,
+        "over_2_5": 40.7,
+        "over_1_5": 67.2
+      },
+      "favorite": "Unión (Santa Fe)",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false
+    },
+    {
+      "matchup": "Argentinos Juniors vs Huracán",
+      "league": "Liga Argentina",
+      "home": "Argentinos Juniors",
+      "away": "Huracán",
+      "probabilities": {
+        "win_home": 58.4,
+        "draw": 20.6,
+        "win_away": 21.0,
+        "over_2_5": 7.5,
+        "over_1_5": 25.3
+      },
+      "favorite": "Argentinos Juniors",
+      "stats_complete": false,
+      "confidence_factor": 1.0,
+      "is_nba": false
+    },
+    {
+      "matchup": "San Antonio Spurs vs Minnesota Timberwolves",
+      "league": "NBA",
+      "home": "San Antonio Spurs",
+      "away": "Minnesota Timberwolves",
+      "probabilities": {
+        "win_home": 69.7,
+        "draw": 0.0,
+        "win_away": 30.3,
+        "over_2_5": null,
+        "over_1_5": null
+      },
+      "favorite": "San Antonio Spurs",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": true
+    }
+  ],
+  "nota": "Análisis estadístico de todos los partidos del día. Probabilidades crudas del modelo (sin ajuste por liga ni mercado). No incluye recomendación de apuesta — ver value_picks y featured_pick para picks oficiales."
+}
