@@ -1,0 +1,160 @@
+{
+  "date": "2026-05-13",
+  "total_fixtures": 9,
+  "matches": [
+    {
+      "matchup": "Manchester City vs Crystal Palace",
+      "league": "Premier League",
+      "home": "Manchester City",
+      "away": "Crystal Palace",
+      "probabilities": {
+        "win_home": 62.3,
+        "draw": 20.0,
+        "win_away": 17.7,
+        "over_2_5": 49.6,
+        "over_1_5": 74.4
+      },
+      "favorite": "Manchester City",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false
+    },
+    {
+      "matchup": "Espanyol vs Athletic Club",
+      "league": "La Liga",
+      "home": "Espanyol",
+      "away": "Athletic Club",
+      "probabilities": {
+        "win_home": 24.2,
+        "draw": 22.5,
+        "win_away": 53.3,
+        "over_2_5": 48.2,
+        "over_1_5": 73.3
+      },
+      "favorite": "Athletic Club",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false
+    },
+    {
+      "matchup": "Villarreal vs Sevilla",
+      "league": "La Liga",
+      "home": "Villarreal",
+      "away": "Sevilla",
+      "probabilities": {
+        "win_home": 58.9,
+        "draw": 20.4,
+        "win_away": 20.7,
+        "over_2_5": 55.7,
+        "over_1_5": 78.8
+      },
+      "favorite": "Villarreal",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false
+    },
+    {
+      "matchup": "Alavés vs Barcelona",
+      "league": "La Liga",
+      "home": "Alavés",
+      "away": "Barcelona",
+      "probabilities": {
+        "win_home": 12.0,
+        "draw": 20.0,
+        "win_away": 68.0,
+        "over_2_5": 59.9,
+        "over_1_5": 81.5
+      },
+      "favorite": "Barcelona",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false
+    },
+    {
+      "matchup": "Getafe vs Mallorca",
+      "league": "La Liga",
+      "home": "Getafe",
+      "away": "Mallorca",
+      "probabilities": {
+        "win_home": 53.3,
+        "draw": 22.5,
+        "win_away": 24.2,
+        "over_2_5": 39.6,
+        "over_1_5": 66.2
+      },
+      "favorite": "Getafe",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false
+    },
+    {
+      "matchup": "Deportivo Pasto vs Deportes Tolima",
+      "league": "Liga Colombiana",
+      "home": "Deportivo Pasto",
+      "away": "Deportes Tolima",
+      "probabilities": {
+        "win_home": 40.9,
+        "draw": 27.5,
+        "win_away": 31.6,
+        "over_2_5": 47.6,
+        "over_1_5": 72.9
+      },
+      "favorite": "Deportivo Pasto",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false
+    },
+    {
+      "matchup": "Atlético Junior vs Once Caldas",
+      "league": "Liga Colombiana",
+      "home": "Atlético Junior",
+      "away": "Once Caldas",
+      "probabilities": {
+        "win_home": 41.9,
+        "draw": 27.0,
+        "win_away": 31.1,
+        "over_2_5": 54.0,
+        "over_1_5": 77.6
+      },
+      "favorite": "Atlético Junior",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false
+    },
+    {
+      "matchup": "River Plate vs Gimnasia La Plata",
+      "league": "Liga Argentina",
+      "home": "River Plate",
+      "away": "Gimnasia La Plata",
+      "probabilities": {
+        "win_home": 41.8,
+        "draw": 27.1,
+        "win_away": 31.1,
+        "over_2_5": 9.2,
+        "over_1_5": 28.7
+      },
+      "favorite": "River Plate",
+      "stats_complete": false,
+      "confidence_factor": 1.0,
+      "is_nba": false
+    },
+    {
+      "matchup": "Detroit Pistons vs Cleveland Cavaliers",
+      "league": "NBA",
+      "home": "Detroit Pistons",
+      "away": "Cleveland Cavaliers",
+      "probabilities": {
+        "win_home": 62.0,
+        "draw": 0.0,
+        "win_away": 38.0,
+        "over_2_5": null,
+        "over_1_5": null
+      },
+      "favorite": "Detroit Pistons",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": true
+    }
+  ],
+  "nota": "Análisis estadístico de todos los partidos del día. Probabilidades crudas del modelo (sin ajuste por liga ni mercado). No incluye recomendación de apuesta — ver value_picks y featured_pick para picks oficiales."
+}

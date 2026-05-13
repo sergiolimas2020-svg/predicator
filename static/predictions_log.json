@@ -3230,8 +3230,8 @@
     "league": "La Liga",
     "prediccion": "Celta Vigo",
     "confianza": "Probabilidad: 67.6%",
-    "resultado_real": null,
-    "acerto": null,
+    "resultado_real": "2-3",
+    "acerto": false,
     "prob_original": 67.6,
     "confidence_factor": 1.0,
     "prob_adjusted": 67.6,
@@ -3287,8 +3287,8 @@
     "league": "La Liga",
     "prediccion": "Apuesta sin empate: Atlético Madrid",
     "confianza": "Probabilidad: 65.8%",
-    "resultado_real": null,
-    "acerto": null,
+    "resultado_real": "1-2",
+    "acerto": true,
     "prob_original": 65.8,
     "confidence_factor": 1.0,
     "prob_adjusted": 65.8,
@@ -3335,5 +3335,204 @@
         "reason": "mercado_no_disponible"
       }
     ]
+  },
+  {
+    "fecha": "2026-05-13",
+    "slug": "villarreal-vs-sevilla-la-liga-2026-05-13",
+    "home": "Villarreal",
+    "away": "Sevilla",
+    "league": "La Liga",
+    "prediccion": "Apuesta sin empate: Villarreal",
+    "confianza": "Probabilidad: 74.3%",
+    "resultado_real": null,
+    "acerto": null,
+    "prob_original": 74.3,
+    "confidence_factor": 1.0,
+    "prob_adjusted": 74.3,
+    "bk_odds": 1.57,
+    "ev": 16.6,
+    "penalty": 0.0,
+    "ev_adjusted": 16.6,
+    "value_score": 7.4879,
+    "reason": "ok",
+    "cuota_betplay_estimada": 1.41,
+    "ev_betplay_estimado": 4.8,
+    "tipo_pick": "pick_dia",
+    "base_pick": "Villarreal",
+    "value_level": "medio",
+    "markets_evaluated": [
+      {
+        "market": "Apuesta sin empate: Villarreal",
+        "ev_adjusted": 16.6,
+        "value_score": 7.4879,
+        "reason": "ok"
+      },
+      {
+        "market": "Villarreal",
+        "ev_adjusted": 22.5,
+        "value_score": null,
+        "reason": "ev_excesivo"
+      },
+      {
+        "market": "Doble oportunidad: Villarreal",
+        "ev_adjusted": null,
+        "value_score": null,
+        "reason": "cuota_baja"
+      },
+      {
+        "market": "Over 2.5 goles",
+        "ev_adjusted": 3.2,
+        "value_score": null,
+        "reason": "ev_insuficiente"
+      },
+      {
+        "market": "Over 1.5 goles",
+        "ev_adjusted": null,
+        "value_score": null,
+        "reason": "mercado_no_disponible"
+      }
+    ]
+  },
+  {
+    "fecha": "2026-05-13",
+    "slug": "espanyol-vs-athletic-club-la-liga-2026-05-13",
+    "home": "Espanyol",
+    "away": "Athletic Club",
+    "league": "La Liga",
+    "prediccion": "Doble oportunidad: Athletic Club",
+    "confianza": "Probabilidad: 75.8%",
+    "resultado_real": null,
+    "acerto": null,
+    "prob_original": 75.8,
+    "confidence_factor": 1.0,
+    "prob_adjusted": 75.8,
+    "bk_odds": 1.537,
+    "ev": 16.5,
+    "penalty": 0.0,
+    "ev_adjusted": 16.5,
+    "value_score": 7.0922,
+    "reason": "ok",
+    "cuota_betplay_estimada": 1.38,
+    "ev_betplay_estimado": 4.6,
+    "tipo_pick": "pick_suscripcion",
+    "base_pick": "Athletic Club",
+    "value_level": "medio",
+    "markets_evaluated": [
+      {
+        "market": "Doble oportunidad: Athletic Club",
+        "ev_adjusted": 16.5,
+        "value_score": 7.0922,
+        "reason": "ok"
+      },
+      {
+        "market": "Athletic Club",
+        "ev_adjusted": 51.4,
+        "value_score": null,
+        "reason": "ev_excesivo"
+      },
+      {
+        "market": "Apuesta sin empate: Athletic Club",
+        "ev_adjusted": 29.9,
+        "value_score": null,
+        "reason": "ev_excesivo"
+      },
+      {
+        "market": "Over 2.5 goles",
+        "ev_adjusted": 7.4,
+        "value_score": null,
+        "reason": "ev_insuficiente"
+      },
+      {
+        "market": "Over 1.5 goles",
+        "ev_adjusted": null,
+        "value_score": null,
+        "reason": "mercado_no_disponible"
+      }
+    ]
+  },
+  {
+    "fecha": "2026-05-13",
+    "slug": "alaves-vs-barcelona-la-liga-2026-05-13",
+    "home": "Alavés",
+    "away": "Barcelona",
+    "league": "La Liga",
+    "prediccion": "Apuesta sin empate: Barcelona",
+    "confianza": "Probabilidad: 77.3%",
+    "resultado_real": null,
+    "acerto": null,
+    "prob_original": 77.3,
+    "confidence_factor": 1.0,
+    "prob_adjusted": 77.3,
+    "bk_odds": 1.5,
+    "ev": 15.9,
+    "penalty": 0.0,
+    "ev_adjusted": 15.9,
+    "value_score": 6.4469,
+    "reason": "ok",
+    "cuota_betplay_estimada": 1.35,
+    "ev_betplay_estimado": 4.4,
+    "tipo_pick": "pick_gratuito",
+    "base_pick": "Barcelona",
+    "value_level": "medio",
+    "markets_evaluated": [
+      {
+        "market": "Apuesta sin empate: Barcelona",
+        "ev_adjusted": 15.9,
+        "value_score": 6.4469,
+        "reason": "ok"
+      },
+      {
+        "market": "Barcelona",
+        "ev_adjusted": 42.8,
+        "value_score": null,
+        "reason": "ev_excesivo"
+      },
+      {
+        "market": "Doble oportunidad: Barcelona",
+        "ev_adjusted": null,
+        "value_score": null,
+        "reason": "cuota_baja"
+      },
+      {
+        "market": "Over 2.5 goles",
+        "ev_adjusted": null,
+        "value_score": null,
+        "reason": "cuota_baja"
+      },
+      {
+        "market": "Over 1.5 goles",
+        "ev_adjusted": null,
+        "value_score": null,
+        "reason": "mercado_no_disponible"
+      }
+    ]
+  },
+  {
+    "fecha": "2026-05-13",
+    "slug": null,
+    "home": "Getafe",
+    "away": "Mallorca",
+    "league": "La Liga",
+    "prediccion": "",
+    "confianza": "Probabilidad: 0.0%",
+    "resultado_real": null,
+    "acerto": null,
+    "prob_original": null,
+    "confidence_factor": 1.0,
+    "prob_adjusted": 0.0,
+    "bk_odds": null,
+    "ev": null,
+    "penalty": null,
+    "ev_adjusted": null,
+    "value_score": null,
+    "reason": "rejected_recent_form",
+    "cuota_betplay_estimada": null,
+    "ev_betplay_estimado": null,
+    "tipo_pick": "rejected_recent_form",
+    "base_pick": "Getafe",
+    "value_level": null,
+    "rf_wins": 1,
+    "rf_forma": "DLLWL",
+    "markets_evaluated": []
   }
 ]

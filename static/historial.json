@@ -1,8 +1,122 @@
 {
-  "total": 77,
-  "aciertos": 49,
-  "porcentaje": 64,
+  "total": 79,
+  "aciertos": 50,
+  "porcentaje": 63,
   "ultimos": [
+    {
+      "fecha": "2026-05-12",
+      "slug": "osasuna-vs-atletico-madrid-la-liga-2026-05-12",
+      "home": "Osasuna",
+      "away": "Atlético Madrid",
+      "league": "La Liga",
+      "prediccion": "Apuesta sin empate: Atlético Madrid",
+      "confianza": "Probabilidad: 65.8%",
+      "resultado_real": "1-2",
+      "acerto": true,
+      "prob_original": 65.8,
+      "confidence_factor": 1.0,
+      "prob_adjusted": 65.8,
+      "bk_odds": 1.752,
+      "ev": 15.3,
+      "penalty": 0.0,
+      "ev_adjusted": 15.3,
+      "value_score": 8.5796,
+      "reason": "ok",
+      "cuota_betplay_estimada": 1.58,
+      "ev_betplay_estimado": 4.0,
+      "tipo_pick": "pick_suscripcion",
+      "base_pick": "Atlético Madrid",
+      "value_level": "medio",
+      "markets_evaluated": [
+        {
+          "market": "Apuesta sin empate: Atlético Madrid",
+          "ev_adjusted": 15.3,
+          "value_score": 8.5796,
+          "reason": "ok"
+        },
+        {
+          "market": "Doble oportunidad: Atlético Madrid",
+          "ev_adjusted": 16.2,
+          "value_score": 7.715,
+          "reason": "ok"
+        },
+        {
+          "market": "Atlético Madrid",
+          "ev_adjusted": 34.0,
+          "value_score": null,
+          "reason": "ev_excesivo"
+        },
+        {
+          "market": "Over 2.5 goles",
+          "ev_adjusted": -12.0,
+          "value_score": null,
+          "reason": "ev_negativo"
+        },
+        {
+          "market": "Over 1.5 goles",
+          "ev_adjusted": null,
+          "value_score": null,
+          "reason": "mercado_no_disponible"
+        }
+      ]
+    },
+    {
+      "fecha": "2026-05-12",
+      "slug": "celta-vigo-vs-levante-la-liga-2026-05-12",
+      "home": "Celta Vigo",
+      "away": "Levante",
+      "league": "La Liga",
+      "prediccion": "Celta Vigo",
+      "confianza": "Probabilidad: 67.6%",
+      "resultado_real": "2-3",
+      "acerto": false,
+      "prob_original": 67.6,
+      "confidence_factor": 1.0,
+      "prob_adjusted": 67.6,
+      "bk_odds": 1.89,
+      "ev": 27.8,
+      "penalty": 0.0,
+      "ev_adjusted": 27.8,
+      "value_score": null,
+      "reason": "ev_excesivo",
+      "cuota_betplay_estimada": 1.7,
+      "ev_betplay_estimado": 14.9,
+      "tipo_pick": "pick_gratuito",
+      "base_pick": "Celta Vigo",
+      "value_level": "bajo",
+      "markets_evaluated": [
+        {
+          "market": "Celta Vigo",
+          "ev_adjusted": 27.8,
+          "value_score": null,
+          "reason": "ev_excesivo"
+        },
+        {
+          "market": "Apuesta sin empate: Celta Vigo",
+          "ev_adjusted": 12.7,
+          "value_score": null,
+          "reason": "ev_insuficiente"
+        },
+        {
+          "market": "Doble oportunidad: Celta Vigo",
+          "ev_adjusted": null,
+          "value_score": null,
+          "reason": "cuota_baja"
+        },
+        {
+          "market": "Over 2.5 goles",
+          "ev_adjusted": -8.4,
+          "value_score": null,
+          "reason": "ev_negativo"
+        },
+        {
+          "market": "Over 1.5 goles",
+          "ev_adjusted": null,
+          "value_score": null,
+          "reason": "mercado_no_disponible"
+        }
+      ]
+    },
     {
       "fecha": "2026-05-10",
       "slug": "west-ham-united-vs-arsenal-premier-league-2026-05-10",
@@ -1006,116 +1120,6 @@
           "ev_adjusted": -11.1,
           "value_score": null,
           "reason": "ev_negativo"
-        },
-        {
-          "market": "Over 1.5 goles",
-          "ev_adjusted": null,
-          "value_score": null,
-          "reason": "mercado_no_disponible"
-        }
-      ]
-    },
-    {
-      "fecha": "2026-05-03",
-      "slug": "gimnasia-la-plata-vs-argentinos-juniors-liga-argentina-2026-05-03",
-      "home": "Gimnasia La Plata",
-      "away": "Argentinos Juniors",
-      "league": "Liga Argentina",
-      "prediccion": "Argentinos Juniors",
-      "confianza": "Probabilidad: 52.7%",
-      "resultado_real": "2-0",
-      "acerto": false,
-      "prob_original": 54.3,
-      "confidence_factor": 0.97,
-      "prob_adjusted": 52.7,
-      "bk_odds": 2.42,
-      "ev": 31.4,
-      "penalty": 0.0,
-      "ev_adjusted": 27.5,
-      "value_score": null,
-      "reason": "ev_excesivo",
-      "tipo_pick": "pick_suscripcion",
-      "base_pick": "Argentinos Juniors",
-      "value_level": "bajo",
-      "markets_evaluated": [
-        {
-          "market": "Argentinos Juniors",
-          "ev_adjusted": 27.5,
-          "value_score": null,
-          "reason": "ev_excesivo"
-        },
-        {
-          "market": "Apuesta sin empate: Argentinos Juniors",
-          "ev_adjusted": 21.9,
-          "value_score": null,
-          "reason": "ev_excesivo"
-        },
-        {
-          "market": "Doble oportunidad: Argentinos Juniors",
-          "ev_adjusted": 1.5,
-          "value_score": null,
-          "reason": "ev_insuficiente"
-        },
-        {
-          "market": "Over 2.5 goles",
-          "ev_adjusted": -82.5,
-          "value_score": null,
-          "reason": "ev_negativo"
-        },
-        {
-          "market": "Over 1.5 goles",
-          "ev_adjusted": null,
-          "value_score": null,
-          "reason": "mercado_no_disponible"
-        }
-      ]
-    },
-    {
-      "fecha": "2026-05-03",
-      "slug": "st-pauli-vs-mainz-bundesliga-2026-05-03",
-      "home": "St. Pauli",
-      "away": "Mainz",
-      "league": "Bundesliga",
-      "prediccion": "Doble oportunidad: Mainz",
-      "confianza": "Probabilidad: 77.1%",
-      "resultado_real": "1-2",
-      "acerto": true,
-      "prob_original": 77.1,
-      "confidence_factor": 1.0,
-      "prob_adjusted": 77.1,
-      "bk_odds": 1.526,
-      "ev": 17.6,
-      "penalty": 0.0,
-      "ev_adjusted": 17.6,
-      "value_score": 7.4386,
-      "reason": "ok",
-      "tipo_pick": "pick_dia",
-      "base_pick": "Mainz",
-      "value_level": "medio",
-      "markets_evaluated": [
-        {
-          "market": "Doble oportunidad: Mainz",
-          "ev_adjusted": 17.6,
-          "value_score": 7.4386,
-          "reason": "ok"
-        },
-        {
-          "market": "Mainz",
-          "ev_adjusted": 47.1,
-          "value_score": null,
-          "reason": "ev_excesivo"
-        },
-        {
-          "market": "Apuesta sin empate: Mainz",
-          "ev_adjusted": 25.0,
-          "value_score": null,
-          "reason": "ev_excesivo"
-        },
-        {
-          "market": "Over 2.5 goles",
-          "ev_adjusted": 2.8,
-          "value_score": null,
-          "reason": "ev_insuficiente"
         },
         {
           "market": "Over 1.5 goles",
