@@ -1,0 +1,41 @@
+{
+  "date": "2026-05-14",
+  "total_fixtures": 2,
+  "matches": [
+    {
+      "matchup": "Girona vs Real Sociedad",
+      "league": "La Liga",
+      "home": "Girona",
+      "away": "Real Sociedad",
+      "probabilities": {
+        "win_home": 17.1,
+        "draw": 20.0,
+        "win_away": 62.9,
+        "over_2_5": 53.7,
+        "over_1_5": 77.4
+      },
+      "favorite": "Real Sociedad",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false
+    },
+    {
+      "matchup": "Real Madrid vs Real Oviedo",
+      "league": "La Liga",
+      "home": "Real Madrid",
+      "away": "Real Oviedo",
+      "probabilities": {
+        "win_home": 68.0,
+        "draw": 20.0,
+        "win_away": 12.0,
+        "over_2_5": 48.5,
+        "over_1_5": 73.5
+      },
+      "favorite": "Real Madrid",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false
+    }
+  ],
+  "nota": "Análisis estadístico de todos los partidos del día. Probabilidades crudas del modelo (sin ajuste por liga ni mercado). No incluye recomendación de apuesta — ver value_picks y featured_pick para picks oficiales."
+}

@@ -1,8 +1,179 @@
 {
-  "total": 79,
+  "total": 82,
   "aciertos": 50,
-  "porcentaje": 63,
+  "porcentaje": 61,
   "ultimos": [
+    {
+      "fecha": "2026-05-13",
+      "slug": "alaves-vs-barcelona-la-liga-2026-05-13",
+      "home": "Alavés",
+      "away": "Barcelona",
+      "league": "La Liga",
+      "prediccion": "Apuesta sin empate: Barcelona",
+      "confianza": "Probabilidad: 77.3%",
+      "resultado_real": "1-0",
+      "acerto": false,
+      "prob_original": 77.3,
+      "confidence_factor": 1.0,
+      "prob_adjusted": 77.3,
+      "bk_odds": 1.5,
+      "ev": 15.9,
+      "penalty": 0.0,
+      "ev_adjusted": 15.9,
+      "value_score": 6.4469,
+      "reason": "ok",
+      "cuota_betplay_estimada": 1.35,
+      "ev_betplay_estimado": 4.4,
+      "tipo_pick": "pick_gratuito",
+      "base_pick": "Barcelona",
+      "value_level": "medio",
+      "markets_evaluated": [
+        {
+          "market": "Apuesta sin empate: Barcelona",
+          "ev_adjusted": 15.9,
+          "value_score": 6.4469,
+          "reason": "ok"
+        },
+        {
+          "market": "Barcelona",
+          "ev_adjusted": 42.8,
+          "value_score": null,
+          "reason": "ev_excesivo"
+        },
+        {
+          "market": "Doble oportunidad: Barcelona",
+          "ev_adjusted": null,
+          "value_score": null,
+          "reason": "cuota_baja"
+        },
+        {
+          "market": "Over 2.5 goles",
+          "ev_adjusted": null,
+          "value_score": null,
+          "reason": "cuota_baja"
+        },
+        {
+          "market": "Over 1.5 goles",
+          "ev_adjusted": null,
+          "value_score": null,
+          "reason": "mercado_no_disponible"
+        }
+      ]
+    },
+    {
+      "fecha": "2026-05-13",
+      "slug": "espanyol-vs-athletic-club-la-liga-2026-05-13",
+      "home": "Espanyol",
+      "away": "Athletic Club",
+      "league": "La Liga",
+      "prediccion": "Doble oportunidad: Athletic Club",
+      "confianza": "Probabilidad: 75.8%",
+      "resultado_real": "2-0",
+      "acerto": false,
+      "prob_original": 75.8,
+      "confidence_factor": 1.0,
+      "prob_adjusted": 75.8,
+      "bk_odds": 1.537,
+      "ev": 16.5,
+      "penalty": 0.0,
+      "ev_adjusted": 16.5,
+      "value_score": 7.0922,
+      "reason": "ok",
+      "cuota_betplay_estimada": 1.38,
+      "ev_betplay_estimado": 4.6,
+      "tipo_pick": "pick_suscripcion",
+      "base_pick": "Athletic Club",
+      "value_level": "medio",
+      "markets_evaluated": [
+        {
+          "market": "Doble oportunidad: Athletic Club",
+          "ev_adjusted": 16.5,
+          "value_score": 7.0922,
+          "reason": "ok"
+        },
+        {
+          "market": "Athletic Club",
+          "ev_adjusted": 51.4,
+          "value_score": null,
+          "reason": "ev_excesivo"
+        },
+        {
+          "market": "Apuesta sin empate: Athletic Club",
+          "ev_adjusted": 29.9,
+          "value_score": null,
+          "reason": "ev_excesivo"
+        },
+        {
+          "market": "Over 2.5 goles",
+          "ev_adjusted": 7.4,
+          "value_score": null,
+          "reason": "ev_insuficiente"
+        },
+        {
+          "market": "Over 1.5 goles",
+          "ev_adjusted": null,
+          "value_score": null,
+          "reason": "mercado_no_disponible"
+        }
+      ]
+    },
+    {
+      "fecha": "2026-05-13",
+      "slug": "villarreal-vs-sevilla-la-liga-2026-05-13",
+      "home": "Villarreal",
+      "away": "Sevilla",
+      "league": "La Liga",
+      "prediccion": "Apuesta sin empate: Villarreal",
+      "confianza": "Probabilidad: 74.3%",
+      "resultado_real": "2-3",
+      "acerto": false,
+      "prob_original": 74.3,
+      "confidence_factor": 1.0,
+      "prob_adjusted": 74.3,
+      "bk_odds": 1.57,
+      "ev": 16.6,
+      "penalty": 0.0,
+      "ev_adjusted": 16.6,
+      "value_score": 7.4879,
+      "reason": "ok",
+      "cuota_betplay_estimada": 1.41,
+      "ev_betplay_estimado": 4.8,
+      "tipo_pick": "pick_dia",
+      "base_pick": "Villarreal",
+      "value_level": "medio",
+      "markets_evaluated": [
+        {
+          "market": "Apuesta sin empate: Villarreal",
+          "ev_adjusted": 16.6,
+          "value_score": 7.4879,
+          "reason": "ok"
+        },
+        {
+          "market": "Villarreal",
+          "ev_adjusted": 22.5,
+          "value_score": null,
+          "reason": "ev_excesivo"
+        },
+        {
+          "market": "Doble oportunidad: Villarreal",
+          "ev_adjusted": null,
+          "value_score": null,
+          "reason": "cuota_baja"
+        },
+        {
+          "market": "Over 2.5 goles",
+          "ev_adjusted": 3.2,
+          "value_score": null,
+          "reason": "ev_insuficiente"
+        },
+        {
+          "market": "Over 1.5 goles",
+          "ev_adjusted": null,
+          "value_score": null,
+          "reason": "mercado_no_disponible"
+        }
+      ]
+    },
     {
       "fecha": "2026-05-12",
       "slug": "osasuna-vs-atletico-madrid-la-liga-2026-05-12",
@@ -955,171 +1126,6 @@
           "ev_adjusted": 14.8,
           "value_score": null,
           "reason": "ev_insuficiente"
-        },
-        {
-          "market": "Over 1.5 goles",
-          "ev_adjusted": null,
-          "value_score": null,
-          "reason": "mercado_no_disponible"
-        }
-      ]
-    },
-    {
-      "fecha": "2026-05-03",
-      "slug": "aston-villa-vs-tottenham-hotspur-premier-league-2026-05-03",
-      "home": "Aston Villa",
-      "away": "Tottenham Hotspur",
-      "league": "Premier League",
-      "prediccion": "Apuesta sin empate: Aston Villa",
-      "confianza": "Probabilidad: 76.8%",
-      "resultado_real": "1-2",
-      "acerto": false,
-      "prob_original": 76.8,
-      "confidence_factor": 1.0,
-      "prob_adjusted": 76.8,
-      "bk_odds": 1.579,
-      "ev": 21.3,
-      "penalty": 0.0,
-      "ev_adjusted": 21.3,
-      "value_score": null,
-      "reason": "ev_excesivo",
-      "tipo_pick": "pick_gratuito",
-      "base_pick": "Aston Villa",
-      "value_level": "bajo",
-      "markets_evaluated": [
-        {
-          "market": "Aston Villa",
-          "ev_adjusted": 45.6,
-          "value_score": null,
-          "reason": "ev_excesivo"
-        },
-        {
-          "market": "Apuesta sin empate: Aston Villa",
-          "ev_adjusted": 21.3,
-          "value_score": null,
-          "reason": "ev_excesivo"
-        },
-        {
-          "market": "Doble oportunidad: Aston Villa",
-          "ev_adjusted": 20.1,
-          "value_score": null,
-          "reason": "ev_excesivo"
-        },
-        {
-          "market": "Over 2.5 goles",
-          "ev_adjusted": -10.2,
-          "value_score": null,
-          "reason": "ev_negativo"
-        },
-        {
-          "market": "Over 1.5 goles",
-          "ev_adjusted": null,
-          "value_score": null,
-          "reason": "mercado_no_disponible"
-        }
-      ]
-    },
-    {
-      "fecha": "2026-05-03",
-      "slug": "mirassol-vs-corinthians-brasileirao-2026-05-03",
-      "home": "Mirassol",
-      "away": "Corinthians",
-      "league": "Brasileirao",
-      "prediccion": "Doble oportunidad: Corinthians",
-      "confianza": "Probabilidad: 72.9%",
-      "resultado_real": "2-1",
-      "acerto": false,
-      "prob_original": 75.2,
-      "confidence_factor": 0.97,
-      "prob_adjusted": 72.9,
-      "bk_odds": 1.685,
-      "ev": 26.7,
-      "penalty": 0.0,
-      "ev_adjusted": 22.9,
-      "value_score": null,
-      "reason": "ev_excesivo",
-      "tipo_pick": "pick_suscripcion",
-      "base_pick": "Corinthians",
-      "value_level": "bajo",
-      "markets_evaluated": [
-        {
-          "market": "Corinthians",
-          "ev_adjusted": 77.6,
-          "value_score": null,
-          "reason": "ev_excesivo"
-        },
-        {
-          "market": "Apuesta sin empate: Corinthians",
-          "ev_adjusted": 40.1,
-          "value_score": null,
-          "reason": "ev_excesivo"
-        },
-        {
-          "market": "Doble oportunidad: Corinthians",
-          "ev_adjusted": 22.9,
-          "value_score": null,
-          "reason": "ev_excesivo"
-        },
-        {
-          "market": "Over 2.5 goles",
-          "ev_adjusted": -21.7,
-          "value_score": null,
-          "reason": "ev_negativo"
-        },
-        {
-          "market": "Over 1.5 goles",
-          "ev_adjusted": null,
-          "value_score": null,
-          "reason": "mercado_no_disponible"
-        }
-      ]
-    },
-    {
-      "fecha": "2026-05-03",
-      "slug": "borussia-monchengladbach-vs-borussia-dortmund-bundesliga-2026-05-03",
-      "home": "Borussia Mönchengladbach",
-      "away": "Borussia Dortmund",
-      "league": "Bundesliga",
-      "prediccion": "Borussia Dortmund",
-      "confianza": "Probabilidad: 61.1%",
-      "resultado_real": "1-0",
-      "acerto": false,
-      "prob_original": 61.1,
-      "confidence_factor": 1.0,
-      "prob_adjusted": 61.1,
-      "bk_odds": 2.04,
-      "ev": 24.6,
-      "penalty": 0.0,
-      "ev_adjusted": 24.6,
-      "value_score": null,
-      "reason": "ev_excesivo",
-      "tipo_pick": "pick_suscripcion",
-      "base_pick": "Borussia Dortmund",
-      "value_level": "bajo",
-      "markets_evaluated": [
-        {
-          "market": "Borussia Dortmund",
-          "ev_adjusted": 24.6,
-          "value_score": null,
-          "reason": "ev_excesivo"
-        },
-        {
-          "market": "Apuesta sin empate: Borussia Dortmund",
-          "ev_adjusted": 12.9,
-          "value_score": null,
-          "reason": "ev_insuficiente"
-        },
-        {
-          "market": "Doble oportunidad: Borussia Dortmund",
-          "ev_adjusted": 10.5,
-          "value_score": null,
-          "reason": "ev_insuficiente"
-        },
-        {
-          "market": "Over 2.5 goles",
-          "ev_adjusted": -11.1,
-          "value_score": null,
-          "reason": "ev_negativo"
         },
         {
           "market": "Over 1.5 goles",
