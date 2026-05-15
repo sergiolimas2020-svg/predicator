@@ -3544,8 +3544,8 @@
     "league": "La Liga",
     "prediccion": "Real Sociedad",
     "confianza": "Probabilidad: 62.9%",
-    "resultado_real": null,
-    "acerto": null,
+    "resultado_real": "1-1",
+    "acerto": false,
     "prob_original": 62.9,
     "confidence_factor": 1.0,
     "prob_adjusted": 62.9,
@@ -3601,7 +3601,7 @@
     "league": "La Liga",
     "prediccion": "",
     "confianza": "Probabilidad: 0.0%",
-    "resultado_real": null,
+    "resultado_real": "1-1",
     "acerto": null,
     "prob_original": null,
     "confidence_factor": 1.0,
@@ -3619,6 +3619,64 @@
     "value_level": null,
     "rf_wins": 1,
     "rf_forma": "DLDLW",
-    "markets_evaluated": []
+    "markets_evaluated": [],
+    "would_have_acerto": false
+  },
+  {
+    "fecha": "2026-05-15",
+    "slug": "cleveland-cavaliers-vs-detroit-pistons-nba-2026-05-15",
+    "home": "Cleveland Cavaliers",
+    "away": "Detroit Pistons",
+    "league": "NBA",
+    "prediccion": "Detroit Pistons",
+    "confianza": "Probabilidad: 56.0%",
+    "resultado_real": null,
+    "acerto": null,
+    "prob_original": 56.0,
+    "confidence_factor": 1.0,
+    "prob_adjusted": 56.0,
+    "bk_odds": 2.56,
+    "ev": 43.4,
+    "penalty": 0.0,
+    "ev_adjusted": 43.4,
+    "value_score": null,
+    "reason": "ev_excesivo",
+    "cuota_betplay_estimada": 2.3,
+    "ev_betplay_estimado": 28.8,
+    "tipo_pick": "pick_exploratorio",
+    "base_pick": "Detroit Pistons",
+    "value_level": "bajo",
+    "markets_evaluated": [
+      {
+        "market": "Detroit Pistons",
+        "ev_adjusted": 43.4,
+        "value_score": null,
+        "reason": "ev_excesivo"
+      },
+      {
+        "market": "Apuesta sin empate: Detroit Pistons",
+        "ev_adjusted": null,
+        "value_score": null,
+        "reason": "mercado_no_disponible"
+      },
+      {
+        "market": "Doble oportunidad: Detroit Pistons",
+        "ev_adjusted": null,
+        "value_score": null,
+        "reason": "mercado_no_disponible"
+      },
+      {
+        "market": "Over 2.5 goles",
+        "ev_adjusted": null,
+        "value_score": null,
+        "reason": "mercado_no_disponible"
+      },
+      {
+        "market": "Over 1.5 goles",
+        "ev_adjusted": null,
+        "value_score": null,
+        "reason": "mercado_no_disponible"
+      }
+    ]
   }
 ]

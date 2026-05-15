@@ -1,8 +1,65 @@
 {
-  "total": 82,
+  "total": 83,
   "aciertos": 50,
-  "porcentaje": 61,
+  "porcentaje": 60,
   "ultimos": [
+    {
+      "fecha": "2026-05-14",
+      "slug": "girona-vs-real-sociedad-la-liga-2026-05-14",
+      "home": "Girona",
+      "away": "Real Sociedad",
+      "league": "La Liga",
+      "prediccion": "Real Sociedad",
+      "confianza": "Probabilidad: 62.9%",
+      "resultado_real": "1-1",
+      "acerto": false,
+      "prob_original": 62.9,
+      "confidence_factor": 1.0,
+      "prob_adjusted": 62.9,
+      "bk_odds": 3.9,
+      "ev": 145.3,
+      "penalty": 0.0,
+      "ev_adjusted": 145.3,
+      "value_score": null,
+      "reason": "ev_excesivo",
+      "cuota_betplay_estimada": 3.51,
+      "ev_betplay_estimado": 120.8,
+      "tipo_pick": "pick_exploratorio",
+      "base_pick": "Real Sociedad",
+      "value_level": "bajo",
+      "markets_evaluated": [
+        {
+          "market": "Real Sociedad",
+          "ev_adjusted": 145.3,
+          "value_score": null,
+          "reason": "ev_excesivo"
+        },
+        {
+          "market": "Apuesta sin empate: Real Sociedad",
+          "ev_adjusted": 50.8,
+          "value_score": null,
+          "reason": "ev_excesivo"
+        },
+        {
+          "market": "Doble oportunidad: Real Sociedad",
+          "ev_adjusted": 62.6,
+          "value_score": null,
+          "reason": "ev_excesivo"
+        },
+        {
+          "market": "Over 2.5 goles",
+          "ev_adjusted": -6.7,
+          "value_score": null,
+          "reason": "ev_negativo"
+        },
+        {
+          "market": "Over 1.5 goles",
+          "ev_adjusted": null,
+          "value_score": null,
+          "reason": "mercado_no_disponible"
+        }
+      ]
+    },
     {
       "fecha": "2026-05-13",
       "slug": "alaves-vs-barcelona-la-liga-2026-05-13",
@@ -1071,61 +1128,6 @@
           "ev_adjusted": -19.6,
           "value_score": null,
           "reason": "ev_negativo"
-        },
-        {
-          "market": "Over 1.5 goles",
-          "ev_adjusted": null,
-          "value_score": null,
-          "reason": "mercado_no_disponible"
-        }
-      ]
-    },
-    {
-      "fecha": "2026-05-04",
-      "slug": "sevilla-vs-real-sociedad-la-liga-2026-05-04",
-      "home": "Sevilla",
-      "away": "Real Sociedad",
-      "league": "La Liga",
-      "prediccion": "Doble oportunidad: Real Sociedad",
-      "confianza": "Probabilidad: 78.9%",
-      "resultado_real": "1-0",
-      "acerto": false,
-      "prob_original": 78.9,
-      "confidence_factor": 1.0,
-      "prob_adjusted": 78.9,
-      "bk_odds": 1.626,
-      "ev": 28.3,
-      "penalty": 0.0,
-      "ev_adjusted": 28.3,
-      "value_score": null,
-      "reason": "ev_excesivo",
-      "tipo_pick": "pick_suscripcion",
-      "base_pick": "Real Sociedad",
-      "value_level": "bajo",
-      "markets_evaluated": [
-        {
-          "market": "Real Sociedad",
-          "ev_adjusted": 74.9,
-          "value_score": null,
-          "reason": "ev_excesivo"
-        },
-        {
-          "market": "Apuesta sin empate: Real Sociedad",
-          "ev_adjusted": 36.3,
-          "value_score": null,
-          "reason": "ev_excesivo"
-        },
-        {
-          "market": "Doble oportunidad: Real Sociedad",
-          "ev_adjusted": 28.3,
-          "value_score": null,
-          "reason": "ev_excesivo"
-        },
-        {
-          "market": "Over 2.5 goles",
-          "ev_adjusted": 14.8,
-          "value_score": null,
-          "reason": "ev_insuficiente"
         },
         {
           "market": "Over 1.5 goles",

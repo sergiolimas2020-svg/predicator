@@ -1,0 +1,5482 @@
+[
+  {
+    "key": "Aston Villa|Liverpool|2026-05-15",
+    "home": "Aston Villa",
+    "away": "Liverpool",
+    "league": "Premier League",
+    "date": "2026-05-15",
+    "home_id": 66,
+    "away_id": 40,
+    "league_id": 39,
+    "season": 2025,
+    "h2h": [
+      {
+        "fixture": {
+          "id": 1379063,
+          "referee": "Stuart Attwell, England",
+          "timezone": "UTC",
+          "date": "2025-11-01T20:00:00+00:00",
+          "timestamp": 1762027200,
+          "periods": {
+            "first": 1762027200,
+            "second": 1762030800
+          },
+          "venue": {
+            "id": 550,
+            "name": "Anfield",
+            "city": "Liverpool"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 5
+          }
+        },
+        "league": {
+          "id": 39,
+          "name": "Premier League",
+          "country": "England",
+          "logo": "https://media.api-sports.io/football/leagues/39.png",
+          "flag": "https://media.api-sports.io/flags/gb-eng.svg",
+          "season": 2025,
+          "round": "Regular Season - 10",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 40,
+            "name": "Liverpool",
+            "logo": "https://media.api-sports.io/football/teams/40.png",
+            "winner": true
+          },
+          "away": {
+            "id": 66,
+            "name": "Aston Villa",
+            "logo": "https://media.api-sports.io/football/teams/66.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 2,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 1,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 2,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1208305,
+          "referee": "C. Pawson",
+          "timezone": "UTC",
+          "date": "2025-02-19T19:30:00+00:00",
+          "timestamp": 1739993400,
+          "periods": {
+            "first": 1739993400,
+            "second": 1739997000
+          },
+          "venue": {
+            "id": 495,
+            "name": "Villa Park",
+            "city": "Birmingham"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 6
+          }
+        },
+        "league": {
+          "id": 39,
+          "name": "Premier League",
+          "country": "England",
+          "logo": "https://media.api-sports.io/football/leagues/39.png",
+          "flag": "https://media.api-sports.io/flags/gb-eng.svg",
+          "season": 2024,
+          "round": "Regular Season - 29",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 66,
+            "name": "Aston Villa",
+            "logo": "https://media.api-sports.io/football/teams/66.png",
+            "winner": null
+          },
+          "away": {
+            "id": 40,
+            "name": "Liverpool",
+            "logo": "https://media.api-sports.io/football/teams/40.png",
+            "winner": null
+          }
+        },
+        "goals": {
+          "home": 2,
+          "away": 2
+        },
+        "score": {
+          "halftime": {
+            "home": 2,
+            "away": 1
+          },
+          "fulltime": {
+            "home": 2,
+            "away": 2
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1208127,
+          "referee": "D. Coote",
+          "timezone": "UTC",
+          "date": "2024-11-09T20:00:00+00:00",
+          "timestamp": 1731182400,
+          "periods": {
+            "first": 1731182400,
+            "second": 1731186000
+          },
+          "venue": {
+            "id": 550,
+            "name": "Anfield",
+            "city": "Liverpool"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 4
+          }
+        },
+        "league": {
+          "id": 39,
+          "name": "Premier League",
+          "country": "England",
+          "logo": "https://media.api-sports.io/football/leagues/39.png",
+          "flag": "https://media.api-sports.io/flags/gb-eng.svg",
+          "season": 2024,
+          "round": "Regular Season - 11",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 40,
+            "name": "Liverpool",
+            "logo": "https://media.api-sports.io/football/teams/40.png",
+            "winner": true
+          },
+          "away": {
+            "id": 66,
+            "name": "Aston Villa",
+            "logo": "https://media.api-sports.io/football/teams/66.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 2,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 1,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 2,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1035535,
+          "referee": "S. Hooper",
+          "timezone": "UTC",
+          "date": "2024-05-13T19:00:00+00:00",
+          "timestamp": 1715626800,
+          "periods": {
+            "first": 1715626800,
+            "second": 1715630400
+          },
+          "venue": {
+            "id": 495,
+            "name": "Villa Park",
+            "city": "Birmingham"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": null
+          }
+        },
+        "league": {
+          "id": 39,
+          "name": "Premier League",
+          "country": "England",
+          "logo": "https://media.api-sports.io/football/leagues/39.png",
+          "flag": "https://media.api-sports.io/flags/gb-eng.svg",
+          "season": 2023,
+          "round": "Regular Season - 37",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 66,
+            "name": "Aston Villa",
+            "logo": "https://media.api-sports.io/football/teams/66.png",
+            "winner": null
+          },
+          "away": {
+            "id": 40,
+            "name": "Liverpool",
+            "logo": "https://media.api-sports.io/football/teams/40.png",
+            "winner": null
+          }
+        },
+        "goals": {
+          "home": 3,
+          "away": 3
+        },
+        "score": {
+          "halftime": {
+            "home": 1,
+            "away": 2
+          },
+          "fulltime": {
+            "home": 3,
+            "away": 3
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1035073,
+          "referee": "S. Hooper",
+          "timezone": "UTC",
+          "date": "2023-09-03T13:00:00+00:00",
+          "timestamp": 1693746000,
+          "periods": {
+            "first": 1693746000,
+            "second": 1693749600
+          },
+          "venue": {
+            "id": 550,
+            "name": "Anfield",
+            "city": "Liverpool"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": null
+          }
+        },
+        "league": {
+          "id": 39,
+          "name": "Premier League",
+          "country": "England",
+          "logo": "https://media.api-sports.io/football/leagues/39.png",
+          "flag": "https://media.api-sports.io/flags/gb-eng.svg",
+          "season": 2023,
+          "round": "Regular Season - 4",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 40,
+            "name": "Liverpool",
+            "logo": "https://media.api-sports.io/football/teams/40.png",
+            "winner": true
+          },
+          "away": {
+            "id": 66,
+            "name": "Aston Villa",
+            "logo": "https://media.api-sports.io/football/teams/66.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 3,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 2,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 3,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 868309,
+          "referee": "J. Brooks",
+          "timezone": "UTC",
+          "date": "2023-05-20T14:00:00+00:00",
+          "timestamp": 1684591200,
+          "periods": {
+            "first": 1684591200,
+            "second": 1684594800
+          },
+          "venue": {
+            "id": 550,
+            "name": "Anfield",
+            "city": "Liverpool"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": null
+          }
+        },
+        "league": {
+          "id": 39,
+          "name": "Premier League",
+          "country": "England",
+          "logo": "https://media.api-sports.io/football/leagues/39.png",
+          "flag": "https://media.api-sports.io/flags/gb-eng.svg",
+          "season": 2022,
+          "round": "Regular Season - 37",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 40,
+            "name": "Liverpool",
+            "logo": "https://media.api-sports.io/football/teams/40.png",
+            "winner": null
+          },
+          "away": {
+            "id": 66,
+            "name": "Aston Villa",
+            "logo": "https://media.api-sports.io/football/teams/66.png",
+            "winner": null
+          }
+        },
+        "goals": {
+          "home": 1,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 1
+          },
+          "fulltime": {
+            "home": 1,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 868107,
+          "referee": "P. Tierney",
+          "timezone": "UTC",
+          "date": "2022-12-26T17:30:00+00:00",
+          "timestamp": 1672075800,
+          "periods": {
+            "first": 1672075800,
+            "second": 1672079400
+          },
+          "venue": {
+            "id": 495,
+            "name": "Villa Park",
+            "city": "Birmingham"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": null
+          }
+        },
+        "league": {
+          "id": 39,
+          "name": "Premier League",
+          "country": "England",
+          "logo": "https://media.api-sports.io/football/leagues/39.png",
+          "flag": "https://media.api-sports.io/flags/gb-eng.svg",
+          "season": 2022,
+          "round": "Regular Season - 17",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 66,
+            "name": "Aston Villa",
+            "logo": "https://media.api-sports.io/football/teams/66.png",
+            "winner": false
+          },
+          "away": {
+            "id": 40,
+            "name": "Liverpool",
+            "logo": "https://media.api-sports.io/football/teams/40.png",
+            "winner": true
+          }
+        },
+        "goals": {
+          "home": 1,
+          "away": 3
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 2
+          },
+          "fulltime": {
+            "home": 1,
+            "away": 3
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 710876,
+          "referee": "J. Moss",
+          "timezone": "UTC",
+          "date": "2022-05-10T19:00:00+00:00",
+          "timestamp": 1652209200,
+          "periods": {
+            "first": 1652209200,
+            "second": 1652212800
+          },
+          "venue": {
+            "id": 495,
+            "name": "Villa Park",
+            "city": "Birmingham"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": null
+          }
+        },
+        "league": {
+          "id": 39,
+          "name": "Premier League",
+          "country": "England",
+          "logo": "https://media.api-sports.io/football/leagues/39.png",
+          "flag": "https://media.api-sports.io/flags/gb-eng.svg",
+          "season": 2021,
+          "round": "Regular Season - 33",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 66,
+            "name": "Aston Villa",
+            "logo": "https://media.api-sports.io/football/teams/66.png",
+            "winner": false
+          },
+          "away": {
+            "id": 40,
+            "name": "Liverpool",
+            "logo": "https://media.api-sports.io/football/teams/40.png",
+            "winner": true
+          }
+        },
+        "goals": {
+          "home": 1,
+          "away": 2
+        },
+        "score": {
+          "halftime": {
+            "home": 1,
+            "away": 1
+          },
+          "fulltime": {
+            "home": 1,
+            "away": 2
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 710713,
+          "referee": "S. Attwell",
+          "timezone": "UTC",
+          "date": "2021-12-11T15:00:00+00:00",
+          "timestamp": 1639234800,
+          "periods": {
+            "first": 1639234800,
+            "second": 1639238400
+          },
+          "venue": {
+            "id": 550,
+            "name": "Anfield",
+            "city": "Liverpool"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": null
+          }
+        },
+        "league": {
+          "id": 39,
+          "name": "Premier League",
+          "country": "England",
+          "logo": "https://media.api-sports.io/football/leagues/39.png",
+          "flag": "https://media.api-sports.io/flags/gb-eng.svg",
+          "season": 2021,
+          "round": "Regular Season - 16",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 40,
+            "name": "Liverpool",
+            "logo": "https://media.api-sports.io/football/teams/40.png",
+            "winner": true
+          },
+          "away": {
+            "id": 66,
+            "name": "Aston Villa",
+            "logo": "https://media.api-sports.io/football/teams/66.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 1,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 1,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 592800,
+          "referee": "P. Tierney",
+          "timezone": "UTC",
+          "date": "2021-04-10T14:00:00+00:00",
+          "timestamp": 1618063200,
+          "periods": {
+            "first": 1618063200,
+            "second": 1618066800
+          },
+          "venue": {
+            "id": 550,
+            "name": "Anfield",
+            "city": "Liverpool"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": null
+          }
+        },
+        "league": {
+          "id": 39,
+          "name": "Premier League",
+          "country": "England",
+          "logo": "https://media.api-sports.io/football/leagues/39.png",
+          "flag": "https://media.api-sports.io/flags/gb-eng.svg",
+          "season": 2020,
+          "round": "Regular Season - 31",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 40,
+            "name": "Liverpool",
+            "logo": "https://media.api-sports.io/football/teams/40.png",
+            "winner": true
+          },
+          "away": {
+            "id": 66,
+            "name": "Aston Villa",
+            "logo": "https://media.api-sports.io/football/teams/66.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 2,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 1
+          },
+          "fulltime": {
+            "home": 2,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      }
+    ],
+    "home_form": [
+      {
+        "fixture": {
+          "id": 1379320,
+          "referee": "Anthony Taylor, England",
+          "timezone": "UTC",
+          "date": "2026-05-10T13:00:00+00:00",
+          "timestamp": 1778418000,
+          "periods": {
+            "first": 1778418000,
+            "second": 1778421600
+          },
+          "venue": {
+            "id": 512,
+            "name": "Turf Moor",
+            "city": "Burnley"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 7
+          }
+        },
+        "league": {
+          "id": 39,
+          "name": "Premier League",
+          "country": "England",
+          "logo": "https://media.api-sports.io/football/leagues/39.png",
+          "flag": "https://media.api-sports.io/flags/gb-eng.svg",
+          "season": 2025,
+          "round": "Regular Season - 36",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 44,
+            "name": "Burnley",
+            "logo": "https://media.api-sports.io/football/teams/44.png",
+            "winner": null
+          },
+          "away": {
+            "id": 66,
+            "name": "Aston Villa",
+            "logo": "https://media.api-sports.io/football/teams/66.png",
+            "winner": null
+          }
+        },
+        "goals": {
+          "home": 2,
+          "away": 2
+        },
+        "score": {
+          "halftime": {
+            "home": 1,
+            "away": 1
+          },
+          "fulltime": {
+            "home": 2,
+            "away": 2
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1540873,
+          "referee": "G. Nyberg",
+          "timezone": "UTC",
+          "date": "2026-05-07T19:00:00+00:00",
+          "timestamp": 1778180400,
+          "periods": {
+            "first": 1778180400,
+            "second": 1778184000
+          },
+          "venue": {
+            "id": null,
+            "name": "Villa Park",
+            "city": "Birmingham"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 4
+          }
+        },
+        "league": {
+          "id": 3,
+          "name": "UEFA Europa League",
+          "country": "World",
+          "logo": "https://media.api-sports.io/football/leagues/3.png",
+          "flag": null,
+          "season": 2025,
+          "round": "Semi-finals",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 66,
+            "name": "Aston Villa",
+            "logo": "https://media.api-sports.io/football/teams/66.png",
+            "winner": true
+          },
+          "away": {
+            "id": 65,
+            "name": "Nottingham Forest",
+            "logo": "https://media.api-sports.io/football/teams/65.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 4,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 1,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 4,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1379310,
+          "referee": "Samuel Barrott, England",
+          "timezone": "UTC",
+          "date": "2026-05-03T18:00:00+00:00",
+          "timestamp": 1777831200,
+          "periods": {
+            "first": 1777831200,
+            "second": 1777834800
+          },
+          "venue": {
+            "id": 495,
+            "name": "Villa Park",
+            "city": "Birmingham"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 7
+          }
+        },
+        "league": {
+          "id": 39,
+          "name": "Premier League",
+          "country": "England",
+          "logo": "https://media.api-sports.io/football/leagues/39.png",
+          "flag": "https://media.api-sports.io/flags/gb-eng.svg",
+          "season": 2025,
+          "round": "Regular Season - 35",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 66,
+            "name": "Aston Villa",
+            "logo": "https://media.api-sports.io/football/teams/66.png",
+            "winner": false
+          },
+          "away": {
+            "id": 47,
+            "name": "Tottenham",
+            "logo": "https://media.api-sports.io/football/teams/47.png",
+            "winner": true
+          }
+        },
+        "goals": {
+          "home": 1,
+          "away": 2
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 2
+          },
+          "fulltime": {
+            "home": 1,
+            "away": 2
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1540872,
+          "referee": "J. Pinheiro",
+          "timezone": "UTC",
+          "date": "2026-04-30T19:00:00+00:00",
+          "timestamp": 1777575600,
+          "periods": {
+            "first": 1777575600,
+            "second": 1777579200
+          },
+          "venue": {
+            "id": null,
+            "name": "City Ground",
+            "city": "Nottingham"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 6
+          }
+        },
+        "league": {
+          "id": 3,
+          "name": "UEFA Europa League",
+          "country": "World",
+          "logo": "https://media.api-sports.io/football/leagues/3.png",
+          "flag": null,
+          "season": 2025,
+          "round": "Semi-finals",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 65,
+            "name": "Nottingham Forest",
+            "logo": "https://media.api-sports.io/football/teams/65.png",
+            "winner": true
+          },
+          "away": {
+            "id": 66,
+            "name": "Aston Villa",
+            "logo": "https://media.api-sports.io/football/teams/66.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 1,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 1,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1379303,
+          "referee": "Michael Oliver, England",
+          "timezone": "UTC",
+          "date": "2026-04-25T11:30:00+00:00",
+          "timestamp": 1777116600,
+          "periods": {
+            "first": 1777116600,
+            "second": 1777120200
+          },
+          "venue": {
+            "id": 535,
+            "name": "Craven Cottage",
+            "city": "London"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 5
+          }
+        },
+        "league": {
+          "id": 39,
+          "name": "Premier League",
+          "country": "England",
+          "logo": "https://media.api-sports.io/football/leagues/39.png",
+          "flag": "https://media.api-sports.io/flags/gb-eng.svg",
+          "season": 2025,
+          "round": "Regular Season - 34",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 36,
+            "name": "Fulham",
+            "logo": "https://media.api-sports.io/football/teams/36.png",
+            "winner": true
+          },
+          "away": {
+            "id": 66,
+            "name": "Aston Villa",
+            "logo": "https://media.api-sports.io/football/teams/66.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 1,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 1,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 1,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1379289,
+          "referee": "Samuel Barrott, England",
+          "timezone": "UTC",
+          "date": "2026-04-19T13:00:00+00:00",
+          "timestamp": 1776603600,
+          "periods": {
+            "first": 1776603600,
+            "second": 1776607200
+          },
+          "venue": {
+            "id": 495,
+            "name": "Villa Park",
+            "city": "Birmingham"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 8
+          }
+        },
+        "league": {
+          "id": 39,
+          "name": "Premier League",
+          "country": "England",
+          "logo": "https://media.api-sports.io/football/leagues/39.png",
+          "flag": "https://media.api-sports.io/flags/gb-eng.svg",
+          "season": 2025,
+          "round": "Regular Season - 33",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 66,
+            "name": "Aston Villa",
+            "logo": "https://media.api-sports.io/football/teams/66.png",
+            "winner": true
+          },
+          "away": {
+            "id": 746,
+            "name": "Sunderland",
+            "logo": "https://media.api-sports.io/football/teams/746.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 4,
+          "away": 3
+        },
+        "score": {
+          "halftime": {
+            "home": 2,
+            "away": 1
+          },
+          "fulltime": {
+            "home": 4,
+            "away": 3
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1535339,
+          "referee": "J. Sanchez",
+          "timezone": "UTC",
+          "date": "2026-04-16T19:00:00+00:00",
+          "timestamp": 1776366000,
+          "periods": {
+            "first": 1776366000,
+            "second": 1776369600
+          },
+          "venue": {
+            "id": null,
+            "name": "Villa Park",
+            "city": "Birmingham"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": null
+          }
+        },
+        "league": {
+          "id": 3,
+          "name": "UEFA Europa League",
+          "country": "World",
+          "logo": "https://media.api-sports.io/football/leagues/3.png",
+          "flag": null,
+          "season": 2025,
+          "round": "Quarter-finals",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 66,
+            "name": "Aston Villa",
+            "logo": "https://media.api-sports.io/football/teams/66.png",
+            "winner": true
+          },
+          "away": {
+            "id": 500,
+            "name": "Bologna",
+            "logo": "https://media.api-sports.io/football/teams/500.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 4,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 3,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 4,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1379286,
+          "referee": "Michael Salisbury, England",
+          "timezone": "UTC",
+          "date": "2026-04-12T13:00:00+00:00",
+          "timestamp": 1775998800,
+          "periods": {
+            "first": 1775998800,
+            "second": 1776002400
+          },
+          "venue": {
+            "id": 566,
+            "name": "City Ground",
+            "city": "Nottingham"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 4
+          }
+        },
+        "league": {
+          "id": 39,
+          "name": "Premier League",
+          "country": "England",
+          "logo": "https://media.api-sports.io/football/leagues/39.png",
+          "flag": "https://media.api-sports.io/flags/gb-eng.svg",
+          "season": 2025,
+          "round": "Regular Season - 32",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 65,
+            "name": "Nottingham Forest",
+            "logo": "https://media.api-sports.io/football/teams/65.png",
+            "winner": null
+          },
+          "away": {
+            "id": 66,
+            "name": "Aston Villa",
+            "logo": "https://media.api-sports.io/football/teams/66.png",
+            "winner": null
+          }
+        },
+        "goals": {
+          "home": 1,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 1,
+            "away": 1
+          },
+          "fulltime": {
+            "home": 1,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1535335,
+          "referee": "S. Scharer",
+          "timezone": "UTC",
+          "date": "2026-04-09T19:00:00+00:00",
+          "timestamp": 1775761200,
+          "periods": {
+            "first": 1775761200,
+            "second": 1775764800
+          },
+          "venue": {
+            "id": null,
+            "name": "Renato Dall'Ara",
+            "city": "Bologna"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 5
+          }
+        },
+        "league": {
+          "id": 3,
+          "name": "UEFA Europa League",
+          "country": "World",
+          "logo": "https://media.api-sports.io/football/leagues/3.png",
+          "flag": null,
+          "season": 2025,
+          "round": "Quarter-finals",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 500,
+            "name": "Bologna",
+            "logo": "https://media.api-sports.io/football/teams/500.png",
+            "winner": false
+          },
+          "away": {
+            "id": 66,
+            "name": "Aston Villa",
+            "logo": "https://media.api-sports.io/football/teams/66.png",
+            "winner": true
+          }
+        },
+        "goals": {
+          "home": 1,
+          "away": 3
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 1
+          },
+          "fulltime": {
+            "home": 1,
+            "away": 3
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1542291,
+          "referee": null,
+          "timezone": "UTC",
+          "date": "2026-03-27T10:30:00+00:00",
+          "timestamp": 1774607400,
+          "periods": {
+            "first": 1774607400,
+            "second": 1774611000
+          },
+          "venue": {
+            "id": null,
+            "name": null,
+            "city": null
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": null
+          }
+        },
+        "league": {
+          "id": 667,
+          "name": "Friendlies Clubs",
+          "country": "World",
+          "logo": "https://media.api-sports.io/football/leagues/667.png",
+          "flag": null,
+          "season": 2026,
+          "round": "Club Friendly",
+          "standings": false
+        },
+        "teams": {
+          "home": {
+            "id": 66,
+            "name": "Aston Villa",
+            "logo": "https://media.api-sports.io/football/teams/66.png",
+            "winner": false
+          },
+          "away": {
+            "id": 797,
+            "name": "Elche",
+            "logo": "https://media.api-sports.io/football/teams/797.png",
+            "winner": true
+          }
+        },
+        "goals": {
+          "home": 1,
+          "away": 2
+        },
+        "score": {
+          "halftime": {
+            "home": 1,
+            "away": 1
+          },
+          "fulltime": {
+            "home": 1,
+            "away": 2
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      }
+    ],
+    "away_form": [
+      {
+        "fixture": {
+          "id": 1379323,
+          "referee": "Craig Pawson, England",
+          "timezone": "UTC",
+          "date": "2026-05-09T11:30:00+00:00",
+          "timestamp": 1778326200,
+          "periods": {
+            "first": 1778326200,
+            "second": 1778329800
+          },
+          "venue": {
+            "id": 550,
+            "name": "Anfield",
+            "city": "Liverpool"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 7
+          }
+        },
+        "league": {
+          "id": 39,
+          "name": "Premier League",
+          "country": "England",
+          "logo": "https://media.api-sports.io/football/leagues/39.png",
+          "flag": "https://media.api-sports.io/flags/gb-eng.svg",
+          "season": 2025,
+          "round": "Regular Season - 36",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 40,
+            "name": "Liverpool",
+            "logo": "https://media.api-sports.io/football/teams/40.png",
+            "winner": null
+          },
+          "away": {
+            "id": 49,
+            "name": "Chelsea",
+            "logo": "https://media.api-sports.io/football/teams/49.png",
+            "winner": null
+          }
+        },
+        "goals": {
+          "home": 1,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 1,
+            "away": 1
+          },
+          "fulltime": {
+            "home": 1,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1379316,
+          "referee": "Darren England, England",
+          "timezone": "UTC",
+          "date": "2026-05-03T14:30:00+00:00",
+          "timestamp": 1777818600,
+          "periods": {
+            "first": 1777818600,
+            "second": 1777822200
+          },
+          "venue": {
+            "id": 556,
+            "name": "Old Trafford",
+            "city": "Manchester"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 6
+          }
+        },
+        "league": {
+          "id": 39,
+          "name": "Premier League",
+          "country": "England",
+          "logo": "https://media.api-sports.io/football/leagues/39.png",
+          "flag": "https://media.api-sports.io/flags/gb-eng.svg",
+          "season": 2025,
+          "round": "Regular Season - 35",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 33,
+            "name": "Manchester United",
+            "logo": "https://media.api-sports.io/football/teams/33.png",
+            "winner": true
+          },
+          "away": {
+            "id": 40,
+            "name": "Liverpool",
+            "logo": "https://media.api-sports.io/football/teams/40.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 3,
+          "away": 2
+        },
+        "score": {
+          "halftime": {
+            "home": 2,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 3,
+            "away": 2
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1379304,
+          "referee": "Andy Madley, England",
+          "timezone": "UTC",
+          "date": "2026-04-25T14:00:00+00:00",
+          "timestamp": 1777125600,
+          "periods": {
+            "first": 1777125600,
+            "second": 1777129200
+          },
+          "venue": {
+            "id": 550,
+            "name": "Anfield",
+            "city": "Liverpool"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 8
+          }
+        },
+        "league": {
+          "id": 39,
+          "name": "Premier League",
+          "country": "England",
+          "logo": "https://media.api-sports.io/football/leagues/39.png",
+          "flag": "https://media.api-sports.io/flags/gb-eng.svg",
+          "season": 2025,
+          "round": "Regular Season - 34",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 40,
+            "name": "Liverpool",
+            "logo": "https://media.api-sports.io/football/teams/40.png",
+            "winner": true
+          },
+          "away": {
+            "id": 52,
+            "name": "Crystal Palace",
+            "logo": "https://media.api-sports.io/football/teams/52.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 3,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 2,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 3,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1379293,
+          "referee": "Chris Kavanagh, England",
+          "timezone": "UTC",
+          "date": "2026-04-19T13:00:00+00:00",
+          "timestamp": 1776603600,
+          "periods": {
+            "first": 1776603600,
+            "second": 1776607200
+          },
+          "venue": {
+            "id": 22033,
+            "name": "Hill Dickinson Stadium",
+            "city": "Liverpool"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 12
+          }
+        },
+        "league": {
+          "id": 39,
+          "name": "Premier League",
+          "country": "England",
+          "logo": "https://media.api-sports.io/football/leagues/39.png",
+          "flag": "https://media.api-sports.io/flags/gb-eng.svg",
+          "season": 2025,
+          "round": "Regular Season - 33",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 45,
+            "name": "Everton",
+            "logo": "https://media.api-sports.io/football/teams/45.png",
+            "winner": false
+          },
+          "away": {
+            "id": 40,
+            "name": "Liverpool",
+            "logo": "https://media.api-sports.io/football/teams/40.png",
+            "winner": true
+          }
+        },
+        "goals": {
+          "home": 1,
+          "away": 2
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 1
+          },
+          "fulltime": {
+            "home": 1,
+            "away": 2
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1534912,
+          "referee": "Maurizio Mariani, Italy",
+          "timezone": "UTC",
+          "date": "2026-04-14T19:00:00+00:00",
+          "timestamp": 1776193200,
+          "periods": {
+            "first": 1776193200,
+            "second": 1776196800
+          },
+          "venue": {
+            "id": null,
+            "name": "Anfield",
+            "city": "Liverpool"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 6
+          }
+        },
+        "league": {
+          "id": 2,
+          "name": "UEFA Champions League",
+          "country": "World",
+          "logo": "https://media.api-sports.io/football/leagues/2.png",
+          "flag": null,
+          "season": 2025,
+          "round": "Quarter-finals",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 40,
+            "name": "Liverpool",
+            "logo": "https://media.api-sports.io/football/teams/40.png",
+            "winner": false
+          },
+          "away": {
+            "id": 85,
+            "name": "Paris Saint Germain",
+            "logo": "https://media.api-sports.io/football/teams/85.png",
+            "winner": true
+          }
+        },
+        "goals": {
+          "home": 0,
+          "away": 2
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 0,
+            "away": 2
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1379284,
+          "referee": "Anthony Taylor, England",
+          "timezone": "UTC",
+          "date": "2026-04-11T16:30:00+00:00",
+          "timestamp": 1775925000,
+          "periods": {
+            "first": 1775925000,
+            "second": 1775928600
+          },
+          "venue": {
+            "id": 550,
+            "name": "Anfield",
+            "city": "Liverpool"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 4
+          }
+        },
+        "league": {
+          "id": 39,
+          "name": "Premier League",
+          "country": "England",
+          "logo": "https://media.api-sports.io/football/leagues/39.png",
+          "flag": "https://media.api-sports.io/flags/gb-eng.svg",
+          "season": 2025,
+          "round": "Regular Season - 32",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 40,
+            "name": "Liverpool",
+            "logo": "https://media.api-sports.io/football/teams/40.png",
+            "winner": true
+          },
+          "away": {
+            "id": 36,
+            "name": "Fulham",
+            "logo": "https://media.api-sports.io/football/teams/36.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 2,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 2,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 2,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1534908,
+          "referee": "José María Sánchez Martínez, Spain",
+          "timezone": "UTC",
+          "date": "2026-04-08T19:00:00+00:00",
+          "timestamp": 1775674800,
+          "periods": {
+            "first": 1775674800,
+            "second": 1775678400
+          },
+          "venue": {
+            "id": null,
+            "name": "Parc des Princes",
+            "city": "Paris"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 3
+          }
+        },
+        "league": {
+          "id": 2,
+          "name": "UEFA Champions League",
+          "country": "World",
+          "logo": "https://media.api-sports.io/football/leagues/2.png",
+          "flag": null,
+          "season": 2025,
+          "round": "Quarter-finals",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 85,
+            "name": "Paris Saint Germain",
+            "logo": "https://media.api-sports.io/football/teams/85.png",
+            "winner": true
+          },
+          "away": {
+            "id": 40,
+            "name": "Liverpool",
+            "logo": "https://media.api-sports.io/football/teams/40.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 2,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 1,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 2,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1531571,
+          "referee": "M. Oliver",
+          "timezone": "UTC",
+          "date": "2026-04-04T11:45:00+00:00",
+          "timestamp": 1775303100,
+          "periods": {
+            "first": 1775303100,
+            "second": 1775306700
+          },
+          "venue": {
+            "id": 555,
+            "name": "Etihad Stadium",
+            "city": "Manchester"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": null
+          }
+        },
+        "league": {
+          "id": 45,
+          "name": "FA Cup",
+          "country": "England",
+          "logo": "https://media.api-sports.io/football/leagues/45.png",
+          "flag": "https://media.api-sports.io/flags/gb-eng.svg",
+          "season": 2025,
+          "round": "Quarter-finals",
+          "standings": false
+        },
+        "teams": {
+          "home": {
+            "id": 50,
+            "name": "Manchester City",
+            "logo": "https://media.api-sports.io/football/teams/50.png",
+            "winner": true
+          },
+          "away": {
+            "id": 40,
+            "name": "Liverpool",
+            "logo": "https://media.api-sports.io/football/teams/40.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 4,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 2,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 4,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1379271,
+          "referee": "Darren England, England",
+          "timezone": "UTC",
+          "date": "2026-03-21T12:30:00+00:00",
+          "timestamp": 1774096200,
+          "periods": {
+            "first": 1774096200,
+            "second": 1774099800
+          },
+          "venue": {
+            "id": 508,
+            "name": "Amex Stadium",
+            "city": "Brighton"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 8
+          }
+        },
+        "league": {
+          "id": 39,
+          "name": "Premier League",
+          "country": "England",
+          "logo": "https://media.api-sports.io/football/leagues/39.png",
+          "flag": "https://media.api-sports.io/flags/gb-eng.svg",
+          "season": 2025,
+          "round": "Regular Season - 31",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 51,
+            "name": "Brighton",
+            "logo": "https://media.api-sports.io/football/teams/51.png",
+            "winner": true
+          },
+          "away": {
+            "id": 40,
+            "name": "Liverpool",
+            "logo": "https://media.api-sports.io/football/teams/40.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 2,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 1,
+            "away": 1
+          },
+          "fulltime": {
+            "home": 2,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1528329,
+          "referee": "Paweł Raczkowski, Poland",
+          "timezone": "UTC",
+          "date": "2026-03-18T20:00:00+00:00",
+          "timestamp": 1773864000,
+          "periods": {
+            "first": 1773864000,
+            "second": 1773867600
+          },
+          "venue": {
+            "id": null,
+            "name": "Anfield",
+            "city": "Liverpool"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 7
+          }
+        },
+        "league": {
+          "id": 2,
+          "name": "UEFA Champions League",
+          "country": "World",
+          "logo": "https://media.api-sports.io/football/leagues/2.png",
+          "flag": null,
+          "season": 2025,
+          "round": "Round of 16",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 40,
+            "name": "Liverpool",
+            "logo": "https://media.api-sports.io/football/teams/40.png",
+            "winner": true
+          },
+          "away": {
+            "id": 645,
+            "name": "Galatasaray",
+            "logo": "https://media.api-sports.io/football/teams/645.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 4,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 1,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 4,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      }
+    ],
+    "home_stats": {
+      "league": {
+        "id": 39,
+        "name": "Premier League",
+        "country": "England",
+        "logo": "https://media.api-sports.io/football/leagues/39.png",
+        "flag": "https://media.api-sports.io/flags/gb-eng.svg",
+        "season": 2025
+      },
+      "team": {
+        "id": 66,
+        "name": "Aston Villa",
+        "logo": "https://media.api-sports.io/football/teams/66.png"
+      },
+      "form": "DLLDDWWWWLWWWWWWWWLWDLWLDWDLLLWDWLLD",
+      "fixtures": {
+        "played": {
+          "home": 18,
+          "away": 18,
+          "total": 36
+        },
+        "wins": {
+          "home": 11,
+          "away": 6,
+          "total": 17
+        },
+        "draws": {
+          "home": 2,
+          "away": 6,
+          "total": 8
+        },
+        "loses": {
+          "home": 5,
+          "away": 6,
+          "total": 11
+        }
+      },
+      "goals": {
+        "for": {
+          "total": {
+            "home": 28,
+            "away": 22,
+            "total": 50
+          },
+          "average": {
+            "home": "1.6",
+            "away": "1.2",
+            "total": "1.4"
+          },
+          "minute": {
+            "0-15": {
+              "total": 3,
+              "percentage": "6.25%"
+            },
+            "16-30": {
+              "total": 6,
+              "percentage": "12.50%"
+            },
+            "31-45": {
+              "total": 10,
+              "percentage": "20.83%"
+            },
+            "46-60": {
+              "total": 9,
+              "percentage": "18.75%"
+            },
+            "61-75": {
+              "total": 8,
+              "percentage": "16.67%"
+            },
+            "76-90": {
+              "total": 12,
+              "percentage": "25.00%"
+            },
+            "91-105": {
+              "total": null,
+              "percentage": null
+            },
+            "106-120": {
+              "total": null,
+              "percentage": null
+            }
+          },
+          "under_over": {
+            "0.5": {
+              "over": 26,
+              "under": 10
+            },
+            "1.5": {
+              "over": 15,
+              "under": 21
+            },
+            "2.5": {
+              "over": 6,
+              "under": 30
+            },
+            "3.5": {
+              "over": 3,
+              "under": 33
+            },
+            "4.5": {
+              "over": 0,
+              "under": 36
+            }
+          }
+        },
+        "against": {
+          "total": {
+            "home": 20,
+            "away": 26,
+            "total": 46
+          },
+          "average": {
+            "home": "1.1",
+            "away": "1.4",
+            "total": "1.3"
+          },
+          "minute": {
+            "0-15": {
+              "total": 10,
+              "percentage": "20.83%"
+            },
+            "16-30": {
+              "total": 4,
+              "percentage": "8.33%"
+            },
+            "31-45": {
+              "total": 9,
+              "percentage": "18.75%"
+            },
+            "46-60": {
+              "total": 9,
+              "percentage": "18.75%"
+            },
+            "61-75": {
+              "total": 7,
+              "percentage": "14.58%"
+            },
+            "76-90": {
+              "total": 9,
+              "percentage": "18.75%"
+            },
+            "91-105": {
+              "total": null,
+              "percentage": null
+            },
+            "106-120": {
+              "total": null,
+              "percentage": null
+            }
+          },
+          "under_over": {
+            "0.5": {
+              "over": 27,
+              "under": 9
+            },
+            "1.5": {
+              "over": 11,
+              "under": 25
+            },
+            "2.5": {
+              "over": 6,
+              "under": 30
+            },
+            "3.5": {
+              "over": 2,
+              "under": 34
+            },
+            "4.5": {
+              "over": 0,
+              "under": 36
+            }
+          }
+        }
+      },
+      "biggest": {
+        "streak": {
+          "wins": 8,
+          "draws": 2,
+          "loses": 3
+        },
+        "wins": {
+          "home": "4-0",
+          "away": "0-2"
+        },
+        "loses": {
+          "home": "1-4",
+          "away": "4-1"
+        },
+        "goals": {
+          "for": {
+            "home": 4,
+            "away": 4
+          },
+          "against": {
+            "home": 4,
+            "away": 4
+          }
+        }
+      },
+      "clean_sheet": {
+        "home": 6,
+        "away": 3,
+        "total": 9
+      },
+      "failed_to_score": {
+        "home": 4,
+        "away": 6,
+        "total": 10
+      },
+      "penalty": {
+        "scored": {
+          "total": 0,
+          "percentage": "0%"
+        },
+        "missed": {
+          "total": 0,
+          "percentage": "0%"
+        },
+        "total": 0
+      },
+      "lineups": [
+        {
+          "formation": "4-2-3-1",
+          "played": 32
+        },
+        {
+          "formation": "4-4-2",
+          "played": 3
+        },
+        {
+          "formation": "4-2-2-2",
+          "played": 1
+        }
+      ],
+      "cards": {
+        "yellow": {
+          "0-15": {
+            "total": 3,
+            "percentage": "5.45%"
+          },
+          "16-30": {
+            "total": 3,
+            "percentage": "5.45%"
+          },
+          "31-45": {
+            "total": 7,
+            "percentage": "12.73%"
+          },
+          "46-60": {
+            "total": 16,
+            "percentage": "29.09%"
+          },
+          "61-75": {
+            "total": 9,
+            "percentage": "16.36%"
+          },
+          "76-90": {
+            "total": 7,
+            "percentage": "12.73%"
+          },
+          "91-105": {
+            "total": 10,
+            "percentage": "18.18%"
+          },
+          "106-120": {
+            "total": null,
+            "percentage": null
+          }
+        },
+        "red": {
+          "0-15": {
+            "total": null,
+            "percentage": null
+          },
+          "16-30": {
+            "total": null,
+            "percentage": null
+          },
+          "31-45": {
+            "total": null,
+            "percentage": null
+          },
+          "46-60": {
+            "total": null,
+            "percentage": null
+          },
+          "61-75": {
+            "total": 1,
+            "percentage": "100.00%"
+          },
+          "76-90": {
+            "total": null,
+            "percentage": null
+          },
+          "91-105": {
+            "total": null,
+            "percentage": null
+          },
+          "106-120": {
+            "total": null,
+            "percentage": null
+          }
+        }
+      }
+    },
+    "away_stats": {
+      "league": {
+        "id": 39,
+        "name": "Premier League",
+        "country": "England",
+        "logo": "https://media.api-sports.io/football/leagues/39.png",
+        "flag": "https://media.api-sports.io/flags/gb-eng.svg",
+        "season": 2025
+      },
+      "team": {
+        "id": 40,
+        "name": "Liverpool",
+        "logo": "https://media.api-sports.io/football/teams/40.png"
+      },
+      "form": "WWWWWLLLLWLLWDDWWWDDDDLWLWWWLDLWWWLD",
+      "fixtures": {
+        "played": {
+          "home": 18,
+          "away": 18,
+          "total": 36
+        },
+        "wins": {
+          "home": 10,
+          "away": 7,
+          "total": 17
+        },
+        "draws": {
+          "home": 5,
+          "away": 3,
+          "total": 8
+        },
+        "loses": {
+          "home": 3,
+          "away": 8,
+          "total": 11
+        }
+      },
+      "goals": {
+        "for": {
+          "total": {
+            "home": 33,
+            "away": 27,
+            "total": 60
+          },
+          "average": {
+            "home": "1.8",
+            "away": "1.5",
+            "total": "1.7"
+          },
+          "minute": {
+            "0-15": {
+              "total": 4,
+              "percentage": "6.90%"
+            },
+            "16-30": {
+              "total": 5,
+              "percentage": "8.62%"
+            },
+            "31-45": {
+              "total": 15,
+              "percentage": "25.86%"
+            },
+            "46-60": {
+              "total": 11,
+              "percentage": "18.97%"
+            },
+            "61-75": {
+              "total": 6,
+              "percentage": "10.34%"
+            },
+            "76-90": {
+              "total": 17,
+              "percentage": "29.31%"
+            },
+            "91-105": {
+              "total": null,
+              "percentage": null
+            },
+            "106-120": {
+              "total": null,
+              "percentage": null
+            }
+          },
+          "under_over": {
+            "0.5": {
+              "over": 32,
+              "under": 4
+            },
+            "1.5": {
+              "over": 18,
+              "under": 18
+            },
+            "2.5": {
+              "over": 6,
+              "under": 30
+            },
+            "3.5": {
+              "over": 3,
+              "under": 33
+            },
+            "4.5": {
+              "over": 1,
+              "under": 35
+            }
+          }
+        },
+        "against": {
+          "total": {
+            "home": 19,
+            "away": 29,
+            "total": 48
+          },
+          "average": {
+            "home": "1.1",
+            "away": "1.6",
+            "total": "1.3"
+          },
+          "minute": {
+            "0-15": {
+              "total": 7,
+              "percentage": "14.00%"
+            },
+            "16-30": {
+              "total": 3,
+              "percentage": "6.00%"
+            },
+            "31-45": {
+              "total": 6,
+              "percentage": "12.00%"
+            },
+            "46-60": {
+              "total": 8,
+              "percentage": "16.00%"
+            },
+            "61-75": {
+              "total": 8,
+              "percentage": "16.00%"
+            },
+            "76-90": {
+              "total": 18,
+              "percentage": "36.00%"
+            },
+            "91-105": {
+              "total": null,
+              "percentage": null
+            },
+            "106-120": {
+              "total": null,
+              "percentage": null
+            }
+          },
+          "under_over": {
+            "0.5": {
+              "over": 26,
+              "under": 10
+            },
+            "1.5": {
+              "over": 16,
+              "under": 20
+            },
+            "2.5": {
+              "over": 6,
+              "under": 30
+            },
+            "3.5": {
+              "over": 0,
+              "under": 36
+            },
+            "4.5": {
+              "over": 0,
+              "under": 36
+            }
+          }
+        }
+      },
+      "biggest": {
+        "streak": {
+          "wins": 5,
+          "draws": 4,
+          "loses": 4
+        },
+        "wins": {
+          "home": "5-2",
+          "away": "0-2"
+        },
+        "loses": {
+          "home": "0-3",
+          "away": "3-0"
+        },
+        "goals": {
+          "for": {
+            "home": 5,
+            "away": 3
+          },
+          "against": {
+            "home": 3,
+            "away": 3
+          }
+        }
+      },
+      "clean_sheet": {
+        "home": 5,
+        "away": 5,
+        "total": 10
+      },
+      "failed_to_score": {
+        "home": 2,
+        "away": 2,
+        "total": 4
+      },
+      "penalty": {
+        "scored": {
+          "total": 1,
+          "percentage": "100.00%"
+        },
+        "missed": {
+          "total": 0,
+          "percentage": "0%"
+        },
+        "total": 1
+      },
+      "lineups": [
+        {
+          "formation": "4-2-3-1",
+          "played": 32
+        },
+        {
+          "formation": "4-2-2-2",
+          "played": 2
+        },
+        {
+          "formation": "4-3-3",
+          "played": 1
+        },
+        {
+          "formation": "4-3-1-2",
+          "played": 1
+        }
+      ],
+      "cards": {
+        "yellow": {
+          "0-15": {
+            "total": 1,
+            "percentage": "1.85%"
+          },
+          "16-30": {
+            "total": 5,
+            "percentage": "9.26%"
+          },
+          "31-45": {
+            "total": 6,
+            "percentage": "11.11%"
+          },
+          "46-60": {
+            "total": 8,
+            "percentage": "14.81%"
+          },
+          "61-75": {
+            "total": 8,
+            "percentage": "14.81%"
+          },
+          "76-90": {
+            "total": 17,
+            "percentage": "31.48%"
+          },
+          "91-105": {
+            "total": 9,
+            "percentage": "16.67%"
+          },
+          "106-120": {
+            "total": null,
+            "percentage": null
+          }
+        },
+        "red": {
+          "0-15": {
+            "total": null,
+            "percentage": null
+          },
+          "16-30": {
+            "total": null,
+            "percentage": null
+          },
+          "31-45": {
+            "total": null,
+            "percentage": null
+          },
+          "46-60": {
+            "total": null,
+            "percentage": null
+          },
+          "61-75": {
+            "total": null,
+            "percentage": null
+          },
+          "76-90": {
+            "total": null,
+            "percentage": null
+          },
+          "91-105": {
+            "total": 1,
+            "percentage": "100.00%"
+          },
+          "106-120": {
+            "total": null,
+            "percentage": null
+          }
+        }
+      }
+    },
+    "errors": []
+  },
+  {
+    "key": "Çaykur Rizespor|Besiktas JK|2026-05-15",
+    "home": "Çaykur Rizespor",
+    "away": "Besiktas JK",
+    "league": "Super Lig",
+    "date": "2026-05-15",
+    "home_id": 1007,
+    "away_id": 549,
+    "league_id": 203,
+    "season": 2025,
+    "h2h": [
+      {
+        "fixture": {
+          "id": 1489349,
+          "referee": "K. Saglam",
+          "timezone": "UTC",
+          "date": "2026-03-04T17:30:00+00:00",
+          "timestamp": 1772645400,
+          "periods": {
+            "first": 1772645400,
+            "second": 1772649000
+          },
+          "venue": {
+            "id": null,
+            "name": "Tupras Stadium",
+            "city": "Istanbul"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 3
+          }
+        },
+        "league": {
+          "id": 206,
+          "name": "Türkiye Kupası",
+          "country": "Turkey",
+          "logo": "https://media.api-sports.io/football/leagues/206.png",
+          "flag": "https://media.api-sports.io/flags/tr.svg",
+          "season": 2025,
+          "round": "Group Stage - 4",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 549,
+            "name": "Beşiktaş",
+            "logo": "https://media.api-sports.io/football/teams/549.png",
+            "winner": true
+          },
+          "away": {
+            "id": 1007,
+            "name": "Rizespor",
+            "logo": "https://media.api-sports.io/football/teams/1007.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 4,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 3,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 4,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1394579,
+          "referee": "C. Aydin",
+          "timezone": "UTC",
+          "date": "2025-12-20T17:00:00+00:00",
+          "timestamp": 1766250000,
+          "periods": {
+            "first": 1766250000,
+            "second": 1766253600
+          },
+          "venue": {
+            "id": 20423,
+            "name": "Tupras Stadium",
+            "city": "Istanbul"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 5
+          }
+        },
+        "league": {
+          "id": 203,
+          "name": "Süper Lig",
+          "country": "Turkey",
+          "logo": "https://media.api-sports.io/football/leagues/203.png",
+          "flag": "https://media.api-sports.io/flags/tr.svg",
+          "season": 2025,
+          "round": "Regular Season - 17",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 549,
+            "name": "Beşiktaş",
+            "logo": "https://media.api-sports.io/football/teams/549.png",
+            "winner": true
+          },
+          "away": {
+            "id": 1007,
+            "name": "Rizespor",
+            "logo": "https://media.api-sports.io/football/teams/1007.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 1,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 1,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1238173,
+          "referee": "H. Meler",
+          "timezone": "UTC",
+          "date": "2025-05-25T16:00:00+00:00",
+          "timestamp": 1748188800,
+          "periods": {
+            "first": 1748188800,
+            "second": 1748192400
+          },
+          "venue": {
+            "id": 20423,
+            "name": "Tüpraş Stadyumu",
+            "city": "İstanbul"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 6
+          }
+        },
+        "league": {
+          "id": 203,
+          "name": "Süper Lig",
+          "country": "Turkey",
+          "logo": "https://media.api-sports.io/football/leagues/203.png",
+          "flag": "https://media.api-sports.io/flags/tr.svg",
+          "season": 2024,
+          "round": "Regular Season - 37",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 549,
+            "name": "Beşiktaş",
+            "logo": "https://media.api-sports.io/football/teams/549.png",
+            "winner": false
+          },
+          "away": {
+            "id": 1007,
+            "name": "Rizespor",
+            "logo": "https://media.api-sports.io/football/teams/1007.png",
+            "winner": true
+          }
+        },
+        "goals": {
+          "home": 1,
+          "away": 2
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 1,
+            "away": 2
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1238004,
+          "referee": "O. Ergün",
+          "timezone": "UTC",
+          "date": "2025-01-03T17:00:00+00:00",
+          "timestamp": 1735923600,
+          "periods": {
+            "first": 1735923600,
+            "second": 1735927200
+          },
+          "venue": {
+            "id": 1580,
+            "name": "Çaykur Didi Stadyumu",
+            "city": "Rize"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 6
+          }
+        },
+        "league": {
+          "id": 203,
+          "name": "Süper Lig",
+          "country": "Turkey",
+          "logo": "https://media.api-sports.io/football/leagues/203.png",
+          "flag": "https://media.api-sports.io/flags/tr.svg",
+          "season": 2024,
+          "round": "Regular Season - 18",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1007,
+            "name": "Rizespor",
+            "logo": "https://media.api-sports.io/football/teams/1007.png",
+            "winner": null
+          },
+          "away": {
+            "id": 549,
+            "name": "Beşiktaş",
+            "logo": "https://media.api-sports.io/football/teams/549.png",
+            "winner": null
+          }
+        },
+        "goals": {
+          "home": 1,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 1,
+            "away": 1
+          },
+          "fulltime": {
+            "home": 1,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1074949,
+          "referee": "A. Şansalan",
+          "timezone": "UTC",
+          "date": "2024-05-03T17:00:00+00:00",
+          "timestamp": 1714755600,
+          "periods": {
+            "first": 1714755600,
+            "second": 1714759200
+          },
+          "venue": {
+            "id": 20423,
+            "name": "Tüpraş Stadyumu",
+            "city": "İstanbul"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": null
+          }
+        },
+        "league": {
+          "id": 203,
+          "name": "Süper Lig",
+          "country": "Turkey",
+          "logo": "https://media.api-sports.io/football/leagues/203.png",
+          "flag": "https://media.api-sports.io/flags/tr.svg",
+          "season": 2023,
+          "round": "Regular Season - 35",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 549,
+            "name": "Beşiktaş",
+            "logo": "https://media.api-sports.io/football/teams/549.png",
+            "winner": true
+          },
+          "away": {
+            "id": 1007,
+            "name": "Rizespor",
+            "logo": "https://media.api-sports.io/football/teams/1007.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 3,
+          "away": 2
+        },
+        "score": {
+          "halftime": {
+            "home": 1,
+            "away": 1
+          },
+          "fulltime": {
+            "home": 3,
+            "away": 2
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1074759,
+          "referee": "A. Bitigen",
+          "timezone": "UTC",
+          "date": "2024-01-09T17:00:00+00:00",
+          "timestamp": 1704819600,
+          "periods": {
+            "first": 1704819600,
+            "second": 1704823200
+          },
+          "venue": {
+            "id": 1580,
+            "name": "Çaykur Didi Stadyumu",
+            "city": "Rize"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": null
+          }
+        },
+        "league": {
+          "id": 203,
+          "name": "Süper Lig",
+          "country": "Turkey",
+          "logo": "https://media.api-sports.io/football/leagues/203.png",
+          "flag": "https://media.api-sports.io/flags/tr.svg",
+          "season": 2023,
+          "round": "Regular Season - 16",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1007,
+            "name": "Rizespor",
+            "logo": "https://media.api-sports.io/football/teams/1007.png",
+            "winner": false
+          },
+          "away": {
+            "id": 549,
+            "name": "Beşiktaş",
+            "logo": "https://media.api-sports.io/football/teams/549.png",
+            "winner": true
+          }
+        },
+        "goals": {
+          "home": 0,
+          "away": 4
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 2
+          },
+          "fulltime": {
+            "home": 0,
+            "away": 4
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 758719,
+          "referee": "A. Ulusoy",
+          "timezone": "UTC",
+          "date": "2022-01-09T16:00:00+00:00",
+          "timestamp": 1641744000,
+          "periods": {
+            "first": 1641744000,
+            "second": 1641747600
+          },
+          "venue": {
+            "id": 1580,
+            "name": "Çaykur Didi Stadyumu",
+            "city": "Rize"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": null
+          }
+        },
+        "league": {
+          "id": 203,
+          "name": "Süper Lig",
+          "country": "Turkey",
+          "logo": "https://media.api-sports.io/football/leagues/203.png",
+          "flag": "https://media.api-sports.io/flags/tr.svg",
+          "season": 2021,
+          "round": "Regular Season - 20",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1007,
+            "name": "Rizespor",
+            "logo": "https://media.api-sports.io/football/teams/1007.png",
+            "winner": null
+          },
+          "away": {
+            "id": 549,
+            "name": "Beşiktaş",
+            "logo": "https://media.api-sports.io/football/teams/549.png",
+            "winner": null
+          }
+        },
+        "goals": {
+          "home": 2,
+          "away": 2
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 1
+          },
+          "fulltime": {
+            "home": 2,
+            "away": 2
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 727916,
+          "referee": "Z. Küçük",
+          "timezone": "UTC",
+          "date": "2021-08-13T17:30:00+00:00",
+          "timestamp": 1628875800,
+          "periods": {
+            "first": 1628875800,
+            "second": 1628879400
+          },
+          "venue": {
+            "id": 1578,
+            "name": "Vodafone Park",
+            "city": "İstanbul"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": null
+          }
+        },
+        "league": {
+          "id": 203,
+          "name": "Süper Lig",
+          "country": "Turkey",
+          "logo": "https://media.api-sports.io/football/leagues/203.png",
+          "flag": "https://media.api-sports.io/flags/tr.svg",
+          "season": 2021,
+          "round": "Regular Season - 1",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 549,
+            "name": "Beşiktaş",
+            "logo": "https://media.api-sports.io/football/teams/549.png",
+            "winner": true
+          },
+          "away": {
+            "id": 1007,
+            "name": "Rizespor",
+            "logo": "https://media.api-sports.io/football/teams/1007.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 3,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 1,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 3,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 599279,
+          "referee": "Abdulkadir Bitigen, Turkey",
+          "timezone": "UTC",
+          "date": "2021-04-28T17:30:00+00:00",
+          "timestamp": 1619631000,
+          "periods": {
+            "first": 1619631000,
+            "second": 1619634600
+          },
+          "venue": {
+            "id": 1580,
+            "name": "Çaykur Didi Stadyumu",
+            "city": "Rize"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": null
+          }
+        },
+        "league": {
+          "id": 203,
+          "name": "Süper Lig",
+          "country": "Turkey",
+          "logo": "https://media.api-sports.io/football/leagues/203.png",
+          "flag": "https://media.api-sports.io/flags/tr.svg",
+          "season": 2020,
+          "round": "Regular Season - 38",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1007,
+            "name": "Rizespor",
+            "logo": "https://media.api-sports.io/football/teams/1007.png",
+            "winner": false
+          },
+          "away": {
+            "id": 549,
+            "name": "Beşiktaş",
+            "logo": "https://media.api-sports.io/football/teams/549.png",
+            "winner": true
+          }
+        },
+        "goals": {
+          "home": 2,
+          "away": 3
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 1
+          },
+          "fulltime": {
+            "home": 2,
+            "away": 3
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 653224,
+          "referee": "Sarperbaris Saka, Turkey",
+          "timezone": "UTC",
+          "date": "2021-01-13T17:45:00+00:00",
+          "timestamp": 1610559900,
+          "periods": {
+            "first": 1610559900,
+            "second": 1610563500
+          },
+          "venue": {
+            "id": 1578,
+            "name": "Vodafone Park",
+            "city": "İstanbul"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": null
+          }
+        },
+        "league": {
+          "id": 206,
+          "name": "Türkiye Kupası",
+          "country": "Turkey",
+          "logo": "https://media.api-sports.io/football/leagues/206.png",
+          "flag": "https://media.api-sports.io/flags/tr.svg",
+          "season": 2020,
+          "round": "Round of 16",
+          "standings": false
+        },
+        "teams": {
+          "home": {
+            "id": 549,
+            "name": "Beşiktaş",
+            "logo": "https://media.api-sports.io/football/teams/549.png",
+            "winner": true
+          },
+          "away": {
+            "id": 1007,
+            "name": "Rizespor",
+            "logo": "https://media.api-sports.io/football/teams/1007.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 1,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 1,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      }
+    ],
+    "home_form": [
+      {
+        "fixture": {
+          "id": 1394724,
+          "referee": "H. U. Meler",
+          "timezone": "UTC",
+          "date": "2026-05-09T17:00:00+00:00",
+          "timestamp": 1778346000,
+          "periods": {
+            "first": 1778346000,
+            "second": 1778349600
+          },
+          "venue": {
+            "id": 1585,
+            "name": "Recep Tayyip Erdoğan Stadyumu",
+            "city": "Istanbul"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 3
+          }
+        },
+        "league": {
+          "id": 203,
+          "name": "Süper Lig",
+          "country": "Turkey",
+          "logo": "https://media.api-sports.io/football/leagues/203.png",
+          "flag": "https://media.api-sports.io/flags/tr.svg",
+          "season": 2025,
+          "round": "Regular Season - 33",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 3588,
+            "name": "Eyüpspor",
+            "logo": "https://media.api-sports.io/football/teams/3588.png",
+            "winner": true
+          },
+          "away": {
+            "id": 1007,
+            "name": "Rizespor",
+            "logo": "https://media.api-sports.io/football/teams/1007.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 4,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 3,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 4,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1394718,
+          "referee": "O. Turtay",
+          "timezone": "UTC",
+          "date": "2026-05-01T14:00:00+00:00",
+          "timestamp": 1777644000,
+          "periods": {
+            "first": 1777644000,
+            "second": 1777647600
+          },
+          "venue": {
+            "id": 1580,
+            "name": "Çaykur Didi Stadyumu",
+            "city": "Rize"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 2
+          }
+        },
+        "league": {
+          "id": 203,
+          "name": "Süper Lig",
+          "country": "Turkey",
+          "logo": "https://media.api-sports.io/football/leagues/203.png",
+          "flag": "https://media.api-sports.io/flags/tr.svg",
+          "season": 2025,
+          "round": "Regular Season - 32",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1007,
+            "name": "Rizespor",
+            "logo": "https://media.api-sports.io/football/teams/1007.png",
+            "winner": true
+          },
+          "away": {
+            "id": 607,
+            "name": "Konyaspor",
+            "logo": "https://media.api-sports.io/football/teams/607.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 3,
+          "away": 2
+        },
+        "score": {
+          "halftime": {
+            "home": 1,
+            "away": 1
+          },
+          "fulltime": {
+            "home": 3,
+            "away": 2
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1394710,
+          "referee": "G. Hasova",
+          "timezone": "UTC",
+          "date": "2026-04-25T14:00:00+00:00",
+          "timestamp": 1777125600,
+          "periods": {
+            "first": 1777125600,
+            "second": 1777129200
+          },
+          "venue": {
+            "id": 19613,
+            "name": "RHG Enerturk Enerji Stadyumu",
+            "city": "Kayseri"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 4
+          }
+        },
+        "league": {
+          "id": 203,
+          "name": "Süper Lig",
+          "country": "Turkey",
+          "logo": "https://media.api-sports.io/football/leagues/203.png",
+          "flag": "https://media.api-sports.io/flags/tr.svg",
+          "season": 2025,
+          "round": "Regular Season - 31",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1001,
+            "name": "Kayserispor",
+            "logo": "https://media.api-sports.io/football/teams/1001.png",
+            "winner": true
+          },
+          "away": {
+            "id": 1007,
+            "name": "Rizespor",
+            "logo": "https://media.api-sports.io/football/teams/1007.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 2,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 2,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1394695,
+          "referee": "A. D. Kayatepe",
+          "timezone": "UTC",
+          "date": "2026-04-17T17:00:00+00:00",
+          "timestamp": 1776445200,
+          "periods": {
+            "first": 1776445200,
+            "second": 1776448800
+          },
+          "venue": {
+            "id": 1581,
+            "name": "Chobani Stadium Fenerbahce Sukru Saracoglu",
+            "city": "Istanbul"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 10
+          }
+        },
+        "league": {
+          "id": 203,
+          "name": "Süper Lig",
+          "country": "Turkey",
+          "logo": "https://media.api-sports.io/football/leagues/203.png",
+          "flag": "https://media.api-sports.io/flags/tr.svg",
+          "season": 2025,
+          "round": "Regular Season - 30",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 611,
+            "name": "Fenerbahçe",
+            "logo": "https://media.api-sports.io/football/teams/611.png",
+            "winner": null
+          },
+          "away": {
+            "id": 1007,
+            "name": "Rizespor",
+            "logo": "https://media.api-sports.io/football/teams/1007.png",
+            "winner": null
+          }
+        },
+        "goals": {
+          "home": 2,
+          "away": 2
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 2,
+            "away": 2
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1394693,
+          "referee": "O. Ergun",
+          "timezone": "UTC",
+          "date": "2026-04-13T17:00:00+00:00",
+          "timestamp": 1776099600,
+          "periods": {
+            "first": 1776099600,
+            "second": 1776103200
+          },
+          "venue": {
+            "id": 1580,
+            "name": "Çaykur Didi Stadyumu",
+            "city": "Rize"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 8
+          }
+        },
+        "league": {
+          "id": 203,
+          "name": "Süper Lig",
+          "country": "Turkey",
+          "logo": "https://media.api-sports.io/football/leagues/203.png",
+          "flag": "https://media.api-sports.io/flags/tr.svg",
+          "season": 2025,
+          "round": "Regular Season - 29",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1007,
+            "name": "Rizespor",
+            "logo": "https://media.api-sports.io/football/teams/1007.png",
+            "winner": true
+          },
+          "away": {
+            "id": 3573,
+            "name": "Gaziantep FK",
+            "logo": "https://media.api-sports.io/football/teams/3573.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 2,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 1
+          },
+          "fulltime": {
+            "home": 2,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1394675,
+          "referee": "A. Karaoglan",
+          "timezone": "UTC",
+          "date": "2026-04-09T17:00:00+00:00",
+          "timestamp": 1775754000,
+          "periods": {
+            "first": 1775754000,
+            "second": 1775757600
+          },
+          "venue": {
+            "id": 1580,
+            "name": "Çaykur Didi Stadyumu",
+            "city": "Rize"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 4
+          }
+        },
+        "league": {
+          "id": 203,
+          "name": "Süper Lig",
+          "country": "Turkey",
+          "logo": "https://media.api-sports.io/football/leagues/203.png",
+          "flag": "https://media.api-sports.io/flags/tr.svg",
+          "season": 2025,
+          "round": "Regular Season - 27",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1007,
+            "name": "Rizespor",
+            "logo": "https://media.api-sports.io/football/teams/1007.png",
+            "winner": true
+          },
+          "away": {
+            "id": 3603,
+            "name": "Samsunspor",
+            "logo": "https://media.api-sports.io/football/teams/3603.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 4,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 3,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 4,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1394680,
+          "referee": "Y. Arslan",
+          "timezone": "UTC",
+          "date": "2026-04-05T11:30:00+00:00",
+          "timestamp": 1775388600,
+          "periods": {
+            "first": 1775388600,
+            "second": 1775392200
+          },
+          "venue": {
+            "id": 1968,
+            "name": "Atatürk Olimpiyat Stadı",
+            "city": "Istanbul"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 5
+          }
+        },
+        "league": {
+          "id": 203,
+          "name": "Süper Lig",
+          "country": "Turkey",
+          "logo": "https://media.api-sports.io/football/leagues/203.png",
+          "flag": "https://media.api-sports.io/flags/tr.svg",
+          "season": 2025,
+          "round": "Regular Season - 28",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 3589,
+            "name": "Fatih Karagümrük",
+            "logo": "https://media.api-sports.io/football/teams/3589.png",
+            "winner": true
+          },
+          "away": {
+            "id": 1007,
+            "name": "Rizespor",
+            "logo": "https://media.api-sports.io/football/teams/1007.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 2,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 1,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 2,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1394666,
+          "referee": "C. Altay",
+          "timezone": "UTC",
+          "date": "2026-03-14T17:00:00+00:00",
+          "timestamp": 1773507600,
+          "periods": {
+            "first": 1773507600,
+            "second": 1773511200
+          },
+          "venue": {
+            "id": 20189,
+            "name": "Papara Park",
+            "city": "Trabzon"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 4
+          }
+        },
+        "league": {
+          "id": 203,
+          "name": "Süper Lig",
+          "country": "Turkey",
+          "logo": "https://media.api-sports.io/football/leagues/203.png",
+          "flag": "https://media.api-sports.io/flags/tr.svg",
+          "season": 2025,
+          "round": "Regular Season - 26",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 998,
+            "name": "Trabzonspor",
+            "logo": "https://media.api-sports.io/football/teams/998.png",
+            "winner": true
+          },
+          "away": {
+            "id": 1007,
+            "name": "Rizespor",
+            "logo": "https://media.api-sports.io/football/teams/1007.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 1,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 1,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1394657,
+          "referee": "O. Aksu",
+          "timezone": "UTC",
+          "date": "2026-03-08T10:30:00+00:00",
+          "timestamp": 1772965800,
+          "periods": {
+            "first": 1772965800,
+            "second": 1772969400
+          },
+          "venue": {
+            "id": 1580,
+            "name": "Çaykur Didi Stadyumu",
+            "city": "Rize"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 5
+          }
+        },
+        "league": {
+          "id": 203,
+          "name": "Süper Lig",
+          "country": "Turkey",
+          "logo": "https://media.api-sports.io/football/leagues/203.png",
+          "flag": "https://media.api-sports.io/flags/tr.svg",
+          "season": 2025,
+          "round": "Regular Season - 25",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1007,
+            "name": "Rizespor",
+            "logo": "https://media.api-sports.io/football/teams/1007.png",
+            "winner": true
+          },
+          "away": {
+            "id": 1005,
+            "name": "Antalyaspor",
+            "logo": "https://media.api-sports.io/football/teams/1005.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 1,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 1,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 1,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1489349,
+          "referee": "K. Saglam",
+          "timezone": "UTC",
+          "date": "2026-03-04T17:30:00+00:00",
+          "timestamp": 1772645400,
+          "periods": {
+            "first": 1772645400,
+            "second": 1772649000
+          },
+          "venue": {
+            "id": null,
+            "name": "Tupras Stadium",
+            "city": "Istanbul"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 3
+          }
+        },
+        "league": {
+          "id": 206,
+          "name": "Türkiye Kupası",
+          "country": "Turkey",
+          "logo": "https://media.api-sports.io/football/leagues/206.png",
+          "flag": "https://media.api-sports.io/flags/tr.svg",
+          "season": 2025,
+          "round": "Group Stage - 4",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 549,
+            "name": "Beşiktaş",
+            "logo": "https://media.api-sports.io/football/teams/549.png",
+            "winner": true
+          },
+          "away": {
+            "id": 1007,
+            "name": "Rizespor",
+            "logo": "https://media.api-sports.io/football/teams/1007.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 4,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 3,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 4,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      }
+    ],
+    "away_form": [
+      {
+        "fixture": {
+          "id": 1394723,
+          "referee": "O. Cakir",
+          "timezone": "UTC",
+          "date": "2026-05-09T17:00:00+00:00",
+          "timestamp": 1778346000,
+          "periods": {
+            "first": 1778346000,
+            "second": 1778349600
+          },
+          "venue": {
+            "id": 20423,
+            "name": "Besiktas Park",
+            "city": "Istanbul"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 5
+          }
+        },
+        "league": {
+          "id": 203,
+          "name": "Süper Lig",
+          "country": "Turkey",
+          "logo": "https://media.api-sports.io/football/leagues/203.png",
+          "flag": "https://media.api-sports.io/flags/tr.svg",
+          "season": 2025,
+          "round": "Regular Season - 33",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 549,
+            "name": "Beşiktaş",
+            "logo": "https://media.api-sports.io/football/teams/549.png",
+            "winner": false
+          },
+          "away": {
+            "id": 998,
+            "name": "Trabzonspor",
+            "logo": "https://media.api-sports.io/football/teams/998.png",
+            "winner": true
+          }
+        },
+        "goals": {
+          "home": 1,
+          "away": 2
+        },
+        "score": {
+          "halftime": {
+            "home": 1,
+            "away": 1
+          },
+          "fulltime": {
+            "home": 1,
+            "away": 2
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1542691,
+          "referee": "Adnan Deniz Kayatepe, Türkiye",
+          "timezone": "UTC",
+          "date": "2026-05-05T17:30:00+00:00",
+          "timestamp": 1778002200,
+          "periods": {
+            "first": 1778002200,
+            "second": 1778005800
+          },
+          "venue": {
+            "id": null,
+            "name": "Besiktas Park",
+            "city": "Istanbul"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 11
+          }
+        },
+        "league": {
+          "id": 206,
+          "name": "Türkiye Kupası",
+          "country": "Turkey",
+          "logo": "https://media.api-sports.io/football/leagues/206.png",
+          "flag": "https://media.api-sports.io/flags/tr.svg",
+          "season": 2025,
+          "round": "Semi-finals",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 549,
+            "name": "Beşiktaş",
+            "logo": "https://media.api-sports.io/football/teams/549.png",
+            "winner": false
+          },
+          "away": {
+            "id": 607,
+            "name": "Konyaspor",
+            "logo": "https://media.api-sports.io/football/teams/607.png",
+            "winner": true
+          }
+        },
+        "goals": {
+          "home": 0,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 0,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1394714,
+          "referee": "A. B. Taskinsoy",
+          "timezone": "UTC",
+          "date": "2026-05-01T17:00:00+00:00",
+          "timestamp": 1777654800,
+          "periods": {
+            "first": 1777654800,
+            "second": 1777658400
+          },
+          "venue": {
+            "id": 2375,
+            "name": "Gaziantep Stadyumu",
+            "city": "Gaziantep"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": null
+          }
+        },
+        "league": {
+          "id": 203,
+          "name": "Süper Lig",
+          "country": "Turkey",
+          "logo": "https://media.api-sports.io/football/leagues/203.png",
+          "flag": "https://media.api-sports.io/flags/tr.svg",
+          "season": 2025,
+          "round": "Regular Season - 32",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 3573,
+            "name": "Gaziantep FK",
+            "logo": "https://media.api-sports.io/football/teams/3573.png",
+            "winner": false
+          },
+          "away": {
+            "id": 549,
+            "name": "Beşiktaş",
+            "logo": "https://media.api-sports.io/football/teams/549.png",
+            "winner": true
+          }
+        },
+        "goals": {
+          "home": 0,
+          "away": 2
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 2
+          },
+          "fulltime": {
+            "home": 0,
+            "away": 2
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1394705,
+          "referee": "B. Kolak",
+          "timezone": "UTC",
+          "date": "2026-04-27T17:00:00+00:00",
+          "timestamp": 1777309200,
+          "periods": {
+            "first": 1777309200,
+            "second": 1777312800
+          },
+          "venue": {
+            "id": 20423,
+            "name": "Besiktas Park",
+            "city": "Istanbul"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 6
+          }
+        },
+        "league": {
+          "id": 203,
+          "name": "Süper Lig",
+          "country": "Turkey",
+          "logo": "https://media.api-sports.io/football/leagues/203.png",
+          "flag": "https://media.api-sports.io/flags/tr.svg",
+          "season": 2025,
+          "round": "Regular Season - 31",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 549,
+            "name": "Beşiktaş",
+            "logo": "https://media.api-sports.io/football/teams/549.png",
+            "winner": null
+          },
+          "away": {
+            "id": 3589,
+            "name": "Fatih Karagümrük",
+            "logo": "https://media.api-sports.io/football/teams/3589.png",
+            "winner": null
+          }
+        },
+        "goals": {
+          "home": 0,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 0,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1531968,
+          "referee": "Cihan Aydin, Türkiye",
+          "timezone": "UTC",
+          "date": "2026-04-23T17:45:00+00:00",
+          "timestamp": 1776966300,
+          "periods": {
+            "first": 1776966300,
+            "second": 1776969900
+          },
+          "venue": {
+            "id": null,
+            "name": "Besiktas Park",
+            "city": "Istanbul"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 3
+          }
+        },
+        "league": {
+          "id": 206,
+          "name": "Türkiye Kupası",
+          "country": "Turkey",
+          "logo": "https://media.api-sports.io/football/leagues/206.png",
+          "flag": "https://media.api-sports.io/flags/tr.svg",
+          "season": 2025,
+          "round": "Quarter-finals",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 549,
+            "name": "Beşiktaş",
+            "logo": "https://media.api-sports.io/football/teams/549.png",
+            "winner": true
+          },
+          "away": {
+            "id": 996,
+            "name": "Alanyaspor",
+            "logo": "https://media.api-sports.io/football/teams/996.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 3,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 1,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 3,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1394701,
+          "referee": "G. Hasova",
+          "timezone": "UTC",
+          "date": "2026-04-19T14:00:00+00:00",
+          "timestamp": 1776607200,
+          "periods": {
+            "first": 1776607200,
+            "second": 1776610800
+          },
+          "venue": {
+            "id": 11925,
+            "name": "Samsun 19 Mayis Stadyumu",
+            "city": "Samsun"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 6
+          }
+        },
+        "league": {
+          "id": 203,
+          "name": "Süper Lig",
+          "country": "Turkey",
+          "logo": "https://media.api-sports.io/football/leagues/203.png",
+          "flag": "https://media.api-sports.io/flags/tr.svg",
+          "season": 2025,
+          "round": "Regular Season - 30",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 3603,
+            "name": "Samsunspor",
+            "logo": "https://media.api-sports.io/football/teams/3603.png",
+            "winner": true
+          },
+          "away": {
+            "id": 549,
+            "name": "Beşiktaş",
+            "logo": "https://media.api-sports.io/football/teams/549.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 2,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 2,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1394687,
+          "referee": "A. D. Kayatepe",
+          "timezone": "UTC",
+          "date": "2026-04-10T17:00:00+00:00",
+          "timestamp": 1775840400,
+          "periods": {
+            "first": 1775840400,
+            "second": 1775844000
+          },
+          "venue": {
+            "id": 20423,
+            "name": "Besiktas Park",
+            "city": "Istanbul"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 4
+          }
+        },
+        "league": {
+          "id": 203,
+          "name": "Süper Lig",
+          "country": "Turkey",
+          "logo": "https://media.api-sports.io/football/leagues/203.png",
+          "flag": "https://media.api-sports.io/flags/tr.svg",
+          "season": 2025,
+          "round": "Regular Season - 29",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 549,
+            "name": "Beşiktaş",
+            "logo": "https://media.api-sports.io/football/teams/549.png",
+            "winner": true
+          },
+          "away": {
+            "id": 1005,
+            "name": "Antalyaspor",
+            "logo": "https://media.api-sports.io/football/teams/1005.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 4,
+          "away": 2
+        },
+        "score": {
+          "halftime": {
+            "home": 3,
+            "away": 1
+          },
+          "fulltime": {
+            "home": 4,
+            "away": 2
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1394677,
+          "referee": "Y. Kol",
+          "timezone": "UTC",
+          "date": "2026-04-05T17:00:00+00:00",
+          "timestamp": 1775408400,
+          "periods": {
+            "first": 1775408400,
+            "second": 1775412000
+          },
+          "venue": {
+            "id": 1581,
+            "name": "Chobani Stadium Fenerbahce Sukru Saracoglu",
+            "city": "Istanbul"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 14
+          }
+        },
+        "league": {
+          "id": 203,
+          "name": "Süper Lig",
+          "country": "Turkey",
+          "logo": "https://media.api-sports.io/football/leagues/203.png",
+          "flag": "https://media.api-sports.io/flags/tr.svg",
+          "season": 2025,
+          "round": "Regular Season - 28",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 611,
+            "name": "Fenerbahçe",
+            "logo": "https://media.api-sports.io/football/teams/611.png",
+            "winner": true
+          },
+          "away": {
+            "id": 549,
+            "name": "Beşiktaş",
+            "logo": "https://media.api-sports.io/football/teams/549.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 1,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 1,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1394669,
+          "referee": "B. Kolak",
+          "timezone": "UTC",
+          "date": "2026-03-19T17:00:00+00:00",
+          "timestamp": 1773939600,
+          "periods": {
+            "first": 1773939600,
+            "second": 1773943200
+          },
+          "venue": {
+            "id": 20423,
+            "name": "Tupras Stadium",
+            "city": "Istanbul"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 6
+          }
+        },
+        "league": {
+          "id": 203,
+          "name": "Süper Lig",
+          "country": "Turkey",
+          "logo": "https://media.api-sports.io/football/leagues/203.png",
+          "flag": "https://media.api-sports.io/flags/tr.svg",
+          "season": 2025,
+          "round": "Regular Season - 27",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 549,
+            "name": "Beşiktaş",
+            "logo": "https://media.api-sports.io/football/teams/549.png",
+            "winner": true
+          },
+          "away": {
+            "id": 1004,
+            "name": "Kasımpaşa",
+            "logo": "https://media.api-sports.io/football/teams/1004.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 2,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 2,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 2,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1394660,
+          "referee": "Y. Kol",
+          "timezone": "UTC",
+          "date": "2026-03-15T17:00:00+00:00",
+          "timestamp": 1773594000,
+          "periods": {
+            "first": 1773594000,
+            "second": 1773597600
+          },
+          "venue": {
+            "id": 2378,
+            "name": "Eryaman Stadium",
+            "city": "Ankara"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 4
+          }
+        },
+        "league": {
+          "id": 203,
+          "name": "Süper Lig",
+          "country": "Turkey",
+          "logo": "https://media.api-sports.io/football/leagues/203.png",
+          "flag": "https://media.api-sports.io/flags/tr.svg",
+          "season": 2025,
+          "round": "Regular Season - 26",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 997,
+            "name": "Gençlerbirliği S.K.",
+            "logo": "https://media.api-sports.io/football/teams/997.png",
+            "winner": false
+          },
+          "away": {
+            "id": 549,
+            "name": "Beşiktaş",
+            "logo": "https://media.api-sports.io/football/teams/549.png",
+            "winner": true
+          }
+        },
+        "goals": {
+          "home": 0,
+          "away": 2
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 0,
+            "away": 2
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      }
+    ],
+    "home_stats": {
+      "league": {
+        "id": 203,
+        "name": "Süper Lig",
+        "country": "Turkey",
+        "logo": "https://media.api-sports.io/football/leagues/203.png",
+        "flag": "https://media.api-sports.io/flags/tr.svg",
+        "season": 2025
+      },
+      "team": {
+        "id": 1007,
+        "name": "Rizespor",
+        "logo": "https://media.api-sports.io/football/teams/1007.png"
+      },
+      "form": "LDLWDLWLDDWDLLDWLLDDLDWWWLLWWDLWL",
+      "fixtures": {
+        "played": {
+          "home": 16,
+          "away": 17,
+          "total": 33
+        },
+        "wins": {
+          "home": 8,
+          "away": 2,
+          "total": 10
+        },
+        "draws": {
+          "home": 2,
+          "away": 8,
+          "total": 10
+        },
+        "loses": {
+          "home": 6,
+          "away": 7,
+          "total": 13
+        }
+      },
+      "goals": {
+        "for": {
+          "total": {
+            "home": 22,
+            "away": 22,
+            "total": 44
+          },
+          "average": {
+            "home": "1.4",
+            "away": "1.3",
+            "total": "1.3"
+          },
+          "minute": {
+            "0-15": {
+              "total": 6,
+              "percentage": "13.64%"
+            },
+            "16-30": {
+              "total": 5,
+              "percentage": "11.36%"
+            },
+            "31-45": {
+              "total": 8,
+              "percentage": "18.18%"
+            },
+            "46-60": {
+              "total": 9,
+              "percentage": "20.45%"
+            },
+            "61-75": {
+              "total": 4,
+              "percentage": "9.09%"
+            },
+            "76-90": {
+              "total": 12,
+              "percentage": "27.27%"
+            },
+            "91-105": {
+              "total": null,
+              "percentage": null
+            },
+            "106-120": {
+              "total": null,
+              "percentage": null
+            }
+          },
+          "under_over": {
+            "0.5": {
+              "over": 24,
+              "under": 9
+            },
+            "1.5": {
+              "over": 12,
+              "under": 21
+            },
+            "2.5": {
+              "over": 5,
+              "under": 28
+            },
+            "3.5": {
+              "over": 2,
+              "under": 31
+            },
+            "4.5": {
+              "over": 1,
+              "under": 32
+            }
+          }
+        },
+        "against": {
+          "total": {
+            "home": 21,
+            "away": 29,
+            "total": 50
+          },
+          "average": {
+            "home": "1.3",
+            "away": "1.7",
+            "total": "1.5"
+          },
+          "minute": {
+            "0-15": {
+              "total": 4,
+              "percentage": "8.00%"
+            },
+            "16-30": {
+              "total": 8,
+              "percentage": "16.00%"
+            },
+            "31-45": {
+              "total": 6,
+              "percentage": "12.00%"
+            },
+            "46-60": {
+              "total": 6,
+              "percentage": "12.00%"
+            },
+            "61-75": {
+              "total": 9,
+              "percentage": "18.00%"
+            },
+            "76-90": {
+              "total": 17,
+              "percentage": "34.00%"
+            },
+            "91-105": {
+              "total": null,
+              "percentage": null
+            },
+            "106-120": {
+              "total": null,
+              "percentage": null
+            }
+          },
+          "under_over": {
+            "0.5": {
+              "over": 25,
+              "under": 8
+            },
+            "1.5": {
+              "over": 16,
+              "under": 17
+            },
+            "2.5": {
+              "over": 6,
+              "under": 27
+            },
+            "3.5": {
+              "over": 2,
+              "under": 31
+            },
+            "4.5": {
+              "over": 1,
+              "under": 32
+            }
+          }
+        }
+      },
+      "biggest": {
+        "streak": {
+          "wins": 3,
+          "draws": 2,
+          "loses": 2
+        },
+        "wins": {
+          "home": "4-1",
+          "away": "2-5"
+        },
+        "loses": {
+          "home": "2-5",
+          "away": "4-0"
+        },
+        "goals": {
+          "for": {
+            "home": 4,
+            "away": 5
+          },
+          "against": {
+            "home": 5,
+            "away": 4
+          }
+        }
+      },
+      "clean_sheet": {
+        "home": 6,
+        "away": 2,
+        "total": 8
+      },
+      "failed_to_score": {
+        "home": 4,
+        "away": 5,
+        "total": 9
+      },
+      "penalty": {
+        "scored": {
+          "total": 3,
+          "percentage": "100.00%"
+        },
+        "missed": {
+          "total": 0,
+          "percentage": "0%"
+        },
+        "total": 3
+      },
+      "lineups": [
+        {
+          "formation": "4-2-3-1",
+          "played": 15
+        },
+        {
+          "formation": "4-1-4-1",
+          "played": 8
+        },
+        {
+          "formation": "4-3-3",
+          "played": 4
+        },
+        {
+          "formation": "5-3-2",
+          "played": 3
+        },
+        {
+          "formation": "3-5-1-1",
+          "played": 1
+        },
+        {
+          "formation": "3-2-4-1",
+          "played": 1
+        },
+        {
+          "formation": "5-4-1",
+          "played": 1
+        }
+      ],
+      "cards": {
+        "yellow": {
+          "0-15": {
+            "total": 1,
+            "percentage": "1.25%"
+          },
+          "16-30": {
+            "total": 5,
+            "percentage": "6.25%"
+          },
+          "31-45": {
+            "total": 11,
+            "percentage": "13.75%"
+          },
+          "46-60": {
+            "total": 19,
+            "percentage": "23.75%"
+          },
+          "61-75": {
+            "total": 21,
+            "percentage": "26.25%"
+          },
+          "76-90": {
+            "total": 12,
+            "percentage": "15.00%"
+          },
+          "91-105": {
+            "total": 10,
+            "percentage": "12.50%"
+          },
+          "106-120": {
+            "total": null,
+            "percentage": null
+          },
+          "": {
+            "total": 1,
+            "percentage": "1.25%"
+          }
+        },
+        "red": {
+          "0-15": {
+            "total": 1,
+            "percentage": "33.33%"
+          },
+          "16-30": {
+            "total": null,
+            "percentage": null
+          },
+          "31-45": {
+            "total": null,
+            "percentage": null
+          },
+          "46-60": {
+            "total": null,
+            "percentage": null
+          },
+          "61-75": {
+            "total": 2,
+            "percentage": "66.67%"
+          },
+          "76-90": {
+            "total": null,
+            "percentage": null
+          },
+          "91-105": {
+            "total": null,
+            "percentage": null
+          },
+          "106-120": {
+            "total": null,
+            "percentage": null
+          }
+        }
+      }
+    },
+    "away_stats": {
+      "league": {
+        "id": 203,
+        "name": "Süper Lig",
+        "country": "Turkey",
+        "logo": "https://media.api-sports.io/football/leagues/203.png",
+        "flag": "https://media.api-sports.io/flags/tr.svg",
+        "season": 2025
+      },
+      "team": {
+        "id": 549,
+        "name": "Beşiktaş",
+        "logo": "https://media.api-sports.io/football/teams/549.png"
+      },
+      "form": "WLWLWWDLWDLWDWDDWWDWDWWWLWWLWLDWL",
+      "fixtures": {
+        "played": {
+          "home": 17,
+          "away": 16,
+          "total": 33
+        },
+        "wins": {
+          "home": 9,
+          "away": 8,
+          "total": 17
+        },
+        "draws": {
+          "home": 4,
+          "away": 4,
+          "total": 8
+        },
+        "loses": {
+          "home": 4,
+          "away": 4,
+          "total": 8
+        }
+      },
+      "goals": {
+        "for": {
+          "total": {
+            "home": 30,
+            "away": 27,
+            "total": 57
+          },
+          "average": {
+            "home": "1.8",
+            "away": "1.7",
+            "total": "1.7"
+          },
+          "minute": {
+            "0-15": {
+              "total": 14,
+              "percentage": "24.56%"
+            },
+            "16-30": {
+              "total": 7,
+              "percentage": "12.28%"
+            },
+            "31-45": {
+              "total": 11,
+              "percentage": "19.30%"
+            },
+            "46-60": {
+              "total": 9,
+              "percentage": "15.79%"
+            },
+            "61-75": {
+              "total": 7,
+              "percentage": "12.28%"
+            },
+            "76-90": {
+              "total": 9,
+              "percentage": "15.79%"
+            },
+            "91-105": {
+              "total": null,
+              "percentage": null
+            },
+            "106-120": {
+              "total": null,
+              "percentage": null
+            }
+          },
+          "under_over": {
+            "0.5": {
+              "over": 28,
+              "under": 5
+            },
+            "1.5": {
+              "over": 19,
+              "under": 14
+            },
+            "2.5": {
+              "over": 7,
+              "under": 26
+            },
+            "3.5": {
+              "over": 3,
+              "under": 30
+            },
+            "4.5": {
+              "over": 0,
+              "under": 33
+            }
+          }
+        },
+        "against": {
+          "total": {
+            "home": 20,
+            "away": 18,
+            "total": 38
+          },
+          "average": {
+            "home": "1.2",
+            "away": "1.1",
+            "total": "1.2"
+          },
+          "minute": {
+            "0-15": {
+              "total": 4,
+              "percentage": "10.53%"
+            },
+            "16-30": {
+              "total": 6,
+              "percentage": "15.79%"
+            },
+            "31-45": {
+              "total": 6,
+              "percentage": "15.79%"
+            },
+            "46-60": {
+              "total": 8,
+              "percentage": "21.05%"
+            },
+            "61-75": {
+              "total": 6,
+              "percentage": "15.79%"
+            },
+            "76-90": {
+              "total": 8,
+              "percentage": "21.05%"
+            },
+            "91-105": {
+              "total": null,
+              "percentage": null
+            },
+            "106-120": {
+              "total": null,
+              "percentage": null
+            }
+          },
+          "under_over": {
+            "0.5": {
+              "over": 23,
+              "under": 10
+            },
+            "1.5": {
+              "over": 12,
+              "under": 21
+            },
+            "2.5": {
+              "over": 3,
+              "under": 30
+            },
+            "3.5": {
+              "over": 0,
+              "under": 33
+            },
+            "4.5": {
+              "over": 0,
+              "under": 33
+            }
+          }
+        }
+      },
+      "biggest": {
+        "streak": {
+          "wins": 3,
+          "draws": 2,
+          "loses": 1
+        },
+        "wins": {
+          "home": "4-0",
+          "away": "0-4"
+        },
+        "loses": {
+          "home": "2-3",
+          "away": "3-0"
+        },
+        "goals": {
+          "for": {
+            "home": 4,
+            "away": 4
+          },
+          "against": {
+            "home": 3,
+            "away": 3
+          }
+        }
+      },
+      "clean_sheet": {
+        "home": 4,
+        "away": 6,
+        "total": 10
+      },
+      "failed_to_score": {
+        "home": 2,
+        "away": 3,
+        "total": 5
+      },
+      "penalty": {
+        "scored": {
+          "total": 6,
+          "percentage": "100.00%"
+        },
+        "missed": {
+          "total": 0,
+          "percentage": "0%"
+        },
+        "total": 6
+      },
+      "lineups": [
+        {
+          "formation": "4-2-3-1",
+          "played": 20
+        },
+        {
+          "formation": "4-1-4-1",
+          "played": 13
+        }
+      ],
+      "cards": {
+        "yellow": {
+          "0-15": {
+            "total": 7,
+            "percentage": "9.86%"
+          },
+          "16-30": {
+            "total": 1,
+            "percentage": "1.41%"
+          },
+          "31-45": {
+            "total": 8,
+            "percentage": "11.27%"
+          },
+          "46-60": {
+            "total": 12,
+            "percentage": "16.90%"
+          },
+          "61-75": {
+            "total": 14,
+            "percentage": "19.72%"
+          },
+          "76-90": {
+            "total": 21,
+            "percentage": "29.58%"
+          },
+          "91-105": {
+            "total": 8,
+            "percentage": "11.27%"
+          },
+          "106-120": {
+            "total": null,
+            "percentage": null
+          }
+        },
+        "red": {
+          "0-15": {
+            "total": null,
+            "percentage": null
+          },
+          "16-30": {
+            "total": 1,
+            "percentage": "25.00%"
+          },
+          "31-45": {
+            "total": 1,
+            "percentage": "25.00%"
+          },
+          "46-60": {
+            "total": null,
+            "percentage": null
+          },
+          "61-75": {
+            "total": null,
+            "percentage": null
+          },
+          "76-90": {
+            "total": 1,
+            "percentage": "25.00%"
+          },
+          "91-105": {
+            "total": 1,
+            "percentage": "25.00%"
+          },
+          "106-120": {
+            "total": null,
+            "percentage": null
+          }
+        }
+      }
+    },
+    "errors": []
+  }
+]

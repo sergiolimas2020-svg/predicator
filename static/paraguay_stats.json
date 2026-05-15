@@ -1,13 +1,48 @@
 {
-  "D. Recoleta": {
+  "Sportivo Trinidense": {
     "corners": {},
-    "goals": {
-      "over_1_5": "80%",
-      "over_2_5": "60%",
-      "over_3_5": "30%",
-      "bts": "65%"
-    },
-    "position": {}
+    "goals": {},
+    "position": {
+      "posicion": 7,
+      "partidos": 20,
+      "ganados": 6,
+      "empatados": 8,
+      "perdidos": 6,
+      "goles_favor": 25,
+      "goles_contra": 22,
+      "diferencia": 3,
+      "puntos": 26
+    }
+  },
+  "Guaraní": {
+    "corners": {},
+    "goals": {},
+    "position": {
+      "posicion": 6,
+      "partidos": 20,
+      "ganados": 6,
+      "empatados": 8,
+      "perdidos": 6,
+      "goles_favor": 25,
+      "goles_contra": 21,
+      "diferencia": 4,
+      "puntos": 26
+    }
+  },
+  "Sportivo Ameliano": {
+    "corners": {},
+    "goals": {},
+    "position": {
+      "posicion": 4,
+      "partidos": 20,
+      "ganados": 8,
+      "empatados": 9,
+      "perdidos": 3,
+      "goles_favor": 26,
+      "goles_contra": 18,
+      "diferencia": 8,
+      "puntos": 33
+    }
   },
   "Sportivo San Lorenzo": {
     "corners": {},
@@ -24,35 +59,20 @@
       "puntos": 11
     }
   },
-  "Nacional": {
+  "Rubio Ñú": {
     "corners": {},
-    "goals": {
-      "over_1_5": "75%",
-      "over_2_5": "45%",
-      "over_3_5": "15%",
-      "bts": "65%"
-    },
+    "goals": {},
     "position": {
-      "posicion": 2,
+      "posicion": 10,
       "partidos": 20,
-      "ganados": 9,
-      "empatados": 8,
-      "perdidos": 3,
-      "goles_favor": 28,
-      "goles_contra": 20,
-      "diferencia": 8,
-      "puntos": 35
+      "ganados": 6,
+      "empatados": 4,
+      "perdidos": 10,
+      "goles_favor": 14,
+      "goles_contra": 23,
+      "diferencia": -9,
+      "puntos": 22
     }
-  },
-  "San Lorenzo": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "70%",
-      "over_2_5": "40%",
-      "over_3_5": "25%",
-      "bts": "45%"
-    },
-    "position": {}
   },
   "Deportivo Recoleta": {
     "corners": {},
@@ -69,89 +89,9 @@
       "puntos": 25
     }
   },
-  "Olimpia": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "63%",
-      "over_2_5": "37%",
-      "over_3_5": "16%",
-      "bts": "47%"
-    },
-    "position": {
-      "posicion": 1,
-      "partidos": 20,
-      "ganados": 13,
-      "empatados": 4,
-      "perdidos": 3,
-      "goles_favor": 32,
-      "goles_contra": 14,
-      "diferencia": 18,
-      "puntos": 43
-    }
-  },
-  "Cerro Porteno": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "74%",
-      "over_2_5": "32%",
-      "over_3_5": "16%",
-      "bts": "37%"
-    },
-    "position": {}
-  },
-  "Sportivo Luqueño": {
-    "corners": {},
-    "goals": {},
-    "position": {
-      "posicion": 11,
-      "partidos": 20,
-      "ganados": 5,
-      "empatados": 4,
-      "perdidos": 11,
-      "goles_favor": 23,
-      "goles_contra": 31,
-      "diferencia": -8,
-      "puntos": 19
-    }
-  },
-  "S. Luqueno": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "75%",
-      "over_2_5": "55%",
-      "over_3_5": "25%",
-      "bts": "65%"
-    },
-    "position": {}
-  },
-  "Libertad": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "65%",
-      "over_2_5": "45%",
-      "over_3_5": "30%",
-      "bts": "40%"
-    },
-    "position": {
-      "posicion": 5,
-      "partidos": 20,
-      "ganados": 9,
-      "empatados": 3,
-      "perdidos": 8,
-      "goles_favor": 33,
-      "goles_contra": 24,
-      "diferencia": 9,
-      "puntos": 30
-    }
-  },
   "Club Olimpia": {
     "corners": {},
-    "goals": {
-      "over_1_5": "63%",
-      "over_2_5": "37%",
-      "over_3_5": "16%",
-      "bts": "47%"
-    },
+    "goals": {},
     "position": {
       "posicion": 1,
       "partidos": 20,
@@ -164,54 +104,19 @@
       "puntos": 43
     }
   },
-  "S. Trinidense": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "75%",
-      "over_2_5": "45%",
-      "over_3_5": "15%",
-      "bts": "70%"
-    },
-    "position": {}
-  },
-  "Trinidense": {
+  "Nacional Asunción": {
     "corners": {},
     "goals": {},
     "position": {
-      "posicion": 7,
+      "posicion": 2,
       "partidos": 20,
-      "ganados": 6,
+      "ganados": 9,
       "empatados": 8,
-      "perdidos": 6,
-      "goles_favor": 25,
-      "goles_contra": 22,
-      "diferencia": 3,
-      "puntos": 26
-    }
-  },
-  "S. Ameliano": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "70%",
-      "over_2_5": "35%",
-      "over_3_5": "15%",
-      "bts": "60%"
-    },
-    "position": {}
-  },
-  "Sportivo Ameliano": {
-    "corners": {},
-    "goals": {},
-    "position": {
-      "posicion": 4,
-      "partidos": 20,
-      "ganados": 8,
-      "empatados": 9,
       "perdidos": 3,
-      "goles_favor": 26,
-      "goles_contra": 18,
+      "goles_favor": 28,
+      "goles_contra": 20,
       "diferencia": 8,
-      "puntos": 33
+      "puntos": 35
     }
   },
   "Cerro Porteño": {
@@ -229,89 +134,54 @@
       "puntos": 35
     }
   },
-  "Guarani": {
+  "Sportivo Luqueño": {
     "corners": {},
-    "goals": {
-      "over_1_5": "65%",
-      "over_2_5": "40%",
-      "over_3_5": "30%",
-      "bts": "45%"
-    },
+    "goals": {},
     "position": {
-      "posicion": 6,
-      "partidos": 20,
-      "ganados": 6,
-      "empatados": 8,
-      "perdidos": 6,
-      "goles_favor": 25,
-      "goles_contra": 21,
-      "diferencia": 4,
-      "puntos": 26
-    }
-  },
-  "League average": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "42.0%",
-      "over_2_5": "21.0%",
-      "over_3_5": "14.3%",
-      "bts": "28.6%"
-    },
-    "position": {}
-  },
-  "Rubio Nu": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "55%",
-      "over_2_5": "25%",
-      "over_3_5": "15%",
-      "bts": "15%"
-    },
-    "position": {}
-  },
-  "2 de Mayo": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "80%",
-      "over_2_5": "45%",
-      "over_3_5": "20%",
-      "bts": "50%"
-    },
-    "position": {
-      "posicion": 10,
+      "posicion": 11,
       "partidos": 20,
       "ganados": 5,
-      "empatados": 6,
-      "perdidos": 9,
-      "goles_favor": 18,
-      "goles_contra": 34,
-      "diferencia": -16,
-      "puntos": 21
+      "empatados": 4,
+      "perdidos": 11,
+      "goles_favor": 23,
+      "goles_contra": 31,
+      "diferencia": -8,
+      "puntos": 19
     }
   },
-  "Rubio Ñú": {
+  "Libertad": {
+    "corners": {},
+    "goals": {},
+    "position": {
+      "posicion": 5,
+      "partidos": 21,
+      "ganados": 9,
+      "empatados": 4,
+      "perdidos": 8,
+      "goles_favor": 33,
+      "goles_contra": 24,
+      "diferencia": 9,
+      "puntos": 31
+    }
+  },
+  "2 de Mayo": {
     "corners": {},
     "goals": {},
     "position": {
       "posicion": 9,
-      "partidos": 20,
-      "ganados": 6,
-      "empatados": 4,
-      "perdidos": 10,
-      "goles_favor": 14,
-      "goles_contra": 23,
-      "diferencia": -9,
+      "partidos": 21,
+      "ganados": 5,
+      "empatados": 7,
+      "perdidos": 9,
+      "goles_favor": 18,
+      "goles_contra": 34,
+      "diferencia": -16,
       "puntos": 22
     }
   },
-  "Olimpia Asunción": {
+  "Olimpia": {
     "corners": {},
-    "goals": {
-      "over_1_5": "63%",
-      "over_2_5": "37%",
-      "over_3_5": "16%",
-      "bts": "47%"
-    },
+    "goals": {},
     "position": {
       "posicion": 1,
       "partidos": 20,
@@ -324,68 +194,23 @@
       "puntos": 43
     }
   },
-  "Guaraní": {
+  "Olimpia Asunción": {
     "corners": {},
-    "goals": {
-      "over_1_5": "65%",
-      "over_2_5": "40%",
-      "over_3_5": "30%",
-      "bts": "45%"
-    },
+    "goals": {},
     "position": {
-      "posicion": 6,
+      "posicion": 1,
       "partidos": 20,
-      "ganados": 6,
-      "empatados": 8,
-      "perdidos": 6,
-      "goles_favor": 25,
-      "goles_contra": 21,
-      "diferencia": 4,
-      "puntos": 26
-    }
-  },
-  "Club Guaraní": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "65%",
-      "over_2_5": "40%",
-      "over_3_5": "30%",
-      "bts": "45%"
-    },
-    "position": {
-      "posicion": 6,
-      "partidos": 20,
-      "ganados": 6,
-      "empatados": 8,
-      "perdidos": 6,
-      "goles_favor": 25,
-      "goles_contra": 21,
-      "diferencia": 4,
-      "puntos": 26
-    }
-  },
-  "Nacional Asunción": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "75%",
-      "over_2_5": "45%",
-      "over_3_5": "15%",
-      "bts": "65%"
-    },
-    "position": {
-      "posicion": 2,
-      "partidos": 20,
-      "ganados": 9,
-      "empatados": 8,
+      "ganados": 13,
+      "empatados": 4,
       "perdidos": 3,
-      "goles_favor": 28,
-      "goles_contra": 20,
-      "diferencia": 8,
-      "puntos": 35
+      "goles_favor": 32,
+      "goles_contra": 14,
+      "diferencia": 18,
+      "puntos": 43
     }
   },
   "_metadata": {
-    "fecha_actualizacion": "2026-05-14T07:38:02.608690",
+    "fecha_actualizacion": "2026-05-15T07:49:18.338938",
     "liga": "paraguay",
     "fuente": "ESPN API"
   }

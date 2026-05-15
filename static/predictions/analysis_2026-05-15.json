@@ -1,0 +1,58 @@
+{
+  "date": "2026-05-15",
+  "total_fixtures": 3,
+  "matches": [
+    {
+      "matchup": "Caykur Rizespor vs Besiktas",
+      "league": "Super Lig",
+      "home": "Caykur Rizespor",
+      "away": "Besiktas",
+      "probabilities": {
+        "win_home": 27.0,
+        "draw": 24.2,
+        "win_away": 48.8,
+        "over_2_5": 52.8,
+        "over_1_5": 76.7
+      },
+      "favorite": "Besiktas",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false
+    },
+    {
+      "matchup": "Cleveland Cavaliers vs Detroit Pistons",
+      "league": "NBA",
+      "home": "Cleveland Cavaliers",
+      "away": "Detroit Pistons",
+      "probabilities": {
+        "win_home": 44.0,
+        "draw": 0.0,
+        "win_away": 56.0,
+        "over_2_5": null,
+        "over_1_5": null
+      },
+      "favorite": "Detroit Pistons",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": true
+    },
+    {
+      "matchup": "Minnesota Timberwolves vs San Antonio Spurs",
+      "league": "NBA",
+      "home": "Minnesota Timberwolves",
+      "away": "San Antonio Spurs",
+      "probabilities": {
+        "win_home": 36.3,
+        "draw": 0.0,
+        "win_away": 63.7,
+        "over_2_5": null,
+        "over_1_5": null
+      },
+      "favorite": "San Antonio Spurs",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": true
+    }
+  ],
+  "nota": "Análisis estadístico de todos los partidos del día. Probabilidades crudas del modelo (sin ajuste por liga ni mercado). No incluye recomendación de apuesta — ver value_picks y featured_pick para picks oficiales."
+}
