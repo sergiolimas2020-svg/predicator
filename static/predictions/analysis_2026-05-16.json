@@ -1,0 +1,92 @@
+{
+  "date": "2026-05-16",
+  "total_fixtures": 5,
+  "matches": [
+    {
+      "matchup": "Deportes Tolima vs Atlético Nacional",
+      "league": "Liga Colombiana",
+      "home": "Deportes Tolima",
+      "away": "Atlético Nacional",
+      "probabilities": {
+        "win_home": 31.4,
+        "draw": 27.3,
+        "win_away": 41.3,
+        "over_2_5": 44.9,
+        "over_1_5": 70.7
+      },
+      "favorite": "Atlético Nacional",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false
+    },
+    {
+      "matchup": "Independiente Santa Fe vs Atlético Junior",
+      "league": "Liga Colombiana",
+      "home": "Independiente Santa Fe",
+      "away": "Atlético Junior",
+      "probabilities": {
+        "win_home": 31.8,
+        "draw": 27.6,
+        "win_away": 40.6,
+        "over_2_5": 52.8,
+        "over_1_5": 76.7
+      },
+      "favorite": "Atlético Junior",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false
+    },
+    {
+      "matchup": "River Plate vs Rosario Central",
+      "league": "Liga Argentina",
+      "home": "River Plate",
+      "away": "Rosario Central",
+      "probabilities": {
+        "win_home": 44.3,
+        "draw": 26.0,
+        "win_away": 29.7,
+        "over_2_5": 37.4,
+        "over_1_5": 64.2
+      },
+      "favorite": "River Plate",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false
+    },
+    {
+      "matchup": "Fatih Karagümrük vs Alanyaspor",
+      "league": "Super Lig",
+      "home": "Fatih Karagümrük",
+      "away": "Alanyaspor",
+      "probabilities": {
+        "win_home": 14.6,
+        "draw": 20.0,
+        "win_away": 65.4,
+        "over_2_5": 46.1,
+        "over_1_5": 71.7
+      },
+      "favorite": "Alanyaspor",
+      "stats_complete": true,
+      "confidence_factor": 0.92,
+      "is_nba": false
+    },
+    {
+      "matchup": "Gaziantep FK vs Istanbul Basaksehir",
+      "league": "Super Lig",
+      "home": "Gaziantep FK",
+      "away": "Istanbul Basaksehir",
+      "probabilities": {
+        "win_home": 31.0,
+        "draw": 26.9,
+        "win_away": 42.1,
+        "over_2_5": 55.1,
+        "over_1_5": 78.4
+      },
+      "favorite": "Istanbul Basaksehir",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false
+    }
+  ],
+  "nota": "Análisis estadístico de todos los partidos del día. Probabilidades crudas del modelo (sin ajuste por liga ni mercado). No incluye recomendación de apuesta — ver value_picks y featured_pick para picks oficiales."
+}

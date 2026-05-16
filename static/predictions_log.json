@@ -3630,8 +3630,8 @@
     "league": "NBA",
     "prediccion": "Detroit Pistons",
     "confianza": "Probabilidad: 56.0%",
-    "resultado_real": null,
-    "acerto": null,
+    "resultado_real": "94-115",
+    "acerto": true,
     "prob_original": 56.0,
     "confidence_factor": 1.0,
     "prob_adjusted": 56.0,
@@ -3678,5 +3678,33 @@
         "reason": "mercado_no_disponible"
       }
     ]
+  },
+  {
+    "fecha": "2026-05-16",
+    "slug": null,
+    "home": "Fatih Karagümrük",
+    "away": "Alanyaspor",
+    "league": "Super Lig",
+    "prediccion": "Doble oportunidad: Alanyaspor",
+    "confianza": "Probabilidad: 78.6%",
+    "resultado_real": null,
+    "acerto": null,
+    "prob_original": 85.4,
+    "confidence_factor": 0.92,
+    "prob_adjusted": 78.6,
+    "bk_odds": 1.521,
+    "ev": 29.9,
+    "penalty": 0.0,
+    "ev_adjusted": 19.5,
+    "value_score": 7.5235,
+    "reason": "rejected_recent_form",
+    "cuota_betplay_estimada": 1.37,
+    "ev_betplay_estimado": 7.7,
+    "tipo_pick": "rejected_recent_form",
+    "base_pick": "Alanyaspor",
+    "value_level": null,
+    "rf_wins": 1,
+    "rf_forma": "WDLLL",
+    "markets_evaluated": []
   }
 ]
