@@ -1,4 +1,374 @@
 {
+  "Cruzeiro": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "88%",
+      "over_2_5": "62%",
+      "over_3_5": "31%",
+      "bts": "62%"
+    },
+    "position": {
+      "posicion": 12,
+      "partidos": 16,
+      "ganados": 5,
+      "empatados": 5,
+      "perdidos": 6,
+      "goles_favor": 21,
+      "goles_contra": 26,
+      "diferencia": -5,
+      "puntos": 20
+    }
+  },
+  "Santos": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "87%",
+      "over_2_5": "53%",
+      "over_3_5": "33%",
+      "bts": "73%"
+    },
+    "position": {
+      "posicion": 15,
+      "partidos": 15,
+      "ganados": 4,
+      "empatados": 6,
+      "perdidos": 5,
+      "goles_favor": 21,
+      "goles_contra": 22,
+      "diferencia": -1,
+      "puntos": 18
+    }
+  },
+  "Palmeiras": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "69%",
+      "over_2_5": "50%",
+      "over_3_5": "19%",
+      "bts": "69%"
+    },
+    "position": {
+      "posicion": 1,
+      "partidos": 16,
+      "ganados": 10,
+      "empatados": 5,
+      "perdidos": 1,
+      "goles_favor": 26,
+      "goles_contra": 13,
+      "diferencia": 13,
+      "puntos": 35
+    }
+  },
+  "Bragantino": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "73%",
+      "over_2_5": "40%",
+      "over_3_5": "7%",
+      "bts": "47%"
+    },
+    "position": {
+      "posicion": 10,
+      "partidos": 15,
+      "ganados": 6,
+      "empatados": 2,
+      "perdidos": 7,
+      "goles_favor": 17,
+      "goles_contra": 18,
+      "diferencia": -1,
+      "puntos": 20
+    }
+  },
+  "Internacional": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "69%",
+      "over_2_5": "38%",
+      "over_3_5": "25%",
+      "bts": "56%"
+    },
+    "position": {
+      "posicion": 7,
+      "partidos": 16,
+      "ganados": 5,
+      "empatados": 6,
+      "perdidos": 5,
+      "goles_favor": 20,
+      "goles_contra": 17,
+      "diferencia": 3,
+      "puntos": 21
+    }
+  },
+  "League average": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "49.7%",
+      "over_2_5": "25.2%",
+      "over_3_5": "11.9%",
+      "bts": "22.8%"
+    },
+    "position": {}
+  },
+  "Sao Paulo": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "75%",
+      "over_2_5": "44%",
+      "over_3_5": "19%",
+      "bts": "56%"
+    },
+    "position": {
+      "posicion": 4,
+      "partidos": 16,
+      "ganados": 7,
+      "empatados": 3,
+      "perdidos": 6,
+      "goles_favor": 22,
+      "goles_contra": 18,
+      "diferencia": 4,
+      "puntos": 24
+    }
+  },
+  "Bahia": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "86%",
+      "over_2_5": "57%",
+      "over_3_5": "21%",
+      "bts": "64%"
+    },
+    "position": {
+      "posicion": 6,
+      "partidos": 14,
+      "ganados": 6,
+      "empatados": 4,
+      "perdidos": 4,
+      "goles_favor": 20,
+      "goles_contra": 18,
+      "diferencia": 2,
+      "puntos": 22
+    }
+  },
+  "Atletico MG": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "69%",
+      "over_2_5": "50%",
+      "over_3_5": "38%",
+      "bts": "44%"
+    },
+    "position": {
+      "posicion": 8,
+      "partidos": 16,
+      "ganados": 6,
+      "empatados": 3,
+      "perdidos": 7,
+      "goles_favor": 21,
+      "goles_contra": 22,
+      "diferencia": -1,
+      "puntos": 21
+    }
+  },
+  "Botafogo": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "93%",
+      "over_2_5": "86%",
+      "over_3_5": "50%",
+      "bts": "79%"
+    },
+    "position": {
+      "posicion": 14,
+      "partidos": 14,
+      "ganados": 5,
+      "empatados": 3,
+      "perdidos": 6,
+      "goles_favor": 26,
+      "goles_contra": 27,
+      "diferencia": -1,
+      "puntos": 18
+    }
+  },
+  "Fluminense": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "88%",
+      "over_2_5": "62%",
+      "over_3_5": "31%",
+      "bts": "75%"
+    },
+    "position": {
+      "posicion": 3,
+      "partidos": 16,
+      "ganados": 9,
+      "empatados": 3,
+      "perdidos": 4,
+      "goles_favor": 27,
+      "goles_contra": 21,
+      "diferencia": 6,
+      "puntos": 30
+    }
+  },
+  "Gremio": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "67%",
+      "over_2_5": "33%",
+      "over_3_5": "7%",
+      "bts": "47%"
+    },
+    "position": {
+      "posicion": 17,
+      "partidos": 15,
+      "ganados": 4,
+      "empatados": 5,
+      "perdidos": 6,
+      "goles_favor": 15,
+      "goles_contra": 17,
+      "diferencia": -2,
+      "puntos": 17
+    }
+  },
+  "Mirassol": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "67%",
+      "over_2_5": "60%",
+      "over_3_5": "33%",
+      "bts": "67%"
+    },
+    "position": {
+      "posicion": 18,
+      "partidos": 15,
+      "ganados": 3,
+      "empatados": 4,
+      "perdidos": 8,
+      "goles_favor": 17,
+      "goles_contra": 23,
+      "diferencia": -6,
+      "puntos": 13
+    }
+  },
+  "Corinthians": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "60%",
+      "over_2_5": "27%",
+      "over_3_5": "13%",
+      "bts": "47%"
+    },
+    "position": {
+      "posicion": 16,
+      "partidos": 15,
+      "ganados": 4,
+      "empatados": 6,
+      "perdidos": 5,
+      "goles_favor": 13,
+      "goles_contra": 15,
+      "diferencia": -2,
+      "puntos": 18
+    }
+  },
+  "Chapecoense": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "93%",
+      "over_2_5": "43%",
+      "over_3_5": "29%",
+      "bts": "64%"
+    },
+    "position": {
+      "posicion": 20,
+      "partidos": 14,
+      "ganados": 1,
+      "empatados": 6,
+      "perdidos": 7,
+      "goles_favor": 14,
+      "goles_contra": 27,
+      "diferencia": -13,
+      "puntos": 9
+    }
+  },
+  "Remo": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "80%",
+      "over_2_5": "40%",
+      "over_3_5": "27%",
+      "bts": "53%"
+    },
+    "position": {
+      "posicion": 19,
+      "partidos": 15,
+      "ganados": 2,
+      "empatados": 6,
+      "perdidos": 7,
+      "goles_favor": 16,
+      "goles_contra": 25,
+      "diferencia": -9,
+      "puntos": 12
+    }
+  },
+  "Coritiba": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "67%",
+      "over_2_5": "33%",
+      "over_3_5": "27%",
+      "bts": "47%"
+    },
+    "position": {
+      "posicion": 9,
+      "partidos": 15,
+      "ganados": 5,
+      "empatados": 5,
+      "perdidos": 5,
+      "goles_favor": 18,
+      "goles_contra": 19,
+      "diferencia": -1,
+      "puntos": 20
+    }
+  },
+  "Athletico PR": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "67%",
+      "over_2_5": "47%",
+      "over_3_5": "20%",
+      "bts": "47%"
+    },
+    "position": {
+      "posicion": 5,
+      "partidos": 15,
+      "ganados": 7,
+      "empatados": 2,
+      "perdidos": 6,
+      "goles_favor": 20,
+      "goles_contra": 16,
+      "diferencia": 4,
+      "puntos": 23
+    }
+  },
+  "Vasco da Gama": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "81%",
+      "over_2_5": "62%",
+      "over_3_5": "25%",
+      "bts": "81%"
+    },
+    "position": {
+      "posicion": 11,
+      "partidos": 16,
+      "ganados": 5,
+      "empatados": 5,
+      "perdidos": 6,
+      "goles_favor": 22,
+      "goles_contra": 25,
+      "diferencia": -3,
+      "puntos": 20
+    }
+  },
   "Vitoria": {
     "corners": {},
     "goals": {
@@ -8,7 +378,7 @@
       "bts": "50%"
     },
     "position": {
-      "posicion": 10,
+      "posicion": 13,
       "partidos": 14,
       "ganados": 5,
       "empatados": 4,
@@ -39,378 +409,8 @@
       "puntos": 30
     }
   },
-  "League average": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "49.0%",
-      "over_2_5": "24.5%",
-      "over_3_5": "11.6%",
-      "bts": "23.5%"
-    },
-    "position": {}
-  },
-  "Chapecoense": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "93%",
-      "over_2_5": "43%",
-      "over_3_5": "29%",
-      "bts": "64%"
-    },
-    "position": {
-      "posicion": 20,
-      "partidos": 14,
-      "ganados": 1,
-      "empatados": 6,
-      "perdidos": 7,
-      "goles_favor": 14,
-      "goles_contra": 27,
-      "diferencia": -13,
-      "puntos": 9
-    }
-  },
-  "Atletico MG": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "67%",
-      "over_2_5": "47%",
-      "over_3_5": "33%",
-      "bts": "40%"
-    },
-    "position": {
-      "posicion": 16,
-      "partidos": 15,
-      "ganados": 5,
-      "empatados": 3,
-      "perdidos": 7,
-      "goles_favor": 18,
-      "goles_contra": 21,
-      "diferencia": -3,
-      "puntos": 18
-    }
-  },
-  "Bragantino": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "73%",
-      "over_2_5": "40%",
-      "over_3_5": "7%",
-      "bts": "47%"
-    },
-    "position": {
-      "posicion": 9,
-      "partidos": 15,
-      "ganados": 6,
-      "empatados": 2,
-      "perdidos": 7,
-      "goles_favor": 17,
-      "goles_contra": 18,
-      "diferencia": -1,
-      "puntos": 20
-    }
-  },
-  "Corinthians": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "60%",
-      "over_2_5": "27%",
-      "over_3_5": "13%",
-      "bts": "47%"
-    },
-    "position": {
-      "posicion": 15,
-      "partidos": 15,
-      "ganados": 4,
-      "empatados": 6,
-      "perdidos": 5,
-      "goles_favor": 13,
-      "goles_contra": 15,
-      "diferencia": -2,
-      "puntos": 18
-    }
-  },
-  "Sao Paulo": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "73%",
-      "over_2_5": "40%",
-      "over_3_5": "20%",
-      "bts": "53%"
-    },
-    "position": {
-      "posicion": 4,
-      "partidos": 15,
-      "ganados": 7,
-      "empatados": 3,
-      "perdidos": 5,
-      "goles_favor": 21,
-      "goles_contra": 16,
-      "diferencia": 5,
-      "puntos": 24
-    }
-  },
-  "Botafogo": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "93%",
-      "over_2_5": "86%",
-      "over_3_5": "50%",
-      "bts": "79%"
-    },
-    "position": {
-      "posicion": 13,
-      "partidos": 14,
-      "ganados": 5,
-      "empatados": 3,
-      "perdidos": 6,
-      "goles_favor": 26,
-      "goles_contra": 27,
-      "diferencia": -1,
-      "puntos": 18
-    }
-  },
-  "Palmeiras": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "67%",
-      "over_2_5": "53%",
-      "over_3_5": "20%",
-      "bts": "67%"
-    },
-    "position": {
-      "posicion": 1,
-      "partidos": 15,
-      "ganados": 10,
-      "empatados": 4,
-      "perdidos": 1,
-      "goles_favor": 25,
-      "goles_contra": 12,
-      "diferencia": 13,
-      "puntos": 34
-    }
-  },
-  "Cruzeiro": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "87%",
-      "over_2_5": "67%",
-      "over_3_5": "33%",
-      "bts": "60%"
-    },
-    "position": {
-      "posicion": 11,
-      "partidos": 15,
-      "ganados": 5,
-      "empatados": 4,
-      "perdidos": 6,
-      "goles_favor": 20,
-      "goles_contra": 25,
-      "diferencia": -5,
-      "puntos": 19
-    }
-  },
-  "Coritiba": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "67%",
-      "over_2_5": "33%",
-      "over_3_5": "27%",
-      "bts": "47%"
-    },
-    "position": {
-      "posicion": 8,
-      "partidos": 15,
-      "ganados": 5,
-      "empatados": 5,
-      "perdidos": 5,
-      "goles_favor": 18,
-      "goles_contra": 19,
-      "diferencia": -1,
-      "puntos": 20
-    }
-  },
-  "Gremio": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "67%",
-      "over_2_5": "33%",
-      "over_3_5": "7%",
-      "bts": "47%"
-    },
-    "position": {
-      "posicion": 17,
-      "partidos": 15,
-      "ganados": 4,
-      "empatados": 5,
-      "perdidos": 6,
-      "goles_favor": 15,
-      "goles_contra": 17,
-      "diferencia": -2,
-      "puntos": 17
-    }
-  },
-  "Remo": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "80%",
-      "over_2_5": "40%",
-      "over_3_5": "27%",
-      "bts": "53%"
-    },
-    "position": {
-      "posicion": 19,
-      "partidos": 15,
-      "ganados": 2,
-      "empatados": 6,
-      "perdidos": 7,
-      "goles_favor": 16,
-      "goles_contra": 25,
-      "diferencia": -9,
-      "puntos": 12
-    }
-  },
-  "Fluminense": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "87%",
-      "over_2_5": "60%",
-      "over_3_5": "33%",
-      "bts": "73%"
-    },
-    "position": {
-      "posicion": 3,
-      "partidos": 15,
-      "ganados": 8,
-      "empatados": 3,
-      "perdidos": 4,
-      "goles_favor": 25,
-      "goles_contra": 20,
-      "diferencia": 5,
-      "puntos": 27
-    }
-  },
-  "Bahia": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "86%",
-      "over_2_5": "57%",
-      "over_3_5": "21%",
-      "bts": "64%"
-    },
-    "position": {
-      "posicion": 6,
-      "partidos": 14,
-      "ganados": 6,
-      "empatados": 4,
-      "perdidos": 4,
-      "goles_favor": 20,
-      "goles_contra": 18,
-      "diferencia": 2,
-      "puntos": 22
-    }
-  },
-  "Vasco da Gama": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "80%",
-      "over_2_5": "60%",
-      "over_3_5": "20%",
-      "bts": "80%"
-    },
-    "position": {
-      "posicion": 7,
-      "partidos": 15,
-      "ganados": 5,
-      "empatados": 5,
-      "perdidos": 5,
-      "goles_favor": 21,
-      "goles_contra": 21,
-      "diferencia": 0,
-      "puntos": 20
-    }
-  },
-  "Mirassol": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "64%",
-      "over_2_5": "57%",
-      "over_3_5": "29%",
-      "bts": "64%"
-    },
-    "position": {
-      "posicion": 18,
-      "partidos": 14,
-      "ganados": 3,
-      "empatados": 4,
-      "perdidos": 7,
-      "goles_favor": 16,
-      "goles_contra": 20,
-      "diferencia": -4,
-      "puntos": 13
-    }
-  },
-  "Athletico PR": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "67%",
-      "over_2_5": "47%",
-      "over_3_5": "20%",
-      "bts": "47%"
-    },
-    "position": {
-      "posicion": 5,
-      "partidos": 15,
-      "ganados": 7,
-      "empatados": 2,
-      "perdidos": 6,
-      "goles_favor": 20,
-      "goles_contra": 16,
-      "diferencia": 4,
-      "puntos": 23
-    }
-  },
-  "Santos": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "87%",
-      "over_2_5": "53%",
-      "over_3_5": "33%",
-      "bts": "73%"
-    },
-    "position": {
-      "posicion": 14,
-      "partidos": 15,
-      "ganados": 4,
-      "empatados": 6,
-      "perdidos": 5,
-      "goles_favor": 21,
-      "goles_contra": 22,
-      "diferencia": -1,
-      "puntos": 18
-    }
-  },
-  "Internacional": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "67%",
-      "over_2_5": "33%",
-      "over_3_5": "20%",
-      "bts": "53%"
-    },
-    "position": {
-      "posicion": 12,
-      "partidos": 15,
-      "ganados": 4,
-      "empatados": 6,
-      "perdidos": 5,
-      "goles_favor": 16,
-      "goles_contra": 16,
-      "diferencia": 0,
-      "puntos": 18
-    }
-  },
   "_metadata": {
-    "fecha_actualizacion": "2026-05-16T07:10:58.191911",
+    "fecha_actualizacion": "2026-05-17T07:30:26.009964",
     "liga": "brazil"
   }
 }
