@@ -1,0 +1,2774 @@
+[
+  {
+    "key": "Arsenal|Burnley|2026-05-18",
+    "home": "Arsenal",
+    "away": "Burnley",
+    "league": "Premier League",
+    "date": "2026-05-18",
+    "home_id": 42,
+    "away_id": 44,
+    "league_id": 39,
+    "season": 2025,
+    "h2h": [
+      {
+        "fixture": {
+          "id": 1379060,
+          "referee": "Chris Kavanagh, England",
+          "timezone": "UTC",
+          "date": "2025-11-01T15:00:00+00:00",
+          "timestamp": 1762009200,
+          "periods": {
+            "first": 1762009200,
+            "second": 1762012800
+          },
+          "venue": {
+            "id": 512,
+            "name": "Turf Moor",
+            "city": "Burnley"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 7
+          }
+        },
+        "league": {
+          "id": 39,
+          "name": "Premier League",
+          "country": "England",
+          "logo": "https://media.api-sports.io/football/leagues/39.png",
+          "flag": "https://media.api-sports.io/flags/gb-eng.svg",
+          "season": 2025,
+          "round": "Regular Season - 10",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 44,
+            "name": "Burnley",
+            "logo": "https://media.api-sports.io/football/teams/44.png",
+            "winner": false
+          },
+          "away": {
+            "id": 42,
+            "name": "Arsenal",
+            "logo": "https://media.api-sports.io/football/teams/42.png",
+            "winner": true
+          }
+        },
+        "goals": {
+          "home": 0,
+          "away": 2
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 2
+          },
+          "fulltime": {
+            "home": 0,
+            "away": 2
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1035415,
+          "referee": "J. Gillett",
+          "timezone": "UTC",
+          "date": "2024-02-17T15:00:00+00:00",
+          "timestamp": 1708182000,
+          "periods": {
+            "first": 1708182000,
+            "second": 1708185600
+          },
+          "venue": {
+            "id": 512,
+            "name": "Turf Moor",
+            "city": "Burnley"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": null
+          }
+        },
+        "league": {
+          "id": 39,
+          "name": "Premier League",
+          "country": "England",
+          "logo": "https://media.api-sports.io/football/leagues/39.png",
+          "flag": "https://media.api-sports.io/flags/gb-eng.svg",
+          "season": 2023,
+          "round": "Regular Season - 25",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 44,
+            "name": "Burnley",
+            "logo": "https://media.api-sports.io/football/teams/44.png",
+            "winner": false
+          },
+          "away": {
+            "id": 42,
+            "name": "Arsenal",
+            "logo": "https://media.api-sports.io/football/teams/42.png",
+            "winner": true
+          }
+        },
+        "goals": {
+          "home": 0,
+          "away": 5
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 2
+          },
+          "fulltime": {
+            "home": 0,
+            "away": 5
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1035148,
+          "referee": "M. Oliver",
+          "timezone": "UTC",
+          "date": "2023-11-11T15:00:00+00:00",
+          "timestamp": 1699714800,
+          "periods": {
+            "first": 1699714800,
+            "second": 1699718400
+          },
+          "venue": {
+            "id": 494,
+            "name": "Emirates Stadium",
+            "city": "London"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": null
+          }
+        },
+        "league": {
+          "id": 39,
+          "name": "Premier League",
+          "country": "England",
+          "logo": "https://media.api-sports.io/football/leagues/39.png",
+          "flag": "https://media.api-sports.io/flags/gb-eng.svg",
+          "season": 2023,
+          "round": "Regular Season - 12",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 42,
+            "name": "Arsenal",
+            "logo": "https://media.api-sports.io/football/teams/42.png",
+            "winner": true
+          },
+          "away": {
+            "id": 44,
+            "name": "Burnley",
+            "logo": "https://media.api-sports.io/football/teams/44.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 3,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 1,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 3,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 710776,
+          "referee": "D. Coote",
+          "timezone": "UTC",
+          "date": "2022-01-23T14:00:00+00:00",
+          "timestamp": 1642946400,
+          "periods": {
+            "first": 1642946400,
+            "second": 1642950000
+          },
+          "venue": {
+            "id": 494,
+            "name": "Emirates Stadium",
+            "city": "London"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": null
+          }
+        },
+        "league": {
+          "id": 39,
+          "name": "Premier League",
+          "country": "England",
+          "logo": "https://media.api-sports.io/football/leagues/39.png",
+          "flag": "https://media.api-sports.io/flags/gb-eng.svg",
+          "season": 2021,
+          "round": "Regular Season - 23",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 42,
+            "name": "Arsenal",
+            "logo": "https://media.api-sports.io/football/teams/42.png",
+            "winner": null
+          },
+          "away": {
+            "id": 44,
+            "name": "Burnley",
+            "logo": "https://media.api-sports.io/football/teams/44.png",
+            "winner": null
+          }
+        },
+        "goals": {
+          "home": 0,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 0,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 710598,
+          "referee": "A. Taylor",
+          "timezone": "UTC",
+          "date": "2021-09-18T14:00:00+00:00",
+          "timestamp": 1631973600,
+          "periods": {
+            "first": 1631973600,
+            "second": 1631977200
+          },
+          "venue": {
+            "id": 512,
+            "name": "Turf Moor",
+            "city": "Burnley"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": null
+          }
+        },
+        "league": {
+          "id": 39,
+          "name": "Premier League",
+          "country": "England",
+          "logo": "https://media.api-sports.io/football/leagues/39.png",
+          "flag": "https://media.api-sports.io/flags/gb-eng.svg",
+          "season": 2021,
+          "round": "Regular Season - 5",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 44,
+            "name": "Burnley",
+            "logo": "https://media.api-sports.io/football/teams/44.png",
+            "winner": false
+          },
+          "away": {
+            "id": 42,
+            "name": "Arsenal",
+            "logo": "https://media.api-sports.io/football/teams/42.png",
+            "winner": true
+          }
+        },
+        "goals": {
+          "home": 0,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 1
+          },
+          "fulltime": {
+            "home": 0,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 592758,
+          "referee": "A. Marriner",
+          "timezone": "UTC",
+          "date": "2021-03-06T12:30:00+00:00",
+          "timestamp": 1615033800,
+          "periods": {
+            "first": 1615033800,
+            "second": 1615037400
+          },
+          "venue": {
+            "id": 512,
+            "name": "Turf Moor",
+            "city": "Burnley"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": null
+          }
+        },
+        "league": {
+          "id": 39,
+          "name": "Premier League",
+          "country": "England",
+          "logo": "https://media.api-sports.io/football/leagues/39.png",
+          "flag": "https://media.api-sports.io/flags/gb-eng.svg",
+          "season": 2020,
+          "round": "Regular Season - 27",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 44,
+            "name": "Burnley",
+            "logo": "https://media.api-sports.io/football/teams/44.png",
+            "winner": null
+          },
+          "away": {
+            "id": 42,
+            "name": "Arsenal",
+            "logo": "https://media.api-sports.io/football/teams/42.png",
+            "winner": null
+          }
+        },
+        "goals": {
+          "home": 1,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 1,
+            "away": 1
+          },
+          "fulltime": {
+            "home": 1,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 592251,
+          "referee": "G. Scott",
+          "timezone": "UTC",
+          "date": "2020-12-13T19:15:00+00:00",
+          "timestamp": 1607886900,
+          "periods": {
+            "first": 1607886900,
+            "second": 1607890500
+          },
+          "venue": {
+            "id": 494,
+            "name": "Emirates Stadium",
+            "city": "London"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": null
+          }
+        },
+        "league": {
+          "id": 39,
+          "name": "Premier League",
+          "country": "England",
+          "logo": "https://media.api-sports.io/football/leagues/39.png",
+          "flag": "https://media.api-sports.io/flags/gb-eng.svg",
+          "season": 2020,
+          "round": "Regular Season - 12",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 42,
+            "name": "Arsenal",
+            "logo": "https://media.api-sports.io/football/teams/42.png",
+            "winner": false
+          },
+          "away": {
+            "id": 44,
+            "name": "Burnley",
+            "logo": "https://media.api-sports.io/football/teams/44.png",
+            "winner": true
+          }
+        },
+        "goals": {
+          "home": 0,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 0,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 157256,
+          "referee": "Chris Kavanagh, England",
+          "timezone": "UTC",
+          "date": "2020-02-02T14:00:00+00:00",
+          "timestamp": 1580652000,
+          "periods": {
+            "first": 1580652000,
+            "second": 1580655600
+          },
+          "venue": {
+            "id": 512,
+            "name": "Turf Moor",
+            "city": "Burnley"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": null
+          }
+        },
+        "league": {
+          "id": 39,
+          "name": "Premier League",
+          "country": "England",
+          "logo": "https://media.api-sports.io/football/leagues/39.png",
+          "flag": "https://media.api-sports.io/flags/gb-eng.svg",
+          "season": 2019,
+          "round": "Regular Season - 25",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 44,
+            "name": "Burnley",
+            "logo": "https://media.api-sports.io/football/teams/44.png",
+            "winner": null
+          },
+          "away": {
+            "id": 42,
+            "name": "Arsenal",
+            "logo": "https://media.api-sports.io/football/teams/42.png",
+            "winner": null
+          }
+        },
+        "goals": {
+          "home": 0,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 0,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 157025,
+          "referee": "Mike Dean, England",
+          "timezone": "UTC",
+          "date": "2019-08-17T11:30:00+00:00",
+          "timestamp": 1566041400,
+          "periods": {
+            "first": 1566041400,
+            "second": 1566045000
+          },
+          "venue": {
+            "id": 494,
+            "name": "Emirates Stadium",
+            "city": "London"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": null
+          }
+        },
+        "league": {
+          "id": 39,
+          "name": "Premier League",
+          "country": "England",
+          "logo": "https://media.api-sports.io/football/leagues/39.png",
+          "flag": "https://media.api-sports.io/flags/gb-eng.svg",
+          "season": 2019,
+          "round": "Regular Season - 2",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 42,
+            "name": "Arsenal",
+            "logo": "https://media.api-sports.io/football/teams/42.png",
+            "winner": true
+          },
+          "away": {
+            "id": 44,
+            "name": "Burnley",
+            "logo": "https://media.api-sports.io/football/teams/44.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 2,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 1,
+            "away": 1
+          },
+          "fulltime": {
+            "home": 2,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 436,
+          "referee": "Mike Dean, England",
+          "timezone": "UTC",
+          "date": "2019-05-12T14:00:00+00:00",
+          "timestamp": 1557669600,
+          "periods": {
+            "first": 1557669600,
+            "second": 1557673200
+          },
+          "venue": {
+            "id": 512,
+            "name": "Turf Moor",
+            "city": "Burnley"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": null
+          }
+        },
+        "league": {
+          "id": 39,
+          "name": "Premier League",
+          "country": "England",
+          "logo": "https://media.api-sports.io/football/leagues/39.png",
+          "flag": "https://media.api-sports.io/flags/gb-eng.svg",
+          "season": 2018,
+          "round": "Regular Season - 38",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 44,
+            "name": "Burnley",
+            "logo": "https://media.api-sports.io/football/teams/44.png",
+            "winner": false
+          },
+          "away": {
+            "id": 42,
+            "name": "Arsenal",
+            "logo": "https://media.api-sports.io/football/teams/42.png",
+            "winner": true
+          }
+        },
+        "goals": {
+          "home": 1,
+          "away": 3
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 1,
+            "away": 3
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      }
+    ],
+    "home_form": [
+      {
+        "fixture": {
+          "id": 1379328,
+          "referee": "Chris Kavanagh, England",
+          "timezone": "UTC",
+          "date": "2026-05-10T15:30:00+00:00",
+          "timestamp": 1778427000,
+          "periods": {
+            "first": 1778427000,
+            "second": 1778430600
+          },
+          "venue": {
+            "id": 598,
+            "name": "London Stadium",
+            "city": "London"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 12
+          }
+        },
+        "league": {
+          "id": 39,
+          "name": "Premier League",
+          "country": "England",
+          "logo": "https://media.api-sports.io/football/leagues/39.png",
+          "flag": "https://media.api-sports.io/flags/gb-eng.svg",
+          "season": 2025,
+          "round": "Regular Season - 36",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 48,
+            "name": "West Ham",
+            "logo": "https://media.api-sports.io/football/teams/48.png",
+            "winner": false
+          },
+          "away": {
+            "id": 42,
+            "name": "Arsenal",
+            "logo": "https://media.api-sports.io/football/teams/42.png",
+            "winner": true
+          }
+        },
+        "goals": {
+          "home": 0,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 0,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1540843,
+          "referee": "D. Siebert",
+          "timezone": "UTC",
+          "date": "2026-05-05T19:00:00+00:00",
+          "timestamp": 1778007600,
+          "periods": {
+            "first": 1778007600,
+            "second": 1778011200
+          },
+          "venue": {
+            "id": null,
+            "name": "Emirates Stadium",
+            "city": "London"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 5
+          }
+        },
+        "league": {
+          "id": 2,
+          "name": "UEFA Champions League",
+          "country": "World",
+          "logo": "https://media.api-sports.io/football/leagues/2.png",
+          "flag": null,
+          "season": 2025,
+          "round": "Semi-finals",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 42,
+            "name": "Arsenal",
+            "logo": "https://media.api-sports.io/football/teams/42.png",
+            "winner": true
+          },
+          "away": {
+            "id": 530,
+            "name": "Atletico Madrid",
+            "logo": "https://media.api-sports.io/football/teams/530.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 1,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 1,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 1,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1379309,
+          "referee": "Jarred Gillett, Australia",
+          "timezone": "UTC",
+          "date": "2026-05-02T16:30:00+00:00",
+          "timestamp": 1777739400,
+          "periods": {
+            "first": 1777739400,
+            "second": 1777743000
+          },
+          "venue": {
+            "id": 494,
+            "name": "Emirates Stadium",
+            "city": "London"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 4
+          }
+        },
+        "league": {
+          "id": 39,
+          "name": "Premier League",
+          "country": "England",
+          "logo": "https://media.api-sports.io/football/leagues/39.png",
+          "flag": "https://media.api-sports.io/flags/gb-eng.svg",
+          "season": 2025,
+          "round": "Regular Season - 35",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 42,
+            "name": "Arsenal",
+            "logo": "https://media.api-sports.io/football/teams/42.png",
+            "winner": true
+          },
+          "away": {
+            "id": 36,
+            "name": "Fulham",
+            "logo": "https://media.api-sports.io/football/teams/36.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 3,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 3,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 3,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1540842,
+          "referee": "D. Makkelie",
+          "timezone": "UTC",
+          "date": "2026-04-29T19:00:00+00:00",
+          "timestamp": 1777489200,
+          "periods": {
+            "first": 1777489200,
+            "second": 1777492800
+          },
+          "venue": {
+            "id": null,
+            "name": "Metropolitano Stadium",
+            "city": "Madrid"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 8
+          }
+        },
+        "league": {
+          "id": 2,
+          "name": "UEFA Champions League",
+          "country": "World",
+          "logo": "https://media.api-sports.io/football/leagues/2.png",
+          "flag": null,
+          "season": 2025,
+          "round": "Semi-finals",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 530,
+            "name": "Atletico Madrid",
+            "logo": "https://media.api-sports.io/football/teams/530.png",
+            "winner": null
+          },
+          "away": {
+            "id": 42,
+            "name": "Arsenal",
+            "logo": "https://media.api-sports.io/football/teams/42.png",
+            "winner": null
+          }
+        },
+        "goals": {
+          "home": 1,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 1
+          },
+          "fulltime": {
+            "home": 1,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1379299,
+          "referee": "Samuel Barrott, England",
+          "timezone": "UTC",
+          "date": "2026-04-25T16:30:00+00:00",
+          "timestamp": 1777134600,
+          "periods": {
+            "first": 1777134600,
+            "second": 1777138200
+          },
+          "venue": {
+            "id": 494,
+            "name": "Emirates Stadium",
+            "city": "London"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 8
+          }
+        },
+        "league": {
+          "id": 39,
+          "name": "Premier League",
+          "country": "England",
+          "logo": "https://media.api-sports.io/football/leagues/39.png",
+          "flag": "https://media.api-sports.io/flags/gb-eng.svg",
+          "season": 2025,
+          "round": "Regular Season - 34",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 42,
+            "name": "Arsenal",
+            "logo": "https://media.api-sports.io/football/teams/42.png",
+            "winner": true
+          },
+          "away": {
+            "id": 34,
+            "name": "Newcastle",
+            "logo": "https://media.api-sports.io/football/teams/34.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 1,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 1,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 1,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1379295,
+          "referee": "Anthony Taylor, England",
+          "timezone": "UTC",
+          "date": "2026-04-19T15:30:00+00:00",
+          "timestamp": 1776612600,
+          "periods": {
+            "first": 1776612600,
+            "second": 1776616200
+          },
+          "venue": {
+            "id": 555,
+            "name": "Etihad Stadium",
+            "city": "Manchester"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 7
+          }
+        },
+        "league": {
+          "id": 39,
+          "name": "Premier League",
+          "country": "England",
+          "logo": "https://media.api-sports.io/football/leagues/39.png",
+          "flag": "https://media.api-sports.io/flags/gb-eng.svg",
+          "season": 2025,
+          "round": "Regular Season - 33",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 50,
+            "name": "Manchester City",
+            "logo": "https://media.api-sports.io/football/teams/50.png",
+            "winner": true
+          },
+          "away": {
+            "id": 42,
+            "name": "Arsenal",
+            "logo": "https://media.api-sports.io/football/teams/42.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 2,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 1,
+            "away": 1
+          },
+          "fulltime": {
+            "home": 2,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1534571,
+          "referee": "F. Letexier",
+          "timezone": "UTC",
+          "date": "2026-04-15T19:00:00+00:00",
+          "timestamp": 1776279600,
+          "periods": {
+            "first": 1776279600,
+            "second": 1776283200
+          },
+          "venue": {
+            "id": null,
+            "name": "Emirates Stadium",
+            "city": "London"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 5
+          }
+        },
+        "league": {
+          "id": 2,
+          "name": "UEFA Champions League",
+          "country": "World",
+          "logo": "https://media.api-sports.io/football/leagues/2.png",
+          "flag": null,
+          "season": 2025,
+          "round": "Quarter-finals",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 42,
+            "name": "Arsenal",
+            "logo": "https://media.api-sports.io/football/teams/42.png",
+            "winner": null
+          },
+          "away": {
+            "id": 228,
+            "name": "Sporting CP",
+            "logo": "https://media.api-sports.io/football/teams/228.png",
+            "winner": null
+          }
+        },
+        "goals": {
+          "home": 0,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 0,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1379279,
+          "referee": "Michael Oliver, England",
+          "timezone": "UTC",
+          "date": "2026-04-11T11:30:00+00:00",
+          "timestamp": 1775907000,
+          "periods": {
+            "first": 1775907000,
+            "second": 1775910600
+          },
+          "venue": {
+            "id": 494,
+            "name": "Emirates Stadium",
+            "city": "London"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 6
+          }
+        },
+        "league": {
+          "id": 39,
+          "name": "Premier League",
+          "country": "England",
+          "logo": "https://media.api-sports.io/football/leagues/39.png",
+          "flag": "https://media.api-sports.io/flags/gb-eng.svg",
+          "season": 2025,
+          "round": "Regular Season - 32",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 42,
+            "name": "Arsenal",
+            "logo": "https://media.api-sports.io/football/teams/42.png",
+            "winner": false
+          },
+          "away": {
+            "id": 35,
+            "name": "Bournemouth",
+            "logo": "https://media.api-sports.io/football/teams/35.png",
+            "winner": true
+          }
+        },
+        "goals": {
+          "home": 1,
+          "away": 2
+        },
+        "score": {
+          "halftime": {
+            "home": 1,
+            "away": 1
+          },
+          "fulltime": {
+            "home": 1,
+            "away": 2
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1534570,
+          "referee": "D. Siebert",
+          "timezone": "UTC",
+          "date": "2026-04-07T19:00:00+00:00",
+          "timestamp": 1775588400,
+          "periods": {
+            "first": 1775588400,
+            "second": 1775592000
+          },
+          "venue": {
+            "id": null,
+            "name": "Estádio José Alvalade",
+            "city": "Lisbon"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 4
+          }
+        },
+        "league": {
+          "id": 2,
+          "name": "UEFA Champions League",
+          "country": "World",
+          "logo": "https://media.api-sports.io/football/leagues/2.png",
+          "flag": null,
+          "season": 2025,
+          "round": "Quarter-finals",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 228,
+            "name": "Sporting CP",
+            "logo": "https://media.api-sports.io/football/teams/228.png",
+            "winner": false
+          },
+          "away": {
+            "id": 42,
+            "name": "Arsenal",
+            "logo": "https://media.api-sports.io/football/teams/42.png",
+            "winner": true
+          }
+        },
+        "goals": {
+          "home": 0,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 0,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1531572,
+          "referee": "Samuel Barrott, England",
+          "timezone": "UTC",
+          "date": "2026-04-04T19:00:00+00:00",
+          "timestamp": 1775329200,
+          "periods": {
+            "first": 1775329200,
+            "second": 1775332800
+          },
+          "venue": {
+            "id": null,
+            "name": "St. Mary's Stadium",
+            "city": "Southampton"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 8
+          }
+        },
+        "league": {
+          "id": 45,
+          "name": "FA Cup",
+          "country": "England",
+          "logo": "https://media.api-sports.io/football/leagues/45.png",
+          "flag": "https://media.api-sports.io/flags/gb-eng.svg",
+          "season": 2025,
+          "round": "Quarter-finals",
+          "standings": false
+        },
+        "teams": {
+          "home": {
+            "id": 41,
+            "name": "Southampton",
+            "logo": "https://media.api-sports.io/football/teams/41.png",
+            "winner": true
+          },
+          "away": {
+            "id": 42,
+            "name": "Arsenal",
+            "logo": "https://media.api-sports.io/football/teams/42.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 2,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 1,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 2,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      }
+    ],
+    "away_form": [
+      {
+        "fixture": {
+          "id": 1379320,
+          "referee": "Anthony Taylor, England",
+          "timezone": "UTC",
+          "date": "2026-05-10T13:00:00+00:00",
+          "timestamp": 1778418000,
+          "periods": {
+            "first": 1778418000,
+            "second": 1778421600
+          },
+          "venue": {
+            "id": 512,
+            "name": "Turf Moor",
+            "city": "Burnley"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 7
+          }
+        },
+        "league": {
+          "id": 39,
+          "name": "Premier League",
+          "country": "England",
+          "logo": "https://media.api-sports.io/football/leagues/39.png",
+          "flag": "https://media.api-sports.io/flags/gb-eng.svg",
+          "season": 2025,
+          "round": "Regular Season - 36",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 44,
+            "name": "Burnley",
+            "logo": "https://media.api-sports.io/football/teams/44.png",
+            "winner": null
+          },
+          "away": {
+            "id": 66,
+            "name": "Aston Villa",
+            "logo": "https://media.api-sports.io/football/teams/66.png",
+            "winner": null
+          }
+        },
+        "goals": {
+          "home": 2,
+          "away": 2
+        },
+        "score": {
+          "halftime": {
+            "home": 1,
+            "away": 1
+          },
+          "fulltime": {
+            "home": 2,
+            "away": 2
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1379315,
+          "referee": "Thomas Bramall, England",
+          "timezone": "UTC",
+          "date": "2026-05-01T19:00:00+00:00",
+          "timestamp": 1777662000,
+          "periods": {
+            "first": 1777662000,
+            "second": 1777665600
+          },
+          "venue": {
+            "id": 546,
+            "name": "Elland Road",
+            "city": "Leeds"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": null
+          }
+        },
+        "league": {
+          "id": 39,
+          "name": "Premier League",
+          "country": "England",
+          "logo": "https://media.api-sports.io/football/leagues/39.png",
+          "flag": "https://media.api-sports.io/flags/gb-eng.svg",
+          "season": 2025,
+          "round": "Regular Season - 35",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 63,
+            "name": "Leeds",
+            "logo": "https://media.api-sports.io/football/teams/63.png",
+            "winner": true
+          },
+          "away": {
+            "id": 44,
+            "name": "Burnley",
+            "logo": "https://media.api-sports.io/football/teams/44.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 3,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 1,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 3,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1379302,
+          "referee": "Andy Madley, England",
+          "timezone": "UTC",
+          "date": "2026-04-22T19:00:00+00:00",
+          "timestamp": 1776884400,
+          "periods": {
+            "first": 1776884400,
+            "second": 1776888000
+          },
+          "venue": {
+            "id": 512,
+            "name": "Turf Moor",
+            "city": "Burnley"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 5
+          }
+        },
+        "league": {
+          "id": 39,
+          "name": "Premier League",
+          "country": "England",
+          "logo": "https://media.api-sports.io/football/leagues/39.png",
+          "flag": "https://media.api-sports.io/flags/gb-eng.svg",
+          "season": 2025,
+          "round": "Regular Season - 34",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 44,
+            "name": "Burnley",
+            "logo": "https://media.api-sports.io/football/teams/44.png",
+            "winner": false
+          },
+          "away": {
+            "id": 50,
+            "name": "Manchester City",
+            "logo": "https://media.api-sports.io/football/teams/50.png",
+            "winner": true
+          }
+        },
+        "goals": {
+          "home": 0,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 1
+          },
+          "fulltime": {
+            "home": 0,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1379297,
+          "referee": "Thomas Kirk, England",
+          "timezone": "UTC",
+          "date": "2026-04-19T13:00:00+00:00",
+          "timestamp": 1776603600,
+          "periods": {
+            "first": 1776603600,
+            "second": 1776607200
+          },
+          "venue": {
+            "id": 566,
+            "name": "City Ground",
+            "city": "Nottingham"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 9
+          }
+        },
+        "league": {
+          "id": 39,
+          "name": "Premier League",
+          "country": "England",
+          "logo": "https://media.api-sports.io/football/leagues/39.png",
+          "flag": "https://media.api-sports.io/flags/gb-eng.svg",
+          "season": 2025,
+          "round": "Regular Season - 33",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 65,
+            "name": "Nottingham Forest",
+            "logo": "https://media.api-sports.io/football/teams/65.png",
+            "winner": true
+          },
+          "away": {
+            "id": 44,
+            "name": "Burnley",
+            "logo": "https://media.api-sports.io/football/teams/44.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 4,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 1
+          },
+          "fulltime": {
+            "home": 4,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1379281,
+          "referee": "Thomas Bramall, England",
+          "timezone": "UTC",
+          "date": "2026-04-11T14:00:00+00:00",
+          "timestamp": 1775916000,
+          "periods": {
+            "first": 1775916000,
+            "second": 1775919600
+          },
+          "venue": {
+            "id": 512,
+            "name": "Turf Moor",
+            "city": "Burnley"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 6
+          }
+        },
+        "league": {
+          "id": 39,
+          "name": "Premier League",
+          "country": "England",
+          "logo": "https://media.api-sports.io/football/leagues/39.png",
+          "flag": "https://media.api-sports.io/flags/gb-eng.svg",
+          "season": 2025,
+          "round": "Regular Season - 32",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 44,
+            "name": "Burnley",
+            "logo": "https://media.api-sports.io/football/teams/44.png",
+            "winner": false
+          },
+          "away": {
+            "id": 51,
+            "name": "Brighton",
+            "logo": "https://media.api-sports.io/football/teams/51.png",
+            "winner": true
+          }
+        },
+        "goals": {
+          "home": 0,
+          "away": 2
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 1
+          },
+          "fulltime": {
+            "home": 0,
+            "away": 2
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1379273,
+          "referee": "Chris Kavanagh, England",
+          "timezone": "UTC",
+          "date": "2026-03-21T15:00:00+00:00",
+          "timestamp": 1774105200,
+          "periods": {
+            "first": 1774105200,
+            "second": 1774108800
+          },
+          "venue": {
+            "id": 535,
+            "name": "Craven Cottage",
+            "city": "London"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 8
+          }
+        },
+        "league": {
+          "id": 39,
+          "name": "Premier League",
+          "country": "England",
+          "logo": "https://media.api-sports.io/football/leagues/39.png",
+          "flag": "https://media.api-sports.io/flags/gb-eng.svg",
+          "season": 2025,
+          "round": "Regular Season - 31",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 36,
+            "name": "Fulham",
+            "logo": "https://media.api-sports.io/football/teams/36.png",
+            "winner": true
+          },
+          "away": {
+            "id": 44,
+            "name": "Burnley",
+            "logo": "https://media.api-sports.io/football/teams/44.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 3,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 3,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1379261,
+          "referee": "Peter Bankes, England",
+          "timezone": "UTC",
+          "date": "2026-03-14T15:00:00+00:00",
+          "timestamp": 1773500400,
+          "periods": {
+            "first": 1773500400,
+            "second": 1773504000
+          },
+          "venue": {
+            "id": 512,
+            "name": "Turf Moor",
+            "city": "Burnley"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": null
+          }
+        },
+        "league": {
+          "id": 39,
+          "name": "Premier League",
+          "country": "England",
+          "logo": "https://media.api-sports.io/football/leagues/39.png",
+          "flag": "https://media.api-sports.io/flags/gb-eng.svg",
+          "season": 2025,
+          "round": "Regular Season - 30",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 44,
+            "name": "Burnley",
+            "logo": "https://media.api-sports.io/football/teams/44.png",
+            "winner": null
+          },
+          "away": {
+            "id": 35,
+            "name": "Bournemouth",
+            "logo": "https://media.api-sports.io/football/teams/35.png",
+            "winner": null
+          }
+        },
+        "goals": {
+          "home": 0,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 0,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1379252,
+          "referee": "Tim Robinson, England",
+          "timezone": "UTC",
+          "date": "2026-03-03T19:30:00+00:00",
+          "timestamp": 1772566200,
+          "periods": {
+            "first": 1772566200,
+            "second": 1772569800
+          },
+          "venue": {
+            "id": 22033,
+            "name": "Hill Dickinson Stadium",
+            "city": "Liverpool"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 9
+          }
+        },
+        "league": {
+          "id": 39,
+          "name": "Premier League",
+          "country": "England",
+          "logo": "https://media.api-sports.io/football/leagues/39.png",
+          "flag": "https://media.api-sports.io/flags/gb-eng.svg",
+          "season": 2025,
+          "round": "Regular Season - 29",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 45,
+            "name": "Everton",
+            "logo": "https://media.api-sports.io/football/teams/45.png",
+            "winner": true
+          },
+          "away": {
+            "id": 44,
+            "name": "Burnley",
+            "logo": "https://media.api-sports.io/football/teams/44.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 2,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 1,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 2,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1379242,
+          "referee": "Samuel Barrott, England",
+          "timezone": "UTC",
+          "date": "2026-02-28T15:00:00+00:00",
+          "timestamp": 1772290800,
+          "periods": {
+            "first": 1772290800,
+            "second": 1772294400
+          },
+          "venue": {
+            "id": 512,
+            "name": "Turf Moor",
+            "city": "Burnley"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 14
+          }
+        },
+        "league": {
+          "id": 39,
+          "name": "Premier League",
+          "country": "England",
+          "logo": "https://media.api-sports.io/football/leagues/39.png",
+          "flag": "https://media.api-sports.io/flags/gb-eng.svg",
+          "season": 2025,
+          "round": "Regular Season - 28",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 44,
+            "name": "Burnley",
+            "logo": "https://media.api-sports.io/football/teams/44.png",
+            "winner": false
+          },
+          "away": {
+            "id": 55,
+            "name": "Brentford",
+            "logo": "https://media.api-sports.io/football/teams/55.png",
+            "winner": true
+          }
+        },
+        "goals": {
+          "home": 3,
+          "away": 4
+        },
+        "score": {
+          "halftime": {
+            "home": 1,
+            "away": 3
+          },
+          "fulltime": {
+            "home": 3,
+            "away": 4
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1379231,
+          "referee": "Lewis Smith, England",
+          "timezone": "UTC",
+          "date": "2026-02-21T15:00:00+00:00",
+          "timestamp": 1771686000,
+          "periods": {
+            "first": 1771686000,
+            "second": 1771689600
+          },
+          "venue": {
+            "id": 519,
+            "name": "Stamford Bridge",
+            "city": "London"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 8
+          }
+        },
+        "league": {
+          "id": 39,
+          "name": "Premier League",
+          "country": "England",
+          "logo": "https://media.api-sports.io/football/leagues/39.png",
+          "flag": "https://media.api-sports.io/flags/gb-eng.svg",
+          "season": 2025,
+          "round": "Regular Season - 27",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 49,
+            "name": "Chelsea",
+            "logo": "https://media.api-sports.io/football/teams/49.png",
+            "winner": null
+          },
+          "away": {
+            "id": 44,
+            "name": "Burnley",
+            "logo": "https://media.api-sports.io/football/teams/44.png",
+            "winner": null
+          }
+        },
+        "goals": {
+          "home": 1,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 1,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 1,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      }
+    ],
+    "home_stats": {
+      "league": {
+        "id": 39,
+        "name": "Premier League",
+        "country": "England",
+        "logo": "https://media.api-sports.io/football/leagues/39.png",
+        "flag": "https://media.api-sports.io/flags/gb-eng.svg",
+        "season": 2025
+      },
+      "team": {
+        "id": 42,
+        "name": "Arsenal",
+        "logo": "https://media.api-sports.io/football/teams/42.png"
+      },
+      "form": "WWLWDWWWWWDWDWLWWWWWDDLWWDDWWWWLLWWW",
+      "fixtures": {
+        "played": {
+          "home": 18,
+          "away": 18,
+          "total": 36
+        },
+        "wins": {
+          "home": 14,
+          "away": 10,
+          "total": 24
+        },
+        "draws": {
+          "home": 2,
+          "away": 5,
+          "total": 7
+        },
+        "loses": {
+          "home": 2,
+          "away": 3,
+          "total": 5
+        }
+      },
+      "goals": {
+        "for": {
+          "total": {
+            "home": 40,
+            "away": 28,
+            "total": 68
+          },
+          "average": {
+            "home": "2.2",
+            "away": "1.6",
+            "total": "1.9"
+          },
+          "minute": {
+            "0-15": {
+              "total": 8,
+              "percentage": "12.31%"
+            },
+            "16-30": {
+              "total": 5,
+              "percentage": "7.69%"
+            },
+            "31-45": {
+              "total": 15,
+              "percentage": "23.08%"
+            },
+            "46-60": {
+              "total": 13,
+              "percentage": "20.00%"
+            },
+            "61-75": {
+              "total": 9,
+              "percentage": "13.85%"
+            },
+            "76-90": {
+              "total": 15,
+              "percentage": "23.08%"
+            },
+            "91-105": {
+              "total": null,
+              "percentage": null
+            },
+            "106-120": {
+              "total": null,
+              "percentage": null
+            }
+          },
+          "under_over": {
+            "0.5": {
+              "over": 33,
+              "under": 3
+            },
+            "1.5": {
+              "over": 20,
+              "under": 16
+            },
+            "2.5": {
+              "over": 9,
+              "under": 27
+            },
+            "3.5": {
+              "over": 5,
+              "under": 31
+            },
+            "4.5": {
+              "over": 1,
+              "under": 35
+            }
+          }
+        },
+        "against": {
+          "total": {
+            "home": 11,
+            "away": 15,
+            "total": 26
+          },
+          "average": {
+            "home": "0.6",
+            "away": "0.8",
+            "total": "0.7"
+          },
+          "minute": {
+            "0-15": {
+              "total": 2,
+              "percentage": "6.90%"
+            },
+            "16-30": {
+              "total": 3,
+              "percentage": "10.34%"
+            },
+            "31-45": {
+              "total": 5,
+              "percentage": "17.24%"
+            },
+            "46-60": {
+              "total": 4,
+              "percentage": "13.79%"
+            },
+            "61-75": {
+              "total": 6,
+              "percentage": "20.69%"
+            },
+            "76-90": {
+              "total": 9,
+              "percentage": "31.03%"
+            },
+            "91-105": {
+              "total": null,
+              "percentage": null
+            },
+            "106-120": {
+              "total": null,
+              "percentage": null
+            }
+          },
+          "under_over": {
+            "0.5": {
+              "over": 18,
+              "under": 18
+            },
+            "1.5": {
+              "over": 7,
+              "under": 29
+            },
+            "2.5": {
+              "over": 1,
+              "under": 35
+            },
+            "3.5": {
+              "over": 0,
+              "under": 36
+            },
+            "4.5": {
+              "over": 0,
+              "under": 36
+            }
+          }
+        }
+      },
+      "biggest": {
+        "streak": {
+          "wins": 5,
+          "draws": 2,
+          "loses": 2
+        },
+        "wins": {
+          "home": "5-0",
+          "away": "0-4"
+        },
+        "loses": {
+          "home": "2-3",
+          "away": "2-1"
+        },
+        "goals": {
+          "for": {
+            "home": 5,
+            "away": 4
+          },
+          "against": {
+            "home": 3,
+            "away": 2
+          }
+        }
+      },
+      "clean_sheet": {
+        "home": 10,
+        "away": 8,
+        "total": 18
+      },
+      "failed_to_score": {
+        "home": 1,
+        "away": 2,
+        "total": 3
+      },
+      "penalty": {
+        "scored": {
+          "total": 4,
+          "percentage": "100.00%"
+        },
+        "missed": {
+          "total": 0,
+          "percentage": "0%"
+        },
+        "total": 4
+      },
+      "lineups": [
+        {
+          "formation": "4-3-3",
+          "played": 23
+        },
+        {
+          "formation": "4-2-3-1",
+          "played": 13
+        }
+      ],
+      "cards": {
+        "yellow": {
+          "0-15": {
+            "total": 4,
+            "percentage": "8.16%"
+          },
+          "16-30": {
+            "total": 5,
+            "percentage": "10.20%"
+          },
+          "31-45": {
+            "total": 5,
+            "percentage": "10.20%"
+          },
+          "46-60": {
+            "total": 6,
+            "percentage": "12.24%"
+          },
+          "61-75": {
+            "total": 9,
+            "percentage": "18.37%"
+          },
+          "76-90": {
+            "total": 13,
+            "percentage": "26.53%"
+          },
+          "91-105": {
+            "total": 7,
+            "percentage": "14.29%"
+          },
+          "106-120": {
+            "total": null,
+            "percentage": null
+          }
+        },
+        "red": {
+          "0-15": {
+            "total": null,
+            "percentage": null
+          },
+          "16-30": {
+            "total": null,
+            "percentage": null
+          },
+          "31-45": {
+            "total": null,
+            "percentage": null
+          },
+          "46-60": {
+            "total": null,
+            "percentage": null
+          },
+          "61-75": {
+            "total": null,
+            "percentage": null
+          },
+          "76-90": {
+            "total": null,
+            "percentage": null
+          },
+          "91-105": {
+            "total": null,
+            "percentage": null
+          },
+          "106-120": {
+            "total": null,
+            "percentage": null
+          }
+        }
+      }
+    },
+    "away_stats": {
+      "league": {
+        "id": 39,
+        "name": "Premier League",
+        "country": "England",
+        "logo": "https://media.api-sports.io/football/leagues/39.png",
+        "flag": "https://media.api-sports.io/flags/gb-eng.svg",
+        "season": 2025
+      },
+      "team": {
+        "id": 44,
+        "name": "Burnley",
+        "logo": "https://media.api-sports.io/football/teams/44.png"
+      },
+      "form": "LWLLDLLWWLLLLLLLDDLLDDDLLWDLLDLLLLLD",
+      "fixtures": {
+        "played": {
+          "home": 18,
+          "away": 18,
+          "total": 36
+        },
+        "wins": {
+          "home": 2,
+          "away": 2,
+          "total": 4
+        },
+        "draws": {
+          "home": 6,
+          "away": 3,
+          "total": 9
+        },
+        "loses": {
+          "home": 10,
+          "away": 13,
+          "total": 23
+        }
+      },
+      "goals": {
+        "for": {
+          "total": {
+            "home": 17,
+            "away": 20,
+            "total": 37
+          },
+          "average": {
+            "home": "0.9",
+            "away": "1.1",
+            "total": "1.0"
+          },
+          "minute": {
+            "0-15": {
+              "total": 4,
+              "percentage": "10.53%"
+            },
+            "16-30": {
+              "total": 6,
+              "percentage": "15.79%"
+            },
+            "31-45": {
+              "total": 6,
+              "percentage": "15.79%"
+            },
+            "46-60": {
+              "total": 6,
+              "percentage": "15.79%"
+            },
+            "61-75": {
+              "total": 6,
+              "percentage": "15.79%"
+            },
+            "76-90": {
+              "total": 10,
+              "percentage": "26.32%"
+            },
+            "91-105": {
+              "total": null,
+              "percentage": null
+            },
+            "106-120": {
+              "total": null,
+              "percentage": null
+            }
+          },
+          "under_over": {
+            "0.5": {
+              "over": 23,
+              "under": 13
+            },
+            "1.5": {
+              "over": 11,
+              "under": 25
+            },
+            "2.5": {
+              "over": 3,
+              "under": 33
+            },
+            "3.5": {
+              "over": 0,
+              "under": 36
+            },
+            "4.5": {
+              "over": 0,
+              "under": 36
+            }
+          }
+        },
+        "against": {
+          "total": {
+            "home": 28,
+            "away": 45,
+            "total": 73
+          },
+          "average": {
+            "home": "1.6",
+            "away": "2.5",
+            "total": "2.0"
+          },
+          "minute": {
+            "0-15": {
+              "total": 12,
+              "percentage": "16.67%"
+            },
+            "16-30": {
+              "total": 5,
+              "percentage": "6.94%"
+            },
+            "31-45": {
+              "total": 19,
+              "percentage": "26.39%"
+            },
+            "46-60": {
+              "total": 10,
+              "percentage": "13.89%"
+            },
+            "61-75": {
+              "total": 9,
+              "percentage": "12.50%"
+            },
+            "76-90": {
+              "total": 17,
+              "percentage": "23.61%"
+            },
+            "91-105": {
+              "total": null,
+              "percentage": null
+            },
+            "106-120": {
+              "total": null,
+              "percentage": null
+            }
+          },
+          "under_over": {
+            "0.5": {
+              "over": 32,
+              "under": 4
+            },
+            "1.5": {
+              "over": 25,
+              "under": 11
+            },
+            "2.5": {
+              "over": 12,
+              "under": 24
+            },
+            "3.5": {
+              "over": 3,
+              "under": 33
+            },
+            "4.5": {
+              "over": 1,
+              "under": 35
+            }
+          }
+        }
+      },
+      "biggest": {
+        "streak": {
+          "wins": 2,
+          "draws": 3,
+          "loses": 7
+        },
+        "wins": {
+          "home": "2-0",
+          "away": "2-3"
+        },
+        "loses": {
+          "home": "1-3",
+          "away": "5-1"
+        },
+        "goals": {
+          "for": {
+            "home": 3,
+            "away": 3
+          },
+          "against": {
+            "home": 4,
+            "away": 5
+          }
+        }
+      },
+      "clean_sheet": {
+        "home": 4,
+        "away": 0,
+        "total": 4
+      },
+      "failed_to_score": {
+        "home": 9,
+        "away": 4,
+        "total": 13
+      },
+      "penalty": {
+        "scored": {
+          "total": 2,
+          "percentage": "100.00%"
+        },
+        "missed": {
+          "total": 0,
+          "percentage": "0%"
+        },
+        "total": 2
+      },
+      "lineups": [
+        {
+          "formation": "4-2-3-1",
+          "played": 11
+        },
+        {
+          "formation": "5-4-1",
+          "played": 9
+        },
+        {
+          "formation": "3-4-2-1",
+          "played": 8
+        },
+        {
+          "formation": "4-3-3",
+          "played": 3
+        },
+        {
+          "formation": "4-4-2",
+          "played": 2
+        },
+        {
+          "formation": "3-4-3",
+          "played": 2
+        },
+        {
+          "formation": "4-5-1",
+          "played": 1
+        }
+      ],
+      "cards": {
+        "yellow": {
+          "0-15": {
+            "total": null,
+            "percentage": null
+          },
+          "16-30": {
+            "total": 12,
+            "percentage": "19.67%"
+          },
+          "31-45": {
+            "total": 10,
+            "percentage": "16.39%"
+          },
+          "46-60": {
+            "total": 6,
+            "percentage": "9.84%"
+          },
+          "61-75": {
+            "total": 9,
+            "percentage": "14.75%"
+          },
+          "76-90": {
+            "total": 12,
+            "percentage": "19.67%"
+          },
+          "91-105": {
+            "total": 10,
+            "percentage": "16.39%"
+          },
+          "106-120": {
+            "total": null,
+            "percentage": null
+          },
+          "": {
+            "total": 2,
+            "percentage": "3.28%"
+          }
+        },
+        "red": {
+          "0-15": {
+            "total": null,
+            "percentage": null
+          },
+          "16-30": {
+            "total": null,
+            "percentage": null
+          },
+          "31-45": {
+            "total": 1,
+            "percentage": "33.33%"
+          },
+          "46-60": {
+            "total": null,
+            "percentage": null
+          },
+          "61-75": {
+            "total": null,
+            "percentage": null
+          },
+          "76-90": {
+            "total": 1,
+            "percentage": "33.33%"
+          },
+          "91-105": {
+            "total": 1,
+            "percentage": "33.33%"
+          },
+          "106-120": {
+            "total": null,
+            "percentage": null
+          }
+        }
+      }
+    },
+    "home_danger": {
+      "shots_on_target_avg": 4.6,
+      "corners_avg": 5.6,
+      "n_fixtures": 5,
+      "fixture_ids": [
+        1379328,
+        1379309,
+        1379299,
+        1379295,
+        1379279
+      ],
+      "errors": []
+    },
+    "away_danger": {
+      "shots_on_target_avg": 3.6,
+      "corners_avg": 3.4,
+      "n_fixtures": 5,
+      "fixture_ids": [
+        1379320,
+        1379315,
+        1379302,
+        1379297,
+        1379281
+      ],
+      "errors": []
+    },
+    "errors": []
+  }
+]

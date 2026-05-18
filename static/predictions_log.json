@@ -3716,8 +3716,8 @@
     "league": "La Liga",
     "prediccion": "Apuesta sin empate: Real Madrid",
     "confianza": "Probabilidad: 71.5%",
-    "resultado_real": null,
-    "acerto": null,
+    "resultado_real": "0-1",
+    "acerto": true,
     "prob_original": 71.5,
     "confidence_factor": 1.0,
     "prob_adjusted": 71.5,
@@ -3773,8 +3773,8 @@
     "league": "Super Lig",
     "prediccion": "Apuesta sin empate: Trabzonspor",
     "confianza": "Probabilidad: 69.7%",
-    "resultado_real": null,
-    "acerto": null,
+    "resultado_real": "0-3",
+    "acerto": false,
     "prob_original": 75.7,
     "confidence_factor": 0.92,
     "prob_adjusted": 69.7,
@@ -3830,8 +3830,8 @@
     "league": "La Liga",
     "prediccion": "Apuesta sin empate: Villarreal",
     "confianza": "Probabilidad: 66.9%",
-    "resultado_real": null,
-    "acerto": null,
+    "resultado_real": "2-0",
+    "acerto": false,
     "prob_original": 66.9,
     "confidence_factor": 1.0,
     "prob_adjusted": 66.9,
@@ -3887,8 +3887,8 @@
     "league": "Serie A",
     "prediccion": "Doble oportunidad: Sassuolo",
     "confianza": "Probabilidad: 82.2%",
-    "resultado_real": null,
-    "acerto": null,
+    "resultado_real": "2-3",
+    "acerto": false,
     "prob_original": 82.2,
     "confidence_factor": 1.0,
     "prob_adjusted": 82.2,
@@ -3944,8 +3944,8 @@
     "league": "Serie A",
     "prediccion": "Doble oportunidad: Torino",
     "confianza": "Probabilidad: 70.7%",
-    "resultado_real": null,
-    "acerto": null,
+    "resultado_real": "2-1",
+    "acerto": false,
     "prob_original": 70.7,
     "confidence_factor": 1.0,
     "prob_adjusted": 70.7,
@@ -4001,7 +4001,7 @@
     "league": "Premier League",
     "prediccion": "",
     "confianza": "Probabilidad: 0.0%",
-    "resultado_real": null,
+    "resultado_real": "2-2",
     "acerto": null,
     "prob_original": null,
     "confidence_factor": 1.0,
@@ -4019,7 +4019,8 @@
     "value_level": null,
     "rf_wins": 1,
     "rf_forma": "LWLDD",
-    "markets_evaluated": []
+    "markets_evaluated": [],
+    "would_have_acerto": false
   },
   {
     "fecha": "2026-05-17",
@@ -4029,7 +4030,7 @@
     "league": "Premier League",
     "prediccion": "",
     "confianza": "Probabilidad: 0.0%",
-    "resultado_real": null,
+    "resultado_real": "1-3",
     "acerto": null,
     "prob_original": null,
     "confidence_factor": 1.0,
@@ -4047,7 +4048,8 @@
     "value_level": null,
     "rf_wins": 0,
     "rf_forma": "DDLLD",
-    "markets_evaluated": []
+    "markets_evaluated": [],
+    "would_have_acerto": true
   },
   {
     "fecha": "2026-05-17",
@@ -4057,7 +4059,7 @@
     "league": "Premier League",
     "prediccion": "",
     "confianza": "Probabilidad: 0.0%",
-    "resultado_real": null,
+    "resultado_real": "1-1",
     "acerto": null,
     "prob_original": null,
     "confidence_factor": 1.0,
@@ -4075,7 +4077,8 @@
     "value_level": null,
     "rf_wins": 1,
     "rf_forma": "LLWDL",
-    "markets_evaluated": []
+    "markets_evaluated": [],
+    "would_have_acerto": false
   },
   {
     "fecha": "2026-05-17",
@@ -4085,7 +4088,7 @@
     "league": "Premier League",
     "prediccion": "",
     "confianza": "Probabilidad: 0.0%",
-    "resultado_real": null,
+    "resultado_real": "3-1",
     "acerto": null,
     "prob_original": null,
     "confidence_factor": 1.0,
@@ -4103,7 +4106,8 @@
     "value_level": null,
     "rf_wins": 1,
     "rf_forma": "DWLLL",
-    "markets_evaluated": []
+    "markets_evaluated": [],
+    "would_have_acerto": true
   },
   {
     "fecha": "2026-05-17",
@@ -4113,7 +4117,7 @@
     "league": "La Liga",
     "prediccion": "",
     "confianza": "Probabilidad: 0.0%",
-    "resultado_real": null,
+    "resultado_real": "3-4",
     "acerto": null,
     "prob_original": null,
     "confidence_factor": 1.0,
@@ -4131,7 +4135,8 @@
     "value_level": null,
     "rf_wins": 0,
     "rf_forma": "DDLDL",
-    "markets_evaluated": []
+    "markets_evaluated": [],
+    "would_have_acerto": true
   },
   {
     "fecha": "2026-05-17",
@@ -4141,7 +4146,7 @@
     "league": "Serie A",
     "prediccion": "",
     "confianza": "Probabilidad: 0.0%",
-    "resultado_real": null,
+    "resultado_real": "1-2",
     "acerto": null,
     "prob_original": null,
     "confidence_factor": 1.0,
@@ -4159,7 +4164,8 @@
     "value_level": null,
     "rf_wins": 1,
     "rf_forma": "LLDWL",
-    "markets_evaluated": []
+    "markets_evaluated": [],
+    "would_have_acerto": true
   },
   {
     "fecha": "2026-05-17",
@@ -4169,7 +4175,7 @@
     "league": "Serie A",
     "prediccion": "",
     "confianza": "Probabilidad: 0.0%",
-    "resultado_real": null,
+    "resultado_real": "0-3",
     "acerto": null,
     "prob_original": null,
     "confidence_factor": 1.0,
@@ -4187,7 +4193,8 @@
     "value_level": null,
     "rf_wins": 1,
     "rf_forma": "LDWLD",
-    "markets_evaluated": []
+    "markets_evaluated": [],
+    "would_have_acerto": true
   },
   {
     "fecha": "2026-05-17",
@@ -4197,7 +4204,7 @@
     "league": "Super Lig",
     "prediccion": "",
     "confianza": "Probabilidad: 0.0%",
-    "resultado_real": null,
+    "resultado_real": "1-0",
     "acerto": null,
     "prob_original": null,
     "confidence_factor": 1.0,
@@ -4215,6 +4222,36 @@
     "value_level": null,
     "rf_wins": 0,
     "rf_forma": "LDLDD",
+    "markets_evaluated": [],
+    "would_have_acerto": true
+  },
+  {
+    "fecha": "2026-05-18",
+    "slug": null,
+    "home": "Arsenal",
+    "away": "Burnley",
+    "league": "Premier League",
+    "prediccion": "Burnley",
+    "confianza": "Probabilidad: 11.6%",
+    "resultado_real": null,
+    "acerto": null,
+    "prob_original": 12.0,
+    "confidence_factor": 0.97,
+    "prob_adjusted": 11.6,
+    "bk_odds": 36.0,
+    "ev": 332.0,
+    "penalty": 0.0,
+    "ev_adjusted": 319.0,
+    "value_score": 1108.8483,
+    "reason": "rejected_recent_form",
+    "version": "v1.2-clean-signal",
+    "cuota_betplay_estimada": 32.4,
+    "ev_betplay_estimado": 275.8,
+    "tipo_pick": "rejected_recent_form",
+    "base_pick": "Burnley",
+    "value_level": null,
+    "rf_wins": 0,
+    "rf_forma": "DLLLL",
     "markets_evaluated": []
   }
 ]
