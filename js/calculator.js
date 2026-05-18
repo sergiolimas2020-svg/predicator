@@ -14,7 +14,8 @@ const MODEL = {
     WEIGHT_POSITION:       0.4,
     WEIGHT_WIN_RATE:       0.3,
     WEIGHT_GOAL_DIFF:      0.2,
-    HOME_ADVANTAGE_PCT:    0.1,
+    LOGISTIC_K:            0.10,  // pendiente sigmoide (Python: MODEL_LOGISTIC_K)
+    HOME_ADVANTAGE_SCORE:  3.0,   // ventaja local aditiva (Python: HOME_ADVANTAGE_SCORE)
     MIN_PROB:             15.0,   // cap inferior (Python: MODEL_MIN_PROB)
     MAX_PROB:             85.0,   // cap superior (Python: MODEL_MAX_PROB)
     DRAW_DIFF_THRESHOLD:  10.0,   // empate técnico (Python: MODEL_DRAW_DIFF)
@@ -22,6 +23,15 @@ const MODEL = {
     DRAW_PCT_MAX:         30.0,
     DRAW_DIFF_FACTOR:      0.20,
 };
+
+// Score compuesto de un equipo — espejo de _team_score() en Python.
+function teamScore(pos) {
+    let s = (MODEL.POSITION_RANGE - pos.posicion) * MODEL.WEIGHT_POSITION * 5;
+    const games = pos.partidos || 1;
+    s += ((pos.ganados / games) * 100) * MODEL.WEIGHT_WIN_RATE;
+    s += (pos.diferencia || 0) * MODEL.WEIGHT_GOAL_DIFF;
+    return s;
+}
 
 const Calculator = {
 
@@ -39,36 +49,20 @@ const Calculator = {
         const homePos = homeStats.position;
         const awayPos = awayStats.position;
 
-        // Calcular puntuación basada en múltiples factores
-        let homeScore = 0;
-        let awayScore = 0;
+        // ── Score compuesto por equipo (puede ser negativo) ──
+        const homeScore = teamScore(homePos);
+        const awayScore = teamScore(awayPos);
 
-        // Factor 1: Posición en la tabla (40% peso)
-        homeScore += (MODEL.POSITION_RANGE - homePos.posicion) * MODEL.WEIGHT_POSITION * 5;
-        awayScore += (MODEL.POSITION_RANGE - awayPos.posicion) * MODEL.WEIGHT_POSITION * 5;
-
-        // Factor 2: Forma reciente - Win rate (30% peso)
-        const homeGames = homePos.partidos || 1;
-        const awayGames = awayPos.partidos || 1;
-        const homeWinRate = (homePos.ganados / homeGames) * 100;
-        const awayWinRate = (awayPos.ganados / awayGames) * 100;
-        homeScore += homeWinRate * MODEL.WEIGHT_WIN_RATE;
-        awayScore += awayWinRate * MODEL.WEIGHT_WIN_RATE;
-
-        // Factor 3: Diferencia de goles (20% peso)
-        homeScore += (homePos.diferencia || 0) * MODEL.WEIGHT_GOAL_DIFF;
-        awayScore += (awayPos.diferencia || 0) * MODEL.WEIGHT_GOAL_DIFF;
-
-        // Factor 4: Ventaja de local (10% adicional sobre el score local)
-        homeScore += homeScore * MODEL.HOME_ADVANTAGE_PCT;
-
-        // ── Cálculo 1X2 con caps [MIN_PROB, MAX_PROB] ──
-        // Espejo de prob_futbol() en Python (que retorna hp, ap)
-        const totalScore = (homeScore + awayScore) || 1;
-        let hp = (homeScore / totalScore) * 100;
+        // ── Cálculo 1X2 vía función logística ──
+        // Espejo de prob_futbol() en Python. La ventaja de local es aditiva
+        // sobre la diferencia de score (no multiplicativa). La sigmoide es
+        // monótona: nunca invierte la probabilidad aunque los scores sean
+        // negativos.
+        const scoreDiff = (homeScore - awayScore) + MODEL.HOME_ADVANTAGE_SCORE;
+        let hp = 100.0 / (1.0 + Math.exp(-MODEL.LOGISTIC_K * scoreDiff));
         hp = Math.min(MODEL.MAX_PROB, Math.max(MODEL.MIN_PROB, hp));
-        hp = Math.round(hp * 10) / 10;
         let ap = Math.round((100 - hp) * 10) / 10;
+        hp = Math.round(hp * 10) / 10;
 
         // Empate técnico: si diff < 10, ambos a 50/50 (igual que Python)
         if (Math.abs(hp - ap) < MODEL.DRAW_DIFF_THRESHOLD) {

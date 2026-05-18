@@ -214,3 +214,16 @@ class APIFootballClient:
     ) -> Dict[str, Any]:
         """Últimos N fixtures de un equipo (para racha reciente)."""
         return self._request("/fixtures", {"team": team, "last": last})
+
+    def get_fixture_statistics(
+        self, fixture: int, team: Optional[int] = None
+    ) -> Dict[str, Any]:
+        """Estadísticas de un partido (tiros a puerta, corners, posesión, …).
+
+        Devuelve `response` con un bloque por equipo; cada bloque trae una
+        lista `statistics` de pares {type, value}. Filtrable por equipo.
+        """
+        params: Dict[str, Any] = {"fixture": fixture}
+        if team is not None:
+            params["team"] = team
+        return self._request("/fixtures/statistics", params)

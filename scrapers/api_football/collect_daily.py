@@ -38,6 +38,7 @@ from scrapers.api_football.client import (  # noqa: E402
     APIFootballError,
     APIFootballRateLimitError,
 )
+from scrapers.api_football.danger_signals import extract_danger_signals  # noqa: E402
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -45,6 +46,11 @@ ODDS_PATH = ROOT / "static" / "odds.json"
 LEAGUES_MAP = ROOT / "static" / "api_football" / "leagues_map.json"
 TEAMS_MAP = ROOT / "static" / "api_football" / "teams_map.json"
 DATA_DIR = ROOT / "static" / "api_football" / "data"
+
+# Motor v1.2 — recolección de indicadores de peligro (tiros a puerta + corners).
+# Agrega ~10 requests por partido (5 fixtures × 2 equipos). Sobre el plan Pro
+# (7.500/día) sigue siendo holgado. Desactivable si hace falta ahorrar cupo.
+COLLECT_DANGER_SIGNALS = True
 
 
 def load_json(p: Path, default):
@@ -112,6 +118,9 @@ def collect_for_match(
         "away_form": None,
         "home_stats": None,
         "away_stats": None,
+        # Indicadores de peligro (motor v1.2 — preparación, aún sin usar)
+        "home_danger": None,
+        "away_danger": None,
         "errors": [],
     }
 
@@ -151,6 +160,21 @@ def collect_for_match(
                 away_t["id"], league_id, season).get("response")
         except APIFootballError as e:
             record["errors"].append(f"away_stats: {e}")
+
+    # Indicadores de peligro — tiros a puerta y corners de los últimos 5
+    # partidos domésticos (motor v1.2, preparación). Reusa los fixtures de
+    # form ya descargados; solo agrega las llamadas a /fixtures/statistics.
+    if COLLECT_DANGER_SIGNALS:
+        try:
+            record["home_danger"] = extract_danger_signals(
+                client, home_t["id"], record.get("home_form") or [], logger=log)
+        except APIFootballError as e:
+            record["errors"].append(f"home_danger: {e}")
+        try:
+            record["away_danger"] = extract_danger_signals(
+                client, away_t["id"], record.get("away_form") or [], logger=log)
+        except APIFootballError as e:
+            record["errors"].append(f"away_danger: {e}")
 
     return record
 

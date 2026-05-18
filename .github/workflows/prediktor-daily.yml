@@ -199,6 +199,15 @@ jobs:
           python3 -m scrapers.api_football.collect_daily "$TODAY"
         continue-on-error: true
 
+      # ── Step 6c: Entrenar calibrador Platt (no crítico) ─────────
+      # Reentrena static/calibrator.json con el histórico verificado.
+      # Si falla o no hay datos, el motor opera sin calibrar (degradación
+      # segura). Corre DESPUÉS de update_results para usar los aciertos
+      # de ayer y ANTES del motor para que la calibración esté fresca.
+      - name: Entrenar calibrador Platt
+        run: python3 scripts/train_calibrator.py
+        continue-on-error: true
+
       # ── Step 7: Generar predicciones (CRÍTICO — sin esto no hay producto) ─
       # Pasa --force solo cuando se dispara manualmente con el toggle activado.
       # El cron normal (schedule) corre sin --force, preservando la protección

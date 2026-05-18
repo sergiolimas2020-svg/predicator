@@ -417,8 +417,20 @@ async def publish_today_picks():
     # Determinar "hoy" en hora Colombia
     today_col = datetime.now(_COL_TZ).strftime("%Y-%m-%d")
 
-    # Cargar datos y detectar estado
+    # Cargar datos
     data = load_daily_picks()
+
+    # ── SHADOW MODE ──────────────────────────────────────────────
+    # Motor v1.1: durante la validación de 14 días el motor calcula y
+    # loguea predicciones pero NO se publican en el canal. Se retorna
+    # True (éxito) porque la no-publicación es intencional, no un fallo.
+    if data and data.get("shadow_mode"):
+        log.info("🕶  SHADOW MODE activo (hasta %s) — no se publica en el "
+                 "canal. Las predicciones se loguean igual.",
+                 data.get("shadow_until", "?"))
+        return True
+
+    # Detectar estado del sistema
     state = detect_state(data, today_col)
 
     # Fecha para mostrar en el mensaje (la del JSON si existe, sino hoy)

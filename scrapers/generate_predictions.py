@@ -77,6 +77,18 @@ except ImportError:
     def get_player_prop_odds(*a, **kw): return {}
     def is_nba_props_odds_active(): return False
 
+# ── Coincidencia difusa de nombres de equipo (corrige BUG-2) ──
+# Antes, find() devolvía las stats de OTRO equipo cuando no encontraba el
+# correcto. Ahora usa fuzzy matching: si nada supera el umbral, devuelve {}
+# y el fixture se trata como "sin datos" (degradación segura a 50/50).
+try:
+    from rapidfuzz import process as _rf_process, fuzz as _rf_fuzz
+    _HAS_RAPIDFUZZ = True
+except ImportError:
+    _HAS_RAPIDFUZZ = False
+    from difflib import SequenceMatcher as _SeqMatcher
+FUZZY_MATCH_THRESHOLD = 85  # score mínimo (0-100) para aceptar un match difuso
+
 # ── Límite de picks diarios y umbral mínimo de confianza ──
 MAX_PICKS         = 4    # cap total legacy (no usado en selección dual)
 MAX_PREMIUM_PICKS = 3    # DEPRECATED — reemplazado por MAX_EXTRA_PICKS
@@ -213,7 +225,15 @@ MODEL_DRAW_DIFF     = 10.0  # diferencia mínima hp-ap para no declarar empate t
 WEIGHT_POSITION     = 0.40  # peso de la posición en tabla
 WEIGHT_WIN_RATE     = 0.30  # peso del porcentaje de victorias
 WEIGHT_GOAL_DIFF    = 0.20  # peso de la diferencia de goles
-HOME_ADVANTAGE_PCT  = 0.10  # ventaja de local (% adicional sobre propio score)
+# ── Modelo logístico (corrige BUG-1/BUG-6 del diagnóstico 11-may) ──
+# prob = 1 / (1 + e^(-k·Δscore)). Reemplaza la división proporcional
+# h_score/total, que se invertía cuando los scores eran negativos.
+# k y HOME_ADVANTAGE_SCORE son CALIBRABLES — barrer con backtest_model.py.
+MODEL_LOGISTIC_K     = 0.10  # pendiente de la sigmoide
+HOME_ADVANTAGE_SCORE = 3.0   # ventaja de local ADITIVA sobre Δscore (en puntos
+                             # de score). Reemplaza el viejo HOME_ADVANTAGE_PCT
+                             # multiplicativo. ~3.0 ≈ +7-8 pp para un partido parejo.
+HOME_ADVANTAGE_PCT   = 0.10  # DEPRECATED — ya no se usa (era multiplicativo).
 POSITION_RANGE      = 21    # max_posicion + 1 (para invertir el ranking)
 DEFAULT_POSITION    = 10    # posición por defecto si no hay datos
 DRAW_PCT_MIN        = 20.0  # % mínimo de empate en modelo 3-way
@@ -286,6 +306,30 @@ RECENT_FORM_INTL_LEAGUE_IDS = {
     9, 1, 4, 32,      # Copa America / WC / Euro / WC qualifiers
     34, 15, 22, 480,  # CONCACAF / FIFA Club WC / otros
 }
+
+# ── Motor v1.2 — shadow mode, señal limpia y gestión de capital ──
+MODEL_VERSION       = "v1.2-clean-signal"   # etiqueta en predictions_log.json
+
+# Shadow mode: el motor calcula y loguea predicciones pero NO se publican
+# en Telegram/Discord hasta esta fecha (validación a 14 días — ver
+# scripts/backtest_model.py). Pasada la fecha, la publicación se reanuda sola.
+SHADOW_MODE_UNTIL   = "2026-05-31"       # ISO date — 14 días desde el 17-may
+
+# Gestión de capital: en modo "lectura" el stake real es 0 (no se apuesta;
+# stake_sugerido_pct se calcula solo como información). Cambiar a "activo"
+# recién cuando el backtest valide la calibración (Brier < 0.24).
+STAKE_MODE          = "lectura"          # "lectura" | "activo"
+
+# ── Platt scaling — DESACTIVADO durante el shadow v1.2 ───────────
+# El calibrador entrenado sobre el histórico viejo está contaminado por
+# BUG-1/BUG-2 (predicciones con el modelo invertido / equipo equivocado) y
+# salió degenerado (comprime todo a ~50%). Durante los 14 días de shadow el
+# motor corre SIN calibrar para que el log refleje la señal pura del modelo
+# corregido. Al día 14 se reentrena el calibrador sobre datos v1.2 limpios.
+# Reactivar: USE_CALIBRATION = True (y reentrenar con scripts/train_calibrator.py).
+USE_CALIBRATION         = False
+CALIBRATOR_PATH         = "static/calibrator.json"
+MIN_CALIBRATION_SAMPLES = 20             # mínimo de picks verificados para entrenar
 
 # Factor por frecuencia del mercado (muestra pequeña → calibración menos fiable)
 CONF_FREQ_MID_THRESHOLD = 0.30   # freq < 0.30 → muestra reducida
@@ -454,6 +498,162 @@ def value_level(vs):
     return "bajo"
 
 
+# ── Gestión de capital — Kelly fraccionario (Quarter-Kelly) ──────
+# Sugerencia de tamaño de apuesta como % del bankroll. NO decide qué picks
+# se publican; solo enriquece el output. Quarter-Kelly (×0.25) reduce la
+# volatilidad y protege el capital ante el error de estimación del modelo.
+QUARTER_KELLY = 0.25
+
+def kelly_stake(prob_pct, bk_odds, fraction=QUARTER_KELLY):
+    """Fracción del bankroll a apostar según el criterio de Kelly.
+
+      f = (b·p − q) / b      con  b = cuota_decimal − 1,  q = 1 − p
+
+    Devuelve el % del bankroll ya multiplicado por `fraction` (Quarter-Kelly
+    por defecto). Devuelve 0.0 si no hay cuota válida o si f ≤ 0 (sin ventaja).
+    Se usa prob_adjusted (conservadora) para no sobre-apostar.
+    """
+    if not bk_odds or bk_odds <= 1.0 or prob_pct is None:
+        return 0.0
+    p = max(0.0, min(1.0, prob_pct / 100.0))
+    b = bk_odds - 1.0
+    q = 1.0 - p
+    f = (b * p - q) / b
+    if f <= 0:
+        return 0.0
+    return round(f * fraction * 100, 2)
+
+
+# ─────────────────────── Calibración — Platt Scaling ───────────────────────
+# El modelo sufre sobreconfianza (diagnóstico 11-may: bucket 70-75% declaraba
+# 72.6% y la realidad fue 37.5%). Platt scaling remapea las probabilidades
+# del modelo a probabilidades calibradas:  P_cal = 1 / (1 + exp(A·f + B)).
+
+def platt_probability(f, A, B):
+    """Aplica Platt scaling. `f` es la probabilidad del modelo en [0,1].
+    Devuelve la probabilidad calibrada en [0,1]."""
+    if A is None or B is None:
+        return f
+    z = A * f + B
+    # 1/(1+e^z) con guarda de overflow
+    if z >= 0:
+        ez = math.exp(-z)
+        return ez / (1.0 + ez)
+    return 1.0 / (1.0 + math.exp(z))
+
+
+def fit_platt_calibrator(pairs, iters=6000, lr=0.3):
+    """Entrena Platt scaling por descenso de gradiente sobre la log-loss.
+
+    Args:
+      pairs: lista de (f, y) — f∈[0,1] prob del modelo, y∈{0,1} resultado real.
+    Returns:
+      (A, B) o (None, None) si no hay datos suficientes.
+
+    Usa la regularización de targets de Platt (t+ = (N+ +1)/(N+ +2),
+    t- = 1/(N- +2)) — clave con pocas muestras para no sobreajustar.
+    """
+    clean = [(float(f), int(y)) for f, y in pairs
+             if f is not None and y is not None]
+    n = len(clean)
+    if n < MIN_CALIBRATION_SAMPLES:
+        return None, None
+    n_pos = sum(y for _, y in clean)
+    n_neg = n - n_pos
+    if n_pos == 0 or n_neg == 0:
+        return None, None
+
+    t_pos = (n_pos + 1.0) / (n_pos + 2.0)
+    t_neg = 1.0 / (n_neg + 2.0)
+    samples = [(f, t_pos if y == 1 else t_neg) for f, y in clean]
+
+    A, B = 0.0, 0.0
+    for _ in range(iters):
+        gA = gB = 0.0
+        for f, t in samples:
+            z = A * f + B
+            if z >= 0:
+                ez = math.exp(-z)
+                p = ez / (1.0 + ez)
+            else:
+                p = 1.0 / (1.0 + math.exp(z))
+            # dL/dz = (t - p)  →  dL/dA = (t-p)·f ,  dL/dB = (t-p)
+            gA += (t - p) * f
+            gB += (t - p)
+        A -= lr * gA / n
+        B -= lr * gB / n
+    return round(A, 6), round(B, 6)
+
+
+def _load_calibrator():
+    """Lee CALIBRATOR_PATH. Devuelve dict {A,B,...} o None si no existe/inválido."""
+    p = Path(CALIBRATOR_PATH)
+    if not p.exists():
+        return None
+    try:
+        data = json.loads(p.read_text(encoding="utf-8"))
+        if data.get("A") is None or data.get("B") is None:
+            return None
+        return data
+    except Exception as e:
+        print(f"  ⚠ calibrator load error: {e}")
+        return None
+
+
+def train_and_save_calibrator(log_path="static/predictions_log.json",
+                              out_path=CALIBRATOR_PATH):
+    """Lee el log, extrae pares (prob_original, acerto) de picks verificados,
+    entrena Platt y guarda los parámetros en out_path. Devuelve el dict o None.
+    """
+    from datetime import datetime as _dt
+    lp = Path(log_path)
+    if not lp.exists():
+        print(f"  ⚠ {log_path} no existe — no se entrena calibrador")
+        return None
+    log = json.loads(lp.read_text(encoding="utf-8"))
+    pairs = []
+    for e in log:
+        if e.get("acerto") is None:
+            continue
+        if e.get("tipo_pick") == "rejected_recent_form":
+            continue
+        prob = e.get("prob_original")
+        if prob is None:
+            continue
+        pairs.append((prob / 100.0, 1 if e.get("acerto") else 0))
+
+    A, B = fit_platt_calibrator(pairs)
+    if A is None:
+        print(f"  ⚠ datos insuficientes para calibrar (n={len(pairs)}, "
+              f"mínimo {MIN_CALIBRATION_SAMPLES})")
+        return None
+
+    # Brier in-sample antes/después (referencia — el backtest hace CV honesto)
+    def _brier(get_p):
+        return sum((get_p(f) - y) ** 2 for f, y in pairs) / len(pairs)
+    brier_before = _brier(lambda f: f)
+    brier_after  = _brier(lambda f: platt_probability(f, A, B))
+
+    out = {
+        "A": A, "B": B,
+        "n_samples": len(pairs),
+        "trained_at": _dt.now().isoformat(timespec="seconds"),
+        "model_version": MODEL_VERSION,
+        "brier_in_sample_before": round(brier_before, 4),
+        "brier_in_sample_after":  round(brier_after, 4),
+    }
+    Path(out_path).write_text(json.dumps(out, ensure_ascii=False, indent=2),
+                              encoding="utf-8")
+    print(f"  ✓ calibrador entrenado: A={A} B={B} n={len(pairs)} "
+          f"Brier {brier_before:.4f} → {brier_after:.4f}")
+    return out
+
+
+# Calibrador cargado una vez al importar el módulo.
+# USE_CALIBRATION=False (shadow v1.2) → None: el motor no calibra.
+_CALIBRATOR = _load_calibrator() if USE_CALIBRATION else None
+
+
 # ─────────────────────────── Filtro 1 (forma reciente) ───────────────────────────
 
 def _rf_load_data(today_str):
@@ -615,6 +815,52 @@ def _rf_apply_filter(evaluated_picks, today_str):
                   f"({ep.get('league')}) | favorito={team} | forma={form_str} "
                   f"W={wins}/{RECENT_FORM_LOOKBACK}")
     return rejected_log
+
+
+# ───────────── Indicadores de peligro — PREPARACIÓN (motor v1.2) ─────────────
+# Tiros a puerta y corners de los últimos 5 partidos domésticos. La idea
+# (Acción 4): si tras el shadow mode el Brier no baja de 0.24, integrar estos
+# indicadores en _team_score() — son mejores predictores que el resultado.
+#
+# ESTADO: PREPARACIÓN. La data se recolecta (collect_daily.py guarda
+# home_danger / away_danger en static/api_football/data/{fecha}.json) y este
+# lector la expone, pero NO alimenta el modelo todavía. Activación en Acción 4:
+#   1) DANGER_SIGNALS_ENABLED = True
+#   2) sumar  danger_index(...) * WEIGHT_DANGER  dentro de _team_score().
+
+DANGER_SIGNALS_ENABLED = False   # Acción 4 — flip a True para integrar en h_score
+WEIGHT_DANGER          = 0.0     # peso del índice de peligro en _team_score (calibrar)
+
+def _danger_load_data(today_str):
+    """Carga home_danger / away_danger desde el JSON diario de API-Football.
+    Devuelve dict {(home_norm, away_norm): record} o {} si no hay datos."""
+    p = Path(RECENT_FORM_DATA_DIR) / f"{today_str}.json"
+    if not p.exists():
+        return {}
+    try:
+        records = json.loads(p.read_text(encoding="utf-8"))
+    except Exception as e:
+        print(f"  ⚠ danger_signals load error: {e}")
+        return {}
+    out = {}
+    for r in records:
+        if isinstance(r, dict):
+            out[(_norm(r.get("home", "")), _norm(r.get("away", "")))] = r
+    return out
+
+def danger_index(danger):
+    """Combina tiros a puerta y corners en un índice escalar.
+    `danger` es el dict {shots_on_target_avg, corners_avg, ...}.
+    Devuelve None si no hay datos. Fórmula provisional (calibrar en Acción 4):
+       índice = shots_on_target_avg + 0.5 · corners_avg
+    """
+    if not danger:
+        return None
+    sot = danger.get("shots_on_target_avg")
+    cor = danger.get("corners_avg")
+    if sot is None and cor is None:
+        return None
+    return round((sot or 0.0) + 0.5 * (cor or 0.0), 2)
 
 
 ADSENSE = '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5953880132871590" crossorigin="anonymous"></script>'
@@ -963,6 +1209,21 @@ def _find_in_local_leagues(name):
                 return local_stats[k]
     return {}
 
+def _fuzzy_best(target_norm, keys, norm_keys):
+    """Mejor match difuso. Devuelve (key_original, score 0-100) o (None, 0.0).
+    Usa RapidFuzz si está disponible; si no, difflib (stdlib) como fallback."""
+    if not keys:
+        return None, 0.0
+    if _HAS_RAPIDFUZZ:
+        m = _rf_process.extractOne(target_norm, norm_keys, scorer=_rf_fuzz.WRatio)
+        return (keys[m[2]], m[1]) if m else (None, 0.0)
+    best_i, best_r = None, 0.0
+    for i, nk in enumerate(norm_keys):
+        r = _SeqMatcher(None, target_norm, nk).ratio() * 100
+        if r > best_r:
+            best_r, best_i = r, i
+    return (keys[best_i], best_r) if best_i is not None else (None, 0.0)
+
 def find(stats, name):
     if not stats:
         # Stats vacío (típico en CONMEBOL) → buscar en ligas locales
@@ -972,6 +1233,7 @@ def find(stats, name):
             return fallback
         return {}
     nl = norm(name)
+    # 1) Alias explícito
     if name in TEAM_ALIASES:
         alias = TEAM_ALIASES[name]
         if alias in stats:
@@ -982,22 +1244,25 @@ def find(stats, name):
         if alias in stats:
             print(f"      [alias] '{name}' → '{alias}'")
             return stats[alias]
+    # 2) Match exacto normalizado
     for k in stats:
-        if norm(k) == nl: return stats[k]
-    for k in stats:
-        nk = norm(k)
-        if nk in nl or nl in nk: return stats[k]
-    words = [w for w in nl.split() if len(w) >= 4]
-    for k in stats:
-        nk = norm(k)
-        if sum(1 for w in words if w in nk) >= 1: return stats[k]
-    # No encontrado en stats principal → intentar ligas locales
+        if norm(k) == nl:
+            return stats[k]
+    # 3) Match difuso — corrige BUG-2. Si nada supera FUZZY_MATCH_THRESHOLD
+    #    NO se devuelven las stats de otro equipo: se devuelve {}.
+    keys = list(stats.keys())
+    norm_keys = [norm(k) for k in keys]
+    best_key, best_score = _fuzzy_best(nl, keys, norm_keys)
+    if best_key is not None and best_score >= FUZZY_MATCH_THRESHOLD:
+        return stats[best_key]
+    # 4) Sin match confiable → ligas locales (CONMEBOL), luego rendirse con {}
     fallback = _find_in_local_leagues(name)
     if fallback:
         print(f"      [CONMEBOL fallback] '{name}' encontrado en liga local")
         return fallback
-    print(f"      [WARN] '{name}' no encontrado, usando fallback")
-    return list(stats.values())[0] if stats else {}
+    print(f"      [WARN] '{name}' sin match confiable "
+          f"(mejor score={best_score:.0f} < {FUZZY_MATCH_THRESHOLD}) — fixture SIN datos")
+    return {}
 
 def gs(d, *ks):
     pos = d.get("position", {})
@@ -1037,25 +1302,30 @@ def parse_pct(s):
 #  FUTBOL — replica calculator.js predictWinner()
 #  Puede retornar EMPATE (hp == ap == 50.0)
 # ══════════════════════════════════════════════════════════════
+def _team_score(pos):
+    """Score compuesto de un equipo: posición (40%) + win rate (30%) + dif. goles (20%).
+    Puede ser negativo (equipo de mala campaña con diferencia de goles negativa)."""
+    s  = (POSITION_RANGE - safe_float(pos.get("posicion"), DEFAULT_POSITION)) * WEIGHT_POSITION * 5
+    games = safe_float(pos.get("partidos"), 1) or 1
+    s += (safe_float(pos.get("ganados")) / games * 100) * WEIGHT_WIN_RATE
+    s += safe_float(pos.get("diferencia")) * WEIGHT_GOAL_DIFF
+    return s
+
 def prob_futbol(hd, ad):
-    pos_h = hd.get("position", {})
-    pos_a = ad.get("position", {})
+    """Probabilidad 1X2 vía función logística sobre la diferencia de scores.
 
-    h_score = (POSITION_RANGE - safe_float(pos_h.get("posicion"), DEFAULT_POSITION)) * WEIGHT_POSITION * 5
-    a_score = (POSITION_RANGE - safe_float(pos_a.get("posicion"), DEFAULT_POSITION)) * WEIGHT_POSITION * 5
+    Corrige BUG-1/BUG-6 (diagnóstico 11-may): la fórmula anterior
+    (h_score/total) se invertía cuando los scores compuestos eran negativos
+    — el equipo peor recibía la probabilidad más alta. La sigmoide
+    1/(1+e^(-k·Δ)) es monótona: a mayor Δscore, mayor probabilidad, siempre.
+    La ventaja de local es ahora ADITIVA (HOME_ADVANTAGE_SCORE) en vez de
+    multiplicativa, que penalizaba al local cuando su score era negativo.
+    """
+    h_score = _team_score(hd.get("position", {}))
+    a_score = _team_score(ad.get("position", {}))
 
-    h_games = safe_float(pos_h.get("partidos"), 1) or 1
-    a_games = safe_float(pos_a.get("partidos"), 1) or 1
-    h_score += (safe_float(pos_h.get("ganados")) / h_games * 100) * WEIGHT_WIN_RATE
-    a_score += (safe_float(pos_a.get("ganados")) / a_games * 100) * WEIGHT_WIN_RATE
-
-    h_score += safe_float(pos_h.get("diferencia")) * WEIGHT_GOAL_DIFF
-    a_score += safe_float(pos_a.get("diferencia")) * WEIGHT_GOAL_DIFF
-
-    h_score += h_score * HOME_ADVANTAGE_PCT
-
-    total = (h_score + a_score) or 1
-    hp = (h_score / total) * 100
+    score_diff = (h_score - a_score) + HOME_ADVANTAGE_SCORE
+    hp = 100.0 / (1.0 + math.exp(-MODEL_LOGISTIC_K * score_diff))
     hp = min(MODEL_MAX_PROB, max(MODEL_MIN_PROB, hp))
     ap = round(100 - hp, 1)
     hp = round(hp, 1)
@@ -1270,23 +1540,27 @@ def evaluate_value(probs, odds, home, away, market_freqs=None, league=None):
     fav      = probs["favorite"]
     fav_team = home if fav == "home" else away
 
-    markets = [
-        # (prob, label, odds_key, min_cuota, max_ev)
-        (probs["win_home" if fav == "home" else "win_away"],
-         fav_team,
-         "win_home" if fav == "home" else "win_away",
-         MIN_CUOTA_WIN, MAX_EV_H2H),
-        (probs["dnb_home" if fav == "home" else "dnb_away"],
-         f"Apuesta sin empate: {fav_team}",
-         "dnb_home" if fav == "home" else "dnb_away",
-         MIN_CUOTA_DNB, MAX_EV_H2H),
-        (probs["dc_home" if fav == "home" else "dc_away"],
-         f"Doble oportunidad: {fav_team}",
-         "dc_home" if fav == "home" else "dc_away",
-         MIN_CUOTA_DC, MAX_EV_H2H),
-        (probs["over_2_5"], "Over 2.5 goles", "over_2_5", MIN_CUOTA_OVER25, MAX_EV_GOALS),
-        (probs["over_1_5"], "Over 1.5 goles", "over_1_5", MIN_CUOTA_OVER15, MAX_EV_GOALS),
-    ]
+    # Corrige BUG-4: se evalúan los mercados de AMBOS lados (favorito y
+    # underdog), no solo el favorito del modelo. El valor en apuestas suele
+    # estar en el underdog cuando el mercado sobrevalúa al favorito.
+    def _side_markets(side, team):
+        return [
+            (probs[f"win_{side}"], team,
+             f"win_{side}", MIN_CUOTA_WIN, MAX_EV_H2H),
+            (probs[f"dnb_{side}"], f"Apuesta sin empate: {team}",
+             f"dnb_{side}", MIN_CUOTA_DNB, MAX_EV_H2H),
+            (probs[f"dc_{side}"], f"Doble oportunidad: {team}",
+             f"dc_{side}", MIN_CUOTA_DC, MAX_EV_H2H),
+        ]
+
+    markets = (
+        _side_markets("home", home)
+        + _side_markets("away", away)
+        + [
+            (probs["over_2_5"], "Over 2.5 goles", "over_2_5", MIN_CUOTA_OVER25, MAX_EV_GOALS),
+            (probs["over_1_5"], "Over 1.5 goles", "over_1_5", MIN_CUOTA_OVER15, MAX_EV_GOALS),
+        ]
+    )
 
     def market_priority(label):
         if "Over" in label:               return 0
@@ -1331,7 +1605,13 @@ def evaluate_value(probs, odds, home, away, market_freqs=None, league=None):
             "market_type": "goals" if is_goals else "h2h",
         }
         cf            = compute_model_confidence(context)
-        prob_adj      = our_p * cf
+        # Probabilidad ajustada: si hay calibrador Platt entrenado, se usa la
+        # probabilidad CALIBRADA (corrige la sobreconfianza del modelo). Si no,
+        # se degrada al ajuste por confidence_factor (comportamiento anterior).
+        if _CALIBRATOR:
+            prob_adj = platt_probability(our_p, _CALIBRATOR["A"], _CALIBRATOR["B"])
+        else:
+            prob_adj = our_p * cf
         prob_orig_pct = round(our_p    * 100, 1)
         prob_adj_pct  = round(prob_adj * 100, 1)
 
@@ -1355,13 +1635,15 @@ def evaluate_value(probs, odds, home, away, market_freqs=None, league=None):
         ev_model_pct = round(ev_model * 100, 1)
         ev_final_pct = round(ev_final * 100, 1)
 
-        # reason deriva exclusivamente de ev_final (pipeline completo)
+        # reason deriva exclusivamente de ev_final (pipeline completo).
+        # Corrige BUG-3: se eliminó el rechazo "ev_excesivo" (EV > max_ev).
+        # Descartar los picks de mayor EV no tenía sustento; si hay overfit se
+        # ataca con calibración, no con un techo arbitrario. `max_ev` ya no se
+        # usa para rechazar aquí.
         if ev_final < 0:
             reason = "ev_negativo"
         elif ev_final < MIN_EV:
             reason = "ev_insuficiente"
-        elif ev_final > max_ev:
-            reason = "ev_excesivo"
         else:
             reason = "ok"
 
@@ -1405,7 +1687,10 @@ def calc_wp(league, home, hd, away, ad, nba=False):
             return fav_team, base_prob, fav_team, base_prob, 0, bk_win, "bajo", None, 1.0, None, all_evals
         best   = valid[0]
         ev_out = best["value_score"]
-        return (fav_team, base_prob, best["label"], best["prob_adjusted"],
+        # base_pick refleja el equipo del pick ELEGIDO (puede ser el underdog
+        # tras BUG-4), no siempre el favorito del modelo.
+        chosen_team = _rf_favored_team(best["label"], None) or fav_team
+        return (chosen_team, base_prob, best["label"], best["prob_adjusted"],
                 ev_out, best["bk_odds"], value_level(ev_out), best["bk_odds"],
                 best["confidence_factor"], best, all_evals)
 
@@ -1423,7 +1708,10 @@ def calc_wp(league, home, hd, away, ad, nba=False):
         return fav_team, base_prob, fav_team, base_prob, 0, bk_win, "bajo", None, 1.0, None, all_evals
     best   = valid[0]
     ev_out = best["ev_adjusted"]
-    return (fav_team, base_prob, best["label"], best["prob_adjusted"],
+    # base_pick refleja el equipo del pick ELEGIDO (puede ser el underdog
+    # tras BUG-4), no siempre el favorito del modelo.
+    chosen_team = _rf_favored_team(best["label"], None) or fav_team
+    return (chosen_team, base_prob, best["label"], best["prob_adjusted"],
             ev_out, best["bk_odds"], value_level(ev_out), best["bk_odds"],
             best["confidence_factor"], best, all_evals)
 
@@ -2552,11 +2840,8 @@ def main():
             if filters["REQUIRE_BOTH_TEAMS_STATS"] and not pick["stats_complete"]:
                 return False
 
-            # Cap de EV según tipo de mercado
-            max_ev = filters["MAX_EV_GOALS"] if pick["market_type"] == "goals" else filters["MAX_EV_H2H"]
-            if ev > max_ev:
-                return False
-
+            # BUG-3: se eliminó el techo de EV (max_ev). Ya no se descartan
+            # los picks de mayor valor esperado.
             return True
 
         def _find_best_market_for_profile(pick, filters):
@@ -2564,8 +2849,6 @@ def main():
             No recalcula EV — usa los valores ya computados por evaluate_value()."""
             best = None
             best_vs = -1
-            max_ev_h2h = filters["MAX_EV_H2H"]
-            max_ev_goals = filters["MAX_EV_GOALS"]
             min_ev = filters["MIN_EV"]
 
             for e in (pick.get("all_evals") or []):
@@ -2581,11 +2864,9 @@ def main():
                 if cf < filters["MIN_CONF_FACTOR"]:
                     continue
 
+                # BUG-3: sin techo de EV.
                 label = e.get("label", "")
                 is_goals = "over" in label.lower()
-                max_ev = max_ev_goals if is_goals else max_ev_h2h
-                if ev > max_ev:
-                    continue
 
                 vs = e.get("value_score") or 0.0
                 # Recalcular value_score si no existe pero EV es válido
@@ -3086,6 +3367,12 @@ def main():
             "confidence_factor": be.get("confidence_factor", cf),
             "ev_adjusted": ev,
             "bk_odds": bk_o,
+            # Gestión de capital — Quarter-Kelly. En modo "lectura" el stake
+            # real es 0 (no se apuesta); stake_sugerido es solo informativo.
+            "stake_sugerido_pct": kelly_stake(prob, bk_o),
+            "stake_real_pct":     (kelly_stake(prob, bk_o)
+                                   if STAKE_MODE == "activo" else 0.0),
+            "stake_modo":         STAKE_MODE,
         }
         entry.update(_betplay_fields(bk_o, prob, ev))
         return entry
@@ -3094,14 +3381,22 @@ def main():
         # ═══════════════════════════════════════════════════════════
         # NIVEL 2 — VALUE PICKS (única fuente de verdad para picks)
         # ═══════════════════════════════════════════════════════════
+        # Shadow mode: el bot lee estos campos y NO publica si shadow_mode=True.
+        _shadow = today <= SHADOW_MODE_UNTIL
         value_picks_output = {
             "date": today,
+            "model_version": MODEL_VERSION,
+            "shadow_mode": _shadow,
+            "shadow_until": SHADOW_MODE_UNTIL,
             "pick_dia": None,
             "picks_suscripcion": [],
             "pick_gratuito": None,
             "pick_exploratorio": None,
             "analisis_goles": [],
         }
+        if _shadow:
+            print(f"  · SHADOW MODE activo hasta {SHADOW_MODE_UNTIL} — "
+                  f"el bot no publicará en canales (solo se loguea).")
         for slug, matchup, lg, prob, cj_d, vs, vl, base_pick, cf, best_eval, all_evals, tipo_pick in preds:
             entry = _pick_to_dict(slug, matchup, lg, tipo_pick, best_eval, cj_d, cf)
             if tipo_pick == "pick_dia":
@@ -3231,6 +3526,13 @@ def main():
             "ev_adjusted":       _ev_adj,
             "value_score":       _be.get("value_score"),
             "reason":            _be.get("reason"),
+            # Versión del motor — etiqueta para auditoría longitudinal
+            "version":           MODEL_VERSION,
+            # Gestión de capital — Quarter-Kelly. Modo "lectura": stake real 0.
+            "stake_sugerido_pct": kelly_stake(_prob, _bk_o),
+            "stake_real_pct":     (kelly_stake(_prob, _bk_o)
+                                   if STAKE_MODE == "activo" else 0.0),
+            "stake_modo":         STAKE_MODE,
             # Transparencia Betplay (aditivo)
             "cuota_betplay_estimada": _bp["cuota_betplay_estimada"],
             "ev_betplay_estimado":    _bp["ev_betplay_estimado"],
@@ -3275,6 +3577,7 @@ def main():
                 "ev_adjusted":       _ev_adj,
                 "value_score":       be.get("value_score"),
                 "reason":            "rejected_recent_form",
+                "version":           MODEL_VERSION,
                 "cuota_betplay_estimada": _bp["cuota_betplay_estimada"],
                 "ev_betplay_estimado":    _bp["ev_betplay_estimado"],
                 "tipo_pick":         "rejected_recent_form",
