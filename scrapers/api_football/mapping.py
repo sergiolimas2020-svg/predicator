@@ -53,6 +53,7 @@ PREDIKTOR_LEAGUES = {
     "Super Lig":        {"name": "Süper Lig",            "country": "Turkey"},
     "Copa Libertadores":{"name": "CONMEBOL Libertadores","country": "World"},
     "Copa Sudamericana":{"name": "CONMEBOL Sudamericana","country": "World"},
+    "Liga Colombiana":  {"name": "Primera A",            "country": "Colombia"},
 }
 
 MIN_FUZZY_RATIO = 0.72

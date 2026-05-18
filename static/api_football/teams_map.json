@@ -1242,10 +1242,11 @@
   "Deportes Tolima": {
     "id": 1142,
     "name": "Deportes Tolima",
-    "league": "Copa Libertadores",
-    "league_id": 13,
+    "league": "Liga Colombiana",
+    "league_id": 239,
     "season": 2026,
-    "match_ratio": 1.0
+    "match_ratio": 1.0,
+    "manual": true
   },
   "Deportivo La Guaira": {
     "id": 2813,
@@ -1289,11 +1290,12 @@
   },
   "Independiente Santa Fe": {
     "id": 1139,
-    "name": "Santa Fe",
-    "league": "Copa Libertadores",
-    "league_id": 13,
+    "name": "Independiente Santa Fe",
+    "league": "Liga Colombiana",
+    "league_id": 239,
     "season": 2026,
-    "match_ratio": 0.9
+    "match_ratio": 1.0,
+    "manual": true
   },
   "Independiente del Valle": {
     "id": 1153,
@@ -1305,11 +1307,12 @@
   },
   "Junior FC": {
     "id": 1135,
-    "name": "Junior",
-    "league": "Copa Libertadores",
-    "league_id": 13,
+    "name": "Junior FC",
+    "league": "Liga Colombiana",
+    "league_id": 239,
     "season": 2026,
-    "match_ratio": 1.0
+    "match_ratio": 1.0,
+    "manual": true
   },
   "LDU Quito": {
     "id": 1158,
@@ -1559,5 +1562,14 @@
     "league_id": 11,
     "season": 2026,
     "match_ratio": 0.9
+  },
+  "Atlético Nacional": {
+    "id": 1137,
+    "name": "Atlético Nacional",
+    "league": "Liga Colombiana",
+    "league_id": 239,
+    "season": 2026,
+    "match_ratio": 1.0,
+    "manual": true
   }
 }
