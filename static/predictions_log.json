@@ -4233,7 +4233,7 @@
     "league": "Premier League",
     "prediccion": "Burnley",
     "confianza": "Probabilidad: 11.6%",
-    "resultado_real": null,
+    "resultado_real": "1-0",
     "acerto": null,
     "prob_original": 12.0,
     "confidence_factor": 0.97,
@@ -4252,6 +4252,115 @@
     "value_level": null,
     "rf_wins": 0,
     "rf_forma": "DLLLL",
+    "markets_evaluated": [],
+    "would_have_acerto": false
+  },
+  {
+    "fecha": "2026-05-19",
+    "slug": "afc-bournemouth-vs-manchester-city-premier-league-2026-05-19",
+    "home": "AFC Bournemouth",
+    "away": "Manchester City",
+    "league": "Premier League",
+    "prediccion": "Manchester City",
+    "confianza": "Probabilidad: 66.0%",
+    "resultado_real": null,
+    "acerto": null,
+    "prob_original": 68.0,
+    "confidence_factor": 0.97,
+    "prob_adjusted": 66.0,
+    "bk_odds": 1.72,
+    "ev": 17.0,
+    "penalty": 0.0,
+    "ev_adjusted": 13.5,
+    "value_score": null,
+    "reason": "ev_insuficiente",
+    "version": "v1.2-clean-signal",
+    "stake_sugerido_pct": 4.69,
+    "stake_real_pct": 0.0,
+    "stake_modo": "lectura",
+    "cuota_betplay_estimada": 1.55,
+    "ev_betplay_estimado": 2.3,
+    "tipo_pick": "pick_gratuito",
+    "base_pick": "Manchester City",
+    "value_level": "bajo",
+    "markets_evaluated": [
+      {
+        "market": "AFC Bournemouth",
+        "ev_adjusted": -41.8,
+        "value_score": null,
+        "reason": "ev_negativo"
+      },
+      {
+        "market": "Apuesta sin empate: AFC Bournemouth",
+        "ev_adjusted": -24.9,
+        "value_score": null,
+        "reason": "ev_negativo"
+      },
+      {
+        "market": "Doble oportunidad: AFC Bournemouth",
+        "ev_adjusted": -24.8,
+        "value_score": null,
+        "reason": "ev_negativo"
+      },
+      {
+        "market": "Manchester City",
+        "ev_adjusted": 13.5,
+        "value_score": null,
+        "reason": "ev_insuficiente"
+      },
+      {
+        "market": "Apuesta sin empate: Manchester City",
+        "ev_adjusted": 2.4,
+        "value_score": null,
+        "reason": "ev_insuficiente"
+      },
+      {
+        "market": "Doble oportunidad: Manchester City",
+        "ev_adjusted": null,
+        "value_score": null,
+        "reason": "cuota_baja"
+      },
+      {
+        "market": "Over 2.5 goles",
+        "ev_adjusted": null,
+        "value_score": null,
+        "reason": "cuota_baja"
+      },
+      {
+        "market": "Over 1.5 goles",
+        "ev_adjusted": null,
+        "value_score": null,
+        "reason": "mercado_no_disponible"
+      }
+    ]
+  },
+  {
+    "fecha": "2026-05-19",
+    "slug": null,
+    "home": "Chelsea",
+    "away": "Tottenham Hotspur",
+    "league": "Premier League",
+    "prediccion": "Chelsea",
+    "confianza": "Probabilidad: 66.0%",
+    "resultado_real": null,
+    "acerto": null,
+    "prob_original": 68.0,
+    "confidence_factor": 0.97,
+    "prob_adjusted": 66.0,
+    "bk_odds": 1.99,
+    "ev": 35.3,
+    "penalty": 0.0,
+    "ev_adjusted": 31.3,
+    "value_score": 20.8925,
+    "reason": "rejected_recent_form",
+    "version": "v1.2-clean-signal",
+    "cuota_betplay_estimada": 1.79,
+    "ev_betplay_estimado": 18.1,
+    "tipo_pick": "rejected_recent_form",
+    "base_pick": "Chelsea",
+    "value_level": null,
+    "rf_wins": 1,
+    "rf_forma": "LDLWL",
     "markets_evaluated": []
   }
 ]
