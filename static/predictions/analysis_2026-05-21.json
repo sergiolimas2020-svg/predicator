@@ -1,0 +1,160 @@
+{
+  "date": "2026-05-21",
+  "total_fixtures": 9,
+  "matches": [
+    {
+      "matchup": "Deportivo La Guaira vs Independiente Rivadavia",
+      "league": "Copa Libertadores",
+      "home": "Deportivo La Guaira",
+      "away": "Independiente Rivadavia",
+      "probabilities": {
+        "win_home": 41.9,
+        "draw": 27.0,
+        "win_away": 31.1,
+        "over_2_5": 51.8,
+        "over_1_5": 76.0
+      },
+      "favorite": "Deportivo La Guaira",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false
+    },
+    {
+      "matchup": "Peñarol vs Corinthians",
+      "league": "Copa Libertadores",
+      "home": "Peñarol",
+      "away": "Corinthians",
+      "probabilities": {
+        "win_home": 68.0,
+        "draw": 20.0,
+        "win_away": 12.0,
+        "over_2_5": 45.6,
+        "over_1_5": 71.3
+      },
+      "favorite": "Peñarol",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false
+    },
+    {
+      "matchup": "Universidad Católica vs Barcelona SC",
+      "league": "Copa Libertadores",
+      "home": "Universidad Católica",
+      "away": "Barcelona SC",
+      "probabilities": {
+        "win_home": 49.9,
+        "draw": 23.8,
+        "win_away": 26.3,
+        "over_2_5": 39.1,
+        "over_1_5": 65.8
+      },
+      "favorite": "Universidad Católica",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false
+    },
+    {
+      "matchup": "Academia Puerto Cabello vs Juventud",
+      "league": "Copa Sudamericana",
+      "home": "Academia Puerto Cabello",
+      "away": "Juventud",
+      "probabilities": {
+        "win_home": 41.9,
+        "draw": 27.0,
+        "win_away": 31.1,
+        "over_2_5": 32.3,
+        "over_1_5": 59.4
+      },
+      "favorite": "Academia Puerto Cabello",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false
+    },
+    {
+      "matchup": "Atlético-MG vs Cienciano del Cusco",
+      "league": "Copa Sudamericana",
+      "home": "Atlético-MG",
+      "away": "Cienciano del Cusco",
+      "probabilities": {
+        "win_home": 41.9,
+        "draw": 27.0,
+        "win_away": 31.1,
+        "over_2_5": null,
+        "over_1_5": null
+      },
+      "favorite": "Atlético-MG",
+      "stats_complete": false,
+      "confidence_factor": 1.0,
+      "is_nba": false
+    },
+    {
+      "matchup": "Racing Club vs Caracas FC",
+      "league": "Copa Sudamericana",
+      "home": "Racing Club",
+      "away": "Caracas FC",
+      "probabilities": {
+        "win_home": 41.9,
+        "draw": 27.0,
+        "win_away": 31.1,
+        "over_2_5": 41.6,
+        "over_1_5": 67.5
+      },
+      "favorite": "Racing Club",
+      "stats_complete": false,
+      "confidence_factor": 1.0,
+      "is_nba": false
+    },
+    {
+      "matchup": "Blooming vs Carabobo",
+      "league": "Copa Sudamericana",
+      "home": "Blooming",
+      "away": "Carabobo",
+      "probabilities": {
+        "win_home": 41.9,
+        "draw": 27.0,
+        "win_away": 31.1,
+        "over_2_5": null,
+        "over_1_5": null
+      },
+      "favorite": "Blooming",
+      "stats_complete": false,
+      "confidence_factor": 1.0,
+      "is_nba": false
+    },
+    {
+      "matchup": "Macará vs Alianza Atlético",
+      "league": "Copa Sudamericana",
+      "home": "Macará",
+      "away": "Alianza Atlético",
+      "probabilities": {
+        "win_home": 41.9,
+        "draw": 27.0,
+        "win_away": 31.1,
+        "over_2_5": 34.3,
+        "over_1_5": 61.3
+      },
+      "favorite": "Macará",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false
+    },
+    {
+      "matchup": "New York Knicks vs Cleveland Cavaliers",
+      "league": "NBA",
+      "home": "New York Knicks",
+      "away": "Cleveland Cavaliers",
+      "probabilities": {
+        "win_home": 52.7,
+        "draw": 0.0,
+        "win_away": 47.3,
+        "over_2_5": null,
+        "over_1_5": null
+      },
+      "favorite": "New York Knicks",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": true
+    }
+  ],
+  "nota": "Análisis estadístico de todos los partidos del día. Probabilidades crudas del modelo (sin ajuste por liga ni mercado). No incluye recomendación de apuesta — ver value_picks y featured_pick para picks oficiales."
+}
