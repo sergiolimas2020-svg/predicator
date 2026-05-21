@@ -249,8 +249,9 @@ jobs:
       # ── Step 9: Publicar en Telegram (no crítico — bot ya tiene fallback) ─
       - name: Publicar en Telegram
         env:
-          TELEGRAM_BOT_TOKEN:  ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          TELEGRAM_CHANNEL_ID: ${{ secrets.TELEGRAM_CHANNEL_ID }}
+          TELEGRAM_BOT_TOKEN:      ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHANNEL_ID:     ${{ secrets.TELEGRAM_CHANNEL_ID }}
+          TELEGRAM_ADMIN_CHAT_ID:  ${{ secrets.TELEGRAM_ADMIN_CHAT_ID }}
         run: python3 -m bot.publish --force
         continue-on-error: true
 

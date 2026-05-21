@@ -14,7 +14,7 @@ from telegram.error import TelegramError
 from telegram.ext import Application, CommandHandler, ContextTypes
 
 from bot.config import (
-    BOT_TOKEN, CHANNEL_ID, DAILY_PICKS_PATH, PUBLISH_LOG_PATH,
+    BOT_TOKEN, CHANNEL_ID, ADMIN_CHAT_ID, DAILY_PICKS_PATH, PUBLISH_LOG_PATH,
 )
 from bot.content_generator import (
     generate_daily_content, save_daily_content, format_content_for_telegram,
@@ -384,6 +384,62 @@ def _mark_published(date_str: str, state: str):
     _save_publish_log(publish_log)
 
 
+def _collect_preview_messages(data: dict, today_col: str) -> list[str]:
+    """Construye los mensajes que SE publicarían en el canal según los
+    escenarios 1/2/3. Replica la lógica de publish_today_picks para que
+    el admin vea exactamente lo mismo que verían los suscriptores."""
+    date_str = data.get("date", today_col)
+    pick_gratuito = data.get("pick_gratuito")
+    pick_dia = data.get("pick_dia")
+
+    messages: list[str] = []
+    if pick_gratuito:
+        messages.append(format_value_bet(pick_gratuito, date_str))
+    if pick_dia:
+        messages.append(format_teaser_premium(pick_dia, date_str))
+    if not messages:
+        featured = load_featured_pick(today_col)
+        messages.append(
+            format_featured_pick(featured, date_str) if featured
+            else format_no_pick_today(date_str)
+        )
+    return messages
+
+
+async def _send_admin_preview(data: dict, today_col: str) -> None:
+    """Shadow mode: envía al chat de admin una copia privada de lo que
+    SE publicaría en el canal. Si no hay ADMIN_CHAT_ID, no hace nada.
+    Cualquier fallo se loguea pero no rompe publish_today_picks."""
+    if not ADMIN_CHAT_ID:
+        log.info("   (sin TELEGRAM_ADMIN_CHAT_ID — preview de admin omitido)")
+        return
+
+    date_str = data.get("date", today_col)
+    shadow_until = data.get("shadow_until", "?")
+    header = (
+        f"🕶 <b>SHADOW PREVIEW</b> — {date_str}\n"
+        f"<i>Vista de admin. NO se publicó en el canal. "
+        f"Validación hasta {shadow_until}.</i>\n"
+        + "─" * 20
+    )
+    body = _collect_preview_messages(data, today_col)
+    messages = [header, *body]
+
+    try:
+        async with Bot(token=BOT_TOKEN) as bot:
+            for text in messages:
+                await bot.send_message(
+                    chat_id=ADMIN_CHAT_ID,
+                    text=text,
+                    parse_mode=ParseMode.HTML,
+                )
+        log.info("🕶 Shadow preview enviado al admin (%d mensaje/s)", len(body))
+    except TelegramError as e:
+        log.error("Error de Telegram enviando shadow preview: %s", e)
+    except Exception as e:
+        log.error("Error inesperado enviando shadow preview: %s", e)
+
+
 # ══════════════════════════════════════════════════════════════
 #  PUBLICACIÓN AUTOMÁTICA (entry point para cron / GitHub Actions)
 # ══════════════════════════════════════════════════════════════
@@ -421,13 +477,14 @@ async def publish_today_picks():
     data = load_daily_picks()
 
     # ── SHADOW MODE ──────────────────────────────────────────────
-    # Motor v1.1: durante la validación de 14 días el motor calcula y
-    # loguea predicciones pero NO se publican en el canal. Se retorna
-    # True (éxito) porque la no-publicación es intencional, no un fallo.
+    # Durante la validación el motor calcula y loguea predicciones pero NO
+    # se publican en el canal público. En su lugar se envían al chat de
+    # admin (preview privado). Se retorna True porque la no-publicación
+    # pública es intencional, no un fallo.
     if data and data.get("shadow_mode"):
         log.info("🕶  SHADOW MODE activo (hasta %s) — no se publica en el "
-                 "canal. Las predicciones se loguean igual.",
-                 data.get("shadow_until", "?"))
+                 "canal público.", data.get("shadow_until", "?"))
+        await _send_admin_preview(data, today_col)
         return True
 
     # Detectar estado del sistema

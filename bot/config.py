@@ -14,6 +14,10 @@ BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "")
 # Puede ser @alias o ID numérico negativo (-100...)
 CHANNEL_ID = os.environ.get("TELEGRAM_CHANNEL_ID", "")
 
+# ── Chat de admin (preview privado durante shadow mode) ──
+# Durante el shadow mode los picks se envían acá en vez de al canal público.
+ADMIN_CHAT_ID = os.environ.get("TELEGRAM_ADMIN_CHAT_ID", "")
+
 # ── Ruta al JSON diario generado por el motor ──
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 DAILY_PICKS_PATH = PROJECT_ROOT / "static" / "predictions" / "daily_picks.json"
