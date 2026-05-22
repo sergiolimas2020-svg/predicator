@@ -1,33 +1,126 @@
 {
-    "Bologna": {
+    "Lecce": {
         "corners": {
             "local": {
                 "partidos": 18,
-                "corners_favor": 5.44,
-                "corners_contra": 3.78
+                "corners_favor": 4.39,
+                "corners_contra": 4.39
             },
             "visitante": {
                 "partidos": 19,
-                "corners_favor": 3.74,
-                "corners_contra": 4.68
+                "corners_favor": 4.37,
+                "corners_contra": 6.21
             }
         },
         "goals": {
-            "over_1_5": "70%",
-            "over_2_5": "43%",
-            "over_3_5": "24%",
-            "bts": "43%"
+            "over_1_5": "62%",
+            "over_2_5": "38%",
+            "over_3_5": "14%",
+            "bts": "38%"
         },
         "position": {
-            "posicion": 8,
+            "posicion": 17,
             "partidos": 37,
-            "ganados": 16,
+            "ganados": 9,
+            "empatados": 8,
+            "perdidos": 20,
+            "goles_favor": 27,
+            "goles_contra": 50,
+            "diferencia": -23,
+            "puntos": 35
+        }
+    },
+    "Torino": {
+        "corners": {
+            "local": {
+                "partidos": 18,
+                "corners_favor": 4.22,
+                "corners_contra": 4.56
+            },
+            "visitante": {
+                "partidos": 19,
+                "corners_favor": 3.37,
+                "corners_contra": 4.74
+            }
+        },
+        "goals": {
+            "over_1_5": "73%",
+            "over_2_5": "62%",
+            "over_3_5": "27%",
+            "bts": "49%"
+        },
+        "position": {
+            "posicion": 12,
+            "partidos": 37,
+            "ganados": 12,
+            "empatados": 8,
+            "perdidos": 17,
+            "goles_favor": 42,
+            "goles_contra": 61,
+            "diferencia": -19,
+            "puntos": 44
+        }
+    },
+    "Cagliari": {
+        "corners": {
+            "local": {
+                "partidos": 19,
+                "corners_favor": 4.16,
+                "corners_contra": 5.05
+            },
+            "visitante": {
+                "partidos": 18,
+                "corners_favor": 3.33,
+                "corners_contra": 5.28
+            }
+        },
+        "goals": {
+            "over_1_5": "76%",
+            "over_2_5": "49%",
+            "over_3_5": "19%",
+            "bts": "49%"
+        },
+        "position": {
+            "posicion": 16,
+            "partidos": 37,
+            "ganados": 10,
+            "empatados": 10,
+            "perdidos": 17,
+            "goles_favor": 38,
+            "goles_contra": 52,
+            "diferencia": -14,
+            "puntos": 40
+        }
+    },
+    "Sassuolo": {
+        "corners": {
+            "local": {
+                "partidos": 19,
+                "corners_favor": 3.79,
+                "corners_contra": 5.0
+            },
+            "visitante": {
+                "partidos": 18,
+                "corners_favor": 3.89,
+                "corners_contra": 5.0
+            }
+        },
+        "goals": {
+            "over_1_5": "76%",
+            "over_2_5": "57%",
+            "over_3_5": "22%",
+            "bts": "54%"
+        },
+        "position": {
+            "posicion": 11,
+            "partidos": 37,
+            "ganados": 14,
             "empatados": 7,
-            "perdidos": 14,
+            "perdidos": 16,
             "goles_favor": 46,
-            "goles_contra": 43,
-            "diferencia": 3,
-            "puntos": 55
+            "goles_contra": 49,
+            "diferencia": -3,
+            "puntos": 49
         }
     },
     "Hellas Verona": {
@@ -61,6 +154,68 @@
             "puntos": 21
         }
     },
+    "Fiorentina": {
+        "corners": {
+            "local": {
+                "partidos": 18,
+                "corners_favor": 5.61,
+                "corners_contra": 4.06
+            },
+            "visitante": {
+                "partidos": 19,
+                "corners_favor": 3.42,
+                "corners_contra": 5.16
+            }
+        },
+        "goals": {
+            "over_1_5": "70%",
+            "over_2_5": "51%",
+            "over_3_5": "24%",
+            "bts": "57%"
+        },
+        "position": {
+            "posicion": 14,
+            "partidos": 37,
+            "ganados": 9,
+            "empatados": 14,
+            "perdidos": 14,
+            "goles_favor": 40,
+            "goles_contra": 49,
+            "diferencia": -9,
+            "puntos": 41
+        }
+    },
+    "Parma": {
+        "corners": {
+            "local": {
+                "partidos": 18,
+                "corners_favor": 4.33,
+                "corners_contra": 4.17
+            },
+            "visitante": {
+                "partidos": 19,
+                "corners_favor": 3.53,
+                "corners_contra": 5.95
+            }
+        },
+        "goals": {
+            "over_1_5": "59%",
+            "over_2_5": "30%",
+            "over_3_5": "16%",
+            "bts": "41%"
+        },
+        "position": {
+            "posicion": 13,
+            "partidos": 37,
+            "ganados": 10,
+            "empatados": 12,
+            "perdidos": 15,
+            "goles_favor": 27,
+            "goles_contra": 46,
+            "diferencia": -19,
+            "puntos": 42
+        }
+    },
     "Inter Milan": {
         "corners": {
             "local": {
@@ -92,6 +247,109 @@
             "puntos": 86
         }
     },
+    "Atalanta": {
+        "corners": {
+            "local": {
+                "partidos": 19,
+                "corners_favor": 6.84,
+                "corners_contra": 3.58
+            },
+            "visitante": {
+                "partidos": 18,
+                "corners_favor": 4.56,
+                "corners_contra": 4.83
+            }
+        },
+        "goals": {
+            "over_1_5": "73%",
+            "over_2_5": "38%",
+            "over_3_5": "19%",
+            "bts": "51%"
+        },
+        "position": {
+            "posicion": 7,
+            "partidos": 37,
+            "ganados": 15,
+            "empatados": 13,
+            "perdidos": 9,
+            "goles_favor": 50,
+            "goles_contra": 35,
+            "diferencia": 15,
+            "puntos": 58
+        }
+    },
+    "League average": {
+        "corners": {},
+        "goals": {
+            "over_1_5": "45.7%",
+            "over_2_5": "21.9%",
+            "over_3_5": "9.5%",
+            "bts": "32.4%"
+        },
+        "position": {}
+    },
+    "Napoli": {
+        "corners": {
+            "local": {
+                "partidos": 18,
+                "corners_favor": 6.44,
+                "corners_contra": 2.56
+            },
+            "visitante": {
+                "partidos": 19,
+                "corners_favor": 4.68,
+                "corners_contra": 2.95
+            }
+        },
+        "goals": {
+            "over_1_5": "70%",
+            "over_2_5": "54%",
+            "over_3_5": "27%",
+            "bts": "49%"
+        },
+        "position": {
+            "posicion": 2,
+            "partidos": 37,
+            "ganados": 22,
+            "empatados": 7,
+            "perdidos": 8,
+            "goles_favor": 57,
+            "goles_contra": 36,
+            "diferencia": 21,
+            "puntos": 73
+        }
+    },
+    "Cremonese": {
+        "corners": {
+            "local": {
+                "partidos": 18,
+                "corners_favor": 3.67,
+                "corners_contra": 5.17
+            },
+            "visitante": {
+                "partidos": 19,
+                "corners_favor": 3.42,
+                "corners_contra": 6.84
+            }
+        },
+        "goals": {
+            "over_1_5": "68%",
+            "over_2_5": "43%",
+            "over_3_5": "22%",
+            "bts": "41%"
+        },
+        "position": {
+            "posicion": 18,
+            "partidos": 37,
+            "ganados": 8,
+            "empatados": 10,
+            "perdidos": 19,
+            "goles_favor": 31,
+            "goles_contra": 53,
+            "diferencia": -22,
+            "puntos": 34
+        }
+    },
     "Juventus": {
         "corners": {
             "local": {
@@ -121,6 +379,192 @@
             "goles_contra": 32,
             "diferencia": 27,
             "puntos": 68
+        }
+    },
+    "AC Milan": {
+        "corners": {
+            "local": {
+                "partidos": 18,
+                "corners_favor": 4.94,
+                "corners_contra": 3.61
+            },
+            "visitante": {
+                "partidos": 19,
+                "corners_favor": 3.58,
+                "corners_contra": 4.89
+            }
+        },
+        "goals": {
+            "over_1_5": "65%",
+            "over_2_5": "43%",
+            "over_3_5": "19%",
+            "bts": "46%"
+        },
+        "position": {
+            "posicion": 3,
+            "partidos": 37,
+            "ganados": 20,
+            "empatados": 10,
+            "perdidos": 7,
+            "goles_favor": 52,
+            "goles_contra": 33,
+            "diferencia": 19,
+            "puntos": 70
+        }
+    },
+    "Lazio": {
+        "corners": {
+            "local": {
+                "partidos": 18,
+                "corners_favor": 4.56,
+                "corners_contra": 3.72
+            },
+            "visitante": {
+                "partidos": 19,
+                "corners_favor": 2.89,
+                "corners_contra": 4.79
+            }
+        },
+        "goals": {
+            "over_1_5": "65%",
+            "over_2_5": "30%",
+            "over_3_5": "16%",
+            "bts": "27%"
+        },
+        "position": {
+            "posicion": 9,
+            "partidos": 37,
+            "ganados": 13,
+            "empatados": 12,
+            "perdidos": 12,
+            "goles_favor": 39,
+            "goles_contra": 39,
+            "diferencia": 0,
+            "puntos": 51
+        }
+    },
+    "Pisa": {
+        "corners": {
+            "local": {
+                "partidos": 19,
+                "corners_favor": 3.79,
+                "corners_contra": 4.32
+            },
+            "visitante": {
+                "partidos": 18,
+                "corners_favor": 3.44,
+                "corners_contra": 5.33
+            }
+        },
+        "goals": {
+            "over_1_5": "65%",
+            "over_2_5": "51%",
+            "over_3_5": "32%",
+            "bts": "41%"
+        },
+        "position": {
+            "posicion": 20,
+            "partidos": 37,
+            "ganados": 2,
+            "empatados": 12,
+            "perdidos": 23,
+            "goles_favor": 25,
+            "goles_contra": 69,
+            "diferencia": -44,
+            "puntos": 18
+        }
+    },
+    "Como": {
+        "corners": {
+            "local": {
+                "partidos": 19,
+                "corners_favor": 5.0,
+                "corners_contra": 2.05
+            },
+            "visitante": {
+                "partidos": 18,
+                "corners_favor": 3.94,
+                "corners_contra": 4.5
+            }
+        },
+        "goals": {
+            "over_1_5": "70%",
+            "over_2_5": "43%",
+            "over_3_5": "22%",
+            "bts": "41%"
+        },
+        "position": {
+            "posicion": 5,
+            "partidos": 37,
+            "ganados": 19,
+            "empatados": 11,
+            "perdidos": 7,
+            "goles_favor": 61,
+            "goles_contra": 28,
+            "diferencia": 33,
+            "puntos": 68
+        }
+    },
+    "Bologna": {
+        "corners": {
+            "local": {
+                "partidos": 18,
+                "corners_favor": 5.44,
+                "corners_contra": 3.78
+            },
+            "visitante": {
+                "partidos": 19,
+                "corners_favor": 3.74,
+                "corners_contra": 4.68
+            }
+        },
+        "goals": {
+            "over_1_5": "70%",
+            "over_2_5": "43%",
+            "over_3_5": "24%",
+            "bts": "43%"
+        },
+        "position": {
+            "posicion": 8,
+            "partidos": 37,
+            "ganados": 16,
+            "empatados": 7,
+            "perdidos": 14,
+            "goles_favor": 46,
+            "goles_contra": 43,
+            "diferencia": 3,
+            "puntos": 55
+        }
+    },
+    "AS Roma": {
+        "corners": {
+            "local": {
+                "partidos": 19,
+                "corners_favor": 5.74,
+                "corners_contra": 2.79
+            },
+            "visitante": {
+                "partidos": 18,
+                "corners_favor": 4.5,
+                "corners_contra": 4.06
+            }
+        },
+        "goals": {
+            "over_1_5": "65%",
+            "over_2_5": "38%",
+            "over_3_5": "19%",
+            "bts": "35%"
+        },
+        "position": {
+            "posicion": 4,
+            "partidos": 37,
+            "ganados": 22,
+            "empatados": 4,
+            "perdidos": 11,
+            "goles_favor": 57,
+            "goles_contra": 31,
+            "diferencia": 26,
+            "puntos": 70
         }
     },
     "Udinese": {
@@ -185,452 +629,8 @@
             "puntos": 41
         }
     },
-    "Torino": {
-        "corners": {
-            "local": {
-                "partidos": 18,
-                "corners_favor": 4.22,
-                "corners_contra": 4.56
-            },
-            "visitante": {
-                "partidos": 19,
-                "corners_favor": 3.37,
-                "corners_contra": 4.74
-            }
-        },
-        "goals": {
-            "over_1_5": "73%",
-            "over_2_5": "62%",
-            "over_3_5": "27%",
-            "bts": "49%"
-        },
-        "position": {
-            "posicion": 12,
-            "partidos": 37,
-            "ganados": 12,
-            "empatados": 8,
-            "perdidos": 17,
-            "goles_favor": 42,
-            "goles_contra": 61,
-            "diferencia": -19,
-            "puntos": 44
-        }
-    },
-    "Cremonese": {
-        "corners": {
-            "local": {
-                "partidos": 18,
-                "corners_favor": 3.67,
-                "corners_contra": 5.17
-            },
-            "visitante": {
-                "partidos": 19,
-                "corners_favor": 3.42,
-                "corners_contra": 6.84
-            }
-        },
-        "goals": {
-            "over_1_5": "68%",
-            "over_2_5": "43%",
-            "over_3_5": "22%",
-            "bts": "41%"
-        },
-        "position": {
-            "posicion": 18,
-            "partidos": 37,
-            "ganados": 8,
-            "empatados": 10,
-            "perdidos": 19,
-            "goles_favor": 31,
-            "goles_contra": 53,
-            "diferencia": -22,
-            "puntos": 34
-        }
-    },
-    "Lazio": {
-        "corners": {
-            "local": {
-                "partidos": 18,
-                "corners_favor": 4.56,
-                "corners_contra": 3.72
-            },
-            "visitante": {
-                "partidos": 19,
-                "corners_favor": 2.89,
-                "corners_contra": 4.79
-            }
-        },
-        "goals": {
-            "over_1_5": "65%",
-            "over_2_5": "30%",
-            "over_3_5": "16%",
-            "bts": "27%"
-        },
-        "position": {
-            "posicion": 9,
-            "partidos": 37,
-            "ganados": 13,
-            "empatados": 12,
-            "perdidos": 12,
-            "goles_favor": 39,
-            "goles_contra": 39,
-            "diferencia": 0,
-            "puntos": 51
-        }
-    },
-    "Cagliari": {
-        "corners": {
-            "local": {
-                "partidos": 19,
-                "corners_favor": 4.16,
-                "corners_contra": 5.05
-            },
-            "visitante": {
-                "partidos": 18,
-                "corners_favor": 3.33,
-                "corners_contra": 5.28
-            }
-        },
-        "goals": {
-            "over_1_5": "76%",
-            "over_2_5": "49%",
-            "over_3_5": "19%",
-            "bts": "49%"
-        },
-        "position": {
-            "posicion": 16,
-            "partidos": 37,
-            "ganados": 10,
-            "empatados": 10,
-            "perdidos": 17,
-            "goles_favor": 38,
-            "goles_contra": 52,
-            "diferencia": -14,
-            "puntos": 40
-        }
-    },
-    "AS Roma": {
-        "corners": {
-            "local": {
-                "partidos": 19,
-                "corners_favor": 5.74,
-                "corners_contra": 2.79
-            },
-            "visitante": {
-                "partidos": 18,
-                "corners_favor": 4.5,
-                "corners_contra": 4.06
-            }
-        },
-        "goals": {
-            "over_1_5": "65%",
-            "over_2_5": "38%",
-            "over_3_5": "19%",
-            "bts": "35%"
-        },
-        "position": {
-            "posicion": 4,
-            "partidos": 37,
-            "ganados": 22,
-            "empatados": 4,
-            "perdidos": 11,
-            "goles_favor": 57,
-            "goles_contra": 31,
-            "diferencia": 26,
-            "puntos": 70
-        }
-    },
-    "Atalanta": {
-        "corners": {
-            "local": {
-                "partidos": 19,
-                "corners_favor": 6.84,
-                "corners_contra": 3.58
-            },
-            "visitante": {
-                "partidos": 18,
-                "corners_favor": 4.56,
-                "corners_contra": 4.83
-            }
-        },
-        "goals": {
-            "over_1_5": "73%",
-            "over_2_5": "38%",
-            "over_3_5": "19%",
-            "bts": "51%"
-        },
-        "position": {
-            "posicion": 7,
-            "partidos": 37,
-            "ganados": 15,
-            "empatados": 13,
-            "perdidos": 9,
-            "goles_favor": 50,
-            "goles_contra": 35,
-            "diferencia": 15,
-            "puntos": 58
-        }
-    },
-    "Lecce": {
-        "corners": {
-            "local": {
-                "partidos": 18,
-                "corners_favor": 4.39,
-                "corners_contra": 4.39
-            },
-            "visitante": {
-                "partidos": 19,
-                "corners_favor": 4.37,
-                "corners_contra": 6.21
-            }
-        },
-        "goals": {
-            "over_1_5": "62%",
-            "over_2_5": "38%",
-            "over_3_5": "14%",
-            "bts": "38%"
-        },
-        "position": {
-            "posicion": 17,
-            "partidos": 37,
-            "ganados": 9,
-            "empatados": 8,
-            "perdidos": 20,
-            "goles_favor": 27,
-            "goles_contra": 50,
-            "diferencia": -23,
-            "puntos": 35
-        }
-    },
-    "AC Milan": {
-        "corners": {
-            "local": {
-                "partidos": 18,
-                "corners_favor": 4.94,
-                "corners_contra": 3.61
-            },
-            "visitante": {
-                "partidos": 19,
-                "corners_favor": 3.58,
-                "corners_contra": 4.89
-            }
-        },
-        "goals": {
-            "over_1_5": "65%",
-            "over_2_5": "43%",
-            "over_3_5": "19%",
-            "bts": "46%"
-        },
-        "position": {
-            "posicion": 3,
-            "partidos": 37,
-            "ganados": 20,
-            "empatados": 10,
-            "perdidos": 7,
-            "goles_favor": 52,
-            "goles_contra": 33,
-            "diferencia": 19,
-            "puntos": 70
-        }
-    },
-    "Napoli": {
-        "corners": {
-            "local": {
-                "partidos": 18,
-                "corners_favor": 6.44,
-                "corners_contra": 2.56
-            },
-            "visitante": {
-                "partidos": 19,
-                "corners_favor": 4.68,
-                "corners_contra": 2.95
-            }
-        },
-        "goals": {
-            "over_1_5": "70%",
-            "over_2_5": "54%",
-            "over_3_5": "27%",
-            "bts": "49%"
-        },
-        "position": {
-            "posicion": 2,
-            "partidos": 37,
-            "ganados": 22,
-            "empatados": 7,
-            "perdidos": 8,
-            "goles_favor": 57,
-            "goles_contra": 36,
-            "diferencia": 21,
-            "puntos": 73
-        }
-    },
-    "League average": {
-        "corners": {},
-        "goals": {
-            "over_1_5": "45.7%",
-            "over_2_5": "21.9%",
-            "over_3_5": "9.5%",
-            "bts": "32.4%"
-        },
-        "position": {}
-    },
-    "Pisa": {
-        "corners": {
-            "local": {
-                "partidos": 19,
-                "corners_favor": 3.79,
-                "corners_contra": 4.32
-            },
-            "visitante": {
-                "partidos": 18,
-                "corners_favor": 3.44,
-                "corners_contra": 5.33
-            }
-        },
-        "goals": {
-            "over_1_5": "65%",
-            "over_2_5": "51%",
-            "over_3_5": "32%",
-            "bts": "41%"
-        },
-        "position": {
-            "posicion": 20,
-            "partidos": 37,
-            "ganados": 2,
-            "empatados": 12,
-            "perdidos": 23,
-            "goles_favor": 25,
-            "goles_contra": 69,
-            "diferencia": -44,
-            "puntos": 18
-        }
-    },
-    "Fiorentina": {
-        "corners": {
-            "local": {
-                "partidos": 18,
-                "corners_favor": 5.61,
-                "corners_contra": 4.06
-            },
-            "visitante": {
-                "partidos": 19,
-                "corners_favor": 3.42,
-                "corners_contra": 5.16
-            }
-        },
-        "goals": {
-            "over_1_5": "70%",
-            "over_2_5": "51%",
-            "over_3_5": "24%",
-            "bts": "57%"
-        },
-        "position": {
-            "posicion": 14,
-            "partidos": 37,
-            "ganados": 9,
-            "empatados": 14,
-            "perdidos": 14,
-            "goles_favor": 40,
-            "goles_contra": 49,
-            "diferencia": -9,
-            "puntos": 41
-        }
-    },
-    "Como": {
-        "corners": {
-            "local": {
-                "partidos": 19,
-                "corners_favor": 5.0,
-                "corners_contra": 2.05
-            },
-            "visitante": {
-                "partidos": 18,
-                "corners_favor": 3.94,
-                "corners_contra": 4.5
-            }
-        },
-        "goals": {
-            "over_1_5": "70%",
-            "over_2_5": "43%",
-            "over_3_5": "22%",
-            "bts": "41%"
-        },
-        "position": {
-            "posicion": 5,
-            "partidos": 37,
-            "ganados": 19,
-            "empatados": 11,
-            "perdidos": 7,
-            "goles_favor": 61,
-            "goles_contra": 28,
-            "diferencia": 33,
-            "puntos": 68
-        }
-    },
-    "Parma": {
-        "corners": {
-            "local": {
-                "partidos": 18,
-                "corners_favor": 4.33,
-                "corners_contra": 4.17
-            },
-            "visitante": {
-                "partidos": 19,
-                "corners_favor": 3.53,
-                "corners_contra": 5.95
-            }
-        },
-        "goals": {
-            "over_1_5": "59%",
-            "over_2_5": "30%",
-            "over_3_5": "16%",
-            "bts": "41%"
-        },
-        "position": {
-            "posicion": 13,
-            "partidos": 37,
-            "ganados": 10,
-            "empatados": 12,
-            "perdidos": 15,
-            "goles_favor": 27,
-            "goles_contra": 46,
-            "diferencia": -19,
-            "puntos": 42
-        }
-    },
-    "Sassuolo": {
-        "corners": {
-            "local": {
-                "partidos": 19,
-                "corners_favor": 3.79,
-                "corners_contra": 5.0
-            },
-            "visitante": {
-                "partidos": 18,
-                "corners_favor": 3.89,
-                "corners_contra": 5.0
-            }
-        },
-        "goals": {
-            "over_1_5": "76%",
-            "over_2_5": "57%",
-            "over_3_5": "22%",
-            "bts": "54%"
-        },
-        "position": {
-            "posicion": 11,
-            "partidos": 37,
-            "ganados": 14,
-            "empatados": 7,
-            "perdidos": 16,
-            "goles_favor": 46,
-            "goles_contra": 49,
-            "diferencia": -3,
-            "puntos": 49
-        }
-    },
     "_metadata": {
-        "fecha_actualizacion": "2026-05-21T08:27:25.176841",
+        "fecha_actualizacion": "2026-05-22T08:17:56.096701",
         "liga": "italy",
         "fuente_datos": {
             "corners": "https://www.soccerstats.com/table.asp?league=italy&tid=cr",

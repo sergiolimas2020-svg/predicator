@@ -1,0 +1,41 @@
+{
+  "date": "2026-05-22",
+  "total_fixtures": 2,
+  "matches": [
+    {
+      "matchup": "Fiorentina vs Atalanta",
+      "league": "Serie A",
+      "home": "Fiorentina",
+      "away": "Atalanta",
+      "probabilities": {
+        "win_home": 12.0,
+        "draw": 20.0,
+        "win_away": 68.0,
+        "over_2_5": 41.8,
+        "over_1_5": 68.1
+      },
+      "favorite": "Atalanta",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false
+    },
+    {
+      "matchup": "San Antonio Spurs vs Oklahoma City Thunder",
+      "league": "NBA",
+      "home": "San Antonio Spurs",
+      "away": "Oklahoma City Thunder",
+      "probabilities": {
+        "win_home": 51.0,
+        "draw": 0.0,
+        "win_away": 49.0,
+        "over_2_5": null,
+        "over_1_5": null
+      },
+      "favorite": "San Antonio Spurs",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": true
+    }
+  ],
+  "nota": "Análisis estadístico de todos los partidos del día. Probabilidades crudas del modelo (sin ajuste por liga ni mercado). No incluye recomendación de apuesta — ver value_picks y featured_pick para picks oficiales."
+}
