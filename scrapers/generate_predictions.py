@@ -135,33 +135,37 @@ TIER_SUSCRIPCION_MAX = 4      # máximo de picks suscripción
 # Usado solo por la regla de PICK EXPLORATORIO (capa de publicación).
 # No afecta filtros estadísticos ni pipeline de EV.
 CORE_LEAGUES = {
-    "Premier League",
-    "La Liga",
     "Serie A",
-    "Bundesliga",
-    "Ligue 1",
+    "Brasileirao",
     "Liga Colombiana",
     "Liga Argentina",
     "NBA",
 }
 
 # ── Ligas EXCLUIDAS de value picks y featured pick ──
-# Bug auditoría retrospectiva (9-may): estas ligas generan yield negativo
-# sostenido en el histórico cuantificable:
-#   Bundesliga    -49.1%  (n=3)
-#   Brasileirao   -39.9%  (n=6)
-#   Ligue 1      -100.0%  (n=2)
-# Los partidos de estas ligas siguen apareciendo en Análisis del Día
-# (Nivel 1, informativo) pero NO se publican como recomendación de
-# apuesta (Nivel 2 / Nivel 3). Reversible con git revert.
-#
-# 11-may: Super Lig sale de la lista de exclusión y vuelve al pipeline
-# con tier 0.92 + Filtro 1 (forma reciente). La simulación retrospectiva
-# muestra que combinar tier menor + filtro permite recuperar la liga sin
-# regresar a yield -39%. Monitoreo prospectivo.
+# Recalibración 23-may sobre track record acumulado (n=106 picks resueltos
+# en static/predictions_log.json). El hit rate global cayó 92% (mar) → 57%
+# (abr) → 31% (may) por expansión a ligas europeas grandes sin ventaja.
+# Hit rate real por liga (acumulado):
+#   Premier League  20%  (n=15)  ← excluida
+#   La Liga         23%  (n=17)  ← excluida
+#   Super Lig       22%  (n=9)   ← excluida (la rehabilitación del 11-may falló)
+#   Bundesliga      33%  (n=3)   ← excluida (muestra chica + yield negativo)
+#   Ligue 1          0%  (n=2)   ← excluida
+# vs. las ligas con ventaja real que SÍ se publican:
+#   NBA             80%  (n=20)
+#   Liga Colombiana 75%  (n=8)
+#   Brasileirao     66%  (n=12)  ← RE-INCLUIDA (la exclusión del 9-may con n=6
+#                                  estaba equivocada; con más datos gana)
+#   Serie A         53%  (n=13)  ← borde, se mantiene con monitoreo
+# Los partidos de las ligas excluidas siguen apareciendo en Análisis del Día
+# (Nivel 1, informativo) pero NO se publican como recomendación de apuesta
+# (Nivel 2 / Nivel 3). Reversible con git revert.
 EXCLUDED_LEAGUES = {
+    "Premier League",
+    "La Liga",
+    "Super Lig",
     "Bundesliga",
-    "Brasileirao",
     "Ligue 1",
 }
 
