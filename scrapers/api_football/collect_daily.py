@@ -88,6 +88,49 @@ def fixtures_for_target_date(odds: Dict, target: date, leagues_map: Dict) -> Lis
     return out
 
 
+def fixtures_from_apifootball(client, target: date, leagues_map: Dict,
+                             tz: str = "America/Bogota") -> List[Dict]:
+    """Obtiene los partidos de la fecha DIRECTO de API-Football /fixtures, por
+    cada liga mapeada. Independiente de odds.json (The Odds API) — fuente única
+    viva. Trae IDs y nombres nativos de API-Football, así no depende del
+    teams_map (que está incompleto para ligas sudamericanas).
+
+    Retorna match dicts con home_id/away_id ya resueltos (collect_for_match los
+    usa directamente sin mirar teams_map)."""
+    date_str = target.isoformat()
+    out: List[Dict] = []
+    for league_name, info in leagues_map.items():
+        lid = info.get("id")
+        season = info.get("season")
+        if not lid:
+            continue
+        try:
+            resp = client.get_fixtures_by_date(
+                date_str, league=lid, season=season, timezone=tz
+            ).get("response", [])
+        except APIFootballError as e:
+            logging.warning("[fixtures] %s (id=%s): %s", league_name, lid, e)
+            continue
+        for fx in resp or []:
+            teams = fx.get("teams") or {}
+            home = teams.get("home") or {}
+            away = teams.get("away") or {}
+            if not home.get("id") or not away.get("id"):
+                continue
+            out.append({
+                "key": f"{home.get('name')}|{away.get('name')}|{date_str}",
+                "home": home.get("name"),
+                "away": away.get("name"),
+                "league": league_name,
+                "date": date_str,
+                "home_id": home.get("id"),
+                "away_id": away.get("id"),
+                "league_id": lid,
+                "season": season,
+            })
+    return out
+
+
 def collect_for_match(
     client: APIFootballClient,
     match: Dict,
@@ -100,8 +143,15 @@ def collect_for_match(
     league_id = league_info.get("id")
     season = league_info.get("season")
 
+    # IDs: preferir los que vienen del fixture de API-Football (fuente B1);
+    # caer a teams_map solo si el partido no los trae (compatibilidad con
+    # la fuente vieja basada en odds.json).
     home_t = teams_map.get(match["home"]) or {}
     away_t = teams_map.get(match["away"]) or {}
+    home_id = match.get("home_id") or home_t.get("id")
+    away_id = match.get("away_id") or away_t.get("id")
+    league_id = match.get("league_id") or league_id
+    season = match.get("season") or season
 
     record: Dict[str, Any] = {
         "key": match["key"],
@@ -109,8 +159,8 @@ def collect_for_match(
         "away": match["away"],
         "league": league,
         "date": match["date"],
-        "home_id": home_t.get("id"),
-        "away_id": away_t.get("id"),
+        "home_id": home_id,
+        "away_id": away_id,
         "league_id": league_id,
         "season": season,
         "h2h": None,
@@ -124,27 +174,27 @@ def collect_for_match(
         "errors": [],
     }
 
-    if not home_t.get("id") or not away_t.get("id"):
+    if not home_id or not away_id:
         record["errors"].append("missing_team_mapping")
-        log.warning("  · %s vs %s: sin mapeo de equipo (home=%s away=%s)",
+        log.warning("  · %s vs %s: sin ID de equipo (home=%s away=%s)",
                     match["home"], match["away"],
-                    bool(home_t.get("id")), bool(away_t.get("id")))
+                    bool(home_id), bool(away_id))
         return record
 
     # h2h
     try:
-        record["h2h"] = client.get_h2h(home_t["id"], away_t["id"], last=10).get("response")
+        record["h2h"] = client.get_h2h(home_id, away_id, last=10).get("response")
     except APIFootballError as e:
         record["errors"].append(f"h2h: {e}")
 
     # forma reciente — last=10 (no 5) para que el motor pueda filtrar a
     # los 5 más recientes en liga doméstica aunque haya copas mezcladas.
     try:
-        record["home_form"] = client.get_team_last_fixtures(home_t["id"], last=10).get("response")
+        record["home_form"] = client.get_team_last_fixtures(home_id, last=10).get("response")
     except APIFootballError as e:
         record["errors"].append(f"home_form: {e}")
     try:
-        record["away_form"] = client.get_team_last_fixtures(away_t["id"], last=10).get("response")
+        record["away_form"] = client.get_team_last_fixtures(away_id, last=10).get("response")
     except APIFootballError as e:
         record["errors"].append(f"away_form: {e}")
 
@@ -152,12 +202,12 @@ def collect_for_match(
     if league_id and season:
         try:
             record["home_stats"] = client.get_team_statistics(
-                home_t["id"], league_id, season).get("response")
+                home_id, league_id, season).get("response")
         except APIFootballError as e:
             record["errors"].append(f"home_stats: {e}")
         try:
             record["away_stats"] = client.get_team_statistics(
-                away_t["id"], league_id, season).get("response")
+                away_id, league_id, season).get("response")
         except APIFootballError as e:
             record["errors"].append(f"away_stats: {e}")
 
@@ -167,12 +217,12 @@ def collect_for_match(
     if COLLECT_DANGER_SIGNALS:
         try:
             record["home_danger"] = extract_danger_signals(
-                client, home_t["id"], record.get("home_form") or [], logger=log)
+                client, home_id, record.get("home_form") or [], logger=log)
         except APIFootballError as e:
             record["errors"].append(f"home_danger: {e}")
         try:
             record["away_danger"] = extract_danger_signals(
-                client, away_t["id"], record.get("away_form") or [], logger=log)
+                client, away_id, record.get("away_form") or [], logger=log)
         except APIFootballError as e:
             record["errors"].append(f"away_danger: {e}")
 
@@ -196,7 +246,6 @@ def main(target: Optional[str] = None):
     )
     log.info("Recolectando data para %s", target_date.isoformat())
 
-    odds = load_json(ODDS_PATH, {})
     leagues_map = load_json(LEAGUES_MAP, {})
     teams_map = load_json(TEAMS_MAP, {})
 
@@ -204,13 +253,22 @@ def main(target: Optional[str] = None):
         log.error("leagues_map.json vacío. Corré scrapers/api_football/mapping.py primero.")
         sys.exit(2)
 
-    matches = fixtures_for_target_date(odds, target_date, leagues_map)
+    client = APIFootballClient()
+
+    # Fuente de partidos: API-Football /fixtures (B1) — independiente de
+    # odds.json (The Odds API murió: 401). Si por algún motivo no devuelve
+    # nada, cae a la fuente vieja basada en odds.json.
+    matches = fixtures_from_apifootball(client, target_date, leagues_map)
+    if not matches:
+        log.warning("API-Football /fixtures sin partidos — fallback a odds.json")
+        odds = load_json(ODDS_PATH, {})
+        matches = fixtures_for_target_date(odds, target_date, leagues_map)
+
     log.info("Partidos a procesar: %d", len(matches))
     if not matches:
         log.info("Nada para hacer.")
         return
 
-    client = APIFootballClient()
     DATA_DIR.mkdir(parents=True, exist_ok=True)
     out_path = DATA_DIR / f"{target_date.isoformat()}.json"
 
