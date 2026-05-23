@@ -224,7 +224,8 @@ CONF_OVER25_MAX_PICKS = 1       # cuántos Over 2.5 por día
 CONF_PUBLISH_MAX = 3            # cuántos picks totales se publican por día.
                                # 3 durante el shadow (validar goles + córners +
                                # Over 2.5); evaluar bajar a 2 al salir a público.
-CONF_MIN_SAMPLE_CORNERS = 3    # mín. partidos por localía para confiar en córners
+CONF_MIN_SAMPLE_CORNERS = 4    # mín. partidos por localía para confiar en córners
+                               # (subido de 3 a 4 al pedir 20 fixtures de historial)
 CONF_MARKET_RELIABILITY = {
     "over15":  1.00,   # Over 1.5 — histórico 100%, stats de temporada
     "win":     1.00,   # favorito a ganar
