@@ -2755,24 +2755,22 @@ def _poisson_ge(lam, k):
     return max(0.0, min(1.0, 1.0 - cdf))
 
 
-def _select_corners_picks(evaluated_picks: list, danger_data: dict) -> list:
-    """Línea de córners por confianza (sin cuotas).
+def _select_corners_picks(today_matches: list, danger_data: dict) -> list:
+    """Línea de córners por confianza — análisis INDEPENDIENTE por mercado.
 
-    Para cada partido con datos de córners (corners_avg de home_danger y
-    away_danger), modela el total de córners como Poisson con
-    lambda = corners_avg(local) + corners_avg(visitante), y elige la línea
-    MÁS ALTA de CONF_CORNERS_LINES cuya P(Over) ≥ CONF_CORNERS_MIN_PROB.
+    Evalúa TODOS los partidos próximos del día (today_matches), sin depender
+    del pipeline de goles/ganador. Para cada partido con datos de córners por
+    localía (home_danger/away_danger), modela el total como Poisson con
+    lambda = corners_avg(local) + corners_avg(visita) y elige la línea MÁS
+    ALTA de CONF_CORNERS_LINES cuya P(Over) ≥ CONF_CORNERS_MIN_PROB.
 
+    today_matches: lista de (league, home, away, hd, ad, nba).
     Devuelve hasta CONF_CORNERS_MAX_PICKS tuplas (label, prob, raw), ordenadas
     por total esperado de córners (los partidos más 'corneros' primero)."""
     cands = []
-    for ep in evaluated_picks:
-        if ep.get("league") in EXCLUDED_LEAGUES:
+    for (league, home, away, hd, ad, nba) in today_matches:
+        if nba or league in EXCLUDED_LEAGUES:   # NBA sin córners; respeta exclusión
             continue
-        raw = ep["raw"]
-        if raw[6]:   # NBA — sin córners
-            continue
-        home, away = raw[2], raw[4]
         rec = danger_data.get((_norm(home), _norm(away)))
         if not rec:
             continue
@@ -2791,21 +2789,16 @@ def _select_corners_picks(evaluated_picks: list, danger_data: dict) -> list:
             continue
         line, prob = chosen
         label = f"Over {line} córners"
-        cf = ep.get("confidence_factor", 1.0)
         best_eval = {
             "label": label, "prob_original": prob, "prob_adjusted": prob,
-            "confidence_factor": cf, "ev": None, "ev_model": None,
+            "confidence_factor": 1.0, "ev": None, "ev_model": None,
             "penalty": None, "ev_adjusted": None, "value_score": None,
             "bk_odds": None, "valid": False, "reason": "confianza_corners",
         }
-        raw_list = list(raw)
-        raw_list[0]  = prob
-        raw_list[7]  = label
-        raw_list[8]  = prob
-        raw_list[10] = "estadistico"
-        raw_list[13] = None
-        raw_list[15] = best_eval
-        cands.append((label, prob, tuple(raw_list), lam))
+        # raw 18-tupla compatible con `top` (con hd/ad reales para renderizado)
+        raw = (prob, league, home, hd, away, ad, False, label, prob, None,
+               "estadistico", 0.0, "", None, 1.0, best_eval, [], {})
+        cands.append((label, prob, raw, lam))
 
     cands.sort(key=lambda c: c[3], reverse=True)   # más córners esperados primero
     return [(lbl, p, r) for (lbl, p, r, _lam) in cands[:CONF_CORNERS_MAX_PICKS]]
@@ -2833,6 +2826,10 @@ def main():
 
     # ── FASE 1: recopilar todos los candidatos con su score de valor ──
     candidates = []  # tupla de 18 elementos: índice 17 = ext_ctx (contexto API externa)
+    # Todos los partidos próximos del día (ligas no excluidas), con sus stats.
+    # Sirve para análisis INDEPENDIENTE por mercado (ej: córners), sin depender
+    # de que el partido pase el filtro de goles. (league, home, away, hd, ad, nba)
+    all_today_matches = []
 
     for code, (league, stats_file) in ESPN_LEAGUES.items():
         matches = espn_fixtures(code)
@@ -2847,6 +2844,7 @@ def main():
             # pipeline de value picks. Análisis del Día sigue listándolas.
             if league in EXCLUDED_LEAGUES:
                 continue
+            all_today_matches.append((league, home, away, hd, ad, False))
             if base_prob >= MIN_CONF_SUBSCRIPTION:
                 # Enriquecer con API externa (solo contexto, no decisor)
                 ext_ctx = enrich_match_context(home, away, league)
@@ -3330,10 +3328,11 @@ def main():
                 print("  [CONFIANZA] Activado (sin cuotas) — "
                       + ", ".join(f"{_l} {_p}%" for _l, _p, _ in _conf))
 
-            # Línea de córners (aditiva): usa danger signals de API-Football.
+            # Línea de córners (aditiva, análisis INDEPENDIENTE): evalúa TODOS
+            # los partidos del día, no solo los del pipeline de goles.
             if CONF_CORNERS_ENABLED:
                 _danger = _danger_load_data(today)
-                _corn = _select_corners_picks(evaluated_picks, _danger)
+                _corn = _select_corners_picks(all_today_matches, _danger)
                 for _lbl, _p, _raw_t in _corn:
                     _tipo = "pick_gratuito" if not top else "pick_suscripcion"
                     top.append((_tipo, _raw_t))
