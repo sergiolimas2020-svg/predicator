@@ -193,6 +193,17 @@ CONF_MAX_PROB        = 80.0   # tope para "favorito a ganar": por encima la
                               # NO aplica a Over 1.5 (su cuota no colapsa igual).
 CONF_MAX_PICKS       = 2      # cuántos picks de confianza publicar por día
 
+# ── Línea de CÓRNERS (confianza, sin cuotas) ──
+# Usa corners_avg de las danger signals (API-Football, vía _danger_load_data):
+# expected = córners_avg(local) + córners_avg(visitante), modelado como Poisson.
+# Elige la línea MÁS ALTA cuya P(Over) ≥ CONF_CORNERS_MIN_PROB. Pick aditivo
+# (se publica además de los picks de goles/ganador). Requiere datos de córners
+# del partido (n≥3 fixtures por equipo).
+CONF_CORNERS_ENABLED   = True
+CONF_CORNERS_LINES     = [7.5, 8.5, 9.5, 10.5, 11.5]  # líneas candidatas
+CONF_CORNERS_MIN_PROB  = 70.0   # prob mínima (Poisson) para publicar
+CONF_CORNERS_MAX_PICKS = 1      # cuántas líneas de córners por día
+
 # ── ANÁLISIS DE GOLES (display complementario, NO pick) ──
 # Mercados Over que no ganan el value_score del partido pero tienen
 # valor moderado se exponen como "insight" sin ser publicados como pick.
@@ -2731,6 +2742,75 @@ def _select_confidence_picks(evaluated_picks: list) -> list:
     return cands[:CONF_MAX_PICKS]
 
 
+def _poisson_ge(lam, k):
+    """P(X >= k) para X ~ Poisson(lam). Usado para líneas de córners."""
+    if lam <= 0 or k <= 0:
+        return 0.0
+    cdf = 0.0
+    term = math.exp(-lam)   # término i=0
+    for i in range(0, k):
+        if i > 0:
+            term *= lam / i
+        cdf += term
+    return max(0.0, min(1.0, 1.0 - cdf))
+
+
+def _select_corners_picks(evaluated_picks: list, danger_data: dict) -> list:
+    """Línea de córners por confianza (sin cuotas).
+
+    Para cada partido con datos de córners (corners_avg de home_danger y
+    away_danger), modela el total de córners como Poisson con
+    lambda = corners_avg(local) + corners_avg(visitante), y elige la línea
+    MÁS ALTA de CONF_CORNERS_LINES cuya P(Over) ≥ CONF_CORNERS_MIN_PROB.
+
+    Devuelve hasta CONF_CORNERS_MAX_PICKS tuplas (label, prob, raw), ordenadas
+    por total esperado de córners (los partidos más 'corneros' primero)."""
+    cands = []
+    for ep in evaluated_picks:
+        if ep.get("league") in EXCLUDED_LEAGUES:
+            continue
+        raw = ep["raw"]
+        if raw[6]:   # NBA — sin córners
+            continue
+        home, away = raw[2], raw[4]
+        rec = danger_data.get((_norm(home), _norm(away)))
+        if not rec:
+            continue
+        hd_c = (rec.get("home_danger") or {}).get("corners_avg")
+        ad_c = (rec.get("away_danger") or {}).get("corners_avg")
+        if hd_c is None or ad_c is None:
+            continue
+        lam = hd_c + ad_c
+        chosen = None
+        for line in sorted(CONF_CORNERS_LINES, reverse=True):
+            prob = round(_poisson_ge(lam, int(line) + 1) * 100, 1)  # Over 8.5 → X≥9
+            if prob >= CONF_CORNERS_MIN_PROB:
+                chosen = (line, prob)
+                break
+        if not chosen:
+            continue
+        line, prob = chosen
+        label = f"Over {line} córners"
+        cf = ep.get("confidence_factor", 1.0)
+        best_eval = {
+            "label": label, "prob_original": prob, "prob_adjusted": prob,
+            "confidence_factor": cf, "ev": None, "ev_model": None,
+            "penalty": None, "ev_adjusted": None, "value_score": None,
+            "bk_odds": None, "valid": False, "reason": "confianza_corners",
+        }
+        raw_list = list(raw)
+        raw_list[0]  = prob
+        raw_list[7]  = label
+        raw_list[8]  = prob
+        raw_list[10] = "estadistico"
+        raw_list[13] = None
+        raw_list[15] = best_eval
+        cands.append((label, prob, tuple(raw_list), lam))
+
+    cands.sort(key=lambda c: c[3], reverse=True)   # más córners esperados primero
+    return [(lbl, p, r) for (lbl, p, r, _lam) in cands[:CONF_CORNERS_MAX_PICKS]]
+
+
 def main():
     import sys
     force     = "--force"     in sys.argv
@@ -3249,6 +3329,17 @@ def main():
             if _conf:
                 print("  [CONFIANZA] Activado (sin cuotas) — "
                       + ", ".join(f"{_l} {_p}%" for _l, _p, _ in _conf))
+
+            # Línea de córners (aditiva): usa danger signals de API-Football.
+            if CONF_CORNERS_ENABLED:
+                _danger = _danger_load_data(today)
+                _corn = _select_corners_picks(evaluated_picks, _danger)
+                for _lbl, _p, _raw_t in _corn:
+                    _tipo = "pick_gratuito" if not top else "pick_suscripcion"
+                    top.append((_tipo, _raw_t))
+                if _corn:
+                    print("  [CÓRNERS] " + ", ".join(
+                        f"{_l} {_p}%" for _l, _p, _ in _corn))
 
         print(f"Candidatos totales: {len(candidates)} | Evaluados: {len(evaluated_picks)} | "
               f"Suscripción elegibles: {len(subscription_candidates)} | Premium elegibles: {len(premium_candidates)} | "
