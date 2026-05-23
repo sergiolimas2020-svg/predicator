@@ -110,8 +110,10 @@ def format_pick_gratuito(pick: dict, date_str: str) -> str:
 
 def format_value_bet(pick: dict, date_str: str) -> str:
     """
-    Escenario 1 — Hay value pick (motor detectó EV+).
-    Mensaje destaca con badge VALUE BET.
+    Pick gratuito del día. Dos variantes según el origen:
+      · Value bet (motor detectó EV+ con cuota real) → badge VALUE BET.
+      · Señal de confianza (prob. alta, SIN cuota verificada) → badge
+        estadístico honesto, sin afirmar valor que no se calculó.
     """
     league = pick.get("league", "—")
     matchup = pick.get("matchup", "—")
@@ -122,6 +124,28 @@ def format_value_bet(pick: dict, date_str: str) -> str:
 
     odds_str = f" @{odds}" if odds else ""
     prob_str = f"{prob:.0f}%" if prob else "—"
+
+    # Pick por confianza: no hay EV ni cuota verificada. NO afirmamos "EV+".
+    if ev is None and not odds:
+        return (
+            f"📊 <b>PICK DEL DÍA — Señal estadística</b>\n"
+            f"📅 {date_str}\n"
+            f"\n"
+            f"🏆 Liga: {league}\n"
+            f"⚽ Partido: {matchup}\n"
+            f"🎯 Mercado: <b>{market}</b>\n"
+            f"📊 Probabilidad del modelo: <b>{prob_str}</b>\n"
+            f"📈 Pick por <b>confianza estadística</b>\n"
+            f"\n"
+            f"<i>No tenemos cuota de mercado verificada para este pick. "
+            f"Verificá la cuota en tu casa de apuestas antes de jugar.</i>\n"
+            f"\n"
+            f"━━━━━━━━━━━━━━━━━━━━━\n"
+            f"🌐 Análisis completo: https://prediktorcol.com\n"
+            f"⚠️ Apuesta con responsabilidad\n"
+            f"\n"
+            f"#pickdeldía #estadística #apuestasdeportivas"
+        )
 
     return (
         f"🎯 <b>VALUE BET DEL DÍA</b>\n"

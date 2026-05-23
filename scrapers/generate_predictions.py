@@ -177,6 +177,22 @@ EXCLUDED_LEAGUES = {
 EXPLORATORY_MIN_PROB = 48.0   # prob_adjusted mínima (%)
 EXPLORATORY_MIN_EV   = 5.0    # ev_adjusted mínimo (%)
 
+# ── CAPA DE CONFIANZA (fallback sin cuotas reales) ──────────────
+# Recalibración 23-may: el pipeline de EV requiere cuotas reales
+# (odds.json), pero esa fuente está casi siempre vacía → días sin picks.
+# Esta capa publica picks por PROBABILIDAD del modelo (confianza), sin
+# exigir cuota ni EV, cuando el pipeline de valor no produce nada.
+# Solo se activa si `top` quedó vacío (ver _select_confidence_picks).
+# Mercados: favorito a ganar y Over 1.5 (mejor mercado histórico: 5/5).
+# Umbrales respaldados por el track record (Over 1.5 ganadores en 69-77%).
+CONF_PICK_ENABLED    = True   # toggle reversible — bajar a False para desactivar
+CONF_WIN_MIN_PROB    = 66.0   # prob mínima del favorito a ganar (%)
+CONF_OVER15_MIN_PROB = 72.0   # prob mínima de Over 1.5 goles (%)
+CONF_MAX_PROB        = 80.0   # tope para "favorito a ganar": por encima la
+                              # cuota es impagable (riesgo/recompensa malo).
+                              # NO aplica a Over 1.5 (su cuota no colapsa igual).
+CONF_MAX_PICKS       = 2      # cuántos picks de confianza publicar por día
+
 # ── ANÁLISIS DE GOLES (display complementario, NO pick) ──
 # Mercados Over que no ganan el value_score del partido pero tienen
 # valor moderado se exponen como "insight" sin ser publicados como pick.
@@ -2650,6 +2666,71 @@ def _build_featured_pick_output(evaluated_picks: list, value_picks_dict: dict,
     return out
 
 
+def _select_confidence_picks(evaluated_picks: list) -> list:
+    """Capa de confianza — fallback SIN cuotas reales.
+
+    Cuando el pipeline de EV no produce ningún pick (típico cuando
+    odds.json está vacío), selecciona picks por PROBABILIDAD del modelo,
+    sin exigir cuota ni EV. Mercados considerados por partido:
+      · Favorito a ganar  → prob ≥ CONF_WIN_MIN_PROB (y ≤ CONF_MAX_PROB)
+      · Over 1.5 goles     → prob ≥ CONF_OVER15_MIN_PROB (no NBA)
+    Respeta EXCLUDED_LEAGUES y el Filtro 1 (forma reciente, _rf_rejected).
+
+    Devuelve hasta CONF_MAX_PICKS tuplas (label, prob, raw) donde `raw`
+    es la tupla de 18 elementos lista para entrar a `top`. El raw lleva
+    bk_odds=None, vl="estadistico" y un best_eval sintético con
+    reason="confianza" (≠"ok", así no lo toca el re-sync de _updated_top).
+    """
+    cands = []
+    for ep in evaluated_picks:
+        if ep.get("league") in EXCLUDED_LEAGUES:
+            continue
+        if ep.get("_rf_rejected"):
+            continue
+        raw = ep["raw"]
+        hd, ad, nba = raw[3], raw[5], raw[6]
+        league, home, away = raw[1], raw[2], raw[4]
+        cf = ep.get("confidence_factor", 1.0)
+        probs = get_probabilities(hd, ad, nba=nba)
+
+        match_markets = []
+        # Mercado 1 — favorito a ganar
+        fav      = probs.get("favorite")
+        win_key  = "win_home" if fav == "home" else "win_away"
+        win_prob = round(probs.get(win_key, 0.0) * 100, 1)
+        fav_team = home if fav == "home" else away
+        if CONF_WIN_MIN_PROB <= win_prob <= CONF_MAX_PROB:
+            match_markets.append((fav_team, win_prob))
+        # Mercado 2 — Over 1.5 goles (no aplica a NBA)
+        if not nba:
+            o15 = probs.get("over_1_5")
+            if o15 is not None:
+                o15_prob = round(o15 * 100, 1)
+                if o15_prob >= CONF_OVER15_MIN_PROB:
+                    match_markets.append(("Over 1.5 goles", o15_prob))
+
+        if not match_markets:
+            continue
+        label, prob = max(match_markets, key=lambda m: m[1])
+        best_eval = {
+            "label": label, "prob_original": prob, "prob_adjusted": prob,
+            "confidence_factor": cf, "ev": None, "ev_model": None,
+            "penalty": None, "ev_adjusted": None, "value_score": None,
+            "bk_odds": None, "valid": False, "reason": "confianza",
+        }
+        raw_list = list(raw)
+        raw_list[0]  = prob            # value_score (sortable, solo display)
+        raw_list[7]  = label           # display_pick
+        raw_list[8]  = prob            # display_prob
+        raw_list[10] = "estadistico"   # value_level
+        raw_list[13] = None            # bk_odds
+        raw_list[15] = best_eval       # best_eval
+        cands.append((label, prob, tuple(raw_list)))
+
+    cands.sort(key=lambda c: c[1], reverse=True)
+    return cands[:CONF_MAX_PICKS]
+
+
 def main():
     import sys
     force     = "--force"     in sys.argv
@@ -3154,6 +3235,20 @@ def main():
                     continue
             _updated_top.append((tipo, raw))
         top = _updated_top
+
+        # ── CAPA DE CONFIANZA (fallback sin cuotas) ──────────────────
+        # Si el pipeline de EV no produjo NINGÚN pick (típico cuando
+        # odds.json está vacío), publicamos picks por confianza del
+        # modelo. No exige cuota ni EV. El primero va como pick_gratuito
+        # (se publica en el canal), el resto como suscripción.
+        if CONF_PICK_ENABLED and not top:
+            _conf = _select_confidence_picks(evaluated_picks)
+            for _i, (_lbl, _p, _raw_t) in enumerate(_conf):
+                _tipo = "pick_gratuito" if _i == 0 else "pick_suscripcion"
+                top.append((_tipo, _raw_t))
+            if _conf:
+                print("  [CONFIANZA] Activado (sin cuotas) — "
+                      + ", ".join(f"{_l} {_p}%" for _l, _p, _ in _conf))
 
         print(f"Candidatos totales: {len(candidates)} | Evaluados: {len(evaluated_picks)} | "
               f"Suscripción elegibles: {len(subscription_candidates)} | Premium elegibles: {len(premium_candidates)} | "
