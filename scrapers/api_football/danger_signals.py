@@ -51,8 +51,15 @@ def _stat_value(statistics: List[Dict], *names: str) -> Optional[float]:
     return None
 
 
-def _domestic_recent(form_fixtures: List[Dict], lookback: int) -> List[Dict]:
-    """Últimos `lookback` fixtures domésticos terminados, más reciente primero."""
+def _domestic_recent(form_fixtures: List[Dict], lookback: int,
+                     team_id: Optional[int] = None,
+                     venue: Optional[str] = None) -> List[Dict]:
+    """Últimos `lookback` fixtures domésticos terminados, más reciente primero.
+
+    Si se pasa `venue` ("home"|"away") y `team_id`, filtra solo los partidos
+    donde el equipo jugó en esa localía. Esto implementa el método de córners
+    por localía: para el local de un partido se miran sus últimos N DE LOCAL,
+    para el visitante sus últimos N DE VISITANTE."""
     domestic = []
     for f in form_fixtures or []:
         lid = ((f.get("league") or {}).get("id"))
@@ -61,6 +68,13 @@ def _domestic_recent(form_fixtures: List[Dict], lookback: int) -> List[Dict]:
         status = ((f.get("fixture") or {}).get("status") or {}).get("short")
         if status not in ("FT", "AET", "PEN"):
             continue
+        if venue and team_id:
+            teams = f.get("teams") or {}
+            is_home = ((teams.get("home") or {}).get("id")) == team_id
+            if venue == "home" and not is_home:
+                continue
+            if venue == "away" and is_home:
+                continue
         domestic.append(f)
     domestic.sort(
         key=lambda f: (f.get("fixture") or {}).get("date") or "",
@@ -75,6 +89,7 @@ def extract_danger_signals(
     form_fixtures: List[Dict],
     lookback: int = DEFAULT_LOOKBACK,
     logger: Optional[logging.Logger] = None,
+    venue: Optional[str] = None,
 ) -> Dict[str, Any]:
     """Promedio de tiros a puerta y corners de un equipo en sus últimos
     `lookback` partidos domésticos.
@@ -97,11 +112,11 @@ def extract_danger_signals(
     log = logger or logging.getLogger("danger_signals")
     if not form_fixtures or not team_id:
         return {
-            "shots_on_target_avg": None, "corners_avg": None,
+            "shots_on_target_avg": None, "corners_avg": None, "venue": venue,
             "n_fixtures": 0, "fixture_ids": [], "errors": ["sin_form_data"],
         }
 
-    chosen = _domestic_recent(form_fixtures, lookback)
+    chosen = _domestic_recent(form_fixtures, lookback, team_id=team_id, venue=venue)
     shots: List[float] = []
     corners: List[float] = []
     used: List[int] = []
@@ -141,11 +156,12 @@ def extract_danger_signals(
     result = {
         "shots_on_target_avg": _avg(shots),
         "corners_avg": _avg(corners),
+        "venue": venue,
         "n_fixtures": len(used),
         "fixture_ids": used,
         "errors": errors,
     }
-    log.info("    danger_signals team=%s: SoT=%s corners=%s (n=%d)",
-             team_id, result["shots_on_target_avg"],
+    log.info("    danger_signals team=%s venue=%s: SoT=%s corners=%s (n=%d)",
+             team_id, venue or "any", result["shots_on_target_avg"],
              result["corners_avg"], result["n_fixtures"])
     return result

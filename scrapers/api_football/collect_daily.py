@@ -215,14 +215,18 @@ def collect_for_match(
     # partidos domésticos (motor v1.2, preparación). Reusa los fixtures de
     # form ya descargados; solo agrega las llamadas a /fixtures/statistics.
     if COLLECT_DANGER_SIGNALS:
+        # Córners por LOCALÍA (método de Sergio): el local con sus últimos N
+        # DE LOCAL, el visitante con sus últimos N DE VISITANTE.
         try:
             record["home_danger"] = extract_danger_signals(
-                client, home_id, record.get("home_form") or [], logger=log)
+                client, home_id, record.get("home_form") or [],
+                venue="home", logger=log)
         except APIFootballError as e:
             record["errors"].append(f"home_danger: {e}")
         try:
             record["away_danger"] = extract_danger_signals(
-                client, away_id, record.get("away_form") or [], logger=log)
+                client, away_id, record.get("away_form") or [],
+                venue="away", logger=log)
         except APIFootballError as e:
             record["errors"].append(f"away_danger: {e}")
 
