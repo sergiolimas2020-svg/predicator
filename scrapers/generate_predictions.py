@@ -204,6 +204,15 @@ CONF_CORNERS_LINES     = [7.5, 8.5, 9.5, 10.5, 11.5]  # líneas candidatas
 CONF_CORNERS_MIN_PROB  = 70.0   # prob mínima (Poisson) para publicar
 CONF_CORNERS_MAX_PICKS = 1      # cuántas líneas de córners por día
 
+# ── Línea de OVER 2.5 GOLES con datos reales de API-Football ──
+# Análisis INDEPENDIENTE. Usa los promedios de goles POR LOCALÍA de la API
+# (goals.for/against.average.home/away) en vez de la fórmula con stats por
+# país: λ = goles esperados del local (de local) + del visitante (de visita),
+# modelado Poisson → P(Over 2.5) = P(total ≥ 3).
+CONF_OVER25_ENABLED   = True
+CONF_OVER25_MIN_PROB  = 60.0    # prob mínima para publicar (Over 2.5 es más difícil)
+CONF_OVER25_MAX_PICKS = 1       # cuántos Over 2.5 por día
+
 # ── ANÁLISIS DE GOLES (display complementario, NO pick) ──
 # Mercados Over que no ganan el value_score del partido pero tienen
 # valor moderado se exponen como "insight" sin ser publicados como pick.
@@ -2804,6 +2813,63 @@ def _select_corners_picks(today_matches: list, danger_data: dict) -> list:
     return [(lbl, p, r) for (lbl, p, r, _lam) in cands[:CONF_CORNERS_MAX_PICKS]]
 
 
+def _api_goal_avg(team_stats, side, venue):
+    """Promedio de goles de la API-Football. side='for'|'against',
+    venue='home'|'away'. Devuelve float o None."""
+    try:
+        v = (((team_stats or {}).get("goals") or {}).get(side) or {}).get("average", {}).get(venue)
+        return float(v) if v not in (None, "") else None
+    except (KeyError, TypeError, ValueError, AttributeError):
+        return None
+
+
+def _select_over25_picks(today_matches: list, danger_data: dict) -> list:
+    """Línea de Over 2.5 goles con datos REALES de API-Football (independiente).
+
+    Para cada partido, usa los promedios de goles POR LOCALÍA:
+      λ_local    = (local marca de local      + visitante recibe de visita) / 2
+      λ_visita   = (visitante marca de visita  + local recibe de local)     / 2
+      λ_total    = λ_local + λ_visita
+    P(Over 2.5) = P(Poisson(λ_total) ≥ 3). Publica si ≥ CONF_OVER25_MIN_PROB.
+
+    today_matches: lista de (league, home, away, hd, ad, nba). Solo fútbol."""
+    cands = []
+    for (league, home, away, hd, ad, nba) in today_matches:
+        if nba or league in EXCLUDED_LEAGUES:
+            continue
+        rec = danger_data.get((_norm(home), _norm(away)))
+        if not rec:
+            continue
+        hs = rec.get("home_stats") or {}
+        as_ = rec.get("away_stats") or {}
+        # goles esperados por localía
+        h_for_home   = _api_goal_avg(hs,  "for",     "home")
+        h_against_h  = _api_goal_avg(hs,  "against", "home")
+        a_for_away   = _api_goal_avg(as_, "for",     "away")
+        a_against_a  = _api_goal_avg(as_, "against", "away")
+        if None in (h_for_home, h_against_h, a_for_away, a_against_a):
+            continue
+        lam_home = (h_for_home + a_against_a) / 2.0
+        lam_away = (a_for_away + h_against_h) / 2.0
+        lam = lam_home + lam_away
+        prob = round(_poisson_ge(lam, 3) * 100, 1)   # Over 2.5 → total ≥ 3
+        if prob < CONF_OVER25_MIN_PROB:
+            continue
+        label = "Over 2.5 goles"
+        best_eval = {
+            "label": label, "prob_original": prob, "prob_adjusted": prob,
+            "confidence_factor": 1.0, "ev": None, "ev_model": None,
+            "penalty": None, "ev_adjusted": None, "value_score": None,
+            "bk_odds": None, "valid": False, "reason": "confianza_over25_api",
+        }
+        raw = (prob, league, home, hd, away, ad, False, label, prob, None,
+               "estadistico", 0.0, "", None, 1.0, best_eval, [], {})
+        cands.append((label, prob, raw, lam))
+
+    cands.sort(key=lambda c: c[3], reverse=True)   # más goles esperados primero
+    return [(lbl, p, r) for (lbl, p, r, _lam) in cands[:CONF_OVER25_MAX_PICKS]]
+
+
 def main():
     import sys
     force     = "--force"     in sys.argv
@@ -3328,17 +3394,29 @@ def main():
                 print("  [CONFIANZA] Activado (sin cuotas) — "
                       + ", ".join(f"{_l} {_p}%" for _l, _p, _ in _conf))
 
-            # Línea de córners (aditiva, análisis INDEPENDIENTE): evalúa TODOS
-            # los partidos del día, no solo los del pipeline de goles.
+            # Mercados ADITIVOS con datos de API-Football, análisis INDEPENDIENTE
+            # (evalúan TODOS los partidos del día, no solo los del pipeline de goles).
+            _api_data = _danger_load_data(today)
+
+            # Línea de córners (por localía).
             if CONF_CORNERS_ENABLED:
-                _danger = _danger_load_data(today)
-                _corn = _select_corners_picks(all_today_matches, _danger)
+                _corn = _select_corners_picks(all_today_matches, _api_data)
                 for _lbl, _p, _raw_t in _corn:
                     _tipo = "pick_gratuito" if not top else "pick_suscripcion"
                     top.append((_tipo, _raw_t))
                 if _corn:
                     print("  [CÓRNERS] " + ", ".join(
                         f"{_l} {_p}%" for _l, _p, _ in _corn))
+
+            # Línea de Over 2.5 goles (promedios reales por localía de la API).
+            if CONF_OVER25_ENABLED:
+                _o25 = _select_over25_picks(all_today_matches, _api_data)
+                for _lbl, _p, _raw_t in _o25:
+                    _tipo = "pick_gratuito" if not top else "pick_suscripcion"
+                    top.append((_tipo, _raw_t))
+                if _o25:
+                    print("  [OVER 2.5 API] " + ", ".join(
+                        f"{_l} {_p}%" for _l, _p, _ in _o25))
 
         print(f"Candidatos totales: {len(candidates)} | Evaluados: {len(evaluated_picks)} | "
               f"Suscripción elegibles: {len(subscription_candidates)} | Premium elegibles: {len(premium_candidates)} | "
