@@ -221,7 +221,9 @@ CONF_OVER25_MAX_PICKS = 1       # cuántos Over 2.5 por día
 #   3) se publican los CONF_PUBLISH_MAX más confiables (la "escalera"),
 #   4) el ranking pondera por confiabilidad del mercado, para que un córners
 #      de muestra chica no le gane a un Over 1.5 sólido.
-CONF_PUBLISH_MAX = 2            # cuántos picks totales se publican por día
+CONF_PUBLISH_MAX = 3            # cuántos picks totales se publican por día.
+                               # 3 durante el shadow (validar goles + córners +
+                               # Over 2.5); evaluar bajar a 2 al salir a público.
 CONF_MIN_SAMPLE_CORNERS = 3    # mín. partidos por localía para confiar en córners
 CONF_MARKET_RELIABILITY = {
     "over15":  1.00,   # Over 1.5 — histórico 100%, stats de temporada
