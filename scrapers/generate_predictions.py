@@ -213,6 +213,23 @@ CONF_OVER25_ENABLED   = True
 CONF_OVER25_MIN_PROB  = 60.0    # prob mínima para publicar (Over 2.5 es más difícil)
 CONF_OVER25_MAX_PICKS = 1       # cuántos Over 2.5 por día
 
+# ── ESCALERA DE PUBLICACIÓN — selección final entre todos los mercados ──
+# Un partido cerrado es "under" en goles Y córners a la vez (correlación).
+# Para no publicar varios picks correlacionados que pierden juntos:
+#   1) se juntan TODOS los candidatos de confianza (goles, córners, Over 2.5),
+#   2) se deja como máximo 1 mercado POR PARTIDO,
+#   3) se publican los CONF_PUBLISH_MAX más confiables (la "escalera"),
+#   4) el ranking pondera por confiabilidad del mercado, para que un córners
+#      de muestra chica no le gane a un Over 1.5 sólido.
+CONF_PUBLISH_MAX = 2            # cuántos picks totales se publican por día
+CONF_MIN_SAMPLE_CORNERS = 3    # mín. partidos por localía para confiar en córners
+CONF_MARKET_RELIABILITY = {
+    "over15":  1.00,   # Over 1.5 — histórico 100%, stats de temporada
+    "win":     1.00,   # favorito a ganar
+    "over25":  0.95,   # Over 2.5 (API por localía)
+    "corners": 0.90,   # córners (Poisson, muestra chica) — más castigo
+}
+
 # ── ANÁLISIS DE GOLES (display complementario, NO pick) ──
 # Mercados Over que no ganan el value_score del partido pero tienen
 # valor moderado se exponen como "insight" sin ser publicados como pick.
@@ -2748,7 +2765,7 @@ def _select_confidence_picks(evaluated_picks: list) -> list:
         cands.append((label, prob, tuple(raw_list)))
 
     cands.sort(key=lambda c: c[1], reverse=True)
-    return cands[:CONF_MAX_PICKS]
+    return cands   # todos los candidatos; la escalera en main() limita
 
 
 def _poisson_ge(lam, k):
@@ -2783,9 +2800,15 @@ def _select_corners_picks(today_matches: list, danger_data: dict) -> list:
         rec = danger_data.get((_norm(home), _norm(away)))
         if not rec:
             continue
-        hd_c = (rec.get("home_danger") or {}).get("corners_avg")
-        ad_c = (rec.get("away_danger") or {}).get("corners_avg")
+        hd_rec = rec.get("home_danger") or {}
+        ad_rec = rec.get("away_danger") or {}
+        hd_c = hd_rec.get("corners_avg")
+        ad_c = ad_rec.get("corners_avg")
         if hd_c is None or ad_c is None:
+            continue
+        # Protección: no apostar córners con muestra chica por localía.
+        if (hd_rec.get("n_fixtures", 0) < CONF_MIN_SAMPLE_CORNERS
+                or ad_rec.get("n_fixtures", 0) < CONF_MIN_SAMPLE_CORNERS):
             continue
         lam = hd_c + ad_c
         chosen = None
@@ -2810,7 +2833,7 @@ def _select_corners_picks(today_matches: list, danger_data: dict) -> list:
         cands.append((label, prob, raw, lam))
 
     cands.sort(key=lambda c: c[3], reverse=True)   # más córners esperados primero
-    return [(lbl, p, r) for (lbl, p, r, _lam) in cands[:CONF_CORNERS_MAX_PICKS]]
+    return [(lbl, p, r) for (lbl, p, r, _lam) in cands]   # todos; la escalera limita
 
 
 def _api_goal_avg(team_stats, side, venue):
@@ -2867,7 +2890,53 @@ def _select_over25_picks(today_matches: list, danger_data: dict) -> list:
         cands.append((label, prob, raw, lam))
 
     cands.sort(key=lambda c: c[3], reverse=True)   # más goles esperados primero
-    return [(lbl, p, r) for (lbl, p, r, _lam) in cands[:CONF_OVER25_MAX_PICKS]]
+    return [(lbl, p, r) for (lbl, p, r, _lam) in cands]   # todos; la escalera limita
+
+
+def _conf_market_key(label: str) -> str:
+    """Clasifica un pick de confianza por su etiqueta, para ponderar la
+    confiabilidad del mercado en la escalera de publicación."""
+    l = (label or "").lower()
+    if "córners" in l or "corners" in l:
+        return "corners"
+    if "over 2.5" in l:
+        return "over25"
+    if "over 1.5" in l:
+        return "over15"
+    return "win"
+
+
+def _build_confidence_ladder(evaluated_picks: list, today_matches: list,
+                             danger_data: dict) -> list:
+    """ESCALERA: junta los candidatos de TODOS los mercados de confianza,
+    deja como máximo 1 mercado por partido (el más confiable), y devuelve los
+    CONF_PUBLISH_MAX mejores. Pondera por confiabilidad de mercado para que un
+    córners de muestra chica no le gane a un Over 1.5 sólido.
+
+    Devuelve lista de (label, prob, raw, market_key), ya ordenada y limitada."""
+    pool = []  # (adj_prob, prob, label, raw, market_key, match_key)
+    sources = [_select_confidence_picks(evaluated_picks)]
+    if CONF_CORNERS_ENABLED:
+        sources.append(_select_corners_picks(today_matches, danger_data))
+    if CONF_OVER25_ENABLED:
+        sources.append(_select_over25_picks(today_matches, danger_data))
+    for src in sources:
+        for (label, prob, raw) in src:
+            mkey = _conf_market_key(label)
+            adj = prob * CONF_MARKET_RELIABILITY.get(mkey, 1.0)
+            match_key = (_norm(raw[2]), _norm(raw[4]))
+            pool.append((adj, prob, label, raw, mkey, match_key))
+
+    # 1 mercado por partido: el de mayor prob ajustada
+    pool.sort(key=lambda x: x[0], reverse=True)
+    best_by_match = {}
+    for item in pool:
+        mk = item[5]
+        if mk not in best_by_match:
+            best_by_match[mk] = item
+
+    ranked = sorted(best_by_match.values(), key=lambda x: x[0], reverse=True)
+    return [(it[2], it[1], it[3], it[4]) for it in ranked[:CONF_PUBLISH_MAX]]
 
 
 def main():
@@ -3386,37 +3455,17 @@ def main():
         # modelo. No exige cuota ni EV. El primero va como pick_gratuito
         # (se publica en el canal), el resto como suscripción.
         if CONF_PICK_ENABLED and not top:
-            _conf = _select_confidence_picks(evaluated_picks)
-            for _i, (_lbl, _p, _raw_t) in enumerate(_conf):
+            # ESCALERA: junta todos los mercados de confianza (goles, córners,
+            # Over 2.5), deja 1 por partido y publica los más confiables.
+            _api_data = _danger_load_data(today)
+            _ladder = _build_confidence_ladder(
+                evaluated_picks, all_today_matches, _api_data)
+            for _i, (_lbl, _p, _raw_t, _mk) in enumerate(_ladder):
                 _tipo = "pick_gratuito" if _i == 0 else "pick_suscripcion"
                 top.append((_tipo, _raw_t))
-            if _conf:
-                print("  [CONFIANZA] Activado (sin cuotas) — "
-                      + ", ".join(f"{_l} {_p}%" for _l, _p, _ in _conf))
-
-            # Mercados ADITIVOS con datos de API-Football, análisis INDEPENDIENTE
-            # (evalúan TODOS los partidos del día, no solo los del pipeline de goles).
-            _api_data = _danger_load_data(today)
-
-            # Línea de córners (por localía).
-            if CONF_CORNERS_ENABLED:
-                _corn = _select_corners_picks(all_today_matches, _api_data)
-                for _lbl, _p, _raw_t in _corn:
-                    _tipo = "pick_gratuito" if not top else "pick_suscripcion"
-                    top.append((_tipo, _raw_t))
-                if _corn:
-                    print("  [CÓRNERS] " + ", ".join(
-                        f"{_l} {_p}%" for _l, _p, _ in _corn))
-
-            # Línea de Over 2.5 goles (promedios reales por localía de la API).
-            if CONF_OVER25_ENABLED:
-                _o25 = _select_over25_picks(all_today_matches, _api_data)
-                for _lbl, _p, _raw_t in _o25:
-                    _tipo = "pick_gratuito" if not top else "pick_suscripcion"
-                    top.append((_tipo, _raw_t))
-                if _o25:
-                    print("  [OVER 2.5 API] " + ", ".join(
-                        f"{_l} {_p}%" for _l, _p, _ in _o25))
+            if _ladder:
+                print("  [ESCALERA confianza] " + " | ".join(
+                    f"{_lbl} {_p}% [{_mk}]" for _lbl, _p, _, _mk in _ladder))
 
         print(f"Candidatos totales: {len(candidates)} | Evaluados: {len(evaluated_picks)} | "
               f"Suscripción elegibles: {len(subscription_candidates)} | Premium elegibles: {len(premium_candidates)} | "
