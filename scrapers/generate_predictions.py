@@ -161,13 +161,13 @@ CORE_LEAGUES = {
 # Los partidos de las ligas excluidas siguen apareciendo en Análisis del Día
 # (Nivel 1, informativo) pero NO se publican como recomendación de apuesta
 # (Nivel 2 / Nivel 3). Reversible con git revert.
-EXCLUDED_LEAGUES = {
-    "Premier League",
-    "La Liga",
-    "Super Lig",
-    "Bundesliga",
-    "Ligue 1",
-}
+# EXPERIMENTO SHADOW (2026-05-24): se re-incluye Europa para probar si los
+# mercados NUEVOS (Over 1.5, córners, Over 2.5 con datos de API por localía)
+# funcionan ahí — las pérdidas históricas de Europa fueron en "ganador/DC"
+# (1X2), mercados distintos. Como estamos en shadow, los picks europeos van
+# al DM y se loguean sin riesgo. DECIDIR ANTES DEL 2026-06-01: si Europa no
+# acierta bien en estos mercados, repoblar este set con las ligas malas.
+EXCLUDED_LEAGUES = set()
 
 # ── Regla de PICK EXPLORATORIO ──
 # Fallback de publicación para evitar días en blanco cuando hay
