@@ -1,4 +1,24 @@
 {
+  "Nacional": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "80%",
+      "over_2_5": "67%",
+      "over_3_5": "40%",
+      "bts": "60%"
+    },
+    "position": {
+      "posicion": 9,
+      "partidos": 2,
+      "ganados": 2,
+      "empatados": 0,
+      "perdidos": 0,
+      "goles_favor": 3,
+      "goles_contra": 1,
+      "diferencia": 2,
+      "puntos": 6
+    }
+  },
   "Wanderers": {
     "corners": {},
     "goals": {
@@ -9,82 +29,12 @@
     },
     "position": {}
   },
-  "Albion": {
+  "Montevideo City": {
     "corners": {},
     "goals": {
       "over_1_5": "67%",
-      "over_2_5": "60%",
-      "over_3_5": "33%",
-      "bts": "60%"
-    },
-    "position": {}
-  },
-  "Danubio": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "80%",
       "over_2_5": "47%",
-      "over_3_5": "27%",
-      "bts": "53%"
-    },
-    "position": {
-      "posicion": 10,
-      "partidos": 1,
-      "ganados": 0,
-      "empatados": 0,
-      "perdidos": 1,
-      "goles_favor": 1,
-      "goles_contra": 3,
-      "diferencia": -2,
-      "puntos": 0
-    }
-  },
-  "Cerro Largo": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "60%",
-      "over_2_5": "40%",
-      "over_3_5": "27%",
-      "bts": "40%"
-    },
-    "position": {
-      "posicion": 5,
-      "partidos": 2,
-      "ganados": 1,
-      "empatados": 0,
-      "perdidos": 1,
-      "goles_favor": 3,
-      "goles_contra": 1,
-      "diferencia": 2,
-      "puntos": 3
-    }
-  },
-  "Boston River": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "67%",
-      "over_2_5": "40%",
-      "over_3_5": "13%",
-      "bts": "47%"
-    },
-    "position": {
-      "posicion": 7,
-      "partidos": 2,
-      "ganados": 1,
-      "empatados": 0,
-      "perdidos": 1,
-      "goles_favor": 4,
-      "goles_contra": 4,
-      "diferencia": 0,
-      "puntos": 3
-    }
-  },
-  "D. Maldonado": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "73%",
-      "over_2_5": "53%",
-      "over_3_5": "20%",
+      "over_3_5": "33%",
       "bts": "60%"
     },
     "position": {}
@@ -99,35 +49,35 @@
     },
     "position": {}
   },
-  "Montevideo Wanderers": {
+  "Juventud": {
     "corners": {},
-    "goals": {},
+    "goals": {
+      "over_1_5": "67%",
+      "over_2_5": "60%",
+      "over_3_5": "27%",
+      "bts": "67%"
+    },
     "position": {
-      "posicion": 11,
-      "partidos": 2,
-      "ganados": 0,
-      "empatados": 2,
+      "posicion": 13,
+      "partidos": 1,
+      "ganados": 1,
+      "empatados": 0,
       "perdidos": 0,
-      "goles_favor": 1,
-      "goles_contra": 1,
-      "diferencia": 0,
-      "puntos": 2
+      "goles_favor": 2,
+      "goles_contra": 0,
+      "diferencia": 2,
+      "puntos": 3
     }
   },
-  "Liverpool": {
+  "League average": {
     "corners": {},
-    "goals": {},
-    "position": {
-      "posicion": 4,
-      "partidos": 2,
-      "ganados": 0,
-      "empatados": 1,
-      "perdidos": 1,
-      "goles_favor": 1,
-      "goles_contra": 2,
-      "diferencia": -1,
-      "puntos": 1
-    }
+    "goals": {
+      "over_1_5": "47.5%",
+      "over_2_5": "23.3%",
+      "over_3_5": "9.2%",
+      "bts": "25.4%"
+    },
+    "position": {}
   },
   "Liverpool M.": {
     "corners": {},
@@ -139,15 +89,55 @@
     },
     "position": {}
   },
-  "Montevideo City": {
+  "Progreso": {
     "corners": {},
     "goals": {
-      "over_1_5": "67%",
-      "over_2_5": "47%",
-      "over_3_5": "33%",
-      "bts": "60%"
+      "over_1_5": "60%",
+      "over_2_5": "40%",
+      "over_3_5": "20%",
+      "bts": "40%"
     },
-    "position": {}
+    "position": {
+      "posicion": 12,
+      "partidos": 2,
+      "ganados": 0,
+      "empatados": 0,
+      "perdidos": 2,
+      "goles_favor": 1,
+      "goles_contra": 4,
+      "diferencia": -3,
+      "puntos": 0
+    }
+  },
+  "Montevideo City Torque": {
+    "corners": {},
+    "goals": {},
+    "position": {
+      "posicion": 15,
+      "partidos": 2,
+      "ganados": 1,
+      "empatados": 0,
+      "perdidos": 1,
+      "goles_favor": 3,
+      "goles_contra": 3,
+      "diferencia": 0,
+      "puntos": 3
+    }
+  },
+  "Deportivo Maldonado": {
+    "corners": {},
+    "goals": {},
+    "position": {
+      "posicion": 14,
+      "partidos": 2,
+      "ganados": 1,
+      "empatados": 1,
+      "perdidos": 0,
+      "goles_favor": 4,
+      "goles_contra": 2,
+      "diferencia": 2,
+      "puntos": 4
+    }
   },
   "Albion FC": {
     "corners": {},
@@ -174,30 +164,30 @@
     },
     "position": {}
   },
-  "Defensor Sporting": {
-    "corners": {},
-    "goals": {},
-    "position": {
-      "posicion": 1,
-      "partidos": 2,
-      "ganados": 0,
-      "empatados": 0,
-      "perdidos": 2,
-      "goles_favor": 1,
-      "goles_contra": 4,
-      "diferencia": -3,
-      "puntos": 0
-    }
-  },
-  "Racing CM": {
+  "D. Maldonado": {
     "corners": {},
     "goals": {
       "over_1_5": "73%",
-      "over_2_5": "40%",
+      "over_2_5": "53%",
       "over_3_5": "20%",
       "bts": "60%"
     },
     "position": {}
+  },
+  "Liverpool": {
+    "corners": {},
+    "goals": {},
+    "position": {
+      "posicion": 4,
+      "partidos": 2,
+      "ganados": 0,
+      "empatados": 1,
+      "perdidos": 1,
+      "goles_favor": 1,
+      "goles_contra": 2,
+      "diferencia": -1,
+      "puntos": 1
+    }
   },
   "Central Español Fútbol Club": {
     "corners": {},
@@ -214,44 +204,49 @@
       "puntos": 3
     }
   },
-  "Progreso": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "60%",
-      "over_2_5": "40%",
-      "over_3_5": "20%",
-      "bts": "40%"
-    },
-    "position": {
-      "posicion": 12,
-      "partidos": 2,
-      "ganados": 0,
-      "empatados": 0,
-      "perdidos": 2,
-      "goles_favor": 1,
-      "goles_contra": 4,
-      "diferencia": -3,
-      "puntos": 0
-    }
-  },
-  "Juventud": {
+  "Albion": {
     "corners": {},
     "goals": {
       "over_1_5": "67%",
       "over_2_5": "60%",
+      "over_3_5": "33%",
+      "bts": "60%"
+    },
+    "position": {}
+  },
+  "Montevideo Wanderers": {
+    "corners": {},
+    "goals": {},
+    "position": {
+      "posicion": 11,
+      "partidos": 2,
+      "ganados": 0,
+      "empatados": 2,
+      "perdidos": 0,
+      "goles_favor": 1,
+      "goles_contra": 1,
+      "diferencia": 0,
+      "puntos": 2
+    }
+  },
+  "Danubio": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "80%",
+      "over_2_5": "47%",
       "over_3_5": "27%",
-      "bts": "67%"
+      "bts": "53%"
     },
     "position": {
-      "posicion": 13,
+      "posicion": 10,
       "partidos": 1,
-      "ganados": 1,
+      "ganados": 0,
       "empatados": 0,
-      "perdidos": 0,
-      "goles_favor": 2,
-      "goles_contra": 0,
-      "diferencia": 2,
-      "puntos": 3
+      "perdidos": 1,
+      "goles_favor": 1,
+      "goles_contra": 3,
+      "diferencia": -2,
+      "puntos": 0
     }
   },
   "Cerro": {
@@ -274,36 +269,6 @@
       "puntos": 3
     }
   },
-  "Deportivo Maldonado": {
-    "corners": {},
-    "goals": {},
-    "position": {
-      "posicion": 14,
-      "partidos": 2,
-      "ganados": 1,
-      "empatados": 1,
-      "perdidos": 0,
-      "goles_favor": 4,
-      "goles_contra": 2,
-      "diferencia": 2,
-      "puntos": 4
-    }
-  },
-  "Montevideo City Torque": {
-    "corners": {},
-    "goals": {},
-    "position": {
-      "posicion": 15,
-      "partidos": 2,
-      "ganados": 1,
-      "empatados": 0,
-      "perdidos": 1,
-      "goles_favor": 3,
-      "goles_contra": 3,
-      "diferencia": 0,
-      "puntos": 3
-    }
-  },
   "Racing (Montevideo)": {
     "corners": {},
     "goals": {},
@@ -319,44 +284,24 @@
       "puntos": 4
     }
   },
-  "League average": {
+  "Boston River": {
     "corners": {},
     "goals": {
-      "over_1_5": "47.5%",
-      "over_2_5": "23.3%",
-      "over_3_5": "9.2%",
-      "bts": "25.4%"
-    },
-    "position": {}
-  },
-  "Central Espanol": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "73%",
-      "over_2_5": "67%",
-      "over_3_5": "33%",
-      "bts": "60%"
-    },
-    "position": {}
-  },
-  "Nacional": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "80%",
-      "over_2_5": "67%",
-      "over_3_5": "40%",
-      "bts": "60%"
+      "over_1_5": "67%",
+      "over_2_5": "40%",
+      "over_3_5": "13%",
+      "bts": "47%"
     },
     "position": {
-      "posicion": 9,
+      "posicion": 7,
       "partidos": 2,
-      "ganados": 2,
+      "ganados": 1,
       "empatados": 0,
-      "perdidos": 0,
-      "goles_favor": 3,
-      "goles_contra": 1,
-      "diferencia": 2,
-      "puntos": 6
+      "perdidos": 1,
+      "goles_favor": 4,
+      "goles_contra": 4,
+      "diferencia": 0,
+      "puntos": 3
     }
   },
   "Peñarol": {
@@ -374,8 +319,63 @@
       "puntos": 6
     }
   },
+  "Central Espanol": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "73%",
+      "over_2_5": "67%",
+      "over_3_5": "33%",
+      "bts": "60%"
+    },
+    "position": {}
+  },
+  "Cerro Largo": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "60%",
+      "over_2_5": "40%",
+      "over_3_5": "27%",
+      "bts": "40%"
+    },
+    "position": {
+      "posicion": 5,
+      "partidos": 2,
+      "ganados": 1,
+      "empatados": 0,
+      "perdidos": 1,
+      "goles_favor": 3,
+      "goles_contra": 1,
+      "diferencia": 2,
+      "puntos": 3
+    }
+  },
+  "Racing CM": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "73%",
+      "over_2_5": "40%",
+      "over_3_5": "20%",
+      "bts": "60%"
+    },
+    "position": {}
+  },
+  "Defensor Sporting": {
+    "corners": {},
+    "goals": {},
+    "position": {
+      "posicion": 1,
+      "partidos": 2,
+      "ganados": 0,
+      "empatados": 0,
+      "perdidos": 2,
+      "goles_favor": 1,
+      "goles_contra": 4,
+      "diferencia": -3,
+      "puntos": 0
+    }
+  },
   "_metadata": {
-    "fecha_actualizacion": "2026-05-25T08:51:15.912100",
+    "fecha_actualizacion": "2026-05-26T08:27:07.377006",
     "liga": "uruguay",
     "fuente": "ESPN API"
   }
