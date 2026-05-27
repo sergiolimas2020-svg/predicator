@@ -1,8 +1,98 @@
 {
-  "total": 94,
-  "aciertos": 55,
+  "total": 97,
+  "aciertos": 57,
   "porcentaje": 59,
   "ultimos": [
+    {
+      "fecha": "2026-05-26",
+      "slug": "universitario-vs-deportes-tolima-copa-libertadores-2026-05-26",
+      "home": "Universitario",
+      "away": "Deportes Tolima",
+      "league": "Copa Libertadores",
+      "prediccion": "Over 7.5 córners",
+      "confianza": "Probabilidad: 79.7%",
+      "resultado_real": "0-0",
+      "acerto": false,
+      "prob_original": 79.7,
+      "confidence_factor": 1.0,
+      "prob_adjusted": 79.7,
+      "bk_odds": null,
+      "ev": null,
+      "penalty": null,
+      "ev_adjusted": null,
+      "value_score": null,
+      "reason": "confianza_corners",
+      "version": "v1.2-clean-signal",
+      "stake_sugerido_pct": 0.0,
+      "stake_real_pct": 0.0,
+      "stake_modo": "lectura",
+      "cuota_betplay_estimada": null,
+      "ev_betplay_estimado": null,
+      "tipo_pick": "pick_suscripcion",
+      "base_pick": "",
+      "value_level": "estadistico",
+      "markets_evaluated": []
+    },
+    {
+      "fecha": "2026-05-26",
+      "slug": "santos-vs-deportivo-cuenca-copa-sudamericana-2026-05-26",
+      "home": "Santos",
+      "away": "Deportivo Cuenca",
+      "league": "Copa Sudamericana",
+      "prediccion": "Over 1.5 goles",
+      "confianza": "Probabilidad: 73.9%",
+      "resultado_real": "3-0",
+      "acerto": true,
+      "prob_original": 73.9,
+      "confidence_factor": 1.0,
+      "prob_adjusted": 73.9,
+      "bk_odds": null,
+      "ev": null,
+      "penalty": null,
+      "ev_adjusted": null,
+      "value_score": null,
+      "reason": "confianza",
+      "version": "v1.2-clean-signal",
+      "stake_sugerido_pct": 0.0,
+      "stake_real_pct": 0.0,
+      "stake_modo": "lectura",
+      "cuota_betplay_estimada": null,
+      "ev_betplay_estimado": null,
+      "tipo_pick": "pick_suscripcion",
+      "base_pick": "Deportivo Cuenca",
+      "value_level": "estadistico",
+      "markets_evaluated": []
+    },
+    {
+      "fecha": "2026-05-26",
+      "slug": "millonarios-vs-o-higgins-copa-sudamericana-2026-05-26",
+      "home": "Millonarios",
+      "away": "O'Higgins",
+      "league": "Copa Sudamericana",
+      "prediccion": "Over 1.5 goles",
+      "confianza": "Probabilidad: 77.5%",
+      "resultado_real": "1-2",
+      "acerto": true,
+      "prob_original": 77.5,
+      "confidence_factor": 1.0,
+      "prob_adjusted": 77.5,
+      "bk_odds": null,
+      "ev": null,
+      "penalty": null,
+      "ev_adjusted": null,
+      "value_score": null,
+      "reason": "confianza",
+      "version": "v1.2-clean-signal",
+      "stake_sugerido_pct": 0.0,
+      "stake_real_pct": 0.0,
+      "stake_modo": "lectura",
+      "cuota_betplay_estimada": null,
+      "ev_betplay_estimado": null,
+      "tipo_pick": "pick_gratuito",
+      "base_pick": "O'Higgins",
+      "value_level": "estadistico",
+      "markets_evaluated": []
+    },
     {
       "fecha": "2026-05-25",
       "slug": "coritiba-vs-bahia-brasileirao-2026-05-25",
@@ -877,177 +967,6 @@
           "ev_adjusted": -8.4,
           "value_score": null,
           "reason": "ev_negativo"
-        },
-        {
-          "market": "Over 1.5 goles",
-          "ev_adjusted": null,
-          "value_score": null,
-          "reason": "mercado_no_disponible"
-        }
-      ]
-    },
-    {
-      "fecha": "2026-05-10",
-      "slug": "west-ham-united-vs-arsenal-premier-league-2026-05-10",
-      "home": "West Ham United",
-      "away": "Arsenal",
-      "league": "Premier League",
-      "prediccion": "Arsenal",
-      "confianza": "Probabilidad: 66.0%",
-      "resultado_real": "0-1",
-      "acerto": true,
-      "prob_original": 68.0,
-      "confidence_factor": 0.97,
-      "prob_adjusted": 66.0,
-      "bk_odds": 1.65,
-      "ev": 12.2,
-      "penalty": 0.0,
-      "ev_adjusted": 8.8,
-      "value_score": null,
-      "reason": "ev_insuficiente",
-      "cuota_betplay_estimada": 1.48,
-      "ev_betplay_estimado": -2.3,
-      "tipo_pick": "pick_suscripcion",
-      "base_pick": "Arsenal",
-      "value_level": "bajo",
-      "markets_evaluated": [
-        {
-          "market": "Arsenal",
-          "ev_adjusted": 8.8,
-          "value_score": null,
-          "reason": "ev_insuficiente"
-        },
-        {
-          "market": "Apuesta sin empate: Arsenal",
-          "ev_adjusted": 1.9,
-          "value_score": null,
-          "reason": "ev_insuficiente"
-        },
-        {
-          "market": "Doble oportunidad: Arsenal",
-          "ev_adjusted": null,
-          "value_score": null,
-          "reason": "cuota_baja"
-        },
-        {
-          "market": "Over 2.5 goles",
-          "ev_adjusted": -11.2,
-          "value_score": null,
-          "reason": "ev_negativo"
-        },
-        {
-          "market": "Over 1.5 goles",
-          "ev_adjusted": null,
-          "value_score": null,
-          "reason": "mercado_no_disponible"
-        }
-      ]
-    },
-    {
-      "fecha": "2026-05-10",
-      "slug": "burnley-vs-aston-villa-premier-league-2026-05-10",
-      "home": "Burnley",
-      "away": "Aston Villa",
-      "league": "Premier League",
-      "prediccion": "Aston Villa",
-      "confianza": "Probabilidad: 66.0%",
-      "resultado_real": "2-2",
-      "acerto": false,
-      "prob_original": 68.0,
-      "confidence_factor": 0.97,
-      "prob_adjusted": 66.0,
-      "bk_odds": 1.66,
-      "ev": 12.9,
-      "penalty": 0.0,
-      "ev_adjusted": 9.5,
-      "value_score": null,
-      "reason": "ev_insuficiente",
-      "cuota_betplay_estimada": 1.49,
-      "ev_betplay_estimado": -1.7,
-      "tipo_pick": "pick_gratuito",
-      "base_pick": "Aston Villa",
-      "value_level": "bajo",
-      "markets_evaluated": [
-        {
-          "market": "Aston Villa",
-          "ev_adjusted": 9.5,
-          "value_score": null,
-          "reason": "ev_insuficiente"
-        },
-        {
-          "market": "Apuesta sin empate: Aston Villa",
-          "ev_adjusted": 2.6,
-          "value_score": null,
-          "reason": "ev_insuficiente"
-        },
-        {
-          "market": "Doble oportunidad: Aston Villa",
-          "ev_adjusted": null,
-          "value_score": null,
-          "reason": "cuota_baja"
-        },
-        {
-          "market": "Over 2.5 goles",
-          "ev_adjusted": -4.5,
-          "value_score": null,
-          "reason": "ev_negativo"
-        },
-        {
-          "market": "Over 1.5 goles",
-          "ev_adjusted": null,
-          "value_score": null,
-          "reason": "mercado_no_disponible"
-        }
-      ]
-    },
-    {
-      "fecha": "2026-05-10",
-      "slug": "philadelphia-76ers-vs-new-york-knicks-nba-2026-05-10",
-      "home": "Philadelphia 76ers",
-      "away": "New York Knicks",
-      "league": "NBA",
-      "prediccion": "New York Knicks",
-      "confianza": "Probabilidad: 57.0%",
-      "resultado_real": "114-144",
-      "acerto": true,
-      "prob_original": 57.0,
-      "confidence_factor": 1.0,
-      "prob_adjusted": 57.0,
-      "bk_odds": 1.91,
-      "ev": 8.9,
-      "penalty": 0.0,
-      "ev_adjusted": 8.9,
-      "value_score": null,
-      "reason": "ev_insuficiente",
-      "cuota_betplay_estimada": 1.72,
-      "ev_betplay_estimado": -2.0,
-      "tipo_pick": "pick_suscripcion",
-      "base_pick": "New York Knicks",
-      "value_level": "bajo",
-      "markets_evaluated": [
-        {
-          "market": "New York Knicks",
-          "ev_adjusted": 8.9,
-          "value_score": null,
-          "reason": "ev_insuficiente"
-        },
-        {
-          "market": "Apuesta sin empate: New York Knicks",
-          "ev_adjusted": null,
-          "value_score": null,
-          "reason": "mercado_no_disponible"
-        },
-        {
-          "market": "Doble oportunidad: New York Knicks",
-          "ev_adjusted": null,
-          "value_score": null,
-          "reason": "mercado_no_disponible"
-        },
-        {
-          "market": "Over 2.5 goles",
-          "ev_adjusted": null,
-          "value_score": null,
-          "reason": "mercado_no_disponible"
         },
         {
           "market": "Over 1.5 goles",

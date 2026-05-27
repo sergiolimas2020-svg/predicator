@@ -1,67 +1,107 @@
 {
-  "Unión La Calera": {
-    "corners": {},
-    "goals": {},
-    "position": {
-      "posicion": 16,
-      "partidos": 13,
-      "ganados": 3,
-      "empatados": 1,
-      "perdidos": 9,
-      "goles_favor": 12,
-      "goles_contra": 26,
-      "diferencia": -14,
-      "puntos": 10
-    }
-  },
-  "Universidad de Chile": {
+  "U. Catolica": {
     "corners": {},
     "goals": {
-      "over_1_5": "33%",
-      "over_2_5": "25%",
-      "over_3_5": "17%",
-      "bts": "25%"
-    },
-    "position": {
-      "posicion": 11,
-      "partidos": 12,
-      "ganados": 4,
-      "empatados": 5,
-      "perdidos": 3,
-      "goles_favor": 11,
-      "goles_contra": 7,
-      "diferencia": 4,
-      "puntos": 17
-    }
-  },
-  "OHiggins": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "67%",
-      "over_2_5": "50%",
-      "over_3_5": "25%",
-      "bts": "50%"
+      "over_1_5": "85%",
+      "over_2_5": "69%",
+      "over_3_5": "46%",
+      "bts": "69%"
     },
     "position": {}
   },
-  "Palestino": {
+  "Universidad Católica": {
     "corners": {},
-    "goals": {
-      "over_1_5": "62%",
-      "over_2_5": "54%",
-      "over_3_5": "38%",
-      "bts": "62%"
-    },
+    "goals": {},
     "position": {
-      "posicion": 6,
+      "posicion": 4,
       "partidos": 13,
       "ganados": 6,
       "empatados": 2,
       "perdidos": 5,
-      "goles_favor": 21,
-      "goles_contra": 20,
-      "diferencia": 1,
+      "goles_favor": 27,
+      "goles_contra": 19,
+      "diferencia": 8,
       "puntos": 20
+    }
+  },
+  "Audax Italiano": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "69%",
+      "over_2_5": "69%",
+      "over_3_5": "23%",
+      "bts": "38%"
+    },
+    "position": {
+      "posicion": 13,
+      "partidos": 13,
+      "ganados": 4,
+      "empatados": 2,
+      "perdidos": 7,
+      "goles_favor": 17,
+      "goles_contra": 20,
+      "diferencia": -3,
+      "puntos": 14
+    }
+  },
+  "League average": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "51.5%",
+      "over_2_5": "30.1%",
+      "over_3_5": "14.6%",
+      "bts": "28.6%"
+    },
+    "position": {}
+  },
+  "Universidad de Concepción": {
+    "corners": {},
+    "goals": {},
+    "position": {
+      "posicion": 10,
+      "partidos": 13,
+      "ganados": 5,
+      "empatados": 3,
+      "perdidos": 5,
+      "goles_favor": 12,
+      "goles_contra": 21,
+      "diferencia": -9,
+      "puntos": 18
+    }
+  },
+  "Everton CD": {
+    "corners": {},
+    "goals": {},
+    "position": {
+      "posicion": 7,
+      "partidos": 13,
+      "ganados": 5,
+      "empatados": 4,
+      "perdidos": 4,
+      "goles_favor": 15,
+      "goles_contra": 11,
+      "diferencia": 4,
+      "puntos": 19
+    }
+  },
+  "La Serena": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "62%",
+      "over_2_5": "54%",
+      "over_3_5": "46%",
+      "bts": "46%"
+    },
+    "position": {
+      "posicion": 12,
+      "partidos": 13,
+      "ganados": 4,
+      "empatados": 5,
+      "perdidos": 4,
+      "goles_favor": 18,
+      "goles_contra": 20,
+      "diferencia": -2,
+      "puntos": 17
     }
   },
   "Deportes Concepcion": {
@@ -99,157 +139,72 @@
       "puntos": 30
     }
   },
-  "Concepcion": {
+  "Coquimbo Unido": {
     "corners": {},
     "goals": {
       "over_1_5": "69%",
-      "over_2_5": "31%",
-      "over_3_5": "8%",
-      "bts": "31%"
-    },
-    "position": {}
-  },
-  "Audax Italiano": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "69%",
-      "over_2_5": "69%",
-      "over_3_5": "23%",
-      "bts": "38%"
-    },
-    "position": {
-      "posicion": 13,
-      "partidos": 13,
-      "ganados": 4,
-      "empatados": 2,
-      "perdidos": 7,
-      "goles_favor": 17,
-      "goles_contra": 20,
-      "diferencia": -3,
-      "puntos": 14
-    }
-  },
-  "Colo-Colo": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "54%",
-      "over_2_5": "38%",
-      "over_3_5": "23%",
-      "bts": "38%"
-    },
-    "position": {
-      "posicion": 1,
-      "partidos": 13,
-      "ganados": 10,
-      "empatados": 0,
-      "perdidos": 3,
-      "goles_favor": 22,
-      "goles_contra": 10,
-      "diferencia": 12,
-      "puntos": 30
-    }
-  },
-  "La Serena": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "62%",
       "over_2_5": "54%",
-      "over_3_5": "46%",
-      "bts": "46%"
+      "over_3_5": "38%",
+      "bts": "62%"
     },
     "position": {
-      "posicion": 12,
+      "posicion": 5,
       "partidos": 13,
-      "ganados": 4,
-      "empatados": 5,
-      "perdidos": 4,
-      "goles_favor": 18,
-      "goles_contra": 20,
-      "diferencia": -2,
-      "puntos": 17
+      "ganados": 6,
+      "empatados": 2,
+      "perdidos": 5,
+      "goles_favor": 19,
+      "goles_contra": 16,
+      "diferencia": 3,
+      "puntos": 20
     }
   },
-  "Union La Calera": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "69%",
-      "over_2_5": "69%",
-      "over_3_5": "31%",
-      "bts": "46%"
-    },
-    "position": {}
-  },
-  "U. Catolica": {
+  "D. Limache": {
     "corners": {},
     "goals": {
       "over_1_5": "85%",
       "over_2_5": "69%",
       "over_3_5": "46%",
-      "bts": "69%"
+      "bts": "54%"
     },
     "position": {}
   },
-  "Deportes Limache": {
+  "Nublense": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "69%",
+      "over_2_5": "31%",
+      "over_3_5": "23%",
+      "bts": "54%"
+    },
+    "position": {}
+  },
+  "U. Concepcion": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "69%",
+      "over_2_5": "54%",
+      "over_3_5": "15%",
+      "bts": "46%"
+    },
+    "position": {}
+  },
+  "O'Higgins": {
     "corners": {},
     "goals": {},
     "position": {
-      "posicion": 3,
-      "partidos": 13,
+      "posicion": 8,
+      "partidos": 12,
       "ganados": 6,
-      "empatados": 3,
-      "perdidos": 4,
-      "goles_favor": 26,
+      "empatados": 1,
+      "perdidos": 5,
+      "goles_favor": 17,
       "goles_contra": 17,
-      "diferencia": 9,
-      "puntos": 21
-    }
-  },
-  "Universidad Católica": {
-    "corners": {},
-    "goals": {},
-    "position": {
-      "posicion": 4,
-      "partidos": 13,
-      "ganados": 6,
-      "empatados": 2,
-      "perdidos": 5,
-      "goles_favor": 27,
-      "goles_contra": 19,
-      "diferencia": 8,
-      "puntos": 20
-    }
-  },
-  "Universidad de Concepción": {
-    "corners": {},
-    "goals": {},
-    "position": {
-      "posicion": 10,
-      "partidos": 13,
-      "ganados": 5,
-      "empatados": 3,
-      "perdidos": 5,
-      "goles_favor": 12,
-      "goles_contra": 21,
-      "diferencia": -9,
-      "puntos": 18
-    }
-  },
-  "Everton CD": {
-    "corners": {},
-    "goals": {},
-    "position": {
-      "posicion": 7,
-      "partidos": 13,
-      "ganados": 5,
-      "empatados": 4,
-      "perdidos": 4,
-      "goles_favor": 15,
-      "goles_contra": 11,
-      "diferencia": 4,
+      "diferencia": 0,
       "puntos": 19
     }
   },
-  "U. de Chile": {
+  "Universidad de Chile": {
     "corners": {},
     "goals": {
       "over_1_5": "33%",
@@ -269,33 +224,43 @@
       "puntos": 17
     }
   },
-  "League average": {
+  "Everton": {
     "corners": {},
     "goals": {
-      "over_1_5": "51.5%",
-      "over_2_5": "30.1%",
-      "over_3_5": "14.6%",
-      "bts": "28.6%"
+      "over_1_5": "54%",
+      "over_2_5": "31%",
+      "over_3_5": "15%",
+      "bts": "23%"
     },
     "position": {}
   },
-  "Coquimbo Unido": {
+  "OHiggins": {
     "corners": {},
     "goals": {
-      "over_1_5": "69%",
+      "over_1_5": "67%",
+      "over_2_5": "50%",
+      "over_3_5": "25%",
+      "bts": "50%"
+    },
+    "position": {}
+  },
+  "Palestino": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "62%",
       "over_2_5": "54%",
       "over_3_5": "38%",
       "bts": "62%"
     },
     "position": {
-      "posicion": 5,
+      "posicion": 6,
       "partidos": 13,
       "ganados": 6,
       "empatados": 2,
       "perdidos": 5,
-      "goles_favor": 19,
-      "goles_contra": 16,
-      "diferencia": 3,
+      "goles_favor": 21,
+      "goles_contra": 20,
+      "diferencia": 1,
       "puntos": 20
     }
   },
@@ -319,48 +284,108 @@
       "puntos": 22
     }
   },
-  "O'Higgins": {
+  "Unión La Calera": {
     "corners": {},
     "goals": {},
     "position": {
-      "posicion": 8,
-      "partidos": 12,
-      "ganados": 6,
+      "posicion": 16,
+      "partidos": 13,
+      "ganados": 3,
       "empatados": 1,
-      "perdidos": 5,
-      "goles_favor": 17,
-      "goles_contra": 17,
-      "diferencia": 0,
-      "puntos": 19
+      "perdidos": 9,
+      "goles_favor": 12,
+      "goles_contra": 26,
+      "diferencia": -14,
+      "puntos": 10
     }
   },
-  "Nublense": {
+  "Union La Calera": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "69%",
+      "over_2_5": "69%",
+      "over_3_5": "31%",
+      "bts": "46%"
+    },
+    "position": {}
+  },
+  "Colo-Colo": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "54%",
+      "over_2_5": "38%",
+      "over_3_5": "23%",
+      "bts": "38%"
+    },
+    "position": {
+      "posicion": 1,
+      "partidos": 13,
+      "ganados": 10,
+      "empatados": 0,
+      "perdidos": 3,
+      "goles_favor": 22,
+      "goles_contra": 10,
+      "diferencia": 12,
+      "puntos": 30
+    }
+  },
+  "Ñublense": {
+    "corners": {},
+    "goals": {},
+    "position": {
+      "posicion": 9,
+      "partidos": 13,
+      "ganados": 4,
+      "empatados": 6,
+      "perdidos": 3,
+      "goles_favor": 15,
+      "goles_contra": 17,
+      "diferencia": -2,
+      "puntos": 18
+    }
+  },
+  "Deportes Limache": {
+    "corners": {},
+    "goals": {},
+    "position": {
+      "posicion": 3,
+      "partidos": 13,
+      "ganados": 6,
+      "empatados": 3,
+      "perdidos": 4,
+      "goles_favor": 26,
+      "goles_contra": 17,
+      "diferencia": 9,
+      "puntos": 21
+    }
+  },
+  "U. de Chile": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "33%",
+      "over_2_5": "25%",
+      "over_3_5": "17%",
+      "bts": "25%"
+    },
+    "position": {
+      "posicion": 11,
+      "partidos": 12,
+      "ganados": 4,
+      "empatados": 5,
+      "perdidos": 3,
+      "goles_favor": 11,
+      "goles_contra": 7,
+      "diferencia": 4,
+      "puntos": 17
+    }
+  },
+  "Concepcion": {
     "corners": {},
     "goals": {
       "over_1_5": "69%",
       "over_2_5": "31%",
-      "over_3_5": "23%",
-      "bts": "54%"
-    },
-    "position": {}
-  },
-  "Everton": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "54%",
-      "over_2_5": "31%",
-      "over_3_5": "15%",
-      "bts": "23%"
-    },
-    "position": {}
-  },
-  "D. Limache": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "85%",
-      "over_2_5": "69%",
-      "over_3_5": "46%",
-      "bts": "54%"
+      "over_3_5": "8%",
+      "bts": "31%"
     },
     "position": {}
   },
@@ -382,31 +407,6 @@
       "goles_contra": 25,
       "diferencia": -6,
       "puntos": 13
-    }
-  },
-  "U. Concepcion": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "69%",
-      "over_2_5": "54%",
-      "over_3_5": "15%",
-      "bts": "46%"
-    },
-    "position": {}
-  },
-  "Ñublense": {
-    "corners": {},
-    "goals": {},
-    "position": {
-      "posicion": 9,
-      "partidos": 13,
-      "ganados": 4,
-      "empatados": 6,
-      "perdidos": 3,
-      "goles_favor": 15,
-      "goles_contra": 17,
-      "diferencia": -2,
-      "puntos": 18
     }
   },
   "U. Católica": {
@@ -495,7 +495,7 @@
     }
   },
   "_metadata": {
-    "fecha_actualizacion": "2026-05-26T08:27:08.962626",
+    "fecha_actualizacion": "2026-05-27T08:34:55.697376",
     "liga": "chile",
     "fuente": "ESPN API"
   }
