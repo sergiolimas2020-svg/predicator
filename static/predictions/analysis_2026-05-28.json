@@ -1,0 +1,126 @@
+{
+  "date": "2026-05-28",
+  "total_fixtures": 7,
+  "matches": [
+    {
+      "matchup": "Cerro Porteño vs Sporting Cristal",
+      "league": "Copa Libertadores",
+      "home": "Cerro Porteño",
+      "away": "Sporting Cristal",
+      "probabilities": {
+        "win_home": 41.9,
+        "draw": 27.0,
+        "win_away": 31.1,
+        "over_2_5": 57.7,
+        "over_1_5": 80.1
+      },
+      "favorite": "Cerro Porteño",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false
+    },
+    {
+      "matchup": "Palmeiras vs Atlético Junior",
+      "league": "Copa Libertadores",
+      "home": "Palmeiras",
+      "away": "Atlético Junior",
+      "probabilities": {
+        "win_home": 55.5,
+        "draw": 21.6,
+        "win_away": 22.9,
+        "over_2_5": 50.2,
+        "over_1_5": 74.8
+      },
+      "favorite": "Palmeiras",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false
+    },
+    {
+      "matchup": "Boca Juniors vs Universidad Católica",
+      "league": "Copa Libertadores",
+      "home": "Boca Juniors",
+      "away": "Universidad Católica",
+      "probabilities": {
+        "win_home": 44.3,
+        "draw": 26.0,
+        "win_away": 29.7,
+        "over_2_5": 39.6,
+        "over_1_5": 66.2
+      },
+      "favorite": "Boca Juniors",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false
+    },
+    {
+      "matchup": "Cruzeiro vs Barcelona SC",
+      "league": "Copa Libertadores",
+      "home": "Cruzeiro",
+      "away": "Barcelona SC",
+      "probabilities": {
+        "win_home": 15.3,
+        "draw": 20.0,
+        "win_away": 64.7,
+        "over_2_5": 44.9,
+        "over_1_5": 70.7
+      },
+      "favorite": "Barcelona SC",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false
+    },
+    {
+      "matchup": "América de Cali vs Macará",
+      "league": "Copa Sudamericana",
+      "home": "América de Cali",
+      "away": "Macará",
+      "probabilities": {
+        "win_home": 68.0,
+        "draw": 20.0,
+        "win_away": 12.0,
+        "over_2_5": 34.7,
+        "over_1_5": 61.7
+      },
+      "favorite": "América de Cali",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false
+    },
+    {
+      "matchup": "Tigre vs Alianza Atlético",
+      "league": "Copa Sudamericana",
+      "home": "Tigre",
+      "away": "Alianza Atlético",
+      "probabilities": {
+        "win_home": 41.9,
+        "draw": 27.0,
+        "win_away": 31.1,
+        "over_2_5": 32.5,
+        "over_1_5": 63.3
+      },
+      "favorite": "Tigre",
+      "stats_complete": false,
+      "confidence_factor": 1.0,
+      "is_nba": false
+    },
+    {
+      "matchup": "San Antonio Spurs vs Oklahoma City Thunder",
+      "league": "NBA",
+      "home": "San Antonio Spurs",
+      "away": "Oklahoma City Thunder",
+      "probabilities": {
+        "win_home": 51.0,
+        "draw": 0.0,
+        "win_away": 49.0,
+        "over_2_5": null,
+        "over_1_5": null
+      },
+      "favorite": "San Antonio Spurs",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": true
+    }
+  ],
+  "nota": "Análisis estadístico de todos los partidos del día. Probabilidades crudas del modelo (sin ajuste por liga ni mercado). No incluye recomendación de apuesta — ver value_picks y featured_pick para picks oficiales."
+}
