@@ -7,9 +7,9 @@
 
 set -e
 
-REPO="/Users/sergiolimas/Desktop/PREDICATOR"
+REPO="/Users/sergiolimas/PROYECTO_PREDICATOR"
 LOG="$REPO/scripts/daily_update.log"
-PYTHON="python3"
+PYTHON="/Users/sergiolimas/PROYECTO_PREDICATOR/.venv/bin/python3"
 
 cd "$REPO"
 

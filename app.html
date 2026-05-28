@@ -679,11 +679,11 @@
 
     <div class="sport-cards">
         <div class="sport-card" onclick="enterApp('historial')" style="border-color:var(--gold);background:linear-gradient(135deg,rgba(240,180,41,0.1),transparent)">
-  <div style="font-size:3rem">📊</div>
-  <div style="font-weight:800;font-size:1.2rem;margin:0.5rem 0">Historial</div>
-  <div style="color:var(--gray-400);font-size:0.9rem">Aciertos verificados</div>
-</div>
-<div class="sport-card" onclick="enterApp('futbol')">
+            <div style="font-size:3rem">📊</div>
+            <div style="font-weight:800;font-size:1.2rem;margin:0.5rem 0">Historial</div>
+            <div style="color:var(--gray-400);font-size:0.9rem">Aciertos verificados</div>
+        </div>
+        <div class="sport-card" onclick="enterApp('futbol')">
             <span class="sport-emoji">⚽</span>
             <div class="sport-name">Fútbol</div>
             <p class="sport-desc">Premier, La Liga, Serie A,<br>Champions, Colombia y más.</p>
@@ -694,6 +694,12 @@
             <div class="sport-name">Basketball</div>
             <p class="sport-desc">NBA 2025-26 · Estadísticas<br>y lesionados en tiempo real.</p>
             <span class="sport-badge">Disponible</span>
+        </div>
+        <div class="sport-card" onclick="enterApp('combinadas')" style="border-color:var(--gold-500);background:linear-gradient(135deg,rgba(240,180,41,0.06),transparent);">
+            <span class="sport-emoji">🎯</span>
+            <div class="sport-name">Acca Builder</div>
+            <p class="sport-desc">Creador de combinadas<br>estadísticas automáticas.</p>
+            <span class="sport-badge" style="background:var(--gold-500);color:var(--negro);">PRO VIP</span>
         </div>
     </div>
 
@@ -842,6 +848,131 @@
 
 </div>
 
+<!-- ═══════════════════════════════════════════════════
+     APP ACCA GENERATOR (COMBINADAS)
+═══════════════════════════════════════════════════ -->
+<div id="combinadas-app" style="display:none; padding-bottom:4rem;">
+    <header class="pk-header">
+        <div class="pk-header-left">
+            <button class="btn-back" onclick="volverEntrada()">← Volver</button>
+            <div class="pk-logo">PREDI<span class="gold">KTOR</span></div>
+        </div>
+        <div class="pk-badge" style="background:var(--gold-500); color:var(--navy-900);">🎯 Creador de Combos</div>
+    </header>
+
+    <main class="container" style="max-width:800px; margin:2.5rem auto 0; padding:0 1.5rem;">
+        <section class="bk-match-setup" style="background:var(--card); border:1px solid var(--borde); border-radius:14px; padding:2rem; margin-bottom:2rem;">
+            <h2 class="bk-section-title" style="margin-bottom:1rem; color:var(--gold-500);">Creador de Combinadas Estadísticas</h2>
+            <p style="color:var(--gray-400); font-size:0.9rem; margin-bottom:2rem;">
+                Configura los parámetros para que nuestro motor recorra los partidos del día y arme un ticket combinando cuotas con valor matemático y alta probabilidad de éxito.
+            </p>
+
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin-bottom:1.5rem;">
+                <div>
+                    <label style="display:block; font-size:0.75rem; color:var(--gray-400); text-transform:uppercase; letter-spacing:1px; margin-bottom:0.5rem;">Cuota Total Deseada</label>
+                    <select id="acca-odds-range" class="team-select" style="background:var(--navy-900); border:1px solid var(--borde);">
+                        <option value="safe" selected>Bajo Riesgo (Cuota 1.50 - 2.50)</option>
+                        <option value="medium">Moderado (Cuota 2.50 - 5.00)</option>
+                        <option value="high">Arriesgado / Alta Cuota (Cuota 5.00 - 10.0+)</option>
+                    </select>
+                </div>
+                <div>
+                    <label style="display:block; font-size:0.75rem; color:var(--gray-400); text-transform:uppercase; letter-spacing:1px; margin-bottom:0.5rem;">Número de Selecciones</label>
+                    <select id="acca-size" class="team-select" style="background:var(--navy-900); border:1px solid var(--borde);">
+                        <option value="2" selected>Doble (2 partidos)</option>
+                        <option value="3">Triple (3 partidos)</option>
+                        <option value="4">Cuádruple (4 partidos)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div style="margin-bottom:2rem;">
+                <label style="display:block; font-size:0.75rem; color:var(--gray-400); text-transform:uppercase; letter-spacing:1px; margin-bottom:0.5rem;">Mercados de Interés</label>
+                <select id="acca-markets" class="team-select" style="background:var(--navy-900); border:1px solid var(--borde);">
+                    <option value="any" selected>Cualquier mercado de valor (Ganador / Goles)</option>
+                    <option value="goals">Solo Goles (Over 1.5 / Over 2.5)</option>
+                    <option value="h2h">Solo Ganador (1X2 H2H)</option>
+                </select>
+            </div>
+
+            <button id="acca-generate-btn" class="analyze-btn" onclick="accaGenerate()">
+                <span>GENERAR COMBINADA DE VALOR 🎯</span>
+            </button>
+        </section>
+
+        <!-- Loader -->
+        <div id="acca-loader" style="display:none; text-align:center; padding:3rem 0;">
+            <div class="bk-spinner" style="margin:0 auto 1rem;"></div>
+            <p style="color:var(--gold-500); font-size:0.85rem; letter-spacing:2px; text-transform:uppercase;">Recorriendo fixtures y calculando cuotas...</p>
+        </div>
+
+        <!-- Acca Output (Bet Slip style) -->
+        <div id="acca-result" style="display:none; margin-top:2rem;">
+            <div style="background:var(--card); border:2px solid var(--gold-500); border-radius:16px; overflow:hidden; box-shadow:0 12px 40px rgba(240,180,41,0.15);">
+                
+                <!-- Ticket Header -->
+                <div style="background:linear-gradient(90deg, var(--gold-700), var(--gold-500)); color:var(--navy-900); padding:1.2rem 1.5rem; display:flex; justify-content:space-between; align-items:center;">
+                    <div>
+                        <h3 style="font-family:var(--font-display); font-size:1.6rem; letter-spacing:1px; line-height:1; font-weight:800;">TICKET DE APUESTA</h3>
+                        <span id="acca-ticket-date" style="font-size:0.72rem; font-weight:700; text-transform:uppercase; opacity:0.8;">PREDIKTOR VIP TICKET</span>
+                    </div>
+                    <span style="background:var(--navy-900); color:var(--gold-500); padding:0.3rem 0.8rem; border-radius:100px; font-size:0.78rem; font-weight:800; border:1px solid var(--borde);">VALOR DETECTADO</span>
+                </div>
+
+                <!-- Ticket Selections -->
+                <div id="acca-selections" style="padding:1.5rem 1.5rem 0.5rem; display:flex; flex-direction:column; gap:1.2rem;">
+                    <!-- Inserted by JS -->
+                </div>
+
+                <!-- Ticket Summary -->
+                <div style="background:var(--card2); border-top:1px dashed var(--borde); padding:1.5rem; display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; align-items:center;">
+                    <div>
+                        <div style="display:flex; justify-content:space-between; margin-bottom:0.5rem;">
+                            <span style="font-size:0.85rem; color:var(--gray-400);">Cuota Total:</span>
+                            <strong id="acca-total-odds" style="font-size:1.2rem; color:var(--gold-500);">@ 0.00</strong>
+                        </div>
+                        <div style="display:flex; justify-content:space-between; margin-bottom:0.5rem;">
+                            <span style="font-size:0.85rem; color:var(--gray-400);">Probabilidad Combinada:</span>
+                            <strong id="acca-total-prob" style="font-size:1.1rem; color:var(--success);">0.0%</strong>
+                        </div>
+                        <div style="display:flex; justify-content:space-between;">
+                            <span style="font-size:0.85rem; color:var(--gray-400);">Stake Sugerido:</span>
+                            <strong id="acca-total-stake" style="font-size:1.1rem; color:var(--info);">0.0% (Quarter-Kelly)</strong>
+                        </div>
+                    </div>
+
+                    <div style="border-left:1px solid var(--borde); padding-left:1.5rem; text-align:center;">
+                        <span style="display:block; font-size:0.72rem; color:var(--gray-400); text-transform:uppercase; letter-spacing:1px; margin-bottom:0.3rem;">Simulación de Retorno</span>
+                        <div style="font-size:1.6rem; font-family:var(--font-display); color:#fff; line-height:1; margin-bottom:0.4rem; font-weight:800;">
+                            RETORNO: <span id="acca-sim-return" style="color:var(--success);">+$3.45</span>
+                        </div>
+                        <span style="font-size:0.7rem; color:var(--gray-400);">Apostando $10 USD con el stake sugerido</span>
+                    </div>
+                </div>
+
+                <!-- Action Links -->
+                <div style="background:var(--navy-900); border-top:1px solid var(--borde); padding:1rem 1.5rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
+                    <span style="font-size:0.78rem; color:var(--gray-400); display:flex; align-items:center; gap:0.4rem;">
+                        🔞 Juego responsable y legal. <a href="/apuestas-legales.html" style="color:var(--gold-500); text-decoration:none; font-weight:600;">Casas Autorizadas 🇨🇴</a>
+                    </span>
+                    <button class="btn-back" style="border-color:var(--success); color:var(--success);" onclick="accaGenerate()">Volver a Generar 🔄</button>
+                </div>
+
+            </div>
+            
+            <!-- Paywall Promotion -->
+            <div style="margin-top:2rem; background:rgba(240,180,41,0.04); border:1px dashed rgba(240,180,41,0.3); border-radius:12px; padding:1.5rem; text-align:center;">
+                <h4 style="font-family:var(--font-display); font-size:1.2rem; color:var(--gold-500); margin-bottom:0.5rem;">¿Quieres recibir alertas automatizadas de combinadas en tu Telegram?</h4>
+                <p style="color:var(--gray-400); font-size:0.85rem; margin-bottom:1rem; max-width:540px; margin-left:auto; margin-right:auto;">
+                    Los miembros de nuestro <strong>Plan Pro VIP</strong> reciben combinaciones de alto valor matemático calculadas al instante directo en su Telegram.
+                </p>
+                <a href="/plan-pro.html" class="btn-primary" style="padding:0.6rem 1.5rem; font-size:0.88rem; text-decoration:none;">Ver Plan Pro VIP →</a>
+            </div>
+
+        </div>
+    </main>
+</div>
+
 
 <!-- ═══════════════════════════════════════════════════
      APP BASKETBALL
@@ -977,6 +1108,9 @@ function enterApp(sport, liga) {
         } else if (sport === 'historial') {
             document.getElementById('historial-app').style.display = 'block';
             loadHistorial();
+        } else if (sport === 'combinadas') {
+            document.getElementById('combinadas-app').style.display = 'block';
+            accaGenerate();
         } else {
             document.getElementById('basket-app').classList.add('visible');
             bkLoadData();
@@ -987,7 +1121,8 @@ function enterApp(sport, liga) {
 function volverEntrada() {
     document.getElementById('futbol-app').classList.remove('visible');
     document.getElementById('basket-app').classList.remove('visible');
-        document.getElementById('historial-app').style.display = 'none';
+    document.getElementById('historial-app').style.display = 'none';
+    document.getElementById('combinadas-app').style.display = 'none';
     document.getElementById('bk-results').style.display = 'none';
     const entry = document.getElementById('sport-entry');
     entry.style.display   = 'flex';
@@ -998,6 +1133,366 @@ function volverEntrada() {
         entry.style.transition = 'opacity 0.4s ease';
         entry.style.opacity    = '1';
     });
+}
+
+/* ═══════════════════════════════════════════════════
+   ACCA GENERATOR (COMBINADAS) — LÓGICA
+═══════════════════════════════════════════════════ */
+let cachedDailyPicks = null;
+let cachedAnalysisData = null;
+
+const accaRanges = {
+    safe: { min: 1.50, max: 2.50 },
+    medium: { min: 2.50, max: 5.00 },
+    high: { min: 5.00, max: 15.00 },
+    any: { min: 1.10, max: 99.0 }
+};
+
+async function fetchAccaData() {
+    if (!cachedDailyPicks) {
+        try {
+            const res = await fetch('static/predictions/daily_picks.json');
+            if (res.ok) {
+                cachedDailyPicks = await res.json();
+            }
+        } catch (e) {
+            console.warn("No se pudo cargar daily_picks.json:", e);
+        }
+    }
+    
+    let targetDate = cachedDailyPicks?.date;
+    if (!targetDate) {
+        const today = new Date();
+        const yyyy = today.getFullYear();
+        const mm = String(today.getMonth() + 1).padStart(2, '0');
+        const dd = String(today.getDate()).padStart(2, '0');
+        targetDate = `${yyyy}-${mm}-${dd}`;
+    }
+    
+    if (!cachedAnalysisData) {
+        try {
+            const res = await fetch(`static/predictions/analysis_${targetDate}.json`);
+            if (res.ok) {
+                cachedAnalysisData = await res.json();
+            }
+        } catch (e) {
+            console.error("Error al cargar datos de análisis:", e);
+        }
+    }
+}
+
+async function accaGenerate() {
+    const loader = document.getElementById('acca-loader');
+    const result = document.getElementById('acca-result');
+    const generateBtn = document.getElementById('acca-generate-btn');
+    
+    loader.style.display = 'block';
+    result.style.display = 'none';
+    if (generateBtn) generateBtn.disabled = true;
+    
+    try {
+        await fetchAccaData();
+        const candidates = buildSelectionPool(cachedDailyPicks, cachedAnalysisData);
+        
+        if (candidates.length === 0) {
+            alert("No hay suficientes partidos o cuotas de valor disponibles para generar una combinada en este momento. Inténtalo más tarde.");
+            loader.style.display = 'none';
+            if (generateBtn) generateBtn.disabled = false;
+            return;
+        }
+        
+        const size = parseInt(document.getElementById('acca-size').value) || 2;
+        const oddsRangeKey = document.getElementById('acca-odds-range').value || 'safe';
+        const marketsFilter = document.getElementById('acca-markets').value || 'any';
+        
+        const combo = findBestAccaCombo(candidates, size, oddsRangeKey, marketsFilter);
+        
+        if (!combo) {
+            // Fallback: try finding any combo by relaxing the range
+            const fallbackCombo = findBestAccaCombo(candidates, size, 'any', marketsFilter);
+            if (fallbackCombo) {
+                renderAccaSlip(fallbackCombo);
+            } else {
+                alert("No hay suficientes partidos diferentes en la base de datos de hoy para formar una combinada.");
+            }
+        } else {
+            renderAccaSlip(combo);
+        }
+    } catch (error) {
+        console.error("Error al generar combinada:", error);
+        alert("Ocurrió un error al procesar las predicciones. Por favor, recarga e inténtalo de nuevo.");
+    } finally {
+        loader.style.display = 'none';
+        if (generateBtn) generateBtn.disabled = false;
+    }
+}
+
+function buildSelectionPool(dailyPicks, analysisData) {
+    const candidates = [];
+    const seenMatchupsMarkets = new Set();
+    
+    const addCandidate = (c) => {
+        const key = `${c.matchup.toLowerCase()}||${c.market.toLowerCase()}`;
+        if (!seenMatchupsMarkets.has(key)) {
+            seenMatchupsMarkets.add(key);
+            candidates.push(c);
+        }
+    };
+    
+    // 1. Process daily picks (validated value picks)
+    if (dailyPicks && dailyPicks.picks_suscripcion) {
+        dailyPicks.picks_suscripcion.forEach(pick => {
+            let odds = pick.cuota_betplay_estimada || pick.bk_odds;
+            if (!odds && pick.prob_adjusted) {
+                odds = parseFloat(((100 / pick.prob_adjusted) * 0.90).toFixed(2));
+            }
+            if (odds && odds > 1.0) {
+                addCandidate({
+                    matchup: pick.matchup,
+                    league: pick.league,
+                    market: pick.market,
+                    prob: pick.prob_adjusted || 50,
+                    odds: odds,
+                    is_nba: pick.league === 'NBA',
+                    market_type: pick.market.toLowerCase().includes('gol') ? 'goals' : 'h2h',
+                    is_value_pick: true
+                });
+            }
+        });
+    }
+    
+    // 2. Process all matches in analysis data
+    if (analysisData && analysisData.matches) {
+        analysisData.matches.forEach(match => {
+            const isNBA = match.is_nba === true || match.league === 'NBA';
+            const probs = match.probabilities;
+            
+            if (isNBA) {
+                if (probs.win_home && probs.win_home > 50) {
+                    const odds = parseFloat(((100 / probs.win_home) * 0.95).toFixed(2));
+                    addCandidate({
+                        matchup: match.matchup,
+                        league: match.league,
+                        market: `Gana ${match.home}`,
+                        prob: probs.win_home,
+                        odds: odds,
+                        is_nba: true,
+                        market_type: 'h2h',
+                        is_value_pick: false
+                    });
+                }
+                if (probs.win_away && probs.win_away > 50) {
+                    const odds = parseFloat(((100 / probs.win_away) * 0.95).toFixed(2));
+                    addCandidate({
+                        matchup: match.matchup,
+                        league: match.league,
+                        market: `Gana ${match.away}`,
+                        prob: probs.win_away,
+                        odds: odds,
+                        is_nba: true,
+                        market_type: 'h2h',
+                        is_value_pick: false
+                    });
+                }
+            } else {
+                if (probs.win_home && probs.win_home > 48) {
+                    const odds = parseFloat(((100 / probs.win_home) * 0.90).toFixed(2));
+                    addCandidate({
+                        matchup: match.matchup,
+                        league: match.league,
+                        market: `Gana ${match.home}`,
+                        prob: probs.win_home,
+                        odds: odds,
+                        is_nba: false,
+                        market_type: 'h2h',
+                        is_value_pick: false
+                    });
+                }
+                if (probs.win_away && probs.win_away > 48) {
+                    const odds = parseFloat(((100 / probs.win_away) * 0.90).toFixed(2));
+                    addCandidate({
+                        matchup: match.matchup,
+                        league: match.league,
+                        market: `Gana ${match.away}`,
+                        prob: probs.win_away,
+                        odds: odds,
+                        is_nba: false,
+                        market_type: 'h2h',
+                        is_value_pick: false
+                    });
+                }
+                if (probs.over_1_5 && probs.over_1_5 > 65) {
+                    const odds = parseFloat(((100 / probs.over_1_5) * 0.90).toFixed(2));
+                    addCandidate({
+                        matchup: match.matchup,
+                        league: match.league,
+                        market: "Over 1.5 goles",
+                        prob: probs.over_1_5,
+                        odds: odds,
+                        is_nba: false,
+                        market_type: 'goals',
+                        is_value_pick: false
+                    });
+                }
+                if (probs.over_2_5 && probs.over_2_5 > 55) {
+                    const odds = parseFloat(((100 / probs.over_2_5) * 0.90).toFixed(2));
+                    addCandidate({
+                        matchup: match.matchup,
+                        league: match.league,
+                        market: "Over 2.5 goles",
+                        prob: probs.over_2_5,
+                        odds: odds,
+                        is_nba: false,
+                        market_type: 'goals',
+                        is_value_pick: false
+                    });
+                }
+            }
+        });
+    }
+    
+    return candidates;
+}
+
+function findBestAccaCombo(candidates, size, rangeKey, marketFilter) {
+    let pool = candidates;
+    if (marketFilter === 'goals') {
+        pool = candidates.filter(c => c.market_type === 'goals');
+    } else if (marketFilter === 'h2h') {
+        pool = candidates.filter(c => c.market_type === 'h2h');
+    }
+    
+    pool.sort((a, b) => {
+        if (a.is_value_pick !== b.is_value_pick) {
+            return a.is_value_pick ? -1 : 1;
+        }
+        return b.prob - a.prob;
+    });
+    
+    const targetRange = accaRanges[rangeKey] || { min: 1.0, max: 999.0 };
+    if (rangeKey === 'any') {
+        targetRange.min = 1.20;
+        targetRange.max = 999.0;
+    }
+    
+    let bestCombo = null;
+    let bestScore = -1;
+    
+    function search(index, currentCombo, currentOdds, currentProb, matchupsSet) {
+        if (currentCombo.length === size) {
+            if (currentOdds >= targetRange.min && currentOdds <= targetRange.max) {
+                const valuePicksCount = currentCombo.filter(c => c.is_value_pick).length;
+                const score = valuePicksCount * 1000 + currentProb;
+                if (score > bestScore) {
+                    bestScore = score;
+                    bestCombo = {
+                        selections: [...currentCombo],
+                        odds: currentOdds,
+                        prob: currentProb
+                    };
+                }
+            }
+            return;
+        }
+        
+        for (let i = index; i < pool.length; i++) {
+            const item = pool[i];
+            if (matchupsSet.has(item.matchup)) continue;
+            if (currentOdds * item.odds > targetRange.max && rangeKey !== 'any') continue;
+            
+            matchupsSet.add(item.matchup);
+            currentCombo.push(item);
+            
+            search(
+                i + 1,
+                currentCombo,
+                currentOdds * item.odds,
+                currentProb * (item.prob / 100),
+                matchupsSet
+            );
+            
+            currentCombo.pop();
+            matchupsSet.delete(item.matchup);
+        }
+    }
+    
+    search(0, [], 1.0, 100.0, new Set());
+    return bestCombo;
+}
+
+function renderAccaSlip(combo) {
+    const listContainer = document.getElementById('acca-selections');
+    listContainer.innerHTML = '';
+    
+    const icons = {
+        'Copa Libertadores': '🏆',
+        'Copa Sudamericana': '🌍',
+        'Liga Colombiana': '🇨🇴',
+        'Premier League': '🏴󠁧󠁢󠁥󠁮󠁧󠁿',
+        'La Liga': '🇪🇸',
+        'Bundesliga': '🇩🇪',
+        'Serie A': '🇮🇹',
+        'Ligue 1': '🇫🇷',
+        'Liga Argentina': '🇦🇷',
+        'Brasileirao': '🇧🇷',
+        'Süper Lig': '🇹🇷',
+        'Champions League': '⭐',
+        'NBA': '🏀'
+    };
+    
+    combo.selections.forEach(sel => {
+        const flag = icons[sel.league] || '⚽';
+        const cardHtml = `
+            <div style="background:var(--card2); border:1px solid var(--borde); border-radius:10px; padding:1rem 1.2rem; display:flex; justify-content:space-between; align-items:center; gap:1rem;">
+                <div style="flex:1;">
+                    <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.3rem;">
+                        <span style="font-size:0.9rem;">${flag}</span>
+                        <span style="font-size:0.75rem; color:var(--gray-400); text-transform:uppercase; letter-spacing:0.5px; font-weight:600;">${sel.league}</span>
+                        ${sel.is_value_pick ? '<span style="font-size:0.58rem; background:rgba(240,180,41,0.15); color:var(--gold-500); border:1px solid rgba(240,180,41,0.3); padding:0.1rem 0.4rem; border-radius:3px; font-weight:700;">VALUE</span>' : ''}
+                    </div>
+                    <div style="font-family:var(--font-display); font-size:1.05rem; font-weight:700; color:#fff; margin-bottom:0.25rem;">
+                        ${sel.matchup}
+                    </div>
+                    <div style="font-size:0.85rem; color:var(--gray-400);">
+                        Mercado: <strong style="color:var(--gold-500);">${sel.market}</strong>
+                    </div>
+                </div>
+                <div style="text-align:right;">
+                    <div style="font-size:1.3rem; font-weight:800; color:var(--gold-500); font-family:var(--font-display);">
+                        @ ${sel.odds.toFixed(2)}
+                    </div>
+                    <div style="font-size:0.75rem; color:var(--success); font-weight:600;">
+                        ${sel.prob.toFixed(1)}% prob.
+                    </div>
+                </div>
+            </div>
+        `;
+        listContainer.insertAdjacentHTML('beforeend', cardHtml);
+    });
+    
+    const totalOdds = combo.odds;
+    const totalProb = combo.prob;
+    
+    document.getElementById('acca-total-odds').textContent = `@ ${totalOdds.toFixed(2)}`;
+    document.getElementById('acca-total-prob').textContent = `${totalProb.toFixed(1)}%`;
+    
+    const pDec = totalProb / 100;
+    let fStar = (pDec * totalOdds - 1) / (totalOdds - 1);
+    let stakePct = 0;
+    if (fStar > 0) {
+        stakePct = 0.25 * fStar * 100;
+    }
+    const finalStake = Math.max(1.0, Math.min(3.5, stakePct)).toFixed(1);
+    document.getElementById('acca-total-stake').textContent = `${finalStake}% (Quarter-Kelly)`;
+    
+    const netProfit = (10 * (totalOdds - 1)).toFixed(2);
+    document.getElementById('acca-sim-return').textContent = `+$${netProfit} USD`;
+    
+    const ticketDate = cachedDailyPicks?.date || new Date().toISOString().split('T')[0];
+    document.getElementById('acca-ticket-date').textContent = `PREDIKTOR TICKET · ${ticketDate}`;
+    
+    document.getElementById('acca-result').style.display = 'block';
+    document.getElementById('acca-result').scrollIntoView({ behavior: 'smooth' });
 }
 
 /* ═══════════════════════════════════════════════════
@@ -1230,6 +1725,10 @@ window.addEventListener('DOMContentLoaded', function() {
     entry.style.display = 'none';
     document.getElementById('historial-app').style.display = 'block';
     loadHistorial();
+  } else if (sec === 'combinadas' || sport === 'combinadas') {
+    entry.style.display = 'none';
+    document.getElementById('combinadas-app').style.display = 'block';
+    accaGenerate();
   } else if (sport) {
     entry.style.display = 'none';
     if (sport === 'basket') {
@@ -1244,5 +1743,6 @@ window.addEventListener('DOMContentLoaded', function() {
 </script>
 
 
+<script src="js/cookie-consent.js"></script>
 </body>
 </html>

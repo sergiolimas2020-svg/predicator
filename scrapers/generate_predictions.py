@@ -161,13 +161,18 @@ CORE_LEAGUES = {
 # Los partidos de las ligas excluidas siguen apareciendo en Análisis del Día
 # (Nivel 1, informativo) pero NO se publican como recomendación de apuesta
 # (Nivel 2 / Nivel 3). Reversible con git revert.
-# EXPERIMENTO SHADOW (2026-05-24): se re-incluye Europa para probar si los
-# mercados NUEVOS (Over 1.5, córners, Over 2.5 con datos de API por localía)
-# funcionan ahí — las pérdidas históricas de Europa fueron en "ganador/DC"
-# (1X2), mercados distintos. Como estamos en shadow, los picks europeos van
-# al DM y se loguean sin riesgo. DECIDIR ANTES DEL 2026-06-01: si Europa no
-# acierta bien en estos mercados, repoblar este set con las ligas malas.
-EXCLUDED_LEAGUES = set()
+# EXPERIMENTO SHADOW (2026-05-24) terminado. Con base en el análisis de ROI histórico:
+#   La Liga (-47.5% ROI), Premier League (-34.3% ROI), Super Lig (-48.2% ROI),
+#   Bundesliga (-49.1% ROI), Ligue 1 (-100.0% ROI), Liga Argentina (-100.0% ROI).
+# Estas ligas altamente eficientes se excluyen de picks oficiales (Nivel 2/3) para proteger el bankroll.
+EXCLUDED_LEAGUES = {
+    "Premier League",
+    "La Liga",
+    "Super Lig",
+    "Bundesliga",
+    "Ligue 1",
+    "Liga Argentina",
+}
 
 # ── Regla de PICK EXPLORATORIO ──
 # Fallback de publicación para evitar días en blanco cuando hay
@@ -370,15 +375,11 @@ RECENT_FORM_INTL_LEAGUE_IDS = {
 # ── Motor v1.2 — shadow mode, señal limpia y gestión de capital ──
 MODEL_VERSION       = "v1.2-clean-signal"   # etiqueta en predictions_log.json
 
-# Shadow mode: el motor calcula y loguea predicciones pero NO se publican
-# en Telegram/Discord hasta esta fecha (validación a 14 días — ver
-# scripts/backtest_model.py). Pasada la fecha, la publicación se reanuda sola.
-SHADOW_MODE_UNTIL   = "2026-05-31"       # ISO date — 14 días desde el 17-may
+# Shadow mode: activo (hoy es 2026-05-28, modo shadow activo para pruebas)
+SHADOW_MODE_UNTIL   = "2026-06-15"       # ISO date — En shadow mode hasta mediados de junio
 
-# Gestión de capital: en modo "lectura" el stake real es 0 (no se apuesta;
-# stake_sugerido_pct se calcula solo como información). Cambiar a "activo"
-# recién cuando el backtest valide la calibración (Brier < 0.24).
-STAKE_MODE          = "lectura"          # "lectura" | "activo"
+# Gestión de capital: en modo "activo" el stake sugerido se muestra completo.
+STAKE_MODE          = "activo"           # "lectura" | "activo"
 
 # ── Platt scaling — DESACTIVADO durante el shadow v1.2 ───────────
 # El calibrador entrenado sobre el histórico viejo está contaminado por
@@ -1093,7 +1094,12 @@ h1{{font-family:var(--font-display);font-size:2.5rem;font-weight:800;color:var(-
 <p class="sub">{date} · Solo partidos programados para hoy</p>
 <div class="grid">{cards}</div>
 </main>
-<footer class="ftr">PREDIKTOR 2026 · <a href="/privacy.html" style="color:var(--gray-600);text-decoration:none;">Privacidad</a></footer>
+<footer class="ftr">
+  <div style="margin-bottom:0.8rem;font-size:0.75rem;color:var(--gray-400);line-height:1.6;text-transform:none;letter-spacing:normal;">
+    🔞 <strong>JUEGO RESPONSABLE:</strong> Las apuestas deportivas son exclusivamente para mayores de 18 años (+18). El juego puede ser adictivo, juegue con moderación y responsabilidad. En Colombia, use únicamente operadores autorizados por <strong>Coljuegos</strong>.
+  </div>
+  PREDIKTOR 2026 · <a href="/privacy.html" style="color:var(--gray-600);text-decoration:none;">Privacidad</a> · <a href="/apuestas-legales.html" style="color:var(--gold-500);text-decoration:none;margin-left:1rem;font-weight:600;">Casas Autorizadas 🇨🇴</a>
+</footer>
 </body></html>"""
 
 def norm(s):

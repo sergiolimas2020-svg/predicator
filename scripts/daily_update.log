@@ -633,3 +633,119 @@ Proximo paso: registra tu sitemap en Google Search Console
 → Envia sitemap: https://predicator-sergiolimas2020-svgs-projects.vercel.app/sitemap.xml
   OK
 [3/3] Publicando en GitHub...
+
+============================================
+  PREDIKTOR daily update — 2026-05-28 11:53
+============================================
+[1/4] Actualizando estadísticas...
+  → Colombia...
+Traceback (most recent call last):
+  File "/Users/sergiolimas/PROYECTO_PREDICATOR/scrapers/colombia.py", line 2, in <module>
+    from bs4 import BeautifulSoup
+ModuleNotFoundError: No module named 'bs4'
+    WARN: Colombia falló, continuando
+  → Argentina...
+Traceback (most recent call last):
+  File "/Users/sergiolimas/PROYECTO_PREDICATOR/scrapers/argentina.py", line 2, in <module>
+    from bs4 import BeautifulSoup
+ModuleNotFoundError: No module named 'bs4'
+    WARN: Argentina falló, continuando
+  → Premier...
+Traceback (most recent call last):
+  File "/Users/sergiolimas/PROYECTO_PREDICATOR/scrapers/premier.py", line 2, in <module>
+    from bs4 import BeautifulSoup
+ModuleNotFoundError: No module named 'bs4'
+    WARN: Premier falló, continuando
+  → La Liga...
+Traceback (most recent call last):
+  File "/Users/sergiolimas/PROYECTO_PREDICATOR/scrapers/españa.py", line 2, in <module>
+    from bs4 import BeautifulSoup
+ModuleNotFoundError: No module named 'bs4'
+    WARN: La Liga falló, continuando
+  → Serie A...
+Traceback (most recent call last):
+  File "/Users/sergiolimas/PROYECTO_PREDICATOR/scrapers/italia.py", line 2, in <module>
+    from bs4 import BeautifulSoup
+ModuleNotFoundError: No module named 'bs4'
+    WARN: Serie A falló, continuando
+  → Bundesliga...
+Traceback (most recent call last):
+  File "/Users/sergiolimas/PROYECTO_PREDICATOR/scrapers/bundesliga.py", line 2, in <module>
+    from bs4 import BeautifulSoup
+ModuleNotFoundError: No module named 'bs4'
+    WARN: Bundesliga falló, continuando
+  → Ligue 1...
+Traceback (most recent call last):
+  File "/Users/sergiolimas/PROYECTO_PREDICATOR/scrapers/francia.py", line 2, in <module>
+    from bs4 import BeautifulSoup
+ModuleNotFoundError: No module named 'bs4'
+    WARN: Ligue 1 falló, continuando
+  → Brasil...
+Traceback (most recent call last):
+  File "/Users/sergiolimas/PROYECTO_PREDICATOR/scrapers/brazil.py", line 2, in <module>
+    from bs4 import BeautifulSoup
+ModuleNotFoundError: No module named 'bs4'
+    WARN: Brasil falló, continuando
+  → Champions...
+2026-05-28 11:53:38,404 - INFO: 🔥 Liga: Champions League (via ESPN)
+2026-05-28 11:53:38,692 - INFO: ✅ 1. Arsenal - 24 pts
+2026-05-28 11:53:38,692 - INFO: ✅ 2. Bayern Munich - 21 pts
+2026-05-28 11:53:38,692 - INFO: ✅ 3. Liverpool - 18 pts
+2026-05-28 11:53:38,692 - INFO: ✅ 4. Tottenham Hotspur - 17 pts
+2026-05-28 11:53:38,693 - INFO: ✅ 5. Barcelona - 16 pts
+2026-05-28 11:53:38,693 - INFO: ✅ 6. Chelsea - 16 pts
+2026-05-28 11:53:38,693 - INFO: ✅ 7. Sporting CP - 16 pts
+2026-05-28 11:53:38,693 - INFO: ✅ 8. Manchester City - 16 pts
+2026-05-28 11:53:38,693 - INFO: ✅ 9. Real Madrid - 15 pts
+2026-05-28 11:53:38,693 - INFO: ✅ 10. Internazionale - 15 pts
+2026-05-28 11:53:38,693 - INFO: ✅ 11. Paris Saint-Germain - 14 pts
+2026-05-28 11:53:38,693 - INFO: ✅ 12. Newcastle United - 14 pts
+2026-05-28 11:53:38,693 - INFO: ✅ 13. Juventus - 13 pts
+2026-05-28 11:53:38,693 - INFO: ✅ 14. Atlético Madrid - 13 pts
+2026-05-28 11:53:38,693 - INFO: ✅ 15. Atalanta - 13 pts
+2026-05-28 11:53:38,693 - INFO: ✅ 16. Bayer Leverkusen - 12 pts
+2026-05-28 11:53:38,693 - INFO: ✅ 17. Borussia Dortmund - 11 pts
+2026-05-28 11:53:38,693 - INFO: ✅ 18. Olympiacos - 11 pts
+2026-05-28 11:53:38,693 - INFO: ✅ 19. Club Brugge - 10 pts
+2026-05-28 11:53:38,693 - INFO: ✅ 20. Galatasaray - 10 pts
+2026-05-28 11:53:38,693 - INFO: ✅ 21. AS Monaco - 10 pts
+2026-05-28 11:53:38,693 - INFO: ✅ 22. FK Qarabag - 10 pts
+2026-05-28 11:53:38,693 - INFO: ✅ 23. Bodo/Glimt - 9 pts
+2026-05-28 11:53:38,694 - INFO: ✅ 24. Benfica - 9 pts
+2026-05-28 11:53:38,694 - INFO: ✅ 25. Marseille - 9 pts
+2026-05-28 11:53:38,694 - INFO: ✅ 26. Pafos - 9 pts
+2026-05-28 11:53:38,694 - INFO: ✅ 27. Union St.-Gilloise - 9 pts
+2026-05-28 11:53:38,694 - INFO: ✅ 28. PSV Eindhoven - 8 pts
+2026-05-28 11:53:38,694 - INFO: ✅ 29. Athletic Club - 8 pts
+2026-05-28 11:53:38,694 - INFO: ✅ 30. Napoli - 8 pts
+2026-05-28 11:53:38,694 - INFO: ✅ 31. F.C. København - 8 pts
+2026-05-28 11:53:38,694 - INFO: ✅ 32. Ajax Amsterdam - 6 pts
+2026-05-28 11:53:38,694 - INFO: ✅ 33. Eintracht Frankfurt - 4 pts
+2026-05-28 11:53:38,694 - INFO: ✅ 34. Slavia Prague - 3 pts
+2026-05-28 11:53:38,694 - INFO: ✅ 35. Villarreal - 1 pts
+2026-05-28 11:53:38,694 - INFO: ✅ 36. Kairat Almaty - 1 pts
+2026-05-28 11:53:38,694 - INFO: ✅ Posiciones: 36 equipos
+2026-05-28 11:53:40,012 - WARNING: Goals no disponibles en soccerstats para Champions — usando defaults
+
+✅ Archivo generado: static/uefa-champions-league_stats.json
+   📊 Posiciones: 36 | ⚽ Goals: 0
+    OK
+  → NBA (background)...
+Traceback (most recent call last):
+  File "/Users/sergiolimas/PROYECTO_PREDICATOR/scrapers/nba_scraper.py", line 10, in <module>
+    from nba_api.stats.endpoints import (
+    ...<4 lines>...
+    )
+ModuleNotFoundError: No module named 'nba_api'
+    NBA WARN: usará stats anteriores
+[2/4] Actualizando resultados de ayer...
+Buscando resultados para 5 predicciones pendientes...
+   Sin resultados aún para Copa Libertadores 2026-05-28
+   Sin resultados aún para Copa Sudamericana 2026-05-28
+Ningún partido ha terminado todavía.
+  OK
+[3/4] Generando predicciones...
+✅ Picks del 2026-05-28 ya publicados (5 picks) — sin cambios.
+   Usa --force para regenerar.
+  OK
+[4/4] Publicando en GitHub...
