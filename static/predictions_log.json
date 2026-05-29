@@ -4822,8 +4822,8 @@
     "league": "Copa Libertadores",
     "prediccion": "Over 1.5 goles",
     "confianza": "Probabilidad: 74.8%",
-    "resultado_real": null,
-    "acerto": null,
+    "resultado_real": "4-1",
+    "acerto": true,
     "prob_original": 74.8,
     "confidence_factor": 1.0,
     "prob_adjusted": 74.8,
@@ -4852,8 +4852,8 @@
     "league": "Copa Libertadores",
     "prediccion": "Over 8.5 córners",
     "confianza": "Probabilidad: 79.4%",
-    "resultado_real": null,
-    "acerto": null,
+    "resultado_real": "4-0",
+    "acerto": false,
     "prob_original": 79.4,
     "confidence_factor": 1.0,
     "prob_adjusted": 79.4,
@@ -4882,8 +4882,8 @@
     "league": "Copa Sudamericana",
     "prediccion": "Over 8.5 córners",
     "confianza": "Probabilidad: 78.5%",
-    "resultado_real": null,
-    "acerto": null,
+    "resultado_real": "0-0",
+    "acerto": false,
     "prob_original": 78.5,
     "confidence_factor": 1.0,
     "prob_adjusted": 78.5,
@@ -4912,7 +4912,7 @@
     "league": "Copa Libertadores",
     "prediccion": "",
     "confianza": "Probabilidad: 0.0%",
-    "resultado_real": null,
+    "resultado_real": "2-0",
     "acerto": null,
     "prob_original": null,
     "confidence_factor": 1.0,
@@ -4931,7 +4931,8 @@
     "value_level": null,
     "rf_wins": 1,
     "rf_forma": "WLDLD",
-    "markets_evaluated": []
+    "markets_evaluated": [],
+    "would_have_acerto": true
   },
   {
     "fecha": "2026-05-28",
@@ -4941,7 +4942,7 @@
     "league": "Copa Sudamericana",
     "prediccion": "",
     "confianza": "Probabilidad: 0.0%",
-    "resultado_real": null,
+    "resultado_real": "2-0",
     "acerto": null,
     "prob_original": null,
     "confidence_factor": 1.0,
@@ -4960,6 +4961,7 @@
     "value_level": null,
     "rf_wins": 0,
     "rf_forma": "DLDDL",
-    "markets_evaluated": []
+    "markets_evaluated": [],
+    "would_have_acerto": true
   }
 ]

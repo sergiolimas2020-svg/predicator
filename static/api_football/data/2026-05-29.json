@@ -1,0 +1,4184 @@
+[
+  {
+    "key": "Nice|Saint Etienne|2026-05-29",
+    "home": "Nice",
+    "away": "Saint Etienne",
+    "league": "Ligue 1",
+    "date": "2026-05-29",
+    "home_id": 84,
+    "away_id": 1063,
+    "league_id": 61,
+    "season": 2025,
+    "h2h": [
+      {
+        "fixture": {
+          "id": 1545408,
+          "referee": "B. Bastien",
+          "timezone": "UTC",
+          "date": "2026-05-26T18:45:00+00:00",
+          "timestamp": 1779821100,
+          "periods": {
+            "first": 1779821100,
+            "second": 1779824700
+          },
+          "venue": {
+            "id": 676,
+            "name": "Stade Geoffroy-Guichard",
+            "city": "Saint Etienne"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 8
+          }
+        },
+        "league": {
+          "id": 61,
+          "name": "Ligue 1",
+          "country": "France",
+          "logo": "https://media.api-sports.io/football/leagues/61.png",
+          "flag": "https://media.api-sports.io/flags/fr.svg",
+          "season": 2025,
+          "round": "Final",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1063,
+            "name": "Saint Etienne",
+            "logo": "https://media.api-sports.io/football/teams/1063.png",
+            "winner": null
+          },
+          "away": {
+            "id": 84,
+            "name": "Nice",
+            "logo": "https://media.api-sports.io/football/teams/84.png",
+            "winner": null
+          }
+        },
+        "goals": {
+          "home": 0,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 0,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1488849,
+          "referee": "G. Angoula",
+          "timezone": "UTC",
+          "date": "2025-12-21T13:45:00+00:00",
+          "timestamp": 1766324700,
+          "periods": {
+            "first": 1766324700,
+            "second": 1766328300
+          },
+          "venue": {
+            "id": 663,
+            "name": "Allianz Riviera",
+            "city": "Nice"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": null
+          }
+        },
+        "league": {
+          "id": 66,
+          "name": "Coupe de France",
+          "country": "France",
+          "logo": "https://media.api-sports.io/football/leagues/66.png",
+          "flag": "https://media.api-sports.io/flags/fr.svg",
+          "season": 2025,
+          "round": "Round of 64",
+          "standings": false
+        },
+        "teams": {
+          "home": {
+            "id": 84,
+            "name": "Nice",
+            "logo": "https://media.api-sports.io/football/teams/84.png",
+            "winner": true
+          },
+          "away": {
+            "id": 1063,
+            "name": "Saint Etienne",
+            "logo": "https://media.api-sports.io/football/teams/1063.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 2,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 1,
+            "away": 1
+          },
+          "fulltime": {
+            "home": 2,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1213958,
+          "referee": "J. Brisard",
+          "timezone": "UTC",
+          "date": "2025-03-01T16:00:00+00:00",
+          "timestamp": 1740844800,
+          "periods": {
+            "first": 1740844800,
+            "second": 1740848400
+          },
+          "venue": {
+            "id": 676,
+            "name": "Stade Geoffroy-Guichard",
+            "city": "Saint-Ètienne"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 6
+          }
+        },
+        "league": {
+          "id": 61,
+          "name": "Ligue 1",
+          "country": "France",
+          "logo": "https://media.api-sports.io/football/leagues/61.png",
+          "flag": "https://media.api-sports.io/flags/fr.svg",
+          "season": 2024,
+          "round": "Regular Season - 24",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1063,
+            "name": "Saint Etienne",
+            "logo": "https://media.api-sports.io/football/teams/1063.png",
+            "winner": false
+          },
+          "away": {
+            "id": 84,
+            "name": "Nice",
+            "logo": "https://media.api-sports.io/football/teams/84.png",
+            "winner": true
+          }
+        },
+        "goals": {
+          "home": 1,
+          "away": 3
+        },
+        "score": {
+          "halftime": {
+            "home": 1,
+            "away": 1
+          },
+          "fulltime": {
+            "home": 1,
+            "away": 3
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1213784,
+          "referee": "T. Léonard",
+          "timezone": "UTC",
+          "date": "2024-09-20T18:45:00+00:00",
+          "timestamp": 1726857900,
+          "periods": {
+            "first": 1726857900,
+            "second": 1726861500
+          },
+          "venue": {
+            "id": 663,
+            "name": "Allianz Riviera",
+            "city": "Nice"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 5
+          }
+        },
+        "league": {
+          "id": 61,
+          "name": "Ligue 1",
+          "country": "France",
+          "logo": "https://media.api-sports.io/football/leagues/61.png",
+          "flag": "https://media.api-sports.io/flags/fr.svg",
+          "season": 2024,
+          "round": "Regular Season - 5",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 84,
+            "name": "Nice",
+            "logo": "https://media.api-sports.io/football/teams/84.png",
+            "winner": true
+          },
+          "away": {
+            "id": 1063,
+            "name": "Saint Etienne",
+            "logo": "https://media.api-sports.io/football/teams/1063.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 8,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 6,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 8,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 718708,
+          "referee": "R. Buquet",
+          "timezone": "UTC",
+          "date": "2022-05-11T17:00:00+00:00",
+          "timestamp": 1652288400,
+          "periods": {
+            "first": 1652288400,
+            "second": 1652292000
+          },
+          "venue": {
+            "id": 663,
+            "name": "Allianz Riviera",
+            "city": "Nice"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": null
+          }
+        },
+        "league": {
+          "id": 61,
+          "name": "Ligue 1",
+          "country": "France",
+          "logo": "https://media.api-sports.io/football/leagues/61.png",
+          "flag": "https://media.api-sports.io/flags/fr.svg",
+          "season": 2021,
+          "round": "Regular Season - 36",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 84,
+            "name": "Nice",
+            "logo": "https://media.api-sports.io/football/teams/84.png",
+            "winner": true
+          },
+          "away": {
+            "id": 1063,
+            "name": "Saint Etienne",
+            "logo": "https://media.api-sports.io/football/teams/1063.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 4,
+          "away": 2
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 2
+          },
+          "fulltime": {
+            "home": 4,
+            "away": 2
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 718428,
+          "referee": "A. Delerue",
+          "timezone": "UTC",
+          "date": "2021-09-25T15:00:00+00:00",
+          "timestamp": 1632582000,
+          "periods": {
+            "first": 1632582000,
+            "second": 1632585600
+          },
+          "venue": {
+            "id": 676,
+            "name": "Stade Geoffroy-Guichard",
+            "city": "Saint-Ètienne"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": null
+          }
+        },
+        "league": {
+          "id": 61,
+          "name": "Ligue 1",
+          "country": "France",
+          "logo": "https://media.api-sports.io/football/leagues/61.png",
+          "flag": "https://media.api-sports.io/flags/fr.svg",
+          "season": 2021,
+          "round": "Regular Season - 8",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1063,
+            "name": "Saint Etienne",
+            "logo": "https://media.api-sports.io/football/teams/1063.png",
+            "winner": false
+          },
+          "away": {
+            "id": 84,
+            "name": "Nice",
+            "logo": "https://media.api-sports.io/football/teams/84.png",
+            "winner": true
+          }
+        },
+        "goals": {
+          "home": 0,
+          "away": 3
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 1
+          },
+          "fulltime": {
+            "home": 0,
+            "away": 3
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 738017,
+          "referee": null,
+          "timezone": "UTC",
+          "date": "2021-07-21T16:00:00+00:00",
+          "timestamp": 1626883200,
+          "periods": {
+            "first": null,
+            "second": null
+          },
+          "venue": {
+            "id": null,
+            "name": "Stade Municipal Jacques Forestier",
+            "city": "Aix-les-Bains"
+          },
+          "status": {
+            "long": "Match Cancelled",
+            "short": "CANC",
+            "elapsed": null,
+            "extra": null
+          }
+        },
+        "league": {
+          "id": 667,
+          "name": "Friendlies Clubs",
+          "country": "World",
+          "logo": "https://media.api-sports.io/football/leagues/667.png",
+          "flag": null,
+          "season": 2021,
+          "round": "Club Friendlies 3",
+          "standings": false
+        },
+        "teams": {
+          "home": {
+            "id": 1063,
+            "name": "Saint Etienne",
+            "logo": "https://media.api-sports.io/football/teams/1063.png",
+            "winner": null
+          },
+          "away": {
+            "id": 84,
+            "name": "Nice",
+            "logo": "https://media.api-sports.io/football/teams/84.png",
+            "winner": null
+          }
+        },
+        "goals": {
+          "home": null,
+          "away": null
+        },
+        "score": {
+          "halftime": {
+            "home": null,
+            "away": null
+          },
+          "fulltime": {
+            "home": null,
+            "away": null
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 571688,
+          "referee": "F. Schneider",
+          "timezone": "UTC",
+          "date": "2021-01-31T12:00:00+00:00",
+          "timestamp": 1612094400,
+          "periods": {
+            "first": 1612094400,
+            "second": 1612098000
+          },
+          "venue": {
+            "id": 663,
+            "name": "Allianz Riviera",
+            "city": "Nice"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": null
+          }
+        },
+        "league": {
+          "id": 61,
+          "name": "Ligue 1",
+          "country": "France",
+          "logo": "https://media.api-sports.io/football/leagues/61.png",
+          "flag": "https://media.api-sports.io/flags/fr.svg",
+          "season": 2020,
+          "round": "Regular Season - 22",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 84,
+            "name": "Nice",
+            "logo": "https://media.api-sports.io/football/teams/84.png",
+            "winner": false
+          },
+          "away": {
+            "id": 1063,
+            "name": "Saint Etienne",
+            "logo": "https://media.api-sports.io/football/teams/1063.png",
+            "winner": true
+          }
+        },
+        "goals": {
+          "home": 0,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 0,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 571538,
+          "referee": "A. Delerue",
+          "timezone": "UTC",
+          "date": "2020-10-18T15:00:00+00:00",
+          "timestamp": 1603033200,
+          "periods": {
+            "first": 1603033200,
+            "second": 1603036800
+          },
+          "venue": {
+            "id": 676,
+            "name": "Stade Geoffroy-Guichard",
+            "city": "Saint-Ètienne"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": null
+          }
+        },
+        "league": {
+          "id": 61,
+          "name": "Ligue 1",
+          "country": "France",
+          "logo": "https://media.api-sports.io/football/leagues/61.png",
+          "flag": "https://media.api-sports.io/flags/fr.svg",
+          "season": 2020,
+          "round": "Regular Season - 7",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1063,
+            "name": "Saint Etienne",
+            "logo": "https://media.api-sports.io/football/teams/1063.png",
+            "winner": false
+          },
+          "away": {
+            "id": 84,
+            "name": "Nice",
+            "logo": "https://media.api-sports.io/football/teams/84.png",
+            "winner": true
+          }
+        },
+        "goals": {
+          "home": 1,
+          "away": 3
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 2
+          },
+          "fulltime": {
+            "home": 1,
+            "away": 3
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 602992,
+          "referee": null,
+          "timezone": "UTC",
+          "date": "2020-07-10T16:00:00+00:00",
+          "timestamp": 1594396800,
+          "periods": {
+            "first": 1594396800,
+            "second": 1594400400
+          },
+          "venue": {
+            "id": 676,
+            "name": "Stade Geoffroy-Guichard",
+            "city": "Saint-Ètienne"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": null
+          }
+        },
+        "league": {
+          "id": 667,
+          "name": "Friendlies Clubs",
+          "country": "World",
+          "logo": "https://media.api-sports.io/football/leagues/667.png",
+          "flag": null,
+          "season": 2020,
+          "round": "Club Friendlies 3",
+          "standings": false
+        },
+        "teams": {
+          "home": {
+            "id": 1063,
+            "name": "Saint Etienne",
+            "logo": "https://media.api-sports.io/football/teams/1063.png",
+            "winner": true
+          },
+          "away": {
+            "id": 84,
+            "name": "Nice",
+            "logo": "https://media.api-sports.io/football/teams/84.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 4,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": null,
+            "away": null
+          },
+          "fulltime": {
+            "home": 4,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      }
+    ],
+    "home_form": [
+      {
+        "fixture": {
+          "id": 1545408,
+          "referee": "B. Bastien",
+          "timezone": "UTC",
+          "date": "2026-05-26T18:45:00+00:00",
+          "timestamp": 1779821100,
+          "periods": {
+            "first": 1779821100,
+            "second": 1779824700
+          },
+          "venue": {
+            "id": 676,
+            "name": "Stade Geoffroy-Guichard",
+            "city": "Saint Etienne"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 8
+          }
+        },
+        "league": {
+          "id": 61,
+          "name": "Ligue 1",
+          "country": "France",
+          "logo": "https://media.api-sports.io/football/leagues/61.png",
+          "flag": "https://media.api-sports.io/flags/fr.svg",
+          "season": 2025,
+          "round": "Final",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1063,
+            "name": "Saint Etienne",
+            "logo": "https://media.api-sports.io/football/teams/1063.png",
+            "winner": null
+          },
+          "away": {
+            "id": 84,
+            "name": "Nice",
+            "logo": "https://media.api-sports.io/football/teams/84.png",
+            "winner": null
+          }
+        },
+        "goals": {
+          "home": 0,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 0,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1542551,
+          "referee": "J. Brisard",
+          "timezone": "UTC",
+          "date": "2026-05-22T19:00:00+00:00",
+          "timestamp": 1779476400,
+          "periods": {
+            "first": 1779476400,
+            "second": 1779480000
+          },
+          "venue": {
+            "id": 631,
+            "name": "Stade de France",
+            "city": "Paris - Saint-Denis"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 6
+          }
+        },
+        "league": {
+          "id": 66,
+          "name": "Coupe de France",
+          "country": "France",
+          "logo": "https://media.api-sports.io/football/leagues/66.png",
+          "flag": "https://media.api-sports.io/flags/fr.svg",
+          "season": 2025,
+          "round": "Final",
+          "standings": false
+        },
+        "teams": {
+          "home": {
+            "id": 116,
+            "name": "Lens",
+            "logo": "https://media.api-sports.io/football/teams/116.png",
+            "winner": true
+          },
+          "away": {
+            "id": 84,
+            "name": "Nice",
+            "logo": "https://media.api-sports.io/football/teams/84.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 3,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 2,
+            "away": 1
+          },
+          "fulltime": {
+            "home": 3,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1388001,
+          "referee": "J. Pignard",
+          "timezone": "UTC",
+          "date": "2026-05-17T19:00:00+00:00",
+          "timestamp": 1779044400,
+          "periods": {
+            "first": 1779044400,
+            "second": 1779048000
+          },
+          "venue": {
+            "id": 663,
+            "name": "Allianz Riviera",
+            "city": "Nice"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 5
+          }
+        },
+        "league": {
+          "id": 61,
+          "name": "Ligue 1",
+          "country": "France",
+          "logo": "https://media.api-sports.io/football/leagues/61.png",
+          "flag": "https://media.api-sports.io/flags/fr.svg",
+          "season": 2025,
+          "round": "Regular Season - 34",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 84,
+            "name": "Nice",
+            "logo": "https://media.api-sports.io/football/teams/84.png",
+            "winner": null
+          },
+          "away": {
+            "id": 112,
+            "name": "Metz",
+            "logo": "https://media.api-sports.io/football/teams/112.png",
+            "winner": null
+          }
+        },
+        "goals": {
+          "home": 0,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 0,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1387987,
+          "referee": "F. Letexier",
+          "timezone": "UTC",
+          "date": "2026-05-10T19:00:00+00:00",
+          "timestamp": 1778439600,
+          "periods": {
+            "first": 1778439600,
+            "second": 1778443200
+          },
+          "venue": {
+            "id": 636,
+            "name": "Stade de l'Abbé Deschamps",
+            "city": "Auxerre"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 7
+          }
+        },
+        "league": {
+          "id": 61,
+          "name": "Ligue 1",
+          "country": "France",
+          "logo": "https://media.api-sports.io/football/leagues/61.png",
+          "flag": "https://media.api-sports.io/flags/fr.svg",
+          "season": 2025,
+          "round": "Regular Season - 33",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 108,
+            "name": "Auxerre",
+            "logo": "https://media.api-sports.io/football/teams/108.png",
+            "winner": true
+          },
+          "away": {
+            "id": 84,
+            "name": "Nice",
+            "logo": "https://media.api-sports.io/football/teams/84.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 2,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 1,
+            "away": 1
+          },
+          "fulltime": {
+            "home": 2,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1387982,
+          "referee": "T. Leonard",
+          "timezone": "UTC",
+          "date": "2026-05-02T19:05:00+00:00",
+          "timestamp": 1777748700,
+          "periods": {
+            "first": 1777748700,
+            "second": 1777752300
+          },
+          "venue": {
+            "id": 663,
+            "name": "Allianz Riviera",
+            "city": "Nice"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 6
+          }
+        },
+        "league": {
+          "id": 61,
+          "name": "Ligue 1",
+          "country": "France",
+          "logo": "https://media.api-sports.io/football/leagues/61.png",
+          "flag": "https://media.api-sports.io/flags/fr.svg",
+          "season": 2025,
+          "round": "Regular Season - 32",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 84,
+            "name": "Nice",
+            "logo": "https://media.api-sports.io/football/teams/84.png",
+            "winner": null
+          },
+          "away": {
+            "id": 116,
+            "name": "Lens",
+            "logo": "https://media.api-sports.io/football/teams/116.png",
+            "winner": null
+          }
+        },
+        "goals": {
+          "home": 1,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 1,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1387973,
+          "referee": "W. Delajod",
+          "timezone": "UTC",
+          "date": "2026-04-26T18:45:00+00:00",
+          "timestamp": 1777229100,
+          "periods": {
+            "first": 1777229100,
+            "second": 1777232700
+          },
+          "venue": {
+            "id": 667,
+            "name": "Orange Vélodrome",
+            "city": "Marseille"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 9
+          }
+        },
+        "league": {
+          "id": 61,
+          "name": "Ligue 1",
+          "country": "France",
+          "logo": "https://media.api-sports.io/football/leagues/61.png",
+          "flag": "https://media.api-sports.io/flags/fr.svg",
+          "season": 2025,
+          "round": "Regular Season - 31",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 81,
+            "name": "Marseille",
+            "logo": "https://media.api-sports.io/football/teams/81.png",
+            "winner": null
+          },
+          "away": {
+            "id": 84,
+            "name": "Nice",
+            "logo": "https://media.api-sports.io/football/teams/84.png",
+            "winner": null
+          }
+        },
+        "goals": {
+          "home": 1,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 1,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1530106,
+          "referee": "F. Letexier",
+          "timezone": "UTC",
+          "date": "2026-04-22T19:00:00+00:00",
+          "timestamp": 1776884400,
+          "periods": {
+            "first": 1776884400,
+            "second": 1776888000
+          },
+          "venue": {
+            "id": 681,
+            "name": "Stade de la Meinau",
+            "city": "Strasbourg"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 7
+          }
+        },
+        "league": {
+          "id": 66,
+          "name": "Coupe de France",
+          "country": "France",
+          "logo": "https://media.api-sports.io/football/leagues/66.png",
+          "flag": "https://media.api-sports.io/flags/fr.svg",
+          "season": 2025,
+          "round": "Semi-finals",
+          "standings": false
+        },
+        "teams": {
+          "home": {
+            "id": 95,
+            "name": "Strasbourg",
+            "logo": "https://media.api-sports.io/football/teams/95.png",
+            "winner": false
+          },
+          "away": {
+            "id": 84,
+            "name": "Nice",
+            "logo": "https://media.api-sports.io/football/teams/84.png",
+            "winner": true
+          }
+        },
+        "goals": {
+          "home": 0,
+          "away": 2
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 0,
+            "away": 2
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1387961,
+          "referee": "B. Dechepy",
+          "timezone": "UTC",
+          "date": "2026-04-18T19:05:00+00:00",
+          "timestamp": 1776539100,
+          "periods": {
+            "first": 1776539100,
+            "second": 1776542700
+          },
+          "venue": {
+            "id": null,
+            "name": "Stade Pierre-Mauroy",
+            "city": "Lille"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 8
+          }
+        },
+        "league": {
+          "id": 61,
+          "name": "Ligue 1",
+          "country": "France",
+          "logo": "https://media.api-sports.io/football/leagues/61.png",
+          "flag": "https://media.api-sports.io/flags/fr.svg",
+          "season": 2025,
+          "round": "Regular Season - 30",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 79,
+            "name": "Lille",
+            "logo": "https://media.api-sports.io/football/teams/79.png",
+            "winner": null
+          },
+          "away": {
+            "id": 84,
+            "name": "Nice",
+            "logo": "https://media.api-sports.io/football/teams/84.png",
+            "winner": null
+          }
+        },
+        "goals": {
+          "home": 0,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 0,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1387955,
+          "referee": "A. Kherradji",
+          "timezone": "UTC",
+          "date": "2026-04-12T15:15:00+00:00",
+          "timestamp": 1776006900,
+          "periods": {
+            "first": 1776006900,
+            "second": 1776010500
+          },
+          "venue": {
+            "id": 663,
+            "name": "Allianz Riviera",
+            "city": "Nice"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 7
+          }
+        },
+        "league": {
+          "id": 61,
+          "name": "Ligue 1",
+          "country": "France",
+          "logo": "https://media.api-sports.io/football/leagues/61.png",
+          "flag": "https://media.api-sports.io/flags/fr.svg",
+          "season": 2025,
+          "round": "Regular Season - 29",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 84,
+            "name": "Nice",
+            "logo": "https://media.api-sports.io/football/teams/84.png",
+            "winner": null
+          },
+          "away": {
+            "id": 111,
+            "name": "Le Havre",
+            "logo": "https://media.api-sports.io/football/teams/111.png",
+            "winner": null
+          }
+        },
+        "goals": {
+          "home": 1,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 1
+          },
+          "fulltime": {
+            "home": 1,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1387949,
+          "referee": "T. Leonard",
+          "timezone": "UTC",
+          "date": "2026-04-04T15:00:00+00:00",
+          "timestamp": 1775314800,
+          "periods": {
+            "first": 1775314800,
+            "second": 1775318400
+          },
+          "venue": {
+            "id": 681,
+            "name": "Stade de la Meinau",
+            "city": "Strasbourg"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 4
+          }
+        },
+        "league": {
+          "id": 61,
+          "name": "Ligue 1",
+          "country": "France",
+          "logo": "https://media.api-sports.io/football/leagues/61.png",
+          "flag": "https://media.api-sports.io/flags/fr.svg",
+          "season": 2025,
+          "round": "Regular Season - 28",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 95,
+            "name": "Strasbourg",
+            "logo": "https://media.api-sports.io/football/teams/95.png",
+            "winner": true
+          },
+          "away": {
+            "id": 84,
+            "name": "Nice",
+            "logo": "https://media.api-sports.io/football/teams/84.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 3,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 3,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 3,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1387937,
+          "referee": "W. Delajod",
+          "timezone": "UTC",
+          "date": "2026-03-21T20:05:00+00:00",
+          "timestamp": 1774123500,
+          "periods": {
+            "first": 1774123500,
+            "second": 1774127100
+          },
+          "venue": {
+            "id": 663,
+            "name": "Allianz Riviera",
+            "city": "Nice"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 3
+          }
+        },
+        "league": {
+          "id": 61,
+          "name": "Ligue 1",
+          "country": "France",
+          "logo": "https://media.api-sports.io/football/leagues/61.png",
+          "flag": "https://media.api-sports.io/flags/fr.svg",
+          "season": 2025,
+          "round": "Regular Season - 27",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 84,
+            "name": "Nice",
+            "logo": "https://media.api-sports.io/football/teams/84.png",
+            "winner": false
+          },
+          "away": {
+            "id": 85,
+            "name": "Paris Saint Germain",
+            "logo": "https://media.api-sports.io/football/teams/85.png",
+            "winner": true
+          }
+        },
+        "goals": {
+          "home": 0,
+          "away": 4
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 1
+          },
+          "fulltime": {
+            "home": 0,
+            "away": 4
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1387923,
+          "referee": "F. Letexier",
+          "timezone": "UTC",
+          "date": "2026-03-14T18:00:00+00:00",
+          "timestamp": 1773511200,
+          "periods": {
+            "first": 1773511200,
+            "second": 1773514800
+          },
+          "venue": {
+            "id": 634,
+            "name": "Stade Raymond-Kopa",
+            "city": "Angers"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 7
+          }
+        },
+        "league": {
+          "id": 61,
+          "name": "Ligue 1",
+          "country": "France",
+          "logo": "https://media.api-sports.io/football/leagues/61.png",
+          "flag": "https://media.api-sports.io/flags/fr.svg",
+          "season": 2025,
+          "round": "Regular Season - 26",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 77,
+            "name": "Angers",
+            "logo": "https://media.api-sports.io/football/teams/77.png",
+            "winner": false
+          },
+          "away": {
+            "id": 84,
+            "name": "Nice",
+            "logo": "https://media.api-sports.io/football/teams/84.png",
+            "winner": true
+          }
+        },
+        "goals": {
+          "home": 0,
+          "away": 2
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 0,
+            "away": 2
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1387920,
+          "referee": "R. Lissorgue",
+          "timezone": "UTC",
+          "date": "2026-03-08T16:15:00+00:00",
+          "timestamp": 1772986500,
+          "periods": {
+            "first": 1772986500,
+            "second": 1772990100
+          },
+          "venue": {
+            "id": 663,
+            "name": "Allianz Riviera",
+            "city": "Nice"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 6
+          }
+        },
+        "league": {
+          "id": 61,
+          "name": "Ligue 1",
+          "country": "France",
+          "logo": "https://media.api-sports.io/football/leagues/61.png",
+          "flag": "https://media.api-sports.io/flags/fr.svg",
+          "season": 2025,
+          "round": "Regular Season - 25",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 84,
+            "name": "Nice",
+            "logo": "https://media.api-sports.io/football/teams/84.png",
+            "winner": false
+          },
+          "away": {
+            "id": 94,
+            "name": "Rennes",
+            "logo": "https://media.api-sports.io/football/teams/94.png",
+            "winner": true
+          }
+        },
+        "goals": {
+          "home": 0,
+          "away": 4
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 2
+          },
+          "fulltime": {
+            "home": 0,
+            "away": 4
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1519244,
+          "referee": "B. Dechepy",
+          "timezone": "UTC",
+          "date": "2026-03-04T19:30:00+00:00",
+          "timestamp": 1772652600,
+          "periods": {
+            "first": 1772652600,
+            "second": 1772656200
+          },
+          "venue": {
+            "id": null,
+            "name": "Stade du Moustoir",
+            "city": "Lorient"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "PEN",
+            "elapsed": 120,
+            "extra": null
+          }
+        },
+        "league": {
+          "id": 66,
+          "name": "Coupe de France",
+          "country": "France",
+          "logo": "https://media.api-sports.io/football/leagues/66.png",
+          "flag": "https://media.api-sports.io/flags/fr.svg",
+          "season": 2025,
+          "round": "Quarter-finals",
+          "standings": false
+        },
+        "teams": {
+          "home": {
+            "id": 97,
+            "name": "Lorient",
+            "logo": "https://media.api-sports.io/football/teams/97.png",
+            "winner": false
+          },
+          "away": {
+            "id": 84,
+            "name": "Nice",
+            "logo": "https://media.api-sports.io/football/teams/84.png",
+            "winner": true
+          }
+        },
+        "goals": {
+          "home": 0,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 0,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": 5,
+            "away": 6
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1387911,
+          "referee": "H. Ben El Hadj Salem",
+          "timezone": "UTC",
+          "date": "2026-03-01T14:00:00+00:00",
+          "timestamp": 1772373600,
+          "periods": {
+            "first": 1772373600,
+            "second": 1772377200
+          },
+          "venue": {
+            "id": 18861,
+            "name": "Stade Jean Bouin",
+            "city": "Paris"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 7
+          }
+        },
+        "league": {
+          "id": 61,
+          "name": "Ligue 1",
+          "country": "France",
+          "logo": "https://media.api-sports.io/football/leagues/61.png",
+          "flag": "https://media.api-sports.io/flags/fr.svg",
+          "season": 2025,
+          "round": "Regular Season - 24",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 114,
+            "name": "Paris FC",
+            "logo": "https://media.api-sports.io/football/teams/114.png",
+            "winner": true
+          },
+          "away": {
+            "id": 84,
+            "name": "Nice",
+            "logo": "https://media.api-sports.io/football/teams/84.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 1,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 1,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 1,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1387901,
+          "referee": "J. Stinat",
+          "timezone": "UTC",
+          "date": "2026-02-22T16:15:00+00:00",
+          "timestamp": 1771776900,
+          "periods": {
+            "first": 1771776900,
+            "second": 1771780500
+          },
+          "venue": {
+            "id": 663,
+            "name": "Allianz Riviera",
+            "city": "Nice"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 7
+          }
+        },
+        "league": {
+          "id": 61,
+          "name": "Ligue 1",
+          "country": "France",
+          "logo": "https://media.api-sports.io/football/leagues/61.png",
+          "flag": "https://media.api-sports.io/flags/fr.svg",
+          "season": 2025,
+          "round": "Regular Season - 23",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 84,
+            "name": "Nice",
+            "logo": "https://media.api-sports.io/football/teams/84.png",
+            "winner": null
+          },
+          "away": {
+            "id": 97,
+            "name": "Lorient",
+            "logo": "https://media.api-sports.io/football/teams/97.png",
+            "winner": null
+          }
+        },
+        "goals": {
+          "home": 3,
+          "away": 3
+        },
+        "score": {
+          "halftime": {
+            "home": 2,
+            "away": 1
+          },
+          "fulltime": {
+            "home": 3,
+            "away": 3
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1387890,
+          "referee": "T. Leonard",
+          "timezone": "UTC",
+          "date": "2026-02-15T19:45:00+00:00",
+          "timestamp": 1771184700,
+          "periods": {
+            "first": 1771184700,
+            "second": 1771188300
+          },
+          "venue": {
+            "id": null,
+            "name": "Parc Olympique Lyonnais",
+            "city": "Lyon"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 6
+          }
+        },
+        "league": {
+          "id": 61,
+          "name": "Ligue 1",
+          "country": "France",
+          "logo": "https://media.api-sports.io/football/leagues/61.png",
+          "flag": "https://media.api-sports.io/flags/fr.svg",
+          "season": 2025,
+          "round": "Regular Season - 22",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 80,
+            "name": "Lyon",
+            "logo": "https://media.api-sports.io/football/teams/80.png",
+            "winner": true
+          },
+          "away": {
+            "id": 84,
+            "name": "Nice",
+            "logo": "https://media.api-sports.io/football/teams/84.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 2,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 1,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 2,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1387885,
+          "referee": "B. Bastien",
+          "timezone": "UTC",
+          "date": "2026-02-08T14:00:00+00:00",
+          "timestamp": 1770559200,
+          "periods": {
+            "first": 1770559200,
+            "second": 1770562800
+          },
+          "venue": {
+            "id": 663,
+            "name": "Allianz Riviera",
+            "city": "Nice"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 7
+          }
+        },
+        "league": {
+          "id": 61,
+          "name": "Ligue 1",
+          "country": "France",
+          "logo": "https://media.api-sports.io/football/leagues/61.png",
+          "flag": "https://media.api-sports.io/flags/fr.svg",
+          "season": 2025,
+          "round": "Regular Season - 21",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 84,
+            "name": "Nice",
+            "logo": "https://media.api-sports.io/football/teams/84.png",
+            "winner": null
+          },
+          "away": {
+            "id": 91,
+            "name": "Monaco",
+            "logo": "https://media.api-sports.io/football/teams/91.png",
+            "winner": null
+          }
+        },
+        "goals": {
+          "home": 0,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 0,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1506881,
+          "referee": "R. Lissorgue",
+          "timezone": "UTC",
+          "date": "2026-02-04T19:30:00+00:00",
+          "timestamp": 1770233400,
+          "periods": {
+            "first": 1770233400,
+            "second": 1770237000
+          },
+          "venue": {
+            "id": 663,
+            "name": "Allianz Riviera",
+            "city": "Nice"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 9
+          }
+        },
+        "league": {
+          "id": 66,
+          "name": "Coupe de France",
+          "country": "France",
+          "logo": "https://media.api-sports.io/football/leagues/66.png",
+          "flag": "https://media.api-sports.io/flags/fr.svg",
+          "season": 2025,
+          "round": "Round of 16",
+          "standings": false
+        },
+        "teams": {
+          "home": {
+            "id": 84,
+            "name": "Nice",
+            "logo": "https://media.api-sports.io/football/teams/84.png",
+            "winner": true
+          },
+          "away": {
+            "id": 82,
+            "name": "Montpellier",
+            "logo": "https://media.api-sports.io/football/teams/82.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 3,
+          "away": 2
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 1
+          },
+          "fulltime": {
+            "home": 3,
+            "away": 2
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1387874,
+          "referee": "S. Frappart",
+          "timezone": "UTC",
+          "date": "2026-02-01T16:15:00+00:00",
+          "timestamp": 1769962500,
+          "periods": {
+            "first": 1769962500,
+            "second": 1769966100
+          },
+          "venue": {
+            "id": 663,
+            "name": "Allianz Riviera",
+            "city": "Nice"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 7
+          }
+        },
+        "league": {
+          "id": 61,
+          "name": "Ligue 1",
+          "country": "France",
+          "logo": "https://media.api-sports.io/football/leagues/61.png",
+          "flag": "https://media.api-sports.io/flags/fr.svg",
+          "season": 2025,
+          "round": "Regular Season - 20",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 84,
+            "name": "Nice",
+            "logo": "https://media.api-sports.io/football/teams/84.png",
+            "winner": null
+          },
+          "away": {
+            "id": 106,
+            "name": "Stade Brestois 29",
+            "logo": "https://media.api-sports.io/football/teams/106.png",
+            "winner": null
+          }
+        },
+        "goals": {
+          "home": 2,
+          "away": 2
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 2
+          },
+          "fulltime": {
+            "home": 2,
+            "away": 2
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      }
+    ],
+    "away_form": [
+      {
+        "fixture": {
+          "id": 1545408,
+          "referee": "B. Bastien",
+          "timezone": "UTC",
+          "date": "2026-05-26T18:45:00+00:00",
+          "timestamp": 1779821100,
+          "periods": {
+            "first": 1779821100,
+            "second": 1779824700
+          },
+          "venue": {
+            "id": 676,
+            "name": "Stade Geoffroy-Guichard",
+            "city": "Saint Etienne"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 8
+          }
+        },
+        "league": {
+          "id": 61,
+          "name": "Ligue 1",
+          "country": "France",
+          "logo": "https://media.api-sports.io/football/leagues/61.png",
+          "flag": "https://media.api-sports.io/flags/fr.svg",
+          "season": 2025,
+          "round": "Final",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1063,
+            "name": "Saint Etienne",
+            "logo": "https://media.api-sports.io/football/teams/1063.png",
+            "winner": null
+          },
+          "away": {
+            "id": 84,
+            "name": "Nice",
+            "logo": "https://media.api-sports.io/football/teams/84.png",
+            "winner": null
+          }
+        },
+        "goals": {
+          "home": 0,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 0,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1544972,
+          "referee": "M. Bollengier",
+          "timezone": "UTC",
+          "date": "2026-05-15T18:30:00+00:00",
+          "timestamp": 1778869800,
+          "periods": {
+            "first": 1778869800,
+            "second": 1778873400
+          },
+          "venue": {
+            "id": 676,
+            "name": "Stade Geoffroy-Guichard",
+            "city": "Saint Etienne"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "PEN",
+            "elapsed": 120,
+            "extra": null
+          }
+        },
+        "league": {
+          "id": 61,
+          "name": "Ligue 1",
+          "country": "France",
+          "logo": "https://media.api-sports.io/football/leagues/61.png",
+          "flag": "https://media.api-sports.io/flags/fr.svg",
+          "season": 2025,
+          "round": "Semi-finals",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1063,
+            "name": "Saint Etienne",
+            "logo": "https://media.api-sports.io/football/teams/1063.png",
+            "winner": true
+          },
+          "away": {
+            "id": 1301,
+            "name": "Rodez",
+            "logo": "https://media.api-sports.io/football/teams/1301.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 0,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 0,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": 7,
+            "away": 6
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1389407,
+          "referee": "A. Perreau Niel",
+          "timezone": "UTC",
+          "date": "2026-05-09T18:00:00+00:00",
+          "timestamp": 1778349600,
+          "periods": {
+            "first": 1778349600,
+            "second": 1778353200
+          },
+          "venue": {
+            "id": 676,
+            "name": "Stade Geoffroy-Guichard",
+            "city": "Saint Etienne"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 6
+          }
+        },
+        "league": {
+          "id": 62,
+          "name": "Ligue 2",
+          "country": "France",
+          "logo": "https://media.api-sports.io/football/leagues/62.png",
+          "flag": "https://media.api-sports.io/flags/fr.svg",
+          "season": 2025,
+          "round": "Regular Season - 34",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1063,
+            "name": "Saint Etienne",
+            "logo": "https://media.api-sports.io/football/teams/1063.png",
+            "winner": true
+          },
+          "away": {
+            "id": 87,
+            "name": "Amiens",
+            "logo": "https://media.api-sports.io/football/teams/87.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 5,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 2,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 5,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1389402,
+          "referee": "J. Brisard",
+          "timezone": "UTC",
+          "date": "2026-05-02T18:00:00+00:00",
+          "timestamp": 1777744800,
+          "periods": {
+            "first": 1777744800,
+            "second": 1777748400
+          },
+          "venue": {
+            "id": 675,
+            "name": "Stade Paul-Lignon",
+            "city": "Rodez"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 5
+          }
+        },
+        "league": {
+          "id": 62,
+          "name": "Ligue 2",
+          "country": "France",
+          "logo": "https://media.api-sports.io/football/leagues/62.png",
+          "flag": "https://media.api-sports.io/flags/fr.svg",
+          "season": 2025,
+          "round": "Regular Season - 33",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1301,
+            "name": "Rodez",
+            "logo": "https://media.api-sports.io/football/teams/1301.png",
+            "winner": true
+          },
+          "away": {
+            "id": 1063,
+            "name": "Saint Etienne",
+            "logo": "https://media.api-sports.io/football/teams/1063.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 2,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 1,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 2,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1389395,
+          "referee": "A. Valnet",
+          "timezone": "UTC",
+          "date": "2026-04-25T18:00:00+00:00",
+          "timestamp": 1777140000,
+          "periods": {
+            "first": 1777140000,
+            "second": 1777143600
+          },
+          "venue": {
+            "id": 676,
+            "name": "Stade Geoffroy-Guichard",
+            "city": "Saint Etienne"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 6
+          }
+        },
+        "league": {
+          "id": 62,
+          "name": "Ligue 2",
+          "country": "France",
+          "logo": "https://media.api-sports.io/football/leagues/62.png",
+          "flag": "https://media.api-sports.io/flags/fr.svg",
+          "season": 2025,
+          "round": "Regular Season - 32",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1063,
+            "name": "Saint Etienne",
+            "logo": "https://media.api-sports.io/football/teams/1063.png",
+            "winner": false
+          },
+          "away": {
+            "id": 110,
+            "name": "Estac Troyes",
+            "logo": "https://media.api-sports.io/football/teams/110.png",
+            "winner": true
+          }
+        },
+        "goals": {
+          "home": 0,
+          "away": 3
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 0,
+            "away": 3
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1389381,
+          "referee": "B. Millot",
+          "timezone": "UTC",
+          "date": "2026-04-18T18:00:00+00:00",
+          "timestamp": 1776535200,
+          "periods": {
+            "first": 1776535200,
+            "second": 1776538800
+          },
+          "venue": {
+            "id": null,
+            "name": "Stade Armand Cesari",
+            "city": "Bastia"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 8
+          }
+        },
+        "league": {
+          "id": 62,
+          "name": "Ligue 2",
+          "country": "France",
+          "logo": "https://media.api-sports.io/football/leagues/62.png",
+          "flag": "https://media.api-sports.io/flags/fr.svg",
+          "season": 2025,
+          "round": "Regular Season - 31",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1305,
+            "name": "Bastia",
+            "logo": "https://media.api-sports.io/football/teams/1305.png",
+            "winner": true
+          },
+          "away": {
+            "id": 1063,
+            "name": "Saint Etienne",
+            "logo": "https://media.api-sports.io/football/teams/1063.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 2,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 1,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 2,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1389373,
+          "referee": "P. Gaillouste",
+          "timezone": "UTC",
+          "date": "2026-04-11T18:00:00+00:00",
+          "timestamp": 1775930400,
+          "periods": {
+            "first": 1775930400,
+            "second": 1775934000
+          },
+          "venue": {
+            "id": 676,
+            "name": "Stade Geoffroy-Guichard",
+            "city": "Saint Etienne"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 6
+          }
+        },
+        "league": {
+          "id": 62,
+          "name": "Ligue 2",
+          "country": "France",
+          "logo": "https://media.api-sports.io/football/leagues/62.png",
+          "flag": "https://media.api-sports.io/flags/fr.svg",
+          "season": 2025,
+          "round": "Regular Season - 30",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1063,
+            "name": "Saint Etienne",
+            "logo": "https://media.api-sports.io/football/teams/1063.png",
+            "winner": true
+          },
+          "away": {
+            "id": 1304,
+            "name": "Dunkerque",
+            "logo": "https://media.api-sports.io/football/teams/1304.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 2,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 1,
+            "away": 1
+          },
+          "fulltime": {
+            "home": 2,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1389365,
+          "referee": "R. Lissorgue",
+          "timezone": "UTC",
+          "date": "2026-04-04T18:00:00+00:00",
+          "timestamp": 1775325600,
+          "periods": {
+            "first": 1775325600,
+            "second": 1775329200
+          },
+          "venue": {
+            "id": null,
+            "name": "Stade Marcel Picot",
+            "city": "Nancy"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 10
+          }
+        },
+        "league": {
+          "id": 62,
+          "name": "Ligue 2",
+          "country": "France",
+          "logo": "https://media.api-sports.io/football/leagues/62.png",
+          "flag": "https://media.api-sports.io/flags/fr.svg",
+          "season": 2025,
+          "round": "Regular Season - 29",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 102,
+            "name": "Nancy",
+            "logo": "https://media.api-sports.io/football/teams/102.png",
+            "winner": null
+          },
+          "away": {
+            "id": 1063,
+            "name": "Saint Etienne",
+            "logo": "https://media.api-sports.io/football/teams/1063.png",
+            "winner": null
+          }
+        },
+        "goals": {
+          "home": 1,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 1,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 1,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1389353,
+          "referee": "A. Petit",
+          "timezone": "UTC",
+          "date": "2026-03-21T19:00:00+00:00",
+          "timestamp": 1774119600,
+          "periods": {
+            "first": 1774119600,
+            "second": 1774123200
+          },
+          "venue": {
+            "id": 676,
+            "name": "Stade Geoffroy-Guichard",
+            "city": "Saint Etienne"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 3
+          }
+        },
+        "league": {
+          "id": 62,
+          "name": "Ligue 2",
+          "country": "France",
+          "logo": "https://media.api-sports.io/football/leagues/62.png",
+          "flag": "https://media.api-sports.io/flags/fr.svg",
+          "season": 2025,
+          "round": "Regular Season - 28",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1063,
+            "name": "Saint Etienne",
+            "logo": "https://media.api-sports.io/football/teams/1063.png",
+            "winner": true
+          },
+          "away": {
+            "id": 3012,
+            "name": "Annecy",
+            "logo": "https://media.api-sports.io/football/teams/3012.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 4,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 3,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 4,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1389349,
+          "referee": "R. Buquet",
+          "timezone": "UTC",
+          "date": "2026-03-14T19:00:00+00:00",
+          "timestamp": 1773514800,
+          "periods": {
+            "first": 1773514800,
+            "second": 1773518400
+          },
+          "venue": {
+            "id": 649,
+            "name": "Stade des Alpes",
+            "city": "Grenoble"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 3
+          }
+        },
+        "league": {
+          "id": 62,
+          "name": "Ligue 2",
+          "country": "France",
+          "logo": "https://media.api-sports.io/football/leagues/62.png",
+          "flag": "https://media.api-sports.io/flags/fr.svg",
+          "season": 2025,
+          "round": "Regular Season - 27",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 101,
+            "name": "Grenoble",
+            "logo": "https://media.api-sports.io/football/teams/101.png",
+            "winner": null
+          },
+          "away": {
+            "id": 1063,
+            "name": "Saint Etienne",
+            "logo": "https://media.api-sports.io/football/teams/1063.png",
+            "winner": null
+          }
+        },
+        "goals": {
+          "home": 0,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 0,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1389341,
+          "referee": "G. Angoula",
+          "timezone": "UTC",
+          "date": "2026-03-07T19:00:00+00:00",
+          "timestamp": 1772910000,
+          "periods": {
+            "first": 1772910000,
+            "second": 1772913600
+          },
+          "venue": {
+            "id": 676,
+            "name": "Stade Geoffroy-Guichard",
+            "city": "Saint Etienne"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 12
+          }
+        },
+        "league": {
+          "id": 62,
+          "name": "Ligue 2",
+          "country": "France",
+          "logo": "https://media.api-sports.io/football/leagues/62.png",
+          "flag": "https://media.api-sports.io/flags/fr.svg",
+          "season": 2025,
+          "round": "Regular Season - 26",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1063,
+            "name": "Saint Etienne",
+            "logo": "https://media.api-sports.io/football/teams/1063.png",
+            "winner": true
+          },
+          "away": {
+            "id": 104,
+            "name": "RED Star FC 93",
+            "logo": "https://media.api-sports.io/football/teams/104.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 2,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 2,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1396836,
+          "referee": "A. Souifi",
+          "timezone": "UTC",
+          "date": "2026-02-28T19:00:00+00:00",
+          "timestamp": 1772305200,
+          "periods": {
+            "first": 1772305200,
+            "second": 1772308800
+          },
+          "venue": {
+            "id": null,
+            "name": "Nouste Camp",
+            "city": "Pau"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 4
+          }
+        },
+        "league": {
+          "id": 62,
+          "name": "Ligue 2",
+          "country": "France",
+          "logo": "https://media.api-sports.io/football/leagues/62.png",
+          "flag": "https://media.api-sports.io/flags/fr.svg",
+          "season": 2025,
+          "round": "Regular Season - 25",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1297,
+            "name": "PAU",
+            "logo": "https://media.api-sports.io/football/teams/1297.png",
+            "winner": false
+          },
+          "away": {
+            "id": 1063,
+            "name": "Saint Etienne",
+            "logo": "https://media.api-sports.io/football/teams/1063.png",
+            "winner": true
+          }
+        },
+        "goals": {
+          "home": 0,
+          "away": 3
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 1
+          },
+          "fulltime": {
+            "home": 0,
+            "away": 3
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1389328,
+          "referee": "T. Bouille",
+          "timezone": "UTC",
+          "date": "2026-02-21T19:00:00+00:00",
+          "timestamp": 1771700400,
+          "periods": {
+            "first": 1771700400,
+            "second": 1771704000
+          },
+          "venue": {
+            "id": 676,
+            "name": "Stade Geoffroy-Guichard",
+            "city": "Saint Etienne"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 6
+          }
+        },
+        "league": {
+          "id": 62,
+          "name": "Ligue 2",
+          "country": "France",
+          "logo": "https://media.api-sports.io/football/leagues/62.png",
+          "flag": "https://media.api-sports.io/flags/fr.svg",
+          "season": 2025,
+          "round": "Regular Season - 24",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1063,
+            "name": "Saint Etienne",
+            "logo": "https://media.api-sports.io/football/teams/1063.png",
+            "winner": true
+          },
+          "away": {
+            "id": 433,
+            "name": "Laval",
+            "logo": "https://media.api-sports.io/football/teams/433.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 2,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 2,
+            "away": 1
+          },
+          "fulltime": {
+            "home": 2,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1389317,
+          "referee": "F. Benchabane",
+          "timezone": "UTC",
+          "date": "2026-02-14T19:00:00+00:00",
+          "timestamp": 1771095600,
+          "periods": {
+            "first": 1771095600,
+            "second": 1771099200
+          },
+          "venue": {
+            "id": 650,
+            "name": "Stade de Roudourou",
+            "city": "Guingamp"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 6
+          }
+        },
+        "league": {
+          "id": 62,
+          "name": "Ligue 2",
+          "country": "France",
+          "logo": "https://media.api-sports.io/football/leagues/62.png",
+          "flag": "https://media.api-sports.io/flags/fr.svg",
+          "season": 2025,
+          "round": "Regular Season - 23",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 90,
+            "name": "Guingamp",
+            "logo": "https://media.api-sports.io/football/teams/90.png",
+            "winner": false
+          },
+          "away": {
+            "id": 1063,
+            "name": "Saint Etienne",
+            "logo": "https://media.api-sports.io/football/teams/1063.png",
+            "winner": true
+          }
+        },
+        "goals": {
+          "home": 1,
+          "away": 2
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 2
+          },
+          "fulltime": {
+            "home": 1,
+            "away": 2
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1389314,
+          "referee": "A. Perreau Niel",
+          "timezone": "UTC",
+          "date": "2026-02-07T19:00:00+00:00",
+          "timestamp": 1770490800,
+          "periods": {
+            "first": 1770490800,
+            "second": 1770494400
+          },
+          "venue": {
+            "id": 676,
+            "name": "Stade Geoffroy-Guichard",
+            "city": "Saint Etienne"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 5
+          }
+        },
+        "league": {
+          "id": 62,
+          "name": "Ligue 2",
+          "country": "France",
+          "logo": "https://media.api-sports.io/football/leagues/62.png",
+          "flag": "https://media.api-sports.io/flags/fr.svg",
+          "season": 2025,
+          "round": "Regular Season - 22",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1063,
+            "name": "Saint Etienne",
+            "logo": "https://media.api-sports.io/football/teams/1063.png",
+            "winner": true
+          },
+          "away": {
+            "id": 82,
+            "name": "Montpellier",
+            "logo": "https://media.api-sports.io/football/teams/82.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 1,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 1,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1389305,
+          "referee": "A. Valnet",
+          "timezone": "UTC",
+          "date": "2026-01-31T19:00:00+00:00",
+          "timestamp": 1769886000,
+          "periods": {
+            "first": 1769886000,
+            "second": 1769889600
+          },
+          "venue": {
+            "id": 676,
+            "name": "Stade Geoffroy-Guichard",
+            "city": "Saint Etienne"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 7
+          }
+        },
+        "league": {
+          "id": 62,
+          "name": "Ligue 2",
+          "country": "France",
+          "logo": "https://media.api-sports.io/football/leagues/62.png",
+          "flag": "https://media.api-sports.io/flags/fr.svg",
+          "season": 2025,
+          "round": "Regular Season - 21",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1063,
+            "name": "Saint Etienne",
+            "logo": "https://media.api-sports.io/football/teams/1063.png",
+            "winner": false
+          },
+          "away": {
+            "id": 1299,
+            "name": "Boulogne",
+            "logo": "https://media.api-sports.io/football/teams/1299.png",
+            "winner": true
+          }
+        },
+        "goals": {
+          "home": 0,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 1
+          },
+          "fulltime": {
+            "home": 0,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1389297,
+          "referee": "A. Kherradji",
+          "timezone": "UTC",
+          "date": "2026-01-24T19:00:00+00:00",
+          "timestamp": 1769281200,
+          "periods": {
+            "first": 1769281200,
+            "second": 1769284800
+          },
+          "venue": {
+            "id": 22707,
+            "name": "Stade Auguste-Delaune",
+            "city": "Reims"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 9
+          }
+        },
+        "league": {
+          "id": 62,
+          "name": "Ligue 2",
+          "country": "France",
+          "logo": "https://media.api-sports.io/football/leagues/62.png",
+          "flag": "https://media.api-sports.io/flags/fr.svg",
+          "season": 2025,
+          "round": "Regular Season - 20",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 93,
+            "name": "Reims",
+            "logo": "https://media.api-sports.io/football/teams/93.png",
+            "winner": true
+          },
+          "away": {
+            "id": 1063,
+            "name": "Saint Etienne",
+            "logo": "https://media.api-sports.io/football/teams/1063.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 1,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 1,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1389286,
+          "referee": "K. Abed",
+          "timezone": "UTC",
+          "date": "2026-01-17T19:55:00+00:00",
+          "timestamp": 1768679700,
+          "periods": {
+            "first": 1768679700,
+            "second": 1768683300
+          },
+          "venue": {
+            "id": 676,
+            "name": "Stade Geoffroy-Guichard",
+            "city": "Saint Etienne"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 6
+          }
+        },
+        "league": {
+          "id": 62,
+          "name": "Ligue 2",
+          "country": "France",
+          "logo": "https://media.api-sports.io/football/leagues/62.png",
+          "flag": "https://media.api-sports.io/flags/fr.svg",
+          "season": 2025,
+          "round": "Regular Season - 19",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1063,
+            "name": "Saint Etienne",
+            "logo": "https://media.api-sports.io/football/teams/1063.png",
+            "winner": true
+          },
+          "away": {
+            "id": 99,
+            "name": "Clermont Foot",
+            "logo": "https://media.api-sports.io/football/teams/99.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 1,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 1,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1389280,
+          "referee": "A. Taleb",
+          "timezone": "UTC",
+          "date": "2026-01-03T19:00:00+00:00",
+          "timestamp": 1767466800,
+          "periods": {
+            "first": 1767466800,
+            "second": 1767470400
+          },
+          "venue": {
+            "id": 19206,
+            "name": "Stade Marie-Marvingt",
+            "city": "Le Mans"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 4
+          }
+        },
+        "league": {
+          "id": 62,
+          "name": "Ligue 2",
+          "country": "France",
+          "logo": "https://media.api-sports.io/football/leagues/62.png",
+          "flag": "https://media.api-sports.io/flags/fr.svg",
+          "season": 2025,
+          "round": "Regular Season - 18",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1298,
+            "name": "Le Mans",
+            "logo": "https://media.api-sports.io/football/teams/1298.png",
+            "winner": null
+          },
+          "away": {
+            "id": 1063,
+            "name": "Saint Etienne",
+            "logo": "https://media.api-sports.io/football/teams/1063.png",
+            "winner": null
+          }
+        },
+        "goals": {
+          "home": 0,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 0,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1488849,
+          "referee": "G. Angoula",
+          "timezone": "UTC",
+          "date": "2025-12-21T13:45:00+00:00",
+          "timestamp": 1766324700,
+          "periods": {
+            "first": 1766324700,
+            "second": 1766328300
+          },
+          "venue": {
+            "id": 663,
+            "name": "Allianz Riviera",
+            "city": "Nice"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": null
+          }
+        },
+        "league": {
+          "id": 66,
+          "name": "Coupe de France",
+          "country": "France",
+          "logo": "https://media.api-sports.io/football/leagues/66.png",
+          "flag": "https://media.api-sports.io/flags/fr.svg",
+          "season": 2025,
+          "round": "Round of 64",
+          "standings": false
+        },
+        "teams": {
+          "home": {
+            "id": 84,
+            "name": "Nice",
+            "logo": "https://media.api-sports.io/football/teams/84.png",
+            "winner": true
+          },
+          "away": {
+            "id": 1063,
+            "name": "Saint Etienne",
+            "logo": "https://media.api-sports.io/football/teams/1063.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 2,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 1,
+            "away": 1
+          },
+          "fulltime": {
+            "home": 2,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      }
+    ],
+    "home_stats": {
+      "league": {
+        "id": 61,
+        "name": "Ligue 1",
+        "country": "France",
+        "logo": "https://media.api-sports.io/football/leagues/61.png",
+        "flag": "https://media.api-sports.io/flags/fr.svg",
+        "season": 2025
+      },
+      "team": {
+        "id": 84,
+        "name": "Nice",
+        "logo": "https://media.api-sports.io/football/teams/84.png"
+      },
+      "form": "LWLWLDDWWWLLLLLLDLWDDLDLLWLLDDDDLDD",
+      "fixtures": {
+        "played": {
+          "home": 17,
+          "away": 18,
+          "total": 35
+        },
+        "wins": {
+          "home": 4,
+          "away": 3,
+          "total": 7
+        },
+        "draws": {
+          "home": 8,
+          "away": 4,
+          "total": 12
+        },
+        "loses": {
+          "home": 5,
+          "away": 11,
+          "total": 16
+        }
+      },
+      "goals": {
+        "for": {
+          "total": {
+            "home": 19,
+            "away": 18,
+            "total": 37
+          },
+          "average": {
+            "home": "1.1",
+            "away": "1.0",
+            "total": "1.1"
+          },
+          "minute": {
+            "0-15": {
+              "total": 4,
+              "percentage": "11.43%"
+            },
+            "16-30": {
+              "total": 5,
+              "percentage": "14.29%"
+            },
+            "31-45": {
+              "total": 8,
+              "percentage": "22.86%"
+            },
+            "46-60": {
+              "total": 7,
+              "percentage": "20.00%"
+            },
+            "61-75": {
+              "total": 4,
+              "percentage": "11.43%"
+            },
+            "76-90": {
+              "total": 7,
+              "percentage": "20.00%"
+            },
+            "91-105": {
+              "total": null,
+              "percentage": null
+            },
+            "106-120": {
+              "total": null,
+              "percentage": null
+            }
+          },
+          "under_over": {
+            "0.5": {
+              "over": 23,
+              "under": 12
+            },
+            "1.5": {
+              "over": 9,
+              "under": 26
+            },
+            "2.5": {
+              "over": 4,
+              "under": 31
+            },
+            "3.5": {
+              "over": 1,
+              "under": 34
+            },
+            "4.5": {
+              "over": 0,
+              "under": 35
+            }
+          }
+        },
+        "against": {
+          "total": {
+            "home": 27,
+            "away": 33,
+            "total": 60
+          },
+          "average": {
+            "home": "1.6",
+            "away": "1.8",
+            "total": "1.7"
+          },
+          "minute": {
+            "0-15": {
+              "total": 10,
+              "percentage": "16.13%"
+            },
+            "16-30": {
+              "total": 8,
+              "percentage": "12.90%"
+            },
+            "31-45": {
+              "total": 13,
+              "percentage": "20.97%"
+            },
+            "46-60": {
+              "total": 9,
+              "percentage": "14.52%"
+            },
+            "61-75": {
+              "total": 10,
+              "percentage": "16.13%"
+            },
+            "76-90": {
+              "total": 12,
+              "percentage": "19.35%"
+            },
+            "91-105": {
+              "total": null,
+              "percentage": null
+            },
+            "106-120": {
+              "total": null,
+              "percentage": null
+            }
+          },
+          "under_over": {
+            "0.5": {
+              "over": 28,
+              "under": 7
+            },
+            "1.5": {
+              "over": 16,
+              "under": 19
+            },
+            "2.5": {
+              "over": 9,
+              "under": 26
+            },
+            "3.5": {
+              "over": 5,
+              "under": 30
+            },
+            "4.5": {
+              "over": 2,
+              "under": 33
+            }
+          }
+        }
+      },
+      "biggest": {
+        "streak": {
+          "wins": 3,
+          "draws": 4,
+          "loses": 6
+        },
+        "wins": {
+          "home": "3-1",
+          "away": "1-4"
+        },
+        "loses": {
+          "home": "1-5",
+          "away": "5-1"
+        },
+        "goals": {
+          "for": {
+            "home": 3,
+            "away": 4
+          },
+          "against": {
+            "home": 5,
+            "away": 5
+          }
+        }
+      },
+      "clean_sheet": {
+        "home": 4,
+        "away": 3,
+        "total": 7
+      },
+      "failed_to_score": {
+        "home": 6,
+        "away": 6,
+        "total": 12
+      },
+      "penalty": {
+        "scored": {
+          "total": 3,
+          "percentage": "100.00%"
+        },
+        "missed": {
+          "total": 0,
+          "percentage": "0%"
+        },
+        "total": 3
+      },
+      "lineups": [
+        {
+          "formation": "4-2-3-1",
+          "played": 8
+        },
+        {
+          "formation": "3-4-2-1",
+          "played": 6
+        },
+        {
+          "formation": "5-4-1",
+          "played": 5
+        },
+        {
+          "formation": "3-4-1-2",
+          "played": 4
+        },
+        {
+          "formation": "3-4-3",
+          "played": 3
+        },
+        {
+          "formation": "3-5-2",
+          "played": 3
+        },
+        {
+          "formation": "4-3-3",
+          "played": 2
+        },
+        {
+          "formation": "3-5-1-1",
+          "played": 2
+        },
+        {
+          "formation": "4-1-4-1",
+          "played": 1
+        },
+        {
+          "formation": "4-4-2",
+          "played": 1
+        }
+      ],
+      "cards": {
+        "yellow": {
+          "0-15": {
+            "total": 6,
+            "percentage": "8.70%"
+          },
+          "16-30": {
+            "total": 11,
+            "percentage": "15.94%"
+          },
+          "31-45": {
+            "total": 16,
+            "percentage": "23.19%"
+          },
+          "46-60": {
+            "total": 11,
+            "percentage": "15.94%"
+          },
+          "61-75": {
+            "total": 4,
+            "percentage": "5.80%"
+          },
+          "76-90": {
+            "total": 12,
+            "percentage": "17.39%"
+          },
+          "91-105": {
+            "total": 7,
+            "percentage": "10.14%"
+          },
+          "106-120": {
+            "total": null,
+            "percentage": null
+          },
+          "": {
+            "total": 2,
+            "percentage": "2.90%"
+          }
+        },
+        "red": {
+          "0-15": {
+            "total": null,
+            "percentage": null
+          },
+          "16-30": {
+            "total": null,
+            "percentage": null
+          },
+          "31-45": {
+            "total": 1,
+            "percentage": "33.33%"
+          },
+          "46-60": {
+            "total": 1,
+            "percentage": "33.33%"
+          },
+          "61-75": {
+            "total": 1,
+            "percentage": "33.33%"
+          },
+          "76-90": {
+            "total": null,
+            "percentage": null
+          },
+          "91-105": {
+            "total": null,
+            "percentage": null
+          },
+          "106-120": {
+            "total": null,
+            "percentage": null
+          }
+        }
+      }
+    },
+    "away_stats": {
+      "league": {
+        "id": 61,
+        "name": "Ligue 1",
+        "country": "France",
+        "logo": "https://media.api-sports.io/football/leagues/61.png",
+        "flag": "https://media.api-sports.io/flags/fr.svg",
+        "season": 2025
+      },
+      "team": {
+        "id": 1063,
+        "name": "Saint Etienne",
+        "logo": "https://media.api-sports.io/football/teams/1063.png"
+      },
+      "form": "WD",
+      "fixtures": {
+        "played": {
+          "home": 2,
+          "away": 0,
+          "total": 2
+        },
+        "wins": {
+          "home": 1,
+          "away": 0,
+          "total": 1
+        },
+        "draws": {
+          "home": 1,
+          "away": 0,
+          "total": 1
+        },
+        "loses": {
+          "home": 0,
+          "away": 0,
+          "total": 0
+        }
+      },
+      "goals": {
+        "for": {
+          "total": {
+            "home": 1,
+            "away": 0,
+            "total": 1
+          },
+          "average": {
+            "home": "0.5",
+            "away": "0.0",
+            "total": "0.5"
+          },
+          "minute": {
+            "0-15": {
+              "total": null,
+              "percentage": null
+            },
+            "16-30": {
+              "total": null,
+              "percentage": null
+            },
+            "31-45": {
+              "total": null,
+              "percentage": null
+            },
+            "46-60": {
+              "total": null,
+              "percentage": null
+            },
+            "61-75": {
+              "total": null,
+              "percentage": null
+            },
+            "76-90": {
+              "total": null,
+              "percentage": null
+            },
+            "91-105": {
+              "total": null,
+              "percentage": null
+            },
+            "106-120": {
+              "total": null,
+              "percentage": null
+            }
+          },
+          "under_over": {
+            "0.5": {
+              "over": 1,
+              "under": 1
+            },
+            "1.5": {
+              "over": 0,
+              "under": 2
+            },
+            "2.5": {
+              "over": 0,
+              "under": 2
+            },
+            "3.5": {
+              "over": 0,
+              "under": 2
+            },
+            "4.5": {
+              "over": 0,
+              "under": 2
+            }
+          }
+        },
+        "against": {
+          "total": {
+            "home": 0,
+            "away": 0,
+            "total": 0
+          },
+          "average": {
+            "home": "0.0",
+            "away": "0.0",
+            "total": "0.0"
+          },
+          "minute": {
+            "0-15": {
+              "total": null,
+              "percentage": null
+            },
+            "16-30": {
+              "total": null,
+              "percentage": null
+            },
+            "31-45": {
+              "total": null,
+              "percentage": null
+            },
+            "46-60": {
+              "total": null,
+              "percentage": null
+            },
+            "61-75": {
+              "total": null,
+              "percentage": null
+            },
+            "76-90": {
+              "total": null,
+              "percentage": null
+            },
+            "91-105": {
+              "total": null,
+              "percentage": null
+            },
+            "106-120": {
+              "total": null,
+              "percentage": null
+            }
+          },
+          "under_over": {
+            "0.5": {
+              "over": 0,
+              "under": 2
+            },
+            "1.5": {
+              "over": 0,
+              "under": 2
+            },
+            "2.5": {
+              "over": 0,
+              "under": 2
+            },
+            "3.5": {
+              "over": 0,
+              "under": 2
+            },
+            "4.5": {
+              "over": 0,
+              "under": 2
+            }
+          }
+        }
+      },
+      "biggest": {
+        "streak": {
+          "wins": 1,
+          "draws": 0,
+          "loses": 0
+        },
+        "wins": {
+          "home": "1-0",
+          "away": null
+        },
+        "loses": {
+          "home": null,
+          "away": null
+        },
+        "goals": {
+          "for": {
+            "home": 1,
+            "away": 0
+          },
+          "against": {
+            "home": 0,
+            "away": 0
+          }
+        }
+      },
+      "clean_sheet": {
+        "home": 2,
+        "away": 0,
+        "total": 2
+      },
+      "failed_to_score": {
+        "home": 1,
+        "away": 0,
+        "total": 1
+      },
+      "penalty": {
+        "scored": {
+          "total": 0,
+          "percentage": "0%"
+        },
+        "missed": {
+          "total": 0,
+          "percentage": "0%"
+        },
+        "total": 0
+      },
+      "lineups": [
+        {
+          "formation": "4-2-3-1",
+          "played": 2
+        }
+      ],
+      "cards": {
+        "yellow": {
+          "0-15": {
+            "total": null,
+            "percentage": null
+          },
+          "16-30": {
+            "total": null,
+            "percentage": null
+          },
+          "31-45": {
+            "total": null,
+            "percentage": null
+          },
+          "46-60": {
+            "total": null,
+            "percentage": null
+          },
+          "61-75": {
+            "total": 2,
+            "percentage": "100.00%"
+          },
+          "76-90": {
+            "total": null,
+            "percentage": null
+          },
+          "91-105": {
+            "total": null,
+            "percentage": null
+          },
+          "106-120": {
+            "total": null,
+            "percentage": null
+          }
+        },
+        "red": {
+          "0-15": {
+            "total": null,
+            "percentage": null
+          },
+          "16-30": {
+            "total": null,
+            "percentage": null
+          },
+          "31-45": {
+            "total": null,
+            "percentage": null
+          },
+          "46-60": {
+            "total": null,
+            "percentage": null
+          },
+          "61-75": {
+            "total": null,
+            "percentage": null
+          },
+          "76-90": {
+            "total": null,
+            "percentage": null
+          },
+          "91-105": {
+            "total": null,
+            "percentage": null
+          },
+          "106-120": {
+            "total": null,
+            "percentage": null
+          }
+        }
+      }
+    },
+    "home_danger": {
+      "shots_on_target_avg": 2.8,
+      "corners_avg": 6.2,
+      "venue": "home",
+      "n_fixtures": 5,
+      "fixture_ids": [
+        1388001,
+        1387982,
+        1387955,
+        1387937,
+        1387920
+      ],
+      "errors": []
+    },
+    "away_danger": {
+      "shots_on_target_avg": 4.0,
+      "corners_avg": 5.0,
+      "venue": "away",
+      "n_fixtures": 5,
+      "fixture_ids": [
+        1389402,
+        1389381,
+        1389365,
+        1389349,
+        1396836
+      ],
+      "errors": []
+    },
+    "errors": []
+  }
+]
