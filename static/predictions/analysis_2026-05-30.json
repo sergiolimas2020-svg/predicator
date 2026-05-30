@@ -1,0 +1,126 @@
+{
+  "date": "2026-05-30",
+  "total_fixtures": 7,
+  "matches": [
+    {
+      "matchup": "Athletico-PR vs Mirassol",
+      "league": "Brasileirao",
+      "home": "Athletico-PR",
+      "away": "Mirassol",
+      "probabilities": {
+        "win_home": 68.0,
+        "draw": 20.0,
+        "win_away": 12.0,
+        "over_2_5": 45.3,
+        "over_1_5": 71.0
+      },
+      "favorite": "Athletico-PR",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false
+    },
+    {
+      "matchup": "Flamengo vs Coritiba",
+      "league": "Brasileirao",
+      "home": "Flamengo",
+      "away": "Coritiba",
+      "probabilities": {
+        "win_home": 68.0,
+        "draw": 20.0,
+        "win_away": 12.0,
+        "over_2_5": 50.6,
+        "over_1_5": 75.1
+      },
+      "favorite": "Flamengo",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false
+    },
+    {
+      "matchup": "Bahia vs Botafogo",
+      "league": "Brasileirao",
+      "home": "Bahia",
+      "away": "Botafogo",
+      "probabilities": {
+        "win_home": 51.2,
+        "draw": 23.3,
+        "win_away": 25.5,
+        "over_2_5": 63.0,
+        "over_1_5": 83.5
+      },
+      "favorite": "Bahia",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false
+    },
+    {
+      "matchup": "Grêmio vs Corinthians",
+      "league": "Brasileirao",
+      "home": "Grêmio",
+      "away": "Corinthians",
+      "probabilities": {
+        "win_home": 52.2,
+        "draw": 22.9,
+        "win_away": 24.9,
+        "over_2_5": 35.5,
+        "over_1_5": 62.5
+      },
+      "favorite": "Grêmio",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false
+    },
+    {
+      "matchup": "Santos vs Vitória",
+      "league": "Brasileirao",
+      "home": "Santos",
+      "away": "Vitória",
+      "probabilities": {
+        "win_home": 16.1,
+        "draw": 20.0,
+        "win_away": 63.9,
+        "over_2_5": 53.3,
+        "over_1_5": 77.1
+      },
+      "favorite": "Vitória",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false
+    },
+    {
+      "matchup": "Paris Saint-Germain vs Arsenal",
+      "league": "Champions League",
+      "home": "Paris Saint-Germain",
+      "away": "Arsenal",
+      "probabilities": {
+        "win_home": 41.9,
+        "draw": 27.0,
+        "win_away": 31.1,
+        "over_2_5": null,
+        "over_1_5": null
+      },
+      "favorite": "Paris Saint-Germain",
+      "stats_complete": false,
+      "confidence_factor": 1.0,
+      "is_nba": false
+    },
+    {
+      "matchup": "Oklahoma City Thunder vs San Antonio Spurs",
+      "league": "NBA",
+      "home": "Oklahoma City Thunder",
+      "away": "San Antonio Spurs",
+      "probabilities": {
+        "win_home": 55.0,
+        "draw": 0.0,
+        "win_away": 45.0,
+        "over_2_5": null,
+        "over_1_5": null
+      },
+      "favorite": "Oklahoma City Thunder",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": true
+    }
+  ],
+  "nota": "Análisis estadístico de todos los partidos del día. Probabilidades crudas del modelo (sin ajuste por liga ni mercado). No incluye recomendación de apuesta — ver value_picks y featured_pick para picks oficiales."
+}
