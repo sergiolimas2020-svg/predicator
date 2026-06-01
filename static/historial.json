@@ -1,8 +1,98 @@
 {
-  "total": 106,
-  "aciertos": 62,
+  "total": 109,
+  "aciertos": 63,
   "porcentaje": 58,
   "ultimos": [
+    {
+      "fecha": "2026-05-31",
+      "slug": "vasco-da-gama-vs-atletico-mg-brasileirao-2026-05-31",
+      "home": "Vasco da Gama",
+      "away": "Atlético-MG",
+      "league": "Brasileirao",
+      "prediccion": "Over 1.5 goles",
+      "confianza": "Probabilidad: 76.3%",
+      "resultado_real": "0-1",
+      "acerto": false,
+      "prob_original": 76.3,
+      "confidence_factor": 1.0,
+      "prob_adjusted": 76.3,
+      "bk_odds": null,
+      "ev": null,
+      "penalty": null,
+      "ev_adjusted": null,
+      "value_score": null,
+      "reason": "confianza",
+      "version": "v1.2-clean-signal",
+      "stake_sugerido_pct": 0.0,
+      "stake_real_pct": 0.0,
+      "stake_modo": "activo",
+      "cuota_betplay_estimada": null,
+      "ev_betplay_estimado": null,
+      "tipo_pick": "pick_suscripcion",
+      "base_pick": "Atlético-MG",
+      "value_level": "estadistico",
+      "markets_evaluated": []
+    },
+    {
+      "fecha": "2026-05-31",
+      "slug": "palmeiras-vs-chapecoense-brasileirao-2026-05-31",
+      "home": "Palmeiras",
+      "away": "Chapecoense",
+      "league": "Brasileirao",
+      "prediccion": "Over 1.5 goles",
+      "confianza": "Probabilidad: 76.3%",
+      "resultado_real": "1-0",
+      "acerto": false,
+      "prob_original": 76.3,
+      "confidence_factor": 1.0,
+      "prob_adjusted": 76.3,
+      "bk_odds": null,
+      "ev": null,
+      "penalty": null,
+      "ev_adjusted": null,
+      "value_score": null,
+      "reason": "confianza",
+      "version": "v1.2-clean-signal",
+      "stake_sugerido_pct": 0.0,
+      "stake_real_pct": 0.0,
+      "stake_modo": "activo",
+      "cuota_betplay_estimada": null,
+      "ev_betplay_estimado": null,
+      "tipo_pick": "pick_suscripcion",
+      "base_pick": "Palmeiras",
+      "value_level": "estadistico",
+      "markets_evaluated": []
+    },
+    {
+      "fecha": "2026-05-31",
+      "slug": "cruzeiro-vs-fluminense-brasileirao-2026-05-31",
+      "home": "Cruzeiro",
+      "away": "Fluminense",
+      "league": "Brasileirao",
+      "prediccion": "Over 1.5 goles",
+      "confianza": "Probabilidad: 78.7%",
+      "resultado_real": "1-1",
+      "acerto": true,
+      "prob_original": 78.7,
+      "confidence_factor": 1.0,
+      "prob_adjusted": 78.7,
+      "bk_odds": null,
+      "ev": null,
+      "penalty": null,
+      "ev_adjusted": null,
+      "value_score": null,
+      "reason": "confianza",
+      "version": "v1.2-clean-signal",
+      "stake_sugerido_pct": 0.0,
+      "stake_real_pct": 0.0,
+      "stake_modo": "activo",
+      "cuota_betplay_estimada": null,
+      "ev_betplay_estimado": null,
+      "tipo_pick": "pick_gratuito",
+      "base_pick": "Fluminense",
+      "value_level": "estadistico",
+      "markets_evaluated": []
+    },
     {
       "fecha": "2026-05-30",
       "slug": "gremio-vs-corinthians-brasileirao-2026-05-30",
@@ -553,177 +643,6 @@
           "ev_adjusted": null,
           "value_score": null,
           "reason": "cuota_baja"
-        },
-        {
-          "market": "Over 1.5 goles",
-          "ev_adjusted": null,
-          "value_score": null,
-          "reason": "mercado_no_disponible"
-        }
-      ]
-    },
-    {
-      "fecha": "2026-05-17",
-      "slug": "cagliari-vs-torino-serie-a-2026-05-17",
-      "home": "Cagliari",
-      "away": "Torino",
-      "league": "Serie A",
-      "prediccion": "Doble oportunidad: Torino",
-      "confianza": "Probabilidad: 70.7%",
-      "resultado_real": "2-1",
-      "acerto": false,
-      "prob_original": 70.7,
-      "confidence_factor": 1.0,
-      "prob_adjusted": 70.7,
-      "bk_odds": 1.744,
-      "ev": 23.3,
-      "penalty": 0.0,
-      "ev_adjusted": 23.3,
-      "value_score": null,
-      "reason": "ev_excesivo",
-      "cuota_betplay_estimada": 1.57,
-      "ev_betplay_estimado": 11.0,
-      "tipo_pick": "pick_suscripcion",
-      "base_pick": "Torino",
-      "value_level": "bajo",
-      "markets_evaluated": [
-        {
-          "market": "Torino",
-          "ev_adjusted": 66.1,
-          "value_score": null,
-          "reason": "ev_excesivo"
-        },
-        {
-          "market": "Apuesta sin empate: Torino",
-          "ev_adjusted": 34.7,
-          "value_score": null,
-          "reason": "ev_excesivo"
-        },
-        {
-          "market": "Doble oportunidad: Torino",
-          "ev_adjusted": 23.3,
-          "value_score": null,
-          "reason": "ev_excesivo"
-        },
-        {
-          "market": "Over 2.5 goles",
-          "ev_adjusted": 10.1,
-          "value_score": null,
-          "reason": "ev_insuficiente"
-        },
-        {
-          "market": "Over 1.5 goles",
-          "ev_adjusted": null,
-          "value_score": null,
-          "reason": "mercado_no_disponible"
-        }
-      ]
-    },
-    {
-      "fecha": "2026-05-17",
-      "slug": "sassuolo-vs-lecce-serie-a-2026-05-17",
-      "home": "Sassuolo",
-      "away": "Lecce",
-      "league": "Serie A",
-      "prediccion": "Doble oportunidad: Sassuolo",
-      "confianza": "Probabilidad: 82.2%",
-      "resultado_real": "2-3",
-      "acerto": false,
-      "prob_original": 82.2,
-      "confidence_factor": 1.0,
-      "prob_adjusted": 82.2,
-      "bk_odds": 1.571,
-      "ev": 29.1,
-      "penalty": 0.0,
-      "ev_adjusted": 29.1,
-      "value_score": null,
-      "reason": "ev_excesivo",
-      "cuota_betplay_estimada": 1.41,
-      "ev_betplay_estimado": 15.9,
-      "tipo_pick": "pick_gratuito",
-      "base_pick": "Sassuolo",
-      "value_level": "bajo",
-      "markets_evaluated": [
-        {
-          "market": "Sassuolo",
-          "ev_adjusted": 81.6,
-          "value_score": null,
-          "reason": "ev_excesivo"
-        },
-        {
-          "market": "Apuesta sin empate: Sassuolo",
-          "ev_adjusted": 40.7,
-          "value_score": null,
-          "reason": "ev_excesivo"
-        },
-        {
-          "market": "Doble oportunidad: Sassuolo",
-          "ev_adjusted": 29.1,
-          "value_score": null,
-          "reason": "ev_excesivo"
-        },
-        {
-          "market": "Over 2.5 goles",
-          "ev_adjusted": -17.4,
-          "value_score": null,
-          "reason": "ev_negativo"
-        },
-        {
-          "market": "Over 1.5 goles",
-          "ev_adjusted": null,
-          "value_score": null,
-          "reason": "mercado_no_disponible"
-        }
-      ]
-    },
-    {
-      "fecha": "2026-05-17",
-      "slug": "rayo-vallecano-vs-villarreal-la-liga-2026-05-17",
-      "home": "Rayo Vallecano",
-      "away": "Villarreal",
-      "league": "La Liga",
-      "prediccion": "Apuesta sin empate: Villarreal",
-      "confianza": "Probabilidad: 66.9%",
-      "resultado_real": "2-0",
-      "acerto": false,
-      "prob_original": 66.9,
-      "confidence_factor": 1.0,
-      "prob_adjusted": 66.9,
-      "bk_odds": 1.867,
-      "ev": 24.9,
-      "penalty": 0.0,
-      "ev_adjusted": 24.9,
-      "value_score": null,
-      "reason": "ev_excesivo",
-      "cuota_betplay_estimada": 1.68,
-      "ev_betplay_estimado": 12.4,
-      "tipo_pick": "pick_suscripcion",
-      "base_pick": "Villarreal",
-      "value_level": "bajo",
-      "markets_evaluated": [
-        {
-          "market": "Villarreal",
-          "ev_adjusted": 58.9,
-          "value_score": null,
-          "reason": "ev_excesivo"
-        },
-        {
-          "market": "Apuesta sin empate: Villarreal",
-          "ev_adjusted": 24.9,
-          "value_score": null,
-          "reason": "ev_excesivo"
-        },
-        {
-          "market": "Doble oportunidad: Villarreal",
-          "ev_adjusted": 27.3,
-          "value_score": null,
-          "reason": "ev_excesivo"
-        },
-        {
-          "market": "Over 2.5 goles",
-          "ev_adjusted": -15.2,
-          "value_score": null,
-          "reason": "ev_negativo"
         },
         {
           "market": "Over 1.5 goles",
