@@ -89,6 +89,17 @@ const Calculator = {
             }
         }
 
+        // Ajuste por Elo Rating
+        const elo_home = homeStats.elo;
+        const elo_away = awayStats.elo;
+        if (elo_home !== undefined && elo_home !== null && elo_away !== undefined && elo_away !== null) {
+            const elo_diff = elo_home - elo_away;
+            const adj_h = 1.0 + 0.0005 * elo_diff;
+            const adj_a = 1.0 - 0.0005 * elo_diff;
+            lambda_h *= Math.max(0.8, Math.min(1.2, adj_h));
+            lambda_a *= Math.max(0.8, Math.min(1.2, adj_a));
+        }
+
         lambda_h = Math.max(0.1, Math.min(6.0, lambda_h));
         lambda_a = Math.max(0.1, Math.min(6.0, lambda_a));
 

@@ -1449,6 +1449,16 @@ def prob_futbol_3way_raw(hd, ad, danger=None):
             adj_a = 1.0 + 0.15 * ((safe_float(away_sot) - SOT_AVG) / SOT_AVG)
             lambda_a *= max(0.7, min(1.3, adj_a))
             
+    # Ajuste por Elo Rating
+    elo_home = hd.get("elo") if isinstance(hd, dict) else None
+    elo_away = ad.get("elo") if isinstance(ad, dict) else None
+    if elo_home is not None and elo_away is not None:
+        elo_diff = elo_home - elo_away
+        adj_h = 1.0 + 0.0005 * elo_diff
+        adj_a = 1.0 - 0.0005 * elo_diff
+        lambda_h *= max(0.8, min(1.2, adj_h))
+        lambda_a *= max(0.8, min(1.2, adj_a))
+            
     # Límites para lambdas
     lambda_h = max(0.1, min(6.0, lambda_h))
     lambda_a = max(0.1, min(6.0, lambda_a))
@@ -1565,6 +1575,16 @@ def get_probabilities(hd, ad, nba=False, danger=None):
             adj_a = 1.0 + 0.15 * ((safe_float(away_sot) - SOT_AVG) / SOT_AVG)
             lambda_a *= max(0.7, min(1.3, adj_a))
             
+    # Ajuste por Elo Rating
+    elo_home = hd.get("elo") if isinstance(hd, dict) else None
+    elo_away = ad.get("elo") if isinstance(ad, dict) else None
+    if elo_home is not None and elo_away is not None:
+        elo_diff = elo_home - elo_away
+        adj_h = 1.0 + 0.0005 * elo_diff
+        adj_a = 1.0 - 0.0005 * elo_diff
+        lambda_h *= max(0.8, min(1.2, adj_h))
+        lambda_a *= max(0.8, min(1.2, adj_a))
+            
     lambda_h = max(0.1, min(6.0, lambda_h))
     lambda_a = max(0.1, min(6.0, lambda_a))
     
@@ -1589,6 +1609,7 @@ def get_probabilities(hd, ad, nba=False, danger=None):
         "dc_home":  p_win + p_draw, "dc_away":  p_lose + p_draw,
         "over_2_5": o25, "over_1_5": o15,
         "favorite": favorite, "hp_raw": hp, "ap_raw": ap, "nba": False,
+        "lambda_home": round(lambda_h, 2), "lambda_away": round(lambda_a, 2),
     }
 
 
@@ -2616,6 +2637,7 @@ def _build_analysis_output(evaluated_picks: list, today_str: str) -> dict:
     }
     """
     matches = []
+    api_data = _danger_load_data(today_str)
     for ep in evaluated_picks:
         raw = ep.get("raw")
         if not raw:
@@ -2625,8 +2647,20 @@ def _build_analysis_output(evaluated_picks: list, today_str: str) -> dict:
         hd = raw[3]
         ad = raw[5]
         nba = raw[6]
+        
+        # Recuperar danger signals
+        danger_record = api_data.get((_norm(ep.get("home", "")), _norm(ep.get("away", ""))))
+        danger = None
+        if danger_record:
+            home_danger = danger_record.get("home_danger") or {}
+            away_danger = danger_record.get("away_danger") or {}
+            danger = {
+                "home_sot": home_danger.get("shots_on_target_avg"),
+                "away_sot": away_danger.get("shots_on_target_avg")
+            }
+            
         try:
-            model_probs = get_probabilities(hd, ad, nba=nba)
+            model_probs = get_probabilities(hd, ad, nba=nba, danger=danger)
         except Exception:
             continue
 
@@ -2663,6 +2697,11 @@ def _build_analysis_output(evaluated_picks: list, today_str: str) -> dict:
             "stats_complete":    ep.get("stats_complete", False),
             "confidence_factor": ep.get("confidence_factor", 1.0),
             "is_nba":            bool(nba),
+            "lambda_home":       model_probs.get("lambda_home"),
+            "lambda_away":       model_probs.get("lambda_away"),
+            "elo_home":          hd.get("elo") if isinstance(hd, dict) else None,
+            "elo_away":          ad.get("elo") if isinstance(ad, dict) else None,
+            "danger":            danger,
         })
 
     return {
@@ -3031,6 +3070,24 @@ def main():
     # ── FASE 1: recopilar todos los candidatos con su score de valor ──
     candidates = []  # tupla de 18 elementos: índice 17 = ext_ctx (contexto API externa)
     api_data = _danger_load_data(today)
+    
+    # Cargar Elo ratings y mapa de equipos
+    elo_path = Path("static/api_football/elo_ratings.json")
+    elo_ratings = {}
+    if elo_path.exists():
+        try:
+            elo_ratings = json.loads(elo_path.read_text(encoding="utf-8"))
+        except Exception as e:
+            print(f"⚠️ Error cargando elo_ratings.json: {e}")
+
+    teams_map_path = Path("static/api_football/teams_map.json")
+    teams_map = {}
+    if teams_map_path.exists():
+        try:
+            teams_map = json.loads(teams_map_path.read_text(encoding="utf-8"))
+        except Exception as e:
+            print(f"⚠️ Error cargando teams_map.json: {e}")
+
     # Todos los partidos próximos del día (ligas no excluidas), con sus stats.
     # Sirve para análisis INDEPENDIENTE por mercado (ej: córners), sin depender
     # de que el partido pase el filtro de goles. (league, home, away, hd, ad, nba)
@@ -3040,10 +3097,29 @@ def main():
         matches = espn_fixtures(code)
         if not matches: continue
         stats = load(stats_file)
+        league_elos = elo_ratings.get(league, {})
         for home, away in matches:
             hd = find(stats, home); ad = find(stats, away)
             if not hd: hd = ad
             if not ad: ad = hd
+            
+            if hd:
+                hd = dict(hd)
+            if ad:
+                ad = dict(ad)
+                
+            home_mapped = teams_map.get(home, {})
+            away_mapped = teams_map.get(away, {})
+            home_api_name = home_mapped.get("name") or home
+            away_api_name = away_mapped.get("name") or away
+            
+            elo_home = league_elos.get(home_api_name, 1500.0)
+            elo_away = league_elos.get(away_api_name, 1500.0)
+            
+            if hd:
+                hd["elo"] = elo_home
+            if ad:
+                ad["elo"] = elo_away
             
             # Obtener danger signals de la API externa
             danger_record = api_data.get((_norm(home), _norm(away)))

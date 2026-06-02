@@ -155,28 +155,33 @@ try:
 except Exception as e:
     print(f"   ERROR player stats: {e}")
 
-# 4b. Corregir equipo actual tras traspasos
+# 4b. Corregir equipo actual tras traspasos (Desactivado por defecto por rate-limits y timeouts)
 print("\n4b. Verificando equipo actual de jugadores traspasados...")
-print("    (esto puede tardar ~6 min por rate limit de NBA.com)")
+import sys
+run_traspasos = "--traspasos" in sys.argv
 traspasos = 0
-valid_team_ids = set(teams.keys())
-total_players = len(player_stats)
 
-for i, (pid, pdata) in enumerate(player_stats.items(), 1):
-    if i % 50 == 0:
-        print(f"   ...procesando {i}/{total_players}")
-    try:
-        time.sleep(0.6)
-        df_info = commonplayerinfo.CommonPlayerInfo(player_id=pid).get_data_frames()[0]
-        current_team_id = int(df_info["TEAM_ID"].iloc[0])
-        if current_team_id != pdata["team_id"] and current_team_id in valid_team_ids:
-            print(f"   Traspaso: {pdata['name']}  ({pdata['team_id']} -> {current_team_id})")
-            pdata["team_id"] = current_team_id
-            traspasos += 1
-    except Exception:
-        pass
+if run_traspasos:
+    print("    (esto puede tardar ~6 min por rate limit de NBA.com)")
+    valid_team_ids = set(teams.keys())
+    total_players = len(player_stats)
 
-print(f"   OK: {traspasos} traspasos detectados y corregidos")
+    for i, (pid, pdata) in enumerate(player_stats.items(), 1):
+        if i % 50 == 0:
+            print(f"   ...procesando {i}/{total_players}")
+        try:
+            time.sleep(0.6)
+            df_info = commonplayerinfo.CommonPlayerInfo(player_id=pid).get_data_frames()[0]
+            current_team_id = int(df_info["TEAM_ID"].iloc[0])
+            if current_team_id != pdata["team_id"] and current_team_id in valid_team_ids:
+                print(f"   Traspaso: {pdata['name']}  ({pdata['team_id']} -> {current_team_id})")
+                pdata["team_id"] = current_team_id
+                traspasos += 1
+        except Exception:
+            pass
+    print(f"   OK: {traspasos} traspasos detectados y corregidos")
+else:
+    print("   OMITIDO: verificación de traspasos omitida para mayor velocidad y evitar bloqueos (usa --traspasos para forzar).")
 
 # 5. Lesionados
 print("\n5. Lesionados: no disponible en nba_api free (todos Active)")

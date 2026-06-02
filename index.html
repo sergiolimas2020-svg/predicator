@@ -887,6 +887,54 @@
     }
     .analysis-favorite strong { color:var(--dorado); font-weight:600; }
 
+    /* Grilla de Métricas Avanzadas (xG, Elo, SOT) */
+    .analysis-advanced-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 0.6rem;
+      margin-top: 0.8rem;
+      padding-top: 0.8rem;
+      border-top: 1px solid var(--borde);
+    }
+    .advanced-metric-box {
+      background: var(--card2);
+      border-radius: 6px;
+      padding: 0.6rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border: 1px solid rgba(255,255,255,0.02);
+    }
+    .metric-box-title {
+      font-size: 0.65rem;
+      color: var(--gris);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.3rem;
+    }
+    .metric-box-values {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      margin: 0.2rem 0;
+    }
+    .metric-val-home, .metric-val-away {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.3rem;
+      color: var(--texto);
+    }
+    .metric-vs {
+      font-size: 0.72rem;
+      color: var(--gris);
+    }
+    .metric-box-label {
+      font-size: 0.65rem;
+      color: var(--gris);
+      font-style: italic;
+    }
+
     /* ── Skeleton screens ───────────────────────────────────── */
     @keyframes sk-pulse {
       0%, 100% { opacity:1; }

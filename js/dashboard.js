@@ -361,6 +361,50 @@
           <div class="prob-bar-away" style="width:${away}%"></div>
         </div>`;
 
+      // Generar métricas avanzadas (xG, Elo, Danger Signals) si están disponibles y no es NBA
+      let advancedHtml = '';
+      if (!isNba) {
+          const xgHome = m.lambda_home != null ? m.lambda_home.toFixed(2) : null;
+          const xgAway = m.lambda_away != null ? m.lambda_away.toFixed(2) : null;
+          const eloHome = m.elo_home != null ? Math.round(m.elo_home) : null;
+          const eloAway = m.elo_away != null ? Math.round(m.elo_away) : null;
+          const sotHome = (m.danger && m.danger.home_sot != null) ? m.danger.home_sot.toFixed(1) : null;
+          const sotAway = (m.danger && m.danger.away_sot != null) ? m.danger.away_sot.toFixed(1) : null;
+
+          advancedHtml = `
+          <div class="analysis-advanced-grid">
+            <div class="advanced-metric-box">
+              <div class="metric-box-title">Goles Esperados (xG)</div>
+              <div class="metric-box-values">
+                <span class="metric-val-home">${xgHome !== null ? xgHome : '—'}</span>
+                <span class="metric-vs">vs</span>
+                <span class="metric-val-away">${xgAway !== null ? xgAway : '—'}</span>
+              </div>
+              <div class="metric-box-label">Basado en Poisson dinámico</div>
+            </div>
+            
+            <div class="advanced-metric-box">
+              <div class="metric-box-title">Calidad Elo Rating</div>
+              <div class="metric-box-values">
+                <span class="metric-val-home" style="color: var(--verde);">${eloHome !== null ? eloHome : '1500'}</span>
+                <span class="metric-vs">vs</span>
+                <span class="metric-val-away" style="color: var(--verde);">${eloAway !== null ? eloAway : '1500'}</span>
+              </div>
+              <div class="metric-box-label">Puntaje de fuerza dinámico</div>
+            </div>
+            
+            <div class="advanced-metric-box">
+              <div class="metric-box-title">Tiros a Puerta (Prom. L5)</div>
+              <div class="metric-box-values">
+                <span class="metric-val-home">${sotHome !== null ? sotHome : '—'}</span>
+                <span class="metric-vs">vs</span>
+                <span class="metric-val-away">${sotAway !== null ? sotAway : '—'}</span>
+              </div>
+              <div class="metric-box-label">Indicador de peligro reciente</div>
+            </div>
+          </div>`;
+      }
+
       return `
       <details class="analysis-row">
         <summary class="analysis-summary">
@@ -375,6 +419,7 @@
           ${probsHtml}
           ${oversHtml}
           <div class="analysis-favorite">Favorito estadístico: <strong>${escapeHtml(m.favorite || '—')}</strong></div>
+          ${advancedHtml}
         </div>
       </details>`;
     }).join('');

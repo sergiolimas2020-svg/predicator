@@ -66,7 +66,12 @@ wait $NBA_PID && echo "    NBA OK" >> "$LOG" || echo "    NBA WARN: usará stats
 
 # ── 2. Actualizar resultados de ayer ──
 echo "[2/4] Actualizando resultados de ayer..." >> "$LOG"
-$PYTHON scrapers/update_results.py >> "$LOG" 2>&1 || echo "    WARN: update_results falló, continuando" >> "$LOG"
+$PYTHON scrapers/update_results.py >> "$LOG" 2>&1 || echo "    WARN: update_results falló, continuing" >> "$LOG"
+echo "  OK" >> "$LOG"
+
+# ── 2.5. Actualizar Elo Ratings de Fútbol ──
+echo "[2.5/4] Calculando Elo Ratings de Fútbol..." >> "$LOG"
+$PYTHON scrapers/elo_ratings.py >> "$LOG" 2>&1 || echo "    WARN: elo_ratings falló, continuing" >> "$LOG"
 echo "  OK" >> "$LOG"
 
 # ── 3. Generar predicciones del día ──
