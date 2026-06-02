@@ -25,6 +25,8 @@ const MODEL = {
 };
 
 // Score compuesto de un equipo — espejo de _team_score() en Python.
+// Score compuesto de un equipo — espejo de _team_score() en Python.
+// Mantenido por retrocompatibilidad, aunque el modelo use Poisson directo.
 function teamScore(pos) {
     let s = (MODEL.POSITION_RANGE - pos.posicion) * MODEL.WEIGHT_POSITION * 5;
     const games = pos.partidos || 1;
@@ -36,6 +38,105 @@ function teamScore(pos) {
 const Calculator = {
 
     /**
+     * Calcula la distribución de Poisson 3-way en bruto.
+     * Espejo de prob_futbol_3way_raw() en Python.
+     */
+    predictWinner3WayRaw(homeStats, awayStats, danger = null) {
+        const homePos = homeStats.position || {};
+        const awayPos = awayStats.position || {};
+
+        const parseFloatSafe = (v, def = 0.0) => {
+            const f = parseFloat(v);
+            return isNaN(f) ? def : f;
+        };
+
+        const h_gf = parseFloatSafe(homePos.goles_favor, 0);
+        const h_gc = parseFloatSafe(homePos.goles_contra, 0);
+        const h_games = parseFloatSafe(homePos.partidos, 0);
+
+        const a_gf = parseFloatSafe(awayPos.goles_favor, 0);
+        const a_gc = parseFloatSafe(awayPos.goles_contra, 0);
+        const a_games = parseFloatSafe(awayPos.partidos, 0);
+
+        const AVG_LEAGUE_GOALS = 1.35;
+        const HOME_ADVANTAGE_FACTOR = 1.15;
+
+        let h_att = h_games > 0 ? h_gf / h_games : AVG_LEAGUE_GOALS;
+        let h_def = h_games > 0 ? h_gc / h_games : AVG_LEAGUE_GOALS;
+        let a_att = a_games > 0 ? a_gf / a_games : AVG_LEAGUE_GOALS;
+        let a_def = a_games > 0 ? a_gc / a_games : AVG_LEAGUE_GOALS;
+
+        h_att = Math.max(0.3, Math.min(3.0, h_att));
+        h_def = Math.max(0.3, Math.min(3.0, h_def));
+        a_att = Math.max(0.3, Math.min(3.0, a_att));
+        a_def = Math.max(0.3, Math.min(3.0, a_def));
+
+        let lambda_h = (h_att * a_def / AVG_LEAGUE_GOALS) * HOME_ADVANTAGE_FACTOR;
+        let lambda_a = (a_att * h_def / AVG_LEAGUE_GOALS) / HOME_ADVANTAGE_FACTOR;
+
+        if (danger && typeof danger === 'object') {
+            const home_sot = danger.home_sot;
+            const away_sot = danger.away_sot;
+            const SOT_AVG = 4.5;
+
+            if (home_sot !== undefined && home_sot !== null) {
+                const adj_h = 1.0 + 0.15 * ((parseFloatSafe(home_sot) - SOT_AVG) / SOT_AVG);
+                lambda_h *= Math.max(0.7, Math.min(1.3, adj_h));
+            }
+            if (away_sot !== undefined && away_sot !== null) {
+                const adj_a = 1.0 + 0.15 * ((parseFloatSafe(away_sot) - SOT_AVG) / SOT_AVG);
+                lambda_a *= Math.max(0.7, Math.min(1.3, adj_a));
+            }
+        }
+
+        lambda_h = Math.max(0.1, Math.min(6.0, lambda_h));
+        lambda_a = Math.max(0.1, Math.min(6.0, lambda_a));
+
+        let p_win = 0.0;
+        let p_draw = 0.0;
+        let p_lose = 0.0;
+
+        const factorial = (n) => {
+            let res = 1;
+            for (let i = 2; i <= n; i++) res *= i;
+            return res;
+        };
+
+        const poisson_h = [];
+        const poisson_a = [];
+        for (let x = 0; x <= 10; x++) {
+            poisson_h.push((Math.pow(lambda_h, x) * Math.exp(-lambda_h)) / factorial(x));
+            poisson_a.push((Math.pow(lambda_a, x) * Math.exp(-lambda_a)) / factorial(x));
+        }
+
+        for (let x = 0; x <= 10; x++) {
+            for (let y = 0; y <= 10; y++) {
+                const p_xy = poisson_h[x] * poisson_a[y];
+                if (x > y) {
+                    p_win += p_xy;
+                } else if (x === y) {
+                    p_draw += p_xy;
+                } else {
+                    p_lose += p_xy;
+                }
+            }
+        }
+
+        const total = p_win + p_draw + p_lose;
+        if (total > 0) {
+            p_win /= total;
+            p_draw /= total;
+            p_lose /= total;
+        } else {
+            p_win = 0.37;
+            p_draw = 0.26;
+            p_lose = 0.37;
+        }
+
+        return { p_win, p_draw, p_lose };
+    },
+
+    /**
      * Calcula el ganador más probable.
      * Espejo de prob_futbol() en Python.
      *
@@ -43,29 +144,33 @@ const Calculator = {
      * @param {Object} awayStats - Estadísticas del equipo visitante
      * @param {string} homeTeam - Nombre del equipo local
      * @param {string} awayTeam - Nombre del equipo visitante
+     * @param {Object} danger - Opcional, datos de tiros a puerta
      * @returns {Object} {winner, confidence, probability, homeWinProb, awayWinProb, drawProb}
      */
-    predictWinner(homeStats, awayStats, homeTeam, awayTeam) {
-        const homePos = homeStats.position;
-        const awayPos = awayStats.position;
+    predictWinner(homeStats, awayStats, homeTeam, awayTeam, danger = null) {
+        const { p_win, p_draw, p_lose } = this.predictWinner3WayRaw(homeStats, awayStats, danger);
 
-        // ── Score compuesto por equipo (puede ser negativo) ──
-        const homeScore = teamScore(homePos);
-        const awayScore = teamScore(awayPos);
+        let hp, ap;
+        const sum_wl = p_win + p_lose;
+        if (sum_wl > 0) {
+            hp = (p_win / sum_wl) * 100;
+            ap = (p_lose / sum_wl) * 100;
+        } else {
+            hp = 50.0;
+            ap = 50.0;
+        }
 
-        // ── Cálculo 1X2 vía función logística ──
-        // Espejo de prob_futbol() en Python. La ventaja de local es aditiva
-        // sobre la diferencia de score (no multiplicativa). La sigmoide es
-        // monótona: nunca invierte la probabilidad aunque los scores sean
-        // negativos.
-        const scoreDiff = (homeScore - awayScore) + MODEL.HOME_ADVANTAGE_SCORE;
-        let hp = 100.0 / (1.0 + Math.exp(-MODEL.LOGISTIC_K * scoreDiff));
-        hp = Math.min(MODEL.MAX_PROB, Math.max(MODEL.MIN_PROB, hp));
-        let ap = Math.round((100 - hp) * 10) / 10;
+        // Aplicar caps del modelo (espejo de Python MODEL_MAX_PROB / MODEL_MIN_PROB)
+        const MODEL_MAX_PROB = 85.0;
+        const MODEL_MIN_PROB = 15.0;
+        const MODEL_DRAW_DIFF_THRESHOLD = 10.0;
+
+        hp = Math.min(MODEL_MAX_PROB, Math.max(MODEL_MIN_PROB, hp));
+        ap = Math.round((100.0 - hp) * 10) / 10;
         hp = Math.round(hp * 10) / 10;
 
-        // Empate técnico: si diff < 10, ambos a 50/50 (igual que Python)
-        if (Math.abs(hp - ap) < MODEL.DRAW_DIFF_THRESHOLD) {
+        // Empate técnico
+        if (Math.abs(hp - ap) < MODEL_DRAW_DIFF_THRESHOLD) {
             hp = 50.0;
             ap = 50.0;
         }
@@ -80,7 +185,7 @@ const Calculator = {
         let probability = 0;
         const diff = Math.abs(homeWinProbability - awayWinProbability);
 
-        if (diff < MODEL.DRAW_DIFF_THRESHOLD) {
+        if (diff < MODEL_DRAW_DIFF_THRESHOLD) {
             // Empate técnico — coherente con Python (50/50)
             prediction = 'EMPATE TÉCNICO';
             probability = 50;
@@ -111,21 +216,14 @@ const Calculator = {
      *
      * @param {Object} homeStats - Estadísticas del equipo local
      * @param {Object} awayStats - Estadísticas del equipo visitante
+     * @param {Object} danger - Opcional, datos de tiros a puerta
      * @returns {Object} {win, draw, lose} — porcentajes redondeados
      */
-    predictWinner3Way(homeStats, awayStats) {
-        const winner = this.predictWinner(homeStats, awayStats, 'home', 'away');
-        const hp = parseFloat(winner.homeWinProb);
-        const ap = parseFloat(winner.awayWinProb);
-        const diff = Math.abs(hp - ap);
-        const drawPct = Math.max(
-            MODEL.DRAW_PCT_MIN,
-            MODEL.DRAW_PCT_MAX - diff * MODEL.DRAW_DIFF_FACTOR
-        );
-        const scale = (100 - drawPct) / 100;
-        const win  = Math.round(hp * scale * 10) / 10;
-        const lose = Math.round(ap * scale * 10) / 10;
-        const draw = Math.round((100 - win - lose) * 10) / 10;
+    predictWinner3Way(homeStats, awayStats, danger = null) {
+        const { p_win, p_draw, p_lose } = this.predictWinner3WayRaw(homeStats, awayStats, danger);
+        const win = Math.round(p_win * 100 * 10) / 10;
+        const lose = Math.round(p_lose * 100 * 10) / 10;
+        const draw = Math.round((100.0 - win - lose) * 10) / 10;
         return { win, draw, lose };
     },
 

@@ -1378,29 +1378,109 @@ def _team_score(pos):
     s += safe_float(pos.get("diferencia")) * WEIGHT_GOAL_DIFF
     return s
 
-def prob_futbol(hd, ad):
-    """Probabilidad 1X2 vía función logística sobre la diferencia de scores.
-
-    Corrige BUG-1/BUG-6 (diagnóstico 11-may): la fórmula anterior
-    (h_score/total) se invertía cuando los scores compuestos eran negativos
-    — el equipo peor recibía la probabilidad más alta. La sigmoide
-    1/(1+e^(-k·Δ)) es monótona: a mayor Δscore, mayor probabilidad, siempre.
-    La ventaja de local es ahora ADITIVA (HOME_ADVANTAGE_SCORE) en vez de
-    multiplicativa, que penalizaba al local cuando su score era negativo.
+def prob_futbol(hd, ad, danger=None):
+    """Calcula la probabilidad de victoria/derrota 2-way usando el modelo de Poisson
+    con ajuste opcional por Danger Signals (tiros a puerta/córners).
     """
-    h_score = _team_score(hd.get("position", {}))
-    a_score = _team_score(ad.get("position", {}))
-
-    score_diff = (h_score - a_score) + HOME_ADVANTAGE_SCORE
-    hp = 100.0 / (1.0 + math.exp(-MODEL_LOGISTIC_K * score_diff))
+    p_win, p_draw, p_lose = prob_futbol_3way_raw(hd, ad, danger)
+    
+    sum_wl = p_win + p_lose
+    if sum_wl > 0:
+        hp = (p_win / sum_wl) * 100
+        ap = (p_lose / sum_wl) * 100
+    else:
+        hp, ap = 50.0, 50.0
+        
+    # Aplicar caps de probabilidad del modelo
     hp = min(MODEL_MAX_PROB, max(MODEL_MIN_PROB, hp))
-    ap = round(100 - hp, 1)
+    ap = round(100.0 - hp, 1)
     hp = round(hp, 1)
-
+    
+    # Empate técnico
     if abs(hp - ap) < MODEL_DRAW_DIFF:
         return 50.0, 50.0
-
+        
     return hp, ap
+
+def prob_futbol_3way_raw(hd, ad, danger=None):
+    # Extracción de estadísticas desde el dict de posición
+    h_pos = hd.get("position", {}) if isinstance(hd, dict) else {}
+    a_pos = ad.get("position", {}) if isinstance(ad, dict) else {}
+    
+    h_gf = safe_float(h_pos.get("goles_favor"), 0)
+    h_gc = safe_float(h_pos.get("goles_contra"), 0)
+    h_games = safe_float(h_pos.get("partidos"), 0)
+    
+    a_gf = safe_float(a_pos.get("goles_favor"), 0)
+    a_gc = safe_float(a_pos.get("goles_contra"), 0)
+    a_games = safe_float(a_pos.get("partidos"), 0)
+    
+    # Valores por defecto para el modelo de goles
+    AVG_LEAGUE_GOALS = 1.35
+    HOME_ADVANTAGE_FACTOR = 1.15
+    
+    h_att = h_gf / h_games if h_games > 0 else AVG_LEAGUE_GOALS
+    h_def = h_gc / h_games if h_games > 0 else AVG_LEAGUE_GOALS
+    a_att = a_gf / a_games if a_games > 0 else AVG_LEAGUE_GOALS
+    a_def = a_gc / a_games if a_games > 0 else AVG_LEAGUE_GOALS
+    
+    # Forzar límites realistas de ataque y defensa
+    h_att = max(0.3, min(3.0, h_att))
+    h_def = max(0.3, min(3.0, h_def))
+    a_att = max(0.3, min(3.0, a_att))
+    a_def = max(0.3, min(3.0, a_def))
+    
+    # Expectativa base de goles (lambda)
+    lambda_h = (h_att * a_def / AVG_LEAGUE_GOALS) * HOME_ADVANTAGE_FACTOR
+    lambda_a = (a_att * h_def / AVG_LEAGUE_GOALS) / HOME_ADVANTAGE_FACTOR
+    
+    # Ajuste por Danger Signals (Tiros a Puerta)
+    if danger and isinstance(danger, dict):
+        home_sot = danger.get("home_sot")
+        away_sot = danger.get("away_sot")
+        SOT_AVG = 4.5
+        
+        if home_sot is not None:
+            # Factor de ajuste proporcional: 15% de peso sobre la desviación del promedio
+            adj_h = 1.0 + 0.15 * ((safe_float(home_sot) - SOT_AVG) / SOT_AVG)
+            lambda_h *= max(0.7, min(1.3, adj_h))
+            
+        if away_sot is not None:
+            adj_a = 1.0 + 0.15 * ((safe_float(away_sot) - SOT_AVG) / SOT_AVG)
+            lambda_a *= max(0.7, min(1.3, adj_a))
+            
+    # Límites para lambdas
+    lambda_h = max(0.1, min(6.0, lambda_h))
+    lambda_a = max(0.1, min(6.0, lambda_a))
+    
+    # Distribución Poisson
+    p_win = 0.0
+    p_draw = 0.0
+    p_lose = 0.0
+    
+    poisson_h = [ (lambda_h**x * math.exp(-lambda_h)) / math.factorial(x) for x in range(11) ]
+    poisson_a = [ (lambda_a**y * math.exp(-lambda_a)) / math.factorial(y) for y in range(11) ]
+    
+    for x in range(11):
+        for y in range(11):
+            p_xy = poisson_h[x] * poisson_a[y]
+            if x > y:
+                p_win += p_xy
+            elif x == y:
+                p_draw += p_xy
+            else:
+                p_lose += p_xy
+                
+    # Renormalización
+    total = p_win + p_draw + p_lose
+    if total > 0:
+        p_win /= total
+        p_draw /= total
+        p_lose /= total
+    else:
+        p_win, p_draw, p_lose = 0.37, 0.26, 0.37
+        
+    return p_win, p_draw, p_lose
 
 # ══════════════════════════════════════════════════════════════
 #  NBA — replica index.html bkWinProb()
@@ -1411,71 +1491,22 @@ def prob_nba(hd, ad):
     a_win_pct = safe_float(ad.get("win_pct"), 50)
     h_avg_pts = safe_float(hd.get("avg_points"), NBA_DEFAULT_PPG)
     a_avg_pts = safe_float(ad.get("avg_points"), NBA_DEFAULT_PPG)
-
+    
     diff = (h_win_pct - a_win_pct) + (h_avg_pts - a_avg_pts) * NBA_SCORING_WEIGHT + NBA_HOME_ADVANTAGE
     hp = min(NBA_MAX_PROB, max(NBA_MIN_PROB, 50 + diff))
     ap = round(100 - hp, 1)
     hp = round(hp, 1)
     return hp, ap
 
-def prob_futbol_3way(hd, ad):
-    """Modelo de 3 resultados (win%, draw%, lose%) para fútbol.
-    Incorpora probabilidad de empate según competitividad del partido."""
-    hp, ap = prob_futbol(hd, ad)
-    diff = abs(hp - ap)
-    # Más parejo → más empates. Rango: 20% (muy desigual) a 30% (50/50)
-    # Mínimo 20% refleja la realidad del fútbol: incluso favoritos claros pierden
-    # ~20% al empate, lo que hace que DNB tenga siempre cuota >= ~1.25
-    draw_pct = max(DRAW_PCT_MIN, DRAW_PCT_MAX - diff * DRAW_DIFF_FACTOR)
-    scale = (100.0 - draw_pct) / 100.0
-    win  = round(hp * scale, 1)
-    lose = round(ap * scale, 1)
+def prob_futbol_3way(hd, ad, danger=None):
+    """Modelo de 3 resultados (win%, draw%, lose%) para fútbol basado en Poisson."""
+    p_win, p_draw, p_lose = prob_futbol_3way_raw(hd, ad, danger)
+    win = round(p_win * 100, 1)
+    lose = round(p_lose * 100, 1)
     draw = round(100.0 - win - lose, 1)
-    return win, draw, lose  # (local_win%, draw%, away_win%)
+    return win, draw, lose
 
-def goals_section(hd, ad):
-    hg = hd.get("goals", {})
-    ag = ad.get("goals", {})
-
-    o15 = round((parse_pct(hg.get("over_1_5")) + parse_pct(ag.get("over_1_5"))) / 2, 1)
-    o25 = round((parse_pct(hg.get("over_2_5")) + parse_pct(ag.get("over_2_5"))) / 2, 1)
-
-    def cls(p):
-        if p >= GOALS_HIGH_PCT: return "high"
-        if p >= GOALS_MID_PCT:  return "mid"
-        return "low"
-
-    def rec(p):
-        if p >= GOALS_HIGH_PCT: return "<strong>Recomendado</strong> · Alta probabilidad"
-        if p >= GOALS_MID_PCT:  return "Probabilidad media"
-        return "Probabilidad baja"
-
-    c15, c25 = cls(o15), cls(o25)
-
-    return f"""
-<div class="goals-section">
-<h2>Prediccion de Goles</h2>
-<p>Probabilidad de que el partido supere 1.5 o 2.5 goles, basada en el historial de ambos equipos esta temporada.</p>
-<div class="goals-grid">
-  <div class="goal-card">
-    <div class="goal-label">⚽ Over 1.5 goles</div>
-    <div class="goal-value {c15}">{o15}%</div>
-    <div class="goal-bar-wrap"><div class="goal-bar {c15}" style="width:{min(o15,100)}%"></div></div>
-    <div class="goal-rec">{rec(o15)}</div>
-  </div>
-  <div class="goal-card">
-    <div class="goal-label">⚽ Over 2.5 goles</div>
-    <div class="goal-value {c25}">{o25}%</div>
-    <div class="goal-bar-wrap"><div class="goal-bar {c25}" style="width:{min(o25,100)}%"></div></div>
-    <div class="goal-rec">{rec(o25)}</div>
-  </div>
-</div>
-</div>"""
-
-# ══════════════════════════════════════════════════════════════
-#  CAPA 1 — Probabilidades puras del modelo
-# ══════════════════════════════════════════════════════════════
-def get_probabilities(hd, ad, nba=False):
+def get_probabilities(hd, ad, nba=False, danger=None):
     """Devuelve dict con todas las probabilidades del modelo (valores 0.0–1.0)."""
     if nba:
         hp, ap = prob_nba(hd, ad)
@@ -1488,46 +1519,74 @@ def get_probabilities(hd, ad, nba=False):
             "favorite": favorite, "hp_raw": hp, "ap_raw": ap, "nba": True,
         }
 
-    win_3w, draw_3w, lose_3w = prob_futbol_3way(hd, ad)
-    hp, ap = prob_futbol(hd, ad)
+    # Fútbol: obtener probabilidades 3-way reales de Poisson
+    p_win, p_draw, p_lose = prob_futbol_3way_raw(hd, ad, danger)
+    hp, ap = prob_futbol(hd, ad, danger)
 
-    def avg_goals_per_game(d):
-        pos = d.get('position', {})
-        pj = float(pos.get('partidos') or 1)
-        gf = float(pos.get('goles_favor') or 0)
-        gc = float(pos.get('goles_contra') or 0)
-        return (gf + gc) / pj if pj >= 1 else 0.0
-
+    # Calcular Over 2.5 y Over 1.5 de forma coherente usando las lambdas del modelo
+    h_pos = hd.get("position", {}) if isinstance(hd, dict) else {}
+    a_pos = ad.get("position", {}) if isinstance(ad, dict) else {}
+    
+    h_gf = safe_float(h_pos.get("goles_favor"), 0)
+    h_gc = safe_float(h_pos.get("goles_contra"), 0)
+    h_games = safe_float(h_pos.get("partidos"), 0)
+    
+    a_gf = safe_float(a_pos.get("goles_favor"), 0)
+    a_gc = safe_float(a_pos.get("goles_contra"), 0)
+    a_games = safe_float(a_pos.get("partidos"), 0)
+    
+    AVG_LEAGUE_GOALS = 1.35
+    HOME_ADVANTAGE_FACTOR = 1.15
+    
+    h_att = h_gf / h_games if h_games > 0 else AVG_LEAGUE_GOALS
+    h_def = h_gc / h_games if h_games > 0 else AVG_LEAGUE_GOALS
+    a_att = a_gf / a_games if a_games > 0 else AVG_LEAGUE_GOALS
+    a_def = a_gc / a_games if a_games > 0 else AVG_LEAGUE_GOALS
+    
+    h_att = max(0.3, min(3.0, h_att))
+    h_def = max(0.3, min(3.0, h_def))
+    a_att = max(0.3, min(3.0, a_att))
+    a_def = max(0.3, min(3.0, a_def))
+    
+    lambda_h = (h_att * a_def / AVG_LEAGUE_GOALS) * HOME_ADVANTAGE_FACTOR
+    lambda_a = (a_att * h_def / AVG_LEAGUE_GOALS) / HOME_ADVANTAGE_FACTOR
+    
+    # Ajuste por Danger Signals (Tiros a Puerta)
+    if danger and isinstance(danger, dict):
+        home_sot = danger.get("home_sot")
+        away_sot = danger.get("away_sot")
+        SOT_AVG = 4.5
+        
+        if home_sot is not None:
+            adj_h = 1.0 + 0.15 * ((safe_float(home_sot) - SOT_AVG) / SOT_AVG)
+            lambda_h *= max(0.7, min(1.3, adj_h))
+            
+        if away_sot is not None:
+            adj_a = 1.0 + 0.15 * ((safe_float(away_sot) - SOT_AVG) / SOT_AVG)
+            lambda_a *= max(0.7, min(1.3, adj_a))
+            
+    lambda_h = max(0.1, min(6.0, lambda_h))
+    lambda_a = max(0.1, min(6.0, lambda_a))
+    
+    # λ total es la suma de ambos
+    lambda_total = lambda_h + lambda_a
+    
     def poisson_over(lam, threshold):
         if lam <= 0: return 0.0
         p_under = sum((lam**k * math.exp(-lam)) / math.factorial(k) for k in range(int(threshold) + 1))
         return round(1 - p_under, 4)
+        
+    o25 = poisson_over(lambda_total, 2)
+    o15 = poisson_over(lambda_total, 1)
 
-    total_esperado = (avg_goals_per_game(hd) + avg_goals_per_game(ad)) / 2
-
-    if total_esperado > 0:
-        o25 = poisson_over(total_esperado, 2)
-        o15 = poisson_over(total_esperado, 1)
-    else:
-        hg, ag = hd.get("goals", {}), ad.get("goals", {})
-        def goals_prob_fallback(key):
-            h, a = parse_pct(hg.get(key)), parse_pct(ag.get(key))
-            if h == 0 and a == 0: return 0.0
-            return round((50 + ((h + a) / 2 - 50) * GOALS_FALLBACK_REGRESS) / 100, 4)
-        o25 = goals_prob_fallback("over_2_5")
-        o15 = goals_prob_fallback("over_1_5")
-
-    p_win  = win_3w  / 100
-    p_draw = draw_3w / 100
-    p_lose = lose_3w / 100
-    favorite = "home" if win_3w >= lose_3w else "away"
+    favorite = "home" if p_win >= p_lose else "away"
     p_dnb_home = p_win  / (p_win  + p_draw) if (p_win  + p_draw) > 0 else 0.0
     p_dnb_away = p_lose / (p_lose + p_draw) if (p_lose + p_draw) > 0 else 0.0
 
     return {
         "win_home": p_win,  "draw": p_draw, "win_away": p_lose,
         "dnb_home": p_dnb_home, "dnb_away": p_dnb_away,
-        "dc_home":  p_win + p_draw, "dc_away": p_lose + p_draw,
+        "dc_home":  p_win + p_draw, "dc_away":  p_lose + p_draw,
         "over_2_5": o25, "over_1_5": o15,
         "favorite": favorite, "hp_raw": hp, "ap_raw": ap, "nba": False,
     }
@@ -1727,7 +1786,7 @@ def evaluate_value(probs, odds, home, away, market_freqs=None, league=None):
 # ══════════════════════════════════════════════════════════════
 #  ORQUESTADOR — llama las 3 capas y devuelve el formato interno
 # ══════════════════════════════════════════════════════════════
-def calc_wp(league, home, hd, away, ad, nba=False):
+def calc_wp(league, home, hd, away, ad, nba=False, danger=None):
     """Orquesta las 3 capas. Retorna 11-tupla:
     (base_pick, base_prob, display_pick, display_prob, vs, cj, vl, bk_odds,
      confidence_factor, best_eval, all_evals)
@@ -1735,7 +1794,7 @@ def calc_wp(league, home, hd, away, ad, nba=False):
     - all_evals: lista completa de todos los mercados evaluados (aceptados y rechazados)
     vs y display_prob usan valores ajustados por confidence + liquidez.
     """
-    probs = get_probabilities(hd, ad, nba=nba)
+    probs = get_probabilities(hd, ad, nba=nba, danger=danger)
     fav       = probs["favorite"]
     fav_team  = home if fav == "home" else away
     p_win_key = "win_home" if fav == "home" else "win_away"
@@ -2971,6 +3030,7 @@ def main():
 
     # ── FASE 1: recopilar todos los candidatos con su score de valor ──
     candidates = []  # tupla de 18 elementos: índice 17 = ext_ctx (contexto API externa)
+    api_data = _danger_load_data(today)
     # Todos los partidos próximos del día (ligas no excluidas), con sus stats.
     # Sirve para análisis INDEPENDIENTE por mercado (ej: córners), sin depender
     # de que el partido pase el filtro de goles. (league, home, away, hd, ad, nba)
@@ -2984,7 +3044,19 @@ def main():
             hd = find(stats, home); ad = find(stats, away)
             if not hd: hd = ad
             if not ad: ad = hd
-            base_pick, base_prob, display_pick, display_prob, vs, cj, vl, bk_odds, cf, best_eval, all_evals = calc_wp(league, home, hd, away, ad, nba=False)
+            
+            # Obtener danger signals de la API externa
+            danger_record = api_data.get((_norm(home), _norm(away)))
+            danger = None
+            if danger_record:
+                home_danger = danger_record.get("home_danger") or {}
+                away_danger = danger_record.get("away_danger") or {}
+                danger = {
+                    "home_sot": home_danger.get("shots_on_target_avg"),
+                    "away_sot": away_danger.get("shots_on_target_avg")
+                }
+                
+            base_pick, base_prob, display_pick, display_prob, vs, cj, vl, bk_odds, cf, best_eval, all_evals = calc_wp(league, home, hd, away, ad, nba=False, danger=danger)
             # Bug auditoría: excluir ligas con yield negativo sostenido del
             # pipeline de value picks. Análisis del Día sigue listándolas.
             if league in EXCLUDED_LEAGUES:
