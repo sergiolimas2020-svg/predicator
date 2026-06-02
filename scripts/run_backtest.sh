@@ -27,9 +27,18 @@ if [ -z "$API_FOOTBALL_KEY" ]; then
     fi
 fi
 
-echo "🚀 Iniciando simulación de Backtest Point-In-Time (esto puede tomar ~30s)..."
+echo "🚀 1. Iniciando simulación de Backtest Point-In-Time con cuotas dinámicas..."
 $PYTHON "$REPO/scripts/backtest_poisson_pit.py"
 
 echo ""
-echo "📊 Reporte generado con éxito en: static/_backtest_poisson_report.md"
-echo "Para leer el reporte completo en formato markdown, puedes abrir el archivo."
+echo "🚀 2. Iniciando análisis empírico sobre el log real de producción..."
+$PYTHON "$REPO/scripts/backtest_log_real.py"
+
+echo ""
+echo "======================================================================"
+echo "📊 REPORTES GENERADOS CON ÉXITO:"
+echo "======================================================================"
+echo "1. Backtest Point-In-Time (Ligas): static/_backtest_poisson_report.md"
+echo "2. Rendimiento Real en Vivo (Log): static/_backtest_log_real_report.md"
+echo "======================================================================"
+echo "Puedes abrir estos archivos en formato markdown para ver los detalles."

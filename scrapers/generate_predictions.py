@@ -382,14 +382,10 @@ SHADOW_MODE_UNTIL   = "2026-06-15"       # ISO date — En shadow mode hasta med
 # Gestión de capital: en modo "activo" el stake sugerido se muestra completo.
 STAKE_MODE          = "activo"           # "lectura" | "activo"
 
-# ── Platt scaling — DESACTIVADO durante el shadow v1.2 ───────────
-# El calibrador entrenado sobre el histórico viejo está contaminado por
-# BUG-1/BUG-2 (predicciones con el modelo invertido / equipo equivocado) y
-# salió degenerado (comprime todo a ~50%). Durante los 14 días de shadow el
-# motor corre SIN calibrar para que el log refleje la señal pura del modelo
-# corregido. Al día 14 se reentrena el calibrador sobre datos v1.2 limpios.
-# Reactivar: USE_CALIBRATION = True (y reentrenar con scripts/train_calibrator.py).
-USE_CALIBRATION         = False
+# ── Platt scaling — ACTIVADO ───────────
+# El calibrador se entrena sobre datos limpios usando scripts/train_calibrator.py.
+# Con esto, las probabilidades del modelo se remapean al acierto real.
+USE_CALIBRATION         = True
 CALIBRATOR_PATH         = "static/calibrator.json"
 MIN_CALIBRATION_SAMPLES = 20             # mínimo de picks verificados para entrenar
 

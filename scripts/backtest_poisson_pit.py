@@ -217,6 +217,15 @@ def evaluate_poisson_models(test_fixtures: List[Dict], all_fixtures: List[Dict])
         hg, ag = f["home_goals"], f["away_goals"]
         outcome_1X2 = "win_home" if hg > ag else "win_away" if hg < ag else "draw"
         
+        # Calcular cuota dinámica realista (6% overround de bookmaker) para el favorito
+        fav_puro = probs_puro["favorite"]
+        prob_fav_puro = probs_puro["win_home"] if fav_puro == "home" else probs_puro["win_away"]
+        bk_odds_puro = round(0.94 / max(0.01, prob_fav_puro), 2)
+        
+        fav_elo = probs_elo["favorite"]
+        prob_fav_elo = probs_elo["win_home"] if fav_elo == "home" else probs_elo["win_away"]
+        bk_odds_elo = round(0.94 / max(0.01, prob_fav_elo), 2)
+        
         # Estructurar predicción
         pred_puro = {
             "matchup": f"{f['home_name']} vs {f['away_name']}",
@@ -224,7 +233,7 @@ def evaluate_poisson_models(test_fixtures: List[Dict], all_fixtures: List[Dict])
             "outcome": outcome_1X2,
             "win_prob": probs_puro[outcome_1X2],
             "correct": (probs_puro["favorite"] == "home" and hg > ag) or (probs_puro["favorite"] == "away" and hg < ag),
-            "bk_odds": 1.95 # Usamos cuota sintética conservadora de 1.95 para simulación de ROI
+            "bk_odds": bk_odds_puro
         }
         
         pred_elo = {
@@ -233,7 +242,7 @@ def evaluate_poisson_models(test_fixtures: List[Dict], all_fixtures: List[Dict])
             "outcome": outcome_1X2,
             "win_prob": probs_elo[outcome_1X2],
             "correct": (probs_elo["favorite"] == "home" and hg > ag) or (probs_elo["favorite"] == "away" and hg < ag),
-            "bk_odds": 1.95
+            "bk_odds": bk_odds_elo
         }
         
         puro_results.append(pred_puro)
@@ -406,7 +415,7 @@ def main():
     
     md.append("\n## 3. Metodología de la Simulación")
     md.append("- **Point-in-Time:** Se reconstruye el estado de la tabla de posiciones y el Elo Rating de forma acumulada antes de cada partido evaluado, eliminando cualquier sesgo de mirar al futuro.")
-    md.append("- **Cuotas Sintéticas:** Se asume una cuota fija conservadora de 1.95 para estimar el ROI simulado ante apuestas con ventaja.")
+    md.append("- **Cuotas Dinámicas con Margen:** Las cuotas del favorito se estiman dinámicamente según su probabilidad del modelo aplicando un overround (comisión del bookmaker) del 6% (bk_odds = 0.94 / p_fav). Esto elimina cualquier edge ficticio derivado de asumir cuotas altas fijas en favoritos evidentes.")
     md.append("- **Muestra Balanceada:** Para evitar que una liga con muchos partidos monopolice el consolidado, se evalúa una ventana uniforme de los últimos partidos válidos de cada competición.")
     
     report_text = "\n".join(md)
