@@ -4,7 +4,8 @@
 # ============================================================
 
 set -e
-REPO="/Users/sergiolimas/PROYECTO_PREDICATOR"
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+REPO="$( cd "$SCRIPT_DIR/.." && pwd )"
 PYTHON="$REPO/.venv/bin/python3"
 
 cd "$REPO"

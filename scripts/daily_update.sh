@@ -7,9 +7,10 @@
 
 set -e
 
-REPO="/Users/sergiolimas/PROYECTO_PREDICATOR"
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+REPO="$( cd "$SCRIPT_DIR/.." && pwd )"
 LOG="$REPO/scripts/daily_update.log"
-PYTHON="/Users/sergiolimas/PROYECTO_PREDICATOR/.venv/bin/python3"
+PYTHON="$REPO/.venv/bin/python3"
 
 cd "$REPO"
 
