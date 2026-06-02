@@ -18,6 +18,24 @@ echo "============================================" >> "$LOG"
 echo "  PREDIKTOR daily update — $(date '+%Y-%m-%d %H:%M')" >> "$LOG"
 echo "============================================" >> "$LOG"
 
+# ── 0. Sincronizar y Validar ejecución hoy ──
+echo "[0/4] Sincronizando con repositorio remoto..." >> "$LOG"
+git fetch origin >> "$LOG" 2>&1
+git pull --rebase origin main >> "$LOG" 2>&1 || {
+    echo "    ❌ Error al hacer git pull --rebase. Abortando para evitar conflictos." >> "$LOG"
+    exit 1
+}
+
+if [ -f "static/predictions/daily_picks.json" ]; then
+    JSON_DATE=$($PYTHON -c "import json; print(json.load(open('static/predictions/daily_picks.json')).get('date', ''))" 2>/dev/null || echo "")
+    TODAY=$(TZ='America/Bogota' date '+%Y-%m-%d')
+    if [ "$JSON_DATE" = "$TODAY" ]; then
+        echo "    ✅ daily_picks.json ya está al día ($TODAY). Se cancela la ejecución local por redundancia." >> "$LOG"
+        echo "✅ Completado sin cambios — $(date '+%H:%M:%S')" >> "$LOG"
+        exit 0
+    fi
+fi
+
 # ── 1. Actualizar stats de todas las ligas ──
 echo "[1/4] Actualizando estadísticas..." >> "$LOG"
 
