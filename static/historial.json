@@ -1,8 +1,38 @@
 {
-  "total": 109,
-  "aciertos": 63,
+  "total": 110,
+  "aciertos": 64,
   "porcentaje": 58,
   "ultimos": [
+    {
+      "fecha": "2026-06-02",
+      "slug": "atletico-junior-vs-atletico-nacional-liga-colombiana-2026-06-02",
+      "home": "Atlético Junior",
+      "away": "Atlético Nacional",
+      "league": "Liga Colombiana",
+      "prediccion": "Over 1.5 goles",
+      "confianza": "Probabilidad: 76.3%",
+      "resultado_real": "3-0",
+      "acerto": true,
+      "prob_original": 76.3,
+      "confidence_factor": 1.0,
+      "prob_adjusted": 76.3,
+      "bk_odds": null,
+      "ev": null,
+      "penalty": null,
+      "ev_adjusted": null,
+      "value_score": null,
+      "reason": "confianza",
+      "version": "v1.2-clean-signal",
+      "stake_sugerido_pct": 0.0,
+      "stake_real_pct": 0.0,
+      "stake_modo": "activo",
+      "cuota_betplay_estimada": null,
+      "ev_betplay_estimado": null,
+      "tipo_pick": "pick_gratuito",
+      "base_pick": "Atlético Nacional",
+      "value_level": "estadistico",
+      "markets_evaluated": []
+    },
     {
       "fecha": "2026-05-31",
       "slug": "vasco-da-gama-vs-atletico-mg-brasileirao-2026-05-31",
@@ -572,85 +602,6 @@
       "base_pick": "Cruzeiro",
       "value_level": "estadistico",
       "markets_evaluated": []
-    },
-    {
-      "fecha": "2026-05-19",
-      "slug": "afc-bournemouth-vs-manchester-city-premier-league-2026-05-19",
-      "home": "AFC Bournemouth",
-      "away": "Manchester City",
-      "league": "Premier League",
-      "prediccion": "Manchester City",
-      "confianza": "Probabilidad: 66.0%",
-      "resultado_real": "1-1",
-      "acerto": false,
-      "prob_original": 68.0,
-      "confidence_factor": 0.97,
-      "prob_adjusted": 66.0,
-      "bk_odds": 1.72,
-      "ev": 17.0,
-      "penalty": 0.0,
-      "ev_adjusted": 13.5,
-      "value_score": null,
-      "reason": "ev_insuficiente",
-      "version": "v1.2-clean-signal",
-      "stake_sugerido_pct": 4.69,
-      "stake_real_pct": 0.0,
-      "stake_modo": "lectura",
-      "cuota_betplay_estimada": 1.55,
-      "ev_betplay_estimado": 2.3,
-      "tipo_pick": "pick_gratuito",
-      "base_pick": "Manchester City",
-      "value_level": "bajo",
-      "markets_evaluated": [
-        {
-          "market": "AFC Bournemouth",
-          "ev_adjusted": -41.8,
-          "value_score": null,
-          "reason": "ev_negativo"
-        },
-        {
-          "market": "Apuesta sin empate: AFC Bournemouth",
-          "ev_adjusted": -24.9,
-          "value_score": null,
-          "reason": "ev_negativo"
-        },
-        {
-          "market": "Doble oportunidad: AFC Bournemouth",
-          "ev_adjusted": -24.8,
-          "value_score": null,
-          "reason": "ev_negativo"
-        },
-        {
-          "market": "Manchester City",
-          "ev_adjusted": 13.5,
-          "value_score": null,
-          "reason": "ev_insuficiente"
-        },
-        {
-          "market": "Apuesta sin empate: Manchester City",
-          "ev_adjusted": 2.4,
-          "value_score": null,
-          "reason": "ev_insuficiente"
-        },
-        {
-          "market": "Doble oportunidad: Manchester City",
-          "ev_adjusted": null,
-          "value_score": null,
-          "reason": "cuota_baja"
-        },
-        {
-          "market": "Over 2.5 goles",
-          "ev_adjusted": null,
-          "value_score": null,
-          "reason": "cuota_baja"
-        },
-        {
-          "market": "Over 1.5 goles",
-          "ev_adjusted": null,
-          "value_score": null,
-          "reason": "mercado_no_disponible"
-        }
-      ]
     }
   ]
 }
