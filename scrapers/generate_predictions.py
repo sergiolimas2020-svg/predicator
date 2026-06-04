@@ -306,6 +306,19 @@ DRAW_PCT_MIN        = 20.0  # % mínimo de empate en modelo 3-way
 DRAW_PCT_MAX        = 30.0  # % máximo de empate en modelo 3-way (partidos 50/50)
 DRAW_DIFF_FACTOR    = 0.20  # pendiente de reducción del % empate por diferencia
 
+# ── Modelo Poisson de goles (lambdas) ─────────────────────────
+# Antes vivían hardcodeados dentro de prob_futbol_3way_raw() y get_probabilities().
+# Centralizados acá para una sola fuente de verdad y para diferenciar
+# fútbol de clubes vs. fútbol de selecciones.
+AVG_LEAGUE_GOALS       = 1.35  # goles esperados por equipo en liga "promedio" (clubes)
+HOME_ADVANTAGE_FACTOR  = 1.15  # multiplicador de localía (sede con público propio)
+# Fútbol de selecciones (Mundial, Eurocopa, eliminatorias):
+#   - Partidos más cerrados y de menos goles que el promedio de clubes.
+#   - En sede NEUTRAL no hay ventaja de localía → factor = 1.0.
+# Valores a CALIBRAR con backtest internacional (scripts/backtest_intl.py).
+AVG_INTL_GOALS         = 1.25  # goles esperados por selección (más bajo que clubes)
+NEUTRAL_ADVANTAGE_FACTOR = 1.00  # sin ventaja de local en cancha neutral
+
 # ── Parámetros del modelo NBA ─────────────────────────────────
 NBA_DEFAULT_PPG     = 110.0  # puntos por partido por defecto si no hay datos
 NBA_HOME_ADVANTAGE  =   3.0  # ajuste de ventaja de local en puntos
@@ -1374,11 +1387,83 @@ def _team_score(pos):
     s += safe_float(pos.get("diferencia")) * WEIGHT_GOAL_DIFF
     return s
 
-def prob_futbol(hd, ad, danger=None):
+def _compute_lambdas(hd, ad, danger=None, neutral=False, intl=False):
+    """Goles esperados (lambda_home, lambda_away) del modelo de Poisson.
+
+    Fuente única de verdad: antes esta misma matemática estaba duplicada
+    dentro de prob_futbol_3way_raw() y get_probabilities().
+
+    Flags:
+      neutral=True → sede sin público propio (Mundial/Eurocopa): sin ventaja
+                     de localía (factor 1.0 en ambos lados).
+      intl=True    → fútbol de selecciones: normaliza con AVG_INTL_GOALS
+                     (más bajo que clubes).
+
+    Con neutral=False e intl=False reproduce EXACTAMENTE el modelo de clubes
+    previo (no rompe paridad Python↔JS ni la calibración vigente).
+    """
+    avg_goals = AVG_INTL_GOALS if intl else AVG_LEAGUE_GOALS
+    home_factor = NEUTRAL_ADVANTAGE_FACTOR if neutral else HOME_ADVANTAGE_FACTOR
+
+    h_pos = hd.get("position", {}) if isinstance(hd, dict) else {}
+    a_pos = ad.get("position", {}) if isinstance(ad, dict) else {}
+
+    h_gf = safe_float(h_pos.get("goles_favor"), 0)
+    h_gc = safe_float(h_pos.get("goles_contra"), 0)
+    h_games = safe_float(h_pos.get("partidos"), 0)
+
+    a_gf = safe_float(a_pos.get("goles_favor"), 0)
+    a_gc = safe_float(a_pos.get("goles_contra"), 0)
+    a_games = safe_float(a_pos.get("partidos"), 0)
+
+    h_att = h_gf / h_games if h_games > 0 else avg_goals
+    h_def = h_gc / h_games if h_games > 0 else avg_goals
+    a_att = a_gf / a_games if a_games > 0 else avg_goals
+    a_def = a_gc / a_games if a_games > 0 else avg_goals
+
+    # Límites realistas de ataque y defensa
+    h_att = max(0.3, min(3.0, h_att))
+    h_def = max(0.3, min(3.0, h_def))
+    a_att = max(0.3, min(3.0, a_att))
+    a_def = max(0.3, min(3.0, a_def))
+
+    # Expectativa base de goles (lambda)
+    lambda_h = (h_att * a_def / avg_goals) * home_factor
+    lambda_a = (a_att * h_def / avg_goals) / home_factor
+
+    # Ajuste por Danger Signals (tiros a puerta)
+    if danger and isinstance(danger, dict):
+        home_sot = danger.get("home_sot")
+        away_sot = danger.get("away_sot")
+        SOT_AVG = 4.5
+        if home_sot is not None:
+            adj_h = 1.0 + 0.15 * ((safe_float(home_sot) - SOT_AVG) / SOT_AVG)
+            lambda_h *= max(0.7, min(1.3, adj_h))
+        if away_sot is not None:
+            adj_a = 1.0 + 0.15 * ((safe_float(away_sot) - SOT_AVG) / SOT_AVG)
+            lambda_a *= max(0.7, min(1.3, adj_a))
+
+    # Ajuste por Elo Rating
+    elo_home = hd.get("elo") if isinstance(hd, dict) else None
+    elo_away = ad.get("elo") if isinstance(ad, dict) else None
+    if elo_home is not None and elo_away is not None:
+        elo_diff = elo_home - elo_away
+        adj_h = 1.0 + 0.0005 * elo_diff
+        adj_a = 1.0 - 0.0005 * elo_diff
+        lambda_h *= max(0.8, min(1.2, adj_h))
+        lambda_a *= max(0.8, min(1.2, adj_a))
+
+    # Límites de lambdas
+    lambda_h = max(0.1, min(6.0, lambda_h))
+    lambda_a = max(0.1, min(6.0, lambda_a))
+    return lambda_h, lambda_a
+
+
+def prob_futbol(hd, ad, danger=None, neutral=False, intl=False):
     """Calcula la probabilidad de victoria/derrota 2-way usando el modelo de Poisson
     con ajuste opcional por Danger Signals (tiros a puerta/córners).
     """
-    p_win, p_draw, p_lose = prob_futbol_3way_raw(hd, ad, danger)
+    p_win, p_draw, p_lose = prob_futbol_3way_raw(hd, ad, danger, neutral=neutral, intl=intl)
     
     sum_wl = p_win + p_lose
     if sum_wl > 0:
@@ -1398,67 +1483,10 @@ def prob_futbol(hd, ad, danger=None):
         
     return hp, ap
 
-def prob_futbol_3way_raw(hd, ad, danger=None):
-    # Extracción de estadísticas desde el dict de posición
-    h_pos = hd.get("position", {}) if isinstance(hd, dict) else {}
-    a_pos = ad.get("position", {}) if isinstance(ad, dict) else {}
-    
-    h_gf = safe_float(h_pos.get("goles_favor"), 0)
-    h_gc = safe_float(h_pos.get("goles_contra"), 0)
-    h_games = safe_float(h_pos.get("partidos"), 0)
-    
-    a_gf = safe_float(a_pos.get("goles_favor"), 0)
-    a_gc = safe_float(a_pos.get("goles_contra"), 0)
-    a_games = safe_float(a_pos.get("partidos"), 0)
-    
-    # Valores por defecto para el modelo de goles
-    AVG_LEAGUE_GOALS = 1.35
-    HOME_ADVANTAGE_FACTOR = 1.15
-    
-    h_att = h_gf / h_games if h_games > 0 else AVG_LEAGUE_GOALS
-    h_def = h_gc / h_games if h_games > 0 else AVG_LEAGUE_GOALS
-    a_att = a_gf / a_games if a_games > 0 else AVG_LEAGUE_GOALS
-    a_def = a_gc / a_games if a_games > 0 else AVG_LEAGUE_GOALS
-    
-    # Forzar límites realistas de ataque y defensa
-    h_att = max(0.3, min(3.0, h_att))
-    h_def = max(0.3, min(3.0, h_def))
-    a_att = max(0.3, min(3.0, a_att))
-    a_def = max(0.3, min(3.0, a_def))
-    
-    # Expectativa base de goles (lambda)
-    lambda_h = (h_att * a_def / AVG_LEAGUE_GOALS) * HOME_ADVANTAGE_FACTOR
-    lambda_a = (a_att * h_def / AVG_LEAGUE_GOALS) / HOME_ADVANTAGE_FACTOR
-    
-    # Ajuste por Danger Signals (Tiros a Puerta)
-    if danger and isinstance(danger, dict):
-        home_sot = danger.get("home_sot")
-        away_sot = danger.get("away_sot")
-        SOT_AVG = 4.5
-        
-        if home_sot is not None:
-            # Factor de ajuste proporcional: 15% de peso sobre la desviación del promedio
-            adj_h = 1.0 + 0.15 * ((safe_float(home_sot) - SOT_AVG) / SOT_AVG)
-            lambda_h *= max(0.7, min(1.3, adj_h))
-            
-        if away_sot is not None:
-            adj_a = 1.0 + 0.15 * ((safe_float(away_sot) - SOT_AVG) / SOT_AVG)
-            lambda_a *= max(0.7, min(1.3, adj_a))
-            
-    # Ajuste por Elo Rating
-    elo_home = hd.get("elo") if isinstance(hd, dict) else None
-    elo_away = ad.get("elo") if isinstance(ad, dict) else None
-    if elo_home is not None and elo_away is not None:
-        elo_diff = elo_home - elo_away
-        adj_h = 1.0 + 0.0005 * elo_diff
-        adj_a = 1.0 - 0.0005 * elo_diff
-        lambda_h *= max(0.8, min(1.2, adj_h))
-        lambda_a *= max(0.8, min(1.2, adj_a))
-            
-    # Límites para lambdas
-    lambda_h = max(0.1, min(6.0, lambda_h))
-    lambda_a = max(0.1, min(6.0, lambda_a))
-    
+def prob_futbol_3way_raw(hd, ad, danger=None, neutral=False, intl=False):
+    # Goles esperados (lambda) — fuente única: _compute_lambdas()
+    lambda_h, lambda_a = _compute_lambdas(hd, ad, danger, neutral=neutral, intl=intl)
+
     # Distribución Poisson
     p_win = 0.0
     p_draw = 0.0
@@ -1504,15 +1532,15 @@ def prob_nba(hd, ad):
     hp = round(hp, 1)
     return hp, ap
 
-def prob_futbol_3way(hd, ad, danger=None):
+def prob_futbol_3way(hd, ad, danger=None, neutral=False, intl=False):
     """Modelo de 3 resultados (win%, draw%, lose%) para fútbol basado en Poisson."""
-    p_win, p_draw, p_lose = prob_futbol_3way_raw(hd, ad, danger)
+    p_win, p_draw, p_lose = prob_futbol_3way_raw(hd, ad, danger, neutral=neutral, intl=intl)
     win = round(p_win * 100, 1)
     lose = round(p_lose * 100, 1)
     draw = round(100.0 - win - lose, 1)
     return win, draw, lose
 
-def get_probabilities(hd, ad, nba=False, danger=None):
+def get_probabilities(hd, ad, nba=False, danger=None, neutral=False, intl=False):
     """Devuelve dict con todas las probabilidades del modelo (valores 0.0–1.0)."""
     if nba:
         hp, ap = prob_nba(hd, ad)
@@ -1526,64 +1554,12 @@ def get_probabilities(hd, ad, nba=False, danger=None):
         }
 
     # Fútbol: obtener probabilidades 3-way reales de Poisson
-    p_win, p_draw, p_lose = prob_futbol_3way_raw(hd, ad, danger)
-    hp, ap = prob_futbol(hd, ad, danger)
+    p_win, p_draw, p_lose = prob_futbol_3way_raw(hd, ad, danger, neutral=neutral, intl=intl)
+    hp, ap = prob_futbol(hd, ad, danger, neutral=neutral, intl=intl)
 
-    # Calcular Over 2.5 y Over 1.5 de forma coherente usando las lambdas del modelo
-    h_pos = hd.get("position", {}) if isinstance(hd, dict) else {}
-    a_pos = ad.get("position", {}) if isinstance(ad, dict) else {}
-    
-    h_gf = safe_float(h_pos.get("goles_favor"), 0)
-    h_gc = safe_float(h_pos.get("goles_contra"), 0)
-    h_games = safe_float(h_pos.get("partidos"), 0)
-    
-    a_gf = safe_float(a_pos.get("goles_favor"), 0)
-    a_gc = safe_float(a_pos.get("goles_contra"), 0)
-    a_games = safe_float(a_pos.get("partidos"), 0)
-    
-    AVG_LEAGUE_GOALS = 1.35
-    HOME_ADVANTAGE_FACTOR = 1.15
-    
-    h_att = h_gf / h_games if h_games > 0 else AVG_LEAGUE_GOALS
-    h_def = h_gc / h_games if h_games > 0 else AVG_LEAGUE_GOALS
-    a_att = a_gf / a_games if a_games > 0 else AVG_LEAGUE_GOALS
-    a_def = a_gc / a_games if a_games > 0 else AVG_LEAGUE_GOALS
-    
-    h_att = max(0.3, min(3.0, h_att))
-    h_def = max(0.3, min(3.0, h_def))
-    a_att = max(0.3, min(3.0, a_att))
-    a_def = max(0.3, min(3.0, a_def))
-    
-    lambda_h = (h_att * a_def / AVG_LEAGUE_GOALS) * HOME_ADVANTAGE_FACTOR
-    lambda_a = (a_att * h_def / AVG_LEAGUE_GOALS) / HOME_ADVANTAGE_FACTOR
-    
-    # Ajuste por Danger Signals (Tiros a Puerta)
-    if danger and isinstance(danger, dict):
-        home_sot = danger.get("home_sot")
-        away_sot = danger.get("away_sot")
-        SOT_AVG = 4.5
-        
-        if home_sot is not None:
-            adj_h = 1.0 + 0.15 * ((safe_float(home_sot) - SOT_AVG) / SOT_AVG)
-            lambda_h *= max(0.7, min(1.3, adj_h))
-            
-        if away_sot is not None:
-            adj_a = 1.0 + 0.15 * ((safe_float(away_sot) - SOT_AVG) / SOT_AVG)
-            lambda_a *= max(0.7, min(1.3, adj_a))
-            
-    # Ajuste por Elo Rating
-    elo_home = hd.get("elo") if isinstance(hd, dict) else None
-    elo_away = ad.get("elo") if isinstance(ad, dict) else None
-    if elo_home is not None and elo_away is not None:
-        elo_diff = elo_home - elo_away
-        adj_h = 1.0 + 0.0005 * elo_diff
-        adj_a = 1.0 - 0.0005 * elo_diff
-        lambda_h *= max(0.8, min(1.2, adj_h))
-        lambda_a *= max(0.8, min(1.2, adj_a))
-            
-    lambda_h = max(0.1, min(6.0, lambda_h))
-    lambda_a = max(0.1, min(6.0, lambda_a))
-    
+    # Over 2.5 / 1.5 coherentes con las MISMAS lambdas del modelo (fuente única)
+    lambda_h, lambda_a = _compute_lambdas(hd, ad, danger, neutral=neutral, intl=intl)
+
     # λ total es la suma de ambos
     lambda_total = lambda_h + lambda_a
     
