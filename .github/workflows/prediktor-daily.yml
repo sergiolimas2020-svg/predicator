@@ -199,6 +199,17 @@ jobs:
           python3 -m scrapers.api_football.collect_daily "$TODAY"
         continue-on-error: true
 
+      # ── Step 6b-bis: Datos del Mundial 2026 (selecciones) ──────
+      # Escribe worldcup_stats.json (forma+Elo de selección) y
+      # worldcup_fixtures.json (calendario). Insumo del bloque Mundial
+      # de generate_predictions. No crítico: si falla, el motor sigue
+      # con clubes/NBA y simplemente no habrá picks del Mundial.
+      - name: Datos Mundial 2026
+        env:
+          API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
+        run: python3 -m scrapers.worldcup
+        continue-on-error: true
+
       # ── Step 6c: Entrenar calibrador Platt (no crítico) ─────────
       # Reentrena static/calibrator.json con el histórico verificado.
       # Si falla o no hay datos, el motor opera sin calibrar (degradación

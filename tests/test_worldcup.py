@@ -103,6 +103,40 @@ def test_elo_pool_stronger_team_emerges():
     assert elos["Argentina"] > elos["Tonga"]
 
 
+def test_is_neutral_venue():
+    assert wc.is_neutral_venue("Argentina") is True
+    assert wc.is_neutral_venue("Brazil") is True
+    # anfitriones juegan con localía real
+    assert wc.is_neutral_venue("Mexico") is False
+    assert wc.is_neutral_venue("USA") is False
+    assert wc.is_neutral_venue("Canada") is False
+
+
+def test_parse_schedule_includes_future_matches_and_neutral_flag():
+    fixtures = [
+        # partido futuro (sin goles) en sede neutral
+        {"fixture": {"id": 1, "date": "2026-06-11T19:00:00+00:00",
+                     "venue": {"name": "MetLife Stadium"}, "status": {"short": "NS"}},
+         "teams": {"home": {"name": "Argentina"}, "away": {"name": "Brazil"}},
+         "league": {"round": "Group Stage - 1"}},
+        # anfitrión local → no neutral
+        {"fixture": {"id": 2, "date": "2026-06-11T22:00:00+00:00",
+                     "venue": {"name": "Estadio Azteca"}, "status": {"short": "NS"}},
+         "teams": {"home": {"name": "Mexico"}, "away": {"name": "Croatia"}},
+         "league": {"round": "Group Stage - 1"}},
+        # inválido (sin away) → descartado
+        {"fixture": {"id": 3, "date": "2026-06-12T19:00:00+00:00"},
+         "teams": {"home": {"name": "Spain"}, "away": {}}},
+    ]
+    sched = wc.parse_schedule(fixtures)
+    assert len(sched) == 2
+    arg = next(s for s in sched if s["home"] == "Argentina")
+    mex = next(s for s in sched if s["home"] == "Mexico")
+    assert arg["neutral"] is True and arg["away"] == "Brazil"
+    assert mex["neutral"] is False
+    assert arg["round"] == "Group Stage - 1"
+
+
 def test_form_output_feeds_model_with_intl_neutral():
     """El dict de forma debe ser consumible por el modelo Poisson internacional."""
     strong = wc.compute_team_form(

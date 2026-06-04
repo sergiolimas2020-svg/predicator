@@ -1245,6 +1245,44 @@ def espn_fixtures(code):
 def nba_fixtures():
     return espn_fixtures("basketball/nba")
 
+# ── Mundial 2026 (selecciones) ─────────────────────────────────
+WORLD_CUP_LEAGUE = "Mundial 2026"
+
+def worldcup_fixtures():
+    """Partidos del Mundial de HOY (hora Colombia) que aún no terminaron.
+
+    Lee static/worldcup_fixtures.json (calendario completo escrito por
+    scrapers/worldcup.py). Sin red. Retorna [(home, away, neutral), ...].
+    """
+    p = Path("static/worldcup_fixtures.json")
+    if not p.exists():
+        return []
+    try:
+        schedule = json.loads(p.read_text(encoding="utf-8"))
+    except Exception as ex:
+        print(f"   Mundial: error leyendo calendario: {ex}")
+        return []
+    out, seen = [], set()
+    for fx in schedule:
+        if (fx.get("status") or "") in ("FT", "AET", "PEN", "Match Finished"):
+            continue
+        date_iso = fx.get("date") or ""
+        try:
+            # ISO con offset (…+00:00) → hora Colombia (UTC-5)
+            dt = datetime.fromisoformat(date_iso.replace("Z", "+00:00"))
+            if dt.tzinfo is None:
+                dt = dt.replace(tzinfo=timezone.utc)
+            col_date = (dt.astimezone(timezone.utc) - timedelta(hours=5)).strftime("%Y-%m-%d")
+        except Exception:
+            continue
+        if col_date != today:
+            continue
+        h, a = fx.get("home"), fx.get("away")
+        if h and a and (h, a) not in seen:
+            seen.add((h, a))
+            out.append((h, a, bool(fx.get("neutral", True))))
+    return out
+
 def load(f):
     p = Path(f"static/{f}")
     return json.load(open(p)) if p.exists() else {}
@@ -1779,15 +1817,17 @@ def evaluate_value(probs, odds, home, away, market_freqs=None, league=None):
 # ══════════════════════════════════════════════════════════════
 #  ORQUESTADOR — llama las 3 capas y devuelve el formato interno
 # ══════════════════════════════════════════════════════════════
-def calc_wp(league, home, hd, away, ad, nba=False, danger=None):
+def calc_wp(league, home, hd, away, ad, nba=False, danger=None, neutral=False, intl=False):
     """Orquesta las 3 capas. Retorna 11-tupla:
     (base_pick, base_prob, display_pick, display_prob, vs, cj, vl, bk_odds,
      confidence_factor, best_eval, all_evals)
     - best_eval: dict completo de evaluate_value() para el pick ganador (None si no hay valor)
     - all_evals: lista completa de todos los mercados evaluados (aceptados y rechazados)
+    - neutral/intl: para fútbol de selecciones (Mundial) — sede neutral y
+      calibración internacional. Default False = comportamiento de clubes intacto.
     vs y display_prob usan valores ajustados por confidence + liquidez.
     """
-    probs = get_probabilities(hd, ad, nba=nba, danger=danger)
+    probs = get_probabilities(hd, ad, nba=nba, danger=danger, neutral=neutral, intl=intl)
     fav       = probs["favorite"]
     fav_team  = home if fav == "home" else away
     p_win_key = "win_home" if fav == "home" else "win_away"
@@ -3127,6 +3167,30 @@ def main():
                             cf = max(CONF_FLOOR, min(1.0, round(cf + corners_ctx["cf_adjustment"], 4)))
                         ext_ctx.setdefault("copy_lines", []).extend(corners_ctx.get("copy_lines", []))
                 candidates.append((vs, league, home, hd, away, ad, False, display_pick, display_prob, cj, vl, base_prob, base_pick, bk_odds, cf, best_eval, all_evals, ext_ctx))
+
+    # ── Mundial 2026 (selecciones) ──────────────────────────────
+    # Fixtures y fuerza de cada selección desde API-Football (forma + Elo de
+    # selección), pre-escritos por scrapers/worldcup.py. El modelo corre con
+    # neutral=<sede> e intl=True (sin localía en cancha neutral, calibración
+    # internacional). El Elo ya viene embebido en worldcup_stats.json.
+    wc_matches = worldcup_fixtures()
+    if wc_matches:
+        wc_stats = load("worldcup_stats.json")
+        print(f"🏆 Mundial 2026: {len(wc_matches)} partido(s) hoy")
+        for home, away, neutral in wc_matches:
+            hd = find(wc_stats, home); ad = find(wc_stats, away)
+            if not hd or not ad:
+                print(f"   ⚠️ Sin stats para {home} vs {away} — se omite")
+                continue
+            hd = dict(hd); ad = dict(ad)
+            base_pick, base_prob, display_pick, display_prob, vs, cj, vl, bk_odds, cf, best_eval, all_evals = \
+                calc_wp(WORLD_CUP_LEAGUE, home, hd, away, ad, nba=False,
+                        danger=None, neutral=neutral, intl=True)
+            all_today_matches.append((WORLD_CUP_LEAGUE, home, away, hd, ad, False))
+            if base_prob >= MIN_CONF_SUBSCRIPTION:
+                candidates.append((vs, WORLD_CUP_LEAGUE, home, hd, away, ad, False,
+                                   display_pick, display_prob, cj, vl, base_prob,
+                                   base_pick, bk_odds, cf, best_eval, all_evals, {}))
 
     nba_games = nba_fixtures()
     if nba_games:

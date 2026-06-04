@@ -53,6 +53,7 @@ from scrapers.elo_ratings import calculate_elo_update, ELO_BASE  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 STATS_OUTPUT = ROOT / "static" / "worldcup_stats.json"
+FIXTURES_OUTPUT = ROOT / "static" / "worldcup_fixtures.json"
 ELO_OUTPUT = ROOT / "static" / "api_football" / "elo_ratings.json"
 
 # Identificadores del Mundial en API-Football
@@ -156,6 +157,43 @@ def compute_team_form(
     }
 
 
+def is_neutral_venue(home_name: str, host_nations=HOST_NATIONS) -> bool:
+    """En el Mundial todo partido es en cancha neutral SALVO cuando el equipo
+    designado 'local' es una selección anfitriona (USA/Canadá/México) jugando
+    en su país. Aproximación: neutral salvo que el local sea anfitrión.
+    """
+    return home_name not in host_nations
+
+
+def parse_schedule(fixtures: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    """Normaliza la respuesta de /fixtures (calendario completo) a una lista
+    ligera: [{date, home, away, venue, neutral, status}]. Función PURA.
+
+    Incluye partidos NO jugados (el calendario es a futuro); por eso no exige
+    goles, solo nombres y fecha.
+    """
+    out = []
+    for fx in fixtures:
+        teams = fx.get("teams", {}) or {}
+        home = (teams.get("home") or {}).get("name")
+        away = (teams.get("away") or {}).get("name")
+        finfo = fx.get("fixture", {}) or {}
+        date_iso = finfo.get("date")
+        if not home or not away or not date_iso:
+            continue
+        venue = (finfo.get("venue") or {}).get("name")
+        out.append({
+            "date": date_iso,
+            "home": home,
+            "away": away,
+            "venue": venue,
+            "neutral": is_neutral_venue(home),
+            "status": (finfo.get("status") or {}).get("short"),
+            "round": (fx.get("league") or {}).get("round"),
+        })
+    return out
+
+
 def compute_elo_pool(matches: List[Dict[str, Any]]) -> Dict[str, float]:
     """Elo cronológico sobre un pool de partidos internacionales (todas las
     selecciones a la vez). Función PURA — reusa la fórmula FIFA-Elo del proyecto.
@@ -198,6 +236,18 @@ def fetch_wc_teams(client: APIFootballClient) -> List[Dict[str, Any]]:
         if team.get("id") and team.get("name"):
             out.append({"id": team["id"], "name": team["name"]})
     return out
+
+
+def fetch_wc_schedule(client: APIFootballClient) -> List[Dict[str, Any]]:
+    """Calendario completo del Mundial 2026 (104 partidos), normalizado.
+
+    Una sola request a /fixtures de toda la temporada (mismo patrón que
+    elo_ratings.compute_league_elo).
+    """
+    resp = client._request(
+        "/fixtures", {"league": WORLD_CUP_LEAGUE_ID, "season": WORLD_CUP_SEASON}
+    )
+    return parse_schedule(resp.get("response", []))
 
 
 def fetch_team_history(client: APIFootballClient, team_id: int, last: int) -> List[Dict[str, Any]]:
@@ -326,6 +376,14 @@ def main() -> int:
     _write_elo(wc_elos)
     logger.info("Escrito: %s", STATS_OUTPUT)
     logger.info("Escrito: %s [%s]", ELO_OUTPUT, ELO_KEY)
+
+    # Calendario completo del Mundial (para que el generador filtre el día sin red).
+    try:
+        schedule = fetch_wc_schedule(client)
+        FIXTURES_OUTPUT.write_text(json.dumps(schedule, ensure_ascii=False, indent=2))
+        logger.info("Escrito: %s (%d partidos)", FIXTURES_OUTPUT, len(schedule))
+    except APIFootballError as e:
+        logger.warning("No se pudo traer el calendario del Mundial: %s", e)
     return 0
 
 
