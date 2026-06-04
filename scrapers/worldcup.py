@@ -1,0 +1,333 @@
+#!/usr/bin/env python3
+"""
+Scraper del Mundial 2026 (selecciones) vía API-Football.
+
+A diferencia de las ligas de clubes, las selecciones NO tienen una tabla de
+posiciones útil antes/durante la fase de grupos del Mundial. Por eso la fuerza
+de cada selección se deriva de su FORMA RECIENTE en partidos internacionales
+reales (eliminatorias, amistosos, Nations League, torneos continentales):
+
+  - ataque/defensa  →  goles a favor/contra en sus últimos N partidos jugados.
+  - Elo de selección →  se calcula procesando cronológicamente el histórico
+                        internacional de las 48 selecciones, reusando la misma
+                        fórmula FIFA-Elo de scrapers/elo_ratings.py.
+
+Salidas:
+  static/worldcup_stats.json                       (formato compatible con el motor)
+  static/api_football/elo_ratings.json["World Cup"] (Elo por selección)
+
+API-Football (verificado jun-2026):
+  liga FIFA World Cup → id=1, season=2026, 48 equipos, 104 partidos.
+  Endpoints usados:
+    /teams?league=1&season=2026               → las 48 selecciones
+    /fixtures?team={id}&last={N}              → forma reciente (todas las comp.)
+
+Carga estimada: 48 equipos × 1 request (forma) + 1 (teams) ≈ 50 requests/run.
+Para Elo con histórico profundo (last≈40) sigue siendo <60 requests. Holgado
+sobre el plan Pro (7.500/día).
+
+Uso:
+  python -m scrapers.worldcup                 # stats + elo, escribe los JSON
+  python -m scrapers.worldcup --form-last 15  # ventana de forma personalizada
+  python -m scrapers.worldcup --dry-run       # imprime sin escribir
+"""
+from __future__ import annotations
+
+import argparse
+import json
+import logging
+import os
+import sys
+from pathlib import Path
+from typing import Any, Dict, List, Optional, Tuple
+
+if __package__ is None or __package__ == "":
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
+from scrapers.api_football.client import (  # noqa: E402
+    APIFootballClient,
+    APIFootballError,
+    APIFootballRateLimitError,
+)
+from scrapers.elo_ratings import calculate_elo_update, ELO_BASE  # noqa: E402
+
+ROOT = Path(__file__).resolve().parents[1]
+STATS_OUTPUT = ROOT / "static" / "worldcup_stats.json"
+ELO_OUTPUT = ROOT / "static" / "api_football" / "elo_ratings.json"
+
+# Identificadores del Mundial en API-Football
+WORLD_CUP_LEAGUE_ID = 1
+WORLD_CUP_SEASON = 2026
+ELO_KEY = "World Cup"
+
+# Sedes anfitrionas: estas selecciones SÍ juegan con localía real.
+# El resto de partidos del Mundial son en cancha neutral.
+HOST_NATIONS = {"USA", "United States", "Canada", "Mexico"}
+
+# Ventanas por defecto (nº de partidos internacionales hacia atrás).
+DEFAULT_FORM_LAST = 12   # forma reciente para ataque/defensa
+DEFAULT_ELO_LAST = 40    # histórico para asentar el Elo de selección
+
+# Estados de partido considerados "jugado".
+FINISHED_STATUSES = {"FT", "AET", "PEN"}
+
+logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
+logger = logging.getLogger("worldcup")
+
+
+# ──────────────────────────────────────────────────────────────────────────
+#  Funciones puras (testeables sin red)
+# ──────────────────────────────────────────────────────────────────────────
+def is_finished(fx: Dict[str, Any]) -> bool:
+    status = fx.get("fixture", {}).get("status", {}).get("short")
+    return status in FINISHED_STATUSES
+
+
+def extract_match(fx: Dict[str, Any]) -> Optional[Dict[str, Any]]:
+    """Normaliza un fixture de API-Football a un dict plano, o None si inválido.
+
+    Devuelve: {fixture_id, ts, home_id, home, away_id, away, gh, ga}
+    """
+    teams = fx.get("teams", {})
+    home = teams.get("home", {}) or {}
+    away = teams.get("away", {}) or {}
+    goals = fx.get("goals", {}) or {}
+    gh, ga = goals.get("home"), goals.get("away")
+    home_name, away_name = home.get("name"), away.get("name")
+    if not home_name or not away_name or gh is None or ga is None:
+        return None
+    return {
+        "fixture_id": fx.get("fixture", {}).get("id"),
+        "ts": fx.get("fixture", {}).get("timestamp", 0) or 0,
+        "home_id": home.get("id"),
+        "home": home_name,
+        "away_id": away.get("id"),
+        "away": away_name,
+        "gh": int(gh),
+        "ga": int(ga),
+    }
+
+
+def compute_team_form(
+    matches: List[Dict[str, Any]], team_id: int, team_name: str, max_matches: int
+) -> Dict[str, Any]:
+    """Calcula goles a favor/contra y récord de una selección desde sus partidos.
+
+    `matches` = lista de matches normalizados (cualquier orden); se toman los
+    `max_matches` más recientes en los que participa `team_id`.
+    Función PURA — sin red, testeable con fixtures mock.
+    """
+    mine = [m for m in matches if team_id in (m.get("home_id"), m.get("away_id"))]
+    mine.sort(key=lambda m: m.get("ts", 0), reverse=True)
+    mine = mine[:max_matches]
+
+    gf = gc = ganados = empatados = perdidos = 0
+    for m in mine:
+        is_home = m.get("home_id") == team_id
+        scored = m["gh"] if is_home else m["ga"]
+        conceded = m["ga"] if is_home else m["gh"]
+        gf += scored
+        gc += conceded
+        if scored > conceded:
+            ganados += 1
+        elif scored == conceded:
+            empatados += 1
+        else:
+            perdidos += 1
+
+    n = len(mine)
+    return {
+        "corners": {},
+        "goals": {},
+        "position": {
+            "posicion": 0,            # sin tabla en fase de grupos
+            "partidos": n,
+            "ganados": ganados,
+            "empatados": empatados,
+            "perdidos": perdidos,
+            "goles_favor": gf,
+            "goles_contra": gc,
+            "diferencia": gf - gc,
+            "puntos": ganados * 3 + empatados,
+        },
+        "_source": "api_football:form",
+        "_team_id": team_id,
+        "_team_name": team_name,
+    }
+
+
+def compute_elo_pool(matches: List[Dict[str, Any]]) -> Dict[str, float]:
+    """Elo cronológico sobre un pool de partidos internacionales (todas las
+    selecciones a la vez). Función PURA — reusa la fórmula FIFA-Elo del proyecto.
+
+    Dedup por fixture_id (un partido entre dos selecciones del Mundial aparece
+    en el histórico de ambas). Inicializa todas en ELO_BASE.
+    """
+    seen = set()
+    unique: List[Dict[str, Any]] = []
+    for m in matches:
+        fid = m.get("fixture_id")
+        key = fid if fid is not None else (m["ts"], m["home"], m["away"])
+        if key in seen:
+            continue
+        seen.add(key)
+        unique.append(m)
+
+    unique.sort(key=lambda m: m.get("ts", 0))  # cronológico ascendente
+
+    elos: Dict[str, float] = {}
+    for m in unique:
+        h, a = m["home"], m["away"]
+        elos.setdefault(h, ELO_BASE)
+        elos.setdefault(a, ELO_BASE)
+        dh, da = calculate_elo_update(elos[h], elos[a], m["gh"], m["ga"])
+        elos[h] += dh
+        elos[a] += da
+    return {team: round(v, 1) for team, v in elos.items()}
+
+
+# ──────────────────────────────────────────────────────────────────────────
+#  Acceso a red (API-Football)
+# ──────────────────────────────────────────────────────────────────────────
+def fetch_wc_teams(client: APIFootballClient) -> List[Dict[str, Any]]:
+    """Las 48 selecciones del Mundial 2026: [{id, name}, ...]."""
+    resp = client.get_teams(WORLD_CUP_LEAGUE_ID, WORLD_CUP_SEASON)
+    out = []
+    for item in resp.get("response", []):
+        team = item.get("team", {}) or {}
+        if team.get("id") and team.get("name"):
+            out.append({"id": team["id"], "name": team["name"]})
+    return out
+
+
+def fetch_team_history(client: APIFootballClient, team_id: int, last: int) -> List[Dict[str, Any]]:
+    """Últimos `last` partidos jugados de una selección (todas las competiciones)."""
+    resp = client.get_team_last_fixtures(team_id, last=last)
+    matches = []
+    for fx in resp.get("response", []):
+        if not is_finished(fx):
+            continue
+        m = extract_match(fx)
+        if m:
+            matches.append(m)
+    return matches
+
+
+def build(
+    client: APIFootballClient,
+    form_last: int = DEFAULT_FORM_LAST,
+    elo_last: int = DEFAULT_ELO_LAST,
+) -> Tuple[Dict[str, Any], Dict[str, float]]:
+    """Construye stats y Elo de las 48 selecciones. Una sola pasada de red:
+    descarga el histórico (elo_last) por equipo y reutiliza esos mismos
+    partidos tanto para la forma (recortada a form_last) como para el Elo.
+    """
+    teams = fetch_wc_teams(client)
+    logger.info("Selecciones del Mundial encontradas: %d", len(teams))
+    if not teams:
+        raise APIFootballError("API-Football no devolvió equipos para league=1 season=2026")
+
+    history_by_team: Dict[int, List[Dict[str, Any]]] = {}
+    pool: List[Dict[str, Any]] = []
+    depth = max(form_last, elo_last)
+
+    for t in teams:
+        try:
+            hist = fetch_team_history(client, t["id"], last=depth)
+        except APIFootballRateLimitError:
+            logger.error("Rate limit alcanzado en %s — abortando recolección.", t["name"])
+            raise
+        except APIFootballError as e:
+            logger.warning("Sin histórico para %s: %s", t["name"], e)
+            hist = []
+        history_by_team[t["id"]] = hist
+        pool.extend(hist)
+        logger.info("  %-18s %d partidos", t["name"], len(hist))
+
+    elos = compute_elo_pool(pool)
+
+    stats: Dict[str, Any] = {}
+    for t in teams:
+        form = compute_team_form(history_by_team[t["id"]], t["id"], t["name"], form_last)
+        elo_val = elos.get(t["name"])
+        if elo_val is not None:
+            form["elo"] = elo_val
+        form["host"] = t["name"] in HOST_NATIONS
+        stats[t["name"]] = form
+
+    # Sub-dict de Elo solo con las selecciones del Mundial
+    wc_elos = {t["name"]: elos[t["name"]] for t in teams if t["name"] in elos}
+    return stats, wc_elos
+
+
+# ──────────────────────────────────────────────────────────────────────────
+#  CLI
+# ──────────────────────────────────────────────────────────────────────────
+def _load_api_key() -> Optional[str]:
+    key = os.environ.get("API_FOOTBALL_KEY")
+    if key:
+        return key
+    env_path = ROOT / ".env"
+    if env_path.exists():
+        for line in env_path.read_text().splitlines():
+            if line.startswith("API_FOOTBALL_KEY="):
+                return line.split("=", 1)[1].strip().strip('"').strip("'")
+    return None
+
+
+def _write_elo(wc_elos: Dict[str, float]) -> None:
+    """Fusiona el Elo de selecciones en elo_ratings.json bajo la clave 'World Cup'
+    sin pisar las ligas de clubes ya calculadas."""
+    all_elos: Dict[str, Any] = {}
+    if ELO_OUTPUT.exists():
+        try:
+            all_elos = json.loads(ELO_OUTPUT.read_text())
+        except Exception:
+            all_elos = {}
+    all_elos[ELO_KEY] = wc_elos
+    ELO_OUTPUT.parent.mkdir(parents=True, exist_ok=True)
+    ELO_OUTPUT.write_text(json.dumps(all_elos, ensure_ascii=False, indent=2))
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser(description="Scraper Mundial 2026 (selecciones)")
+    ap.add_argument("--form-last", type=int, default=DEFAULT_FORM_LAST,
+                    help="nº de partidos para la forma reciente (ataque/defensa)")
+    ap.add_argument("--elo-last", type=int, default=DEFAULT_ELO_LAST,
+                    help="nº de partidos por equipo para asentar el Elo")
+    ap.add_argument("--dry-run", action="store_true", help="no escribe archivos")
+    args = ap.parse_args()
+
+    api_key = _load_api_key()
+    if not api_key:
+        logger.error("API_FOOTBALL_KEY no encontrada (ni en entorno ni en .env). "
+                     "Agrega 'API_FOOTBALL_KEY=...' a %s/.env", ROOT)
+        return 2
+
+    client = APIFootballClient(api_key=api_key)
+    # Workaround SSL local (igual que elo_ratings.py)
+    import urllib3
+    urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+    client.session.verify = False
+
+    try:
+        stats, wc_elos = build(client, form_last=args.form_last, elo_last=args.elo_last)
+    except APIFootballError as e:
+        logger.error("Fallo construyendo datos del Mundial: %s", e)
+        return 1
+
+    logger.info("Stats de %d selecciones | Elo de %d selecciones", len(stats), len(wc_elos))
+    if args.dry_run:
+        top = sorted(wc_elos.items(), key=lambda kv: kv[1], reverse=True)[:10]
+        logger.info("Top-10 Elo (preview): %s", top)
+        return 0
+
+    STATS_OUTPUT.write_text(json.dumps(stats, ensure_ascii=False, indent=2))
+    _write_elo(wc_elos)
+    logger.info("Escrito: %s", STATS_OUTPUT)
+    logger.info("Escrito: %s [%s]", ELO_OUTPUT, ELO_KEY)
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
