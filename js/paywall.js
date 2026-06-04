@@ -198,7 +198,7 @@ function renderBetplaySection(pick) {
 
 // ── Card completa (desbloqueada) ──
 function renderPickCard(pick, tier) {
-  const icon = (pick.league || '').includes('NBA') ? '🏀' : '⚽';
+  const icon = (pick.league || '').includes('NBA') ? '🏀' : (pick.league || '').includes('Mundial') ? '🏆' : '⚽';
   const odds = pick.bk_odds ? `@${pick.bk_odds}` : '';
   const prob = pick.prob_adjusted ? `${Math.round(pick.prob_adjusted)}%` : '—';
   const ev = pick.ev_adjusted ? `${pick.ev_adjusted.toFixed(1)}%` : null;
@@ -229,7 +229,7 @@ function renderPickCard(pick, tier) {
 
 // ── Hero card: pick gratuito destacado ──
 function renderHeroCard(pick) {
-  const icon = (pick.league || '').includes('NBA') ? '🏀' : '⚽';
+  const icon = (pick.league || '').includes('NBA') ? '🏀' : (pick.league || '').includes('Mundial') ? '🏆' : '⚽';
   const odds = pick.bk_odds ? pick.bk_odds : '—';
   const prob = pick.prob_adjusted ? `${Math.round(pick.prob_adjusted)}%` : '—';
   const ev = pick.ev_adjusted != null ? `+${pick.ev_adjusted.toFixed(1)}%` : null;
@@ -286,7 +286,7 @@ function renderGoalsAnalysisCard(item) {
 
 // ── Card bloqueada (teaser) ──
 function renderLockedCard(pick, tier) {
-  const icon = (pick.league || '').includes('NBA') ? '🏀' : '⚽';
+  const icon = (pick.league || '').includes('NBA') ? '🏀' : (pick.league || '').includes('Mundial') ? '🏆' : '⚽';
   const lockClass = tier === 'premium' ? 'pw-locked-premium' : 'pw-locked-sub';
 
   return `
