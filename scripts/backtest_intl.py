@@ -154,6 +154,62 @@ def _metrics(records, n_total, warm_n) -> Dict[str, Any]:
     }
 
 
+def _apply_temperature(probs: List[float], T: float) -> List[float]:
+    """Temperature scaling: aplana (T>1) o agudiza (T<1) sin mover el argmax."""
+    if T <= 0:
+        return probs
+    pw = [max(1e-9, p) ** (1.0 / T) for p in probs]
+    s = sum(pw)
+    return [p / s for p in pw]
+
+
+def fit_temperature(records) -> Tuple[float, Dict[str, Any]]:
+    """Ajusta la temperatura que minimiza log-loss en los registros PIT.
+
+    T>1 reduce la sobre-confianza. Devuelve (T, métricas antes/después).
+    Barrido fino en [0.5, 4.0]; suficiente y robusto para 1 parámetro.
+    """
+    def logloss(T):
+        tot = 0.0
+        for p, act, _ in records:
+            pc = _apply_temperature(p, T)
+            tot += -math.log(max(1e-12, pc[act]))
+        return tot / len(records)
+
+    def brier(T):
+        tot = 0.0
+        for p, act, _ in records:
+            pc = _apply_temperature(p, T)
+            tot += sum((pc[k] - (1.0 if act == k else 0.0)) ** 2 for k in range(3))
+        return tot / len(records)
+
+    best_T, best_ll = 1.0, logloss(1.0)
+    T = 0.5
+    while T <= 4.001:
+        ll = logloss(T)
+        if ll < best_ll:
+            best_ll, best_T = ll, round(T, 2)
+        T += 0.05
+    metrics = {
+        "T": best_T,
+        "logloss_before": round(logloss(1.0), 4), "logloss_after": round(best_ll, 4),
+        "brier_before": round(brier(1.0), 4), "brier_after": round(brier(best_T), 4),
+    }
+    return best_T, metrics
+
+
+def calibrated_calibration_table(records, T: float) -> Dict[str, Any]:
+    buckets = defaultdict(lambda: [0, 0])
+    for p, act, _ in records:
+        pc = _apply_temperature(p, T)
+        k = max(range(3), key=lambda j: pc[j])
+        b = min(9, int(pc[k] * 10))
+        buckets[b][0] += 1
+        buckets[b][1] += 1 if k == act else 0
+    return {f"{b*10}-{b*10+10}%": {"n": v[0], "acc": round(v[1]/v[0], 3)}
+            for b, v in sorted(buckets.items()) if v[0] > 0}
+
+
 def format_report(r: Dict[str, Any]) -> str:
     if r.get("n", 0) == 0:
         return "Sin muestras evaluables (pool insuficiente)."
@@ -179,17 +235,69 @@ def format_report(r: Dict[str, Any]) -> str:
     return "\n".join(x for x in lines if x != "")
 
 
+def run_backtest_records(pool: List[Dict[str, Any]], warmup: float):
+    """Igual que run_backtest pero devuelve también los registros crudos
+    (para ajustar la temperatura)."""
+    elos: Dict[str, float] = defaultdict(lambda: ELO_BASE)
+    forms: Dict[str, Deque[Tuple[int, int]]] = defaultdict(lambda: deque(maxlen=FORM_WINDOW))
+    n_total = len(pool)
+    warm_n = int(n_total * warmup)
+    records = []
+    for i, m in enumerate(pool):
+        h, a = m["home"], m["away"]
+        gh, ga = m["gh"], m["ga"]
+        neutral = is_neutral_venue(h)
+        if i >= warm_n and len(forms[h]) >= 3 and len(forms[a]) >= 3:
+            hd = _form_dict(forms[h]); hd["elo"] = elos[h]
+            ad = _form_dict(forms[a]); ad["elo"] = elos[a]
+            w, d, l = g.prob_futbol_3way(hd, ad, neutral=neutral, intl=True)
+            probs = [max(1e-6, w/100.0), max(1e-6, d/100.0), max(1e-6, l/100.0)]
+            s = sum(probs); probs = [p/s for p in probs]
+            actual = 0 if gh > ga else (1 if gh == ga else 2)
+            elo_pick = 0 if elos[h] >= elos[a] else 2
+            records.append((probs, actual, elo_pick))
+        dh, da = calculate_elo_update(elos[h], elos[a], gh, ga)
+        elos[h] += dh; elos[a] += da
+        forms[h].append((gh, ga)); forms[a].append((ga, gh))
+    return records, n_total, warm_n
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--depth", type=int, default=40, help="histórico por equipo")
     ap.add_argument("--warmup", type=float, default=0.30, help="fracción inicial descartada")
     ap.add_argument("--report", type=str, default=None, help="ruta para guardar el .md")
+    ap.add_argument("--fit", action="store_true",
+                    help="ajusta la temperatura y escribe static/calibrator_intl.json")
     args = ap.parse_args()
 
     pool = build_pool(args.depth)
-    r = run_backtest(pool, args.warmup)
+    records, n_total, warm_n = run_backtest_records(pool, args.warmup)
+    r = _metrics(records, n_total, warm_n)
     report = format_report(r)
     print("\n" + report)
+
+    if args.fit and records:
+        import json
+        T, fm = fit_temperature(records)
+        print(f"\n=== Calibración (temperature scaling) ===")
+        print(f"T óptimo = {T}")
+        print(f"log-loss: {fm['logloss_before']} → {fm['logloss_after']}")
+        print(f"Brier:    {fm['brier_before']} → {fm['brier_after']}")
+        print("Calibración del favorito DESPUÉS:")
+        for b, v in calibrated_calibration_table(records, T).items():
+            print(f"  {b}: n={v['n']} acc={v['acc']:.1%}")
+        out = Path(__file__).resolve().parents[1] / "static" / "calibrator_intl.json"
+        out.write_text(json.dumps({
+            "method": "temperature_scaling",
+            "temperature": T,
+            "n_samples": len(records),
+            "logloss_before": fm["logloss_before"], "logloss_after": fm["logloss_after"],
+            "brier_before": fm["brier_before"], "brier_after": fm["brier_after"],
+            "note": "Aplicar a probs 1X2 con intl=True: p_k^(1/T) normalizado.",
+        }, ensure_ascii=False, indent=2))
+        print(f"\nCalibrador escrito en {out}")
+
     if args.report:
         Path(args.report).write_text(report, encoding="utf-8")
         print(f"\nReporte escrito en {args.report}")

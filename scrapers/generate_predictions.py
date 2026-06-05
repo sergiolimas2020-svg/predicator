@@ -402,6 +402,14 @@ USE_CALIBRATION         = True
 CALIBRATOR_PATH         = "static/calibrator.json"
 MIN_CALIBRATION_SAMPLES = 20             # mínimo de picks verificados para entrenar
 
+# ── Calibrador internacional (selecciones) ───────────────────
+# Temperature scaling ajustado con backtest point-in-time (scripts/backtest_intl.py).
+# Corrige la sobre-confianza del modelo en fútbol de selecciones: T>1 aplana las
+# probabilidades 1X2 hacia la frecuencia real SIN cambiar a quién elige el modelo.
+# Solo se aplica con intl=True (Mundial), nunca a clubes/NBA.
+USE_INTL_CALIBRATION    = True
+INTL_CALIBRATOR_PATH    = "static/calibrator_intl.json"
+
 # Factor por frecuencia del mercado (muestra pequeña → calibración menos fiable)
 CONF_FREQ_MID_THRESHOLD = 0.30   # freq < 0.30 → muestra reducida
 CONF_FREQ_LOW_THRESHOLD = 0.10   # freq < 0.10 → muestra muy pequeña
@@ -654,6 +662,41 @@ def fit_platt_calibrator(pairs, iters=6000, lr=0.3):
         A -= lr * gA / n
         B -= lr * gB / n
     return round(A, 6), round(B, 6)
+
+
+_INTL_CALIB_CACHE = "unset"  # sentinela: aún no leído
+
+def _load_intl_calibrator():
+    """Lee INTL_CALIBRATOR_PATH (temperature scaling). Devuelve la temperatura
+    (float > 0) o None si no existe/está deshabilitado. Cacheado por proceso."""
+    global _INTL_CALIB_CACHE
+    if _INTL_CALIB_CACHE != "unset":
+        return _INTL_CALIB_CACHE
+    T = None
+    if USE_INTL_CALIBRATION:
+        p = Path(INTL_CALIBRATOR_PATH)
+        if p.exists():
+            try:
+                data = json.loads(p.read_text(encoding="utf-8"))
+                t = data.get("temperature")
+                if t and float(t) > 0:
+                    T = float(t)
+            except Exception as e:
+                print(f"  ⚠ intl calibrator load error: {e}")
+    _INTL_CALIB_CACHE = T
+    return T
+
+
+def _apply_temperature_3way(p_win, p_draw, p_lose, T):
+    """Aplana (T>1) la distribución 1X2 vía temperature scaling, preservando el
+    orden (argmax). Devuelve probabilidades renormalizadas."""
+    if not T or T <= 0 or T == 1.0:
+        return p_win, p_draw, p_lose
+    pw = max(1e-9, p_win) ** (1.0 / T)
+    pd = max(1e-9, p_draw) ** (1.0 / T)
+    pl = max(1e-9, p_lose) ** (1.0 / T)
+    s = pw + pd + pl
+    return pw / s, pd / s, pl / s
 
 
 def _load_calibrator():
@@ -1551,7 +1594,14 @@ def prob_futbol_3way_raw(hd, ad, danger=None, neutral=False, intl=False):
         p_lose /= total
     else:
         p_win, p_draw, p_lose = 0.37, 0.26, 0.37
-        
+
+    # Calibración internacional (temperature scaling) — solo selecciones.
+    # Corrige la sobre-confianza medida en el backtest PIT sin mover el argmax.
+    if intl:
+        T = _load_intl_calibrator()
+        if T:
+            p_win, p_draw, p_lose = _apply_temperature_3way(p_win, p_draw, p_lose, T)
+
     return p_win, p_draw, p_lose
 
 # ══════════════════════════════════════════════════════════════

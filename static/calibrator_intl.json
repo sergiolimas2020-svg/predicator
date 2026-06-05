@@ -1,0 +1,10 @@
+{
+  "method": "temperature_scaling",
+  "temperature": 2.3,
+  "n_samples": 1160,
+  "logloss_before": 1.0887,
+  "logloss_after": 0.949,
+  "brier_before": 0.6066,
+  "brier_after": 0.5622,
+  "note": "Aplicar a probs 1X2 con intl=True: p_k^(1/T) normalizado."
+}

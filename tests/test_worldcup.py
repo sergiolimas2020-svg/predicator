@@ -159,6 +159,36 @@ def test_seed_elo_alias_and_normalization():
     assert wc.seed_elo_for("Atlantis") is None
 
 
+def test_temperature_preserves_argmax_and_reduces_confidence():
+    from scrapers.generate_predictions import _apply_temperature_3way
+    pw, pd, pl = 0.90, 0.07, 0.03
+    cw, cd, cl = _apply_temperature_3way(pw, pd, pl, T=2.3)
+    # suma 1, mismo favorito, menos confianza, renormalizado
+    assert abs(cw + cd + cl - 1.0) < 1e-9
+    assert cw == max(cw, cd, cl)        # sigue siendo el favorito
+    assert cw < pw                       # menos sobre-confiado
+    # T=1 no cambia nada
+    assert _apply_temperature_3way(pw, pd, pl, T=1.0) == (pw, pd, pl)
+
+
+def test_intl_calibration_softens_but_keeps_pick():
+    """Con calibrador intl activo, el favorito baja su prob pero sigue siendo
+    el favorito; clubes (intl=False) no se tocan."""
+    import scrapers.generate_predictions as g
+    strong = wc.compute_team_form(
+        [wc.extract_match(_fx(1, 100, ARG, "Argentina", TON, "Tonga", 4, 0))], ARG, "Argentina", 10)
+    weak = wc.compute_team_form(
+        [wc.extract_match(_fx(2, 100, TON, "Tonga", ARG, "Argentina", 0, 4))], TON, "Tonga", 10)
+    strong["elo"], weak["elo"] = 2100, 1430
+    raw = g.prob_futbol_3way_raw(strong, weak, neutral=True, intl=False)
+    cal = g.prob_futbol_3way_raw(strong, weak, neutral=True, intl=True)
+    # si hay calibrador cargado (T>1), la prob del favorito intl <= cruda
+    if g._load_intl_calibrator():
+        assert cal[0] <= raw[0] + 1e-9
+    # el favorito se mantiene en ambos
+    assert raw[0] == max(raw) and cal[0] == max(cal)
+
+
 def test_form_output_feeds_model_with_intl_neutral():
     """El dict de forma debe ser consumible por el modelo Poisson internacional."""
     strong = wc.compute_team_form(
