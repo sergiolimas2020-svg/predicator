@@ -72,6 +72,32 @@ DEFAULT_ELO_LAST = 40    # histórico para asentar el Elo de selección
 # Estados de partido considerados "jugado".
 FINISHED_STATUSES = {"FT", "AET", "PEN"}
 
+# ── Elo real de selecciones (World Football Elo / eloratings.net) ──────────
+# Fuente: Wikipedia "Module:SportsRankings/data/World_Football_Elo_Ratings",
+# valores actualizados 2026-06-01. Es el estándar de oro para fuerza de
+# selecciones (a diferencia de los clubes, API-Football NO expone Elo, y
+# derivarlo arrancando todos en 1500 produce ordenamientos falsos por sesgo
+# regional). Keyed por el nombre EXACTO que devuelve API-Football (league=1).
+# Revisar/actualizar al inicio del Mundial corriendo otra vez la captura.
+ELO_SEED: Dict[str, float] = {
+    "Spain": 2165, "Argentina": 2113, "France": 2081, "England": 2020,
+    "Brazil": 1988, "Portugal": 1984, "Colombia": 1977, "Netherlands": 1961,
+    "Ecuador": 1935, "Croatia": 1930, "Germany": 1925, "Norway": 1917,
+    "Türkiye": 1906, "Japan": 1906, "Switzerland": 1894, "Uruguay": 1892,
+    "Mexico": 1868, "Belgium": 1866, "Senegal": 1866, "Italy": 1856,
+    "Paraguay": 1833, "Austria": 1830, "Morocco": 1822, "Canada": 1793,
+    "Australia": 1775, "Scotland": 1770, "Iran": 1764, "South Korea": 1756,
+    "Algeria": 1743, "Panama": 1733, "Czech Republic": 1733, "USA": 1733,
+    "Uzbekistan": 1718, "Sweden": 1714, "Egypt": 1699, "Jordan": 1685,
+    "Ivory Coast": 1676, "Congo DR": 1655, "Tunisia": 1633, "Iraq": 1608,
+    "Bosnia & Herzegovina": 1591, "New Zealand": 1585, "Cape Verde Islands": 1576,
+    "Saudi Arabia": 1566, "Haiti": 1532, "South Africa": 1517, "Ghana": 1503,
+    "Curaçao": 1433, "Qatar": 1423,
+}
+# Default conservador para una selección sin seed (debería ser raro: todas las
+# del Mundial están arriba). Media-baja del pool de selecciones.
+ELO_DEFAULT = 1500.0
+
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 logger = logging.getLogger("worldcup")
 
@@ -194,12 +220,49 @@ def parse_schedule(fixtures: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     return out
 
 
+def _norm_team(name: str) -> str:
+    """Normaliza un nombre de selección para emparejar contra ELO_SEED:
+    minúsculas, sin tildes, alfanumérico. Tolera variantes de grafía."""
+    import unicodedata
+    s = unicodedata.normalize("NFKD", name or "")
+    s = "".join(c for c in s if not unicodedata.combining(c))
+    return "".join(ch for ch in s.lower() if ch.isalnum())
+
+
+_ELO_SEED_NORM = {_norm_team(k): v for k, v in ELO_SEED.items()}
+
+
+def seed_elo_for(name: str) -> Optional[float]:
+    """Elo real (World Football Elo) de una selección por nombre, o None.
+
+    Empareja primero exacto, luego normalizado (sin tildes/espacios), y por
+    último algunos alias de grafía frecuentes entre API-Football y eloratings.
+    """
+    if name in ELO_SEED:
+        return ELO_SEED[name]
+    n = _norm_team(name)
+    if n in _ELO_SEED_NORM:
+        return _ELO_SEED_NORM[n]
+    aliases = {
+        "turkey": "Türkiye", "drcongo": "Congo DR", "democraticrepublicofthecongo": "Congo DR",
+        "capeverde": "Cape Verde Islands", "unitedstates": "USA", "usmnt": "USA",
+        "southkorea": "South Korea", "korearepublic": "South Korea",
+        "bosniaandherzegovina": "Bosnia & Herzegovina", "ivorycoast": "Ivory Coast",
+        "cotedivoire": "Ivory Coast", "curacao": "Curaçao",
+    }
+    canon = aliases.get(n)
+    return ELO_SEED.get(canon) if canon else None
+
+
 def compute_elo_pool(matches: List[Dict[str, Any]]) -> Dict[str, float]:
     """Elo cronológico sobre un pool de partidos internacionales (todas las
     selecciones a la vez). Función PURA — reusa la fórmula FIFA-Elo del proyecto.
 
     Dedup por fixture_id (un partido entre dos selecciones del Mundial aparece
     en el histórico de ambas). Inicializa todas en ELO_BASE.
+
+    NOTA: para el Mundial, build() prefiere ELO_SEED (Elo real) sobre esta
+    derivación dinámica, que sólo se usa como respaldo de robustez.
     """
     seen = set()
     unique: List[Dict[str, Any]] = []
@@ -294,19 +357,32 @@ def build(
         pool.extend(hist)
         logger.info("  %-18s %d partidos", t["name"], len(hist))
 
-    elos = compute_elo_pool(pool)
+    # Elo dinámico (respaldo) sobre el histórico real, por si falta algún seed.
+    dynamic_elos = compute_elo_pool(pool)
 
     stats: Dict[str, Any] = {}
+    wc_elos: Dict[str, float] = {}
+    seeded = 0
     for t in teams:
-        form = compute_team_form(history_by_team[t["id"]], t["id"], t["name"], form_last)
-        elo_val = elos.get(t["name"])
+        name = t["name"]
+        form = compute_team_form(history_by_team[t["id"]], t["id"], name, form_last)
+        # Prioridad: Elo REAL (World Football Elo) → dinámico → default.
+        elo_val = seed_elo_for(name)
         if elo_val is not None:
-            form["elo"] = elo_val
-        form["host"] = t["name"] in HOST_NATIONS
-        stats[t["name"]] = form
+            form["elo_source"] = "world_football_elo"
+            seeded += 1
+        else:
+            elo_val = dynamic_elos.get(name, ELO_DEFAULT)
+            form["elo_source"] = "dynamic" if name in dynamic_elos else "default"
+            logger.warning("Sin seed de Elo para '%s' → %s (%.0f)",
+                           name, form["elo_source"], elo_val)
+        form["elo"] = round(float(elo_val), 1)
+        form["host"] = name in HOST_NATIONS
+        stats[name] = form
+        wc_elos[name] = form["elo"]
 
-    # Sub-dict de Elo solo con las selecciones del Mundial
-    wc_elos = {t["name"]: elos[t["name"]] for t in teams if t["name"] in elos}
+    logger.info("Elo: %d/%d selecciones con valor real (World Football Elo)",
+                seeded, len(teams))
     return stats, wc_elos
 
 

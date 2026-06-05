@@ -137,6 +137,28 @@ def test_parse_schedule_includes_future_matches_and_neutral_flag():
     assert arg["round"] == "Group Stage - 1"
 
 
+def test_seed_elo_real_values_and_ordering():
+    # Valores reales (World Football Elo, 2026-06-01) y orden esperado
+    assert wc.seed_elo_for("Spain") == 2165
+    assert wc.seed_elo_for("Argentina") == 2113
+    assert wc.seed_elo_for("Brazil") == 1988
+    assert wc.seed_elo_for("Spain") > wc.seed_elo_for("France") > wc.seed_elo_for("Brazil")
+    # Cubre las 48 selecciones del Mundial (+ alguna referencia extra como Italia)
+    assert len(wc.ELO_SEED) >= 48
+    assert all(v >= 1400 for v in wc.ELO_SEED.values())
+
+
+def test_seed_elo_alias_and_normalization():
+    # Grafías alternativas de API-Football / fuentes
+    assert wc.seed_elo_for("Turkey") == wc.seed_elo_for("Türkiye")
+    assert wc.seed_elo_for("United States") == wc.seed_elo_for("USA")
+    assert wc.seed_elo_for("DR Congo") == wc.seed_elo_for("Congo DR")
+    assert wc.seed_elo_for("Cape Verde") == wc.seed_elo_for("Cape Verde Islands")
+    assert wc.seed_elo_for("Curacao") == wc.seed_elo_for("Curaçao")
+    # Desconocida → None (cae al respaldo en build)
+    assert wc.seed_elo_for("Atlantis") is None
+
+
 def test_form_output_feeds_model_with_intl_neutral():
     """El dict de forma debe ser consumible por el modelo Poisson internacional."""
     strong = wc.compute_team_form(
