@@ -280,6 +280,11 @@ MIN_CUOTA_DC      = 1.50   # cuota mínima para DC (doble oportunidad)
 MIN_CUOTA_OVER25  = 1.60   # cuota mínima para Over 2.5 goles
 MIN_CUOTA_OVER15  = 1.40   # cuota mínima para Over 1.5 goles
 COLOMBIA_MIN_CONF       = 70.0  # prob mínima para picks estadísticos (Liga Colombiana)
+# Mundial 2026: igual que Liga Colombiana, NO usa The Odds API (sus cuotas son
+# europeas y no reflejan BetPlay). Pick estadístico por probabilidad CALIBRADA
+# + cuota justa. Umbral sobre la prob 1X2 ya calibrada (temperature scaling),
+# que es más baja que la cruda → 58% calibrado ≈ favorito claro y honesto.
+WORLDCUP_MIN_CONF       = 58.0
 MIN_VALID_ODDS          = 1.0   # cuota mínima válida del bookmaker (< 1.0 = dato inválido)
 GOALS_FALLBACK_REGRESS  = 0.70  # factor de regresión al centro para fallback histórico de goles
 CUOTA_INFINITA          = 99.0  # cuota centinela cuando la probabilidad es 0
@@ -1906,8 +1911,14 @@ def calc_wp(league, home, hd, away, ad, nba=False, danger=None, neutral=False, i
     # Fútbol
     odds = get_market_odds(home, away, league)
     if not odds:
+        # Picks estadísticos (probabilidad + cuota justa) para ligas SIN cuotas
+        # en The Odds API. El Mundial entra acá a propósito: NO usamos las cuotas
+        # europeas de Odds API (no reflejan BetPlay). Cuota justa = 100/prob.
         if league == "Liga Colombiana" and base_prob >= COLOMBIA_MIN_CONF:
             return fav_team, base_prob, fav_team, base_prob, 1, None, "estadistico", None, 1.0, None, []
+        if league == WORLD_CUP_LEAGUE and base_prob >= WORLDCUP_MIN_CONF:
+            # Mundial: cuota JUSTA (100/prob), nunca cuota europea de Odds API.
+            return fav_team, base_prob, fav_team, base_prob, 1, cuota_justa(base_prob), "estadistico", None, 1.0, None, []
         return fav_team, base_prob, fav_team, base_prob, 0, None, "bajo", None, 1.0, None, []
 
     bk_win    = odds.get(win_key)
