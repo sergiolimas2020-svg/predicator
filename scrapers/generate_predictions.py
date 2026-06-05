@@ -281,10 +281,9 @@ MIN_CUOTA_OVER25  = 1.60   # cuota mínima para Over 2.5 goles
 MIN_CUOTA_OVER15  = 1.40   # cuota mínima para Over 1.5 goles
 COLOMBIA_MIN_CONF       = 70.0  # prob mínima para picks estadísticos (Liga Colombiana)
 # Mundial 2026: igual que Liga Colombiana, NO usa The Odds API (sus cuotas son
-# europeas y no reflejan BetPlay). Pick estadístico por probabilidad CALIBRADA
-# + cuota justa. Umbral sobre la prob 1X2 ya calibrada (temperature scaling),
-# que es más baja que la cruda → 58% calibrado ≈ favorito claro y honesto.
-WORLDCUP_MIN_CONF       = 58.0
+# europeas y no reflejan BetPlay). El pick se emite por RESPALDO ESTADÍSTICO en
+# el mejor mercado (gana / DNB / doble oportunidad); los umbrales por mercado
+# viven en WC_WIN_BAR / WC_DNB_BAR / WC_DC_BAR (junto a _worldcup_stat_pick).
 MIN_VALID_ODDS          = 1.0   # cuota mínima válida del bookmaker (< 1.0 = dato inválido)
 GOALS_FALLBACK_REGRESS  = 0.70  # factor de regresión al centro para fallback histórico de goles
 CUOTA_INFINITA          = 99.0  # cuota centinela cuando la probabilidad es 0
@@ -1869,6 +1868,39 @@ def evaluate_value(probs, odds, home, away, market_freqs=None, league=None):
     return valid_picks + invalid_picks
 
 
+# ── Mundial: selección de mercado por RESPALDO ESTADÍSTICO ────
+# Sin cuotas (no usamos Odds API). El pick se emite en el mercado donde la
+# probabilidad CALIBRADA respalda de verdad que el resultado se dé. Bares
+# alineados con el acierto medido en el backtest PIT (scripts/backtest_intl.py):
+#   - Gana directo (1X2)        ≥ 60%  → en 60-70% el backtest midió ~68% acierto
+#   - Sin empate (DNB)          ≥ 70%  → favorito claro, descontando el empate
+#   - Doble oportunidad (1X/X2) ≥ 80%  → "no pierde", respaldo muy alto
+# Se prefiere el mercado más informativo que supere su bar (gana > DNB > DC).
+WC_WIN_BAR = 60.0
+WC_DNB_BAR = 70.0
+WC_DC_BAR  = 80.0
+
+def _worldcup_stat_pick(probs, home, away):
+    """Devuelve (label, prob_pct, tipo) del mercado con respaldo estadístico
+    suficiente para el favorito, o None si ningún mercado lo tiene.
+    Usa probabilidades YA calibradas (intl temperature scaling)."""
+    fav = probs.get("favorite")
+    if fav not in ("home", "away"):
+        return None
+    fav_team = home if fav == "home" else away
+    win = probs["win_home"] if fav == "home" else probs["win_away"]
+    dnb = probs["dnb_home"] if fav == "home" else probs["dnb_away"]
+    dc  = probs["dc_home"]  if fav == "home" else probs["dc_away"]
+    win, dnb, dc = win * 100, dnb * 100, dc * 100
+    if win >= WC_WIN_BAR:
+        return (f"{fav_team} gana", round(win, 1), "gana")
+    if dnb >= WC_DNB_BAR:
+        return (f"{fav_team} sin empate (DNB)", round(dnb, 1), "dnb")
+    if dc >= WC_DC_BAR:
+        return (f"{fav_team} o empate (Doble Oportunidad)", round(dc, 1), "doble_oportunidad")
+    return None
+
+
 # ══════════════════════════════════════════════════════════════
 #  ORQUESTADOR — llama las 3 capas y devuelve el formato interno
 # ══════════════════════════════════════════════════════════════
@@ -1916,9 +1948,14 @@ def calc_wp(league, home, hd, away, ad, nba=False, danger=None, neutral=False, i
         # europeas de Odds API (no reflejan BetPlay). Cuota justa = 100/prob.
         if league == "Liga Colombiana" and base_prob >= COLOMBIA_MIN_CONF:
             return fav_team, base_prob, fav_team, base_prob, 1, None, "estadistico", None, 1.0, None, []
-        if league == WORLD_CUP_LEAGUE and base_prob >= WORLDCUP_MIN_CONF:
-            # Mundial: cuota JUSTA (100/prob), nunca cuota europea de Odds API.
-            return fav_team, base_prob, fav_team, base_prob, 1, cuota_justa(base_prob), "estadistico", None, 1.0, None, []
+        if league == WORLD_CUP_LEAGUE:
+            # Mundial: pick en el mercado con respaldo estadístico real
+            # (gana / DNB / doble oportunidad), cuota JUSTA, nunca Odds API.
+            wc = _worldcup_stat_pick(probs, home, away)
+            if wc:
+                label, prob_pct, _tipo = wc
+                return (fav_team, base_prob, label, prob_pct, 1,
+                        cuota_justa(prob_pct), "estadistico", None, 1.0, None, [])
         return fav_team, base_prob, fav_team, base_prob, 0, None, "bajo", None, 1.0, None, []
 
     bk_win    = odds.get(win_key)

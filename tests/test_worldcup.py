@@ -189,6 +189,32 @@ def test_intl_calibration_softens_but_keeps_pick():
     assert raw[0] == max(raw) and cal[0] == max(cal)
 
 
+def test_worldcup_market_selection_by_statistical_support():
+    from scrapers.generate_predictions import _worldcup_stat_pick
+    # Favorito holgado → "gana" directo
+    strong = {"favorite": "home", "win_home": 0.66, "win_away": 0.12,
+              "dnb_home": 0.85, "dnb_away": 0.15, "dc_home": 0.88, "dc_away": 0.34}
+    lbl, p, tipo = _worldcup_stat_pick(strong, "Argentina", "Curacao")
+    assert tipo == "gana" and "Argentina" in lbl and p >= 60
+
+    # Gana <60 pero DNB alto → "sin empate (DNB)"
+    dnb_case = {"favorite": "home", "win_home": 0.55, "win_away": 0.12,
+                "dnb_home": 0.82, "dnb_away": 0.18, "dc_home": 0.83, "dc_away": 0.45}
+    lbl, p, tipo = _worldcup_stat_pick(dnb_case, "England", "Haiti")
+    assert tipo == "dnb" and p >= 70
+
+    # Gana y DNB por debajo, pero DC alto → "doble oportunidad"
+    dc_case = {"favorite": "home", "win_home": 0.52, "win_away": 0.18,
+               "dnb_home": 0.66, "dnb_away": 0.34, "dc_home": 0.82, "dc_away": 0.48}
+    lbl, p, tipo = _worldcup_stat_pick(dc_case, "Brazil", "Panama")
+    assert tipo == "doble_oportunidad" and p >= 80
+
+    # Partido parejo → sin respaldo → None
+    even = {"favorite": "home", "win_home": 0.40, "win_away": 0.33,
+            "dnb_home": 0.55, "dnb_away": 0.45, "dc_home": 0.67, "dc_away": 0.60}
+    assert _worldcup_stat_pick(even, "Colombia", "Senegal") is None
+
+
 def test_form_output_feeds_model_with_intl_neutral():
     """El dict de forma debe ser consumible por el modelo Poisson internacional."""
     strong = wc.compute_team_form(
