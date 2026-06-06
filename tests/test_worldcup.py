@@ -189,6 +189,36 @@ def test_intl_calibration_softens_but_keeps_pick():
     assert raw[0] == max(raw) and cal[0] == max(cal)
 
 
+def test_is_senior_national_filters_youth_and_women():
+    assert wc.is_senior_national("Argentina")
+    assert wc.is_senior_national("Costa Rica")
+    assert not wc.is_senior_national("Azerbaijan U21")
+    assert not wc.is_senior_national("Qatar U23")
+    assert not wc.is_senior_national("Spain Women")
+    assert not wc.is_senior_national("Brazil U20")
+
+
+def test_select_upcoming_friendlies_filters():
+    def fx(fid, date, home, away, status="NS"):
+        return {"fixture": {"id": fid, "date": date, "status": {"short": status}},
+                "teams": {"home": {"id": fid*10, "name": home},
+                          "away": {"id": fid*10+1, "name": away}}}
+    raw = [
+        fx(1, "2026-06-06T18:00:00+00:00", "Argentina", "Honduras"),   # ok (ambos con Elo)
+        fx(2, "2026-06-06T18:00:00+00:00", "Argentina U23", "Chile"),  # juvenil → fuera
+        fx(3, "2026-06-30T18:00:00+00:00", "Spain", "France"),         # fuera de ventana
+        fx(4, "2026-06-06T18:00:00+00:00", "Argentina", "Honduras", status="FT"),  # jugado
+        fx(5, "2026-06-06T18:00:00+00:00", "Atlantis", "Wakanda"),     # sin Elo → fuera
+    ]
+    sel = wc.select_upcoming_friendlies(raw, today="2026-06-05", window_days=12)
+    pairs = {(s["home"], s["away"]) for s in sel}
+    assert ("Argentina", "Honduras") in pairs
+    assert all("U23" not in s["home"] and "U23" not in s["away"] for s in sel)
+    assert ("Spain", "France") not in pairs       # fuera de ventana
+    assert ("Atlantis", "Wakanda") not in pairs   # sin Elo
+    assert len(sel) == 1
+
+
 def test_worldcup_market_selection_by_statistical_support():
     from scrapers.generate_predictions import _worldcup_stat_pick
     # Favorito holgado → "gana" directo

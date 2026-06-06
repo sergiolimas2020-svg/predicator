@@ -38,6 +38,7 @@ import json
 import logging
 import os
 import sys
+from datetime import datetime, timezone, timedelta
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
@@ -54,12 +55,22 @@ from scrapers.elo_ratings import calculate_elo_update, ELO_BASE  # noqa: E402
 ROOT = Path(__file__).resolve().parents[1]
 STATS_OUTPUT = ROOT / "static" / "worldcup_stats.json"
 FIXTURES_OUTPUT = ROOT / "static" / "worldcup_fixtures.json"
+FRIENDLIES_STATS_OUTPUT = ROOT / "static" / "friendlies_stats.json"
+FRIENDLIES_FIXTURES_OUTPUT = ROOT / "static" / "friendlies_fixtures.json"
 ELO_OUTPUT = ROOT / "static" / "api_football" / "elo_ratings.json"
 
 # Identificadores del Mundial en API-Football
 WORLD_CUP_LEAGUE_ID = 1
 WORLD_CUP_SEASON = 2026
 ELO_KEY = "World Cup"
+
+# Amistosos de selecciones absolutas (masculinas) en API-Football
+FRIENDLIES_LEAGUE_ID = 10
+FRIENDLIES_SEASON = 2026
+FRIENDLIES_WINDOW_DAYS = 12   # cuántos días hacia adelante cubrir
+# Patrones que marcan un equipo NO absoluto (juvenil/femenino) → se excluye.
+import re as _re
+_NON_SENIOR_RE = _re.compile(r"(?:\bU-?\d{2}\b|\bU\d{2}\b|\bWomen\b|\bW\b|Olympic|\bB\b|\bXI\b)", _re.I)
 
 # Sedes anfitrionas: estas selecciones SÍ juegan con localía real.
 # El resto de partidos del Mundial son en cancha neutral.
@@ -229,29 +240,51 @@ def _norm_team(name: str) -> str:
     return "".join(ch for ch in s.lower() if ch.isalnum())
 
 
-_ELO_SEED_NORM = {_norm_team(k): v for k, v in ELO_SEED.items()}
+def _load_national_elo() -> Dict[str, float]:
+    """Carga static/national_elo.json (Elo real ampliado, ~150 selecciones) y
+    lo fusiona con ELO_SEED (las 48 del Mundial mandan). Cacheado por proceso."""
+    table = dict(ELO_SEED)
+    p = ROOT / "static" / "national_elo.json"
+    if p.exists():
+        try:
+            data = json.loads(p.read_text())
+            ratings = data.get("ratings", data)  # tolera formato plano
+            for k, v in ratings.items():
+                table.setdefault(k, float(v))  # WC seed tiene prioridad
+        except Exception as e:
+            logger.warning("national_elo.json no se pudo leer: %s", e)
+    return table
+
+
+_NATIONAL_ELO = _load_national_elo()
+_NATIONAL_ELO_NORM = {_norm_team(k): v for k, v in _NATIONAL_ELO.items()}
+
+# Alias API-Football ↔ World Football Elo (grafías que la normalización no cubre)
+_ELO_ALIASES = {
+    "turkey": "Türkiye", "drcongo": "Congo DR", "democraticrepublicofthecongo": "Congo DR",
+    "capeverde": "Cape Verde Islands", "unitedstates": "USA", "usmnt": "USA",
+    "southkorea": "South Korea", "korearepublic": "South Korea",
+    "bosniaandherzegovina": "Bosnia & Herzegovina", "ivorycoast": "Ivory Coast",
+    "cotedivoire": "Ivory Coast", "curacao": "Curaçao", "ireland": "Republic of Ireland",
+    "kyrgyzrepublic": "Kyrgyzstan", "czechia": "Czech Republic", "uae": "United Arab Emirates",
+}
 
 
 def seed_elo_for(name: str) -> Optional[float]:
     """Elo real (World Football Elo) de una selección por nombre, o None.
 
-    Empareja primero exacto, luego normalizado (sin tildes/espacios), y por
-    último algunos alias de grafía frecuentes entre API-Football y eloratings.
+    Empareja exacto → normalizado (sin tildes/espacios) → alias de grafía.
+    Cubre ~150 selecciones (Mundial + amistosos), no solo las 48 del Mundial.
     """
-    if name in ELO_SEED:
-        return ELO_SEED[name]
+    if name in _NATIONAL_ELO:
+        return _NATIONAL_ELO[name]
     n = _norm_team(name)
-    if n in _ELO_SEED_NORM:
-        return _ELO_SEED_NORM[n]
-    aliases = {
-        "turkey": "Türkiye", "drcongo": "Congo DR", "democraticrepublicofthecongo": "Congo DR",
-        "capeverde": "Cape Verde Islands", "unitedstates": "USA", "usmnt": "USA",
-        "southkorea": "South Korea", "korearepublic": "South Korea",
-        "bosniaandherzegovina": "Bosnia & Herzegovina", "ivorycoast": "Ivory Coast",
-        "cotedivoire": "Ivory Coast", "curacao": "Curaçao",
-    }
-    canon = aliases.get(n)
-    return ELO_SEED.get(canon) if canon else None
+    if n in _NATIONAL_ELO_NORM:
+        return _NATIONAL_ELO_NORM[n]
+    canon = _ELO_ALIASES.get(n)
+    if canon:
+        return _NATIONAL_ELO.get(canon) or _NATIONAL_ELO_NORM.get(_norm_team(canon))
+    return None
 
 
 def compute_elo_pool(matches: List[Dict[str, Any]]) -> Dict[str, float]:
@@ -311,6 +344,102 @@ def fetch_wc_schedule(client: APIFootballClient) -> List[Dict[str, Any]]:
         "/fixtures", {"league": WORLD_CUP_LEAGUE_ID, "season": WORLD_CUP_SEASON}
     )
     return parse_schedule(resp.get("response", []))
+
+
+def is_senior_national(name: str) -> bool:
+    """True si el nombre es una selección ABSOLUTA masculina (no U17/U20/U23,
+    no femenina, no 'B'/olímpica). Filtra ruido de los amistosos."""
+    if not name:
+        return False
+    return _NON_SENIOR_RE.search(name) is None
+
+
+def fetch_friendlies_raw(client: APIFootballClient) -> List[Dict[str, Any]]:
+    """Fixtures crudos de amistosos de selecciones (league=10, season actual)."""
+    resp = client._request(
+        "/fixtures", {"league": FRIENDLIES_LEAGUE_ID, "season": FRIENDLIES_SEASON}
+    )
+    return resp.get("response", [])
+
+
+def select_upcoming_friendlies(raw, today: str, window_days: int) -> List[Dict[str, Any]]:
+    """Filtra amistosos jugables: por jugar, dentro de la ventana, AMBOS equipos
+    absolutos y con Elo real conocido. Devuelve dicts con ids+nombres+fecha.
+    Función PURA (recibe `today` 'YYYY-MM-DD')."""
+    t0 = datetime.strptime(today, "%Y-%m-%d").date()
+    t1 = t0 + timedelta(days=window_days)
+    out = []
+    for fx in raw:
+        finfo = fx.get("fixture", {}) or {}
+        status = (finfo.get("status") or {}).get("short")
+        if status not in ("NS", "TBD"):  # solo por jugar
+            continue
+        date_iso = finfo.get("date") or ""
+        try:
+            d = datetime.fromisoformat(date_iso.replace("Z", "+00:00")).date()
+        except Exception:
+            continue
+        if not (t0 <= d <= t1):
+            continue
+        teams = fx.get("teams", {}) or {}
+        home = teams.get("home", {}) or {}
+        away = teams.get("away", {}) or {}
+        hn, an = home.get("name"), away.get("name")
+        if not hn or not an:
+            continue
+        if not (is_senior_national(hn) and is_senior_national(an)):
+            continue
+        if seed_elo_for(hn) is None or seed_elo_for(an) is None:
+            continue  # sin Elo real en ambos → no es fidedigno, se omite
+        out.append({
+            "date": date_iso, "home": hn, "home_id": home.get("id"),
+            "away": an, "away_id": away.get("id"),
+            "venue": (finfo.get("venue") or {}).get("name"),
+        })
+    return out
+
+
+def build_friendlies(client: APIFootballClient, today: str,
+                     form_last: int = DEFAULT_FORM_LAST,
+                     window_days: int = FRIENDLIES_WINDOW_DAYS,
+                     wc_stats: Optional[Dict[str, Any]] = None):
+    """Stats + calendario de los amistosos de selecciones próximos.
+
+    Reusa stats de equipos del Mundial si ya están en wc_stats; para el resto
+    descarga su forma. Elo siempre real (national_elo). Venue tratado como
+    NEUTRAL (conservador: no asumir localía que quizá no exista en un amistoso).
+    """
+    raw = fetch_friendlies_raw(client)
+    fixtures = select_upcoming_friendlies(raw, today, window_days)
+    logger.info("Amistosos de selecciones jugables (ventana %dd): %d", window_days, len(fixtures))
+    wc_stats = wc_stats or {}
+
+    # Equipos únicos (id, name) que necesitan stats y no están ya en el Mundial
+    need: Dict[int, str] = {}
+    for fx in fixtures:
+        for nm, tid in ((fx["home"], fx["home_id"]), (fx["away"], fx["away_id"])):
+            if nm not in wc_stats and tid and nm not in {v for v in need.values()}:
+                need[tid] = nm
+
+    stats: Dict[str, Any] = {}
+    for tid, nm in need.items():
+        try:
+            hist = fetch_team_history(client, tid, last=form_last)
+        except APIFootballError as e:
+            logger.warning("Sin forma para %s: %s", nm, e)
+            hist = []
+        form = compute_team_form(hist, tid, nm, form_last)
+        form["elo"] = round(float(seed_elo_for(nm)), 1)
+        form["elo_source"] = "world_football_elo"
+        form["host"] = False
+        stats[nm] = form
+        logger.info("  %-22s Elo %.0f  (%d partidos forma)", nm, form["elo"], form["position"]["partidos"])
+
+    schedule = [{
+        "date": fx["date"], "home": fx["home"], "away": fx["away"],
+        "venue": fx["venue"], "neutral": True, "status": "NS", "round": "Amistoso",
+    } for fx in fixtures]
+    return stats, schedule
 
 
 def fetch_team_history(client: APIFootballClient, team_id: int, last: int) -> List[Dict[str, Any]]:
@@ -460,6 +589,18 @@ def main() -> int:
         logger.info("Escrito: %s (%d partidos)", FIXTURES_OUTPUT, len(schedule))
     except APIFootballError as e:
         logger.warning("No se pudo traer el calendario del Mundial: %s", e)
+
+    # Amistosos de selecciones (preparación) — opcional, no crítico.
+    try:
+        today = (datetime.now(timezone.utc) - timedelta(hours=5)).strftime("%Y-%m-%d")
+        f_stats, f_sched = build_friendlies(client, today, form_last=args.form_last, wc_stats=stats)
+        FRIENDLIES_STATS_OUTPUT.write_text(json.dumps(f_stats, ensure_ascii=False, indent=2))
+        FRIENDLIES_FIXTURES_OUTPUT.write_text(json.dumps(f_sched, ensure_ascii=False, indent=2))
+        logger.info("Escrito: %s (%d selecciones) | %s (%d amistosos)",
+                    FRIENDLIES_STATS_OUTPUT, len(f_stats),
+                    FRIENDLIES_FIXTURES_OUTPUT, len(f_sched))
+    except APIFootballError as e:
+        logger.warning("No se pudieron traer los amistosos: %s", e)
     return 0
 
 

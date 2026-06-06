@@ -1292,22 +1292,21 @@ def espn_fixtures(code):
 def nba_fixtures():
     return espn_fixtures("basketball/nba")
 
-# ── Mundial 2026 (selecciones) ─────────────────────────────────
+# ── Selecciones: Mundial 2026 + amistosos de preparación ───────
 WORLD_CUP_LEAGUE = "Mundial 2026"
+FRIENDLY_LEAGUE  = "Amistoso Selección"
 
-def worldcup_fixtures():
-    """Partidos del Mundial de HOY (hora Colombia) que aún no terminaron.
-
-    Lee static/worldcup_fixtures.json (calendario completo escrito por
-    scrapers/worldcup.py). Sin red. Retorna [(home, away, neutral), ...].
-    """
-    p = Path("static/worldcup_fixtures.json")
+def _selecciones_fixtures(filename, label):
+    """Lee un calendario de selecciones (escrito por scrapers/worldcup.py) y
+    devuelve los partidos de HOY (hora Colombia) no terminados.
+    Sin red. Retorna [(home, away, neutral), ...]."""
+    p = Path(f"static/{filename}")
     if not p.exists():
         return []
     try:
         schedule = json.loads(p.read_text(encoding="utf-8"))
     except Exception as ex:
-        print(f"   Mundial: error leyendo calendario: {ex}")
+        print(f"   {label}: error leyendo calendario: {ex}")
         return []
     out, seen = [], set()
     for fx in schedule:
@@ -1315,7 +1314,6 @@ def worldcup_fixtures():
             continue
         date_iso = fx.get("date") or ""
         try:
-            # ISO con offset (…+00:00) → hora Colombia (UTC-5)
             dt = datetime.fromisoformat(date_iso.replace("Z", "+00:00"))
             if dt.tzinfo is None:
                 dt = dt.replace(tzinfo=timezone.utc)
@@ -1329,6 +1327,14 @@ def worldcup_fixtures():
             seen.add((h, a))
             out.append((h, a, bool(fx.get("neutral", True))))
     return out
+
+def worldcup_fixtures():
+    """Partidos del Mundial de HOY (hora Colombia) no terminados."""
+    return _selecciones_fixtures("worldcup_fixtures.json", "Mundial")
+
+def friendlies_fixtures():
+    """Amistosos de selecciones de HOY (hora Colombia) no terminados."""
+    return _selecciones_fixtures("friendlies_fixtures.json", "Amistoso")
 
 def load(f):
     p = Path(f"static/{f}")
@@ -1879,24 +1885,29 @@ def evaluate_value(probs, odds, home, away, market_freqs=None, league=None):
 WC_WIN_BAR = 60.0
 WC_DNB_BAR = 70.0
 WC_DC_BAR  = 80.0
+# Amistosos: squads rotados y menor intensidad → resultado más ruidoso. Bars +5pp
+# (más exigente) para no dar picks débiles "de preparación".
+FRIENDLY_BAR_BUMP = 5.0
 
-def _worldcup_stat_pick(probs, home, away):
+def _worldcup_stat_pick(probs, home, away, strict=False):
     """Devuelve (label, prob_pct, tipo) del mercado con respaldo estadístico
     suficiente para el favorito, o None si ningún mercado lo tiene.
-    Usa probabilidades YA calibradas (intl temperature scaling)."""
+    Usa probabilidades YA calibradas (intl temperature scaling).
+    strict=True (amistosos) sube los umbrales por el mayor ruido."""
     fav = probs.get("favorite")
     if fav not in ("home", "away"):
         return None
+    bump = FRIENDLY_BAR_BUMP if strict else 0.0
     fav_team = home if fav == "home" else away
     win = probs["win_home"] if fav == "home" else probs["win_away"]
     dnb = probs["dnb_home"] if fav == "home" else probs["dnb_away"]
     dc  = probs["dc_home"]  if fav == "home" else probs["dc_away"]
     win, dnb, dc = win * 100, dnb * 100, dc * 100
-    if win >= WC_WIN_BAR:
+    if win >= WC_WIN_BAR + bump:
         return (f"{fav_team} gana", round(win, 1), "gana")
-    if dnb >= WC_DNB_BAR:
+    if dnb >= WC_DNB_BAR + bump:
         return (f"{fav_team} sin empate (DNB)", round(dnb, 1), "dnb")
-    if dc >= WC_DC_BAR:
+    if dc >= WC_DC_BAR + bump:
         return (f"{fav_team} o empate (Doble Oportunidad)", round(dc, 1), "doble_oportunidad")
     return None
 
@@ -1948,10 +1959,11 @@ def calc_wp(league, home, hd, away, ad, nba=False, danger=None, neutral=False, i
         # europeas de Odds API (no reflejan BetPlay). Cuota justa = 100/prob.
         if league == "Liga Colombiana" and base_prob >= COLOMBIA_MIN_CONF:
             return fav_team, base_prob, fav_team, base_prob, 1, None, "estadistico", None, 1.0, None, []
-        if league == WORLD_CUP_LEAGUE:
-            # Mundial: pick en el mercado con respaldo estadístico real
-            # (gana / DNB / doble oportunidad), cuota JUSTA, nunca Odds API.
-            wc = _worldcup_stat_pick(probs, home, away)
+        if league in (WORLD_CUP_LEAGUE, FRIENDLY_LEAGUE):
+            # Selecciones (Mundial y amistosos): pick en el mercado con respaldo
+            # estadístico real (gana / DNB / doble oportunidad), cuota JUSTA,
+            # nunca Odds API. Amistosos = bars más estrictos (más ruido).
+            wc = _worldcup_stat_pick(probs, home, away, strict=(league == FRIENDLY_LEAGUE))
             if wc:
                 label, prob_pct, _tipo = wc
                 return (fav_team, base_prob, label, prob_pct, 1,
@@ -3287,6 +3299,28 @@ def main():
             all_today_matches.append((WORLD_CUP_LEAGUE, home, away, hd, ad, False))
             if base_prob >= MIN_CONF_SUBSCRIPTION:
                 candidates.append((vs, WORLD_CUP_LEAGUE, home, hd, away, ad, False,
+                                   display_pick, display_prob, cj, vl, base_prob,
+                                   base_pick, bk_odds, cf, best_eval, all_evals, {}))
+
+    # ── Amistosos de selecciones (preparación Mundial) ──────────
+    # Mismo modelo de selecciones (intl + neutral), bars más estrictos por el
+    # mayor ruido de un amistoso. Stats = Mundial + selecciones-de-amistoso.
+    friendly_matches = friendlies_fixtures()
+    if friendly_matches:
+        sel_stats = {**load("worldcup_stats.json"), **load("friendlies_stats.json")}
+        print(f"🤝 Amistosos selecciones: {len(friendly_matches)} partido(s) hoy")
+        for home, away, neutral in friendly_matches:
+            hd = find(sel_stats, home); ad = find(sel_stats, away)
+            if not hd or not ad:
+                print(f"   ⚠️ Sin stats para {home} vs {away} — se omite")
+                continue
+            hd = dict(hd); ad = dict(ad)
+            base_pick, base_prob, display_pick, display_prob, vs, cj, vl, bk_odds, cf, best_eval, all_evals = \
+                calc_wp(FRIENDLY_LEAGUE, home, hd, away, ad, nba=False,
+                        danger=None, neutral=neutral, intl=True)
+            all_today_matches.append((FRIENDLY_LEAGUE, home, away, hd, ad, False))
+            if base_prob >= MIN_CONF_SUBSCRIPTION:
+                candidates.append((vs, FRIENDLY_LEAGUE, home, hd, away, ad, False,
                                    display_pick, display_prob, cj, vl, base_prob,
                                    base_pick, bk_odds, cf, best_eval, all_evals, {}))
 
