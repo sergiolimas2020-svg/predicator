@@ -135,54 +135,22 @@ jobs:
         run: python3 scrapers/stats_tracker.py
         continue-on-error: true
 
-      # ── Step 6: Scrapers por liga (no críticos individualmente) ─
-      - name: Stats Colombia
-        run: python3 scrapers/colombia.py
-        continue-on-error: true
-
-      # Córners de Colombia: soccerstats no los cubre (404) → API-Football.
-      # Corre DESPUÉS de colombia.py (fusiona local/visitante en el JSON).
-      - name: Córners Colombia (API-Football)
+      # ── Step 6: Estadísticas de ligas — TODO desde API-Football ─────────
+      # Reemplaza el scraping frágil de soccerstats (HTML que cambia, 404 por
+      # liga, fallos silenciosos) por la API que el proyecto paga. Genera
+      # positions + goals + corners en el formato del motor para:
+      #   premier, laliga, seriea, bundesliga, ligue1, superlig, champions,
+      #   brazil, argentina, colombia.
+      # positions/goals usan toda la temporada (de /fixtures, 1 request);
+      # --max-fixtures acota SOLO el costo de córners (/fixtures/statistics).
+      # Los scrapers de soccerstats quedan en el repo como fallback manual.
+      - name: Stats ligas (API-Football)
         env:
           API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
-        run: python3 scrapers/corners.py colombia
+        run: python3 scrapers/apifootball_stats.py --all --max-fixtures 120
         continue-on-error: true
 
-      - name: Stats Argentina
-        run: python3 scrapers/argentina.py
-        continue-on-error: true
-
-      # Córners de Argentina: ídem, API-Football tras argentina.py.
-      - name: Córners Argentina (API-Football)
-        env:
-          API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
-        run: python3 scrapers/corners.py argentina
-        continue-on-error: true
-
-      - name: Stats Premier League
-        run: python3 scrapers/premier.py
-        continue-on-error: true
-
-      - name: Stats La Liga
-        run: python3 scrapers/españa.py
-        continue-on-error: true
-
-      - name: Stats Serie A
-        run: python3 scrapers/italia.py
-        continue-on-error: true
-
-      - name: Stats Bundesliga
-        run: python3 scrapers/bundesliga.py
-        continue-on-error: true
-
-      - name: Stats Ligue 1
-        run: python3 scrapers/francia.py
-        continue-on-error: true
-
-      - name: Stats Brasileirao
-        run: python3 scrapers/brazil.py
-        continue-on-error: true
-
+      # ── Ligas CONMEBOL de respaldo (ESPN, no soccerstats) ──────────────
       - name: Stats Uruguay
         run: python3 scrapers/uruguay.py
         continue-on-error: true
@@ -197,10 +165,6 @@ jobs:
 
       - name: Stats Paraguay
         run: python3 scrapers/paraguay.py
-        continue-on-error: true
-
-      - name: Stats Champions League
-        run: python3 scrapers/champions.py
         continue-on-error: true
 
       - name: Stats NBA
