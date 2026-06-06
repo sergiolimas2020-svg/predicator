@@ -140,8 +140,23 @@ jobs:
         run: python3 scrapers/colombia.py
         continue-on-error: true
 
+      # Córners de Colombia: soccerstats no los cubre (404) → API-Football.
+      # Corre DESPUÉS de colombia.py (fusiona local/visitante en el JSON).
+      - name: Córners Colombia (API-Football)
+        env:
+          API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
+        run: python3 scrapers/corners.py colombia
+        continue-on-error: true
+
       - name: Stats Argentina
         run: python3 scrapers/argentina.py
+        continue-on-error: true
+
+      # Córners de Argentina: ídem, API-Football tras argentina.py.
+      - name: Córners Argentina (API-Football)
+        env:
+          API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
+        run: python3 scrapers/corners.py argentina
         continue-on-error: true
 
       - name: Stats Premier League

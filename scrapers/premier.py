@@ -202,7 +202,14 @@ def main(league="brazil"):
         
         logger.info("🚩 Extrayendo datos de córners...")
         corners_data = scrape_corners_data(corners_url)
-        
+        if not corners_data:
+            logger.warning(
+                "⚠️ SIN córners para liga '%s' desde %s — soccerstats puede no "
+                "cubrir esta liga (córners). El JSON quedará con corners vacíos "
+                "para esta fuente; usa un scraper de córners alternativo si aplica.",
+                league, corners_url,
+            )
+
         logger.info("⚽ Extrayendo datos de goles...")
         goals_data = scrape_goals_data(goals_url)
         
@@ -228,9 +235,10 @@ def main(league="brazil"):
             },
             'equipos_extraidos': {
                 'corners': len(corners_data),
-                'goals': len(goals_data), 
+                'goals': len(goals_data),
                 'positions': len(positions_data)
-            }
+            },
+            'corners_disponibles': len(corners_data) > 0,
         }
         
         # Crear directorio static si no existe

@@ -91,10 +91,22 @@ def main():
             "goals":    goals_data.get(team, {}),
             "position": positions_data.get(team, {}),
         }
+    # Córners: ni ESPN ni soccerstats publican córners de la Champions
+    # (soccerstats league=champions&tid=cr devuelve 0). Se documenta de forma
+    # explícita en lugar de dejar `{}` sin explicación.
+    logger.warning("⚠️ Champions: sin fuente de córners (ESPN no los expone; "
+                   "soccerstats no cubre UCL). corners_disponibles=false.")
     combined_data['_metadata'] = {
         'fecha_actualizacion': datetime.now().isoformat(),
         'liga': 'champions',
-        'fuente': 'ESPN API'
+        'fuente': 'ESPN API',
+        'corners_disponibles': False,
+        'corners_motivo': 'ESPN no expone córners y soccerstats no cubre la Champions League',
+        'equipos_extraidos': {
+            'corners': 0,
+            'goals': len(goals_data),
+            'positions': len(positions_data),
+        },
     }
 
     os.makedirs('static', exist_ok=True)
