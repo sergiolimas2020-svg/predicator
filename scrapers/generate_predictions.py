@@ -268,6 +268,10 @@ MAX_EV_H2H        = 0.20   # EV máximo para victoria directa, DNB y DC
 BETPLAY_DISCOUNT  = 0.90   # Betplay paga ~10% menos que mercado europeo (validado con 3+ samples)
 MERCADO_REFERENCIA = "Pinnacle/Bet365 (europeo)"
 BETPLAY_DISCLAIMER = "Cuota Betplay estimada con descuento del 10% promedio. Verifica antes de apostar."
+# Picks SIN cuota de bookmaker (selecciones, Liga Colombiana estadística): la
+# referencia es la cuota JUSTA del modelo (100/prob), no el mercado europeo.
+MERCADO_REFERENCIA_MODELO = "Cuota justa del modelo (sin bookmaker)"
+DISCLAIMER_MODELO = "Cuota justa = 100/probabilidad del modelo. Compara con tu casa de apuestas antes de apostar."
 MAX_EV_GOALS      = 0.35   # EV máximo para Over (más varianza)
 MIN_CUOTA_WIN     = 1.60   # cuota mínima para victoria directa
 MIN_CUOTA_DNB     = 1.30   # cuota mínima para DNB (apuesta sin empate)
@@ -565,13 +569,18 @@ def _betplay_fields(bk_odds, prob_pct, ev_adjusted_pct):
         if prob_pct is not None:
             ev_bp = round((prob_pct / 100.0) * cuota_bp - 1, 4) * 100
             ev_bp = round(ev_bp, 1)
+        mercado, disclaimer = MERCADO_REFERENCIA, BETPLAY_DISCLAIMER
+    else:
+        # Sin cuota de bookmaker → la referencia es la cuota justa del modelo.
+        # No mostrar etiqueta "europeo" que confundiría (no hay cuota europea).
+        mercado, disclaimer = MERCADO_REFERENCIA_MODELO, DISCLAIMER_MODELO
     return {
         "cuota_referencia":        bk_odds,
         "cuota_betplay_estimada":  cuota_bp,
         "ev_referencia":           ev_adjusted_pct,
         "ev_betplay_estimado":     ev_bp,
-        "mercado_referencia":      MERCADO_REFERENCIA,
-        "disclaimer":              BETPLAY_DISCLAIMER,
+        "mercado_referencia":      mercado,
+        "disclaimer":              disclaimer,
     }
 
 
