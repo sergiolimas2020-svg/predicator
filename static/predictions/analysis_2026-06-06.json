@@ -1,6 +1,6 @@
 {
   "date": "2026-06-06",
-  "total_fixtures": 9,
+  "total_fixtures": 8,
   "matches": [
     {
       "matchup": "USA vs Germany",
@@ -22,28 +22,6 @@
       "lambda_away": 2.94,
       "elo_home": 1733.0,
       "elo_away": 1925.0,
-      "danger": null
-    },
-    {
-      "matchup": "Belgium vs Tunisia",
-      "league": "Amistoso Selección",
-      "home": "Belgium",
-      "away": "Tunisia",
-      "probabilities": {
-        "win_home": 84.6,
-        "draw": 10.3,
-        "win_away": 5.1,
-        "over_2_5": 72.5,
-        "over_1_5": 88.9
-      },
-      "favorite": "Belgium",
-      "stats_complete": true,
-      "confidence_factor": 1.0,
-      "is_nba": false,
-      "lambda_home": 3.09,
-      "lambda_away": 0.67,
-      "elo_home": 1866.0,
-      "elo_away": 1633.0,
       "danger": null
     },
     {
@@ -135,25 +113,25 @@
       "danger": null
     },
     {
-      "matchup": "Australia vs Switzerland",
+      "matchup": "Switzerland vs Australia",
       "league": "Amistoso Selección",
-      "home": "Australia",
-      "away": "Switzerland",
+      "home": "Switzerland",
+      "away": "Australia",
       "probabilities": {
-        "win_home": 23.6,
-        "draw": 25.9,
-        "win_away": 50.5,
-        "over_2_5": 44.6,
-        "over_1_5": 70.5
+        "win_home": 67.7,
+        "draw": 20.0,
+        "win_away": 12.3,
+        "over_2_5": 51.1,
+        "over_1_5": 75.5
       },
       "favorite": "Switzerland",
       "stats_complete": true,
       "confidence_factor": 1.0,
       "is_nba": false,
-      "lambda_home": 0.95,
-      "lambda_away": 1.52,
-      "elo_home": 1775.0,
-      "elo_away": 1894.0,
+      "lambda_home": 2.01,
+      "lambda_away": 0.72,
+      "elo_home": 1894.0,
+      "elo_away": 1775.0,
       "danger": null
     },
     {
