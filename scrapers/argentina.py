@@ -6,10 +6,10 @@ Usa el scraper canónico de soccerstats (scrapers/premier.py) para goles y
 posiciones. IMPORTANTE: soccerstats NO publica tabla de CÓRNERS para Argentina
 (league=argentina&tid=cr devuelve 0 equipos), así que este paso deja
 `corners_disponibles: false` y registra un WARNING claro — NUNCA guarda `{}` en
-silencio. Los córners reales se obtienen aparte con scrapers/argentina_corners.py
-(fuente RapidAPI, liga 128), que se ejecuta DESPUÉS y los fusiona en este JSON.
+silencio. Los córners reales se obtienen aparte con scrapers/corners.py
+(API-Football), que se ejecuta DESPUÉS y los fusiona (local/visitante) en este JSON.
 
-Uso:  python3 scrapers/argentina.py  &&  python3 scrapers/argentina_corners.py
+Uso:  python3 scrapers/argentina.py  &&  python3 scrapers/corners.py argentina
 """
 import os
 import sys
