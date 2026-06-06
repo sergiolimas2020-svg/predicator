@@ -1304,6 +1304,11 @@ def nba_fixtures():
 # ── Selecciones: Mundial 2026 + amistosos de preparación ───────
 WORLD_CUP_LEAGUE = "Mundial 2026"
 FRIENDLY_LEAGUE  = "Amistoso Selección"
+# Ligas de selección: SOLO generan picks por el camino curado y CALIBRADO
+# (ganador / DNB / doble oportunidad, ver _worldcup_stat_pick). Quedan FUERA
+# de los mercados de Over de goles y córners, que no están calibrados para
+# selecciones y pagan cuotas muy bajas para el riesgo asumido.
+SELECCION_LEAGUES = {WORLD_CUP_LEAGUE, FRIENDLY_LEAGUE}
 
 def _selecciones_fixtures(filename, label):
     """Lee un calendario de selecciones (escrito por scrapers/worldcup.py) y
@@ -3068,6 +3073,8 @@ def _select_corners_picks(today_matches: list, danger_data: dict) -> list:
     for (league, home, away, hd, ad, nba) in today_matches:
         if nba or league in EXCLUDED_LEAGUES:   # NBA sin córners; respeta exclusión
             continue
+        if league in SELECCION_LEAGUES:          # selecciones: solo picks curados
+            continue
         rec = danger_data.get((_norm(home), _norm(away)))
         if not rec:
             continue
@@ -3130,6 +3137,8 @@ def _select_over25_picks(today_matches: list, danger_data: dict) -> list:
     cands = []
     for (league, home, away, hd, ad, nba) in today_matches:
         if nba or league in EXCLUDED_LEAGUES:
+            continue
+        if league in SELECCION_LEAGUES:          # selecciones: solo picks curados
             continue
         rec = danger_data.get((_norm(home), _norm(away)))
         if not rec:
