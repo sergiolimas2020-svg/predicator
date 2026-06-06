@@ -1984,6 +1984,38 @@ def calc_wp(league, home, hd, away, ad, nba=False, danger=None, neutral=False, i
             ev_out, best["bk_odds"], value_level(ev_out), best["bk_odds"],
             best["confidence_factor"], best, all_evals)
 
+def goals_section(hd, ad):
+    """Bloque HTML de análisis Over/Under, derivado del modelo Poisson de goles.
+
+    Corrige un NameError pre-existente (la función se llamaba en article() pero
+    nunca estaba definida → cualquier pick de fútbol que llegara a generar HTML
+    reventaba). Robusto: devuelve '' si faltan datos. Sólo añade contenido
+    descriptivo; NO afecta el pick ni las probabilidades del modelo.
+    """
+    try:
+        probs = get_probabilities(hd, ad, nba=False)
+        lh = probs.get("lambda_home")
+        la = probs.get("lambda_away")
+        o25 = probs.get("over_2_5")
+        o15 = probs.get("over_1_5")
+        if lh is None or la is None or o25 is None or o15 is None:
+            return ""
+        total = round(lh + la, 1)
+        o25p, o15p = round(o25 * 100), round(o15 * 100)
+    except Exception:
+        return ""
+    return (
+        '<div class="gbox" style="margin-top:1.5rem">'
+        '<h2>Análisis de goles (Over/Under)</h2>'
+        f'<p>Goles esperados por el modelo: <strong>{total}</strong> '
+        f'(proyección {lh} local + {la} visitante).</p>'
+        '<ul>'
+        f'<li>Over 1.5 goles: <strong>{o15p}%</strong></li>'
+        f'<li>Over 2.5 goles: <strong>{o25p}%</strong></li>'
+        '</ul></div>'
+    )
+
+
 def article(league, home, hd, away, ad, nba=False, _win=None, _wp=None, _valor=None, _cuota=None, _base_prob=None, _bk_odds=None, _tipo_pick=None, _pick_data=None):
     # Usar valores pre-calculados por calc_wp() para consistencia
     win, wp = _win, _wp

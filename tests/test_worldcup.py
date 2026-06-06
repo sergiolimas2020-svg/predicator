@@ -159,6 +159,19 @@ def test_seed_elo_alias_and_normalization():
     assert wc.seed_elo_for("Atlantis") is None
 
 
+def test_goals_section_defined_and_safe():
+    """Regresión: goals_section debe existir (antes era un NameError latente que
+    reventaba la generación de HTML de cualquier pick de fútbol)."""
+    import scrapers.generate_predictions as g
+    assert callable(getattr(g, "goals_section", None))
+    hd = {"position": {"goles_favor": 20, "goles_contra": 8, "partidos": 12}}
+    ad = {"position": {"goles_favor": 10, "goles_contra": 14, "partidos": 12}}
+    html = g.goals_section(hd, ad)
+    assert isinstance(html, str) and "Over/Under" in html
+    # robusto ante datos vacíos
+    assert isinstance(g.goals_section({}, {}), str)
+
+
 def test_temperature_preserves_argmax_and_reduces_confidence():
     from scrapers.generate_predictions import _apply_temperature_3way
     pw, pd, pl = 0.90, 0.07, 0.03
