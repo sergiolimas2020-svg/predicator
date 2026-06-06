@@ -229,19 +229,33 @@ def test_select_upcoming_friendlies_filters():
                 "teams": {"home": {"id": fid*10, "name": home},
                           "away": {"id": fid*10+1, "name": away}}}
     raw = [
-        fx(1, "2026-06-06T18:00:00+00:00", "Argentina", "Honduras"),   # ok (ambos con Elo)
+        fx(1, "2026-06-06T18:00:00+00:00", "Argentina", "Honduras"),   # ok: Argentina mundialista
         fx(2, "2026-06-06T18:00:00+00:00", "Argentina U23", "Chile"),  # juvenil → fuera
         fx(3, "2026-06-30T18:00:00+00:00", "Spain", "France"),         # fuera de ventana
         fx(4, "2026-06-06T18:00:00+00:00", "Argentina", "Honduras", status="FT"),  # jugado
         fx(5, "2026-06-06T18:00:00+00:00", "Atlantis", "Wakanda"),     # sin Elo → fuera
+        fx(6, "2026-06-06T18:00:00+00:00", "Vanuatu", "Fiji"),         # minnows (Elo bajo) → fuera
     ]
-    sel = wc.select_upcoming_friendlies(raw, today="2026-06-05", window_days=12)
+    wc_teams = {"Argentina", "Spain", "France"}  # mundialistas
+    sel = wc.select_upcoming_friendlies(raw, today="2026-06-05", window_days=12, wc_teams=wc_teams)
     pairs = {(s["home"], s["away"]) for s in sel}
-    assert ("Argentina", "Honduras") in pairs
+    assert ("Argentina", "Honduras") in pairs     # relevante: Argentina es mundialista
     assert all("U23" not in s["home"] and "U23" not in s["away"] for s in sel)
-    assert ("Spain", "France") not in pairs       # fuera de ventana
-    assert ("Atlantis", "Wakanda") not in pairs   # sin Elo
+    assert ("Spain", "France") not in pairs        # fuera de ventana
+    assert ("Atlantis", "Wakanda") not in pairs    # sin Elo
+    assert ("Vanuatu", "Fiji") not in pairs        # minnows: no relevante → descartado
     assert len(sel) == 1
+
+
+def test_friendlies_keep_two_strong_non_wc_teams():
+    """Dos selecciones fuertes que no van al Mundial (Elo >= 1700) deben pasar."""
+    def fx(fid, home, away):
+        return {"fixture": {"id": fid, "date": "2026-06-06T18:00:00+00:00", "status": {"short": "NS"}},
+                "teams": {"home": {"id": fid*10, "name": home}, "away": {"id": fid*10+1, "name": away}}}
+    # Italy (1856) y Greece (1752): ninguna en el Mundial, pero ambas fuertes
+    sel = wc.select_upcoming_friendlies([fx(1, "Italy", "Greece")],
+                                        today="2026-06-05", window_days=12, wc_teams=set())
+    assert {(s["home"], s["away"]) for s in sel} == {("Italy", "Greece")}
 
 
 def test_worldcup_market_selection_by_statistical_support():

@@ -14,6 +14,12 @@ on:
 permissions:
   contents: write
 
+# Evita que dos corridas (cron + manual, o dos manuales) se pisen y choquen al
+# hacer push a main. Se encolan: una termina antes de que arranque la siguiente.
+concurrency:
+  group: prediktor-daily
+  cancel-in-progress: false
+
 jobs:
   daily:
     runs-on: ubuntu-latest
@@ -273,8 +279,22 @@ jobs:
           git config user.email "bot@prediktor.app"
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/sergiolimas2020-svg/predicator.git
           git add -A
-          git diff --cached --quiet && echo "Sin cambios para commitear" || git commit -m "chore: update diario $(date '+%Y-%m-%d')"
-          git push origin main
+          if git diff --cached --quiet; then
+            echo "Sin cambios para commitear"
+          else
+            git commit -m "chore: update diario $(date '+%Y-%m-%d')"
+            # Push resiliente: si main se movió (otra corrida), rebase y reintenta.
+            pushed=0
+            for i in 1 2 3; do
+              if git push origin main; then pushed=1; break; fi
+              echo "Push rechazado — rebase sobre main y reintento ($i/3)..."
+              git pull --rebase origin main || true
+              sleep 3
+            done
+            if [ "$pushed" != "1" ]; then
+              echo "::error::No se pudo pushear tras 3 intentos"; exit 1
+            fi
+          fi
 
       # ── Step 11: Notificar éxito a admin ────────────────────────
       - name: Notificar éxito a admin

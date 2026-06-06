@@ -362,10 +362,19 @@ def fetch_friendlies_raw(client: APIFootballClient) -> List[Dict[str, Any]]:
     return resp.get("response", [])
 
 
-def select_upcoming_friendlies(raw, today: str, window_days: int) -> List[Dict[str, Any]]:
-    """Filtra amistosos jugables: por jugar, dentro de la ventana, AMBOS equipos
-    absolutos y con Elo real conocido. Devuelve dicts con ids+nombres+fecha.
-    Función PURA (recibe `today` 'YYYY-MM-DD')."""
+FRIENDLY_STRONG_ELO = 1700  # umbral para considerar "fuerte" una selección sin Mundial
+
+def select_upcoming_friendlies(raw, today: str, window_days: int,
+                               wc_teams=None,
+                               min_strong_elo: int = FRIENDLY_STRONG_ELO) -> List[Dict[str, Any]]:
+    """Filtra amistosos jugables y RELEVANTES (preparación Mundial): por jugar,
+    dentro de la ventana, AMBOS equipos absolutos y con Elo real, y además
+    RELEVANTE = al menos una selección mundialista O ambas fuertes (Elo alto).
+    Esto descarta amistosos de minnows tipo Vanuatu vs Fiji. Función PURA.
+
+    `wc_teams`: set de nombres de selecciones del Mundial (None = solo filtra
+    por Elo)."""
+    wc_teams = wc_teams or set()
     t0 = datetime.strptime(today, "%Y-%m-%d").date()
     t1 = t0 + timedelta(days=window_days)
     out = []
@@ -389,8 +398,14 @@ def select_upcoming_friendlies(raw, today: str, window_days: int) -> List[Dict[s
             continue
         if not (is_senior_national(hn) and is_senior_national(an)):
             continue
-        if seed_elo_for(hn) is None or seed_elo_for(an) is None:
+        eh, ea = seed_elo_for(hn), seed_elo_for(an)
+        if eh is None or ea is None:
             continue  # sin Elo real en ambos → no es fidedigno, se omite
+        # Relevancia: al menos un mundialista, o ambas selecciones fuertes.
+        es_mundialista = hn in wc_teams or an in wc_teams
+        ambas_fuertes = eh >= min_strong_elo and ea >= min_strong_elo
+        if not (es_mundialista or ambas_fuertes):
+            continue
         out.append({
             "date": date_iso, "home": hn, "home_id": home.get("id"),
             "away": an, "away_id": away.get("id"),
@@ -409,10 +424,11 @@ def build_friendlies(client: APIFootballClient, today: str,
     descarga su forma. Elo siempre real (national_elo). Venue tratado como
     NEUTRAL (conservador: no asumir localía que quizá no exista en un amistoso).
     """
-    raw = fetch_friendlies_raw(client)
-    fixtures = select_upcoming_friendlies(raw, today, window_days)
-    logger.info("Amistosos de selecciones jugables (ventana %dd): %d", window_days, len(fixtures))
     wc_stats = wc_stats or {}
+    raw = fetch_friendlies_raw(client)
+    fixtures = select_upcoming_friendlies(raw, today, window_days,
+                                          wc_teams=set(wc_stats.keys()))
+    logger.info("Amistosos de selecciones relevantes (ventana %dd): %d", window_days, len(fixtures))
 
     # Equipos únicos (id, name) que necesitan stats y no están ya en el Mundial
     need: Dict[int, str] = {}
