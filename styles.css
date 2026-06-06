@@ -94,7 +94,6 @@ body {
 
 .logo-icon {
     font-size: 2.5rem;
-    animation: rotate 3s linear infinite;
 }
 
 @keyframes rotate {
@@ -174,7 +173,6 @@ body {
 .league-flag {
     font-size: 2.5rem;
     line-height: 1;
-    animation: wave 2s ease-in-out infinite;
     width: 60px;
     height: 40px;
     border-radius: 4px;
