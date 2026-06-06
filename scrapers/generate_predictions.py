@@ -4226,9 +4226,7 @@ def main():
             "stake_real_pct":     (kelly_stake(_prob, _bk_o)
                                    if STAKE_MODE == "activo" else 0.0),
             "stake_modo":         STAKE_MODE,
-            # Transparencia Betplay (aditivo)
-            "cuota_betplay_estimada": _bp["cuota_betplay_estimada"],
-            "ev_betplay_estimado":    _bp["ev_betplay_estimado"],
+            # (PREDIKTOR no publica cuotas — sin campos de cuota/EV de bookmaker)
             # Clasificación del pick
             "tipo_pick":         _tipo_pick,
             # Campos de resumen
@@ -4250,7 +4248,6 @@ def main():
             _bk_o = r.get("bk_odds")
             _prob = r.get("prob_adjusted")
             _ev_adj = r.get("ev_adjusted")
-            _bp = _betplay_fields(_bk_o, _prob, _ev_adj)
             _log.append({
                 "fecha":             today,
                 "slug":              None,
@@ -4271,8 +4268,6 @@ def main():
                 "value_score":       be.get("value_score"),
                 "reason":            "rejected_recent_form",
                 "version":           MODEL_VERSION,
-                "cuota_betplay_estimada": _bp["cuota_betplay_estimada"],
-                "ev_betplay_estimado":    _bp["ev_betplay_estimado"],
                 "tipo_pick":         "rejected_recent_form",
                 "base_pick":         r.get("team"),
                 "value_level":       None,
