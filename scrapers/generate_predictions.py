@@ -1104,14 +1104,14 @@ h1{{font-family:var(--font-display);font-size:clamp(1.8rem,4vw,2.8rem);font-weig
 </style>
 </head>
 <body>
-<header class="hdr"><a href="/index.html" class="back">← Volver</a><a href="/index.html" class="logo">PREDI<span>KTOR</span></a></header>
+<header class="hdr"><a href="/" class="back">← Volver</a><a href="/" class="logo">PREDI<span>KTOR</span></a></header>
 <main class="wrap">
 <span class="badge">{league} · {date}</span>
 <h1>Prediccion: {home} vs {away}</h1>
 <div class="div"></div>
 <p class="meta">Analisis · PREDIKTOR · {date}</p>
 <div class="body">{article}</div>
-<div class="cta"><p>Usa nuestro analizador interactivo para ver estadisticas detalladas</p><a href="/index.html">Analizar partido en vivo</a></div>
+<div class="cta"><p>Usa nuestro analizador interactivo para ver estadisticas detalladas</p><a href="/">Analizar partido en vivo</a></div>
 </main>
 <footer class="ftr">PREDIKTOR 2026 · <a href="/privacy.html" style="color:var(--gray-600);text-decoration:none;">Privacidad</a></footer>
 </body></html>"""
@@ -1123,11 +1123,11 @@ INDEX = """<!DOCTYPE html>
 <title>Predicciones deportivas hoy {date} - PREDIKTOR</title>
 <meta name="description" content="Predicciones y pronosticos deportivos para hoy {date}. Partidos reales de futbol y NBA con estadisticas.">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="{site_url}/static/predictions/index.html">
+<link rel="canonical" href="{site_url}/static/predictions/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Predicciones deportivas hoy {date} - PREDIKTOR">
 <meta property="og:description" content="Predicciones y pronosticos deportivos para hoy {date}. Partidos reales de futbol y NBA con estadisticas.">
-<meta property="og:url" content="{site_url}/static/predictions/index.html">
+<meta property="og:url" content="{site_url}/static/predictions/">
 <meta property="og:site_name" content="PREDIKTOR">
 {adsense}
 {ga}
@@ -1154,7 +1154,7 @@ h1{{font-family:var(--font-display);font-size:2.5rem;font-weight:800;color:var(-
 </style>
 </head>
 <body>
-<header class="hdr"><a href="/index.html" class="back">← Volver</a><a href="/index.html" class="logo">PREDI<span>KTOR</span></a></header>
+<header class="hdr"><a href="/" class="back">← Volver</a><a href="/" class="logo">PREDI<span>KTOR</span></a></header>
 <main class="wrap">
 <h1>Predicciones de hoy</h1>
 <p class="sub">{date} · Solo partidos programados para hoy</p>
@@ -2324,10 +2324,14 @@ def _discover_guias_slugs():
 
 def generate_sitemap(slugs):
     """Genera sitemap.xml con todas las URLs del sitio (incluye páginas de contenido SEO)."""
+    # URLs CANÓNICAS finales (sin /index.html que Vercel redirige a / y /…/).
     static_urls = [
-        f"{SITE_URL}/index.html",
-        f"{SITE_URL}/static/predictions/index.html",
+        f"{SITE_URL}/",
+        f"{SITE_URL}/static/predictions/",
         f"{SITE_URL}/privacy.html",
+        f"{SITE_URL}/contacto.html",
+        f"{SITE_URL}/apuestas-legales.html",
+        f"{SITE_URL}/plan-pro.html",
     ]
     # Páginas de contenido educativo (críticas para AdSense)
     content_urls = [
@@ -2345,7 +2349,7 @@ def generate_sitemap(slugs):
     all_urls    = static_urls + content_urls + guias_urls + pred_urls
 
     def _priority(url):
-        if url == f"{SITE_URL}/index.html":
+        if url == f"{SITE_URL}/":
             return "1.0"
         if url in content_urls:
             # Páginas de contenido importantes para SEO y AdSense
