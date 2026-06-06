@@ -117,6 +117,13 @@ jobs:
         run: python3 scrapers/update_results.py
         continue-on-error: true
 
+      # ── Step 3a-bis: Reporte de calibración (probabilidad vs real) ──
+      # Mide si las probabilidades del modelo están calibradas (foso anti-tipster,
+      # sin cuotas). Corre DESPUÉS de update_results (necesita picks resueltos).
+      - name: Reporte de calibración
+        run: python3 scripts/calibration_report.py
+        continue-on-error: true
+
       # ── Step 3b: Generar página historial estática (SEO + AdSense) ─
       # Lee predictions_log.json y reescribe historial.html + patches
       # los contadores del home en index.html (server-rendered).
