@@ -3004,6 +3004,27 @@ def _select_confidence_picks(evaluated_picks: list) -> list:
         hd, ad, nba = raw[3], raw[5], raw[6]
         league, home, away = raw[1], raw[2], raw[4]
         cf = ep.get("confidence_factor", 1.0)
+
+        # Selecciones: NO recomputar markets aquí (este selector usaría
+        # get_probabilities() sin intl/neutral → probs sin calibrar, y ofrecería
+        # Over 1.5). Se usa el pick CURADO y calibrado ya calculado en calc_wp
+        # (ganador/DNB/doble oportunidad) que viaja en raw[7]/raw[8].
+        if league in SELECCION_LEAGUES:
+            if raw[10] != "estadistico":   # solo si hay pick curado real
+                continue
+            label, prob = raw[7], raw[8]
+            best_eval = {
+                "label": label, "prob_original": prob, "prob_adjusted": prob,
+                "confidence_factor": cf, "ev": None, "ev_model": None,
+                "penalty": None, "ev_adjusted": None, "value_score": None,
+                "bk_odds": None, "valid": False, "reason": "confianza",
+            }
+            raw_list = list(raw)
+            raw_list[0] = prob
+            raw_list[15] = best_eval
+            cands.append((label, prob, tuple(raw_list)))
+            continue
+
         probs = get_probabilities(hd, ad, nba=nba)
 
         match_markets = []
