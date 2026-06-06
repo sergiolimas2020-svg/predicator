@@ -1,6 +1,29 @@
 {
   "date": "2026-06-05",
-  "total_fixtures": 0,
-  "matches": [],
+  "total_fixtures": 1,
+  "matches": [
+    {
+      "matchup": "Vanuatu vs Fiji",
+      "league": "Amistoso Selección",
+      "home": "Vanuatu",
+      "away": "Fiji",
+      "probabilities": {
+        "win_home": 66.2,
+        "draw": 17.1,
+        "win_away": 16.7,
+        "over_2_5": 74.9,
+        "over_1_5": 90.2
+      },
+      "favorite": "Vanuatu",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 2.63,
+      "lambda_away": 1.28,
+      "elo_home": 1114.0,
+      "elo_away": 1108.0,
+      "danger": null
+    }
+  ],
   "nota": "Análisis estadístico de todos los partidos del día. Probabilidades crudas del modelo (sin ajuste por liga ni mercado). No incluye recomendación de apuesta — ver value_picks y featured_pick para picks oficiales."
 }
