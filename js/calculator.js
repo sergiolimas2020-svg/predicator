@@ -120,9 +120,21 @@ const Calculator = {
             poisson_a.push((Math.pow(lambda_a, x) * Math.exp(-lambda_a)) / factorial(x));
         }
 
+        // Dixon-Coles τ(x,y) — ESPEJO EXACTO de DIXON_COLES_RHO/_dc_tau en
+        // scrapers/generate_predictions.py. Cualquier cambio debe replicarse allá
+        // (el test de paridad Python↔JS lo verifica).
+        const DIXON_COLES_RHO = -0.10;
+        const dcTau = (x, y) => {
+            if (x === 0 && y === 0) return 1.0 - lambda_h * lambda_a * DIXON_COLES_RHO;
+            if (x === 0 && y === 1) return 1.0 + lambda_h * DIXON_COLES_RHO;
+            if (x === 1 && y === 0) return 1.0 + lambda_a * DIXON_COLES_RHO;
+            if (x === 1 && y === 1) return 1.0 - DIXON_COLES_RHO;
+            return 1.0;
+        };
+
         for (let x = 0; x <= 10; x++) {
             for (let y = 0; y <= 10; y++) {
-                const p_xy = poisson_h[x] * poisson_a[y];
+                const p_xy = poisson_h[x] * poisson_a[y] * dcTau(x, y);
                 if (x > y) {
                     p_win += p_xy;
                 } else if (x === y) {

@@ -317,3 +317,25 @@ def test_form_output_feeds_model_with_intl_neutral():
     assert hp > ap  # el fuerte es favorito
     lh, la = _compute_lambdas(strong, weak, neutral=True, intl=True)
     assert lh > 0 and la > 0
+
+
+def test_dixon_coles_sube_empate_vs_poisson_independiente():
+    """Dixon-Coles (rho<0) debe AUMENTAR la prob de empate y reducir la del
+    favorito frente al Poisson independiente — corrección de goles bajos."""
+    import math
+    import scrapers.generate_predictions as g
+    assert g.DIXON_COLES_RHO < 0
+    hd = {"position": {"goles_favor": 28, "goles_contra": 12, "partidos": 15}, "elo": 1850}
+    ad = {"position": {"goles_favor": 15, "goles_contra": 20, "partidos": 15}, "elo": 1650}
+    w, d, l = g.prob_futbol_3way(hd, ad)               # con DC
+    lh, la = g._compute_lambdas(hd, ad)
+    ph = [(lh**x * math.exp(-lh)) / math.factorial(x) for x in range(11)]
+    pa = [(la**y * math.exp(-la)) / math.factorial(y) for y in range(11)]
+    pw = pd = pl = 0.0
+    for x in range(11):
+        for y in range(11):
+            p = ph[x] * pa[y]
+            pw += p if x > y else 0; pd += p if x == y else 0; pl += p if x < y else 0
+    t = pw + pd + pl; pd_indep = pd / t * 100; pw_indep = pw / t * 100
+    assert d > pd_indep        # DC sube el empate
+    assert w < pw_indep        # DC baja la sobre-confianza del favorito

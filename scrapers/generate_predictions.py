@@ -326,6 +326,11 @@ HOME_ADVANTAGE_FACTOR  = 1.15  # multiplicador de localía (sede con público pr
 # Valores a CALIBRAR con backtest internacional (scripts/backtest_intl.py).
 AVG_INTL_GOALS         = 1.25  # goles esperados por selección (más bajo que clubes)
 NEUTRAL_ADVANTAGE_FACTOR = 1.00  # sin ventaja de local en cancha neutral
+# Dixon-Coles: corrige la correlación de goles bajos del Poisson independiente
+# (que subestima 0-0 y 1-1, y sobreestima 1-0/0-1). rho<0 sube empates ajustados
+# y reduce la sobre-confianza del favorito. ESPEJO en js/calculator.js (paridad).
+# Calibrable con backtest; valor estándar de la literatura ≈ -0.10.
+DIXON_COLES_RHO        = -0.10
 
 # ── Parámetros del modelo NBA ─────────────────────────────────
 NBA_DEFAULT_PPG     = 110.0  # puntos por partido por defecto si no hay datos
@@ -1576,10 +1581,20 @@ def prob_futbol_3way_raw(hd, ad, danger=None, neutral=False, intl=False):
     
     poisson_h = [ (lambda_h**x * math.exp(-lambda_h)) / math.factorial(x) for x in range(11) ]
     poisson_a = [ (lambda_a**y * math.exp(-lambda_a)) / math.factorial(y) for y in range(11) ]
-    
+
+    # Dixon-Coles τ(x,y): corrige la dependencia en marcadores bajos. ESPEJO
+    # EXACTO en js/calculator.js — cualquier cambio aquí debe replicarse allá.
+    rho = DIXON_COLES_RHO
+    def _dc_tau(x, y):
+        if x == 0 and y == 0: return 1.0 - lambda_h * lambda_a * rho
+        if x == 0 and y == 1: return 1.0 + lambda_h * rho
+        if x == 1 and y == 0: return 1.0 + lambda_a * rho
+        if x == 1 and y == 1: return 1.0 - rho
+        return 1.0
+
     for x in range(11):
         for y in range(11):
-            p_xy = poisson_h[x] * poisson_a[y]
+            p_xy = poisson_h[x] * poisson_a[y] * _dc_tau(x, y)
             if x > y:
                 p_win += p_xy
             elif x == y:
