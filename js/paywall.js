@@ -139,6 +139,20 @@ function renderPaywall(data) {
   }
 
   container.innerHTML = html;
+
+  // GA4: registrar que se vieron las predicciones del día (cuántas y de qué tipo).
+  try {
+    var nSub = (picks_suscripcion && picks_suscripcion.length) || 0;
+    var nGoals = (analisis_goles && analisis_goles.length) || 0;
+    if (window.PrediktorAnalytics) {
+      window.PrediktorAnalytics.trackPredictionViewed({
+        count: nSub + (pick_dia ? 1 : 0),
+        subscription_picks: nSub,
+        goals_markets: nGoals,
+        date: dateStr
+      });
+    }
+  } catch (e) { /* analytics nunca rompe el render */ }
 }
 
 // ── Contenido mínimo diario (cuando no hay picks de valor) ──
@@ -205,7 +219,7 @@ function renderPickCard(pick, tier) {
   const tierClass = tier === 'premium' ? 'pw-card-premium' : tier === 'subscription' ? 'pw-card-sub' : 'pw-card-free';
 
   return `
-  <div class="pw-card ${tierClass}">
+  <div class="pw-card ${tierClass}" data-pick="${pick.slug || ''}" data-league="${pick.league || ''}" data-market="${pick.market || ''}">
     <div class="pw-card-league">${icon} ${pick.league || '—'}</div>
     <div class="pw-card-matchup">${pick.matchup || '—'}</div>
     <div class="pw-card-details">
@@ -235,7 +249,7 @@ function renderHeroCard(pick) {
   const ev = pick.ev_adjusted != null ? `+${pick.ev_adjusted.toFixed(1)}%` : null;
 
   return `
-  <div class="pw-hero-card">
+  <div class="pw-hero-card" data-pick="${pick.slug || ''}" data-league="${pick.league || ''}" data-market="${pick.market || ''}">
     <div class="pw-hero-league">${icon} ${pick.league || '—'}</div>
     <div class="pw-hero-matchup">${pick.matchup || '—'}</div>
     <div class="pw-hero-market">${pick.market || '—'}</div>
