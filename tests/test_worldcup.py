@@ -159,16 +159,12 @@ def test_seed_elo_alias_and_normalization():
     assert wc.seed_elo_for("Atlantis") is None
 
 
-def test_betplay_fields_label_honest_without_bookmaker():
-    """Picks sin cuota de bookmaker (selección/Colombia) no deben etiquetarse
-    como mercado europeo."""
+def test_betplay_fields_no_emite_cuotas():
+    """PREDIKTOR no publica cuotas: _betplay_fields ya NO inyecta ningún campo
+    de cuota/EV/mercado de referencia en los picks (no-op)."""
     import scrapers.generate_predictions as g
-    sin = g._betplay_fields(None, 75.6, None)
-    assert "europeo" not in sin["mercado_referencia"].lower()
-    assert sin["cuota_referencia"] is None and sin["cuota_betplay_estimada"] is None
-    con = g._betplay_fields(1.85, 62.5, 8.5)
-    assert "europeo" in con["mercado_referencia"].lower()
-    assert con["cuota_betplay_estimada"] == 1.67
+    assert g._betplay_fields(None, 75.6, None) == {}
+    assert g._betplay_fields(1.85, 62.5, 8.5) == {}
 
 
 def test_goals_section_defined_and_safe():

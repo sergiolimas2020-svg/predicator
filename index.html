@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PREDIKTOR — Predicciones Deportivas con Estadística</title>
-  <meta name="description" content="Predicciones de fútbol y NBA basadas en estadística real: probabilidades calibradas, cuota justa e historial verificable. Sin humo.">
+  <meta name="description" content="Predicciones de fútbol y NBA basadas en estadística real: probabilidades calibradas e historial verificable. Sin corazonadas, sin humo.">
   <meta name="keywords" content="predicciones deportivas hoy, predicciones fútbol, predicciones NBA, análisis deportivo, pronósticos liga colombiana, picks deportivos">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://prediktorcol.com/">
@@ -1130,7 +1130,7 @@
 <!-- HERO CONVERSION (nuevo) ───────────────────────────────────────── -->
 <section class="hero-conversion">
   <h1>Análisis estadístico de fútbol.</h1>
-  <h2><span id="hc-pct">64%</span> de acierto en <span id="hc-total">77</span> picks verificados.</h2>
+  <h2><span id="hc-pct">58%</span> de acierto en <span id="hc-total">110</span> picks verificados.</h2>
   <p class="hero-subtitle">
     Sin corazonadas. Sin promesas vacías.<br>
     Picks justificados con datos. Histórico abierto.
@@ -1145,7 +1145,7 @@
     <a class="cta-secondary" href="/plan-pro.html">
       <div class="cta-icon">💎</div>
       <div class="cta-title">Plan Pro</div>
-      <div class="cta-price">$19/mes</div>
+      <div class="cta-price">Desde $9/mes</div>
       <div class="cta-subtitle">Todos los picks + análisis VIP</div>
       <div class="cta-action">Saber más →</div>
     </a>
@@ -1166,31 +1166,10 @@ fetch('static/historial.json').then(r=>r.json()).then(h=>{
 }).catch(()=>{});
 </script>
 
-<!-- TRACK RECORD -->
-<section class="stats-box">
-  <div class="stats-box-inner">
-    <div class="section-label" style="text-align:center;margin-bottom:1.2rem">Rendimiento del modelo</div>
-    <div id="stats-track" class="stats-track-grid">
-      <div class="track-item"><div class="track-val" id="tr-winrate">—</div><div class="track-lbl">Win rate</div></div>
-      <div class="track-item"><div class="track-val" id="tr-streak">—</div><div class="track-lbl">Racha actual</div></div>
-      <div class="track-item"><div class="track-val" id="tr-total">—</div><div class="track-lbl">Total picks</div></div>
-      <div class="track-item"><div class="track-val" id="tr-over">—</div><div class="track-lbl">Over (acierto)</div></div>
-      <div class="track-item"><div class="track-val" id="tr-dc">—</div><div class="track-lbl">Doble op. (acierto)</div></div>
-      <div class="track-item"><div class="track-val" id="tr-win">—</div><div class="track-lbl">Victoria directa</div></div>
-    </div>
-  </div>
-</section>
-<script>
-fetch('static/stats.json').then(r=>r.json()).then(s=>{
-  document.getElementById('tr-winrate').textContent = s.winrate + '%';
-  document.getElementById('tr-streak').textContent  = s.streak;
-  document.getElementById('tr-total').textContent   = s.total;
-  const bt = s.by_type || {};
-  document.getElementById('tr-over').textContent = bt.over  ? bt.over.rate  + '%' : '—';
-  document.getElementById('tr-dc').textContent   = bt.dc    ? bt.dc.rate    + '%' : '—';
-  document.getElementById('tr-win').textContent  = bt.win   ? bt.win.rate   + '%' : '—';
-}).catch(()=>{});
-</script>
+<!-- TRACK RECORD: una sola fuente de verdad (historial.json) — la sección
+     "Resultados reales" abajo y el hero usan el mismo número verificable.
+     Se eliminó el bloque que leía stats.json (población distinta → cifra
+     contradictoria) para no mostrar dos tasas de acierto diferentes. -->
 
 <!-- PROBLEMA -->
 <section class="problema">

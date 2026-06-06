@@ -190,32 +190,15 @@ function renderMinimalContent(content, dateStr) {
   </div>`;
 }
 
-// ── Bloque de transparencia Betplay (aditivo, opcional) ──
-// Se muestra solo si el pick tiene los campos cuota_betplay_estimada
-// y ev_betplay_estimado generados por _betplay_fields() en el motor.
-function renderBetplaySection(pick) {
-  // Solo mostramos cuota estimada — coherencia con el bot (no regalar
-  // número exacto de EV). El disclaimer queda en el bloque porque las
-  // cards del paywall no tienen disclaimer global como el Hero.
-  if (pick.cuota_betplay_estimada == null) return '';
-  const cuotaBp = pick.cuota_betplay_estimada.toFixed(2);
-  return `
-    <div class="pw-betplay">
-      <div class="pw-betplay-title">Estimado en Betplay (descuento ~10%)</div>
-      <div class="pw-betplay-cuota">
-        <span class="pw-betplay-label">Cuota estimada:</span>
-        <span class="pw-betplay-value">${cuotaBp}</span>
-      </div>
-      <div class="pw-betplay-note">⚠️ Verifica la cuota real en tu casa antes de apostar.</div>
-    </div>`;
-}
+// NOTA: PREDIKTOR no muestra cuotas. No disponemos de las cuotas reales del
+// mercado local (BetPlay), así que NO afirmamos nada sobre cuotas/EV. Cada pick
+// se presenta solo con su PROBABILIDAD calibrada y su mercado. El usuario
+// compara la cuota en su casa de apuestas.
 
 // ── Card completa (desbloqueada) ──
 function renderPickCard(pick, tier) {
   const icon = (pick.league || '').includes('NBA') ? '🏀' : (pick.league || '').includes('Mundial') ? '🏆' : '⚽';
-  const odds = pick.bk_odds ? `@${pick.bk_odds}` : '';
   const prob = pick.prob_adjusted ? `${Math.round(pick.prob_adjusted)}%` : '—';
-  const ev = pick.ev_adjusted ? `${pick.ev_adjusted.toFixed(1)}%` : null;
   const tierClass = tier === 'premium' ? 'pw-card-premium' : tier === 'subscription' ? 'pw-card-sub' : 'pw-card-free';
 
   return `
@@ -224,29 +207,21 @@ function renderPickCard(pick, tier) {
     <div class="pw-card-matchup">${pick.matchup || '—'}</div>
     <div class="pw-card-details">
       <div class="pw-detail">
-        <div class="pw-detail-label">Mercado <small>(referencia europea)</small></div>
-        <div class="pw-detail-value">${pick.market || '—'} ${odds}</div>
+        <div class="pw-detail-label">Pick</div>
+        <div class="pw-detail-value">${pick.market || '—'}</div>
       </div>
       <div class="pw-detail">
-        <div class="pw-detail-label">Probabilidad</div>
+        <div class="pw-detail-label">Probabilidad del modelo</div>
         <div class="pw-detail-value pw-prob">${prob}</div>
       </div>
-      ${ev ? `
-      <div class="pw-detail">
-        <div class="pw-detail-label">EV ajustado <small>(referencia)</small></div>
-        <div class="pw-detail-value pw-ev">${ev}</div>
-      </div>` : ''}
     </div>
-    ${renderBetplaySection(pick)}
   </div>`;
 }
 
 // ── Hero card: pick gratuito destacado ──
 function renderHeroCard(pick) {
   const icon = (pick.league || '').includes('NBA') ? '🏀' : (pick.league || '').includes('Mundial') ? '🏆' : '⚽';
-  const odds = pick.bk_odds ? pick.bk_odds : '—';
   const prob = pick.prob_adjusted ? `${Math.round(pick.prob_adjusted)}%` : '—';
-  const ev = pick.ev_adjusted != null ? `+${pick.ev_adjusted.toFixed(1)}%` : null;
 
   return `
   <div class="pw-hero-card" data-pick="${pick.slug || ''}" data-league="${pick.league || ''}" data-market="${pick.market || ''}">
@@ -255,45 +230,28 @@ function renderHeroCard(pick) {
     <div class="pw-hero-market">${pick.market || '—'}</div>
     <div class="pw-hero-stats">
       <div class="pw-hero-stat">
-        <div class="pw-hero-stat-label">Cuota <small>(europeo)</small></div>
-        <div class="pw-hero-stat-value pw-hero-odds">${odds}</div>
-      </div>
-      <div class="pw-hero-stat">
-        <div class="pw-hero-stat-label">Probabilidad</div>
+        <div class="pw-hero-stat-label">Probabilidad del modelo</div>
         <div class="pw-hero-stat-value pw-hero-prob">${prob}</div>
       </div>
-      ${ev ? `
-      <div class="pw-hero-stat">
-        <div class="pw-hero-stat-label">EV <small>(referencia)</small></div>
-        <div class="pw-hero-stat-value pw-hero-ev">${ev}</div>
-      </div>` : ''}
     </div>
-    ${renderBetplaySection(pick)}
   </div>`;
 }
 
 // ── Card de análisis de goles (informativo, no es pick) ──
 function renderGoalsAnalysisCard(item) {
-  const odds = item.bk_odds ? `@${item.bk_odds}` : '';
   const prob = item.prob_adjusted ? `${Math.round(item.prob_adjusted)}%` : '—';
-  const ev = item.ev_adjusted != null ? `+${item.ev_adjusted.toFixed(1)}%` : '—';
 
   return `
   <div class="pw-goals-card">
     <div class="pw-goals-league">${item.league || '—'}</div>
     <div class="pw-goals-matchup">${item.matchup || '—'}</div>
-    <div class="pw-goals-market">${item.market || '—'} ${odds}</div>
+    <div class="pw-goals-market">${item.market || '—'}</div>
     <div class="pw-goals-stats">
       <span class="pw-goals-stat">
-        <span class="pw-goals-stat-label">Probabilidad</span>
+        <span class="pw-goals-stat-label">Probabilidad del modelo</span>
         <span class="pw-goals-stat-value">${prob}</span>
       </span>
-      <span class="pw-goals-stat">
-        <span class="pw-goals-stat-label">EV <small>(ref)</small></span>
-        <span class="pw-goals-stat-value">${ev}</span>
-      </span>
     </div>
-    ${renderBetplaySection(item)}
     <div class="pw-goals-note">Análisis estadístico — no es pick oficial</div>
   </div>`;
 }
@@ -355,7 +313,7 @@ function renderCTA(tier) {
   <div class="pw-cta pw-cta-sub">
     <div class="pw-cta-text">
       <strong>Accede a todos los picks diarios</strong>
-      <span>2 a 4 picks con mercado, cuota y probabilidad completos</span>
+      <span>2 a 4 picks con mercado y probabilidad calibrada del modelo</span>
     </div>
     <a href="#" class="pw-cta-btn pw-cta-btn-sub" onclick="alert('Suscripción próximamente');return false;">
       📊 Suscribirse — próximamente

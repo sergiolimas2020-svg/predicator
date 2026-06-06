@@ -188,7 +188,7 @@ def main():
     # Generar reporte markdown
     md = []
     md.append("# Reporte de Rendimiento Empírico Real (Historial de Producción)\n")
-    md.append("Este reporte evalúa el rendimiento del modelo utilizando **únicamente los picks resueltos en vivo**, con las **cuotas reales** de cierre obtenidas de la API y los resultados verdaderos de cada partido.\n")
+    md.append("Este reporte (INTERNO) evalúa el rendimiento del modelo sobre **los picks resueltos en vivo** y los resultados verdaderos de cada partido. NOTA: las cuotas registradas son las del momento de publicación (madrugada), NO cuotas de cierre; el ROI basado en cuotas es orientativo y de uso interno.\n")
     
     if cal_params:
         md.append(f"### Parámetros de Calibración Platt Usados:\n* **A (pendiente):** `{cal_params[0]}`\n* **B (sesgo):** `{cal_params[1]}`\n* **Muestras del Calibrador:** `{json.loads(cal_path.read_text()).get('n_samples', 0)}` (entrenado sobre log histórico)\n\n")
@@ -204,7 +204,7 @@ def main():
     md.append("\n")
     
     md.append("## 2. Metodología y Notas\n")
-    md.append("- **Cuotas Reales:** Se toman directamente las cuotas de cierre registradas de los bookmakers (Pinnacle/Bet365) a través de The Odds API en producción. No hay cuotas sintéticas ni supuestas.")
+    md.append("- **Cuotas:** son las registradas al PUBLICAR el pick (madrugada) vía The Odds API, NO cuotas de cierre. No reflejan necesariamente la cuota disponible en casas locales (BetPlay). Métrica interna/orientativa.")
     md.append("- **Criterio de Kelly (Quarter-Kelly):** Se simula un bankroll inicial de $100.0. Cada apuesta arriesga el porcentaje sugerido por la fórmula oficial multiplicada por 0.25 (Quarter-Kelly) para amortiguar el riesgo.")
     md.append("- **Sin Calibrar (Raw):** Usa las probabilidades originales declaradas por el motor de Poisson, propensas a la sobreconfianza.")
     md.append("- **Calibrado (Platt):** Aplica la calibración de Platt entrenada sobre los resultados previos para suavizar y corregir la sobreconfianza de las probabilidades antes de estimar el stake de Kelly. Como se observa en la tabla, el calibrador filtra la gran mayoría de apuestas que no tienen ventaja real, actuando como un escudo protector del bankroll.")

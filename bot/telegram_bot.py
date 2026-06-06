@@ -88,10 +88,7 @@ def format_pick_gratuito(pick: dict, date_str: str) -> str:
     league = pick.get("league", "—")
     matchup = pick.get("matchup", "—")
     market = pick.get("market", "—")
-    odds = pick.get("bk_odds")
     prob = pick.get("prob_adjusted")
-
-    odds_str = f" @{odds}" if odds else ""
     prob_str = f"{prob:.0f}%" if prob else "—"
 
     return (
@@ -100,9 +97,10 @@ def format_pick_gratuito(pick: dict, date_str: str) -> str:
         f"\n"
         f"🏆 Liga: {league}\n"
         f"⚽ Partido: {matchup}\n"
-        f"🎯 Mercado: <b>{market}{odds_str}</b>\n"
-        f"📊 Probabilidad estimada: <b>{prob_str}</b>\n"
+        f"🎯 Pick: <b>{market}</b>\n"
+        f"📊 Probabilidad del modelo: <b>{prob_str}</b>\n"
         f"\n"
+        f"<i>Compará la cuota en tu casa de apuestas.</i>\n"
         f"━━━━━━━━━━━━━━━━━━━━━\n"
         f"🔔 Síguenos para picks diarios gratuitos"
     )
@@ -118,50 +116,28 @@ def format_value_bet(pick: dict, date_str: str) -> str:
     league = pick.get("league", "—")
     matchup = pick.get("matchup", "—")
     market = pick.get("market", "—")
-    odds = pick.get("bk_odds")
     prob = pick.get("prob_adjusted")
-    ev = pick.get("ev_adjusted")
-
-    odds_str = f" @{odds}" if odds else ""
     prob_str = f"{prob:.0f}%" if prob else "—"
 
-    # Pick por confianza: no hay EV ni cuota verificada. NO afirmamos "EV+".
-    if ev is None and not odds:
-        return (
-            f"📊 <b>PICK DEL DÍA — Señal estadística</b>\n"
-            f"📅 {date_str}\n"
-            f"\n"
-            f"🏆 Liga: {league}\n"
-            f"⚽ Partido: {matchup}\n"
-            f"🎯 Mercado: <b>{market}</b>\n"
-            f"📊 Probabilidad del modelo: <b>{prob_str}</b>\n"
-            f"📈 Pick por <b>confianza estadística</b>\n"
-            f"\n"
-            f"<i>No tenemos cuota de mercado verificada para este pick. "
-            f"Verificá la cuota en tu casa de apuestas antes de jugar.</i>\n"
-            f"\n"
-            f"━━━━━━━━━━━━━━━━━━━━━\n"
-            f"🌐 Análisis completo: https://prediktorcol.com\n"
-            f"⚠️ Apuesta con responsabilidad\n"
-            f"\n"
-            f"#pickdeldía #estadística #apuestasdeportivas"
-        )
-
+    # PREDIKTOR no muestra cuotas (no tenemos las del mercado local). Todos los
+    # picks se comunican por PROBABILIDAD calibrada, nunca por cuota/EV.
     return (
-        f"🎯 <b>VALUE BET DEL DÍA</b>\n"
+        f"📊 <b>PICK DEL DÍA — Señal estadística</b>\n"
         f"📅 {date_str}\n"
         f"\n"
         f"🏆 Liga: {league}\n"
         f"⚽ Partido: {matchup}\n"
-        f"🎯 Mercado: <b>{market}{odds_str}</b>\n"
-        f"📊 Probabilidad: <b>{prob_str}</b>\n"
-        f"💎 Valor detectado: <b>positivo (EV+)</b>\n"
+        f"🎯 Pick: <b>{market}</b>\n"
+        f"📊 Probabilidad del modelo: <b>{prob_str}</b>\n"
+        f"📈 Respaldo: <b>estadístico y calibrado</b>\n"
+        f"\n"
+        f"<i>Compará la cuota en tu casa de apuestas antes de jugar.</i>\n"
         f"\n"
         f"━━━━━━━━━━━━━━━━━━━━━\n"
         f"🌐 Análisis completo: https://prediktorcol.com\n"
-        f"⚠️ Apuesta con responsabilidad\n"
+        f"⚠️ Apuesta con responsabilidad · +18\n"
         f"\n"
-        f"#valuebet #apuestasdeportivas #picks"
+        f"#pickdeldía #estadística #apuestasdeportivas"
     )
 
 
@@ -175,30 +151,25 @@ def format_featured_pick(featured: dict, date_str: str) -> str:
     market = featured.get("market", "—")
     prob = featured.get("prob_adjusted")
     confidence = featured.get("confidence_label", "media")
-    odds = featured.get("bk_odds")
-
-    odds_str = f" @{odds}" if odds else ""
     prob_str = f"{prob:.0f}%" if prob else "—"
 
     return (
         f"📊 <b>PICK DEL DÍA — Estadística sólida</b>\n"
         f"📅 {date_str}\n"
         f"\n"
-        f"<i>Hoy no detectamos value bets, pero compartimos nuestro pick "
-        f"con mayor confianza estadística del día.</i>\n"
+        f"<i>Compartimos nuestro pick con mayor confianza estadística del día.</i>\n"
         f"\n"
         f"🏆 Liga: {league}\n"
         f"⚽ Partido: {matchup}\n"
-        f"🎯 Mercado: <b>{market}{odds_str}</b>\n"
-        f"📊 Probabilidad: <b>{prob_str}</b>\n"
+        f"🎯 Pick: <b>{market}</b>\n"
+        f"📊 Probabilidad del modelo: <b>{prob_str}</b>\n"
         f"📈 Confianza: <b>{confidence.upper()}</b>\n"
         f"\n"
-        f"<i>Nota: este pick NO tiene EV positivo verificado vs el "
-        f"mercado. Es solo señal estadística.</i>\n"
+        f"<i>Compará la cuota en tu casa de apuestas antes de jugar.</i>\n"
         f"\n"
         f"━━━━━━━━━━━━━━━━━━━━━\n"
         f"🌐 Análisis completo: https://prediktorcol.com\n"
-        f"⚠️ Apuesta con responsabilidad\n"
+        f"⚠️ Apuesta con responsabilidad · +18\n"
         f"\n"
         f"#pickdeldía #estadística #apuestasdeportivas"
     )

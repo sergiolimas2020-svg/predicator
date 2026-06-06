@@ -550,38 +550,15 @@ def cuota_justa(wp):
 
 def _betplay_fields(bk_odds, prob_pct, ev_adjusted_pct):
     """
-    Calcula los campos de transparencia BetPlay (aditivos, no afectan filtros).
+    PREDIKTOR ya NO publica cuotas. No disponemos de las cuotas reales del
+    mercado local (BetPlay) y las europeas no aplican, así que no afirmamos NADA
+    sobre cuotas/EV en las superficies públicas. Esta función queda como no-op
+    (devuelve {}) para no inyectar campos de cuota en daily_picks.json.
 
-    Args:
-      bk_odds:           cuota europea de referencia (decimal, ej. 1.85). Puede ser None.
-      prob_pct:          probabilidad ajustada en porcentaje 0-100 (ej. 62.5). Puede ser None.
-      ev_adjusted_pct:   EV ajustado en porcentaje (ej. 8.5). Puede ser None.
-
-    Returns:
-      Dict con 6 campos: cuota_referencia, cuota_betplay_estimada,
-      ev_referencia, ev_betplay_estimado, mercado_referencia, disclaimer.
-      Cuota/EV BetPlay son None si bk_odds o prob_pct son None.
+    Se conserva la firma para no romper los call sites (.update(_betplay_fields(...))).
+    Los picks se comunican solo por PROBABILIDAD calibrada.
     """
-    cuota_bp = None
-    ev_bp    = None
-    if bk_odds and bk_odds > 1.0:
-        cuota_bp = round(bk_odds * BETPLAY_DISCOUNT, 2)
-        if prob_pct is not None:
-            ev_bp = round((prob_pct / 100.0) * cuota_bp - 1, 4) * 100
-            ev_bp = round(ev_bp, 1)
-        mercado, disclaimer = MERCADO_REFERENCIA, BETPLAY_DISCLAIMER
-    else:
-        # Sin cuota de bookmaker → la referencia es la cuota justa del modelo.
-        # No mostrar etiqueta "europeo" que confundiría (no hay cuota europea).
-        mercado, disclaimer = MERCADO_REFERENCIA_MODELO, DISCLAIMER_MODELO
-    return {
-        "cuota_referencia":        bk_odds,
-        "cuota_betplay_estimada":  cuota_bp,
-        "ev_referencia":           ev_adjusted_pct,
-        "ev_betplay_estimado":     ev_bp,
-        "mercado_referencia":      mercado,
-        "disclaimer":              disclaimer,
-    }
+    return {}
 
 
 def value_level(vs):
@@ -2269,7 +2246,6 @@ def article(league, home, hd, away, ad, nba=False, _win=None, _wp=None, _valor=N
 {conservador_tag}
 <div class="pconf">{conf_txt}</div>
 {_pbox_extra}
-{f'<div style="margin-top:1.2rem;padding-top:1.2rem;border-top:1px solid rgba(240,180,41,.15)"><div style="font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gray-400);margin-bottom:.4rem">Cuota de referencia (mercado europeo)</div><div style="font-family:var(--font-display);font-size:2.5rem;font-weight:800;color:var(--success)">{cuota}</div><div style="font-size:.75rem;color:var(--gray-400);margin-top:.2rem">⚠️ La cuota en tu casa de apuestas puede variar — verifica antes de apostar</div></div>' if cuota and not _pbox_extra else ''}
 </div>
 {goles_html}
 <p><em>Este analisis es generado por nuestro motor estadistico con datos de la temporada actual. Apuesta siempre con responsabilidad y compara cuotas antes de decidir.</em></p>"""
