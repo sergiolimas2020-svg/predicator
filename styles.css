@@ -3,27 +3,27 @@
    =================================== */
 
 :root {
-    /* Color Palette - Dark Theme con acentos verdes/amarillos */
-    --bg-primary: #0a0e1a;
-    --bg-secondary: #141b2d;
-    --bg-card: #1a2332;
-    --bg-card-hover: #1f2940;
-    
-    --accent-primary: #00ff88;
-    --accent-secondary: #ffd700;
-    --accent-danger: #ff3366;
-    --accent-info: #00d4ff;
-    
+    /* Color Palette - System A (negro/dorado) */
+    --bg-primary: #0a0a0f;
+    --bg-secondary: #16161f;
+    --bg-card: #16161f;
+    --bg-card-hover: #1e1e2a;
+
+    --accent-primary: #f0b429;
+    --accent-secondary: #f5c842;
+    --accent-danger: #ef4444;
+    --accent-info: #3b82f6;
+
     --text-primary: #ffffff;
-    --text-secondary: #a0aec0;
-    --text-muted: #718096;
-    
-    --border-color: #2d3748;
-    --shadow: rgba(0, 255, 136, 0.1);
-    
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+
+    --border-color: #2a2a3a;
+    --shadow: rgba(240, 180, 41, 0.1);
+
     /* Typography */
-    --font-display: 'Bebas Neue', cursive;
-    --font-body: 'Outfit', sans-serif;
+    --font-display: 'Bebas Neue', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
     
     /* Spacing */
     --spacing-xs: 0.5rem;
@@ -551,7 +551,7 @@ body {
 
 .goal-prediction.recommended {
     border-left-color: var(--accent-primary);
-    background: rgba(0, 255, 136, 0.05);
+    background: rgba(240, 180, 41, 0.05);
 }
 
 .goal-label {
