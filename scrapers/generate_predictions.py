@@ -1036,9 +1036,9 @@ HTML = """<!DOCTYPE html>
 </script>
 {adsense}
 {ga}
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{{--navy-900:#0a0a0f;--navy-800:#13131a;--navy-700:#1a1a24;--gold-600:#c9a84c;--gold-500:#d4b865;--white:#fff;--gray-100:#e8edf5;--gray-400:#8896ae;--gray-600:#4a5568;--success:#22c55e;--danger:#ef4444;--font-display:'Barlow Condensed',sans-serif;--font-body:'Barlow',sans-serif;}}
+:root{{--navy-900:#0a0a0f;--navy-800:#16161f;--navy-700:#1c1c28;--gold-600:#f0b429;--gold-500:#f0b429;--white:#fff;--gray-100:#e2e8f0;--gray-400:#94a3b8;--gray-600:#64748b;--success:#22c55e;--danger:#ef4444;--font-display:'Bebas Neue',sans-serif;--font-body:'DM Sans',sans-serif;}}
 *,*::before,*::after{{box-sizing:border-box;margin:0;padding:0}}
 body{{font-family:var(--font-body);background:var(--navy-900);color:var(--gray-100);min-height:100vh}}
 .hdr{{background:rgba(5,13,26,.97);border-bottom:1px solid rgba(240,180,41,.15);padding:.9rem 2rem;display:flex;align-items:center;gap:1.5rem;position:sticky;top:0;z-index:100}}
@@ -1113,9 +1113,9 @@ INDEX = """<!DOCTYPE html>
 <meta property="og:site_name" content="PREDIKTOR">
 {adsense}
 {ga}
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{{--navy-900:#0a0a0f;--navy-800:#13131a;--gold-600:#c9a84c;--gold-500:#d4b865;--white:#fff;--gray-100:#e8edf5;--gray-400:#8896ae;--gray-600:#4a5568;--font-display:'Barlow Condensed',sans-serif;--font-body:'Barlow',sans-serif;}}
+:root{{--navy-900:#0a0a0f;--navy-800:#16161f;--gold-600:#f0b429;--gold-500:#f0b429;--white:#fff;--gray-100:#e2e8f0;--gray-400:#94a3b8;--gray-600:#64748b;--font-display:'Bebas Neue',sans-serif;--font-body:'DM Sans',sans-serif;}}
 *{{box-sizing:border-box;margin:0;padding:0}}
 body{{font-family:var(--font-body);background:var(--navy-900);color:var(--gray-100);min-height:100vh}}
 .hdr{{background:rgba(5,13,26,.97);border-bottom:1px solid rgba(240,180,41,.15);padding:.9rem 2rem;display:flex;align-items:center;gap:1.5rem;position:sticky;top:0;z-index:100}}
@@ -2123,8 +2123,7 @@ def article(league, home, hd, away, ad, nba=False, _win=None, _wp=None, _valor=N
                 f"El modelo asigna a <strong>{team}</strong> un <strong>{direct_prob}%</strong> de probabilidad de victoria directa. "
                 f"La <strong>apuesta sin empate</strong> elimina el riesgo del empate: si el partido termina igualado, recuperas tu apuesta integra. "
                 f"Descontando ese escenario, la probabilidad efectiva a tu favor sube al <strong>{wp}%</strong>. "
-                f"Esta linea ofrece mejor cuota que la doble oportunidad con la misma proteccion frente al empate — "
-                f"aqui esta la ventaja sobre el bookmaker."
+                f"Es una linea que protege frente al empate manteniendo una probabilidad alta a favor del favorito."
             )
         elif win.startswith("Doble oportunidad:"):
             team = win.replace("Doble oportunidad:", "").strip()
@@ -2155,38 +2154,14 @@ def article(league, home, hd, away, ad, nba=False, _win=None, _wp=None, _valor=N
                 f"el modelo detecta ventaja visitante con un <strong>{wp}%</strong> de probabilidad."
             )
 
-    # ── Bloque de análisis ──
-    if cuota is None:
-        # Colombia: solo estadístico, sin referencia de mercado
-        valor_html = f"""
-<h2>Analisis estadistico</h2>
-<p>Nuestro modelo asigna a <strong>{win}</strong> una probabilidad de victoria del <strong>{base_prob}%</strong> basado en estadísticas de la temporada actual. Este pick se publica por confianza estadística — no disponemos de cuotas de mercado verificadas para esta liga.</p>
+    # ── Bloque de análisis — SOLO probabilidad (PREDIKTOR no muestra cuotas) ──
+    _conf_lbl, _conf_col = ("ALTA", "var(--success)") if base_prob >= 70 else ("MEDIA", "var(--gold-500)")
+    valor_html = f"""
+<h2>¿Por qué este pick?</h2>
+<p>Nuestro modelo asigna a <strong>{win}</strong> una probabilidad del <strong>{base_prob}%</strong>, calculada con estadística real de la temporada (forma reciente, goles esperados, localía y rating Elo). Es un pick por respaldo estadístico — compará la cuota en tu casa de apuestas antes de jugar.</p>
 <div class="sbox">
 <div class="srow"><span class="slbl">Probabilidad estimada (modelo)</span><span class="sval" style="color:var(--gold-500)">{base_prob}%</span></div>
-<div class="srow"><span class="slbl">Confianza</span><span class="sval" style="color:var(--success)">ALTA (≥70%)</span></div>
-</div>"""
-    else:
-        if valor >= VALUE_ALTO_THRESHOLD:
-            valor_label, valor_color = "ALTO", "var(--success)"
-            valor_why = (
-                f"Nuestro modelo asigna a este resultado una probabilidad del <strong>{base_prob}%</strong>. "
-                f"La cuota real de mercado es <strong>{cuota}</strong>, lo que genera una ventaja matematica real sobre el bookmaker."
-            )
-        else:
-            valor_label, valor_color = "MEDIO", "var(--gold-500)"
-            valor_why = (
-                f"Probabilidad estimada: <strong>{base_prob}%</strong>. "
-                f"Cuota real disponible: <strong>{cuota}</strong>. "
-                f"El modelo detecta ventaja sobre el bookmaker en este mercado."
-            )
-
-        valor_html = f"""
-<h2>¿Por que hay valor en este pick?</h2>
-<p>{valor_why}</p>
-<div class="sbox">
-<div class="srow"><span class="slbl">Probabilidad estimada (modelo)</span><span class="sval" style="color:var(--gold-500)">{base_prob}%</span></div>
-<div class="srow"><span class="slbl">Cuota real de mercado</span><span class="sval" style="color:var(--white)">{cuota}</span></div>
-<div class="srow"><span class="slbl">Nivel de valor</span><span class="sval" style="color:{valor_color}">{valor_label}</span></div>
+<div class="srow"><span class="slbl">Confianza</span><span class="sval" style="color:{_conf_col}">{_conf_lbl}</span></div>
 </div>"""
 
     if win.startswith("Doble oportunidad:"):
@@ -2197,7 +2172,7 @@ def article(league, home, hd, away, ad, nba=False, _win=None, _wp=None, _valor=N
         conservador_tag = ""
 
     # ── Pick del Día: detalle dentro del pbox (cuota + explicación + confianza) ──
-    _plbl      = "Pick del Día" if _tipo_pick == "pick_dia" else "Pick de valor"
+    _plbl      = "Pick del Día" if _tipo_pick == "pick_dia" else "Pick del modelo"
     _pbox_extra = ""
     if _tipo_pick == "pick_dia" and _pick_data:
         _pd_label = _pick_data.get("market_label", "")
