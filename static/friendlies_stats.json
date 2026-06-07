@@ -41,48 +41,6 @@
     "elo_source": "world_football_elo",
     "host": false
   },
-  "Chile": {
-    "corners": {},
-    "goals": {},
-    "position": {
-      "posicion": 0,
-      "partidos": 11,
-      "ganados": 4,
-      "empatados": 2,
-      "perdidos": 5,
-      "goles_favor": 11,
-      "goles_contra": 15,
-      "diferencia": -4,
-      "puntos": 14
-    },
-    "_source": "api_football:form",
-    "_team_id": 2383,
-    "_team_name": "Chile",
-    "elo": 1710.0,
-    "elo_source": "world_football_elo",
-    "host": false
-  },
-  "Honduras": {
-    "corners": {},
-    "goals": {},
-    "position": {
-      "posicion": 0,
-      "partidos": 12,
-      "ganados": 4,
-      "empatados": 5,
-      "perdidos": 3,
-      "goles_favor": 12,
-      "goles_contra": 13,
-      "diferencia": -1,
-      "puntos": 17
-    },
-    "_source": "api_football:form",
-    "_team_id": 4672,
-    "_team_name": "Honduras",
-    "elo": 1571.0,
-    "elo_source": "world_football_elo",
-    "host": false
-  },
   "Peru": {
     "corners": {},
     "goals": {},
@@ -188,27 +146,6 @@
     "elo_source": "world_football_elo",
     "host": false
   },
-  "Bolivia": {
-    "corners": {},
-    "goals": {},
-    "position": {
-      "posicion": 0,
-      "partidos": 12,
-      "ganados": 4,
-      "empatados": 1,
-      "perdidos": 7,
-      "goles_favor": 9,
-      "goles_contra": 18,
-      "diferencia": -9,
-      "puntos": 13
-    },
-    "_source": "api_football:form",
-    "_team_id": 2381,
-    "_team_name": "Bolivia",
-    "elo": 1645.0,
-    "elo_source": "world_football_elo",
-    "host": false
-  },
   "Guatemala": {
     "corners": {},
     "goals": {},
@@ -261,8 +198,8 @@
       "empatados": 1,
       "perdidos": 7,
       "goles_favor": 13,
-      "goles_contra": 20,
-      "diferencia": -7,
+      "goles_contra": 19,
+      "diferencia": -6,
       "puntos": 13
     },
     "_source": "api_football:form",
@@ -272,24 +209,24 @@
     "elo_source": "world_football_elo",
     "host": false
   },
-  "El Salvador": {
+  "Bolivia": {
     "corners": {},
     "goals": {},
     "position": {
       "posicion": 0,
       "partidos": 12,
-      "ganados": 2,
-      "empatados": 2,
-      "perdidos": 8,
-      "goles_favor": 5,
-      "goles_contra": 18,
-      "diferencia": -13,
-      "puntos": 8
+      "ganados": 4,
+      "empatados": 1,
+      "perdidos": 7,
+      "goles_favor": 9,
+      "goles_contra": 19,
+      "diferencia": -10,
+      "puntos": 13
     },
     "_source": "api_football:form",
-    "_team_id": 5159,
-    "_team_name": "El Salvador",
-    "elo": 1342.0,
+    "_team_id": 2381,
+    "_team_name": "Bolivia",
+    "elo": 1645.0,
     "elo_source": "world_football_elo",
     "host": false
   }

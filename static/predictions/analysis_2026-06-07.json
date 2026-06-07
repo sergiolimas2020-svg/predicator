@@ -1,0 +1,95 @@
+{
+  "date": "2026-06-07",
+  "total_fixtures": 4,
+  "matches": [
+    {
+      "matchup": "Croatia vs Slovenia",
+      "league": "Amistoso Selección",
+      "home": "Croatia",
+      "away": "Slovenia",
+      "probabilities": {
+        "win_home": 79.9,
+        "draw": 15.0,
+        "win_away": 5.2,
+        "over_2_5": 58.0,
+        "over_1_5": 80.3
+      },
+      "favorite": "Croatia",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 2.49,
+      "lambda_away": 0.52,
+      "elo_home": 1930.0,
+      "elo_away": 1694.0,
+      "danger": null
+    },
+    {
+      "matchup": "Colombia vs Jordan",
+      "league": "Amistoso Selección",
+      "home": "Colombia",
+      "away": "Jordan",
+      "probabilities": {
+        "win_home": 82.4,
+        "draw": 10.9,
+        "win_away": 6.6,
+        "over_2_5": 83.4,
+        "over_1_5": 94.2
+      },
+      "favorite": "Colombia",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 3.53,
+      "lambda_away": 1.04,
+      "elo_home": 1977.0,
+      "elo_away": 1685.0,
+      "danger": null
+    },
+    {
+      "matchup": "Greece vs Italy",
+      "league": "Amistoso Selección",
+      "home": "Greece",
+      "away": "Italy",
+      "probabilities": {
+        "win_home": 38.4,
+        "draw": 21.6,
+        "win_away": 40.1,
+        "over_2_5": 78.6,
+        "over_1_5": 92.0
+      },
+      "favorite": "Italy",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 2.06,
+      "lambda_away": 2.11,
+      "elo_home": 1752.0,
+      "elo_away": 1856.0,
+      "danger": null
+    },
+    {
+      "matchup": "Ecuador vs Guatemala",
+      "league": "Amistoso Selección",
+      "home": "Ecuador",
+      "away": "Guatemala",
+      "probabilities": {
+        "win_home": 68.2,
+        "draw": 26.4,
+        "win_away": 5.4,
+        "over_2_5": 24.8,
+        "over_1_5": 51.3
+      },
+      "favorite": "Ecuador",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.47,
+      "lambda_away": 0.25,
+      "elo_home": 1935.0,
+      "elo_away": 1514.0,
+      "danger": null
+    }
+  ],
+  "nota": "Análisis estadístico de todos los partidos del día. Probabilidades crudas del modelo (sin ajuste por liga ni mercado). No incluye recomendación de apuesta — ver value_picks y featured_pick para picks oficiales."
+}
