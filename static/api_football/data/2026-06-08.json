@@ -1,0 +1,4172 @@
+[
+  {
+    "key": "Atletico Nacional|Junior|2026-06-08",
+    "home": "Atletico Nacional",
+    "away": "Junior",
+    "league": "Liga Colombiana",
+    "date": "2026-06-08",
+    "home_id": 1137,
+    "away_id": 1135,
+    "league_id": 239,
+    "season": 2026,
+    "h2h": [
+      {
+        "fixture": {
+          "id": 1546412,
+          "referee": "C. Ortega",
+          "timezone": "UTC",
+          "date": "2026-06-03T00:30:00+00:00",
+          "timestamp": 1780446600,
+          "periods": {
+            "first": 1780446600,
+            "second": 1780450200
+          },
+          "venue": {
+            "id": 366,
+            "name": "Estadio Romelio Martinez",
+            "city": "Barranquilla"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 7
+          }
+        },
+        "league": {
+          "id": 239,
+          "name": "Primera A",
+          "country": "Colombia",
+          "logo": "https://media.api-sports.io/football/leagues/239.png",
+          "flag": "https://media.api-sports.io/flags/co.svg",
+          "season": 2026,
+          "round": "Apertura - Final",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1135,
+            "name": "Junior",
+            "logo": "https://media.api-sports.io/football/teams/1135.png",
+            "winner": true
+          },
+          "away": {
+            "id": 1137,
+            "name": "Atletico Nacional",
+            "logo": "https://media.api-sports.io/football/teams/1137.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 3,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 2,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 3,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1505956,
+          "referee": "C. A. Betancur Gutierrez",
+          "timezone": "UTC",
+          "date": "2026-03-11T01:30:00+00:00",
+          "timestamp": 1773192600,
+          "periods": {
+            "first": 1773192600,
+            "second": 1773196200
+          },
+          "venue": {
+            "id": 366,
+            "name": "Estadio Metropolitano Roberto Melendez",
+            "city": "Barranquilla"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": null
+          }
+        },
+        "league": {
+          "id": 239,
+          "name": "Primera A",
+          "country": "Colombia",
+          "logo": "https://media.api-sports.io/football/leagues/239.png",
+          "flag": "https://media.api-sports.io/flags/co.svg",
+          "season": 2026,
+          "round": "Apertura - 3",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1135,
+            "name": "Junior",
+            "logo": "https://media.api-sports.io/football/teams/1135.png",
+            "winner": false
+          },
+          "away": {
+            "id": 1137,
+            "name": "Atletico Nacional",
+            "logo": "https://media.api-sports.io/football/teams/1137.png",
+            "winner": true
+          }
+        },
+        "goals": {
+          "home": 0,
+          "away": 4
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 1
+          },
+          "fulltime": {
+            "home": 0,
+            "away": 4
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1487908,
+          "referee": "Andres Rojas, Colombia",
+          "timezone": "UTC",
+          "date": "2025-11-30T23:30:00+00:00",
+          "timestamp": 1764545400,
+          "periods": {
+            "first": 1764545400,
+            "second": 1764549000
+          },
+          "venue": {
+            "id": 366,
+            "name": "Estadio Metropolitano Roberto Melendez",
+            "city": "Barranquilla"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 7
+          }
+        },
+        "league": {
+          "id": 239,
+          "name": "Primera A",
+          "country": "Colombia",
+          "logo": "https://media.api-sports.io/football/leagues/239.png",
+          "flag": "https://media.api-sports.io/flags/co.svg",
+          "season": 2025,
+          "round": "Clausura - Quadrangular - 4",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1135,
+            "name": "Junior",
+            "logo": "https://media.api-sports.io/football/teams/1135.png",
+            "winner": true
+          },
+          "away": {
+            "id": 1137,
+            "name": "Atletico Nacional",
+            "logo": "https://media.api-sports.io/football/teams/1137.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 2,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 1
+          },
+          "fulltime": {
+            "home": 2,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1487904,
+          "referee": "Diego Ulloa Angulo, Colombia",
+          "timezone": "UTC",
+          "date": "2025-11-27T01:30:00+00:00",
+          "timestamp": 1764207000,
+          "periods": {
+            "first": 1764207000,
+            "second": 1764210600
+          },
+          "venue": {
+            "id": null,
+            "name": "Estadio Metropolitano Ciudad de Itagui",
+            "city": "Itagui"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 11
+          }
+        },
+        "league": {
+          "id": 239,
+          "name": "Primera A",
+          "country": "Colombia",
+          "logo": "https://media.api-sports.io/football/leagues/239.png",
+          "flag": "https://media.api-sports.io/flags/co.svg",
+          "season": 2025,
+          "round": "Clausura - Quadrangular - 3",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1137,
+            "name": "Atletico Nacional",
+            "logo": "https://media.api-sports.io/football/teams/1137.png",
+            "winner": null
+          },
+          "away": {
+            "id": 1135,
+            "name": "Junior",
+            "logo": "https://media.api-sports.io/football/teams/1135.png",
+            "winner": null
+          }
+        },
+        "goals": {
+          "home": 1,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 1
+          },
+          "fulltime": {
+            "home": 1,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1480648,
+          "referee": "Carlos Betancur, Colombia",
+          "timezone": "UTC",
+          "date": "2025-11-14T00:00:00+00:00",
+          "timestamp": 1763078400,
+          "periods": {
+            "first": 1763078400,
+            "second": 1763082000
+          },
+          "venue": {
+            "id": 366,
+            "name": "Estadio Metropolitano Roberto Melendez",
+            "city": "Barranquilla"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 7
+          }
+        },
+        "league": {
+          "id": 239,
+          "name": "Primera A",
+          "country": "Colombia",
+          "logo": "https://media.api-sports.io/football/leagues/239.png",
+          "flag": "https://media.api-sports.io/flags/co.svg",
+          "season": 2025,
+          "round": "Clausura - 20",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1135,
+            "name": "Junior",
+            "logo": "https://media.api-sports.io/football/teams/1135.png",
+            "winner": true
+          },
+          "away": {
+            "id": 1137,
+            "name": "Atletico Nacional",
+            "logo": "https://media.api-sports.io/football/teams/1137.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 2,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 1
+          },
+          "fulltime": {
+            "home": 2,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1336722,
+          "referee": "Andres Rojas, Colombia",
+          "timezone": "UTC",
+          "date": "2025-05-25T21:00:00+00:00",
+          "timestamp": 1748206800,
+          "periods": {
+            "first": 1748206800,
+            "second": 1748210400
+          },
+          "venue": {
+            "id": 380,
+            "name": "Estadio Atanasio Girardot",
+            "city": "Medellin"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 7
+          }
+        },
+        "league": {
+          "id": 239,
+          "name": "Primera A",
+          "country": "Colombia",
+          "logo": "https://media.api-sports.io/football/leagues/239.png",
+          "flag": "https://media.api-sports.io/flags/co.svg",
+          "season": 2025,
+          "round": "Apertura - 20",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1137,
+            "name": "Atletico Nacional",
+            "logo": "https://media.api-sports.io/football/teams/1137.png",
+            "winner": false
+          },
+          "away": {
+            "id": 1135,
+            "name": "Junior",
+            "logo": "https://media.api-sports.io/football/teams/1135.png",
+            "winner": true
+          }
+        },
+        "goals": {
+          "home": 2,
+          "away": 3
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 2
+          },
+          "fulltime": {
+            "home": 2,
+            "away": 3
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1234236,
+          "referee": "N. Ararat",
+          "timezone": "UTC",
+          "date": "2024-09-27T01:30:00+00:00",
+          "timestamp": 1727400600,
+          "periods": {
+            "first": 1727400600,
+            "second": 1727404200
+          },
+          "venue": {
+            "id": 380,
+            "name": "Estadio Atanasio Girardot",
+            "city": "Medellín"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": null
+          }
+        },
+        "league": {
+          "id": 239,
+          "name": "Primera A",
+          "country": "Colombia",
+          "logo": "https://media.api-sports.io/football/leagues/239.png",
+          "flag": "https://media.api-sports.io/flags/co.svg",
+          "season": 2024,
+          "round": "Clausura - 10",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1137,
+            "name": "Atletico Nacional",
+            "logo": "https://media.api-sports.io/football/teams/1137.png",
+            "winner": true
+          },
+          "away": {
+            "id": 1135,
+            "name": "Junior",
+            "logo": "https://media.api-sports.io/football/teams/1135.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 2,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": null,
+            "away": null
+          },
+          "fulltime": {
+            "home": 2,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1153154,
+          "referee": "J. Duarte",
+          "timezone": "UTC",
+          "date": "2024-03-03T01:20:00+00:00",
+          "timestamp": 1709428800,
+          "periods": {
+            "first": 1709428800,
+            "second": 1709432400
+          },
+          "venue": {
+            "id": 366,
+            "name": "Estadio Metropolitano Roberto Meléndez",
+            "city": "Barranquilla"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": null
+          }
+        },
+        "league": {
+          "id": 239,
+          "name": "Primera A",
+          "country": "Colombia",
+          "logo": "https://media.api-sports.io/football/leagues/239.png",
+          "flag": "https://media.api-sports.io/flags/co.svg",
+          "season": 2024,
+          "round": "Apertura - 10",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1135,
+            "name": "Junior",
+            "logo": "https://media.api-sports.io/football/teams/1135.png",
+            "winner": null
+          },
+          "away": {
+            "id": 1137,
+            "name": "Atletico Nacional",
+            "logo": "https://media.api-sports.io/football/teams/1137.png",
+            "winner": null
+          }
+        },
+        "goals": {
+          "home": 0,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 0,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 990422,
+          "referee": "C. Ortega",
+          "timezone": "UTC",
+          "date": "2023-09-17T23:10:00+00:00",
+          "timestamp": 1694992200,
+          "periods": {
+            "first": 1694992200,
+            "second": 1694995800
+          },
+          "venue": {
+            "id": 366,
+            "name": "Estadio Metropolitano Roberto Meléndez",
+            "city": "Barranquilla"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": null
+          }
+        },
+        "league": {
+          "id": 239,
+          "name": "Primera A",
+          "country": "Colombia",
+          "logo": "https://media.api-sports.io/football/leagues/239.png",
+          "flag": "https://media.api-sports.io/flags/co.svg",
+          "season": 2023,
+          "round": "Clausura - 12",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1135,
+            "name": "Junior",
+            "logo": "https://media.api-sports.io/football/teams/1135.png",
+            "winner": null
+          },
+          "away": {
+            "id": 1137,
+            "name": "Atletico Nacional",
+            "logo": "https://media.api-sports.io/football/teams/1137.png",
+            "winner": null
+          }
+        },
+        "goals": {
+          "home": 1,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 1,
+            "away": 1
+          },
+          "fulltime": {
+            "home": 1,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 989389,
+          "referee": "W. Mosquera",
+          "timezone": "UTC",
+          "date": "2023-04-10T23:00:00+00:00",
+          "timestamp": 1681167600,
+          "periods": {
+            "first": 1681167600,
+            "second": 1681171200
+          },
+          "venue": {
+            "id": 380,
+            "name": "Estadio Atanasio Girardot",
+            "city": "Medellín"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": null
+          }
+        },
+        "league": {
+          "id": 239,
+          "name": "Primera A",
+          "country": "Colombia",
+          "logo": "https://media.api-sports.io/football/leagues/239.png",
+          "flag": "https://media.api-sports.io/flags/co.svg",
+          "season": 2023,
+          "round": "Apertura - 12",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1137,
+            "name": "Atletico Nacional",
+            "logo": "https://media.api-sports.io/football/teams/1137.png",
+            "winner": false
+          },
+          "away": {
+            "id": 1135,
+            "name": "Junior",
+            "logo": "https://media.api-sports.io/football/teams/1135.png",
+            "winner": true
+          }
+        },
+        "goals": {
+          "home": 0,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 0,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      }
+    ],
+    "home_form": [
+      {
+        "fixture": {
+          "id": 1546412,
+          "referee": "C. Ortega",
+          "timezone": "UTC",
+          "date": "2026-06-03T00:30:00+00:00",
+          "timestamp": 1780446600,
+          "periods": {
+            "first": 1780446600,
+            "second": 1780450200
+          },
+          "venue": {
+            "id": 366,
+            "name": "Estadio Romelio Martinez",
+            "city": "Barranquilla"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 7
+          }
+        },
+        "league": {
+          "id": 239,
+          "name": "Primera A",
+          "country": "Colombia",
+          "logo": "https://media.api-sports.io/football/leagues/239.png",
+          "flag": "https://media.api-sports.io/flags/co.svg",
+          "season": 2026,
+          "round": "Apertura - Final",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1135,
+            "name": "Junior",
+            "logo": "https://media.api-sports.io/football/teams/1135.png",
+            "winner": true
+          },
+          "away": {
+            "id": 1137,
+            "name": "Atletico Nacional",
+            "logo": "https://media.api-sports.io/football/teams/1137.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 3,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 2,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 3,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1545168,
+          "referee": "C. A. Betancur Gutierrez",
+          "timezone": "UTC",
+          "date": "2026-05-23T23:00:00+00:00",
+          "timestamp": 1779577200,
+          "periods": {
+            "first": 1779577200,
+            "second": 1779580800
+          },
+          "venue": {
+            "id": 380,
+            "name": "Estadio Atanasio Girardot",
+            "city": "Medellin"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 4
+          }
+        },
+        "league": {
+          "id": 239,
+          "name": "Primera A",
+          "country": "Colombia",
+          "logo": "https://media.api-sports.io/football/leagues/239.png",
+          "flag": "https://media.api-sports.io/flags/co.svg",
+          "season": 2026,
+          "round": "Apertura - Semi-finals",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1137,
+            "name": "Atletico Nacional",
+            "logo": "https://media.api-sports.io/football/teams/1137.png",
+            "winner": true
+          },
+          "away": {
+            "id": 1142,
+            "name": "Deportes Tolima",
+            "logo": "https://media.api-sports.io/football/teams/1142.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 3,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 3,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1545166,
+          "referee": "A. Rojas",
+          "timezone": "UTC",
+          "date": "2026-05-16T23:00:00+00:00",
+          "timestamp": 1778972400,
+          "periods": {
+            "first": 1778972400,
+            "second": 1778976000
+          },
+          "venue": {
+            "id": 375,
+            "name": "Estadio Manuel Murillo Toro",
+            "city": "Ibague"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 7
+          }
+        },
+        "league": {
+          "id": 239,
+          "name": "Primera A",
+          "country": "Colombia",
+          "logo": "https://media.api-sports.io/football/leagues/239.png",
+          "flag": "https://media.api-sports.io/flags/co.svg",
+          "season": 2026,
+          "round": "Apertura - Semi-finals",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1142,
+            "name": "Deportes Tolima",
+            "logo": "https://media.api-sports.io/football/teams/1142.png",
+            "winner": false
+          },
+          "away": {
+            "id": 1137,
+            "name": "Atletico Nacional",
+            "logo": "https://media.api-sports.io/football/teams/1137.png",
+            "winner": true
+          }
+        },
+        "goals": {
+          "home": 0,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 0,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1544227,
+          "referee": "C. Ortega",
+          "timezone": "UTC",
+          "date": "2026-05-12T23:20:00+00:00",
+          "timestamp": 1778628000,
+          "periods": {
+            "first": 1778628000,
+            "second": 1778631600
+          },
+          "venue": {
+            "id": 380,
+            "name": "Estadio Atanasio Girardot",
+            "city": "Medellin"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 1
+          }
+        },
+        "league": {
+          "id": 239,
+          "name": "Primera A",
+          "country": "Colombia",
+          "logo": "https://media.api-sports.io/football/leagues/239.png",
+          "flag": "https://media.api-sports.io/flags/co.svg",
+          "season": 2026,
+          "round": "Apertura - Quarter-finals",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1137,
+            "name": "Atletico Nacional",
+            "logo": "https://media.api-sports.io/football/teams/1137.png",
+            "winner": true
+          },
+          "away": {
+            "id": 1134,
+            "name": "Internacional de Bogota",
+            "logo": "https://media.api-sports.io/football/teams/1134.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 7,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 2,
+            "away": 1
+          },
+          "fulltime": {
+            "home": 7,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1544223,
+          "referee": "C. A. Betancur Gutierrez",
+          "timezone": "UTC",
+          "date": "2026-05-09T21:00:00+00:00",
+          "timestamp": 1778360400,
+          "periods": {
+            "first": 1778360400,
+            "second": 1778364000
+          },
+          "venue": {
+            "id": null,
+            "name": "Estadio Metropolitano de Techo",
+            "city": "Bogota"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 6
+          }
+        },
+        "league": {
+          "id": 239,
+          "name": "Primera A",
+          "country": "Colombia",
+          "logo": "https://media.api-sports.io/football/leagues/239.png",
+          "flag": "https://media.api-sports.io/flags/co.svg",
+          "season": 2026,
+          "round": "Apertura - Quarter-finals",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1134,
+            "name": "Internacional de Bogota",
+            "logo": "https://media.api-sports.io/football/teams/1134.png",
+            "winner": false
+          },
+          "away": {
+            "id": 1137,
+            "name": "Atletico Nacional",
+            "logo": "https://media.api-sports.io/football/teams/1137.png",
+            "winner": true
+          }
+        },
+        "goals": {
+          "home": 1,
+          "away": 2
+        },
+        "score": {
+          "halftime": {
+            "home": 1,
+            "away": 1
+          },
+          "fulltime": {
+            "home": 1,
+            "away": 2
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1506115,
+          "referee": "J. Bautista",
+          "timezone": "UTC",
+          "date": "2026-05-01T23:00:00+00:00",
+          "timestamp": 1777676400,
+          "periods": {
+            "first": 1777676400,
+            "second": 1777680000
+          },
+          "venue": {
+            "id": 384,
+            "name": "Estadio Palogrande",
+            "city": "Manizales"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 4
+          }
+        },
+        "league": {
+          "id": 239,
+          "name": "Primera A",
+          "country": "Colombia",
+          "logo": "https://media.api-sports.io/football/leagues/239.png",
+          "flag": "https://media.api-sports.io/flags/co.svg",
+          "season": 2026,
+          "round": "Apertura - 19",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1136,
+            "name": "Once Caldas",
+            "logo": "https://media.api-sports.io/football/teams/1136.png",
+            "winner": true
+          },
+          "away": {
+            "id": 1137,
+            "name": "Atletico Nacional",
+            "logo": "https://media.api-sports.io/football/teams/1137.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 1,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 1,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1506103,
+          "referee": "J. Ospina",
+          "timezone": "UTC",
+          "date": "2026-04-25T21:00:00+00:00",
+          "timestamp": 1777150800,
+          "periods": {
+            "first": 1777150800,
+            "second": 1777154400
+          },
+          "venue": {
+            "id": 374,
+            "name": "Estadio Centenario",
+            "city": "Armenia"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 8
+          }
+        },
+        "league": {
+          "id": 239,
+          "name": "Primera A",
+          "country": "Colombia",
+          "logo": "https://media.api-sports.io/football/leagues/239.png",
+          "flag": "https://media.api-sports.io/flags/co.svg",
+          "season": 2026,
+          "round": "Apertura - 18",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1462,
+            "name": "Deportivo Pereira",
+            "logo": "https://media.api-sports.io/football/teams/1462.png",
+            "winner": true
+          },
+          "away": {
+            "id": 1137,
+            "name": "Atletico Nacional",
+            "logo": "https://media.api-sports.io/football/teams/1137.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 1,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 1,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 1,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1506096,
+          "referee": "F. Trujillo",
+          "timezone": "UTC",
+          "date": "2026-04-21T01:30:00+00:00",
+          "timestamp": 1776735000,
+          "periods": {
+            "first": 1776735000,
+            "second": 1776738600
+          },
+          "venue": {
+            "id": 380,
+            "name": "Estadio Atanasio Girardot",
+            "city": "Medellin"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 4
+          }
+        },
+        "league": {
+          "id": 239,
+          "name": "Primera A",
+          "country": "Colombia",
+          "logo": "https://media.api-sports.io/football/leagues/239.png",
+          "flag": "https://media.api-sports.io/flags/co.svg",
+          "season": 2026,
+          "round": "Apertura - 17",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1137,
+            "name": "Atletico Nacional",
+            "logo": "https://media.api-sports.io/football/teams/1137.png",
+            "winner": true
+          },
+          "away": {
+            "id": 1131,
+            "name": "Bucaramanga",
+            "logo": "https://media.api-sports.io/football/teams/1131.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 2,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 2,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1506082,
+          "referee": "W. Roldan",
+          "timezone": "UTC",
+          "date": "2026-04-12T01:20:00+00:00",
+          "timestamp": 1775956800,
+          "periods": {
+            "first": 1775956800,
+            "second": 1775960400
+          },
+          "venue": {
+            "id": null,
+            "name": "Estadio Atanasio Girardot",
+            "city": null
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 6
+          }
+        },
+        "league": {
+          "id": 239,
+          "name": "Primera A",
+          "country": "Colombia",
+          "logo": "https://media.api-sports.io/football/leagues/239.png",
+          "flag": "https://media.api-sports.io/flags/co.svg",
+          "season": 2026,
+          "round": "Apertura - 16",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1128,
+            "name": "Independiente Medellin",
+            "logo": "https://media.api-sports.io/football/teams/1128.png",
+            "winner": false
+          },
+          "away": {
+            "id": 1137,
+            "name": "Atletico Nacional",
+            "logo": "https://media.api-sports.io/football/teams/1137.png",
+            "winner": true
+          }
+        },
+        "goals": {
+          "home": 2,
+          "away": 3
+        },
+        "score": {
+          "halftime": {
+            "home": 2,
+            "away": 2
+          },
+          "fulltime": {
+            "home": 2,
+            "away": 3
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1505946,
+          "referee": "J. A. Mayorga Londono",
+          "timezone": "UTC",
+          "date": "2026-04-07T01:10:00+00:00",
+          "timestamp": 1775524200,
+          "periods": {
+            "first": 1775524200,
+            "second": 1775527800
+          },
+          "venue": {
+            "id": 380,
+            "name": "Estadio Atanasio Girardot",
+            "city": "Medellin"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 4
+          }
+        },
+        "league": {
+          "id": 239,
+          "name": "Primera A",
+          "country": "Colombia",
+          "logo": "https://media.api-sports.io/football/leagues/239.png",
+          "flag": "https://media.api-sports.io/flags/co.svg",
+          "season": 2026,
+          "round": "Apertura - 2",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1137,
+            "name": "Atletico Nacional",
+            "logo": "https://media.api-sports.io/football/teams/1137.png",
+            "winner": true
+          },
+          "away": {
+            "id": 1133,
+            "name": "Jaguares",
+            "logo": "https://media.api-sports.io/football/teams/1133.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 2,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 1,
+            "away": 1
+          },
+          "fulltime": {
+            "home": 2,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1506070,
+          "referee": "C. A. Betancur Gutierrez",
+          "timezone": "UTC",
+          "date": "2026-04-02T01:30:00+00:00",
+          "timestamp": 1775093400,
+          "periods": {
+            "first": 1775093400,
+            "second": 1775097000
+          },
+          "venue": {
+            "id": 380,
+            "name": "Estadio Atanasio Girardot",
+            "city": "Medellin"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 6
+          }
+        },
+        "league": {
+          "id": 239,
+          "name": "Primera A",
+          "country": "Colombia",
+          "logo": "https://media.api-sports.io/football/leagues/239.png",
+          "flag": "https://media.api-sports.io/flags/co.svg",
+          "season": 2026,
+          "round": "Apertura - 15",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1137,
+            "name": "Atletico Nacional",
+            "logo": "https://media.api-sports.io/football/teams/1137.png",
+            "winner": null
+          },
+          "away": {
+            "id": 1470,
+            "name": "Cucuta",
+            "logo": "https://media.api-sports.io/football/teams/1470.png",
+            "winner": null
+          }
+        },
+        "goals": {
+          "home": 0,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 0,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1506063,
+          "referee": "C. Ortega",
+          "timezone": "UTC",
+          "date": "2026-03-29T23:20:00+00:00",
+          "timestamp": 1774826400,
+          "periods": {
+            "first": 1774826400,
+            "second": 1774830000
+          },
+          "venue": {
+            "id": null,
+            "name": "Estadio Departamental Libertad",
+            "city": "Pasto"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 8
+          }
+        },
+        "league": {
+          "id": 239,
+          "name": "Primera A",
+          "country": "Colombia",
+          "logo": "https://media.api-sports.io/football/leagues/239.png",
+          "flag": "https://media.api-sports.io/flags/co.svg",
+          "season": 2026,
+          "round": "Apertura - 14",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1126,
+            "name": "Deportivo Pasto",
+            "logo": "https://media.api-sports.io/football/teams/1126.png",
+            "winner": false
+          },
+          "away": {
+            "id": 1137,
+            "name": "Atletico Nacional",
+            "logo": "https://media.api-sports.io/football/teams/1137.png",
+            "winner": true
+          }
+        },
+        "goals": {
+          "home": 1,
+          "away": 2
+        },
+        "score": {
+          "halftime": {
+            "home": 1,
+            "away": 1
+          },
+          "fulltime": {
+            "home": 1,
+            "away": 2
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1542269,
+          "referee": null,
+          "timezone": "UTC",
+          "date": "2026-03-26T02:30:00+00:00",
+          "timestamp": 1774492200,
+          "periods": {
+            "first": 1774492200,
+            "second": 1774495800
+          },
+          "venue": {
+            "id": null,
+            "name": null,
+            "city": null
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": null
+          }
+        },
+        "league": {
+          "id": 667,
+          "name": "Friendlies Clubs",
+          "country": "World",
+          "logo": "https://media.api-sports.io/football/leagues/667.png",
+          "flag": null,
+          "season": 2026,
+          "round": "Club Friendly",
+          "standings": false
+        },
+        "teams": {
+          "home": {
+            "id": 2295,
+            "name": "Cruz Azul",
+            "logo": "https://media.api-sports.io/football/teams/2295.png",
+            "winner": true
+          },
+          "away": {
+            "id": 1137,
+            "name": "Atletico Nacional",
+            "logo": "https://media.api-sports.io/football/teams/1137.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 3,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 3,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1506050,
+          "referee": "J. A. Mayorga Londono",
+          "timezone": "UTC",
+          "date": "2026-03-22T01:30:00+00:00",
+          "timestamp": 1774143000,
+          "periods": {
+            "first": 1774143000,
+            "second": 1774146600
+          },
+          "venue": {
+            "id": 380,
+            "name": "Estadio Atanasio Girardot",
+            "city": "Medellin"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 4
+          }
+        },
+        "league": {
+          "id": 239,
+          "name": "Primera A",
+          "country": "Colombia",
+          "logo": "https://media.api-sports.io/football/leagues/239.png",
+          "flag": "https://media.api-sports.io/flags/co.svg",
+          "season": 2026,
+          "round": "Apertura - 13",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1137,
+            "name": "Atletico Nacional",
+            "logo": "https://media.api-sports.io/football/teams/1137.png",
+            "winner": true
+          },
+          "away": {
+            "id": 1134,
+            "name": "Internacional de Bogota",
+            "logo": "https://media.api-sports.io/football/teams/1134.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 3,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 1,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 3,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1506039,
+          "referee": "J. Ospina",
+          "timezone": "UTC",
+          "date": "2026-03-18T01:30:00+00:00",
+          "timestamp": 1773797400,
+          "periods": {
+            "first": 1773797400,
+            "second": 1773801000
+          },
+          "venue": {
+            "id": null,
+            "name": "Estadio Nemesio Camacho El Campin",
+            "city": "Bogota"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": null
+          }
+        },
+        "league": {
+          "id": 239,
+          "name": "Primera A",
+          "country": "Colombia",
+          "logo": "https://media.api-sports.io/football/leagues/239.png",
+          "flag": "https://media.api-sports.io/flags/co.svg",
+          "season": 2026,
+          "round": "Apertura - 12",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1125,
+            "name": "Millonarios",
+            "logo": "https://media.api-sports.io/football/teams/1125.png",
+            "winner": true
+          },
+          "away": {
+            "id": 1137,
+            "name": "Atletico Nacional",
+            "logo": "https://media.api-sports.io/football/teams/1137.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 3,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 1,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 3,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1506028,
+          "referee": "J. Ortiz",
+          "timezone": "UTC",
+          "date": "2026-03-14T01:30:00+00:00",
+          "timestamp": 1773451800,
+          "periods": {
+            "first": 1773451800,
+            "second": 1773455400
+          },
+          "venue": {
+            "id": 380,
+            "name": "Estadio Atanasio Girardot",
+            "city": "Medellin"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 5
+          }
+        },
+        "league": {
+          "id": 239,
+          "name": "Primera A",
+          "country": "Colombia",
+          "logo": "https://media.api-sports.io/football/leagues/239.png",
+          "flag": "https://media.api-sports.io/flags/co.svg",
+          "season": 2026,
+          "round": "Apertura - 11",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1137,
+            "name": "Atletico Nacional",
+            "logo": "https://media.api-sports.io/football/teams/1137.png",
+            "winner": true
+          },
+          "away": {
+            "id": 1464,
+            "name": "Llaneros",
+            "logo": "https://media.api-sports.io/football/teams/1464.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 2,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 1,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 2,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1505956,
+          "referee": "C. A. Betancur Gutierrez",
+          "timezone": "UTC",
+          "date": "2026-03-11T01:30:00+00:00",
+          "timestamp": 1773192600,
+          "periods": {
+            "first": 1773192600,
+            "second": 1773196200
+          },
+          "venue": {
+            "id": 366,
+            "name": "Estadio Metropolitano Roberto Melendez",
+            "city": "Barranquilla"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": null
+          }
+        },
+        "league": {
+          "id": 239,
+          "name": "Primera A",
+          "country": "Colombia",
+          "logo": "https://media.api-sports.io/football/leagues/239.png",
+          "flag": "https://media.api-sports.io/flags/co.svg",
+          "season": 2026,
+          "round": "Apertura - 3",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1135,
+            "name": "Junior",
+            "logo": "https://media.api-sports.io/football/teams/1135.png",
+            "winner": false
+          },
+          "away": {
+            "id": 1137,
+            "name": "Atletico Nacional",
+            "logo": "https://media.api-sports.io/football/teams/1137.png",
+            "winner": true
+          }
+        },
+        "goals": {
+          "home": 0,
+          "away": 4
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 1
+          },
+          "fulltime": {
+            "home": 0,
+            "away": 4
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1506017,
+          "referee": "W. Roldan",
+          "timezone": "UTC",
+          "date": "2026-03-07T21:00:00+00:00",
+          "timestamp": 1772917200,
+          "periods": {
+            "first": 1772917200,
+            "second": 1772920800
+          },
+          "venue": {
+            "id": null,
+            "name": "Estadio Alberto Grisales",
+            "city": "Rionegro"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 6
+          }
+        },
+        "league": {
+          "id": 239,
+          "name": "Primera A",
+          "country": "Colombia",
+          "logo": "https://media.api-sports.io/football/leagues/239.png",
+          "flag": "https://media.api-sports.io/flags/co.svg",
+          "season": 2026,
+          "round": "Apertura - 10",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1144,
+            "name": "Águilas Doradas",
+            "logo": "https://media.api-sports.io/football/teams/1144.png",
+            "winner": false
+          },
+          "away": {
+            "id": 1137,
+            "name": "Atletico Nacional",
+            "logo": "https://media.api-sports.io/football/teams/1137.png",
+            "winner": true
+          }
+        },
+        "goals": {
+          "home": 1,
+          "away": 2
+        },
+        "score": {
+          "halftime": {
+            "home": 1,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 1,
+            "away": 2
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1501206,
+          "referee": "W. Sampaio",
+          "timezone": "UTC",
+          "date": "2026-03-05T00:30:00+00:00",
+          "timestamp": 1772670600,
+          "periods": {
+            "first": 1772670600,
+            "second": 1772674200
+          },
+          "venue": {
+            "id": null,
+            "name": "Estadio Atanasio Girardot",
+            "city": null
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 8
+          }
+        },
+        "league": {
+          "id": 11,
+          "name": "CONMEBOL Sudamericana",
+          "country": "World",
+          "logo": "https://media.api-sports.io/football/leagues/11.png",
+          "flag": null,
+          "season": 2026,
+          "round": "Qualification Round 1",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1137,
+            "name": "Atletico Nacional",
+            "logo": "https://media.api-sports.io/football/teams/1137.png",
+            "winner": false
+          },
+          "away": {
+            "id": 1125,
+            "name": "Millonarios",
+            "logo": "https://media.api-sports.io/football/teams/1125.png",
+            "winner": true
+          }
+        },
+        "goals": {
+          "home": 1,
+          "away": 3
+        },
+        "score": {
+          "halftime": {
+            "home": 1,
+            "away": 2
+          },
+          "fulltime": {
+            "home": 1,
+            "away": 3
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1506016,
+          "referee": "L. Delgado",
+          "timezone": "UTC",
+          "date": "2026-03-02T01:30:00+00:00",
+          "timestamp": 1772415000,
+          "periods": {
+            "first": 1772415000,
+            "second": 1772418600
+          },
+          "venue": {
+            "id": 375,
+            "name": "Estadio Manuel Murillo Toro",
+            "city": "Ibague"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 5
+          }
+        },
+        "league": {
+          "id": 239,
+          "name": "Primera A",
+          "country": "Colombia",
+          "logo": "https://media.api-sports.io/football/leagues/239.png",
+          "flag": "https://media.api-sports.io/flags/co.svg",
+          "season": 2026,
+          "round": "Apertura - 9",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1142,
+            "name": "Deportes Tolima",
+            "logo": "https://media.api-sports.io/football/teams/1142.png",
+            "winner": true
+          },
+          "away": {
+            "id": 1137,
+            "name": "Atletico Nacional",
+            "logo": "https://media.api-sports.io/football/teams/1137.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 1,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 1,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      }
+    ],
+    "away_form": [
+      {
+        "fixture": {
+          "id": 1546412,
+          "referee": "C. Ortega",
+          "timezone": "UTC",
+          "date": "2026-06-03T00:30:00+00:00",
+          "timestamp": 1780446600,
+          "periods": {
+            "first": 1780446600,
+            "second": 1780450200
+          },
+          "venue": {
+            "id": 366,
+            "name": "Estadio Romelio Martinez",
+            "city": "Barranquilla"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 7
+          }
+        },
+        "league": {
+          "id": 239,
+          "name": "Primera A",
+          "country": "Colombia",
+          "logo": "https://media.api-sports.io/football/leagues/239.png",
+          "flag": "https://media.api-sports.io/flags/co.svg",
+          "season": 2026,
+          "round": "Apertura - Final",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1135,
+            "name": "Junior",
+            "logo": "https://media.api-sports.io/football/teams/1135.png",
+            "winner": true
+          },
+          "away": {
+            "id": 1137,
+            "name": "Atletico Nacional",
+            "logo": "https://media.api-sports.io/football/teams/1137.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 3,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 2,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 3,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1535327,
+          "referee": "C. Garay",
+          "timezone": "UTC",
+          "date": "2026-05-28T22:00:00+00:00",
+          "timestamp": 1780005600,
+          "periods": {
+            "first": 1780005600,
+            "second": 1780009200
+          },
+          "venue": {
+            "id": null,
+            "name": "Allianz Parque",
+            "city": "Sao Paulo"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 4
+          }
+        },
+        "league": {
+          "id": 13,
+          "name": "CONMEBOL Libertadores",
+          "country": "World",
+          "logo": "https://media.api-sports.io/football/leagues/13.png",
+          "flag": null,
+          "season": 2026,
+          "round": "Group Stage - 6",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 121,
+            "name": "Palmeiras",
+            "logo": "https://media.api-sports.io/football/teams/121.png",
+            "winner": true
+          },
+          "away": {
+            "id": 1135,
+            "name": "Junior",
+            "logo": "https://media.api-sports.io/football/teams/1135.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 4,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 3,
+            "away": 1
+          },
+          "fulltime": {
+            "home": 4,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1545169,
+          "referee": "J. A. Mayorga Londono",
+          "timezone": "UTC",
+          "date": "2026-05-24T01:30:00+00:00",
+          "timestamp": 1779586200,
+          "periods": {
+            "first": 1779586200,
+            "second": 1779589800
+          },
+          "venue": {
+            "id": 366,
+            "name": "Estadio Metropolitano Roberto Melendez",
+            "city": "Barranquilla"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "PEN",
+            "elapsed": 120,
+            "extra": null
+          }
+        },
+        "league": {
+          "id": 239,
+          "name": "Primera A",
+          "country": "Colombia",
+          "logo": "https://media.api-sports.io/football/leagues/239.png",
+          "flag": "https://media.api-sports.io/flags/co.svg",
+          "season": 2026,
+          "round": "Apertura - Semi-finals",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1135,
+            "name": "Junior",
+            "logo": "https://media.api-sports.io/football/teams/1135.png",
+            "winner": true
+          },
+          "away": {
+            "id": 1139,
+            "name": "Santa Fe",
+            "logo": "https://media.api-sports.io/football/teams/1139.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 0,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 0,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": 5,
+            "away": 4
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1535305,
+          "referee": "L. Rey Hilfer",
+          "timezone": "UTC",
+          "date": "2026-05-21T02:00:00+00:00",
+          "timestamp": 1779328800,
+          "periods": {
+            "first": 1779328800,
+            "second": 1779332400
+          },
+          "venue": {
+            "id": null,
+            "name": "Estadio Romelio Martinez",
+            "city": "Cartagena"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 8
+          }
+        },
+        "league": {
+          "id": 13,
+          "name": "CONMEBOL Libertadores",
+          "country": "World",
+          "logo": "https://media.api-sports.io/football/leagues/13.png",
+          "flag": null,
+          "season": 2026,
+          "round": "Group Stage - 5",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1135,
+            "name": "Junior",
+            "logo": "https://media.api-sports.io/football/teams/1135.png",
+            "winner": true
+          },
+          "away": {
+            "id": 2546,
+            "name": "Sporting Cristal",
+            "logo": "https://media.api-sports.io/football/teams/2546.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 3,
+          "away": 2
+        },
+        "score": {
+          "halftime": {
+            "home": 3,
+            "away": 1
+          },
+          "fulltime": {
+            "home": 3,
+            "away": 2
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1545167,
+          "referee": "W. Roldan",
+          "timezone": "UTC",
+          "date": "2026-05-17T01:30:00+00:00",
+          "timestamp": 1778981400,
+          "periods": {
+            "first": 1778981400,
+            "second": 1778985000
+          },
+          "venue": {
+            "id": null,
+            "name": "Estadio Nemesio Camacho El Campin",
+            "city": "Bogota"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 7
+          }
+        },
+        "league": {
+          "id": 239,
+          "name": "Primera A",
+          "country": "Colombia",
+          "logo": "https://media.api-sports.io/football/leagues/239.png",
+          "flag": "https://media.api-sports.io/flags/co.svg",
+          "season": 2026,
+          "round": "Apertura - Semi-finals",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1139,
+            "name": "Santa Fe",
+            "logo": "https://media.api-sports.io/football/teams/1139.png",
+            "winner": null
+          },
+          "away": {
+            "id": 1135,
+            "name": "Junior",
+            "logo": "https://media.api-sports.io/football/teams/1135.png",
+            "winner": null
+          }
+        },
+        "goals": {
+          "home": 1,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 1
+          },
+          "fulltime": {
+            "home": 1,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1544230,
+          "referee": "C. A. Betancur Gutierrez",
+          "timezone": "UTC",
+          "date": "2026-05-14T01:15:00+00:00",
+          "timestamp": 1778721300,
+          "periods": {
+            "first": 1778721300,
+            "second": 1778724900
+          },
+          "venue": {
+            "id": 366,
+            "name": "Estadio Metropolitano Roberto Melendez",
+            "city": "Barranquilla"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 14
+          }
+        },
+        "league": {
+          "id": 239,
+          "name": "Primera A",
+          "country": "Colombia",
+          "logo": "https://media.api-sports.io/football/leagues/239.png",
+          "flag": "https://media.api-sports.io/flags/co.svg",
+          "season": 2026,
+          "round": "Apertura - Quarter-finals",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1135,
+            "name": "Junior",
+            "logo": "https://media.api-sports.io/football/teams/1135.png",
+            "winner": null
+          },
+          "away": {
+            "id": 1136,
+            "name": "Once Caldas",
+            "logo": "https://media.api-sports.io/football/teams/1136.png",
+            "winner": null
+          }
+        },
+        "goals": {
+          "home": 2,
+          "away": 2
+        },
+        "score": {
+          "halftime": {
+            "home": 1,
+            "away": 1
+          },
+          "fulltime": {
+            "home": 2,
+            "away": 2
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1544226,
+          "referee": "L. Delgado",
+          "timezone": "UTC",
+          "date": "2026-05-10T23:10:00+00:00",
+          "timestamp": 1778454600,
+          "periods": {
+            "first": 1778454600,
+            "second": 1778458200
+          },
+          "venue": {
+            "id": 384,
+            "name": "Estadio Palogrande",
+            "city": "Manizales"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 7
+          }
+        },
+        "league": {
+          "id": 239,
+          "name": "Primera A",
+          "country": "Colombia",
+          "logo": "https://media.api-sports.io/football/leagues/239.png",
+          "flag": "https://media.api-sports.io/flags/co.svg",
+          "season": 2026,
+          "round": "Apertura - Quarter-finals",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1136,
+            "name": "Once Caldas",
+            "logo": "https://media.api-sports.io/football/teams/1136.png",
+            "winner": false
+          },
+          "away": {
+            "id": 1135,
+            "name": "Junior",
+            "logo": "https://media.api-sports.io/football/teams/1135.png",
+            "winner": true
+          }
+        },
+        "goals": {
+          "home": 0,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 1
+          },
+          "fulltime": {
+            "home": 0,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1535289,
+          "referee": "P. Maza",
+          "timezone": "UTC",
+          "date": "2026-05-08T02:00:00+00:00",
+          "timestamp": 1778205600,
+          "periods": {
+            "first": 1778205600,
+            "second": 1778209200
+          },
+          "venue": {
+            "id": null,
+            "name": "Estadio Romelio Martinez",
+            "city": "Barranquilla"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 9
+          }
+        },
+        "league": {
+          "id": 13,
+          "name": "CONMEBOL Libertadores",
+          "country": "World",
+          "logo": "https://media.api-sports.io/football/leagues/13.png",
+          "flag": null,
+          "season": 2026,
+          "round": "Group Stage - 4",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1135,
+            "name": "Junior",
+            "logo": "https://media.api-sports.io/football/teams/1135.png",
+            "winner": false
+          },
+          "away": {
+            "id": 1176,
+            "name": "Cerro Porteno",
+            "logo": "https://media.api-sports.io/football/teams/1176.png",
+            "winner": true
+          }
+        },
+        "goals": {
+          "home": 0,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 1
+          },
+          "fulltime": {
+            "home": 0,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1506114,
+          "referee": "A. Rojas",
+          "timezone": "UTC",
+          "date": "2026-05-03T22:45:00+00:00",
+          "timestamp": 1777848300,
+          "periods": {
+            "first": 1777848300,
+            "second": 1777851900
+          },
+          "venue": {
+            "id": null,
+            "name": "Estadio Romelio Martinez",
+            "city": "Barranquilla"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 7
+          }
+        },
+        "league": {
+          "id": 239,
+          "name": "Primera A",
+          "country": "Colombia",
+          "logo": "https://media.api-sports.io/football/leagues/239.png",
+          "flag": "https://media.api-sports.io/flags/co.svg",
+          "season": 2026,
+          "round": "Apertura - 19",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1135,
+            "name": "Junior",
+            "logo": "https://media.api-sports.io/football/teams/1135.png",
+            "winner": true
+          },
+          "away": {
+            "id": 1126,
+            "name": "Deportivo Pasto",
+            "logo": "https://media.api-sports.io/football/teams/1126.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 4,
+          "away": 3
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 1
+          },
+          "fulltime": {
+            "home": 4,
+            "away": 3
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1535279,
+          "referee": "M. Ramirez",
+          "timezone": "UTC",
+          "date": "2026-04-29T02:00:00+00:00",
+          "timestamp": 1777428000,
+          "periods": {
+            "first": 1777428000,
+            "second": 1777431600
+          },
+          "venue": {
+            "id": null,
+            "name": "Estadio Nacional de Lima",
+            "city": "Lima"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 6
+          }
+        },
+        "league": {
+          "id": 13,
+          "name": "CONMEBOL Libertadores",
+          "country": "World",
+          "logo": "https://media.api-sports.io/football/leagues/13.png",
+          "flag": null,
+          "season": 2026,
+          "round": "Group Stage - 3",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 2546,
+            "name": "Sporting Cristal",
+            "logo": "https://media.api-sports.io/football/teams/2546.png",
+            "winner": true
+          },
+          "away": {
+            "id": 1135,
+            "name": "Junior",
+            "logo": "https://media.api-sports.io/football/teams/1135.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 2,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 2,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1506098,
+          "referee": "H. Rivera",
+          "timezone": "UTC",
+          "date": "2026-04-24T21:00:00+00:00",
+          "timestamp": 1777064400,
+          "periods": {
+            "first": 1777064400,
+            "second": 1777068000
+          },
+          "venue": {
+            "id": 373,
+            "name": "Estadio General Santander",
+            "city": "Cucuta"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 4
+          }
+        },
+        "league": {
+          "id": 239,
+          "name": "Primera A",
+          "country": "Colombia",
+          "logo": "https://media.api-sports.io/football/leagues/239.png",
+          "flag": "https://media.api-sports.io/flags/co.svg",
+          "season": 2026,
+          "round": "Apertura - 18",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1470,
+            "name": "Cucuta",
+            "logo": "https://media.api-sports.io/football/teams/1470.png",
+            "winner": null
+          },
+          "away": {
+            "id": 1135,
+            "name": "Junior",
+            "logo": "https://media.api-sports.io/football/teams/1135.png",
+            "winner": null
+          }
+        },
+        "goals": {
+          "home": 1,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 1,
+            "away": 1
+          },
+          "fulltime": {
+            "home": 1,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1506093,
+          "referee": "S. Toro",
+          "timezone": "UTC",
+          "date": "2026-04-19T23:20:00+00:00",
+          "timestamp": 1776640800,
+          "periods": {
+            "first": 1776640800,
+            "second": 1776644400
+          },
+          "venue": {
+            "id": 366,
+            "name": "Estadio Metropolitano Roberto Melendez",
+            "city": "Barranquilla"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 5
+          }
+        },
+        "league": {
+          "id": 239,
+          "name": "Primera A",
+          "country": "Colombia",
+          "logo": "https://media.api-sports.io/football/leagues/239.png",
+          "flag": "https://media.api-sports.io/flags/co.svg",
+          "season": 2026,
+          "round": "Apertura - 17",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1135,
+            "name": "Junior",
+            "logo": "https://media.api-sports.io/football/teams/1135.png",
+            "winner": true
+          },
+          "away": {
+            "id": 1464,
+            "name": "Llaneros",
+            "logo": "https://media.api-sports.io/football/teams/1464.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 2,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 2,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 2,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1535252,
+          "referee": "E. Ostojich",
+          "timezone": "UTC",
+          "date": "2026-04-14T22:00:00+00:00",
+          "timestamp": 1776204000,
+          "periods": {
+            "first": 1776204000,
+            "second": 1776207600
+          },
+          "venue": {
+            "id": null,
+            "name": "Estadio General Pablo Rojas",
+            "city": null
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 7
+          }
+        },
+        "league": {
+          "id": 13,
+          "name": "CONMEBOL Libertadores",
+          "country": "World",
+          "logo": "https://media.api-sports.io/football/leagues/13.png",
+          "flag": null,
+          "season": 2026,
+          "round": "Group Stage - 2",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1176,
+            "name": "Cerro Porteno",
+            "logo": "https://media.api-sports.io/football/teams/1176.png",
+            "winner": true
+          },
+          "away": {
+            "id": 1135,
+            "name": "Junior",
+            "logo": "https://media.api-sports.io/football/teams/1135.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 1,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 1,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1506083,
+          "referee": "J. Bautista",
+          "timezone": "UTC",
+          "date": "2026-04-11T21:00:00+00:00",
+          "timestamp": 1775941200,
+          "periods": {
+            "first": 1775941200,
+            "second": 1775944800
+          },
+          "venue": {
+            "id": null,
+            "name": "Estadio Alberto Grisales",
+            "city": "Rionegro"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 6
+          }
+        },
+        "league": {
+          "id": 239,
+          "name": "Primera A",
+          "country": "Colombia",
+          "logo": "https://media.api-sports.io/football/leagues/239.png",
+          "flag": "https://media.api-sports.io/flags/co.svg",
+          "season": 2026,
+          "round": "Apertura - 16",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1144,
+            "name": "Águilas Doradas",
+            "logo": "https://media.api-sports.io/football/teams/1144.png",
+            "winner": false
+          },
+          "away": {
+            "id": 1135,
+            "name": "Junior",
+            "logo": "https://media.api-sports.io/football/teams/1135.png",
+            "winner": true
+          }
+        },
+        "goals": {
+          "home": 0,
+          "away": 3
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 2
+          },
+          "fulltime": {
+            "home": 0,
+            "away": 3
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1535241,
+          "referee": "M. Ramirez",
+          "timezone": "UTC",
+          "date": "2026-04-09T00:30:00+00:00",
+          "timestamp": 1775694600,
+          "periods": {
+            "first": 1775694600,
+            "second": 1775698200
+          },
+          "venue": {
+            "id": null,
+            "name": "Estadio Olímpico Jaime Morón León",
+            "city": "Cartagena"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 6
+          }
+        },
+        "league": {
+          "id": 13,
+          "name": "CONMEBOL Libertadores",
+          "country": "World",
+          "logo": "https://media.api-sports.io/football/leagues/13.png",
+          "flag": null,
+          "season": 2026,
+          "round": "Group Stage - 1",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1135,
+            "name": "Junior",
+            "logo": "https://media.api-sports.io/football/teams/1135.png",
+            "winner": null
+          },
+          "away": {
+            "id": 121,
+            "name": "Palmeiras",
+            "logo": "https://media.api-sports.io/football/teams/121.png",
+            "winner": null
+          }
+        },
+        "goals": {
+          "home": 1,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 1,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 1,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1506076,
+          "referee": "A. Ortiz",
+          "timezone": "UTC",
+          "date": "2026-04-04T01:30:00+00:00",
+          "timestamp": 1775266200,
+          "periods": {
+            "first": 1775266200,
+            "second": 1775269800
+          },
+          "venue": {
+            "id": 366,
+            "name": "Estadio Metropolitano Roberto Melendez",
+            "city": "Barranquilla"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 7
+          }
+        },
+        "league": {
+          "id": 239,
+          "name": "Primera A",
+          "country": "Colombia",
+          "logo": "https://media.api-sports.io/football/leagues/239.png",
+          "flag": "https://media.api-sports.io/flags/co.svg",
+          "season": 2026,
+          "round": "Apertura - 15",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1135,
+            "name": "Junior",
+            "logo": "https://media.api-sports.io/football/teams/1135.png",
+            "winner": false
+          },
+          "away": {
+            "id": 1127,
+            "name": "Deportivo Cali",
+            "logo": "https://media.api-sports.io/football/teams/1127.png",
+            "winner": true
+          }
+        },
+        "goals": {
+          "home": 1,
+          "away": 2
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 1
+          },
+          "fulltime": {
+            "home": 1,
+            "away": 2
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1506062,
+          "referee": "J. A. Villa Zapata",
+          "timezone": "UTC",
+          "date": "2026-03-29T21:10:00+00:00",
+          "timestamp": 1774818600,
+          "periods": {
+            "first": 1774818600,
+            "second": 1774822200
+          },
+          "venue": {
+            "id": null,
+            "name": "Estadio Metropolitano de Techo",
+            "city": "Bogota"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 8
+          }
+        },
+        "league": {
+          "id": 239,
+          "name": "Primera A",
+          "country": "Colombia",
+          "logo": "https://media.api-sports.io/football/leagues/239.png",
+          "flag": "https://media.api-sports.io/flags/co.svg",
+          "season": 2026,
+          "round": "Apertura - 14",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1134,
+            "name": "Internacional de Bogota",
+            "logo": "https://media.api-sports.io/football/teams/1134.png",
+            "winner": false
+          },
+          "away": {
+            "id": 1135,
+            "name": "Junior",
+            "logo": "https://media.api-sports.io/football/teams/1135.png",
+            "winner": true
+          }
+        },
+        "goals": {
+          "home": 0,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 0,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1506054,
+          "referee": "L. Delgado",
+          "timezone": "UTC",
+          "date": "2026-03-24T23:00:00+00:00",
+          "timestamp": 1774393200,
+          "periods": {
+            "first": 1774393200,
+            "second": 1774396800
+          },
+          "venue": {
+            "id": 366,
+            "name": "Estadio Metropolitano Roberto Melendez",
+            "city": "Barranquilla"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 7
+          }
+        },
+        "league": {
+          "id": 239,
+          "name": "Primera A",
+          "country": "Colombia",
+          "logo": "https://media.api-sports.io/football/leagues/239.png",
+          "flag": "https://media.api-sports.io/flags/co.svg",
+          "season": 2026,
+          "round": "Apertura - 13",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1135,
+            "name": "Junior",
+            "logo": "https://media.api-sports.io/football/teams/1135.png",
+            "winner": true
+          },
+          "away": {
+            "id": 1131,
+            "name": "Bucaramanga",
+            "logo": "https://media.api-sports.io/football/teams/1131.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 2,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 1,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 2,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1506045,
+          "referee": "A. Rojas",
+          "timezone": "UTC",
+          "date": "2026-03-20T01:30:00+00:00",
+          "timestamp": 1773970200,
+          "periods": {
+            "first": 1773970200,
+            "second": 1773973800
+          },
+          "venue": {
+            "id": 380,
+            "name": "Estadio Atanasio Girardot",
+            "city": "Medellin"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 4
+          }
+        },
+        "league": {
+          "id": 239,
+          "name": "Primera A",
+          "country": "Colombia",
+          "logo": "https://media.api-sports.io/football/leagues/239.png",
+          "flag": "https://media.api-sports.io/flags/co.svg",
+          "season": 2026,
+          "round": "Apertura - 12",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1128,
+            "name": "Independiente Medellin",
+            "logo": "https://media.api-sports.io/football/teams/1128.png",
+            "winner": true
+          },
+          "away": {
+            "id": 1135,
+            "name": "Junior",
+            "logo": "https://media.api-sports.io/football/teams/1135.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 2,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 2,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 2,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1506036,
+          "referee": "J. A. Mayorga Londono",
+          "timezone": "UTC",
+          "date": "2026-03-16T01:30:00+00:00",
+          "timestamp": 1773624600,
+          "periods": {
+            "first": 1773624600,
+            "second": 1773628200
+          },
+          "venue": {
+            "id": 366,
+            "name": "Estadio Metropolitano Roberto Melendez",
+            "city": "Barranquilla"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 9
+          }
+        },
+        "league": {
+          "id": 239,
+          "name": "Primera A",
+          "country": "Colombia",
+          "logo": "https://media.api-sports.io/football/leagues/239.png",
+          "flag": "https://media.api-sports.io/flags/co.svg",
+          "season": 2026,
+          "round": "Apertura - 11",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1135,
+            "name": "Junior",
+            "logo": "https://media.api-sports.io/football/teams/1135.png",
+            "winner": true
+          },
+          "away": {
+            "id": 1147,
+            "name": "Fortaleza FC",
+            "logo": "https://media.api-sports.io/football/teams/1147.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 2,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 1,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 2,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      }
+    ],
+    "home_stats": {
+      "league": {
+        "id": 239,
+        "name": "Primera A",
+        "country": "Colombia",
+        "logo": "https://media.api-sports.io/football/leagues/239.png",
+        "flag": "https://media.api-sports.io/flags/co.svg",
+        "season": 2026
+      },
+      "team": {
+        "id": 1137,
+        "name": "Atletico Nacional",
+        "logo": "https://media.api-sports.io/football/teams/1137.png"
+      },
+      "form": "WWWLWWLWWWLWWDWWWLLWWWWL",
+      "fixtures": {
+        "played": {
+          "home": 11,
+          "away": 13,
+          "total": 24
+        },
+        "wins": {
+          "home": 10,
+          "away": 7,
+          "total": 17
+        },
+        "draws": {
+          "home": 1,
+          "away": 0,
+          "total": 1
+        },
+        "loses": {
+          "home": 0,
+          "away": 6,
+          "total": 6
+        }
+      },
+      "goals": {
+        "for": {
+          "total": {
+            "home": 32,
+            "away": 16,
+            "total": 48
+          },
+          "average": {
+            "home": "2.9",
+            "away": "1.2",
+            "total": "2.0"
+          },
+          "minute": {
+            "0-15": {
+              "total": 5,
+              "percentage": "10.87%"
+            },
+            "16-30": {
+              "total": 2,
+              "percentage": "4.35%"
+            },
+            "31-45": {
+              "total": 7,
+              "percentage": "15.22%"
+            },
+            "46-60": {
+              "total": 10,
+              "percentage": "21.74%"
+            },
+            "61-75": {
+              "total": 11,
+              "percentage": "23.91%"
+            },
+            "76-90": {
+              "total": 11,
+              "percentage": "23.91%"
+            },
+            "91-105": {
+              "total": null,
+              "percentage": null
+            },
+            "106-120": {
+              "total": null,
+              "percentage": null
+            }
+          },
+          "under_over": {
+            "0.5": {
+              "over": 17,
+              "under": 7
+            },
+            "1.5": {
+              "over": 16,
+              "under": 8
+            },
+            "2.5": {
+              "over": 8,
+              "under": 16
+            },
+            "3.5": {
+              "over": 4,
+              "under": 20
+            },
+            "4.5": {
+              "over": 1,
+              "under": 23
+            }
+          }
+        },
+        "against": {
+          "total": {
+            "home": 5,
+            "away": 16,
+            "total": 21
+          },
+          "average": {
+            "home": "0.5",
+            "away": "1.2",
+            "total": "0.9"
+          },
+          "minute": {
+            "0-15": {
+              "total": 7,
+              "percentage": "30.43%"
+            },
+            "16-30": {
+              "total": 3,
+              "percentage": "13.04%"
+            },
+            "31-45": {
+              "total": 4,
+              "percentage": "17.39%"
+            },
+            "46-60": {
+              "total": 5,
+              "percentage": "21.74%"
+            },
+            "61-75": {
+              "total": 1,
+              "percentage": "4.35%"
+            },
+            "76-90": {
+              "total": 3,
+              "percentage": "13.04%"
+            },
+            "91-105": {
+              "total": null,
+              "percentage": null
+            },
+            "106-120": {
+              "total": null,
+              "percentage": null
+            }
+          },
+          "under_over": {
+            "0.5": {
+              "over": 16,
+              "under": 8
+            },
+            "1.5": {
+              "over": 3,
+              "under": 21
+            },
+            "2.5": {
+              "over": 2,
+              "under": 22
+            },
+            "3.5": {
+              "over": 0,
+              "under": 24
+            },
+            "4.5": {
+              "over": 0,
+              "under": 24
+            }
+          }
+        }
+      },
+      "biggest": {
+        "streak": {
+          "wins": 4,
+          "draws": 1,
+          "loses": 2
+        },
+        "wins": {
+          "home": "7-1",
+          "away": "0-4"
+        },
+        "loses": {
+          "home": null,
+          "away": "3-0"
+        },
+        "goals": {
+          "for": {
+            "home": 7,
+            "away": 4
+          },
+          "against": {
+            "home": 1,
+            "away": 3
+          }
+        }
+      },
+      "clean_sheet": {
+        "home": 6,
+        "away": 2,
+        "total": 8
+      },
+      "failed_to_score": {
+        "home": 1,
+        "away": 6,
+        "total": 7
+      },
+      "penalty": {
+        "scored": {
+          "total": 3,
+          "percentage": "100.00%"
+        },
+        "missed": {
+          "total": 0,
+          "percentage": "0%"
+        },
+        "total": 3
+      },
+      "lineups": [
+        {
+          "formation": "4-2-3-1",
+          "played": 18
+        },
+        {
+          "formation": "4-1-4-1",
+          "played": 4
+        },
+        {
+          "formation": "4-4-2",
+          "played": 2
+        }
+      ],
+      "cards": {
+        "yellow": {
+          "0-15": {
+            "total": 5,
+            "percentage": "8.20%"
+          },
+          "16-30": {
+            "total": 11,
+            "percentage": "18.03%"
+          },
+          "31-45": {
+            "total": 6,
+            "percentage": "9.84%"
+          },
+          "46-60": {
+            "total": 14,
+            "percentage": "22.95%"
+          },
+          "61-75": {
+            "total": 4,
+            "percentage": "6.56%"
+          },
+          "76-90": {
+            "total": 18,
+            "percentage": "29.51%"
+          },
+          "91-105": {
+            "total": 2,
+            "percentage": "3.28%"
+          },
+          "106-120": {
+            "total": null,
+            "percentage": null
+          },
+          "": {
+            "total": 1,
+            "percentage": "1.64%"
+          }
+        },
+        "red": {
+          "0-15": {
+            "total": null,
+            "percentage": null
+          },
+          "16-30": {
+            "total": 1,
+            "percentage": "20.00%"
+          },
+          "31-45": {
+            "total": 1,
+            "percentage": "20.00%"
+          },
+          "46-60": {
+            "total": 2,
+            "percentage": "40.00%"
+          },
+          "61-75": {
+            "total": null,
+            "percentage": null
+          },
+          "76-90": {
+            "total": null,
+            "percentage": null
+          },
+          "91-105": {
+            "total": 1,
+            "percentage": "20.00%"
+          },
+          "106-120": {
+            "total": null,
+            "percentage": null
+          }
+        }
+      }
+    },
+    "away_stats": {
+      "league": {
+        "id": 239,
+        "name": "Primera A",
+        "country": "Colombia",
+        "logo": "https://media.api-sports.io/football/leagues/239.png",
+        "flag": "https://media.api-sports.io/flags/co.svg",
+        "season": 2026
+      },
+      "team": {
+        "id": 1135,
+        "name": "Junior",
+        "logo": "https://media.api-sports.io/football/teams/1135.png"
+      },
+      "form": "LWWWLWLWDLWLWWLWWDWWDDWW",
+      "fixtures": {
+        "played": {
+          "home": 13,
+          "away": 11,
+          "total": 24
+        },
+        "wins": {
+          "home": 8,
+          "away": 6,
+          "total": 14
+        },
+        "draws": {
+          "home": 2,
+          "away": 2,
+          "total": 4
+        },
+        "loses": {
+          "home": 3,
+          "away": 3,
+          "total": 6
+        }
+      },
+      "goals": {
+        "for": {
+          "total": {
+            "home": 23,
+            "away": 16,
+            "total": 39
+          },
+          "average": {
+            "home": "1.8",
+            "away": "1.5",
+            "total": "1.6"
+          },
+          "minute": {
+            "0-15": {
+              "total": 5,
+              "percentage": "13.16%"
+            },
+            "16-30": {
+              "total": 3,
+              "percentage": "7.89%"
+            },
+            "31-45": {
+              "total": 12,
+              "percentage": "31.58%"
+            },
+            "46-60": {
+              "total": 4,
+              "percentage": "10.53%"
+            },
+            "61-75": {
+              "total": 4,
+              "percentage": "10.53%"
+            },
+            "76-90": {
+              "total": 10,
+              "percentage": "26.32%"
+            },
+            "91-105": {
+              "total": null,
+              "percentage": null
+            },
+            "106-120": {
+              "total": null,
+              "percentage": null
+            }
+          },
+          "under_over": {
+            "0.5": {
+              "over": 21,
+              "under": 3
+            },
+            "1.5": {
+              "over": 12,
+              "under": 12
+            },
+            "2.5": {
+              "over": 5,
+              "under": 19
+            },
+            "3.5": {
+              "over": 1,
+              "under": 23
+            },
+            "4.5": {
+              "over": 0,
+              "under": 24
+            }
+          }
+        },
+        "against": {
+          "total": {
+            "home": 16,
+            "away": 11,
+            "total": 27
+          },
+          "average": {
+            "home": "1.2",
+            "away": "1.0",
+            "total": "1.1"
+          },
+          "minute": {
+            "0-15": {
+              "total": 4,
+              "percentage": "14.81%"
+            },
+            "16-30": {
+              "total": 5,
+              "percentage": "18.52%"
+            },
+            "31-45": {
+              "total": 6,
+              "percentage": "22.22%"
+            },
+            "46-60": {
+              "total": 3,
+              "percentage": "11.11%"
+            },
+            "61-75": {
+              "total": 3,
+              "percentage": "11.11%"
+            },
+            "76-90": {
+              "total": 6,
+              "percentage": "22.22%"
+            },
+            "91-105": {
+              "total": null,
+              "percentage": null
+            },
+            "106-120": {
+              "total": null,
+              "percentage": null
+            }
+          },
+          "under_over": {
+            "0.5": {
+              "over": 15,
+              "under": 9
+            },
+            "1.5": {
+              "over": 9,
+              "under": 15
+            },
+            "2.5": {
+              "over": 2,
+              "under": 22
+            },
+            "3.5": {
+              "over": 1,
+              "under": 23
+            },
+            "4.5": {
+              "over": 0,
+              "under": 24
+            }
+          }
+        }
+      },
+      "biggest": {
+        "streak": {
+          "wins": 3,
+          "draws": 2,
+          "loses": 1
+        },
+        "wins": {
+          "home": "3-0",
+          "away": "0-3"
+        },
+        "loses": {
+          "home": "0-4",
+          "away": "2-0"
+        },
+        "goals": {
+          "for": {
+            "home": 4,
+            "away": 3
+          },
+          "against": {
+            "home": 4,
+            "away": 2
+          }
+        }
+      },
+      "clean_sheet": {
+        "home": 5,
+        "away": 4,
+        "total": 9
+      },
+      "failed_to_score": {
+        "home": 2,
+        "away": 1,
+        "total": 3
+      },
+      "penalty": {
+        "scored": {
+          "total": 7,
+          "percentage": "100.00%"
+        },
+        "missed": {
+          "total": 0,
+          "percentage": "0%"
+        },
+        "total": 7
+      },
+      "lineups": [
+        {
+          "formation": "4-2-3-1",
+          "played": 19
+        },
+        {
+          "formation": "4-4-2",
+          "played": 3
+        },
+        {
+          "formation": "4-3-3",
+          "played": 1
+        },
+        {
+          "formation": "3-4-3",
+          "played": 1
+        }
+      ],
+      "cards": {
+        "yellow": {
+          "0-15": {
+            "total": 7,
+            "percentage": "9.72%"
+          },
+          "16-30": {
+            "total": 9,
+            "percentage": "12.50%"
+          },
+          "31-45": {
+            "total": 7,
+            "percentage": "9.72%"
+          },
+          "46-60": {
+            "total": 6,
+            "percentage": "8.33%"
+          },
+          "61-75": {
+            "total": 9,
+            "percentage": "12.50%"
+          },
+          "76-90": {
+            "total": 20,
+            "percentage": "27.78%"
+          },
+          "91-105": {
+            "total": 12,
+            "percentage": "16.67%"
+          },
+          "106-120": {
+            "total": null,
+            "percentage": null
+          },
+          "": {
+            "total": 2,
+            "percentage": "2.78%"
+          }
+        },
+        "red": {
+          "0-15": {
+            "total": null,
+            "percentage": null
+          },
+          "16-30": {
+            "total": 1,
+            "percentage": "50.00%"
+          },
+          "31-45": {
+            "total": null,
+            "percentage": null
+          },
+          "46-60": {
+            "total": null,
+            "percentage": null
+          },
+          "61-75": {
+            "total": null,
+            "percentage": null
+          },
+          "76-90": {
+            "total": null,
+            "percentage": null
+          },
+          "91-105": {
+            "total": 1,
+            "percentage": "50.00%"
+          },
+          "106-120": {
+            "total": null,
+            "percentage": null
+          }
+        }
+      }
+    },
+    "home_danger": {
+      "shots_on_target_avg": 8.2,
+      "corners_avg": 6.2,
+      "venue": "home",
+      "n_fixtures": 5,
+      "fixture_ids": [
+        1545168,
+        1544227,
+        1506096,
+        1505946,
+        1506070
+      ],
+      "errors": []
+    },
+    "away_danger": {
+      "shots_on_target_avg": 3.5,
+      "corners_avg": 2.25,
+      "venue": "away",
+      "n_fixtures": 5,
+      "fixture_ids": [
+        1545167,
+        1544226,
+        1506098,
+        1506083,
+        1506062
+      ],
+      "errors": []
+    },
+    "errors": []
+  }
+]

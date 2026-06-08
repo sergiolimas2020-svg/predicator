@@ -1,0 +1,117 @@
+{
+  "date": "2026-06-08",
+  "total_fixtures": 5,
+  "matches": [
+    {
+      "matchup": "Atlético Nacional vs Atlético Junior",
+      "league": "Liga Colombiana",
+      "home": "Atlético Nacional",
+      "away": "Atlético Junior",
+      "probabilities": {
+        "win_home": 60.4,
+        "draw": 23.7,
+        "win_away": 15.9,
+        "over_2_5": 53.3,
+        "over_1_5": 77.0
+      },
+      "favorite": "Atlético Nacional",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.92,
+      "lambda_away": 0.89,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null
+    },
+    {
+      "matchup": "Peru vs Spain",
+      "league": "Amistoso Selección",
+      "home": "Peru",
+      "away": "Spain",
+      "probabilities": {
+        "win_home": 3.9,
+        "draw": 12.0,
+        "win_away": 84.2,
+        "over_2_5": 64.6,
+        "over_1_5": 84.5
+      },
+      "favorite": "Spain",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 0.51,
+      "lambda_away": 2.82,
+      "elo_home": 1695.0,
+      "elo_away": 2165.0,
+      "danger": null
+    },
+    {
+      "matchup": "France vs Northern Ireland",
+      "league": "Amistoso Selección",
+      "home": "France",
+      "away": "Northern Ireland",
+      "probabilities": {
+        "win_home": 88.9,
+        "draw": 8.4,
+        "win_away": 2.7,
+        "over_2_5": 75.7,
+        "over_1_5": 90.6
+      },
+      "favorite": "France",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 3.41,
+      "lambda_away": 0.56,
+      "elo_home": 2081.0,
+      "elo_away": 1601.0,
+      "danger": null
+    },
+    {
+      "matchup": "Netherlands vs Uzbekistan",
+      "league": "Amistoso Selección",
+      "home": "Netherlands",
+      "away": "Uzbekistan",
+      "probabilities": {
+        "win_home": 67.6,
+        "draw": 20.5,
+        "win_away": 11.9,
+        "over_2_5": 58.0,
+        "over_1_5": 80.3
+      },
+      "favorite": "Netherlands",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 2.19,
+      "lambda_away": 0.83,
+      "elo_home": 1961.0,
+      "elo_away": 1718.0,
+      "danger": null
+    },
+    {
+      "matchup": "New York Knicks vs San Antonio Spurs",
+      "league": "NBA",
+      "home": "New York Knicks",
+      "away": "San Antonio Spurs",
+      "probabilities": {
+        "win_home": 40.4,
+        "draw": 0.0,
+        "win_away": 59.6,
+        "over_2_5": null,
+        "over_1_5": null
+      },
+      "favorite": "San Antonio Spurs",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": true,
+      "lambda_home": null,
+      "lambda_away": null,
+      "elo_home": null,
+      "elo_away": null,
+      "danger": null
+    }
+  ],
+  "nota": "Análisis estadístico de todos los partidos del día. Probabilidades crudas del modelo (sin ajuste por liga ni mercado). No incluye recomendación de apuesta — ver value_picks y featured_pick para picks oficiales."
+}
