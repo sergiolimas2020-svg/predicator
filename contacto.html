@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto — PREDIKTOR</title>
     <meta name="description" content="Contacta al equipo de PREDIKTOR: dudas sobre predicciones, reporte de errores, colaboraciones, prensa o publicidad. Respondemos en 24-48h.">
-    <link rel="canonical" href="https://prediktorcol.com/contacto.html">
+    <link rel="canonical" href="https://prediktorcol.com/contacto">
     <meta name="robots" content="index, follow">
 
     <!-- Google AdSense -->
@@ -157,6 +157,31 @@
         }
         .footer a { color: var(--gray-400); text-decoration: none; }
         .footer a:hover { color: var(--gold-500); }
+
+        /* Formulario */
+        .form-group { margin-bottom: 1.1rem; }
+        .form-group label {
+            display: block; font-size: 0.85rem; font-weight: 600;
+            color: var(--gold-500); margin-bottom: 0.4rem; letter-spacing: 0.03em;
+        }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%; background: var(--navy-900);
+            border: 1px solid rgba(201,168,76,0.2); border-radius: 5px;
+            padding: 0.7rem 0.9rem; color: var(--gray-100);
+            font-family: var(--font-body); font-size: 0.92rem; transition: border-color 0.2s;
+        }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none; border-color: var(--gold-500);
+        }
+        .form-group textarea { resize: vertical; min-height: 130px; }
+        .btn-submit {
+            background: var(--gold-600); color: var(--navy-900);
+            border: none; border-radius: 5px; padding: 0.8rem 2rem;
+            font-family: var(--font-body); font-size: 0.95rem; font-weight: 700;
+            letter-spacing: 0.03em; cursor: pointer; transition: opacity 0.2s;
+        }
+        .btn-submit:hover { opacity: 0.9; }
+        .form-note { font-size: 0.8rem; color: var(--gray-400); margin-top: 0.8rem; }
     </style>
 </head>
 <body>
@@ -184,10 +209,50 @@
     </div>
 
     <div class="section">
+        <h2>Formulario de contacto</h2>
+        <p>Completa el siguiente formulario y se abrirá tu cliente de correo con el mensaje listo para enviar a nuestro equipo. Todos los campos son obligatorios. Si prefieres, puedes escribirnos directamente a <a href="mailto:contacto@prediktor.app" style="color:var(--gold-500)">contacto@prediktor.app</a>.</p>
+        <form id="contact-form" onsubmit="return enviarContacto(event)">
+            <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" name="nombre" required autocomplete="name" placeholder="Tu nombre">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required autocomplete="email" placeholder="tucorreo@ejemplo.com">
+            </div>
+            <div class="form-group">
+                <label for="asunto">Asunto</label>
+                <select id="asunto" name="asunto" required>
+                    <option value="" disabled selected>Selecciona un tema…</option>
+                    <option value="Soporte técnico">Soporte técnico</option>
+                    <option value="Suscripción">Suscripción</option>
+                    <option value="Prensa">Prensa</option>
+                    <option value="Otro">Otro</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="mensaje">Mensaje</label>
+                <textarea id="mensaje" name="mensaje" required placeholder="Cuéntanos en qué podemos ayudarte…"></textarea>
+            </div>
+            <button type="submit" class="btn-submit">Enviar mensaje</button>
+            <p class="form-note">Al enviar, se abrirá tu aplicación de correo con el mensaje redactado. No almacenamos los datos del formulario en ningún servidor: el correo viaja directamente desde tu cliente de email a nuestra bandeja.</p>
+        </form>
+    </div>
+
+    <div class="section">
+        <h2>Telegram para consultas rápidas</h2>
+        <p>Si tu duda es breve o quieres recibir los picks gratuitos del día, nuestro canal de Telegram es la vía más ágil. Allí publicamos las predicciones diarias y resolvemos consultas puntuales de la comunidad. Ten en cuenta que el canal es informativo: las consultas detalladas sobre metodología o reportes de error es mejor enviarlas por correo, donde podemos responder con el contexto completo.</p>
+        <div class="contact-box">
+            💬 Canal de Telegram: <a href="https://t.me/prediktorcol" target="_blank" rel="noopener">t.me/prediktorcol</a><br>
+            📡 Picks gratuitos publicados cada mañana
+        </div>
+    </div>
+
+    <div class="section">
         <h2>¿Sobre qué puedes escribirnos?</h2>
         <p>Para ayudarte más rápido, indícanos en el asunto del correo de qué se trata tu mensaje. Estos son los temas más comunes que atendemos:</p>
         <ul>
-            <li><strong>Dudas sobre las predicciones:</strong> cómo interpretamos un pick, qué significa una probabilidad o una cuota justa, o por qué un partido no aparece.</li>
+            <li><strong>Dudas sobre las predicciones:</strong> cómo interpretamos un pick, qué significa una probabilidad o un nivel de confianza, o por qué un partido no aparece.</li>
             <li><strong>Reporte de errores:</strong> si ves un dato que no cuadra, un marcador mal registrado o un enlace roto, avísanos con el detalle del partido y la fecha.</li>
             <li><strong>Metodología:</strong> preguntas sobre el modelo estadístico, las fuentes de datos o cómo medimos el rendimiento histórico.</li>
             <li><strong>Colaboraciones y prensa:</strong> medios, creadores de contenido o analistas que quieran trabajar con nosotros.</li>
@@ -199,11 +264,19 @@
         <h2>Antes de escribir</h2>
         <p>Es posible que la respuesta a tu pregunta ya esté publicada. Te recomendamos revisar primero estas secciones del sitio:</p>
         <ul>
-            <li><a href="/metodologia.html" style="color:var(--gold-500)">Metodología</a> — cómo funciona nuestro modelo de predicción.</li>
-            <li><a href="/como-interpretar.html" style="color:var(--gold-500)">Cómo interpretar los picks</a> — guía para leer las probabilidades.</li>
-            <li><a href="/glosario.html" style="color:var(--gold-500)">Glosario</a> — todos los términos que usamos, explicados.</li>
-            <li><a href="/historial.html" style="color:var(--gold-500)">Historial</a> — el rendimiento verificable de nuestras predicciones.</li>
+            <li><a href="/metodologia" style="color:var(--gold-500)">Metodología</a> — cómo funciona nuestro modelo de predicción.</li>
+            <li><a href="/como-usar" style="color:var(--gold-500)">Cómo interpretar los picks</a> — guía para leer las probabilidades.</li>
+            <li><a href="/glosario" style="color:var(--gold-500)">Glosario</a> — todos los términos que usamos, explicados.</li>
+            <li><a href="/historial" style="color:var(--gold-500)">Historial</a> — el rendimiento verificable de nuestras predicciones.</li>
         </ul>
+    </div>
+
+    <div class="section">
+        <h2>Preguntas frecuentes</h2>
+        <p><strong>¿Dan asesoramiento de apuestas personalizado?</strong> No. PREDIKTOR publica análisis estadístico general y abierto para todos los usuarios. No ofrecemos recomendaciones individuales ni gestionamos dinero de nadie, y no respondemos solicitudes de "pícks privados" o consejos a medida.</p>
+        <p><strong>¿Cobran por las predicciones?</strong> El análisis del día es público y gratuito. Si en el futuro habilitamos funciones avanzadas, estarán siempre claramente identificadas y serán opcionales.</p>
+        <p><strong>Encontré un resultado mal registrado, ¿qué hago?</strong> Escríbenos con el nombre del partido, la fecha y el dato correcto. Verificamos contra nuestras fuentes y corregimos el historial si corresponde: la transparencia del registro es central para nosotros.</p>
+        <p><strong>¿Atienden propuestas comerciales o de prensa?</strong> Sí. Usa el asunto "Prensa" u "Otro" en el formulario y descríbenos tu propuesta. Revisamos todas las solicitudes serias de medios, creadores y anunciantes.</p>
     </div>
 
     <div class="section">
@@ -215,12 +288,31 @@
 
 <footer class="footer">
     <a href="/">Inicio</a> &nbsp;·&nbsp;
-    <a href="/about.html">Sobre nosotros</a> &nbsp;·&nbsp;
-    <a href="/privacy.html">Privacidad</a> &nbsp;·&nbsp;
-    <a href="/contacto.html">Contacto</a><br><br>
+    <a href="/sobre">Sobre nosotros</a> &nbsp;·&nbsp;
+    <a href="/privacidad">Privacidad</a> &nbsp;·&nbsp;
+    <a href="/contacto">Contacto</a><br><br>
     PREDIKTOR © 2026 · Sistema de predicción deportiva basado en datos · contacto@prediktor.app
 </footer>
 
+  <script>
+    function enviarContacto(e) {
+        e.preventDefault();
+        var nombre = document.getElementById('nombre').value.trim();
+        var email = document.getElementById('email').value.trim();
+        var asunto = document.getElementById('asunto').value;
+        var mensaje = document.getElementById('mensaje').value.trim();
+        if (!nombre || !email || !asunto || !mensaje) return false;
+        var cuerpo = 'Nombre: ' + nombre + '\n' +
+                     'Email: ' + email + '\n' +
+                     'Asunto: ' + asunto + '\n\n' +
+                     mensaje;
+        var url = 'mailto:contacto@prediktor.app' +
+                  '?subject=' + encodeURIComponent('[' + asunto + '] ' + nombre) +
+                  '&body=' + encodeURIComponent(cuerpo);
+        window.location.href = url;
+        return false;
+    }
+  </script>
   <script src="/js/analytics.js" defer></script>
 </body>
 </html>

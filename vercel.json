@@ -9,5 +9,39 @@
         }
       ]
     }
+  ],
+  "redirects": [
+    { "source": "/about.html", "destination": "/sobre", "permanent": true },
+    { "source": "/privacy.html", "destination": "/privacidad", "permanent": true },
+    { "source": "/como-interpretar.html", "destination": "/como-usar", "permanent": true },
+    { "source": "/apuestas-legales.html", "destination": "/casas-autorizadas", "permanent": true },
+    { "source": "/sobre.html", "destination": "/sobre", "permanent": true },
+    { "source": "/privacidad.html", "destination": "/privacidad", "permanent": true },
+    { "source": "/contacto.html", "destination": "/contacto", "permanent": true },
+    { "source": "/metodologia.html", "destination": "/metodologia", "permanent": true },
+    { "source": "/historial.html", "destination": "/historial", "permanent": true },
+    { "source": "/glosario.html", "destination": "/glosario", "permanent": true },
+    { "source": "/como-usar.html", "destination": "/como-usar", "permanent": true },
+    { "source": "/casas-autorizadas.html", "destination": "/casas-autorizadas", "permanent": true },
+    { "source": "/plan-pro.html", "destination": "/plan-pro", "permanent": true },
+    { "source": "/guias/que-es-ev-apuestas.html", "destination": "/guias/que-es-ev-apuestas", "permanent": true },
+    { "source": "/guias/gestion-de-bankroll.html", "destination": "/guias/gestion-de-bankroll", "permanent": true },
+    { "source": "/guias/value-bets.html", "destination": "/guias/value-bets", "permanent": true },
+    { "source": "/guias/estadisticas-futbol.html", "destination": "/guias/estadisticas-futbol", "permanent": true }
+  ],
+  "rewrites": [
+    { "source": "/sobre", "destination": "/sobre.html" },
+    { "source": "/privacidad", "destination": "/privacidad.html" },
+    { "source": "/contacto", "destination": "/contacto.html" },
+    { "source": "/metodologia", "destination": "/metodologia.html" },
+    { "source": "/historial", "destination": "/historial.html" },
+    { "source": "/glosario", "destination": "/glosario.html" },
+    { "source": "/como-usar", "destination": "/como-usar.html" },
+    { "source": "/casas-autorizadas", "destination": "/casas-autorizadas.html" },
+    { "source": "/plan-pro", "destination": "/plan-pro.html" },
+    { "source": "/guias/que-es-ev-apuestas", "destination": "/guias/que-es-ev-apuestas.html" },
+    { "source": "/guias/gestion-de-bankroll", "destination": "/guias/gestion-de-bankroll.html" },
+    { "source": "/guias/value-bets", "destination": "/guias/value-bets.html" },
+    { "source": "/guias/estadisticas-futbol", "destination": "/guias/estadisticas-futbol.html" }
   ]
 }
