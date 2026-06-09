@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de Privacidad — PREDIKTOR</title>
+    <meta name="description" content="Política de privacidad de PREDIKTOR: qué datos se recopilan, uso de cookies y Google AdSense, servicios de terceros y tus derechos como usuario.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://prediktorcol.com/privacidad">
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5953880132871590"
+     crossorigin="anonymous"></script>
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K3JES4SQS9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-K3JES4SQS9');
+  </script>
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --navy-900: #0a0a0f;
+            --navy-800: #16161f;
+            --navy-700: #1c1c28;
+            --gold-600: #f0b429;
+            --gold-500: #f0b429;
+            --white: #ffffff;
+            --gray-100: #e2e8f0;
+            --gray-400: #94a3b8;
+            --gray-600: #64748b;
+            --font-display: 'Bebas Neue', sans-serif;
+            --font-body: 'DM Sans', sans-serif;
+        }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-body);
+            background: var(--navy-900);
+            color: var(--gray-100);
+            min-height: 100vh;
+        }
+
+        /* HEADER */
+        .pk-header {
+            background: rgba(5,13,26,0.97);
+            border-bottom: 1px solid rgba(201,168,76,0.15);
+            padding: 1rem 2rem;
+            display: flex; align-items: center; gap: 1.5rem;
+        }
+        .btn-back {
+            background: none;
+            border: 1px solid rgba(201,168,76,0.2);
+            border-radius: 4px;
+            color: var(--gray-400); cursor: pointer;
+            padding: 0.35rem 0.8rem; font-size: 0.85rem;
+            font-family: var(--font-body);
+            transition: color 0.2s, border-color 0.2s;
+            text-decoration: none;
+        }
+        .btn-back:hover { color: var(--gold-500); border-color: rgba(201,168,76,0.5); }
+        .pk-logo {
+            font-family: var(--font-display);
+            font-size: 1.6rem; font-weight: 800;
+            letter-spacing: 0.1em; color: var(--white);
+        }
+        .pk-logo .gold { color: var(--gold-600); }
+
+        /* CONTENIDO */
+        .content {
+            max-width: 800px;
+            margin: 3rem auto;
+            padding: 0 2rem 4rem;
+        }
+
+        .page-title {
+            font-family: var(--font-display);
+            font-size: 2.8rem; font-weight: 800;
+            letter-spacing: 0.08em;
+            color: var(--white);
+            margin-bottom: 0.5rem;
+        }
+        .page-title .gold { color: var(--gold-600); }
+
+        .divider {
+            width: 60px; height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold-600), transparent);
+            margin: 1rem 0 2rem;
+        }
+
+        .last-updated {
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gray-400);
+            margin-bottom: 3rem;
+        }
+
+        .section {
+            margin-bottom: 2.5rem;
+            background: var(--navy-800);
+            border: 1px solid rgba(201,168,76,0.1);
+            border-left: 3px solid var(--gold-600);
+            border-radius: 0 6px 6px 0;
+            padding: 1.8rem 2rem;
+        }
+
+        .section h2 {
+            font-family: var(--font-display);
+            font-size: 1.3rem; font-weight: 700;
+            letter-spacing: 0.08em;
+            color: var(--gold-500);
+            margin-bottom: 1rem;
+        }
+
+        .section p {
+            font-size: 0.92rem;
+            line-height: 1.8;
+            color: var(--gray-100);
+            margin-bottom: 0.8rem;
+        }
+        .section p:last-child { margin-bottom: 0; }
+
+        .section ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 0.5rem;
+        }
+        .section ul li {
+            font-size: 0.92rem;
+            line-height: 1.8;
+            color: var(--gray-100);
+            padding: 0.3rem 0 0.3rem 1.2rem;
+            position: relative;
+        }
+        .section ul li::before {
+            content: '▸';
+            position: absolute; left: 0;
+            color: var(--gold-600);
+            font-size: 0.75rem;
+            top: 0.45rem;
+        }
+
+        .contact-box {
+            background: rgba(201,168,76,0.06);
+            border: 1px solid rgba(201,168,76,0.2);
+            border-radius: 6px;
+            padding: 1.2rem 1.5rem;
+            margin-top: 1rem;
+            font-size: 0.88rem;
+            color: var(--gray-100);
+            line-height: 1.8;
+        }
+
+        .footer {
+            border-top: 1px solid rgba(201,168,76,0.1);
+            padding: 1.5rem 2rem;
+            text-align: center;
+            font-size: 0.68rem;
+            color: var(--gray-600);
+            letter-spacing: 0.1em;
+        }
+    </style>
+</head>
+<body>
+
+<header class="pk-header">
+    <a href="/" class="btn-back">← Volver</a>
+    <div class="pk-logo">PREDI<span class="gold">KTOR</span></div>
+</header>
+
+<main class="content">
+
+    <h1 class="page-title">POLÍTICA DE <span class="gold">PRIVACIDAD</span></h1>
+    <div class="divider"></div>
+    <p class="last-updated">Última actualización: junio de 2026</p>
+
+    <div class="section">
+        <h2>1. Responsable del tratamiento</h2>
+        <p>El responsable del tratamiento de los datos recogidos a través de este sitio es <strong>PREDIKTOR</strong> ("nosotros", "nuestro" o "el sitio"), proyecto independiente de análisis estadístico deportivo disponible en <strong>prediktorcol.com</strong>.</p>
+        <div class="contact-box">
+            📧 Correo del responsable: <a href="mailto:contacto@prediktor.app" style="color:var(--gold-500)">contacto@prediktor.app</a><br>
+            🌐 Sitio: <strong>prediktorcol.com</strong>
+        </div>
+        <p>Esta Política de Privacidad describe qué datos recopilamos, con qué finalidad, bajo qué base legal y cómo puedes ejercer tus derechos. Al usar PREDIKTOR aceptas las prácticas aquí descritas.</p>
+    </div>
+
+    <div class="section">
+        <h2>2. Información que recopilamos</h2>
+        <p>PREDIKTOR no requiere registro de usuario ni solicita datos personales para navegar. No obstante, se pueden tratar los siguientes datos:</p>
+        <ul>
+            <li><strong>Datos técnicos automáticos:</strong> dirección IP, tipo de navegador y sistema operativo, páginas visitadas, fecha y hora, y datos de rendimiento, recogidos mediante <strong>Google Analytics 4</strong>.</li>
+            <li><strong>Datos del formulario de contacto:</strong> nombre, correo y mensaje. El formulario funciona mediante <em>mailto</em>: el mensaje se envía directamente desde tu cliente de correo a nuestra bandeja. No almacenamos esos datos en ningún servidor propio.</li>
+            <li><strong>Datos publicitarios:</strong> identificadores y cookies gestionados por Google AdSense (ver secciones 5 y 7).</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>3. Finalidad del tratamiento</h2>
+        <p>Tratamos los datos anteriores únicamente con estas finalidades:</p>
+        <ul>
+            <li>Medir y mejorar el rendimiento y la usabilidad del sitio (analítica).</li>
+            <li>Responder a las consultas que nos envías por el formulario o por correo.</li>
+            <li>Mostrar publicidad que sostiene el coste del proyecto.</li>
+            <li>Cumplir con obligaciones legales aplicables.</li>
+        </ul>
+        <p>No vendemos ni cedemos tus datos a terceros con fines comerciales, ni elaboramos perfiles para tomar decisiones automatizadas que te afecten.</p>
+    </div>
+
+    <div class="section">
+        <h2>4. Base legal del tratamiento</h2>
+        <p>El tratamiento se apoya en las siguientes bases legales:</p>
+        <ul>
+            <li><strong>Tu consentimiento</strong>, otorgado al aceptar el banner de cookies y al enviarnos voluntariamente un mensaje (art. 6.1.a del GDPR; Ley 1581 de 2001 de Colombia).</li>
+            <li><strong>El interés legítimo</strong> de mantener el sitio seguro, funcional y sostenible mediante analítica y publicidad (art. 6.1.f del GDPR).</li>
+        </ul>
+        <p>Puedes retirar tu consentimiento en cualquier momento ajustando las cookies de tu navegador o escribiéndonos.</p>
+    </div>
+
+    <div class="section">
+        <h2>5. Uso de Google AdSense y Cookies Publicitarias</h2>
+        <p>Este sitio utiliza <strong>Google AdSense</strong> para mostrar anuncios. Google AdSense puede usar cookies y tecnologías similares para mostrar anuncios personalizados basados en tus visitas anteriores a este y otros sitios web.</p>
+        <p>Google, como proveedor externo, utiliza cookies para publicar anuncios. El uso de la cookie de DART por parte de Google le permite publicar anuncios en función de las visitas anteriores del usuario a este sitio y a otros sitios de Internet.</p>
+        <p>Puedes inhabilitar el uso de la cookie de DART visitando la <a href="https://policies.google.com/technologies/ads" target="_blank" style="color: var(--gold-500);">Política de privacidad de anuncios de Google</a>.</p>
+        <ul>
+            <li>Google puede mostrar anuncios de PREDIKTOR en sitios de terceros</li>
+            <li>Los proveedores externos usan cookies para publicar anuncios</li>
+            <li>Puedes optar por no recibir publicidad personalizada en <a href="https://www.google.com/settings/ads" target="_blank" style="color: var(--gold-500);">Configuración de anuncios de Google</a></li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>6. Google Analytics</h2>
+        <p>Usamos <strong>Google Analytics 4</strong> para entender de forma agregada y anónima cómo se utiliza el sitio (páginas más visitadas, dispositivos, tiempos de carga). Google Analytics instala cookies que recogen información de uso. Puedes inhabilitar su recolección instalando el <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener" style="color:var(--gold-500)">complemento de inhabilitación de Google Analytics</a> o rechazando las cookies en el banner de consentimiento.</p>
+    </div>
+
+    <div class="section">
+        <h2>7. Cookies</h2>
+        <p>Las cookies son pequeños archivos de texto que los sitios web almacenan en tu dispositivo. En PREDIKTOR distinguimos dos tipos:</p>
+        <ul>
+            <li><strong>Cookies propias (de sesión y preferencias):</strong> recuerdan, por ejemplo, que ya aceptaste el banner de cookies. No identifican a la persona.</li>
+            <li><strong>Cookies de terceros (Google AdSense y Google Analytics):</strong> analizan el tráfico, miden el rendimiento de los anuncios y permiten mostrar publicidad relevante.</li>
+        </ul>
+        <p>Puedes configurar tu navegador para rechazar todas las cookies o para que te avise cuando se envíe una. Algunas funcionalidades podrían no operar correctamente si las deshabilitas. El banner de consentimiento que aparece en tu primera visita te permite aceptar o rechazar las cookies no esenciales.</p>
+    </div>
+
+    <div class="section">
+        <h2>8. Servicios de terceros</h2>
+        <p>PREDIKTOR utiliza los siguientes servicios externos, cada uno con su propia política de privacidad:</p>
+        <ul>
+            <li><strong>Google AdSense</strong> — publicidad contextual y personalizada</li>
+            <li><strong>Google Analytics</strong> — analítica de uso</li>
+            <li><strong>Google Fonts</strong> — tipografía web</li>
+            <li><strong>APIs deportivas (API-Football)</strong> — datos de fútbol y NBA</li>
+            <li><strong>Vercel</strong> — plataforma de alojamiento del sitio</li>
+        </ul>
+        <p>Te recomendamos revisar las políticas de privacidad de cada proveedor.</p>
+    </div>
+
+    <div class="section">
+        <h2>9. Transferencias internacionales de datos</h2>
+        <p>Algunos de nuestros proveedores (Google, Vercel) están ubicados fuera de Colombia, principalmente en Estados Unidos. Esto implica una <strong>transferencia internacional de datos</strong>. Dichos proveedores se adhieren a marcos de protección reconocidos y a cláusulas contractuales que garantizan un nivel de protección adecuado conforme al GDPR y a la normativa colombiana. Al usar el sitio, consientes esta transferencia para las finalidades descritas.</p>
+    </div>
+
+    <div class="section">
+        <h2>10. Derechos del usuario (ARCO y GDPR)</h2>
+        <p>Conforme a la <strong>Ley 1581 de 2001</strong> de Colombia y, para usuarios del Espacio Económico Europeo, al <strong>Reglamento General de Protección de Datos (GDPR)</strong>, tienes derecho a:</p>
+        <ul>
+            <li><strong>Acceso:</strong> saber qué datos tratamos sobre ti.</li>
+            <li><strong>Rectificación:</strong> corregir datos inexactos o desactualizados.</li>
+            <li><strong>Cancelación / supresión:</strong> solicitar la eliminación de tus datos.</li>
+            <li><strong>Oposición:</strong> oponerte al tratamiento, en especial con fines publicitarios.</li>
+            <li><strong>Portabilidad y limitación</strong> (usuarios GDPR): recibir tus datos o restringir su tratamiento.</li>
+        </ul>
+        <p>Para ejercer cualquiera de estos derechos, escríbenos a <a href="mailto:contacto@prediktor.app" style="color:var(--gold-500)">contacto@prediktor.app</a> indicando tu solicitud. Responderemos en un plazo máximo de 15 días hábiles. También puedes presentar una reclamación ante la Superintendencia de Industria y Comercio (SIC) de Colombia o ante la autoridad de protección de datos de tu país.</p>
+    </div>
+
+    <div class="section">
+        <h2>11. Conservación de los datos</h2>
+        <p>Los datos analíticos se conservan según las políticas de retención de Google Analytics. Los correos que nos envías se conservan el tiempo necesario para atender tu consulta y, salvo obligación legal, no más allá de lo razonable para ese fin.</p>
+    </div>
+
+    <div class="section">
+        <h2>12. Menores de edad</h2>
+        <p>PREDIKTOR es un sitio dirigido exclusivamente a <strong>personas mayores de 18 años</strong>. El contenido aborda apuestas deportivas y no está destinado a menores. No recopilamos conscientemente datos de menores; si crees que un menor nos ha facilitado datos, contáctanos para eliminarlos.</p>
+    </div>
+
+    <div class="section">
+        <h2>13. Cambios en esta política</h2>
+        <p>Nos reservamos el derecho de actualizar esta Política de Privacidad en cualquier momento. Los cambios se publicarán en esta misma página con la fecha de actualización correspondiente. Te recomendamos revisarla periódicamente.</p>
+    </div>
+
+    <div class="section">
+        <h2>14. Contacto</h2>
+        <p>Si tienes preguntas o inquietudes sobre esta Política de Privacidad o quieres ejercer tus derechos, puedes contactarnos a través de:</p>
+        <div class="contact-box">
+            📧 Correo: <a href="mailto:contacto@prediktor.app" style="color:var(--gold-500)">contacto@prediktor.app</a><br>
+            🌐 Sitio web: <strong>prediktorcol.com</strong><br>
+            📅 Vigente desde: junio de 2026
+        </div>
+    </div>
+
+</main>
+
+<footer class="footer">
+    <a href="/" style="color:var(--gray-400);text-decoration:none">Inicio</a> &nbsp;·&nbsp;
+    <a href="/sobre" style="color:var(--gray-400);text-decoration:none">Sobre nosotros</a> &nbsp;·&nbsp;
+    <a href="/privacidad" style="color:var(--gray-400);text-decoration:none">Privacidad</a> &nbsp;·&nbsp;
+    <a href="/contacto" style="color:var(--gray-400);text-decoration:none">Contacto</a><br><br>
+    PREDIKTOR © 2026 · Sports Analytics
+</footer>
+
+  <script src="/js/analytics.js" defer></script>
+</body>
+</html>

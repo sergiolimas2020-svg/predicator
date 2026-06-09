@@ -1095,7 +1095,7 @@ h1{{font-family:var(--font-display);font-size:clamp(1.8rem,4vw,2.8rem);font-weig
 <div class="body">{article}</div>
 <div class="cta"><p>Usa nuestro analizador interactivo para ver estadisticas detalladas</p><a href="/">Analizar partido en vivo</a></div>
 </main>
-<footer class="ftr">PREDIKTOR 2026 · <a href="/privacy.html" style="color:var(--gray-600);text-decoration:none;">Privacidad</a></footer>
+<footer class="ftr">PREDIKTOR 2026 · <a href="/privacidad" style="color:var(--gray-600);text-decoration:none;">Privacidad</a></footer>
 </body></html>"""
 
 INDEX = """<!DOCTYPE html>
@@ -1146,7 +1146,7 @@ h1{{font-family:var(--font-display);font-size:2.5rem;font-weight:800;color:var(-
   <div style="margin-bottom:0.8rem;font-size:0.75rem;color:var(--gray-400);line-height:1.6;text-transform:none;letter-spacing:normal;">
     🔞 <strong>JUEGO RESPONSABLE:</strong> Las apuestas deportivas son exclusivamente para mayores de 18 años (+18). El juego puede ser adictivo, juegue con moderación y responsabilidad. En Colombia, use únicamente operadores autorizados por <strong>Coljuegos</strong>.
   </div>
-  PREDIKTOR 2026 · <a href="/privacy.html" style="color:var(--gray-600);text-decoration:none;">Privacidad</a> · <a href="/apuestas-legales.html" style="color:var(--gold-500);text-decoration:none;margin-left:1rem;font-weight:600;">Casas Autorizadas 🇨🇴</a>
+  PREDIKTOR 2026 · <a href="/privacidad" style="color:var(--gray-600);text-decoration:none;">Privacidad</a> · <a href="/casas-autorizadas" style="color:var(--gold-500);text-decoration:none;margin-left:1rem;font-weight:600;">Casas Autorizadas 🇨🇴</a>
 </footer>
 </body></html>"""
 
@@ -2264,27 +2264,18 @@ def save(league, home, away, art):
 
 def _discover_guias_slugs():
     """
-    Lee /content/guias/*.md y extrae el slug del frontmatter de cada uno.
-    Retorna lista de slugs. Si la carpeta no existe o python-frontmatter
-    no está instalado, retorna []. Falla silenciosa: el sitemap no debe
-    bloquearse por una guía mal escrita.
+    Descubre los slugs de guías a partir de los HTML publicados en /guias/
+    (excluye index.html). Robusto: no depende de .md ni de librerías externas,
+    así toda guía publicada como HTML entra al sitemap automáticamente.
     """
-    content_dir = Path("content/guias")
-    if not content_dir.exists():
-        return []
-    try:
-        import frontmatter
-    except ImportError:
+    guias_dir = Path("guias")
+    if not guias_dir.exists():
         return []
     slugs = []
-    for md_path in sorted(content_dir.glob("*.md")):
-        try:
-            post = frontmatter.load(md_path)
-            slug = post.metadata.get("slug")
-            if slug:
-                slugs.append(slug)
-        except Exception:
-            continue  # archivo malformado: omite, no rompe el cron
+    for html_path in sorted(guias_dir.glob("*.html")):
+        if html_path.stem == "index":
+            continue
+        slugs.append(html_path.stem)
     return slugs
 
 
@@ -2294,23 +2285,23 @@ def generate_sitemap(slugs):
     static_urls = [
         f"{SITE_URL}/",
         f"{SITE_URL}/static/predictions/",
-        f"{SITE_URL}/privacy.html",
-        f"{SITE_URL}/contacto.html",
-        f"{SITE_URL}/apuestas-legales.html",
-        f"{SITE_URL}/plan-pro.html",
+        f"{SITE_URL}/privacidad",
+        f"{SITE_URL}/contacto",
+        f"{SITE_URL}/casas-autorizadas",
+        f"{SITE_URL}/plan-pro",
     ]
     # Páginas de contenido educativo (críticas para AdSense)
     content_urls = [
-        f"{SITE_URL}/metodologia.html",
-        f"{SITE_URL}/glosario.html",
-        f"{SITE_URL}/como-interpretar.html",
-        f"{SITE_URL}/historial.html",
+        f"{SITE_URL}/metodologia",
+        f"{SITE_URL}/glosario",
+        f"{SITE_URL}/como-usar",
+        f"{SITE_URL}/historial",
         f"{SITE_URL}/guias/",
-        f"{SITE_URL}/about.html",
+        f"{SITE_URL}/sobre",
     ]
-    # Guías individuales (descubiertas leyendo /content/guias/*.md)
+    # Guías individuales (descubiertas a partir de /guias/*.html)
     guias_slugs = _discover_guias_slugs()
-    guias_urls  = [f"{SITE_URL}/guias/{s}.html" for s in guias_slugs]
+    guias_urls  = [f"{SITE_URL}/guias/{s}" for s in guias_slugs]
     pred_urls   = [f"{SITE_URL}/static/predictions/{s}.html" for s in slugs]
     all_urls    = static_urls + content_urls + guias_urls + pred_urls
 
@@ -2323,8 +2314,8 @@ def generate_sitemap(slugs):
             if "historial" in url:         return "0.9"
             if url.endswith("/guias/"):    return "0.85"
             if "glosario" in url:          return "0.8"
-            if "como-interpretar" in url:  return "0.8"
-            return "0.6"  # about
+            if "como-usar" in url:         return "0.8"
+            return "0.6"  # sobre
         if url in guias_urls:
             return "0.7"
         if "predictions" in url and "index" not in url:
