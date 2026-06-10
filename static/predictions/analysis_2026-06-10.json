@@ -1,0 +1,95 @@
+{
+  "date": "2026-06-10",
+  "total_fixtures": 4,
+  "matches": [
+    {
+      "matchup": "England vs Costa Rica",
+      "league": "Amistoso Selección",
+      "home": "England",
+      "away": "Costa Rica",
+      "probabilities": {
+        "win_home": 93.7,
+        "draw": 5.5,
+        "win_away": 0.9,
+        "over_2_5": 72.7,
+        "over_1_5": 89.0
+      },
+      "favorite": "England",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 3.51,
+      "lambda_away": 0.27,
+      "elo_home": 2020.0,
+      "elo_away": 1612.0,
+      "danger": null
+    },
+    {
+      "matchup": "Austria vs Guatemala",
+      "league": "Amistoso Selección",
+      "home": "Austria",
+      "away": "Guatemala",
+      "probabilities": {
+        "win_home": 97.6,
+        "draw": 2.1,
+        "win_away": 0.3,
+        "over_2_5": 88.0,
+        "over_1_5": 96.2
+      },
+      "favorite": "Austria",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 4.77,
+      "lambda_away": 0.29,
+      "elo_home": 1830.0,
+      "elo_away": 1514.0,
+      "danger": null
+    },
+    {
+      "matchup": "Bolivia vs Algeria",
+      "league": "Amistoso Selección",
+      "home": "Bolivia",
+      "away": "Algeria",
+      "probabilities": {
+        "win_home": 2.9,
+        "draw": 15.8,
+        "win_away": 81.3,
+        "over_2_5": 42.8,
+        "over_1_5": 69.0
+      },
+      "favorite": "Algeria",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 0.25,
+      "lambda_away": 2.14,
+      "elo_home": 1645.0,
+      "elo_away": 1743.0,
+      "danger": null
+    },
+    {
+      "matchup": "New York Knicks vs San Antonio Spurs",
+      "league": "NBA",
+      "home": "New York Knicks",
+      "away": "San Antonio Spurs",
+      "probabilities": {
+        "win_home": 40.4,
+        "draw": 0.0,
+        "win_away": 59.6,
+        "over_2_5": null,
+        "over_1_5": null
+      },
+      "favorite": "San Antonio Spurs",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": true,
+      "lambda_home": null,
+      "lambda_away": null,
+      "elo_home": null,
+      "elo_away": null,
+      "danger": null
+    }
+  ],
+  "nota": "Análisis estadístico de todos los partidos del día. Probabilidades crudas del modelo (sin ajuste por liga ni mercado). No incluye recomendación de apuesta — ver value_picks y featured_pick para picks oficiales."
+}
