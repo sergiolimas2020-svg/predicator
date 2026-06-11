@@ -1,8 +1,10 @@
 {
   "A": 0.042546,
   "B": -0.006156,
+  "valid": false,
+  "reject_reason": "A>=0 (no monótono)",
   "n_samples": 83,
-  "trained_at": "2026-06-11T09:19:28",
+  "trained_at": "2026-06-11T08:02:12",
   "model_version": "v1.2-clean-signal",
   "brier_in_sample_before": 0.3042,
   "brier_in_sample_after": 0.25
