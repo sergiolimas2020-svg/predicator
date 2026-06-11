@@ -701,7 +701,16 @@ def _load_calibrator():
         return None
     try:
         data = json.loads(p.read_text(encoding="utf-8"))
-        if data.get("A") is None or data.get("B") is None:
+        A = data.get("A")
+        if A is None or data.get("B") is None:
+            return None
+        # Un calibrador de probabilidad VÁLIDO es monótono creciente en f, lo que
+        # con p=1/(1+e^(A·f+B)) exige A<0. Un A>=0 (plano o invertido) NO calibra:
+        # aplastaría todo a ~0.5 o invertiría el ranking de confianza. Se rechaza y
+        # el motor cae al ajuste por confidence_factor (comportamiento anterior).
+        if A >= 0 or data.get("valid") is False:
+            print(f"  ⚠ calibrador rechazado (A={A}, no monótono o inválido); "
+                  f"se usa confidence_factor")
             return None
         return data
     except Exception as e:
@@ -743,8 +752,19 @@ def train_and_save_calibrator(log_path="static/predictions_log.json",
     brier_before = _brier(lambda f: f)
     brier_after  = _brier(lambda f: platt_probability(f, A, B))
 
+    # Validez: un calibrador útil es monótono creciente (A<0) y reduce el Brier.
+    # Si no, se marca inválido; _load_calibrator lo ignora y el motor cae al
+    # ajuste por confidence_factor. Esto evita publicar picks aplastados a ~0.5
+    # cuando los datos (picks seleccionados, rango estrecho) degeneran el fit.
+    valid = (A < 0) and (brier_after < brier_before)
+    reject_reason = None
+    if not valid:
+        reject_reason = "A>=0 (no monótono)" if A >= 0 else "no reduce Brier in-sample"
+
     out = {
         "A": A, "B": B,
+        "valid": valid,
+        "reject_reason": reject_reason,
         "n_samples": len(pairs),
         "trained_at": _dt.now().isoformat(timespec="seconds"),
         "model_version": MODEL_VERSION,
@@ -753,7 +773,8 @@ def train_and_save_calibrator(log_path="static/predictions_log.json",
     }
     Path(out_path).write_text(json.dumps(out, ensure_ascii=False, indent=2),
                               encoding="utf-8")
-    print(f"  ✓ calibrador entrenado: A={A} B={B} n={len(pairs)} "
+    estado = "✓ activo" if valid else f"✗ RECHAZADO ({reject_reason})"
+    print(f"  calibrador {estado}: A={A} B={B} n={len(pairs)} "
           f"Brier {brier_before:.4f} → {brier_after:.4f}")
     return out
 
@@ -1676,8 +1697,12 @@ def get_probabilities(hd, ad, nba=False, danger=None, neutral=False, intl=False)
     o15 = poisson_over(lambda_total, 1)
 
     favorite = "home" if p_win >= p_lose else "away"
-    p_dnb_home = p_win  / (p_win  + p_draw) if (p_win  + p_draw) > 0 else 0.0
-    p_dnb_away = p_lose / (p_lose + p_draw) if (p_lose + p_draw) > 0 else 0.0
+    # DNB ("apuesta sin empate"): el empate se REEMBOLSA, así que la probabilidad
+    # de ganar la apuesta se condiciona EXCLUYENDO el empate (no la derrota).
+    # Denominador = p_win + p_lose. (Espejo de js/calculator.js, que ya era correcto.)
+    _wl = p_win + p_lose
+    p_dnb_home = p_win  / _wl if _wl > 0 else 0.0
+    p_dnb_away = p_lose / _wl if _wl > 0 else 0.0
 
     return {
         "win_home": p_win,  "draw": p_draw, "win_away": p_lose,

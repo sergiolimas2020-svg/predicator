@@ -275,8 +275,8 @@ function renderLockedCard(pick, tier) {
         <div class="pw-detail-value">██%</div>
       </div>
       <div class="pw-detail">
-        <div class="pw-detail-label">Cuota</div>
-        <div class="pw-detail-value">█.██</div>
+        <div class="pw-detail-label">Confianza</div>
+        <div class="pw-detail-value">████</div>
       </div>
     </div>
     <div class="pw-lock-overlay">
