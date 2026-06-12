@@ -183,6 +183,15 @@ EXCLUDED_LEAGUES = {
 EXPLORATORY_MIN_PROB = 48.0   # prob_adjusted mínima (%)
 EXPLORATORY_MIN_EV   = 5.0    # ev_adjusted mínimo (%)
 
+# ── BLINDAJE ESTADÍSTICO / API-FOOTBALL (política 2026-06-11) ────
+# Los picks oficiales de fútbol son PURA estadística respaldada por
+# API-Football. No se inventan EV, cuotas ni Betplay estimado, y ESPN solo
+# sirve como fallback de calendario/contexto: NO habilita un pick oficial.
+# Sin static/api_football/data/{today}.json para ambos equipos, un partido de
+# fútbol no puede ser pick oficial. NBA queda exenta (usa fuentes propias).
+STATISTICAL_ONLY_MODE = True
+REQUIRE_API_FOOTBALL_FOR_FOOTBALL_PICKS = True
+
 # ── CAPA DE CONFIANZA (fallback sin cuotas reales) ──────────────
 # Recalibración 23-may: el pipeline de EV requiere cuotas reales
 # (odds.json), pero esa fuente está casi siempre vacía → días sin picks.
@@ -205,7 +214,7 @@ CONF_MAX_PICKS       = 2      # cuántos picks de confianza publicar por día
 # Elige la línea MÁS ALTA cuya P(Over) ≥ CONF_CORNERS_MIN_PROB. Pick aditivo
 # (se publica además de los picks de goles/ganador). Requiere datos de córners
 # del partido (n≥3 fixtures por equipo).
-CONF_CORNERS_ENABLED   = True
+CONF_CORNERS_ENABLED   = False  # blindaje: córners fuera de picks oficiales (histórico 0/6)
 CONF_CORNERS_LINES     = [7.5, 8.5, 9.5, 10.5, 11.5]  # líneas candidatas
 CONF_CORNERS_MIN_PROB  = 70.0   # prob mínima (Poisson) para publicar
 CONF_CORNERS_MAX_PICKS = 1      # cuántas líneas de córners por día
@@ -215,7 +224,7 @@ CONF_CORNERS_MAX_PICKS = 1      # cuántas líneas de córners por día
 # (goals.for/against.average.home/away) en vez de la fórmula con stats por
 # país: λ = goles esperados del local (de local) + del visitante (de visita),
 # modelado Poisson → P(Over 2.5) = P(total ≥ 3).
-CONF_OVER25_ENABLED   = True
+CONF_OVER25_ENABLED   = False   # blindaje: Over 2.5 fuera de picks oficiales (gap negativo)
 CONF_OVER25_MIN_PROB  = 60.0    # prob mínima para publicar (Over 2.5 es más difícil)
 CONF_OVER25_MAX_PICKS = 1       # cuántos Over 2.5 por día
 
@@ -2869,6 +2878,36 @@ def _build_analysis_output(evaluated_picks: list, today_str: str) -> dict:
     }
 
 
+def _has_api_football_backing(ep: dict | None) -> bool:
+    """Guard de fuente para picks oficiales de fútbol.
+
+    Con REQUIRE_API_FOOTBALL_FOR_FOOTBALL_PICKS activo, un pick oficial de
+    fútbol debe tener respaldo API-Football (ambos equipos). NBA queda exenta
+    (fuentes propias). ESPN solo es fallback de calendario/contexto y NO
+    habilita un pick oficial por sí solo.
+    """
+    if not REQUIRE_API_FOOTBALL_FOR_FOOTBALL_PICKS:
+        return True
+    if not ep:
+        return False
+    if ep.get("nba"):
+        return True
+    return bool(ep.get("api_football_backed"))
+
+
+def _is_disabled_official_market(label: str) -> bool:
+    """Mercados que el blindaje mantiene FUERA de picks oficiales:
+    córners, Over 2.5, DNB (apuesta sin empate) y Doble Oportunidad.
+    1X2/ganador y Over 1.5 siguen vivos como mercados estadísticos."""
+    l = (label or "").lower()
+    return (
+        "córner" in l or "corner" in l
+        or "over 2.5" in l
+        or "sin empate" in l          # DNB
+        or "doble oportunidad" in l   # Doble Oportunidad
+    )
+
+
 def _build_featured_pick_output(evaluated_picks: list, value_picks_dict: dict,
                                   today_str: str) -> dict | None:
     """
@@ -2895,13 +2934,16 @@ def _build_featured_pick_output(evaluated_picks: list, value_picks_dict: dict,
         # Filtro 1: favoritos con mala forma reciente tampoco entran a Featured
         if ep.get("_rf_rejected"):
             continue
+        # Blindaje: fútbol oficial requiere respaldo API-Football
+        if not _has_api_football_backing(ep):
+            continue
         # Solo mercados estables (h2h)
         market_type = ep.get("market_type", "h2h")
         if market_type != "h2h":
             continue
-        # Etiqueta NO debe ser Over/DC/DNB (queremos victoria directa u otra h2h estable)
+        # Blindaje: córners, Over 2.5, DNB y Doble Oportunidad fuera de oficiales
         label = (ep.get("label") or "").lower()
-        if "over" in label:
+        if "over" in label or _is_disabled_official_market(label):
             continue
         # Umbral mínimo
         prob = ep.get("prob_adjusted") or 0.0
@@ -2984,6 +3026,8 @@ def _select_confidence_picks(evaluated_picks: list) -> list:
     for ep in evaluated_picks:
         if ep.get("league") in EXCLUDED_LEAGUES:
             continue
+        if not _has_api_football_backing(ep):
+            continue
         if ep.get("_rf_rejected"):
             continue
         raw = ep["raw"]
@@ -2999,6 +3043,10 @@ def _select_confidence_picks(evaluated_picks: list) -> list:
             if raw[10] != "estadistico":   # solo si hay pick curado real
                 continue
             label, prob = raw[7], raw[8]
+            # Blindaje: DNB/Doble Oportunidad fuera de picks oficiales aunque
+            # sean el pick curado de una selección (1X2/ganador sí entra).
+            if _is_disabled_official_market(label):
+                continue
             best_eval = {
                 "label": label, "prob_original": prob, "prob_adjusted": prob,
                 "confidence_factor": cf, "ev": None, "ev_model": None,
@@ -3232,6 +3280,14 @@ def main():
     adicional = "--adicional" in sys.argv   # modo transición: añade 2 picks sin tocar los ya publicados
     preview   = "--preview"   in sys.argv or "--dry-run" in sys.argv  # solo muestra picks, no publica nada
 
+    # Blindaje: --adicional publicaba por value_score (camino viejo) y podía
+    # saltarse el contrato estadístico/API-Football. En modo estadístico puro
+    # queda deshabilitado.
+    if adicional and STATISTICAL_ONLY_MODE:
+        print("Modo --adicional deshabilitado: el motor publica solo señales "
+              "estadísticas oficiales (STATISTICAL_ONLY_MODE).")
+        return
+
     # Si ya existen picks del día, no regenerar (protege la consistencia).
     # --adicional, --preview y --force omiten este bloqueo.
     _log_path = Path("static/predictions_log.json")
@@ -3310,6 +3366,12 @@ def main():
                     "home_sot": home_danger.get("shots_on_target_avg"),
                     "away_sot": away_danger.get("shots_on_target_avg")
                 }
+            # Blindaje: respaldo API-Football del partido = el fixture está en el
+            # archivo diario static/api_football/data/{today}.json (danger_record).
+            # Sin él, ESPN no habilita un pick oficial de fútbol.
+            _apifb = danger_record is not None
+            if hd: hd["api_football_source"] = _apifb
+            if ad: ad["api_football_source"] = _apifb
                 
             base_pick, base_prob, display_pick, display_prob, vs, cj, vl, bk_odds, cf, best_eval, all_evals = calc_wp(league, home, hd, away, ad, nba=False, danger=danger)
             # Bug auditoría: excluir ligas con yield negativo sostenido del
@@ -3350,6 +3412,10 @@ def main():
                 print(f"   ⚠️ Sin stats para {home} vs {away} — se omite")
                 continue
             hd = dict(hd); ad = dict(ad)
+            # Selecciones: stats de fuerza vienen de API-Football (worldcup_stats),
+            # no de ESPN → respaldo válido para pick oficial.
+            hd["api_football_source"] = True
+            ad["api_football_source"] = True
             base_pick, base_prob, display_pick, display_prob, vs, cj, vl, bk_odds, cf, best_eval, all_evals = \
                 calc_wp(WORLD_CUP_LEAGUE, home, hd, away, ad, nba=False,
                         danger=None, neutral=neutral, intl=True)
@@ -3372,6 +3438,8 @@ def main():
                 print(f"   ⚠️ Sin stats para {home} vs {away} — se omite")
                 continue
             hd = dict(hd); ad = dict(ad)
+            hd["api_football_source"] = True
+            ad["api_football_source"] = True
             base_pick, base_prob, display_pick, display_prob, vs, cj, vl, bk_odds, cf, best_eval, all_evals = \
                 calc_wp(FRIENDLY_LEAGUE, home, hd, away, ad, nba=False,
                         danger=None, neutral=neutral, intl=True)
@@ -3482,6 +3550,10 @@ def main():
                 "home":             c[2],
                 "away":             c[4],
                 "nba":              c[6],
+                "api_football_backed": bool(
+                    (c[3] or {}).get("api_football_source")
+                    and (c[5] or {}).get("api_football_source")
+                ),
                 "prob_adjusted":    be.get("prob_adjusted", 0.0),
                 "ev_adjusted":      be.get("ev_adjusted"),
                 "value_score":      be.get("value_score") or (c[0] if isinstance(c[0], (int, float)) else 0.0),
@@ -3576,10 +3648,14 @@ def main():
         rejected_recent_form = _rf_apply_filter(evaluated_picks, today)
 
         # ── Clasificar candidatos ──
+        # Blindaje: picks oficiales de fútbol requieren respaldo API-Football y
+        # NO pueden ser córners/Over 2.5/DNB/Doble Oportunidad.
         subscription_candidates = [
             p for p in evaluated_picks
             if qualifies_for_profile(p, FILTERS_SUBSCRIPTION)
             and not p.get("_rf_rejected")
+            and _has_api_football_backing(p)
+            and not _is_disabled_official_market(p.get("label"))
         ]
         premium_candidates = [
             p for p in subscription_candidates
