@@ -125,6 +125,20 @@ jobs:
         run: python3 scripts/calibration_report.py
         continue-on-error: true
 
+      # ── Step 3a-ter: Auditoría estadística pura (sin EV/cuotas) ──
+      # Mide acierto, probabilidad media, Brier y gap por mercado usando solo
+      # probabilidades publicadas vs resultados reales. No decide picks.
+      - name: Auditoría estadística de señales
+        run: python3 scripts/statistical_signal_audit.py
+        continue-on-error: true
+
+      # ── Step 3a-quater: Calibración conservadora SHADOW ────────
+      # Genera static/calibration_shadow.json y reporte. El motor NO lee este
+      # archivo; producción sigue protegida por static/calibrator.json + guard A<0.
+      - name: Calibración conservadora shadow
+        run: python3 scripts/calibration_shadow.py
+        continue-on-error: true
+
       # ── Step 3b: Generar página historial estática (SEO + AdSense) ─
       # Lee predictions_log.json y reescribe historial.html + patches
       # los contadores del home en index.html (server-rendered).
@@ -249,6 +263,12 @@ jobs:
               print(f'✗ Error validando daily_picks.json: {e}')
               sys.exit(1)
           "
+
+      # ── Step 8b: Health check del pipeline ─────────────────────
+      # Gate crítico antes de publicar/commitear: fecha fresca, contrato de
+      # API-Football para fútbol oficial y calibrador seguro.
+      - name: Health check del pipeline
+        run: python3 scripts/pipeline_health.py
 
       # ── Step 9: Publicar en Telegram (no crítico — bot ya tiene fallback) ─
       - name: Publicar en Telegram
