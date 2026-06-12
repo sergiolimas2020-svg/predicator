@@ -1,21 +1,21 @@
 {
-  "Slovan Bratislava": {
+  "FC Noah": {
     "position": {
       "partidos": 4,
-      "ganados": 2,
+      "ganados": 1,
       "empatados": 1,
-      "perdidos": 1,
+      "perdidos": 2,
       "goles_favor": 7,
-      "goles_contra": 3,
-      "diferencia": 4,
-      "puntos": 7,
-      "posicion": 39
+      "goles_contra": 8,
+      "diferencia": -1,
+      "puntos": 4,
+      "posicion": 51
     },
     "goals": {
-      "over_1_5": "50%",
-      "over_2_5": "50%",
+      "over_1_5": "75%",
+      "over_2_5": "75%",
       "over_3_5": "50%",
-      "bts": "25%"
+      "bts": "75%"
     },
     "corners": {}
   },
@@ -50,87 +50,87 @@
       }
     }
   },
-  "Monaco": {
-    "position": {
-      "partidos": 10,
-      "ganados": 2,
-      "empatados": 5,
-      "perdidos": 3,
-      "goles_favor": 12,
-      "goles_contra": 19,
-      "diferencia": -7,
-      "puntos": 11,
-      "posicion": 30
-    },
-    "goals": {
-      "over_1_5": "60%",
-      "over_2_5": "60%",
-      "over_3_5": "60%",
-      "bts": "60%"
-    },
-    "corners": {
-      "local": {
-        "partidos": 3,
-        "corners_favor": 4.67,
-        "corners_contra": 3.67
-      },
-      "visitante": {
-        "partidos": 3,
-        "corners_favor": 4.33,
-        "corners_contra": 7.67
-      }
-    }
-  },
-  "Lech Poznan": {
-    "position": {
-      "partidos": 4,
-      "ganados": 2,
-      "empatados": 1,
-      "perdidos": 1,
-      "goles_favor": 10,
-      "goles_contra": 5,
-      "diferencia": 5,
-      "puntos": 7,
-      "posicion": 38
-    },
-    "goals": {
-      "over_1_5": "75%",
-      "over_2_5": "50%",
-      "over_3_5": "50%",
-      "bts": "75%"
-    },
-    "corners": {}
-  },
-  "Atalanta": {
+  "Galatasaray": {
     "position": {
       "partidos": 12,
       "ganados": 5,
       "empatados": 1,
       "perdidos": 6,
-      "goles_favor": 16,
-      "goles_contra": 23,
-      "diferencia": -7,
+      "goles_favor": 17,
+      "goles_contra": 20,
+      "diferencia": -3,
       "puntos": 16,
-      "posicion": 22
+      "posicion": 21
     },
     "goals": {
-      "over_1_5": "75%",
-      "over_2_5": "67%",
+      "over_1_5": "67%",
+      "over_2_5": "50%",
       "over_3_5": "42%",
-      "bts": "50%"
+      "bts": "42%"
     },
     "corners": {
       "local": {
         "partidos": 4,
-        "corners_favor": 3.5,
-        "corners_contra": 3.75
+        "corners_favor": 5.0,
+        "corners_contra": 5.25
       },
       "visitante": {
         "partidos": 4,
-        "corners_favor": 4.25,
-        "corners_contra": 3.5
+        "corners_favor": 3.25,
+        "corners_contra": 6.5
       }
     }
+  },
+  "Bodo/Glimt": {
+    "position": {
+      "partidos": 14,
+      "ganados": 6,
+      "empatados": 3,
+      "perdidos": 5,
+      "goles_favor": 28,
+      "goles_contra": 24,
+      "diferencia": 4,
+      "puntos": 21,
+      "posicion": 13
+    },
+    "goals": {
+      "over_1_5": "93%",
+      "over_2_5": "93%",
+      "over_3_5": "64%",
+      "bts": "71%"
+    },
+    "corners": {
+      "local": {
+        "partidos": 4,
+        "corners_favor": 3.75,
+        "corners_contra": 6.25
+      },
+      "visitante": {
+        "partidos": 4,
+        "corners_favor": 2.5,
+        "corners_contra": 13.5
+      }
+    }
+  },
+  "Linfield": {
+    "position": {
+      "partidos": 2,
+      "ganados": 0,
+      "empatados": 1,
+      "perdidos": 1,
+      "goles_favor": 1,
+      "goles_contra": 2,
+      "diferencia": -1,
+      "puntos": 1,
+      "posicion": 68
+    },
+    "goals": {
+      "over_1_5": "50%",
+      "over_2_5": "0%",
+      "over_3_5": "0%",
+      "bts": "50%"
+    },
+    "corners": {}
   },
   "Qarabag": {
     "position": {
@@ -163,20 +163,415 @@
       }
     }
   },
-  "Celtic": {
+  "Breidablik": {
+    "position": {
+      "partidos": 4,
+      "ganados": 1,
+      "empatados": 0,
+      "perdidos": 3,
+      "goles_favor": 6,
+      "goles_contra": 9,
+      "diferencia": -3,
+      "puntos": 3,
+      "posicion": 59
+    },
+    "goals": {
+      "over_1_5": "50%",
+      "over_2_5": "50%",
+      "over_3_5": "50%",
+      "bts": "25%"
+    },
+    "corners": {}
+  },
+  "Sporting CP": {
+    "position": {
+      "partidos": 12,
+      "ganados": 6,
+      "empatados": 2,
+      "perdidos": 4,
+      "goles_favor": 22,
+      "goles_contra": 15,
+      "diferencia": 7,
+      "puntos": 20,
+      "posicion": 15
+    },
+    "goals": {
+      "over_1_5": "83%",
+      "over_2_5": "75%",
+      "over_3_5": "33%",
+      "bts": "58%"
+    },
+    "corners": {
+      "local": {
+        "partidos": 4,
+        "corners_favor": 6.0,
+        "corners_contra": 5.75
+      },
+      "visitante": {
+        "partidos": 4,
+        "corners_favor": 4.5,
+        "corners_contra": 5.5
+      }
+    }
+  },
+  "Virtus": {
     "position": {
       "partidos": 2,
       "ganados": 0,
-      "empatados": 2,
-      "perdidos": 0,
-      "goles_favor": 0,
-      "goles_contra": 0,
-      "diferencia": 0,
-      "puntos": 2,
-      "posicion": 64
+      "empatados": 0,
+      "perdidos": 2,
+      "goles_favor": 1,
+      "goles_contra": 4,
+      "diferencia": -3,
+      "puntos": 0,
+      "posicion": 80
     },
     "goals": {
-      "over_1_5": "0%",
+      "over_1_5": "100%",
+      "over_2_5": "50%",
+      "over_3_5": "0%",
+      "bts": "50%"
+    },
+    "corners": {}
+  },
+  "HNK Rijeka": {
+    "position": {
+      "partidos": 2,
+      "ganados": 0,
+      "empatados": 1,
+      "perdidos": 1,
+      "goles_favor": 1,
+      "goles_contra": 3,
+      "diferencia": -2,
+      "puntos": 1,
+      "posicion": 73
+    },
+    "goals": {
+      "over_1_5": "50%",
+      "over_2_5": "50%",
+      "over_3_5": "50%",
+      "bts": "50%"
+    },
+    "corners": {}
+  },
+  "Vikingur Gota": {
+    "position": {
+      "partidos": 2,
+      "ganados": 0,
+      "empatados": 0,
+      "perdidos": 2,
+      "goles_favor": 2,
+      "goles_contra": 4,
+      "diferencia": -2,
+      "puntos": 0,
+      "posicion": 77
+    },
+    "goals": {
+      "over_1_5": "50%",
+      "over_2_5": "50%",
+      "over_3_5": "50%",
+      "bts": "50%"
+    },
+    "corners": {}
+  },
+  "Zrinjski": {
+    "position": {
+      "partidos": 4,
+      "ganados": 2,
+      "empatados": 1,
+      "perdidos": 1,
+      "goles_favor": 6,
+      "goles_contra": 7,
+      "diferencia": -1,
+      "puntos": 7,
+      "posicion": 41
+    },
+    "goals": {
+      "over_1_5": "100%",
+      "over_2_5": "75%",
+      "over_3_5": "50%",
+      "bts": "50%"
+    },
+    "corners": {}
+  },
+  "Bayern München": {
+    "position": {
+      "partidos": 14,
+      "ganados": 11,
+      "empatados": 1,
+      "perdidos": 2,
+      "goles_favor": 43,
+      "goles_contra": 20,
+      "diferencia": 23,
+      "puntos": 34,
+      "posicion": 3
+    },
+    "goals": {
+      "over_1_5": "100%",
+      "over_2_5": "86%",
+      "over_3_5": "64%",
+      "bts": "86%"
+    },
+    "corners": {
+      "local": {
+        "partidos": 5,
+        "corners_favor": 4.8,
+        "corners_contra": 3.4
+      },
+      "visitante": {
+        "partidos": 5,
+        "corners_favor": 6.0,
+        "corners_contra": 4.6
+      }
+    }
+  },
+  "FC Basel 1893": {
+    "position": {
+      "partidos": 2,
+      "ganados": 0,
+      "empatados": 1,
+      "perdidos": 1,
+      "goles_favor": 1,
+      "goles_contra": 3,
+      "diferencia": -2,
+      "puntos": 1,
+      "posicion": 74
+    },
+    "goals": {
+      "over_1_5": "100%",
+      "over_2_5": "0%",
+      "over_3_5": "0%",
+      "bts": "50%"
+    },
+    "corners": {}
+  },
+  "Kairat Almaty": {
+    "position": {
+      "partidos": 16,
+      "ganados": 3,
+      "empatados": 4,
+      "perdidos": 9,
+      "goles_favor": 14,
+      "goles_contra": 26,
+      "diferencia": -12,
+      "puntos": 13,
+      "posicion": 27
+    },
+    "goals": {
+      "over_1_5": "62%",
+      "over_2_5": "44%",
+      "over_3_5": "31%",
+      "bts": "38%"
+    },
+    "corners": {
+      "local": {
+        "partidos": 2,
+        "corners_favor": 1.0,
+        "corners_contra": 5.5
+      },
+      "visitante": {
+        "partidos": 3,
+        "corners_favor": 1.0,
+        "corners_contra": 8.33
+      }
+    }
+  },
+  "KuPS": {
+    "position": {
+      "partidos": 4,
+      "ganados": 2,
+      "empatados": 1,
+      "perdidos": 1,
+      "goles_favor": 3,
+      "goles_contra": 3,
+      "diferencia": 0,
+      "puntos": 7,
+      "posicion": 40
+    },
+    "goals": {
+      "over_1_5": "50%",
+      "over_2_5": "25%",
+      "over_3_5": "0%",
+      "bts": "0%"
+    },
+    "corners": {}
+  },
+  "Drita": {
+    "position": {
+      "partidos": 4,
+      "ganados": 2,
+      "empatados": 0,
+      "perdidos": 2,
+      "goles_favor": 4,
+      "goles_contra": 5,
+      "diferencia": -1,
+      "puntos": 6,
+      "posicion": 45
+    },
+    "goals": {
+      "over_1_5": "50%",
+      "over_2_5": "25%",
+      "over_3_5": "25%",
+      "bts": "25%"
+    },
+    "corners": {}
+  },
+  "Inter": {
+    "position": {
+      "partidos": 10,
+      "ganados": 5,
+      "empatados": 0,
+      "perdidos": 5,
+      "goles_favor": 17,
+      "goles_contra": 12,
+      "diferencia": 5,
+      "puntos": 15,
+      "posicion": 23
+    },
+    "goals": {
+      "over_1_5": "90%",
+      "over_2_5": "70%",
+      "over_3_5": "30%",
+      "bts": "50%"
+    },
+    "corners": {
+      "local": {
+        "partidos": 4,
+        "corners_favor": 8.75,
+        "corners_contra": 3.5
+      },
+      "visitante": {
+        "partidos": 3,
+        "corners_favor": 4.0,
+        "corners_contra": 5.0
+      }
+    }
+  },
+  "Manchester City": {
+    "position": {
+      "partidos": 10,
+      "ganados": 5,
+      "empatados": 1,
+      "perdidos": 4,
+      "goles_favor": 16,
+      "goles_contra": 14,
+      "diferencia": 2,
+      "puntos": 16,
+      "posicion": 19
+    },
+    "goals": {
+      "over_1_5": "100%",
+      "over_2_5": "60%",
+      "over_3_5": "30%",
+      "bts": "50%"
+    },
+    "corners": {
+      "local": {
+        "partidos": 3,
+        "corners_favor": 7.33,
+        "corners_contra": 4.33
+      },
+      "visitante": {
+        "partidos": 3,
+        "corners_favor": 7.33,
+        "corners_contra": 2.0
+      }
+    }
+  },
+  "The New Saints": {
+    "position": {
+      "partidos": 2,
+      "ganados": 0,
+      "empatados": 1,
+      "perdidos": 1,
+      "goles_favor": 1,
+      "goles_contra": 2,
+      "diferencia": -1,
+      "puntos": 1,
+      "posicion": 67
+    },
+    "goals": {
+      "over_1_5": "50%",
+      "over_2_5": "50%",
+      "over_3_5": "0%",
+      "bts": "50%"
+    },
+    "corners": {}
+  },
+  "Hamrun Spartans": {
+    "position": {
+      "partidos": 4,
+      "ganados": 1,
+      "empatados": 0,
+      "perdidos": 3,
+      "goles_favor": 2,
+      "goles_contra": 8,
+      "diferencia": -6,
+      "puntos": 3,
+      "posicion": 62
+    },
+    "goals": {
+      "over_1_5": "100%",
+      "over_2_5": "50%",
+      "over_3_5": "0%",
+      "bts": "0%"
+    },
+    "corners": {}
+  },
+  "Ferencvarosi TC": {
+    "position": {
+      "partidos": 6,
+      "ganados": 4,
+      "empatados": 1,
+      "perdidos": 1,
+      "goles_favor": 13,
+      "goles_contra": 9,
+      "diferencia": 4,
+      "puntos": 13,
+      "posicion": 25
+    },
+    "goals": {
+      "over_1_5": "83%",
+      "over_2_5": "83%",
+      "over_3_5": "50%",
+      "bts": "67%"
+    },
+    "corners": {}
+  },
+  "Slovan Bratislava": {
+    "position": {
+      "partidos": 4,
+      "ganados": 2,
+      "empatados": 1,
+      "perdidos": 1,
+      "goles_favor": 7,
+      "goles_contra": 3,
+      "diferencia": 4,
+      "puntos": 7,
+      "posicion": 39
+    },
+    "goals": {
+      "over_1_5": "50%",
+      "over_2_5": "50%",
+      "over_3_5": "50%",
+      "bts": "25%"
+    },
+    "corners": {}
+  },
+  "FK Zalgiris Vilnius": {
+    "position": {
+      "partidos": 2,
+      "ganados": 1,
+      "empatados": 0,
+      "perdidos": 1,
+      "goles_favor": 2,
+      "goles_contra": 2,
+      "diferencia": 0,
+      "puntos": 3,
+      "posicion": 54
+    },
+    "goals": {
+      "over_1_5": "100%",
       "over_2_5": "0%",
       "over_3_5": "0%",
       "bts": "0%"
@@ -214,6 +609,57 @@
       }
     }
   },
+  "FC Levadia Tallinn": {
+    "position": {
+      "partidos": 2,
+      "ganados": 0,
+      "empatados": 0,
+      "perdidos": 2,
+      "goles_favor": 0,
+      "goles_contra": 2,
+      "diferencia": -2,
+      "puntos": 0,
+      "posicion": 79
+    },
+    "goals": {
+      "over_1_5": "0%",
+      "over_2_5": "0%",
+      "over_3_5": "0%",
+      "bts": "0%"
+    },
+    "corners": {}
+  },
+  "Pafos": {
+    "position": {
+      "partidos": 14,
+      "ganados": 6,
+      "empatados": 5,
+      "perdidos": 3,
+      "goles_favor": 16,
+      "goles_contra": 14,
+      "diferencia": 2,
+      "puntos": 23,
+      "posicion": 9
+    },
+    "goals": {
+      "over_1_5": "57%",
+      "over_2_5": "29%",
+      "over_3_5": "21%",
+      "bts": "43%"
+    },
+    "corners": {
+      "local": {
+        "partidos": 2,
+        "corners_favor": 6.5,
+        "corners_contra": 2.5
+      },
+      "visitante": {
+        "partidos": 2,
+        "corners_favor": 3.0,
+        "corners_contra": 14.0
+      }
+    }
+  },
   "Arsenal": {
     "position": {
       "partidos": 15,
@@ -245,23 +691,236 @@
       }
     }
   },
-  "Rīgas FS": {
+  "Celtic": {
+    "position": {
+      "partidos": 2,
+      "ganados": 0,
+      "empatados": 2,
+      "perdidos": 0,
+      "goles_favor": 0,
+      "goles_contra": 0,
+      "diferencia": 0,
+      "puntos": 2,
+      "posicion": 64
+    },
+    "goals": {
+      "over_1_5": "0%",
+      "over_2_5": "0%",
+      "over_3_5": "0%",
+      "bts": "0%"
+    },
+    "corners": {}
+  },
+  "Club Brugge KV": {
+    "position": {
+      "partidos": 14,
+      "ganados": 7,
+      "empatados": 2,
+      "perdidos": 5,
+      "goles_favor": 32,
+      "goles_contra": 27,
+      "diferencia": 5,
+      "puntos": 23,
+      "posicion": 8
+    },
+    "goals": {
+      "over_1_5": "93%",
+      "over_2_5": "93%",
+      "over_3_5": "64%",
+      "bts": "57%"
+    },
+    "corners": {
+      "local": {
+        "partidos": 4,
+        "corners_favor": 2.25,
+        "corners_contra": 6.0
+      },
+      "visitante": {
+        "partidos": 3,
+        "corners_favor": 5.0,
+        "corners_contra": 2.0
+      }
+    }
+  },
+  "Ludogorets": {
+    "position": {
+      "partidos": 6,
+      "ganados": 2,
+      "empatados": 3,
+      "perdidos": 1,
+      "goles_favor": 6,
+      "goles_contra": 6,
+      "diferencia": 0,
+      "puntos": 9,
+      "posicion": 32
+    },
+    "goals": {
+      "over_1_5": "50%",
+      "over_2_5": "50%",
+      "over_3_5": "33%",
+      "bts": "33%"
+    },
+    "corners": {}
+  },
+  "Rangers": {
+    "position": {
+      "partidos": 6,
+      "ganados": 2,
+      "empatados": 1,
+      "perdidos": 3,
+      "goles_favor": 8,
+      "goles_contra": 12,
+      "diferencia": -4,
+      "puntos": 7,
+      "posicion": 42
+    },
+    "goals": {
+      "over_1_5": "100%",
+      "over_2_5": "67%",
+      "over_3_5": "33%",
+      "bts": "50%"
+    },
+    "corners": {}
+  },
+  "FC Copenhagen": {
+    "position": {
+      "partidos": 14,
+      "ganados": 6,
+      "empatados": 4,
+      "perdidos": 4,
+      "goles_favor": 23,
+      "goles_contra": 22,
+      "diferencia": 1,
+      "puntos": 22,
+      "posicion": 10
+    },
+    "goals": {
+      "over_1_5": "86%",
+      "over_2_5": "50%",
+      "over_3_5": "50%",
+      "bts": "50%"
+    },
+    "corners": {
+      "local": {
+        "partidos": 2,
+        "corners_favor": 3.0,
+        "corners_contra": 5.5
+      },
+      "visitante": {
+        "partidos": 2,
+        "corners_favor": 2.5,
+        "corners_contra": 8.0
+      }
+    }
+  },
+  "Villarreal": {
+    "position": {
+      "partidos": 8,
+      "ganados": 0,
+      "empatados": 1,
+      "perdidos": 7,
+      "goles_favor": 5,
+      "goles_contra": 18,
+      "diferencia": -13,
+      "puntos": 1,
+      "posicion": 76
+    },
+    "goals": {
+      "over_1_5": "75%",
+      "over_2_5": "62%",
+      "over_3_5": "38%",
+      "bts": "38%"
+    },
+    "corners": {
+      "local": {
+        "partidos": 2,
+        "corners_favor": 6.5,
+        "corners_contra": 4.5
+      },
+      "visitante": {
+        "partidos": 2,
+        "corners_favor": 1.5,
+        "corners_contra": 3.5
+      }
+    }
+  },
+  "FK Crvena Zvezda": {
+    "position": {
+      "partidos": 6,
+      "ganados": 3,
+      "empatados": 2,
+      "perdidos": 1,
+      "goles_favor": 12,
+      "goles_contra": 6,
+      "diferencia": 6,
+      "puntos": 11,
+      "posicion": 29
+    },
+    "goals": {
+      "over_1_5": "83%",
+      "over_2_5": "50%",
+      "over_3_5": "33%",
+      "bts": "83%"
+    },
+    "corners": {}
+  },
+  "Dynamo Kyiv": {
     "position": {
       "partidos": 4,
       "ganados": 2,
       "empatados": 0,
       "perdidos": 2,
-      "goles_favor": 3,
-      "goles_contra": 5,
-      "diferencia": -2,
+      "goles_favor": 6,
+      "goles_contra": 3,
+      "diferencia": 3,
       "puntos": 6,
-      "posicion": 46
+      "posicion": 43
     },
     "goals": {
-      "over_1_5": "25%",
-      "over_2_5": "25%",
-      "over_3_5": "25%",
-      "bts": "25%"
+      "over_1_5": "75%",
+      "over_2_5": "50%",
+      "over_3_5": "0%",
+      "bts": "0%"
+    },
+    "corners": {}
+  },
+  "Maccabi Tel Aviv": {
+    "position": {
+      "partidos": 2,
+      "ganados": 0,
+      "empatados": 1,
+      "perdidos": 1,
+      "goles_favor": 1,
+      "goles_contra": 2,
+      "diferencia": -1,
+      "puntos": 1,
+      "posicion": 69
+    },
+    "goals": {
+      "over_1_5": "50%",
+      "over_2_5": "0%",
+      "over_3_5": "0%",
+      "bts": "50%"
+    },
+    "corners": {}
+  },
+  "Milsami Orhei": {
+    "position": {
+      "partidos": 2,
+      "ganados": 0,
+      "empatados": 1,
+      "perdidos": 1,
+      "goles_favor": 0,
+      "goles_contra": 1,
+      "diferencia": -1,
+      "puntos": 1,
+      "posicion": 70
+    },
+    "goals": {
+      "over_1_5": "0%",
+      "over_2_5": "0%",
+      "over_3_5": "0%",
+      "bts": "0%"
     },
     "corners": {}
   },
@@ -296,45 +955,118 @@
       }
     }
   },
-  "Saburtalo": {
+  "Panathinaikos": {
     "position": {
       "partidos": 2,
       "ganados": 0,
-      "empatados": 0,
-      "perdidos": 2,
-      "goles_favor": 2,
-      "goles_contra": 6,
-      "diferencia": -4,
-      "puntos": 0,
-      "posicion": 81
+      "empatados": 1,
+      "perdidos": 1,
+      "goles_favor": 1,
+      "goles_contra": 3,
+      "diferencia": -2,
+      "puntos": 1,
+      "posicion": 72
     },
     "goals": {
       "over_1_5": "100%",
-      "over_2_5": "100%",
-      "over_3_5": "100%",
-      "bts": "100%"
+      "over_2_5": "0%",
+      "over_3_5": "0%",
+      "bts": "50%"
     },
     "corners": {}
   },
-  "Feyenoord": {
+  "Napoli": {
     "position": {
-      "partidos": 2,
-      "ganados": 1,
-      "empatados": 0,
-      "perdidos": 1,
-      "goles_favor": 4,
-      "goles_contra": 6,
-      "diferencia": -2,
-      "puntos": 3,
-      "posicion": 58
+      "partidos": 8,
+      "ganados": 2,
+      "empatados": 2,
+      "perdidos": 4,
+      "goles_favor": 9,
+      "goles_contra": 15,
+      "diferencia": -6,
+      "puntos": 8,
+      "posicion": 37
     },
     "goals": {
-      "over_1_5": "100%",
-      "over_2_5": "100%",
-      "over_3_5": "50%",
-      "bts": "100%"
+      "over_1_5": "88%",
+      "over_2_5": "38%",
+      "over_3_5": "25%",
+      "bts": "50%"
     },
-    "corners": {}
+    "corners": {
+      "local": {
+        "partidos": 2,
+        "corners_favor": 5.0,
+        "corners_contra": 2.5
+      },
+      "visitante": {
+        "partidos": 2,
+        "corners_favor": 8.5,
+        "corners_contra": 1.5
+      }
+    }
+  },
+  "Marseille": {
+    "position": {
+      "partidos": 8,
+      "ganados": 3,
+      "empatados": 0,
+      "perdidos": 5,
+      "goles_favor": 11,
+      "goles_contra": 14,
+      "diferencia": -3,
+      "puntos": 9,
+      "posicion": 33
+    },
+    "goals": {
+      "over_1_5": "88%",
+      "over_2_5": "88%",
+      "over_3_5": "25%",
+      "bts": "50%"
+    },
+    "corners": {
+      "local": {
+        "partidos": 2,
+        "corners_favor": 9.0,
+        "corners_contra": 4.5
+      },
+      "visitante": {
+        "partidos": 2,
+        "corners_favor": 6.5,
+        "corners_contra": 3.0
+      }
+    }
+  },
+  "Bayer Leverkusen": {
+    "position": {
+      "partidos": 12,
+      "ganados": 4,
+      "empatados": 5,
+      "perdidos": 3,
+      "goles_favor": 16,
+      "goles_contra": 17,
+      "diferencia": -1,
+      "puntos": 17,
+      "posicion": 17
+    },
+    "goals": {
+      "over_1_5": "83%",
+      "over_2_5": "33%",
+      "over_3_5": "25%",
+      "bts": "42%"
+    },
+    "corners": {
+      "local": {
+        "partidos": 4,
+        "corners_favor": 4.75,
+        "corners_contra": 3.75
+      },
+      "visitante": {
+        "partidos": 5,
+        "corners_favor": 4.4,
+        "corners_contra": 6.0
+      }
+    }
   },
   "Buducnost Podgorica": {
     "position": {
@@ -387,6 +1119,137 @@
       }
     }
   },
+  "Monaco": {
+    "position": {
+      "partidos": 10,
+      "ganados": 2,
+      "empatados": 5,
+      "perdidos": 3,
+      "goles_favor": 12,
+      "goles_contra": 19,
+      "diferencia": -7,
+      "puntos": 11,
+      "posicion": 30
+    },
+    "goals": {
+      "over_1_5": "60%",
+      "over_2_5": "60%",
+      "over_3_5": "60%",
+      "bts": "60%"
+    },
+    "corners": {
+      "local": {
+        "partidos": 3,
+        "corners_favor": 4.67,
+        "corners_contra": 3.67
+      },
+      "visitante": {
+        "partidos": 3,
+        "corners_favor": 4.33,
+        "corners_contra": 7.67
+      }
+    }
+  },
+  "Egnatia Rrogozhinë": {
+    "position": {
+      "partidos": 2,
+      "ganados": 1,
+      "empatados": 0,
+      "perdidos": 1,
+      "goles_favor": 1,
+      "goles_contra": 5,
+      "diferencia": -4,
+      "puntos": 3,
+      "posicion": 61
+    },
+    "goals": {
+      "over_1_5": "50%",
+      "over_2_5": "50%",
+      "over_3_5": "50%",
+      "bts": "0%"
+    },
+    "corners": {}
+  },
+  "FCSB": {
+    "position": {
+      "partidos": 4,
+      "ganados": 1,
+      "empatados": 0,
+      "perdidos": 3,
+      "goles_favor": 5,
+      "goles_contra": 6,
+      "diferencia": -1,
+      "puntos": 3,
+      "posicion": 55
+    },
+    "goals": {
+      "over_1_5": "75%",
+      "over_2_5": "75%",
+      "over_3_5": "25%",
+      "bts": "75%"
+    },
+    "corners": {}
+  },
+  "FC Differdange 03": {
+    "position": {
+      "partidos": 2,
+      "ganados": 0,
+      "empatados": 0,
+      "perdidos": 2,
+      "goles_favor": 2,
+      "goles_contra": 4,
+      "diferencia": -2,
+      "puntos": 0,
+      "posicion": 78
+    },
+    "goals": {
+      "over_1_5": "50%",
+      "over_2_5": "50%",
+      "over_3_5": "50%",
+      "bts": "50%"
+    },
+    "corners": {}
+  },
+  "Lincoln Red Imps FC": {
+    "position": {
+      "partidos": 4,
+      "ganados": 2,
+      "empatados": 0,
+      "perdidos": 2,
+      "goles_favor": 5,
+      "goles_contra": 8,
+      "diferencia": -3,
+      "puntos": 6,
+      "posicion": 47
+    },
+    "goals": {
+      "over_1_5": "50%",
+      "over_2_5": "50%",
+      "over_3_5": "50%",
+      "bts": "50%"
+    },
+    "corners": {}
+  },
+  "Lech Poznan": {
+    "position": {
+      "partidos": 4,
+      "ganados": 2,
+      "empatados": 1,
+      "perdidos": 1,
+      "goles_favor": 10,
+      "goles_contra": 5,
+      "diferencia": 5,
+      "puntos": 7,
+      "posicion": 38
+    },
+    "goals": {
+      "over_1_5": "75%",
+      "over_2_5": "50%",
+      "over_3_5": "50%",
+      "bts": "75%"
+    },
+    "corners": {}
+  },
   "Union St. Gilloise": {
     "position": {
       "partidos": 8,
@@ -418,57 +1281,17 @@
       }
     }
   },
-  "Maccabi Tel Aviv": {
+  "Servette FC": {
     "position": {
       "partidos": 2,
-      "ganados": 0,
-      "empatados": 1,
-      "perdidos": 1,
-      "goles_favor": 1,
-      "goles_contra": 2,
-      "diferencia": -1,
-      "puntos": 1,
-      "posicion": 69
-    },
-    "goals": {
-      "over_1_5": "50%",
-      "over_2_5": "0%",
-      "over_3_5": "0%",
-      "bts": "50%"
-    },
-    "corners": {}
-  },
-  "Malmo FF": {
-    "position": {
-      "partidos": 6,
-      "ganados": 4,
-      "empatados": 1,
-      "perdidos": 1,
-      "goles_favor": 11,
-      "goles_contra": 8,
-      "diferencia": 3,
-      "puntos": 13,
-      "posicion": 26
-    },
-    "goals": {
-      "over_1_5": "67%",
-      "over_2_5": "67%",
-      "over_3_5": "67%",
-      "bts": "50%"
-    },
-    "corners": {}
-  },
-  "Vikingur Gota": {
-    "position": {
-      "partidos": 2,
-      "ganados": 0,
+      "ganados": 1,
       "empatados": 0,
-      "perdidos": 2,
+      "perdidos": 1,
       "goles_favor": 2,
-      "goles_contra": 4,
-      "diferencia": -2,
-      "puntos": 0,
-      "posicion": 77
+      "goles_contra": 3,
+      "diferencia": -1,
+      "puntos": 3,
+      "posicion": 57
     },
     "goals": {
       "over_1_5": "50%",
@@ -478,41 +1301,52 @@
     },
     "corners": {}
   },
-  "Plzen": {
+  "Paris Saint Germain": {
     "position": {
-      "partidos": 4,
-      "ganados": 2,
-      "empatados": 0,
+      "partidos": 17,
+      "ganados": 10,
+      "empatados": 5,
       "perdidos": 2,
-      "goles_favor": 5,
-      "goles_contra": 6,
-      "diferencia": -1,
-      "puntos": 6,
-      "posicion": 44
+      "goles_favor": 45,
+      "goles_contra": 23,
+      "diferencia": 22,
+      "puntos": 35,
+      "posicion": 2
     },
     "goals": {
-      "over_1_5": "75%",
-      "over_2_5": "75%",
-      "over_3_5": "25%",
-      "bts": "50%"
+      "over_1_5": "94%",
+      "over_2_5": "65%",
+      "over_3_5": "41%",
+      "bts": "71%"
     },
-    "corners": {}
+    "corners": {
+      "local": {
+        "partidos": 7,
+        "corners_favor": 5.14,
+        "corners_contra": 3.14
+      },
+      "visitante": {
+        "partidos": 6,
+        "corners_favor": 6.17,
+        "corners_contra": 4.17
+      }
+    }
   },
-  "The New Saints": {
+  "Olimpija Ljubljana": {
     "position": {
       "partidos": 2,
       "ganados": 0,
       "empatados": 1,
       "perdidos": 1,
       "goles_favor": 1,
-      "goles_contra": 2,
-      "diferencia": -1,
+      "goles_contra": 3,
+      "diferencia": -2,
       "puntos": 1,
-      "posicion": 67
+      "posicion": 71
     },
     "goals": {
-      "over_1_5": "50%",
-      "over_2_5": "50%",
+      "over_1_5": "100%",
+      "over_2_5": "0%",
       "over_3_5": "0%",
       "bts": "50%"
     },
@@ -549,309 +1383,63 @@
       }
     }
   },
-  "Sturm Graz": {
+  "Malmo FF": {
+    "position": {
+      "partidos": 6,
+      "ganados": 4,
+      "empatados": 1,
+      "perdidos": 1,
+      "goles_favor": 11,
+      "goles_contra": 8,
+      "diferencia": 3,
+      "puntos": 13,
+      "posicion": 26
+    },
+    "goals": {
+      "over_1_5": "67%",
+      "over_2_5": "67%",
+      "over_3_5": "67%",
+      "bts": "50%"
+    },
+    "corners": {}
+  },
+  "Rīgas FS": {
+    "position": {
+      "partidos": 4,
+      "ganados": 2,
+      "empatados": 0,
+      "perdidos": 2,
+      "goles_favor": 3,
+      "goles_contra": 5,
+      "diferencia": -2,
+      "puntos": 6,
+      "posicion": 46
+    },
+    "goals": {
+      "over_1_5": "25%",
+      "over_2_5": "25%",
+      "over_3_5": "25%",
+      "bts": "25%"
+    },
+    "corners": {}
+  },
+  "Saburtalo": {
     "position": {
       "partidos": 2,
-      "ganados": 1,
+      "ganados": 0,
       "empatados": 0,
-      "perdidos": 1,
+      "perdidos": 2,
       "goles_favor": 2,
       "goles_contra": 6,
       "diferencia": -4,
-      "puntos": 3,
-      "posicion": 60
+      "puntos": 0,
+      "posicion": 81
     },
     "goals": {
       "over_1_5": "100%",
       "over_2_5": "100%",
-      "over_3_5": "50%",
-      "bts": "50%"
-    },
-    "corners": {}
-  },
-  "Marseille": {
-    "position": {
-      "partidos": 8,
-      "ganados": 3,
-      "empatados": 0,
-      "perdidos": 5,
-      "goles_favor": 11,
-      "goles_contra": 14,
-      "diferencia": -3,
-      "puntos": 9,
-      "posicion": 33
-    },
-    "goals": {
-      "over_1_5": "88%",
-      "over_2_5": "88%",
-      "over_3_5": "25%",
-      "bts": "50%"
-    },
-    "corners": {
-      "local": {
-        "partidos": 2,
-        "corners_favor": 9.0,
-        "corners_contra": 4.5
-      },
-      "visitante": {
-        "partidos": 2,
-        "corners_favor": 6.5,
-        "corners_contra": 3.0
-      }
-    }
-  },
-  "FC Basel 1893": {
-    "position": {
-      "partidos": 2,
-      "ganados": 0,
-      "empatados": 1,
-      "perdidos": 1,
-      "goles_favor": 1,
-      "goles_contra": 3,
-      "diferencia": -2,
-      "puntos": 1,
-      "posicion": 74
-    },
-    "goals": {
-      "over_1_5": "100%",
-      "over_2_5": "0%",
-      "over_3_5": "0%",
-      "bts": "50%"
-    },
-    "corners": {}
-  },
-  "Servette FC": {
-    "position": {
-      "partidos": 2,
-      "ganados": 1,
-      "empatados": 0,
-      "perdidos": 1,
-      "goles_favor": 2,
-      "goles_contra": 3,
-      "diferencia": -1,
-      "puntos": 3,
-      "posicion": 57
-    },
-    "goals": {
-      "over_1_5": "50%",
-      "over_2_5": "50%",
-      "over_3_5": "50%",
-      "bts": "50%"
-    },
-    "corners": {}
-  },
-  "Inter": {
-    "position": {
-      "partidos": 10,
-      "ganados": 5,
-      "empatados": 0,
-      "perdidos": 5,
-      "goles_favor": 17,
-      "goles_contra": 12,
-      "diferencia": 5,
-      "puntos": 15,
-      "posicion": 23
-    },
-    "goals": {
-      "over_1_5": "90%",
-      "over_2_5": "70%",
-      "over_3_5": "30%",
-      "bts": "50%"
-    },
-    "corners": {
-      "local": {
-        "partidos": 4,
-        "corners_favor": 8.75,
-        "corners_contra": 3.5
-      },
-      "visitante": {
-        "partidos": 3,
-        "corners_favor": 4.0,
-        "corners_contra": 5.0
-      }
-    }
-  },
-  "Real Madrid": {
-    "position": {
-      "partidos": 14,
-      "ganados": 9,
-      "empatados": 0,
-      "perdidos": 5,
-      "goles_favor": 33,
-      "goles_contra": 20,
-      "diferencia": 13,
-      "puntos": 27,
-      "posicion": 4
-    },
-    "goals": {
-      "over_1_5": "79%",
-      "over_2_5": "79%",
-      "over_3_5": "36%",
-      "bts": "64%"
-    },
-    "corners": {
-      "local": {
-        "partidos": 5,
-        "corners_favor": 5.2,
-        "corners_contra": 7.4
-      },
-      "visitante": {
-        "partidos": 5,
-        "corners_favor": 4.8,
-        "corners_contra": 6.0
-      }
-    }
-  },
-  "Paris Saint Germain": {
-    "position": {
-      "partidos": 17,
-      "ganados": 10,
-      "empatados": 5,
-      "perdidos": 2,
-      "goles_favor": 45,
-      "goles_contra": 23,
-      "diferencia": 22,
-      "puntos": 35,
-      "posicion": 2
-    },
-    "goals": {
-      "over_1_5": "94%",
-      "over_2_5": "65%",
-      "over_3_5": "41%",
-      "bts": "71%"
-    },
-    "corners": {
-      "local": {
-        "partidos": 7,
-        "corners_favor": 5.14,
-        "corners_contra": 3.14
-      },
-      "visitante": {
-        "partidos": 6,
-        "corners_favor": 6.17,
-        "corners_contra": 4.17
-      }
-    }
-  },
-  "Shkendija": {
-    "position": {
-      "partidos": 6,
-      "ganados": 3,
-      "empatados": 1,
-      "perdidos": 2,
-      "goles_favor": 6,
-      "goles_contra": 8,
-      "diferencia": -2,
-      "puntos": 10,
-      "posicion": 31
-    },
-    "goals": {
-      "over_1_5": "50%",
-      "over_2_5": "50%",
-      "over_3_5": "17%",
-      "bts": "50%"
-    },
-    "corners": {}
-  },
-  "Galatasaray": {
-    "position": {
-      "partidos": 12,
-      "ganados": 5,
-      "empatados": 1,
-      "perdidos": 6,
-      "goles_favor": 17,
-      "goles_contra": 20,
-      "diferencia": -3,
-      "puntos": 16,
-      "posicion": 21
-    },
-    "goals": {
-      "over_1_5": "67%",
-      "over_2_5": "50%",
-      "over_3_5": "42%",
-      "bts": "42%"
-    },
-    "corners": {
-      "local": {
-        "partidos": 4,
-        "corners_favor": 5.0,
-        "corners_contra": 5.25
-      },
-      "visitante": {
-        "partidos": 4,
-        "corners_favor": 3.25,
-        "corners_contra": 6.5
-      }
-    }
-  },
-  "Liverpool": {
-    "position": {
-      "partidos": 12,
-      "ganados": 7,
-      "empatados": 0,
-      "perdidos": 5,
-      "goles_favor": 24,
-      "goles_contra": 13,
-      "diferencia": 11,
-      "puntos": 21,
-      "posicion": 12
-    },
-    "goals": {
-      "over_1_5": "67%",
-      "over_2_5": "50%",
-      "over_3_5": "42%",
-      "bts": "25%"
-    },
-    "corners": {
-      "local": {
-        "partidos": 4,
-        "corners_favor": 9.75,
-        "corners_contra": 2.25
-      },
-      "visitante": {
-        "partidos": 4,
-        "corners_favor": 3.0,
-        "corners_contra": 5.75
-      }
-    }
-  },
-  "Olimpija Ljubljana": {
-    "position": {
-      "partidos": 2,
-      "ganados": 0,
-      "empatados": 1,
-      "perdidos": 1,
-      "goles_favor": 1,
-      "goles_contra": 3,
-      "diferencia": -2,
-      "puntos": 1,
-      "posicion": 71
-    },
-    "goals": {
-      "over_1_5": "100%",
-      "over_2_5": "0%",
-      "over_3_5": "0%",
-      "bts": "50%"
-    },
-    "corners": {}
-  },
-  "Fenerbahçe": {
-    "position": {
-      "partidos": 4,
-      "ganados": 1,
-      "empatados": 1,
-      "perdidos": 2,
-      "goles_favor": 6,
-      "goles_contra": 5,
-      "diferencia": 1,
-      "puntos": 4,
-      "posicion": 50
-    },
-    "goals": {
-      "over_1_5": "50%",
-      "over_2_5": "50%",
-      "over_3_5": "25%",
-      "bts": "50%"
+      "over_3_5": "100%",
+      "bts": "100%"
     },
     "corners": {}
   },
@@ -886,859 +1474,23 @@
       }
     }
   },
-  "Kairat Almaty": {
-    "position": {
-      "partidos": 16,
-      "ganados": 3,
-      "empatados": 4,
-      "perdidos": 9,
-      "goles_favor": 14,
-      "goles_contra": 26,
-      "diferencia": -12,
-      "puntos": 13,
-      "posicion": 27
-    },
-    "goals": {
-      "over_1_5": "62%",
-      "over_2_5": "44%",
-      "over_3_5": "31%",
-      "bts": "38%"
-    },
-    "corners": {
-      "local": {
-        "partidos": 2,
-        "corners_favor": 1.0,
-        "corners_contra": 5.5
-      },
-      "visitante": {
-        "partidos": 3,
-        "corners_favor": 1.0,
-        "corners_contra": 8.33
-      }
-    }
-  },
-  "Club Brugge KV": {
-    "position": {
-      "partidos": 14,
-      "ganados": 7,
-      "empatados": 2,
-      "perdidos": 5,
-      "goles_favor": 32,
-      "goles_contra": 27,
-      "diferencia": 5,
-      "puntos": 23,
-      "posicion": 8
-    },
-    "goals": {
-      "over_1_5": "93%",
-      "over_2_5": "93%",
-      "over_3_5": "64%",
-      "bts": "57%"
-    },
-    "corners": {
-      "local": {
-        "partidos": 4,
-        "corners_favor": 2.25,
-        "corners_contra": 6.0
-      },
-      "visitante": {
-        "partidos": 3,
-        "corners_favor": 5.0,
-        "corners_contra": 2.0
-      }
-    }
-  },
-  "Egnatia Rrogozhinë": {
-    "position": {
-      "partidos": 2,
-      "ganados": 1,
-      "empatados": 0,
-      "perdidos": 1,
-      "goles_favor": 1,
-      "goles_contra": 5,
-      "diferencia": -4,
-      "puntos": 3,
-      "posicion": 61
-    },
-    "goals": {
-      "over_1_5": "50%",
-      "over_2_5": "50%",
-      "over_3_5": "50%",
-      "bts": "0%"
-    },
-    "corners": {}
-  },
-  "KuPS": {
-    "position": {
-      "partidos": 4,
-      "ganados": 2,
-      "empatados": 1,
-      "perdidos": 1,
-      "goles_favor": 3,
-      "goles_contra": 3,
-      "diferencia": 0,
-      "puntos": 7,
-      "posicion": 40
-    },
-    "goals": {
-      "over_1_5": "50%",
-      "over_2_5": "25%",
-      "over_3_5": "0%",
-      "bts": "0%"
-    },
-    "corners": {}
-  },
-  "Bodo/Glimt": {
-    "position": {
-      "partidos": 14,
-      "ganados": 6,
-      "empatados": 3,
-      "perdidos": 5,
-      "goles_favor": 28,
-      "goles_contra": 24,
-      "diferencia": 4,
-      "puntos": 21,
-      "posicion": 13
-    },
-    "goals": {
-      "over_1_5": "93%",
-      "over_2_5": "93%",
-      "over_3_5": "64%",
-      "bts": "71%"
-    },
-    "corners": {
-      "local": {
-        "partidos": 4,
-        "corners_favor": 3.75,
-        "corners_contra": 6.25
-      },
-      "visitante": {
-        "partidos": 4,
-        "corners_favor": 2.5,
-        "corners_contra": 13.5
-      }
-    }
-  },
-  "Shelbourne": {
-    "position": {
-      "partidos": 4,
-      "ganados": 1,
-      "empatados": 1,
-      "perdidos": 2,
-      "goles_favor": 2,
-      "goles_contra": 5,
-      "diferencia": -3,
-      "puntos": 4,
-      "posicion": 52
-    },
-    "goals": {
-      "over_1_5": "50%",
-      "over_2_5": "25%",
-      "over_3_5": "0%",
-      "bts": "25%"
-    },
-    "corners": {}
-  },
-  "Bayer Leverkusen": {
-    "position": {
-      "partidos": 12,
-      "ganados": 4,
-      "empatados": 5,
-      "perdidos": 3,
-      "goles_favor": 16,
-      "goles_contra": 17,
-      "diferencia": -1,
-      "puntos": 17,
-      "posicion": 17
-    },
-    "goals": {
-      "over_1_5": "83%",
-      "over_2_5": "33%",
-      "over_3_5": "25%",
-      "bts": "42%"
-    },
-    "corners": {
-      "local": {
-        "partidos": 4,
-        "corners_favor": 4.75,
-        "corners_contra": 3.75
-      },
-      "visitante": {
-        "partidos": 5,
-        "corners_favor": 4.4,
-        "corners_contra": 6.0
-      }
-    }
-  },
-  "Sporting CP": {
-    "position": {
-      "partidos": 12,
-      "ganados": 6,
-      "empatados": 2,
-      "perdidos": 4,
-      "goles_favor": 22,
-      "goles_contra": 15,
-      "diferencia": 7,
-      "puntos": 20,
-      "posicion": 15
-    },
-    "goals": {
-      "over_1_5": "83%",
-      "over_2_5": "75%",
-      "over_3_5": "33%",
-      "bts": "58%"
-    },
-    "corners": {
-      "local": {
-        "partidos": 4,
-        "corners_favor": 6.0,
-        "corners_contra": 5.75
-      },
-      "visitante": {
-        "partidos": 4,
-        "corners_favor": 4.5,
-        "corners_contra": 5.5
-      }
-    }
-  },
-  "Napoli": {
-    "position": {
-      "partidos": 8,
-      "ganados": 2,
-      "empatados": 2,
-      "perdidos": 4,
-      "goles_favor": 9,
-      "goles_contra": 15,
-      "diferencia": -6,
-      "puntos": 8,
-      "posicion": 37
-    },
-    "goals": {
-      "over_1_5": "88%",
-      "over_2_5": "38%",
-      "over_3_5": "25%",
-      "bts": "50%"
-    },
-    "corners": {
-      "local": {
-        "partidos": 2,
-        "corners_favor": 5.0,
-        "corners_contra": 2.5
-      },
-      "visitante": {
-        "partidos": 2,
-        "corners_favor": 8.5,
-        "corners_contra": 1.5
-      }
-    }
-  },
-  "Hamrun Spartans": {
-    "position": {
-      "partidos": 4,
-      "ganados": 1,
-      "empatados": 0,
-      "perdidos": 3,
-      "goles_favor": 2,
-      "goles_contra": 8,
-      "diferencia": -6,
-      "puntos": 3,
-      "posicion": 62
-    },
-    "goals": {
-      "over_1_5": "100%",
-      "over_2_5": "50%",
-      "over_3_5": "0%",
-      "bts": "0%"
-    },
-    "corners": {}
-  },
-  "Linfield": {
-    "position": {
-      "partidos": 2,
-      "ganados": 0,
-      "empatados": 1,
-      "perdidos": 1,
-      "goles_favor": 1,
-      "goles_contra": 2,
-      "diferencia": -1,
-      "puntos": 1,
-      "posicion": 68
-    },
-    "goals": {
-      "over_1_5": "50%",
-      "over_2_5": "0%",
-      "over_3_5": "0%",
-      "bts": "50%"
-    },
-    "corners": {}
-  },
-  "Zrinjski": {
-    "position": {
-      "partidos": 4,
-      "ganados": 2,
-      "empatados": 1,
-      "perdidos": 1,
-      "goles_favor": 6,
-      "goles_contra": 7,
-      "diferencia": -1,
-      "puntos": 7,
-      "posicion": 41
-    },
-    "goals": {
-      "over_1_5": "100%",
-      "over_2_5": "75%",
-      "over_3_5": "50%",
-      "bts": "50%"
-    },
-    "corners": {}
-  },
-  "HNK Rijeka": {
-    "position": {
-      "partidos": 2,
-      "ganados": 0,
-      "empatados": 1,
-      "perdidos": 1,
-      "goles_favor": 1,
-      "goles_contra": 3,
-      "diferencia": -2,
-      "puntos": 1,
-      "posicion": 73
-    },
-    "goals": {
-      "over_1_5": "50%",
-      "over_2_5": "50%",
-      "over_3_5": "50%",
-      "bts": "50%"
-    },
-    "corners": {}
-  },
-  "FC Levadia Tallinn": {
+  "Nice": {
     "position": {
       "partidos": 2,
       "ganados": 0,
       "empatados": 0,
       "perdidos": 2,
       "goles_favor": 0,
-      "goles_contra": 2,
-      "diferencia": -2,
-      "puntos": 0,
-      "posicion": 79
-    },
-    "goals": {
-      "over_1_5": "0%",
-      "over_2_5": "0%",
-      "over_3_5": "0%",
-      "bts": "0%"
-    },
-    "corners": {}
-  },
-  "Brann": {
-    "position": {
-      "partidos": 2,
-      "ganados": 0,
-      "empatados": 1,
-      "perdidos": 1,
-      "goles_favor": 2,
-      "goles_contra": 5,
-      "diferencia": -3,
-      "puntos": 1,
-      "posicion": 75
-    },
-    "goals": {
-      "over_1_5": "100%",
-      "over_2_5": "50%",
-      "over_3_5": "50%",
-      "bts": "100%"
-    },
-    "corners": {}
-  },
-  "Tottenham": {
-    "position": {
-      "partidos": 10,
-      "ganados": 6,
-      "empatados": 2,
-      "perdidos": 2,
-      "goles_favor": 22,
-      "goles_contra": 14,
-      "diferencia": 8,
-      "puntos": 20,
-      "posicion": 14
-    },
-    "goals": {
-      "over_1_5": "80%",
-      "over_2_5": "60%",
-      "over_3_5": "50%",
-      "bts": "40%"
-    },
-    "corners": {
-      "local": {
-        "partidos": 3,
-        "corners_favor": 6.33,
-        "corners_contra": 4.0
-      },
-      "visitante": {
-        "partidos": 3,
-        "corners_favor": 4.0,
-        "corners_contra": 3.0
-      }
-    }
-  },
-  "Bayern München": {
-    "position": {
-      "partidos": 14,
-      "ganados": 11,
-      "empatados": 1,
-      "perdidos": 2,
-      "goles_favor": 43,
-      "goles_contra": 20,
-      "diferencia": 23,
-      "puntos": 34,
-      "posicion": 3
-    },
-    "goals": {
-      "over_1_5": "100%",
-      "over_2_5": "86%",
-      "over_3_5": "64%",
-      "bts": "86%"
-    },
-    "corners": {
-      "local": {
-        "partidos": 5,
-        "corners_favor": 4.8,
-        "corners_contra": 3.4
-      },
-      "visitante": {
-        "partidos": 5,
-        "corners_favor": 6.0,
-        "corners_contra": 4.6
-      }
-    }
-  },
-  "FC Copenhagen": {
-    "position": {
-      "partidos": 14,
-      "ganados": 6,
-      "empatados": 4,
-      "perdidos": 4,
-      "goles_favor": 23,
-      "goles_contra": 22,
-      "diferencia": 1,
-      "puntos": 22,
-      "posicion": 10
-    },
-    "goals": {
-      "over_1_5": "86%",
-      "over_2_5": "50%",
-      "over_3_5": "50%",
-      "bts": "50%"
-    },
-    "corners": {
-      "local": {
-        "partidos": 2,
-        "corners_favor": 3.0,
-        "corners_contra": 5.5
-      },
-      "visitante": {
-        "partidos": 2,
-        "corners_favor": 2.5,
-        "corners_contra": 8.0
-      }
-    }
-  },
-  "Lincoln Red Imps FC": {
-    "position": {
-      "partidos": 4,
-      "ganados": 2,
-      "empatados": 0,
-      "perdidos": 2,
-      "goles_favor": 5,
-      "goles_contra": 8,
-      "diferencia": -3,
-      "puntos": 6,
-      "posicion": 47
-    },
-    "goals": {
-      "over_1_5": "50%",
-      "over_2_5": "50%",
-      "over_3_5": "50%",
-      "bts": "50%"
-    },
-    "corners": {}
-  },
-  "Chelsea": {
-    "position": {
-      "partidos": 10,
-      "ganados": 5,
-      "empatados": 1,
-      "perdidos": 4,
-      "goles_favor": 19,
-      "goles_contra": 18,
-      "diferencia": 1,
-      "puntos": 16,
-      "posicion": 20
-    },
-    "goals": {
-      "over_1_5": "80%",
-      "over_2_5": "80%",
-      "over_3_5": "50%",
-      "bts": "60%"
-    },
-    "corners": {
-      "local": {
-        "partidos": 3,
-        "corners_favor": 9.33,
-        "corners_contra": 1.67
-      },
-      "visitante": {
-        "partidos": 3,
-        "corners_favor": 3.0,
-        "corners_contra": 2.67
-      }
-    }
-  },
-  "Villarreal": {
-    "position": {
-      "partidos": 8,
-      "ganados": 0,
-      "empatados": 1,
-      "perdidos": 7,
-      "goles_favor": 5,
-      "goles_contra": 18,
-      "diferencia": -13,
-      "puntos": 1,
-      "posicion": 76
-    },
-    "goals": {
-      "over_1_5": "75%",
-      "over_2_5": "62%",
-      "over_3_5": "38%",
-      "bts": "38%"
-    },
-    "corners": {
-      "local": {
-        "partidos": 2,
-        "corners_favor": 6.5,
-        "corners_contra": 4.5
-      },
-      "visitante": {
-        "partidos": 2,
-        "corners_favor": 1.5,
-        "corners_contra": 3.5
-      }
-    }
-  },
-  "Rangers": {
-    "position": {
-      "partidos": 6,
-      "ganados": 2,
-      "empatados": 1,
-      "perdidos": 3,
-      "goles_favor": 8,
-      "goles_contra": 12,
+      "goles_contra": 4,
       "diferencia": -4,
-      "puntos": 7,
-      "posicion": 42
-    },
-    "goals": {
-      "over_1_5": "100%",
-      "over_2_5": "67%",
-      "over_3_5": "33%",
-      "bts": "50%"
-    },
-    "corners": {}
-  },
-  "FCSB": {
-    "position": {
-      "partidos": 4,
-      "ganados": 1,
-      "empatados": 0,
-      "perdidos": 3,
-      "goles_favor": 5,
-      "goles_contra": 6,
-      "diferencia": -1,
-      "puntos": 3,
-      "posicion": 55
-    },
-    "goals": {
-      "over_1_5": "75%",
-      "over_2_5": "75%",
-      "over_3_5": "25%",
-      "bts": "75%"
-    },
-    "corners": {}
-  },
-  "Benfica": {
-    "position": {
-      "partidos": 14,
-      "ganados": 6,
-      "empatados": 1,
-      "perdidos": 7,
-      "goles_favor": 16,
-      "goles_contra": 15,
-      "diferencia": 1,
-      "puntos": 19,
-      "posicion": 16
-    },
-    "goals": {
-      "over_1_5": "64%",
-      "over_2_5": "29%",
-      "over_3_5": "14%",
-      "bts": "21%"
-    },
-    "corners": {
-      "local": {
-        "partidos": 4,
-        "corners_favor": 4.25,
-        "corners_contra": 4.25
-      },
-      "visitante": {
-        "partidos": 3,
-        "corners_favor": 6.0,
-        "corners_contra": 6.0
-      }
-    }
-  },
-  "Breidablik": {
-    "position": {
-      "partidos": 4,
-      "ganados": 1,
-      "empatados": 0,
-      "perdidos": 3,
-      "goles_favor": 6,
-      "goles_contra": 9,
-      "diferencia": -3,
-      "puntos": 3,
-      "posicion": 59
-    },
-    "goals": {
-      "over_1_5": "50%",
-      "over_2_5": "50%",
-      "over_3_5": "50%",
-      "bts": "25%"
-    },
-    "corners": {}
-  },
-  "Atletico Madrid": {
-    "position": {
-      "partidos": 16,
-      "ganados": 7,
-      "empatados": 3,
-      "perdidos": 6,
-      "goles_favor": 35,
-      "goles_contra": 28,
-      "diferencia": 7,
-      "puntos": 24,
-      "posicion": 6
-    },
-    "goals": {
-      "over_1_5": "94%",
-      "over_2_5": "75%",
-      "over_3_5": "56%",
-      "bts": "81%"
-    },
-    "corners": {
-      "local": {
-        "partidos": 6,
-        "corners_favor": 5.5,
-        "corners_contra": 3.5
-      },
-      "visitante": {
-        "partidos": 6,
-        "corners_favor": 4.67,
-        "corners_contra": 6.0
-      }
-    }
-  },
-  "Dinamo Minsk": {
-    "position": {
-      "partidos": 2,
-      "ganados": 0,
-      "empatados": 1,
-      "perdidos": 1,
-      "goles_favor": 2,
-      "goles_contra": 3,
-      "diferencia": -1,
-      "puntos": 1,
-      "posicion": 66
-    },
-    "goals": {
-      "over_1_5": "50%",
-      "over_2_5": "50%",
-      "over_3_5": "50%",
-      "bts": "50%"
-    },
-    "corners": {}
-  },
-  "Panathinaikos": {
-    "position": {
-      "partidos": 2,
-      "ganados": 0,
-      "empatados": 1,
-      "perdidos": 1,
-      "goles_favor": 1,
-      "goles_contra": 3,
-      "diferencia": -2,
-      "puntos": 1,
-      "posicion": 72
-    },
-    "goals": {
-      "over_1_5": "100%",
-      "over_2_5": "0%",
-      "over_3_5": "0%",
-      "bts": "50%"
-    },
-    "corners": {}
-  },
-  "Newcastle": {
-    "position": {
-      "partidos": 12,
-      "ganados": 6,
-      "empatados": 3,
-      "perdidos": 3,
-      "goles_favor": 29,
-      "goles_contra": 18,
-      "diferencia": 11,
-      "puntos": 21,
-      "posicion": 11
-    },
-    "goals": {
-      "over_1_5": "100%",
-      "over_2_5": "75%",
-      "over_3_5": "42%",
-      "bts": "67%"
-    },
-    "corners": {
-      "local": {
-        "partidos": 3,
-        "corners_favor": 7.0,
-        "corners_contra": 3.67
-      },
-      "visitante": {
-        "partidos": 5,
-        "corners_favor": 4.0,
-        "corners_contra": 7.8
-      }
-    }
-  },
-  "FK Zalgiris Vilnius": {
-    "position": {
-      "partidos": 2,
-      "ganados": 1,
-      "empatados": 0,
-      "perdidos": 1,
-      "goles_favor": 2,
-      "goles_contra": 2,
-      "diferencia": 0,
-      "puntos": 3,
-      "posicion": 54
+      "puntos": 0,
+      "posicion": 82
     },
     "goals": {
       "over_1_5": "100%",
       "over_2_5": "0%",
       "over_3_5": "0%",
       "bts": "0%"
-    },
-    "corners": {}
-  },
-  "Dynamo Kyiv": {
-    "position": {
-      "partidos": 4,
-      "ganados": 2,
-      "empatados": 0,
-      "perdidos": 2,
-      "goles_favor": 6,
-      "goles_contra": 3,
-      "diferencia": 3,
-      "puntos": 6,
-      "posicion": 43
-    },
-    "goals": {
-      "over_1_5": "75%",
-      "over_2_5": "50%",
-      "over_3_5": "0%",
-      "bts": "0%"
-    },
-    "corners": {}
-  },
-  "Slavia Praha": {
-    "position": {
-      "partidos": 8,
-      "ganados": 0,
-      "empatados": 3,
-      "perdidos": 5,
-      "goles_favor": 5,
-      "goles_contra": 19,
-      "diferencia": -14,
-      "puntos": 3,
-      "posicion": 63
-    },
-    "goals": {
-      "over_1_5": "75%",
-      "over_2_5": "75%",
-      "over_3_5": "38%",
-      "bts": "38%"
-    },
-    "corners": {
-      "local": {
-        "partidos": 2,
-        "corners_favor": 3.5,
-        "corners_contra": 4.5
-      },
-      "visitante": {
-        "partidos": 2,
-        "corners_favor": 2.5,
-        "corners_contra": 8.0
-      }
-    }
-  },
-  "Athletic Club": {
-    "position": {
-      "partidos": 8,
-      "ganados": 2,
-      "empatados": 2,
-      "perdidos": 4,
-      "goles_favor": 9,
-      "goles_contra": 14,
-      "diferencia": -5,
-      "puntos": 8,
-      "posicion": 36
-    },
-    "goals": {
-      "over_1_5": "75%",
-      "over_2_5": "50%",
-      "over_3_5": "50%",
-      "bts": "50%"
-    },
-    "corners": {
-      "local": {
-        "partidos": 2,
-        "corners_favor": 5.0,
-        "corners_contra": 6.5
-      },
-      "visitante": {
-        "partidos": 2,
-        "corners_favor": 3.5,
-        "corners_contra": 3.5
-      }
-    }
-  },
-  "Ferencvarosi TC": {
-    "position": {
-      "partidos": 6,
-      "ganados": 4,
-      "empatados": 1,
-      "perdidos": 1,
-      "goles_favor": 13,
-      "goles_contra": 9,
-      "diferencia": 4,
-      "puntos": 13,
-      "posicion": 25
-    },
-    "goals": {
-      "over_1_5": "83%",
-      "over_2_5": "83%",
-      "over_3_5": "50%",
-      "bts": "67%"
     },
     "corners": {}
   },
@@ -1773,225 +1525,23 @@
       }
     }
   },
-  "Manchester City": {
-    "position": {
-      "partidos": 10,
-      "ganados": 5,
-      "empatados": 1,
-      "perdidos": 4,
-      "goles_favor": 16,
-      "goles_contra": 14,
-      "diferencia": 2,
-      "puntos": 16,
-      "posicion": 19
-    },
-    "goals": {
-      "over_1_5": "100%",
-      "over_2_5": "60%",
-      "over_3_5": "30%",
-      "bts": "50%"
-    },
-    "corners": {
-      "local": {
-        "partidos": 3,
-        "corners_favor": 7.33,
-        "corners_contra": 4.33
-      },
-      "visitante": {
-        "partidos": 3,
-        "corners_favor": 7.33,
-        "corners_contra": 2.0
-      }
-    }
-  },
-  "Virtus": {
-    "position": {
-      "partidos": 2,
-      "ganados": 0,
-      "empatados": 0,
-      "perdidos": 2,
-      "goles_favor": 1,
-      "goles_contra": 4,
-      "diferencia": -3,
-      "puntos": 0,
-      "posicion": 80
-    },
-    "goals": {
-      "over_1_5": "100%",
-      "over_2_5": "50%",
-      "over_3_5": "0%",
-      "bts": "50%"
-    },
-    "corners": {}
-  },
-  "Drita": {
+  "Shelbourne": {
     "position": {
       "partidos": 4,
-      "ganados": 2,
-      "empatados": 0,
+      "ganados": 1,
+      "empatados": 1,
       "perdidos": 2,
-      "goles_favor": 4,
+      "goles_favor": 2,
       "goles_contra": 5,
-      "diferencia": -1,
-      "puntos": 6,
-      "posicion": 45
+      "diferencia": -3,
+      "puntos": 4,
+      "posicion": 52
     },
     "goals": {
       "over_1_5": "50%",
       "over_2_5": "25%",
-      "over_3_5": "25%",
+      "over_3_5": "0%",
       "bts": "25%"
-    },
-    "corners": {}
-  },
-  "FC Noah": {
-    "position": {
-      "partidos": 4,
-      "ganados": 1,
-      "empatados": 1,
-      "perdidos": 2,
-      "goles_favor": 7,
-      "goles_contra": 8,
-      "diferencia": -1,
-      "puntos": 4,
-      "posicion": 51
-    },
-    "goals": {
-      "over_1_5": "75%",
-      "over_2_5": "75%",
-      "over_3_5": "50%",
-      "bts": "75%"
-    },
-    "corners": {}
-  },
-  "Milsami Orhei": {
-    "position": {
-      "partidos": 2,
-      "ganados": 0,
-      "empatados": 1,
-      "perdidos": 1,
-      "goles_favor": 0,
-      "goles_contra": 1,
-      "diferencia": -1,
-      "puntos": 1,
-      "posicion": 70
-    },
-    "goals": {
-      "over_1_5": "0%",
-      "over_2_5": "0%",
-      "over_3_5": "0%",
-      "bts": "0%"
-    },
-    "corners": {}
-  },
-  "Inter Club d'Escaldes": {
-    "position": {
-      "partidos": 2,
-      "ganados": 1,
-      "empatados": 0,
-      "perdidos": 1,
-      "goles_favor": 3,
-      "goles_contra": 4,
-      "diferencia": -1,
-      "puntos": 3,
-      "posicion": 56
-    },
-    "goals": {
-      "over_1_5": "100%",
-      "over_2_5": "100%",
-      "over_3_5": "50%",
-      "bts": "100%"
-    },
-    "corners": {}
-  },
-  "Nice": {
-    "position": {
-      "partidos": 2,
-      "ganados": 0,
-      "empatados": 0,
-      "perdidos": 2,
-      "goles_favor": 0,
-      "goles_contra": 4,
-      "diferencia": -4,
-      "puntos": 0,
-      "posicion": 82
-    },
-    "goals": {
-      "over_1_5": "100%",
-      "over_2_5": "0%",
-      "over_3_5": "0%",
-      "bts": "0%"
-    },
-    "corners": {}
-  },
-  "Pafos": {
-    "position": {
-      "partidos": 14,
-      "ganados": 6,
-      "empatados": 5,
-      "perdidos": 3,
-      "goles_favor": 16,
-      "goles_contra": 14,
-      "diferencia": 2,
-      "puntos": 23,
-      "posicion": 9
-    },
-    "goals": {
-      "over_1_5": "57%",
-      "over_2_5": "29%",
-      "over_3_5": "21%",
-      "bts": "43%"
-    },
-    "corners": {
-      "local": {
-        "partidos": 2,
-        "corners_favor": 6.5,
-        "corners_contra": 2.5
-      },
-      "visitante": {
-        "partidos": 2,
-        "corners_favor": 3.0,
-        "corners_contra": 14.0
-      }
-    }
-  },
-  "Ludogorets": {
-    "position": {
-      "partidos": 6,
-      "ganados": 2,
-      "empatados": 3,
-      "perdidos": 1,
-      "goles_favor": 6,
-      "goles_contra": 6,
-      "diferencia": 0,
-      "puntos": 9,
-      "posicion": 32
-    },
-    "goals": {
-      "over_1_5": "50%",
-      "over_2_5": "50%",
-      "over_3_5": "33%",
-      "bts": "33%"
-    },
-    "corners": {}
-  },
-  "FK Crvena Zvezda": {
-    "position": {
-      "partidos": 6,
-      "ganados": 3,
-      "empatados": 2,
-      "perdidos": 1,
-      "goles_favor": 12,
-      "goles_contra": 6,
-      "diferencia": 6,
-      "puntos": 11,
-      "posicion": 29
-    },
-    "goals": {
-      "over_1_5": "83%",
-      "over_2_5": "50%",
-      "over_3_5": "33%",
-      "bts": "83%"
     },
     "corners": {}
   },
@@ -2015,17 +1565,447 @@
     },
     "corners": {}
   },
-  "FC Differdange 03": {
+  "Shkendija": {
+    "position": {
+      "partidos": 6,
+      "ganados": 3,
+      "empatados": 1,
+      "perdidos": 2,
+      "goles_favor": 6,
+      "goles_contra": 8,
+      "diferencia": -2,
+      "puntos": 10,
+      "posicion": 31
+    },
+    "goals": {
+      "over_1_5": "50%",
+      "over_2_5": "50%",
+      "over_3_5": "17%",
+      "bts": "50%"
+    },
+    "corners": {}
+  },
+  "Athletic Club": {
+    "position": {
+      "partidos": 8,
+      "ganados": 2,
+      "empatados": 2,
+      "perdidos": 4,
+      "goles_favor": 9,
+      "goles_contra": 14,
+      "diferencia": -5,
+      "puntos": 8,
+      "posicion": 36
+    },
+    "goals": {
+      "over_1_5": "75%",
+      "over_2_5": "50%",
+      "over_3_5": "50%",
+      "bts": "50%"
+    },
+    "corners": {
+      "local": {
+        "partidos": 2,
+        "corners_favor": 5.0,
+        "corners_contra": 6.5
+      },
+      "visitante": {
+        "partidos": 2,
+        "corners_favor": 3.5,
+        "corners_contra": 3.5
+      }
+    }
+  },
+  "Slavia Praha": {
+    "position": {
+      "partidos": 8,
+      "ganados": 0,
+      "empatados": 3,
+      "perdidos": 5,
+      "goles_favor": 5,
+      "goles_contra": 19,
+      "diferencia": -14,
+      "puntos": 3,
+      "posicion": 63
+    },
+    "goals": {
+      "over_1_5": "75%",
+      "over_2_5": "75%",
+      "over_3_5": "38%",
+      "bts": "38%"
+    },
+    "corners": {
+      "local": {
+        "partidos": 2,
+        "corners_favor": 3.5,
+        "corners_contra": 4.5
+      },
+      "visitante": {
+        "partidos": 2,
+        "corners_favor": 2.5,
+        "corners_contra": 8.0
+      }
+    }
+  },
+  "Tottenham": {
+    "position": {
+      "partidos": 10,
+      "ganados": 6,
+      "empatados": 2,
+      "perdidos": 2,
+      "goles_favor": 22,
+      "goles_contra": 14,
+      "diferencia": 8,
+      "puntos": 20,
+      "posicion": 14
+    },
+    "goals": {
+      "over_1_5": "80%",
+      "over_2_5": "60%",
+      "over_3_5": "50%",
+      "bts": "40%"
+    },
+    "corners": {
+      "local": {
+        "partidos": 3,
+        "corners_favor": 6.33,
+        "corners_contra": 4.0
+      },
+      "visitante": {
+        "partidos": 3,
+        "corners_favor": 4.0,
+        "corners_contra": 3.0
+      }
+    }
+  },
+  "Atalanta": {
+    "position": {
+      "partidos": 12,
+      "ganados": 5,
+      "empatados": 1,
+      "perdidos": 6,
+      "goles_favor": 16,
+      "goles_contra": 23,
+      "diferencia": -7,
+      "puntos": 16,
+      "posicion": 22
+    },
+    "goals": {
+      "over_1_5": "75%",
+      "over_2_5": "67%",
+      "over_3_5": "42%",
+      "bts": "50%"
+    },
+    "corners": {
+      "local": {
+        "partidos": 4,
+        "corners_favor": 3.5,
+        "corners_contra": 3.75
+      },
+      "visitante": {
+        "partidos": 4,
+        "corners_favor": 4.25,
+        "corners_contra": 3.5
+      }
+    }
+  },
+  "Fenerbahçe": {
+    "position": {
+      "partidos": 4,
+      "ganados": 1,
+      "empatados": 1,
+      "perdidos": 2,
+      "goles_favor": 6,
+      "goles_contra": 5,
+      "diferencia": 1,
+      "puntos": 4,
+      "posicion": 50
+    },
+    "goals": {
+      "over_1_5": "50%",
+      "over_2_5": "50%",
+      "over_3_5": "25%",
+      "bts": "50%"
+    },
+    "corners": {}
+  },
+  "Real Madrid": {
+    "position": {
+      "partidos": 14,
+      "ganados": 9,
+      "empatados": 0,
+      "perdidos": 5,
+      "goles_favor": 33,
+      "goles_contra": 20,
+      "diferencia": 13,
+      "puntos": 27,
+      "posicion": 4
+    },
+    "goals": {
+      "over_1_5": "79%",
+      "over_2_5": "79%",
+      "over_3_5": "36%",
+      "bts": "64%"
+    },
+    "corners": {
+      "local": {
+        "partidos": 5,
+        "corners_favor": 5.2,
+        "corners_contra": 7.4
+      },
+      "visitante": {
+        "partidos": 5,
+        "corners_favor": 4.8,
+        "corners_contra": 6.0
+      }
+    }
+  },
+  "Benfica": {
+    "position": {
+      "partidos": 14,
+      "ganados": 6,
+      "empatados": 1,
+      "perdidos": 7,
+      "goles_favor": 16,
+      "goles_contra": 15,
+      "diferencia": 1,
+      "puntos": 19,
+      "posicion": 16
+    },
+    "goals": {
+      "over_1_5": "64%",
+      "over_2_5": "29%",
+      "over_3_5": "14%",
+      "bts": "21%"
+    },
+    "corners": {
+      "local": {
+        "partidos": 4,
+        "corners_favor": 4.25,
+        "corners_contra": 4.25
+      },
+      "visitante": {
+        "partidos": 3,
+        "corners_favor": 6.0,
+        "corners_contra": 6.0
+      }
+    }
+  },
+  "Newcastle": {
+    "position": {
+      "partidos": 12,
+      "ganados": 6,
+      "empatados": 3,
+      "perdidos": 3,
+      "goles_favor": 29,
+      "goles_contra": 18,
+      "diferencia": 11,
+      "puntos": 21,
+      "posicion": 11
+    },
+    "goals": {
+      "over_1_5": "100%",
+      "over_2_5": "75%",
+      "over_3_5": "42%",
+      "bts": "67%"
+    },
+    "corners": {
+      "local": {
+        "partidos": 3,
+        "corners_favor": 7.0,
+        "corners_contra": 3.67
+      },
+      "visitante": {
+        "partidos": 5,
+        "corners_favor": 4.0,
+        "corners_contra": 7.8
+      }
+    }
+  },
+  "Chelsea": {
+    "position": {
+      "partidos": 10,
+      "ganados": 5,
+      "empatados": 1,
+      "perdidos": 4,
+      "goles_favor": 19,
+      "goles_contra": 18,
+      "diferencia": 1,
+      "puntos": 16,
+      "posicion": 20
+    },
+    "goals": {
+      "over_1_5": "80%",
+      "over_2_5": "80%",
+      "over_3_5": "50%",
+      "bts": "60%"
+    },
+    "corners": {
+      "local": {
+        "partidos": 3,
+        "corners_favor": 9.33,
+        "corners_contra": 1.67
+      },
+      "visitante": {
+        "partidos": 3,
+        "corners_favor": 3.0,
+        "corners_contra": 2.67
+      }
+    }
+  },
+  "Feyenoord": {
+    "position": {
+      "partidos": 2,
+      "ganados": 1,
+      "empatados": 0,
+      "perdidos": 1,
+      "goles_favor": 4,
+      "goles_contra": 6,
+      "diferencia": -2,
+      "puntos": 3,
+      "posicion": 58
+    },
+    "goals": {
+      "over_1_5": "100%",
+      "over_2_5": "100%",
+      "over_3_5": "50%",
+      "bts": "100%"
+    },
+    "corners": {}
+  },
+  "Plzen": {
+    "position": {
+      "partidos": 4,
+      "ganados": 2,
+      "empatados": 0,
+      "perdidos": 2,
+      "goles_favor": 5,
+      "goles_contra": 6,
+      "diferencia": -1,
+      "puntos": 6,
+      "posicion": 44
+    },
+    "goals": {
+      "over_1_5": "75%",
+      "over_2_5": "75%",
+      "over_3_5": "25%",
+      "bts": "50%"
+    },
+    "corners": {}
+  },
+  "Inter Club d'Escaldes": {
+    "position": {
+      "partidos": 2,
+      "ganados": 1,
+      "empatados": 0,
+      "perdidos": 1,
+      "goles_favor": 3,
+      "goles_contra": 4,
+      "diferencia": -1,
+      "puntos": 3,
+      "posicion": 56
+    },
+    "goals": {
+      "over_1_5": "100%",
+      "over_2_5": "100%",
+      "over_3_5": "50%",
+      "bts": "100%"
+    },
+    "corners": {}
+  },
+  "Atletico Madrid": {
+    "position": {
+      "partidos": 16,
+      "ganados": 7,
+      "empatados": 3,
+      "perdidos": 6,
+      "goles_favor": 35,
+      "goles_contra": 28,
+      "diferencia": 7,
+      "puntos": 24,
+      "posicion": 6
+    },
+    "goals": {
+      "over_1_5": "94%",
+      "over_2_5": "75%",
+      "over_3_5": "56%",
+      "bts": "81%"
+    },
+    "corners": {
+      "local": {
+        "partidos": 6,
+        "corners_favor": 5.5,
+        "corners_contra": 3.5
+      },
+      "visitante": {
+        "partidos": 6,
+        "corners_favor": 4.67,
+        "corners_contra": 6.0
+      }
+    }
+  },
+  "Liverpool": {
+    "position": {
+      "partidos": 12,
+      "ganados": 7,
+      "empatados": 0,
+      "perdidos": 5,
+      "goles_favor": 24,
+      "goles_contra": 13,
+      "diferencia": 11,
+      "puntos": 21,
+      "posicion": 12
+    },
+    "goals": {
+      "over_1_5": "67%",
+      "over_2_5": "50%",
+      "over_3_5": "42%",
+      "bts": "25%"
+    },
+    "corners": {
+      "local": {
+        "partidos": 4,
+        "corners_favor": 9.75,
+        "corners_contra": 2.25
+      },
+      "visitante": {
+        "partidos": 4,
+        "corners_favor": 3.0,
+        "corners_contra": 5.75
+      }
+    }
+  },
+  "Sturm Graz": {
+    "position": {
+      "partidos": 2,
+      "ganados": 1,
+      "empatados": 0,
+      "perdidos": 1,
+      "goles_favor": 2,
+      "goles_contra": 6,
+      "diferencia": -4,
+      "puntos": 3,
+      "posicion": 60
+    },
+    "goals": {
+      "over_1_5": "100%",
+      "over_2_5": "100%",
+      "over_3_5": "50%",
+      "bts": "50%"
+    },
+    "corners": {}
+  },
+  "Dinamo Minsk": {
     "position": {
       "partidos": 2,
       "ganados": 0,
-      "empatados": 0,
-      "perdidos": 2,
+      "empatados": 1,
+      "perdidos": 1,
       "goles_favor": 2,
-      "goles_contra": 4,
-      "diferencia": -2,
-      "puntos": 0,
-      "posicion": 78
+      "goles_contra": 3,
+      "diferencia": -1,
+      "puntos": 1,
+      "posicion": 66
     },
     "goals": {
       "over_1_5": "50%",
@@ -2035,8 +2015,28 @@
     },
     "corners": {}
   },
+  "Brann": {
+    "position": {
+      "partidos": 2,
+      "ganados": 0,
+      "empatados": 1,
+      "perdidos": 1,
+      "goles_favor": 2,
+      "goles_contra": 5,
+      "diferencia": -3,
+      "puntos": 1,
+      "posicion": 75
+    },
+    "goals": {
+      "over_1_5": "100%",
+      "over_2_5": "50%",
+      "over_3_5": "50%",
+      "bts": "100%"
+    },
+    "corners": {}
+  },
   "_metadata": {
-    "fecha_actualizacion": "2026-06-11T09:12:25.094715",
+    "fecha_actualizacion": "2026-06-12T08:59:33.643692",
     "fuente": "API-Football",
     "league_id": 2,
     "season": 2025,
