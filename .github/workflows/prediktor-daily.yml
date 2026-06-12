@@ -270,6 +270,14 @@ jobs:
       - name: Health check del pipeline
         run: python3 scripts/pipeline_health.py
 
+      # ── Step 8c: Radar estadístico (Mundial/selecciones) ───────
+      # Selector de mercado por PROBABILIDAD (sin EV/cuotas). Report-only:
+      # genera static/statistical_radar.json + reporte. NO conectado a la
+      # publicación premium; el motor de publicación no lee estos artefactos.
+      - name: Radar estadístico de selecciones
+        run: python3 scripts/statistical_radar.py
+        continue-on-error: true
+
       # ── Step 9: Publicar en Telegram (no crítico — bot ya tiene fallback) ─
       - name: Publicar en Telegram
         env:
