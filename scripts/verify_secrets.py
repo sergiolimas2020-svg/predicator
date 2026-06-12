@@ -9,6 +9,9 @@ Secrets verificados:
   - TELEGRAM_CHANNEL_ID → obligatorio para publicación en canal
 
 Secrets opcionales (warning si faltan, no fail):
+  - API_FOOTBALL_KEY  → fuente PRINCIPAL de fútbol; sin ella no hay picks
+                        oficiales de fútbol (pipeline_health falla luego si
+                        faltan datos y hay picks). Solo se avisa aquí.
   - RAPIDAPI_KEY      → APIs auxiliares (NBA games, props, corners)
   - TELEGRAM_ADMIN_CHAT_ID → notificaciones de error al admin
 
@@ -133,6 +136,7 @@ def main() -> int:
     channel_id = os.environ.get("TELEGRAM_CHANNEL_ID", "")
     rapid_key = os.environ.get("RAPIDAPI_KEY", "")
     admin_chat = os.environ.get("TELEGRAM_ADMIN_CHAT_ID", "")
+    apifb_key = os.environ.get("API_FOOTBALL_KEY", "")
 
     critical_ok = True
     warnings = []
@@ -166,6 +170,15 @@ def main() -> int:
 
     # ── OPCIONALES ──
     print("\n— Opcionales —")
+    # API-Football: fuente principal de fútbol. No es crítico aquí porque NBA no
+    # la necesita y el pipeline_health falla después si faltan datos y hay picks,
+    # pero su ausencia significa que NO habrá picks oficiales de fútbol hoy.
+    if apifb_key:
+        print(f"  {green('✓')} API_FOOTBALL_KEY presente (fuente principal de fútbol)")
+    else:
+        print(f"  {yellow('!')} API_FOOTBALL_KEY no configurado — NO habrá picks oficiales de fútbol")
+        warnings.append("API_FOOTBALL_KEY")
+
     if rapid_key:
         print(f"  {green('✓')} RAPIDAPI_KEY presente (no se valida — uso bajo demanda)")
     else:
