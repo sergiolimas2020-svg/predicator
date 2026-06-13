@@ -1,0 +1,95 @@
+{
+  "date": "2026-06-13",
+  "total_fixtures": 4,
+  "matches": [
+    {
+      "matchup": "Qatar vs Switzerland",
+      "league": "Mundial 2026",
+      "home": "Qatar",
+      "away": "Switzerland",
+      "probabilities": {
+        "win_home": 1.7,
+        "draw": 8.4,
+        "win_away": 89.8,
+        "over_2_5": 65.8,
+        "over_1_5": 85.2
+      },
+      "favorite": "Switzerland",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 0.33,
+      "lambda_away": 3.06,
+      "elo_home": 1423.0,
+      "elo_away": 1894.0,
+      "danger": null
+    },
+    {
+      "matchup": "Brazil vs Morocco",
+      "league": "Mundial 2026",
+      "home": "Brazil",
+      "away": "Morocco",
+      "probabilities": {
+        "win_home": 20.4,
+        "draw": 34.2,
+        "win_away": 45.4,
+        "over_2_5": 26.8,
+        "over_1_5": 53.5
+      },
+      "favorite": "Morocco",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 0.67,
+      "lambda_away": 1.13,
+      "elo_home": 1988.0,
+      "elo_away": 1822.0,
+      "danger": null
+    },
+    {
+      "matchup": "Haiti vs Scotland",
+      "league": "Mundial 2026",
+      "home": "Haiti",
+      "away": "Scotland",
+      "probabilities": {
+        "win_home": 24.8,
+        "draw": 26.3,
+        "win_away": 48.9,
+        "over_2_5": 54.1,
+        "over_1_5": 77.6
+      },
+      "favorite": "Scotland",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.15,
+      "lambda_away": 1.69,
+      "elo_home": 1532.0,
+      "elo_away": 1770.0,
+      "danger": null
+    },
+    {
+      "matchup": "San Antonio Spurs vs New York Knicks",
+      "league": "NBA",
+      "home": "San Antonio Spurs",
+      "away": "New York Knicks",
+      "probabilities": {
+        "win_home": 65.7,
+        "draw": 0.0,
+        "win_away": 34.3,
+        "over_2_5": null,
+        "over_1_5": null
+      },
+      "favorite": "San Antonio Spurs",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": true,
+      "lambda_home": null,
+      "lambda_away": null,
+      "elo_home": null,
+      "elo_away": null,
+      "danger": null
+    }
+  ],
+  "nota": "Análisis estadístico de todos los partidos del día. Probabilidades crudas del modelo (sin ajuste por liga ni mercado). No incluye recomendación de apuesta — ver value_picks y featured_pick para picks oficiales."
+}
