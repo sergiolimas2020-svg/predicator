@@ -167,36 +167,42 @@ jobs:
       # --max-fixtures acota SOLO el costo de córners (/fixtures/statistics).
       # Los scrapers de soccerstats quedan en el repo como fallback manual.
       - name: Stats ligas (API-Football)
-        timeout-minutes: 6
         env:
           API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
-        run: python3 scrapers/apifootball_stats.py --all --max-fixtures 120
+        run: |
+          timeout 330s python3 scrapers/apifootball_stats.py --all --max-fixtures 120 \
+            || echo "::warning::Stats ligas (API-Football) no terminó a tiempo o falló; se continúa con datos existentes."
         continue-on-error: true
 
       # ── Ligas CONMEBOL de respaldo (ESPN, no soccerstats) ──────────────
       - name: Stats Uruguay
-        timeout-minutes: 3
-        run: python3 scrapers/uruguay.py
+        run: |
+          timeout 170s python3 scrapers/uruguay.py \
+            || echo "::warning::Stats Uruguay no terminó a tiempo o falló; se continúa con datos existentes."
         continue-on-error: true
 
       - name: Stats Ecuador
-        timeout-minutes: 3
-        run: python3 scrapers/ecuador.py
+        run: |
+          timeout 170s python3 scrapers/ecuador.py \
+            || echo "::warning::Stats Ecuador no terminó a tiempo o falló; se continúa con datos existentes."
         continue-on-error: true
 
       - name: Stats Chile
-        timeout-minutes: 3
-        run: python3 scrapers/chile.py
+        run: |
+          timeout 170s python3 scrapers/chile.py \
+            || echo "::warning::Stats Chile no terminó a tiempo o falló; se continúa con datos existentes."
         continue-on-error: true
 
       - name: Stats Paraguay
-        timeout-minutes: 3
-        run: python3 scrapers/paraguay.py
+        run: |
+          timeout 170s python3 scrapers/paraguay.py \
+            || echo "::warning::Stats Paraguay no terminó a tiempo o falló; se continúa con datos existentes."
         continue-on-error: true
 
       - name: Stats NBA
-        timeout-minutes: 4
-        run: python3 scrapers/nba_scraper.py
+        run: |
+          timeout 230s python3 scrapers/nba_scraper.py \
+            || echo "::warning::Stats NBA no terminó a tiempo o falló; se continúa con datos existentes."
         continue-on-error: true
 
       # ── Step 6b: Recolectar datos API-Football (no crítico) ────
@@ -204,13 +210,13 @@ jobs:
       # Si falla, el motor opera en modo conservador (no filtra).
       # Usa la fecha actual en Colombia (UTC-5) para alinear con `today` del motor.
       - name: Recolectar datos API-Football
-        timeout-minutes: 6
         env:
           API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
         run: |
           TODAY=$(TZ='America/Bogota' date +%Y-%m-%d)
           echo "Recolectando datos para $TODAY"
-          python3 -m scrapers.api_football.collect_daily "$TODAY"
+          timeout 330s python3 -m scrapers.api_football.collect_daily "$TODAY" \
+            || echo "::warning::Recolectar datos API-Football no terminó a tiempo o falló; el motor usará modo conservador."
         continue-on-error: true
 
       # ── Step 6b-bis: Datos del Mundial 2026 (selecciones) ──────
@@ -219,10 +225,11 @@ jobs:
       # de generate_predictions. No crítico: si falla, el motor sigue
       # con clubes/NBA y simplemente no habrá picks del Mundial.
       - name: Datos Mundial 2026
-        timeout-minutes: 6
         env:
           API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
-        run: python3 -m scrapers.worldcup
+        run: |
+          timeout 330s python3 -m scrapers.worldcup \
+            || echo "::warning::Datos Mundial 2026 no terminó a tiempo o falló; se usarán datos existentes."
         continue-on-error: true
 
       # ── Step 6c: Entrenar calibrador Platt (no crítico) ─────────
