@@ -1,7 +1,7 @@
 {
   "is_radar": true,
   "note": "Radar estadístico probability-first (Mundial/selecciones). No usa EV/cuotas/Betplay. NO conectado a publicación premium; el motor de publicación no lee este archivo.",
-  "generated_at": "2026-06-12T20:00:27",
+  "generated_at": "2026-06-14T08:50:02",
   "thresholds": {
     "win": 62.0,
     "over_1_5": 72.0,
@@ -10,50 +10,119 @@
   },
   "matches": [
     {
-      "match": "Canada vs Bosnia & Herzegovina",
-      "home": "Canada",
-      "away": "Bosnia & Herzegovina",
+      "match": "Germany vs Curaçao",
+      "home": "Germany",
+      "away": "Curaçao",
       "league": "Mundial 2026",
       "is_seleccion": true,
       "source": "api_football",
-      "neutral": false,
-      "favorite": "Canada",
+      "neutral": true,
+      "favorite": "Germany",
       "markets": [
         {
           "market": "Victoria directa",
-          "pick": "Canada",
-          "prob": 40.8,
+          "pick": "Germany",
+          "prob": 54.3,
           "threshold": 62.0,
           "passed": false,
           "tier": "official_eligible",
-          "reason": "prob 40.8% < umbral 62.0%"
+          "reason": "prob 54.3% < umbral 62.0%"
         },
         {
           "market": "Over 1.5 goles",
           "pick": null,
-          "prob": 46.7,
+          "prob": 93.4,
           "threshold": 72.0,
-          "passed": false,
+          "passed": true,
           "tier": "official_eligible",
-          "reason": "prob 46.7% < umbral 72.0%"
+          "reason": "prob 93.4% ≥ umbral 72.0%"
         },
         {
           "market": "DNB (apuesta sin empate)",
-          "pick": "Canada",
-          "prob": 62.8,
+          "pick": "Germany",
+          "prob": 72.3,
           "threshold": 72.0,
-          "passed": false,
+          "passed": true,
           "tier": "radar_only",
-          "reason": "prob 62.8% < umbral 72.0%"
+          "reason": "prob 72.3% ≥ umbral 72.0%"
         },
         {
           "market": "Doble oportunidad",
-          "pick": "Canada",
-          "prob": 75.9,
+          "pick": "Germany",
+          "prob": 79.1,
           "threshold": 80.0,
           "passed": false,
           "tier": "radar_only",
-          "reason": "prob 75.9% < umbral 80.0%"
+          "reason": "prob 79.1% < umbral 80.0%"
+        }
+      ],
+      "recommended": {
+        "market": "Over 1.5 goles",
+        "pick": null,
+        "prob": 93.4,
+        "tier": "official_eligible"
+      },
+      "status": "signal",
+      "discarded": [
+        {
+          "market": "Victoria directa",
+          "prob": 54.3,
+          "threshold": 62.0,
+          "reason": "prob 54.3% < umbral 62.0%"
+        },
+        {
+          "market": "Doble oportunidad",
+          "prob": 79.1,
+          "threshold": 80.0,
+          "reason": "prob 79.1% < umbral 80.0%"
+        }
+      ]
+    },
+    {
+      "match": "Netherlands vs Japan",
+      "home": "Netherlands",
+      "away": "Japan",
+      "league": "Mundial 2026",
+      "is_seleccion": true,
+      "source": "api_football",
+      "neutral": true,
+      "favorite": "Netherlands",
+      "markets": [
+        {
+          "market": "Victoria directa",
+          "pick": "Netherlands",
+          "prob": 37.3,
+          "threshold": 62.0,
+          "passed": false,
+          "tier": "official_eligible",
+          "reason": "prob 37.3% < umbral 62.0%"
+        },
+        {
+          "market": "Over 1.5 goles",
+          "pick": null,
+          "prob": 65.3,
+          "threshold": 72.0,
+          "passed": false,
+          "tier": "official_eligible",
+          "reason": "prob 65.3% < umbral 72.0%"
+        },
+        {
+          "market": "DNB (apuesta sin empate)",
+          "pick": "Netherlands",
+          "prob": 55.2,
+          "threshold": 72.0,
+          "passed": false,
+          "tier": "radar_only",
+          "reason": "prob 55.2% < umbral 72.0%"
+        },
+        {
+          "market": "Doble oportunidad",
+          "pick": "Netherlands",
+          "prob": 69.8,
+          "threshold": 80.0,
+          "passed": false,
+          "tier": "radar_only",
+          "reason": "prob 69.8% < umbral 80.0%"
         }
       ],
       "recommended": null,
@@ -61,102 +130,178 @@
       "discarded": [
         {
           "market": "Victoria directa",
-          "prob": 40.8,
+          "prob": 37.3,
           "threshold": 62.0,
-          "reason": "prob 40.8% < umbral 62.0%"
+          "reason": "prob 37.3% < umbral 62.0%"
         },
         {
           "market": "Over 1.5 goles",
-          "prob": 46.7,
+          "prob": 65.3,
           "threshold": 72.0,
-          "reason": "prob 46.7% < umbral 72.0%"
+          "reason": "prob 65.3% < umbral 72.0%"
         },
         {
           "market": "DNB (apuesta sin empate)",
-          "prob": 62.8,
+          "prob": 55.2,
           "threshold": 72.0,
-          "reason": "prob 62.8% < umbral 72.0%"
+          "reason": "prob 55.2% < umbral 72.0%"
         },
         {
           "market": "Doble oportunidad",
-          "prob": 75.9,
+          "prob": 69.8,
           "threshold": 80.0,
-          "reason": "prob 75.9% < umbral 80.0%"
+          "reason": "prob 69.8% < umbral 80.0%"
         }
       ]
     },
     {
-      "match": "USA vs Paraguay",
-      "home": "USA",
-      "away": "Paraguay",
+      "match": "Ivory Coast vs Ecuador",
+      "home": "Ivory Coast",
+      "away": "Ecuador",
       "league": "Mundial 2026",
       "is_seleccion": true,
       "source": "api_football",
-      "neutral": false,
-      "favorite": "Paraguay",
+      "neutral": true,
+      "favorite": "Ecuador",
       "markets": [
         {
           "market": "Victoria directa",
-          "pick": "Paraguay",
-          "prob": 35.9,
+          "pick": "Ecuador",
+          "prob": 31.3,
           "threshold": 62.0,
           "passed": false,
           "tier": "official_eligible",
-          "reason": "prob 35.9% < umbral 62.0%"
+          "reason": "prob 31.3% < umbral 62.0%"
         },
         {
           "market": "Over 1.5 goles",
           "pick": null,
-          "prob": 82.2,
+          "prob": 33.1,
           "threshold": 72.0,
-          "passed": true,
+          "passed": false,
           "tier": "official_eligible",
-          "reason": "prob 82.2% ≥ umbral 72.0%"
+          "reason": "prob 33.1% < umbral 72.0%"
         },
         {
           "market": "DNB (apuesta sin empate)",
-          "pick": "Paraguay",
-          "prob": 51.2,
+          "pick": "Ecuador",
+          "prob": 50.6,
           "threshold": 72.0,
           "passed": false,
           "tier": "radar_only",
-          "reason": "prob 51.2% < umbral 72.0%"
+          "reason": "prob 50.6% < umbral 72.0%"
         },
         {
           "market": "Doble oportunidad",
-          "pick": "Paraguay",
-          "prob": 65.8,
+          "pick": "Ecuador",
+          "prob": 69.4,
           "threshold": 80.0,
           "passed": false,
           "tier": "radar_only",
-          "reason": "prob 65.8% < umbral 80.0%"
+          "reason": "prob 69.4% < umbral 80.0%"
+        }
+      ],
+      "recommended": null,
+      "status": "no_signal",
+      "discarded": [
+        {
+          "market": "Victoria directa",
+          "prob": 31.3,
+          "threshold": 62.0,
+          "reason": "prob 31.3% < umbral 62.0%"
+        },
+        {
+          "market": "Over 1.5 goles",
+          "prob": 33.1,
+          "threshold": 72.0,
+          "reason": "prob 33.1% < umbral 72.0%"
+        },
+        {
+          "market": "DNB (apuesta sin empate)",
+          "prob": 50.6,
+          "threshold": 72.0,
+          "reason": "prob 50.6% < umbral 72.0%"
+        },
+        {
+          "market": "Doble oportunidad",
+          "prob": 69.4,
+          "threshold": 80.0,
+          "reason": "prob 69.4% < umbral 80.0%"
+        }
+      ]
+    },
+    {
+      "match": "Sweden vs Tunisia",
+      "home": "Sweden",
+      "away": "Tunisia",
+      "league": "Mundial 2026",
+      "is_seleccion": true,
+      "source": "api_football",
+      "neutral": true,
+      "favorite": "Sweden",
+      "markets": [
+        {
+          "market": "Victoria directa",
+          "pick": "Sweden",
+          "prob": 35.8,
+          "threshold": 62.0,
+          "passed": false,
+          "tier": "official_eligible",
+          "reason": "prob 35.8% < umbral 62.0%"
+        },
+        {
+          "market": "Over 1.5 goles",
+          "pick": null,
+          "prob": 86.1,
+          "threshold": 72.0,
+          "passed": true,
+          "tier": "official_eligible",
+          "reason": "prob 86.1% ≥ umbral 72.0%"
+        },
+        {
+          "market": "DNB (apuesta sin empate)",
+          "pick": "Sweden",
+          "prob": 50.5,
+          "threshold": 72.0,
+          "passed": false,
+          "tier": "radar_only",
+          "reason": "prob 50.5% < umbral 72.0%"
+        },
+        {
+          "market": "Doble oportunidad",
+          "pick": "Sweden",
+          "prob": 64.9,
+          "threshold": 80.0,
+          "passed": false,
+          "tier": "radar_only",
+          "reason": "prob 64.9% < umbral 80.0%"
         }
       ],
       "recommended": {
         "market": "Over 1.5 goles",
         "pick": null,
-        "prob": 82.2,
+        "prob": 86.1,
         "tier": "official_eligible"
       },
       "status": "signal",
       "discarded": [
         {
           "market": "Victoria directa",
-          "prob": 35.9,
+          "prob": 35.8,
           "threshold": 62.0,
-          "reason": "prob 35.9% < umbral 62.0%"
+          "reason": "prob 35.8% < umbral 62.0%"
         },
         {
           "market": "DNB (apuesta sin empate)",
-          "prob": 51.2,
+          "prob": 50.5,
           "threshold": 72.0,
-          "reason": "prob 51.2% < umbral 72.0%"
+          "reason": "prob 50.5% < umbral 72.0%"
         },
         {
           "market": "Doble oportunidad",
-          "prob": 65.8,
+          "prob": 64.9,
           "threshold": 80.0,
-          "reason": "prob 65.8% < umbral 80.0%"
+          "reason": "prob 64.9% < umbral 80.0%"
         }
       ]
     }
