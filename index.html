@@ -938,6 +938,114 @@
       font-style: italic;
     }
 
+    /* Explorador de líneas alternativas */
+    .market-explorer {
+      margin-top:0.9rem;
+      padding-top:0.9rem;
+      border-top:1px solid var(--borde);
+    }
+    .market-explorer-title {
+      font-size:0.68rem;
+      color:var(--gris);
+      text-transform:uppercase;
+      letter-spacing:0.5px;
+      margin-bottom:0.55rem;
+      font-weight:700;
+    }
+    .market-lines-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(170px, 1fr));
+      gap:0.55rem;
+    }
+    .market-line-card {
+      background:var(--card2);
+      border:1px solid rgba(255,255,255,0.04);
+      border-radius:6px;
+      padding:0.65rem;
+      min-width:0;
+    }
+    .market-line-card-candidate {
+      border-color:rgba(34,197,94,0.28);
+      background:rgba(34,197,94,0.06);
+    }
+    .market-line-head {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:0.45rem;
+      margin-bottom:0.35rem;
+    }
+    .market-line-type {
+      color:var(--gris);
+      font-size:0.65rem;
+      text-transform:uppercase;
+      letter-spacing:0.45px;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      white-space:nowrap;
+    }
+    .market-line-badge {
+      flex:none;
+      border:1px solid rgba(148,163,184,0.25);
+      color:var(--gris);
+      border-radius:999px;
+      padding:0.12rem 0.4rem;
+      font-size:0.62rem;
+      line-height:1.2;
+      font-weight:700;
+    }
+    .market-line-badge-candidate {
+      color:var(--verde);
+      border-color:rgba(34,197,94,0.35);
+      background:rgba(34,197,94,0.08);
+    }
+    .market-line-name {
+      color:var(--texto);
+      font-size:0.84rem;
+      font-weight:650;
+      line-height:1.3;
+      overflow-wrap:anywhere;
+    }
+    .market-line-meta {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:0.5rem;
+      margin-top:0.45rem;
+      color:var(--gris);
+      font-size:0.72rem;
+    }
+    .market-line-meta span:first-child {
+      color:var(--dorado);
+      font-weight:800;
+      font-size:0.85rem;
+    }
+    .market-lines-unavailable {
+      display:grid;
+      gap:0.4rem;
+      margin-top:0.55rem;
+    }
+    .market-line-unavailable {
+      display:flex;
+      justify-content:space-between;
+      gap:0.7rem;
+      padding:0.5rem 0.6rem;
+      border:1px dashed rgba(148,163,184,0.22);
+      border-radius:6px;
+      color:var(--gris);
+      font-size:0.74rem;
+      line-height:1.35;
+    }
+    .market-line-unavailable span {
+      flex:none;
+      color:var(--texto);
+      font-weight:650;
+    }
+    .market-line-unavailable small {
+      text-align:right;
+      overflow-wrap:anywhere;
+    }
+
     /* ── Skeleton screens ───────────────────────────────────── */
     @keyframes sk-pulse {
       0%, 100% { opacity:1; }
@@ -1018,6 +1126,12 @@
       .stats-bar { gap:1.5rem; }
       .hero { padding:3rem 1rem 2.5rem; }
       .nav-links .btn-secondary-nav { display:none; }
+      .market-lines-grid { grid-template-columns:1fr; }
+      .market-line-unavailable {
+        flex-direction:column;
+        gap:0.25rem;
+      }
+      .market-line-unavailable small { text-align:left; }
     }
 
     /* ─── NAV: hamburguesa mobile + link Telegram destacado ─── */

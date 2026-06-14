@@ -364,6 +364,8 @@
           </div>`;
       }
 
+      const marketExplorerHtml = renderMarketExplorer(m.markets_explored);
+
       return `
       <details class="analysis-row">
         <summary class="analysis-summary">
@@ -379,6 +381,7 @@
           ${oversHtml}
           <div class="analysis-favorite">Favorito estadístico: <strong>${escapeHtml(m.favorite || '—')}</strong></div>
           ${advancedHtml}
+          ${marketExplorerHtml}
         </div>
       </details>`;
     }).join('');
@@ -407,6 +410,98 @@
     return String(s).replace(/[&<>"']/g, c => ({
       '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
     }[c]));
+  }
+
+  function renderMarketExplorer(markets) {
+    if (!markets) return '';
+
+    const available = Array.isArray(markets.available) ? markets.available : [];
+    const unavailable = Array.isArray(markets.unavailable) ? markets.unavailable : [];
+    const topMarkets = available.slice(0, 8);
+
+    const cards = topMarkets.map(item => {
+      const prob = item.prob_adjusted != null && !isNaN(Number(item.prob_adjusted))
+        ? `${Number(item.prob_adjusted).toFixed(1)}%`
+        : '—';
+      const isCandidate = Boolean(item.official_pick_candidate);
+      const cardClass = isCandidate
+        ? 'market-line-card market-line-card-candidate'
+        : 'market-line-card';
+      const badge = isCandidate
+        ? '<span class="market-line-badge market-line-badge-candidate">Candidato</span>'
+        : '<span class="market-line-badge">Explorada</span>';
+
+      return `
+        <div class="${cardClass}">
+          <div class="market-line-head">
+            <span class="market-line-type">${escapeHtml(marketTypeLabel(item.market_key))}</span>
+            ${badge}
+          </div>
+          <div class="market-line-name">${escapeHtml(item.market || 'Línea sin nombre')}</div>
+          <div class="market-line-meta">
+            <span>${prob}</span>
+            <span>${escapeHtml(sourceLabel(item.source))}</span>
+          </div>
+        </div>`;
+    }).join('');
+
+    const unavailableHtml = unavailable.slice(0, 3).map(item => `
+      <div class="market-line-unavailable">
+        <span>${escapeHtml(unavailableGroupLabel(item.group))}</span>
+        <small>${escapeHtml(item.reason || 'Sin datos suficientes')}</small>
+      </div>
+    `).join('');
+
+    if (!cards && !unavailableHtml) return '';
+
+    return `
+      <section class="market-explorer" aria-label="Líneas exploradas">
+        <div class="market-explorer-title">Líneas exploradas</div>
+        ${cards ? `<div class="market-lines-grid">${cards}</div>` : ''}
+        ${unavailableHtml ? `<div class="market-lines-unavailable">${unavailableHtml}</div>` : ''}
+      </section>`;
+  }
+
+  function marketTypeLabel(key) {
+    const labels = {
+      over15: 'Goles',
+      over25: 'Goles',
+      corners: 'Corners',
+      match_corners: 'Corners',
+      team_corners: 'Corners equipo',
+      shots: 'Tiros a puerta',
+      match_sot: 'Tiros a puerta',
+      team_shots: 'Tiros equipo',
+      team_sot: 'Tiros equipo',
+      player_sot: 'Tiros jugador',
+      player_shots: 'Tiros jugador'
+    };
+    return labels[key] || 'Mercado';
+  }
+
+  function sourceLabel(source) {
+    const labels = {
+      model_goals: 'Modelo goles',
+      model_danger: 'Datos de peligro',
+      player_fixture_stats: 'API jugadores',
+      api_football_fixture_players: 'API jugadores',
+      api_football_fixture_statistics: 'API estadísticas',
+      api_football: 'API-Football'
+    };
+    return labels[source] || source || 'Modelo';
+  }
+
+  function unavailableGroupLabel(group) {
+    const labels = {
+      football_props: 'Props fútbol',
+      corners: 'Corners',
+      shots: 'Tiros',
+      players: 'Jugadores',
+      player_shots: 'Tiros de jugadores',
+      api_football_markets: 'API-Football',
+      corners_shots_players: 'Corners, tiros y jugadores'
+    };
+    return labels[group] || group || 'Mercados sin datos';
   }
 
   function renderError(containerId, msg) {
