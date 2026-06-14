@@ -167,6 +167,7 @@ jobs:
       # --max-fixtures acota SOLO el costo de córners (/fixtures/statistics).
       # Los scrapers de soccerstats quedan en el repo como fallback manual.
       - name: Stats ligas (API-Football)
+        timeout-minutes: 6
         env:
           API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
         run: python3 scrapers/apifootball_stats.py --all --max-fixtures 120
