@@ -1,6 +1,6 @@
 # Auditoría estadística del motor
 
-Generado: 2026-06-14T19:17:30
+Generado: 2026-06-14T22:24:56
 
 Este reporte NO usa cuotas, EV ni ROI. Evalúa únicamente si la probabilidad del modelo se corresponde con los aciertos reales.
 
