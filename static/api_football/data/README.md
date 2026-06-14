@@ -25,15 +25,26 @@ Cada objeto:
   "away_form":  [...],
   "home_stats": {...},                    // /teams/statistics
   "away_stats": {...},
+  "home_danger": {...},                    // tiros a puerta + córners equipo
+  "away_danger": {...},
+  "home_player_shots": {...},              // /fixtures/players: tiros jugador
+  "away_player_shots": {...},
   "errors":     ["h2h: timeout", ...]     // endpoints que fallaron
 }
 ```
 
 ## Uso
 
-Estos archivos son **insumo**: el motor (`generate_predictions.py`) **no** los
-consume todavía. Sirven para validar coverage y comparar contra el modelo
-actual antes de enchufarlos en producción.
+Estos archivos son **insumo** para el motor (`generate_predictions.py`):
+
+- `home_danger` / `away_danger`: habilitan líneas de córners y tiros a puerta
+  de equipo cuando hay muestra suficiente.
+- `home_player_shots` / `away_player_shots`: habilitan props de jugador
+  (`Over X tiros`, `Over X tiros a puerta`) solo si API-Football entrega
+  `/fixtures/players` para la competición/plan.
+
+Si una API no entrega cierto bloque, el campo queda `null` o vacío y el motor
+no inventa picks para ese mercado.
 
 ## Refrescar mapeos
 

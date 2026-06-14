@@ -254,9 +254,9 @@ def test_friendlies_keep_two_strong_non_wc_teams():
     assert {(s["home"], s["away"]) for s in sel} == {("Italy", "Greece")}
 
 
-def test_selecciones_excluidas_de_mercados_over_y_corners():
-    """Las ligas de selección NO deben producir picks de Over de goles ni de
-    córners (no calibrados, cuota muy baja). Solo el camino curado (1X2/DNB/DC)."""
+def test_selecciones_excluidas_de_corners_pero_permiten_goles_calibrados():
+    """Las ligas de selección no producen córners, pero sí pueden producir
+    mercados de goles desde el modelo internacional calibrado."""
     import scrapers.generate_predictions as g
     assert g.WORLD_CUP_LEAGUE in g.SELECCION_LEAGUES
     assert g.FRIENDLY_LEAGUE in g.SELECCION_LEAGUES
@@ -269,8 +269,8 @@ def test_selecciones_excluidas_de_mercados_over_y_corners():
         "home_corners": 9, "away_corners": 8,
     }}
     matches = [(g.FRIENDLY_LEAGUE, "A", "B", strong, weak, False)]
-    assert g._select_over25_picks(matches, danger) == []
     assert g._select_corners_picks(matches, danger) == []
+    assert isinstance(g._select_selection_goal_picks(matches), list)
     # Una liga normal (no excluida) SÍ podría producir (no aserción de contenido,
     # solo que no se rompe y que el filtro es específico de selecciones)
     normal = [("Liga Colombiana", "A", "B", strong, weak, False)]

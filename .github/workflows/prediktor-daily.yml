@@ -232,7 +232,8 @@ jobs:
       # de "ya publicado" que evita cambiar picks ya enviados al canal.
       - name: Generar predicciones
         env:
-          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+          ODDS_API_KEY:      ${{ secrets.ODDS_API_KEY }}
+          API_FOOTBALL_KEY:  ${{ secrets.API_FOOTBALL_KEY }}
         run: |
           if [ "${{ github.event.inputs.force }}" = "true" ]; then
             echo "🔄 Modo --force activado (workflow_dispatch)"

@@ -227,3 +227,17 @@ class APIFootballClient:
         if team is not None:
             params["team"] = team
         return self._request("/fixtures/statistics", params)
+
+    def get_fixture_players(
+        self, fixture: int, team: Optional[int] = None
+    ) -> Dict[str, Any]:
+        """Estadísticas individuales de jugadores en un partido.
+
+        API-Football expone este recurso como `/fixtures/players`. Cuando el
+        plan o la competición no lo cubren, el cliente eleva APIFootballError
+        y el colector conserva el error sin cortar todo el día.
+        """
+        params: Dict[str, Any] = {"fixture": fixture}
+        if team is not None:
+            params["team"] = team
+        return self._request("/fixtures/players", params)

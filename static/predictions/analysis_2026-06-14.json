@@ -1,6 +1,6 @@
 {
   "date": "2026-06-14",
-  "total_fixtures": 1,
+  "total_fixtures": 4,
   "matches": [
     {
       "matchup": "Germany vs Curaçao",
@@ -8,20 +8,86 @@
       "home": "Germany",
       "away": "Curaçao",
       "probabilities": {
-        "win_home": 84.4,
-        "draw": 10.2,
-        "win_away": 5.3,
-        "over_2_5": 81.5,
+        "win_home": 54.3,
+        "draw": 24.8,
+        "win_away": 20.9,
+        "over_2_5": 81.6,
         "over_1_5": 93.4
       },
       "favorite": "Germany",
       "stats_complete": true,
       "confidence_factor": 1.0,
       "is_nba": false,
-      "lambda_home": 3.5,
-      "lambda_away": 0.9,
+      "lambda_home": 3.29,
+      "lambda_away": 1.12,
       "elo_home": 1925.0,
       "elo_away": 1433.0,
+      "danger": null
+    },
+    {
+      "matchup": "Netherlands vs Japan",
+      "league": "Mundial 2026",
+      "home": "Netherlands",
+      "away": "Japan",
+      "probabilities": {
+        "win_home": 37.3,
+        "draw": 32.5,
+        "win_away": 30.2,
+        "over_2_5": 38.5,
+        "over_1_5": 65.3
+      },
+      "favorite": "Netherlands",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.28,
+      "lambda_away": 0.95,
+      "elo_home": 1961.0,
+      "elo_away": 1906.0,
+      "danger": null
+    },
+    {
+      "matchup": "Ivory Coast vs Ecuador",
+      "league": "Mundial 2026",
+      "home": "Ivory Coast",
+      "away": "Ecuador",
+      "probabilities": {
+        "win_home": 30.6,
+        "draw": 38.0,
+        "win_away": 31.3,
+        "over_2_5": 11.7,
+        "over_1_5": 33.1
+      },
+      "favorite": "Empate técnico",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 0.58,
+      "lambda_away": 0.6,
+      "elo_home": 1676.0,
+      "elo_away": 1935.0,
+      "danger": null
+    },
+    {
+      "matchup": "Sweden vs Tunisia",
+      "league": "Mundial 2026",
+      "home": "Sweden",
+      "away": "Tunisia",
+      "probabilities": {
+        "win_home": 35.8,
+        "draw": 29.2,
+        "win_away": 35.1,
+        "over_2_5": 67.4,
+        "over_1_5": 86.1
+      },
+      "favorite": "Sweden",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.76,
+      "lambda_away": 1.72,
+      "elo_home": 1714.0,
+      "elo_away": 1633.0,
       "danger": null
     }
   ],

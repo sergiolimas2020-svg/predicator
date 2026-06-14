@@ -214,7 +214,7 @@ CONF_MAX_PICKS       = 2      # cuántos picks de confianza publicar por día
 # Elige la línea MÁS ALTA cuya P(Over) ≥ CONF_CORNERS_MIN_PROB. Pick aditivo
 # (se publica además de los picks de goles/ganador). Requiere datos de córners
 # del partido (n≥3 fixtures por equipo).
-CONF_CORNERS_ENABLED   = False  # blindaje: córners fuera de picks oficiales (histórico 0/6)
+CONF_CORNERS_ENABLED   = True   # mercado alternativo con respaldo API-Football
 CONF_CORNERS_LINES     = [7.5, 8.5, 9.5, 10.5, 11.5]  # líneas candidatas
 CONF_CORNERS_MIN_PROB  = 70.0   # prob mínima (Poisson) para publicar
 CONF_CORNERS_MAX_PICKS = 1      # cuántas líneas de córners por día
@@ -224,9 +224,35 @@ CONF_CORNERS_MAX_PICKS = 1      # cuántas líneas de córners por día
 # (goals.for/against.average.home/away) en vez de la fórmula con stats por
 # país: λ = goles esperados del local (de local) + del visitante (de visita),
 # modelado Poisson → P(Over 2.5) = P(total ≥ 3).
-CONF_OVER25_ENABLED   = False   # blindaje: Over 2.5 fuera de picks oficiales (gap negativo)
+CONF_OVER25_ENABLED   = True    # mercado alternativo con respaldo API-Football
 CONF_OVER25_MIN_PROB  = 60.0    # prob mínima para publicar (Over 2.5 es más difícil)
 CONF_OVER25_MAX_PICKS = 1       # cuántos Over 2.5 por día
+
+# Selecciones: mercados de goles derivados del mismo modelo internacional
+# calibrado (temperature scaling). Útiles cuando 1X2/DNB/DC no superan bars.
+CONF_SELECTION_GOALS_ENABLED = True
+CONF_SELECTION_OVER15_MIN_PROB = 78.0
+CONF_SELECTION_OVER25_MIN_PROB = 68.0
+
+# ── Línea de TIROS A PUERTA (confianza, sin cuotas) ──
+# Usa shots_on_target_avg de danger signals. No decide ganador: busca partidos
+# con volumen ofensivo estable donde un mercado de tiros puede ser más natural
+# que forzar 1X2. Igual que córners, requiere muestra mínima por equipo.
+CONF_SHOTS_ENABLED    = True
+CONF_SHOTS_LINES      = [6.5, 7.5, 8.5, 9.5, 10.5]
+CONF_SHOTS_MIN_PROB   = 68.0
+CONF_SHOTS_MAX_PICKS  = 1
+
+# ── Props de jugador: tiros totales / tiros a puerta ──
+# Requiere que collect_daily.py haya guardado home_player_shots/away_player_shots
+# desde /fixtures/players. No se inventan jugadores ni alineaciones.
+CONF_PLAYER_SHOTS_ENABLED = True
+CONF_PLAYER_MIN_APPS      = 3
+CONF_PLAYER_MIN_MINUTES   = 45.0
+CONF_PLAYER_TOTAL_LINES   = [0.5, 1.5, 2.5, 3.5]
+CONF_PLAYER_SOT_LINES     = [0.5, 1.5]
+CONF_PLAYER_TOTAL_MIN_PROB = 66.0
+CONF_PLAYER_SOT_MIN_PROB   = 62.0
 
 # ── ESCALERA DE PUBLICACIÓN — selección final entre todos los mercados ──
 # Un partido cerrado es "under" en goles Y córners a la vez (correlación).
@@ -246,6 +272,8 @@ CONF_MARKET_RELIABILITY = {
     "win":     1.00,   # favorito a ganar
     "over25":  0.95,   # Over 2.5 (API por localía)
     "corners": 0.90,   # córners (Poisson, muestra chica) — más castigo
+    "shots":   0.92,   # tiros a puerta (Poisson, muestra chica)
+    "player_shots": 0.88,  # props jugador (minutos y titularidad inciertos)
 }
 
 # ── ANÁLISIS DE GOLES (display complementario, NO pick) ──
@@ -2149,6 +2177,20 @@ def article(league, home, hd, away, ad, nba=False, _win=None, _wp=None, _valor=N
                 f"{'1.5' if '1.5' in win else '2.5'} goles es del <strong>{wp}%</strong> — "
                 f"significativamente mas alta que predecir un ganador directo."
             )
+        elif "tiros a puerta" in (win or "").lower() or " tiros" in f" {(win or '').lower()} ":
+            analisis_pick = (
+                f"El mercado de <strong>{win}</strong> se apoya en volumen ofensivo, "
+                f"no en elegir un ganador. El motor cruza el historial reciente de "
+                f"tiros, minutos y participación para proyectar una probabilidad del "
+                f"<strong>{wp}%</strong> sobre esta linea."
+            )
+        elif "córners" in (win or "").lower() or "corners" in (win or "").lower():
+            analisis_pick = (
+                f"El mercado de <strong>{win}</strong> sale de la lectura de presión "
+                f"territorial: córners recientes a favor de ambos equipos, ritmo de "
+                f"ataque y volumen de llegadas. Para este partido el modelo estima "
+                f"un <strong>{wp}%</strong> de probabilidad sobre la linea."
+            )
         elif win.startswith("Apuesta sin empate:"):
             team = win.replace("Apuesta sin empate:", "").strip()
             direct_prob = round(hp if team == home else ap, 1)
@@ -2413,6 +2455,14 @@ def _market_explanation_copy(label: str) -> str:
         return "se marcan 2 o más goles en el partido"
     if "over 2.5" in low:
         return "se marcan 3 o más goles en el partido"
+    if "córner" in low or "corner" in low:
+        return "el partido supera la línea indicada de córners totales"
+    if ("tiros a puerta" in low or "shots on target" in low) and "over" in low:
+        return "el jugador supera la línea indicada de tiros a puerta"
+    if "tiros a puerta" in low or "shots on target" in low:
+        return "el partido supera la línea indicada de tiros a puerta totales"
+    if " tiros" in f" {low} ":
+        return "el jugador supera la línea indicada de tiros totales"
     return f"{lbl} gana el partido"   # 1X2 directo
 
 
@@ -2782,7 +2832,17 @@ FEATURED_STABLE_MARKETS = {"win_home", "win_away", "dnb_home", "dnb_away",
 # Mercados de goles tienen varianza alta y no son representativos.
 
 
-def _build_analysis_output(evaluated_picks: list, today_str: str) -> dict:
+def _stats_complete(hd, ad, nba=False) -> bool:
+    if nba:
+        return bool(hd and hd.get("wins")) and bool(ad and ad.get("wins"))
+    return (
+        bool(hd and hd.get("position", {}).get("partidos"))
+        and bool(ad and ad.get("position", {}).get("partidos"))
+    )
+
+
+def _build_analysis_output(evaluated_picks: list, today_str: str,
+                           today_matches: list | None = None) -> dict:
     """
     Nivel 1 — Análisis del Día.
     Lista TODOS los partidos evaluados con sus probabilidades 1X2 y Over.
@@ -2801,18 +2861,41 @@ def _build_analysis_output(evaluated_picks: list, today_str: str) -> dict:
     """
     matches = []
     api_data = _danger_load_data(today_str)
-    for ep in evaluated_picks:
-        raw = ep.get("raw")
-        if not raw:
-            continue
-        # raw es la tupla original con (vs, league, home, hd, away, ad, nba, ...)
-        # Recalcular probabilidades crudas del modelo
-        hd = raw[3]
-        ad = raw[5]
-        nba = raw[6]
+    if today_matches:
+        source_rows = [
+            {
+                "league": league, "home": home, "away": away,
+                "hd": hd, "ad": ad, "nba": nba,
+                "confidence_factor": 1.0,
+            }
+            for (league, home, away, hd, ad, nba) in today_matches
+        ]
+    else:
+        source_rows = []
+        for ep in evaluated_picks:
+            raw = ep.get("raw")
+            if not raw:
+                continue
+            source_rows.append({
+                "league": ep.get("league", ""),
+                "home": ep.get("home", "?"),
+                "away": ep.get("away", "?"),
+                "hd": raw[3],
+                "ad": raw[5],
+                "nba": raw[6],
+                "confidence_factor": ep.get("confidence_factor", 1.0),
+            })
+
+    for row in source_rows:
+        hd = row["hd"]
+        ad = row["ad"]
+        nba = row["nba"]
+        league = row["league"]
+        home = row["home"]
+        away = row["away"]
         
         # Recuperar danger signals
-        danger_record = api_data.get((_norm(ep.get("home", "")), _norm(ep.get("away", ""))))
+        danger_record = api_data.get((_norm(home), _norm(away)))
         danger = None
         if danger_record:
             home_danger = danger_record.get("home_danger") or {}
@@ -2823,7 +2906,11 @@ def _build_analysis_output(evaluated_picks: list, today_str: str) -> dict:
             }
             
         try:
-            model_probs = get_probabilities(hd, ad, nba=nba, danger=danger)
+            model_probs = get_probabilities(
+                hd, ad, nba=nba, danger=danger,
+                neutral=(league in SELECCION_LEAGUES),
+                intl=(league in SELECCION_LEAGUES),
+            )
         except Exception:
             continue
 
@@ -2838,17 +2925,17 @@ def _build_analysis_output(evaluated_picks: list, today_str: str) -> dict:
 
         # Determinar favorito por probabilidad mayor
         if win_home >= win_away and win_home >= draw:
-            favorite = ep.get("home", "?")
+            favorite = home
         elif win_away >= win_home and win_away >= draw:
-            favorite = ep.get("away", "?")
+            favorite = away
         else:
             favorite = "Empate técnico"
 
         matches.append({
-            "matchup":           f"{ep.get('home','?')} vs {ep.get('away','?')}",
-            "league":            ep.get("league", ""),
-            "home":              ep.get("home", "?"),
-            "away":              ep.get("away", "?"),
+            "matchup":           f"{home} vs {away}",
+            "league":            league,
+            "home":              home,
+            "away":              away,
             "probabilities":     {
                 "win_home": win_home,
                 "draw":     draw,
@@ -2857,8 +2944,8 @@ def _build_analysis_output(evaluated_picks: list, today_str: str) -> dict:
                 "over_1_5": over_1_5,
             },
             "favorite":          favorite,
-            "stats_complete":    ep.get("stats_complete", False),
-            "confidence_factor": ep.get("confidence_factor", 1.0),
+            "stats_complete":    _stats_complete(hd, ad, nba),
+            "confidence_factor": row.get("confidence_factor", 1.0),
             "is_nba":            bool(nba),
             "lambda_home":       model_probs.get("lambda_home"),
             "lambda_away":       model_probs.get("lambda_away"),
@@ -2895,16 +2982,17 @@ def _has_api_football_backing(ep: dict | None) -> bool:
     return bool(ep.get("api_football_backed"))
 
 
-def _is_disabled_official_market(label: str) -> bool:
+def _is_disabled_official_market(label: str, league: str | None = None) -> bool:
     """Mercados que el blindaje mantiene FUERA de picks oficiales:
-    córners, Over 2.5, DNB (apuesta sin empate) y Doble Oportunidad.
-    1X2/ganador y Over 1.5 siguen vivos como mercados estadísticos."""
+    DNB/Doble Oportunidad siguen bloqueados en clubes, pero se permiten en
+    selecciones cuando salen del camino curado internacional. Córners y Over
+    2.5 ya no se bloquean globalmente: entran por la escalera alternativa con
+    límites de muestra y confiabilidad."""
     l = (label or "").lower()
+    is_selection = league in SELECCION_LEAGUES
     return (
-        "córner" in l or "corner" in l
-        or "over 2.5" in l
-        or "sin empate" in l          # DNB
-        or "doble oportunidad" in l   # Doble Oportunidad
+        ("sin empate" in l and not is_selection)          # DNB clubes
+        or ("doble oportunidad" in l and not is_selection) # DC clubes
     )
 
 
@@ -2943,7 +3031,7 @@ def _build_featured_pick_output(evaluated_picks: list, value_picks_dict: dict,
             continue
         # Blindaje: córners, Over 2.5, DNB y Doble Oportunidad fuera de oficiales
         label = (ep.get("label") or "").lower()
-        if "over" in label or _is_disabled_official_market(label):
+        if "over" in label or _is_disabled_official_market(label, ep.get("league")):
             continue
         # Umbral mínimo
         prob = ep.get("prob_adjusted") or 0.0
@@ -3045,7 +3133,7 @@ def _select_confidence_picks(evaluated_picks: list) -> list:
             label, prob = raw[7], raw[8]
             # Blindaje: DNB/Doble Oportunidad fuera de picks oficiales aunque
             # sean el pick curado de una selección (1X2/ganador sí entra).
-            if _is_disabled_official_market(label):
+            if _is_disabled_official_market(label, league):
                 continue
             best_eval = {
                 "label": label, "prob_original": prob, "prob_adjusted": prob,
@@ -3169,6 +3257,132 @@ def _select_corners_picks(today_matches: list, danger_data: dict) -> list:
     return [(lbl, p, r) for (lbl, p, r, _lam) in cands]   # todos; la escalera limita
 
 
+def _select_shots_picks(today_matches: list, danger_data: dict) -> list:
+    """Línea de tiros a puerta por confianza.
+
+    Usa shots_on_target_avg del local y visitante como lambda total Poisson.
+    Este mercado existe precisamente para los días donde el 1X2 está cerrado,
+    pero el volumen ofensivo de ambos equipos sí deja una lectura accionable.
+    """
+    cands = []
+    for (league, home, away, hd, ad, nba) in today_matches:
+        if nba or league in EXCLUDED_LEAGUES:
+            continue
+        if league in SELECCION_LEAGUES:
+            continue
+        rec = danger_data.get((_norm(home), _norm(away)))
+        if not rec:
+            continue
+        hd_rec = rec.get("home_danger") or {}
+        ad_rec = rec.get("away_danger") or {}
+        hd_s = hd_rec.get("shots_on_target_avg")
+        ad_s = ad_rec.get("shots_on_target_avg")
+        if hd_s is None or ad_s is None:
+            continue
+        if (hd_rec.get("n_fixtures", 0) < CONF_MIN_SAMPLE_CORNERS
+                or ad_rec.get("n_fixtures", 0) < CONF_MIN_SAMPLE_CORNERS):
+            continue
+        lam = hd_s + ad_s
+        chosen = None
+        for line in sorted(CONF_SHOTS_LINES, reverse=True):
+            prob = round(_poisson_ge(lam, int(line) + 1) * 100, 1)
+            if prob >= CONF_SHOTS_MIN_PROB:
+                chosen = (line, prob)
+                break
+        if not chosen:
+            continue
+        line, prob = chosen
+        label = f"Over {line} tiros a puerta"
+        best_eval = {
+            "label": label, "prob_original": prob, "prob_adjusted": prob,
+            "confidence_factor": 1.0, "ev": None, "ev_model": None,
+            "penalty": None, "ev_adjusted": None, "value_score": None,
+            "bk_odds": None, "valid": False, "reason": "confianza_shots",
+        }
+        raw = (prob, league, home, hd, away, ad, False, label, prob, None,
+               "estadistico", 0.0, "", None, 1.0, best_eval, [], {})
+        cands.append((label, prob, raw, lam))
+
+    cands.sort(key=lambda c: c[3], reverse=True)
+    return [(lbl, p, r) for (lbl, p, r, _lam) in cands]
+
+
+def _best_player_shot_market(player: dict) -> tuple[str, float, str] | None:
+    """Mejor línea para un jugador usando Poisson sobre su promedio reciente."""
+    name = player.get("name")
+    if not name:
+        return None
+    apps = player.get("appearances") or 0
+    minutes = player.get("minutes_avg") or 0.0
+    if apps < CONF_PLAYER_MIN_APPS or minutes < CONF_PLAYER_MIN_MINUTES:
+        return None
+    if (player.get("position") or "").upper() == "G":
+        return None
+
+    markets = []
+    sot_lam = player.get("shots_on_target_avg") or 0.0
+    for line in sorted(CONF_PLAYER_SOT_LINES, reverse=True):
+        prob = round(_poisson_ge(sot_lam, int(line) + 1) * 100, 1)
+        if prob >= CONF_PLAYER_SOT_MIN_PROB:
+            markets.append((f"{name} Over {line} tiros a puerta", prob, "player_sot"))
+            break
+
+    total_lam = player.get("shots_total_avg") or 0.0
+    for line in sorted(CONF_PLAYER_TOTAL_LINES, reverse=True):
+        prob = round(_poisson_ge(total_lam, int(line) + 1) * 100, 1)
+        if prob >= CONF_PLAYER_TOTAL_MIN_PROB:
+            markets.append((f"{name} Over {line} tiros", prob, "player_shots"))
+            break
+
+    if not markets:
+        return None
+    # SOT es más específico y normalmente paga mejor, pero no debe ganarle a
+    # una línea total mucho más fuerte si la probabilidad se desploma.
+    markets.sort(key=lambda m: (m[2] == "player_sot", m[1]), reverse=True)
+    return markets[0]
+
+
+def _select_player_shot_picks(today_matches: list, danger_data: dict) -> list:
+    """Props de jugador cuando API-Football entrega /fixtures/players histórico."""
+    cands = []
+    for (league, home, away, hd, ad, nba) in today_matches:
+        if nba or league in EXCLUDED_LEAGUES or league in SELECCION_LEAGUES:
+            continue
+        rec = danger_data.get((_norm(home), _norm(away)))
+        if not rec:
+            continue
+        sides = [
+            ("home", home, rec.get("home_player_shots") or {}),
+            ("away", away, rec.get("away_player_shots") or {}),
+        ]
+        for _side, team, pdata in sides:
+            if (pdata.get("n_fixtures") or 0) < CONF_PLAYER_MIN_APPS:
+                continue
+            for player in pdata.get("players") or []:
+                best = _best_player_shot_market(player)
+                if not best:
+                    continue
+                label, prob, _kind = best
+                best_eval = {
+                    "label": label, "prob_original": prob, "prob_adjusted": prob,
+                    "confidence_factor": 1.0, "ev": None, "ev_model": None,
+                    "penalty": None, "ev_adjusted": None, "value_score": None,
+                    "bk_odds": None, "valid": False,
+                    "reason": "confianza_player_shots",
+                    "player_id": player.get("player_id"),
+                    "team": team,
+                    "appearances": player.get("appearances"),
+                    "minutes_avg": player.get("minutes_avg"),
+                }
+                raw = (prob, league, home, hd, away, ad, False, label, prob, None,
+                       "estadistico", 0.0, "", None, 1.0, best_eval, [], {})
+                score = prob * (player.get("minutes_avg") or 0.0) / 90.0
+                cands.append((label, prob, raw, score))
+
+    cands.sort(key=lambda c: c[3], reverse=True)
+    return [(lbl, p, r) for (lbl, p, r, _score) in cands]
+
+
 def _api_goal_avg(team_stats, side, venue):
     """Promedio de goles de la API-Football. side='for'|'against',
     venue='home'|'away'. Devuelve float o None."""
@@ -3228,12 +3442,50 @@ def _select_over25_picks(today_matches: list, danger_data: dict) -> list:
     return [(lbl, p, r) for (lbl, p, r, _lam) in cands]   # todos; la escalera limita
 
 
+def _select_selection_goal_picks(today_matches: list) -> list:
+    """Mercados de goles para selecciones con el modelo internacional calibrado.
+
+    No depende de cuotas ni del JSON diario de API-Football: usa las stats
+    de selecciones ya curadas (worldcup_stats/friendlies_stats) y el mismo
+    `intl=True` que calcula el 1X2 del Mundial.
+    """
+    cands = []
+    for (league, home, away, hd, ad, nba) in today_matches:
+        if nba or league not in SELECCION_LEAGUES:
+            continue
+        probs = get_probabilities(hd, ad, nba=False, neutral=True, intl=True)
+        o25 = round((probs.get("over_2_5") or 0.0) * 100, 1)
+        o15 = round((probs.get("over_1_5") or 0.0) * 100, 1)
+        if o25 >= CONF_SELECTION_OVER25_MIN_PROB:
+            label, prob = "Over 2.5 goles", o25
+        elif o15 >= CONF_SELECTION_OVER15_MIN_PROB:
+            label, prob = "Over 1.5 goles", o15
+        else:
+            continue
+        best_eval = {
+            "label": label, "prob_original": prob, "prob_adjusted": prob,
+            "confidence_factor": 1.0, "ev": None, "ev_model": None,
+            "penalty": None, "ev_adjusted": None, "value_score": None,
+            "bk_odds": None, "valid": False, "reason": "confianza_goles_seleccion",
+        }
+        raw = (prob, league, home, hd, away, ad, False, label, prob, None,
+               "estadistico", 0.0, "", None, 1.0, best_eval, [], {})
+        cands.append((label, prob, raw, prob))
+
+    cands.sort(key=lambda c: c[3], reverse=True)
+    return [(lbl, p, r) for (lbl, p, r, _score) in cands]
+
+
 def _conf_market_key(label: str) -> str:
     """Clasifica un pick de confianza por su etiqueta, para ponderar la
     confiabilidad del mercado en la escalera de publicación."""
     l = (label or "").lower()
     if "córners" in l or "corners" in l:
         return "corners"
+    if "tiros a puerta" in l or "shots on target" in l:
+        return "player_shots" if " over " in f" {l} " else "shots"
+    if " tiros" in f" {l} ":
+        return "player_shots"
     if "over 2.5" in l:
         return "over25"
     if "over 1.5" in l:
@@ -3255,6 +3507,12 @@ def _build_confidence_ladder(evaluated_picks: list, today_matches: list,
         sources.append(_select_corners_picks(today_matches, danger_data))
     if CONF_OVER25_ENABLED:
         sources.append(_select_over25_picks(today_matches, danger_data))
+    if CONF_SHOTS_ENABLED:
+        sources.append(_select_shots_picks(today_matches, danger_data))
+    if CONF_PLAYER_SHOTS_ENABLED:
+        sources.append(_select_player_shot_picks(today_matches, danger_data))
+    if CONF_SELECTION_GOALS_ENABLED:
+        sources.append(_select_selection_goal_picks(today_matches))
     for src in sources:
         for (label, prob, raw) in src:
             mkey = _conf_market_key(label)
@@ -3374,11 +3632,11 @@ def main():
             if ad: ad["api_football_source"] = _apifb
                 
             base_pick, base_prob, display_pick, display_prob, vs, cj, vl, bk_odds, cf, best_eval, all_evals = calc_wp(league, home, hd, away, ad, nba=False, danger=danger)
+            all_today_matches.append((league, home, away, hd, ad, False))
             # Bug auditoría: excluir ligas con yield negativo sostenido del
             # pipeline de value picks. Análisis del Día sigue listándolas.
             if league in EXCLUDED_LEAGUES:
                 continue
-            all_today_matches.append((league, home, away, hd, ad, False))
             if base_prob >= MIN_CONF_SUBSCRIPTION:
                 # Enriquecer con API externa (solo contexto, no decisor)
                 ext_ctx = enrich_match_context(home, away, league)
@@ -3456,6 +3714,7 @@ def main():
             hd = find(nba_teams, home); ad = find(nba_teams, away)
             if not hd: hd = ad
             if not ad: ad = hd
+            all_today_matches.append(("NBA", home, away, hd, ad, True))
             base_pick, base_prob, display_pick, display_prob, vs, cj, vl, bk_odds, cf, best_eval, all_evals = calc_wp("NBA", home, hd, away, ad, nba=True)
             if base_prob >= MIN_CONF_SUBSCRIPTION:
                 # Enriquecer con API NBA Games (contexto partido/equipo)
@@ -3655,7 +3914,7 @@ def main():
             if qualifies_for_profile(p, FILTERS_SUBSCRIPTION)
             and not p.get("_rf_rejected")
             and _has_api_football_backing(p)
-            and not _is_disabled_official_market(p.get("label"))
+            and not _is_disabled_official_market(p.get("label"), p.get("league"))
         ]
         premium_candidates = [
             p for p in subscription_candidates
@@ -4222,7 +4481,7 @@ def main():
         # ═══════════════════════════════════════════════════════════
         # NIVEL 1 — ANÁLISIS DEL DÍA (todos los partidos, sin filtros)
         # ═══════════════════════════════════════════════════════════
-        analysis_output = _build_analysis_output(evaluated_picks, today)
+        analysis_output = _build_analysis_output(evaluated_picks, today, all_today_matches)
         _analysis_path = OUTPUT_DIR / f"analysis_{today}.json"
         _analysis_path.write_text(
             json.dumps(analysis_output, ensure_ascii=False, indent=2),

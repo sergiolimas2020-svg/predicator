@@ -39,6 +39,7 @@ from scrapers.api_football.client import (  # noqa: E402
     APIFootballRateLimitError,
 )
 from scrapers.api_football.danger_signals import extract_danger_signals  # noqa: E402
+from scrapers.api_football.player_signals import extract_player_shot_signals  # noqa: E402
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -51,6 +52,7 @@ DATA_DIR = ROOT / "static" / "api_football" / "data"
 # Agrega ~10 requests por partido (5 fixtures × 2 equipos). Sobre el plan Pro
 # (7.500/día) sigue siendo holgado. Desactivable si hace falta ahorrar cupo.
 COLLECT_DANGER_SIGNALS = True
+COLLECT_PLAYER_SHOT_SIGNALS = True
 
 
 def load_json(p: Path, default):
@@ -171,6 +173,8 @@ def collect_for_match(
         # Indicadores de peligro (motor v1.2 — preparación, aún sin usar)
         "home_danger": None,
         "away_danger": None,
+        "home_player_shots": None,
+        "away_player_shots": None,
         "errors": [],
     }
 
@@ -231,6 +235,22 @@ def collect_for_match(
                 venue="away", logger=log)
         except APIFootballError as e:
             record["errors"].append(f"away_danger: {e}")
+
+    # Props de jugador — tiros totales y tiros a puerta históricos. Se guardan
+    # solo si /fixtures/players está disponible para la liga/plan.
+    if COLLECT_PLAYER_SHOT_SIGNALS:
+        try:
+            record["home_player_shots"] = extract_player_shot_signals(
+                client, home_id, record.get("home_form") or [],
+                venue="home", logger=log)
+        except APIFootballError as e:
+            record["errors"].append(f"home_player_shots: {e}")
+        try:
+            record["away_player_shots"] = extract_player_shot_signals(
+                client, away_id, record.get("away_form") or [],
+                venue="away", logger=log)
+        except APIFootballError as e:
+            record["errors"].append(f"away_player_shots: {e}")
 
     return record
 

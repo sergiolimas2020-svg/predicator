@@ -112,6 +112,15 @@ class TestEndpointConstruction(unittest.TestCase):
         self.assertEqual(call["params"]["league"], 39)
         self.assertEqual(call["params"]["season"], 2025)
 
+    def test_get_fixture_players_params(self):
+        sess = FakeSession([self._ok([])])
+        c = APIFootballClient(api_key="k", session=sess)
+        c.get_fixture_players(fixture=1234, team=33)
+        call = sess.calls[0]
+        self.assertTrue(call["url"].endswith("/fixtures/players"))
+        self.assertEqual(call["params"]["fixture"], 1234)
+        self.assertEqual(call["params"]["team"], 33)
+
     def test_rate_limit_headers_parsed(self):
         sess = FakeSession([self._ok([])])
         c = APIFootballClient(api_key="k", session=sess)
