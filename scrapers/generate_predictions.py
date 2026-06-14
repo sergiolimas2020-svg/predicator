@@ -240,6 +240,7 @@ CONF_SELECTION_OVER25_MIN_PROB = 68.0
 # que forzar 1X2. Igual que córners, requiere muestra mínima por equipo.
 CONF_SHOTS_ENABLED    = True
 CONF_SHOTS_LINES      = [6.5, 7.5, 8.5, 9.5, 10.5]
+CONF_TEAM_SHOTS_LINES = [2.5, 3.5, 4.5, 5.5]
 CONF_SHOTS_MIN_PROB   = 68.0
 CONF_SHOTS_MAX_PICKS  = 1
 
@@ -253,6 +254,13 @@ CONF_PLAYER_TOTAL_LINES   = [0.5, 1.5, 2.5, 3.5]
 CONF_PLAYER_SOT_LINES     = [0.5, 1.5]
 CONF_PLAYER_TOTAL_MIN_PROB = 66.0
 CONF_PLAYER_SOT_MIN_PROB   = 62.0
+
+# ── Explorador de mercados ─────────────────────────────────────
+# No decide por sí solo; expone en analysis_YYYY-MM-DD.json qué líneas revisó
+# el motor para que el frontend/tipster vea alternativas aunque no ganen la
+# escalera oficial.
+MARKET_EXPLORER_MAX_PER_MATCH = 14
+CONF_TEAM_CORNERS_LINES = [3.5, 4.5, 5.5, 6.5]
 
 # ── ESCALERA DE PUBLICACIÓN — selección final entre todos los mercados ──
 # Un partido cerrado es "under" en goles Y córners a la vez (correlación).
@@ -2931,6 +2939,10 @@ def _build_analysis_output(evaluated_picks: list, today_str: str,
         else:
             favorite = "Empate técnico"
 
+        markets_explored = _explore_match_markets(
+            league, home, away, hd, ad, nba, model_probs, danger_record
+        )
+
         matches.append({
             "matchup":           f"{home} vs {away}",
             "league":            league,
@@ -2952,6 +2964,7 @@ def _build_analysis_output(evaluated_picks: list, today_str: str,
             "elo_home":          hd.get("elo") if isinstance(hd, dict) else None,
             "elo_away":          ad.get("elo") if isinstance(ad, dict) else None,
             "danger":            danger,
+            "markets_explored":  markets_explored,
         })
 
     return {
@@ -3530,6 +3543,210 @@ def _build_confidence_ladder(evaluated_picks: list, today_matches: list,
 
     ranked = sorted(best_by_match.values(), key=lambda x: x[0], reverse=True)
     return [(it[2], it[1], it[3], it[4]) for it in ranked[:CONF_PUBLISH_MAX]]
+
+
+def _market_explorer_entry(label: str, prob: float, market_key: str,
+                           source: str, meta: dict | None = None) -> dict:
+    out = {
+        "market": label,
+        "market_key": market_key,
+        "prob_adjusted": round(float(prob), 1),
+        "source": source,
+        "official_pick_candidate": False,
+    }
+    if meta:
+        out.update(meta)
+    return out
+
+
+def _market_explorer_unavailable(group: str, reason: str) -> dict:
+    return {"group": group, "status": "unavailable", "reason": reason}
+
+
+def _player_shot_market_entries(player: dict, team: str) -> list[dict]:
+    name = player.get("name")
+    if not name:
+        return []
+    apps = player.get("appearances") or 0
+    minutes = player.get("minutes_avg") or 0.0
+    if apps < CONF_PLAYER_MIN_APPS or minutes < CONF_PLAYER_MIN_MINUTES:
+        return []
+    if (player.get("position") or "").upper() == "G":
+        return []
+
+    out = []
+    sot_lam = player.get("shots_on_target_avg") or 0.0
+    for line in CONF_PLAYER_SOT_LINES:
+        prob = round(_poisson_ge(sot_lam, int(line) + 1) * 100, 1)
+        if prob >= CONF_PLAYER_SOT_MIN_PROB:
+            out.append(_market_explorer_entry(
+                f"{name} Over {line} tiros a puerta", prob, "player_shots",
+                "api_football_fixture_players",
+                {
+                    "team": team,
+                    "player_id": player.get("player_id"),
+                    "appearances": apps,
+                    "minutes_avg": round(minutes, 1),
+                    "line": line,
+                },
+            ))
+    total_lam = player.get("shots_total_avg") or 0.0
+    for line in CONF_PLAYER_TOTAL_LINES:
+        prob = round(_poisson_ge(total_lam, int(line) + 1) * 100, 1)
+        if prob >= CONF_PLAYER_TOTAL_MIN_PROB:
+            out.append(_market_explorer_entry(
+                f"{name} Over {line} tiros", prob, "player_shots",
+                "api_football_fixture_players",
+                {
+                    "team": team,
+                    "player_id": player.get("player_id"),
+                    "appearances": apps,
+                    "minutes_avg": round(minutes, 1),
+                    "line": line,
+                },
+            ))
+    return out
+
+
+def _explore_match_markets(league: str, home: str, away: str, hd: dict,
+                           ad: dict, nba: bool, model_probs: dict,
+                           danger_record: dict | None) -> dict:
+    """Matriz de mercados por partido.
+
+    Devuelve tanto candidatos ordenados como grupos no disponibles. La idea es
+    que el motor deje de pensar solo en 1X2 y enseñe qué otras líneas pudo
+    estudiar con la biblioteca disponible.
+    """
+    available: list[dict] = []
+    unavailable: list[dict] = []
+
+    if not nba:
+        o15 = model_probs.get("over_1_5")
+        o25 = model_probs.get("over_2_5")
+        if o15 is not None:
+            available.append(_market_explorer_entry(
+                "Over 1.5 goles", o15 * 100, "over15", "model_goals"))
+        if o25 is not None:
+            available.append(_market_explorer_entry(
+                "Over 2.5 goles", o25 * 100, "over25", "model_goals"))
+
+    if nba:
+        unavailable.append(_market_explorer_unavailable("football_props", "NBA no usa markets de fútbol"))
+    elif league in SELECCION_LEAGUES:
+        unavailable.append(_market_explorer_unavailable(
+            "corners_shots_players",
+            "selecciones usan modelo internacional; no se publican props/corners sin contrato calibrado",
+        ))
+    elif not danger_record:
+        unavailable.append(_market_explorer_unavailable(
+            "api_football_markets",
+            "sin static/api_football/data para este partido",
+        ))
+    else:
+        home_danger = danger_record.get("home_danger") or {}
+        away_danger = danger_record.get("away_danger") or {}
+        sample_ok = (
+            home_danger.get("n_fixtures", 0) >= CONF_MIN_SAMPLE_CORNERS
+            and away_danger.get("n_fixtures", 0) >= CONF_MIN_SAMPLE_CORNERS
+        )
+
+        hd_c = home_danger.get("corners_avg")
+        ad_c = away_danger.get("corners_avg")
+        if sample_ok and hd_c is not None and ad_c is not None:
+            total_lam = hd_c + ad_c
+            for line in CONF_CORNERS_LINES:
+                prob = _poisson_ge(total_lam, int(line) + 1) * 100
+                available.append(_market_explorer_entry(
+                    f"Over {line} córners", prob, "corners",
+                    "api_football_fixture_statistics",
+                    {"lambda_total": round(total_lam, 2), "line": line},
+                ))
+            for team, lam in ((home, hd_c), (away, ad_c)):
+                for line in CONF_TEAM_CORNERS_LINES:
+                    prob = _poisson_ge(lam, int(line) + 1) * 100
+                    available.append(_market_explorer_entry(
+                        f"{team} Over {line} córners", prob, "team_corners",
+                        "api_football_fixture_statistics",
+                        {"team": team, "lambda_team": round(lam, 2), "line": line},
+                    ))
+        else:
+            unavailable.append(_market_explorer_unavailable(
+                "corners",
+                "sin muestra suficiente de corners por localía",
+            ))
+
+        hd_s = home_danger.get("shots_on_target_avg")
+        ad_s = away_danger.get("shots_on_target_avg")
+        if sample_ok and hd_s is not None and ad_s is not None:
+            total_lam = hd_s + ad_s
+            for line in CONF_SHOTS_LINES:
+                prob = _poisson_ge(total_lam, int(line) + 1) * 100
+                available.append(_market_explorer_entry(
+                    f"Over {line} tiros a puerta", prob, "shots",
+                    "api_football_fixture_statistics",
+                    {"lambda_total": round(total_lam, 2), "line": line},
+                ))
+            for team, lam in ((home, hd_s), (away, ad_s)):
+                for line in CONF_TEAM_SHOTS_LINES:
+                    prob = _poisson_ge(lam, int(line) + 1) * 100
+                    available.append(_market_explorer_entry(
+                        f"{team} Over {line} tiros a puerta", prob, "team_shots",
+                        "api_football_fixture_statistics",
+                        {"team": team, "lambda_team": round(lam, 2), "line": line},
+                    ))
+        else:
+            unavailable.append(_market_explorer_unavailable(
+                "shots",
+                "sin muestra suficiente de tiros a puerta por localía",
+            ))
+
+        player_entries = []
+        for team, pdata in (
+            (home, danger_record.get("home_player_shots") or {}),
+            (away, danger_record.get("away_player_shots") or {}),
+        ):
+            if (pdata.get("n_fixtures") or 0) < CONF_PLAYER_MIN_APPS:
+                continue
+            for player in pdata.get("players") or []:
+                player_entries.extend(_player_shot_market_entries(player, team))
+        if player_entries:
+            available.extend(player_entries)
+        else:
+            unavailable.append(_market_explorer_unavailable(
+                "player_shots",
+                "API-Football no entregó tiros de jugadores suficientes para este partido",
+            ))
+
+    for entry in available:
+        if entry["market_key"] == "over25" and league in SELECCION_LEAGUES:
+            threshold = CONF_SELECTION_OVER25_MIN_PROB
+        elif entry["market_key"] == "over15" and league in SELECCION_LEAGUES:
+            threshold = CONF_SELECTION_OVER15_MIN_PROB
+        else:
+            threshold = {
+                "over15": CONF_OVER15_MIN_PROB,
+                "over25": CONF_OVER25_MIN_PROB,
+                "corners": CONF_CORNERS_MIN_PROB,
+                "shots": CONF_SHOTS_MIN_PROB,
+                "player_shots": min(CONF_PLAYER_TOTAL_MIN_PROB, CONF_PLAYER_SOT_MIN_PROB),
+            }.get(entry["market_key"], 101.0)
+        entry["official_pick_candidate"] = (
+            entry["market_key"] in CONF_MARKET_RELIABILITY
+            and entry["prob_adjusted"] >= threshold
+        )
+
+    available.sort(
+        key=lambda m: (
+            bool(m.get("official_pick_candidate")),
+            CONF_MARKET_RELIABILITY.get(m.get("market_key"), 0.80),
+            m.get("prob_adjusted") or 0.0,
+        ),
+        reverse=True,
+    )
+    return {
+        "available": available[:MARKET_EXPLORER_MAX_PER_MATCH],
+        "unavailable": unavailable,
+    }
 
 
 def main():

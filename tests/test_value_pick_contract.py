@@ -111,6 +111,50 @@ def test_player_shot_market_does_not_publish_without_player_data():
     assert gp._select_player_shot_picks(matches, {}) == []
 
 
+def test_market_explorer_lists_team_and_player_alternatives():
+    hd = {"position": {"partidos": 10, "ganados": 5, "goles_favor": 15, "goles_contra": 10}}
+    ad = {"position": {"partidos": 10, "ganados": 4, "goles_favor": 12, "goles_contra": 11}}
+    model_probs = {"over_1_5": 0.81, "over_2_5": 0.62}
+    danger_record = {
+        "home_danger": {"n_fixtures": 5, "shots_on_target_avg": 5.2, "corners_avg": 6.1},
+        "away_danger": {"n_fixtures": 5, "shots_on_target_avg": 4.3, "corners_avg": 5.4},
+        "home_player_shots": {
+            "n_fixtures": 4,
+            "players": [{
+                "player_id": 9,
+                "name": "Delantero A",
+                "position": "F",
+                "appearances": 4,
+                "minutes_avg": 78.0,
+                "shots_total_avg": 3.2,
+                "shots_on_target_avg": 1.1,
+            }],
+        },
+        "away_player_shots": {"n_fixtures": 0, "players": []},
+    }
+
+    explored = gp._explore_match_markets(
+        "Liga Colombiana", "Home FC", "Away FC", hd, ad, False,
+        model_probs, danger_record,
+    )
+    labels = [m["market"] for m in explored["available"]]
+    assert "Over 1.5 goles" in labels
+    assert any("córners" in label for label in labels)
+    assert any("tiros a puerta" in label for label in labels)
+    assert any("Delantero A" in label for label in labels)
+
+
+def test_market_explorer_selection_restricts_uncalibrated_props():
+    hd = {"position": {"partidos": 10, "goles_favor": 25, "goles_contra": 8}, "elo": 1900}
+    ad = {"position": {"partidos": 10, "goles_favor": 8, "goles_contra": 22}, "elo": 1450}
+    explored = gp._explore_match_markets(
+        gp.WORLD_CUP_LEAGUE, "Germany", "Curaçao", hd, ad, False,
+        {"over_1_5": 0.82, "over_2_5": 0.70}, {},
+    )
+    assert [m["market"] for m in explored["available"]] == ["Over 1.5 goles", "Over 2.5 goles"]
+    assert any(item["group"] == "corners_shots_players" for item in explored["unavailable"])
+
+
 # ── Featured Pick respeta los guards ──
 
 def _featured_pick(api_backed, label="Gana Equipo A"):
