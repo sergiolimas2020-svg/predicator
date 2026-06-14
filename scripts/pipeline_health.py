@@ -30,6 +30,11 @@ ODDS_PATH = ROOT / "static" / "odds.json"
 CALIBRATOR_PATH = ROOT / "static" / "calibrator.json"
 LOG_PATH = ROOT / "static" / "predictions_log.json"
 API_FOOTBALL_DIR = ROOT / "static" / "api_football" / "data"
+WORLD_CUP_STATS_PATH = ROOT / "static" / "worldcup_stats.json"
+WORLD_CUP_FIXTURES_PATH = ROOT / "static" / "worldcup_fixtures.json"
+FRIENDLIES_STATS_PATH = ROOT / "static" / "friendlies_stats.json"
+FRIENDLIES_FIXTURES_PATH = ROOT / "static" / "friendlies_fixtures.json"
+SELECTION_LEAGUES = {"Mundial 2026", "Amistoso Selección"}
 
 
 def today_colombia() -> str:
@@ -62,6 +67,51 @@ def git_branch() -> str:
         return out.strip() or "(detached)"
     except Exception:
         return "(unknown)"
+
+
+def daily_pick_entries() -> List[Dict[str, Any]]:
+    if not DAILY_PATH.exists():
+        return []
+    try:
+        daily = load_json(DAILY_PATH)
+    except Exception:
+        return []
+    picks: List[Dict[str, Any]] = []
+    for key in ("pick_dia", "pick_gratuito", "pick_exploratorio"):
+        value = daily.get(key)
+        if isinstance(value, dict):
+            picks.append(value)
+    for value in daily.get("picks_suscripcion") or []:
+        if isinstance(value, dict):
+            picks.append(value)
+    unique: List[Dict[str, Any]] = []
+    seen = set()
+    for pick in picks:
+        marker = (
+            pick.get("slug"),
+            pick.get("matchup"),
+            pick.get("market"),
+            pick.get("tipo"),
+        )
+        if marker in seen:
+            continue
+        seen.add(marker)
+        unique.append(pick)
+    return unique
+
+
+def split_matchup(matchup: str) -> Tuple[str, str]:
+    if " vs " not in matchup:
+        return "", ""
+    home, away = matchup.split(" vs ", 1)
+    return home.strip(), away.strip()
+
+
+def colombia_date_from_iso(date_iso: str) -> str:
+    dt = datetime.fromisoformat(date_iso.replace("Z", "+00:00"))
+    if dt.tzinfo is None:
+        dt = dt.replace(tzinfo=timezone.utc)
+    return (dt.astimezone(timezone.utc) - timedelta(hours=5)).strftime("%Y-%m-%d")
 
 
 def check_daily(today: str) -> Tuple[List[str], List[str]]:
@@ -148,23 +198,18 @@ def check_api_football(today: str) -> Tuple[List[str], List[str]]:
     warnings: List[str] = []
     path = API_FOOTBALL_DIR / f"{today}.json"
     if not path.exists():
-        try:
-            daily = load_json(DAILY_PATH) if DAILY_PATH.exists() else {}
-        except Exception:
-            daily = {}
-        n_picks = (
-            (1 if daily.get("pick_dia") else 0)
-            + (1 if daily.get("pick_gratuito") else 0)
-            + len(daily.get("picks_suscripcion") or [])
-        )
-        if n_picks:
+        club_picks = [
+            pick for pick in daily_pick_entries()
+            if pick.get("league") not in SELECTION_LEAGUES
+        ]
+        if club_picks:
             errors.append(
-                f"{rel(path)} missing but daily_picks has {n_picks} pick(s); "
-                "football picks require API-Football backing"
+                f"{rel(path)} missing but daily_picks has {len(club_picks)} club pick(s); "
+                "club football picks require API-Football backing"
             )
             return errors, warnings
         warnings.append(
-            f"{rel(path)} missing; recent form/danger filters unavailable today"
+            f"{rel(path)} missing; no club picks require recent form/danger backing today"
         )
         return errors, warnings
 
@@ -186,6 +231,86 @@ def check_api_football(today: str) -> Tuple[List[str], List[str]]:
         f"{rel(path)} mtime={file_mtime(path)} matches={len(rows)} "
         f"ids={with_ids} form={with_form} stats={with_stats} danger={with_danger}"
     )
+    return errors, warnings
+
+
+def check_selection_backing(today: str) -> Tuple[List[str], List[str]]:
+    errors: List[str] = []
+    warnings: List[str] = []
+    selection_picks = [
+        pick for pick in daily_pick_entries()
+        if pick.get("league") in SELECTION_LEAGUES
+    ]
+    if not selection_picks:
+        warnings.append("no selection picks today")
+        return errors, warnings
+
+    stats_by_league = {
+        "Mundial 2026": WORLD_CUP_STATS_PATH,
+        "Amistoso Selección": FRIENDLIES_STATS_PATH,
+    }
+    fixtures_by_league = {
+        "Mundial 2026": WORLD_CUP_FIXTURES_PATH,
+        "Amistoso Selección": FRIENDLIES_FIXTURES_PATH,
+    }
+
+    for league in sorted({str(p.get("league")) for p in selection_picks}):
+        stats_path = stats_by_league.get(league)
+        fixtures_path = fixtures_by_league.get(league)
+        league_picks = [p for p in selection_picks if p.get("league") == league]
+        if not stats_path or not fixtures_path:
+            errors.append(f"{league}: no backing contract configured")
+            continue
+        if not stats_path.exists():
+            errors.append(f"{rel(stats_path)} missing but daily_picks has {len(league_picks)} {league} pick(s)")
+            continue
+        if not fixtures_path.exists():
+            errors.append(f"{rel(fixtures_path)} missing but daily_picks has {len(league_picks)} {league} pick(s)")
+            continue
+
+        try:
+            stats = load_json(stats_path)
+            fixtures = load_json(fixtures_path)
+        except Exception as exc:
+            errors.append(f"{league} backing unreadable: {exc}")
+            continue
+        if not isinstance(stats, dict):
+            errors.append(f"{rel(stats_path)} invalid: expected object")
+            continue
+        if not isinstance(fixtures, list):
+            errors.append(f"{rel(fixtures_path)} invalid: expected list")
+            continue
+
+        todays_pairs = set()
+        for fx in fixtures:
+            if not isinstance(fx, dict):
+                continue
+            try:
+                fx_date = colombia_date_from_iso(str(fx.get("date") or ""))
+            except Exception:
+                continue
+            if fx_date != today:
+                continue
+            home, away = fx.get("home"), fx.get("away")
+            if home and away:
+                todays_pairs.add((str(home), str(away)))
+
+        for pick in league_picks:
+            home, away = split_matchup(str(pick.get("matchup") or ""))
+            if not home or not away:
+                errors.append(f"{league}: invalid matchup in daily_picks: {pick.get('matchup')!r}")
+                continue
+            missing_stats = [team for team in (home, away) if team not in stats]
+            if missing_stats:
+                errors.append(f"{league}: missing stats for {', '.join(missing_stats)} in {rel(stats_path)}")
+            if (home, away) not in todays_pairs:
+                errors.append(f"{league}: {home} vs {away} not found for today in {rel(fixtures_path)}")
+
+        warnings.append(
+            f"{league} backing OK: picks={len(league_picks)} "
+            f"stats_teams={len(stats)} today_fixtures={len(todays_pairs)} "
+            f"mtime_stats={file_mtime(stats_path)}"
+        )
     return errors, warnings
 
 
@@ -250,7 +375,7 @@ def main() -> int:
     if branch not in ("main", "master"):
         warnings.append("local branch is not main; compare with production before acting on stale files")
 
-    for check in (check_daily, check_api_football, check_odds, check_log):
+    for check in (check_daily, check_api_football, check_selection_backing, check_odds, check_log):
         e, w = check(today)
         errors.extend(e)
         warnings.extend(w)
