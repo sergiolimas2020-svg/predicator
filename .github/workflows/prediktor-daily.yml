@@ -175,22 +175,27 @@ jobs:
 
       # ── Ligas CONMEBOL de respaldo (ESPN, no soccerstats) ──────────────
       - name: Stats Uruguay
+        timeout-minutes: 3
         run: python3 scrapers/uruguay.py
         continue-on-error: true
 
       - name: Stats Ecuador
+        timeout-minutes: 3
         run: python3 scrapers/ecuador.py
         continue-on-error: true
 
       - name: Stats Chile
+        timeout-minutes: 3
         run: python3 scrapers/chile.py
         continue-on-error: true
 
       - name: Stats Paraguay
+        timeout-minutes: 3
         run: python3 scrapers/paraguay.py
         continue-on-error: true
 
       - name: Stats NBA
+        timeout-minutes: 4
         run: python3 scrapers/nba_scraper.py
         continue-on-error: true
 
@@ -199,6 +204,7 @@ jobs:
       # Si falla, el motor opera en modo conservador (no filtra).
       # Usa la fecha actual en Colombia (UTC-5) para alinear con `today` del motor.
       - name: Recolectar datos API-Football
+        timeout-minutes: 6
         env:
           API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
         run: |
@@ -213,6 +219,7 @@ jobs:
       # de generate_predictions. No crítico: si falla, el motor sigue
       # con clubes/NBA y simplemente no habrá picks del Mundial.
       - name: Datos Mundial 2026
+        timeout-minutes: 6
         env:
           API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
         run: python3 -m scrapers.worldcup
