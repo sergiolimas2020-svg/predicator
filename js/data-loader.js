@@ -58,6 +58,13 @@ const DataLoader = {
             flag: 'flag-colombia',
             file: 'colombia_stats.json'
         },
+        'worldcup': {
+            name: 'Mundial 2026',
+            country: 'FIFA',
+            flag: 'flag-worldcup',
+            file: 'worldcup_stats.json',
+            season: '2026'
+        },
         'turkey': {
             name: 'Super Lig',
             country: 'Turquía',
@@ -194,7 +201,8 @@ const DataLoader = {
         return {
             corners: corners,
             goals: team.goals || {},
-            position: team.position || {}
+            position: team.position || {},
+            elo: team.elo
         };
     },
 
@@ -225,7 +233,8 @@ const DataLoader = {
         return {
             corners: corners,
             goals: team.goals || {},
-            position: team.position || {}
+            position: team.position || {},
+            elo: team.elo
         };
     },
 

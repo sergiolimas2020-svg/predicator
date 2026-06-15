@@ -26,6 +26,10 @@ async function loadLeague(league) {
         await DataLoader.loadData(league);
         const leagueConfig = DataLoader.getCurrentLeagueConfig();
         UIRenderer.updateLeagueBadge(leagueConfig);
+        const leagueSelect = document.getElementById('league-select');
+        if (leagueSelect && leagueSelect.value !== league) {
+            leagueSelect.value = league;
+        }
         const teams = DataLoader.getTeamsList();
         if (teams.length === 0) throw new Error('No se encontraron equipos');
         UIRenderer.populateTeamSelectors(teams);

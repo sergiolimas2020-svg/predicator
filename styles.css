@@ -214,6 +214,19 @@ body {
     background: linear-gradient(90deg, #002395 0%, #002395 33.33%, #fff 33.33%, #fff 66.66%, #ED2939 66.66%, #ED2939 100%);
 }
 
+.flag-worldcup {
+    background: radial-gradient(circle at 50% 42%, rgba(240, 180, 41, 0.95) 0 18%, transparent 19%),
+                linear-gradient(135deg, #10224d 0%, #0a0a0f 48%, #1a3a6b 100%);
+    border: 1px solid rgba(240, 180, 41, 0.35);
+}
+
+.flag-worldcup::before {
+    content: '🏆';
+    position: relative;
+    z-index: 1;
+    font-size: 1.35rem;
+}
+
 @keyframes wave {
     0%, 100% { transform: rotate(0deg) scale(1); }
     25% { transform: rotate(-2deg) scale(1.02); }

@@ -292,7 +292,7 @@ const UIRenderer = {
             <span class="league-flag ${leagueConfig.flag}"></span>
             <div class="league-info">
                 <span class="league-name">${leagueConfig.name.toUpperCase()}</span>
-                <span class="season">2024/25</span>
+                <span class="season">${leagueConfig.season || '2024/25'}</span>
             </div>
         `;
     }

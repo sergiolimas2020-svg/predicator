@@ -259,6 +259,71 @@ const Calculator = {
     predictGoals(homeStats, awayStats) {
         const homeGoals = homeStats.goals;
         const awayGoals = awayStats.goals;
+
+        const hasGoalPercentages = Boolean(
+            homeGoals?.over_1_5 || homeGoals?.over_2_5 || awayGoals?.over_1_5 || awayGoals?.over_2_5
+        );
+
+        if (!hasGoalPercentages) {
+            const parseFloatSafe = (v, def = 0.0) => {
+                const f = parseFloat(v);
+                return isNaN(f) ? def : f;
+            };
+            const homePos = homeStats.position || {};
+            const awayPos = awayStats.position || {};
+            const AVG_LEAGUE_GOALS = 1.35;
+            const hGames = parseFloatSafe(homePos.partidos, 0);
+            const aGames = parseFloatSafe(awayPos.partidos, 0);
+            const hAtt = hGames > 0 ? parseFloatSafe(homePos.goles_favor, 0) / hGames : AVG_LEAGUE_GOALS;
+            const hDef = hGames > 0 ? parseFloatSafe(homePos.goles_contra, 0) / hGames : AVG_LEAGUE_GOALS;
+            const aAtt = aGames > 0 ? parseFloatSafe(awayPos.goles_favor, 0) / aGames : AVG_LEAGUE_GOALS;
+            const aDef = aGames > 0 ? parseFloatSafe(awayPos.goles_contra, 0) / aGames : AVG_LEAGUE_GOALS;
+            const lambdaHome = Math.max(0.1, Math.min(6.0, (hAtt * aDef / AVG_LEAGUE_GOALS) * 1.08));
+            const lambdaAway = Math.max(0.1, Math.min(6.0, (aAtt * hDef / AVG_LEAGUE_GOALS) / 1.08));
+            const lambdaTotal = lambdaHome + lambdaAway;
+            const poissonCdf = (k, lambda) => {
+                let sum = 0;
+                let term = Math.exp(-lambda);
+                sum += term;
+                for (let i = 1; i <= k; i++) {
+                    term *= lambda / i;
+                    sum += term;
+                }
+                return sum;
+            };
+            const overProb = (line) => Math.max(0, Math.min(95, (1 - poissonCdf(Math.floor(line), lambdaTotal)) * 100));
+            const over15Prob = overProb(1.5);
+            const over25Prob = overProb(2.5);
+            const over35Prob = overProb(3.5);
+
+            let bestBet = 'Over 1.5';
+            let bestProb = over15Prob;
+            if (over25Prob > 50 && over25Prob > bestProb) {
+                bestBet = 'Over 2.5';
+                bestProb = over25Prob;
+            }
+            if (over35Prob > 50 && over35Prob > bestProb) {
+                bestBet = 'Over 3.5';
+                bestProb = over35Prob;
+            }
+
+            return {
+                over15: {
+                    probability: over15Prob.toFixed(1),
+                    recommended: over15Prob > 65
+                },
+                over25: {
+                    probability: over25Prob.toFixed(1),
+                    recommended: over25Prob > 55
+                },
+                over35: {
+                    probability: over35Prob.toFixed(1),
+                    recommended: over35Prob > 45
+                },
+                bestBet: bestBet,
+                bestProbability: bestProb.toFixed(1)
+            };
+        }
         
         // Parsear porcentajes
         const homeOver15 = DataLoader.parsePercentage(homeGoals.over_1_5);
@@ -315,14 +380,32 @@ const Calculator = {
     predictBTTS(homeStats, awayStats) {
         const homeBTTS = DataLoader.parsePercentage(homeStats.goals.btts || homeStats.goals.bts);
         const awayBTTS = DataLoader.parsePercentage(awayStats.goals.btts || awayStats.goals.bts);
-        
-        // Promedio de ambos equipos
-        const bttsProbability = (homeBTTS + awayBTTS) / 2;
-        
-        // Factores adicionales: goles favor y contra
+
         const homePos = homeStats.position;
         const awayPos = awayStats.position;
+
+        let bttsProbability = (homeBTTS + awayBTTS) / 2;
+        let reasoning = `Local BTTS: ${homeBTTS.toFixed(1)}% | Visitante BTTS: ${awayBTTS.toFixed(1)}%`;
+
+        if (!homeBTTS && !awayBTTS) {
+            const safe = (v, def = 0) => {
+                const n = parseFloat(v);
+                return isNaN(n) ? def : n;
+            };
+            const AVG_LEAGUE_GOALS = 1.35;
+            const hGames = safe(homePos.partidos, 0);
+            const aGames = safe(awayPos.partidos, 0);
+            const hAtt = hGames > 0 ? safe(homePos.goles_favor) / hGames : AVG_LEAGUE_GOALS;
+            const hDef = hGames > 0 ? safe(homePos.goles_contra) / hGames : AVG_LEAGUE_GOALS;
+            const aAtt = aGames > 0 ? safe(awayPos.goles_favor) / aGames : AVG_LEAGUE_GOALS;
+            const aDef = aGames > 0 ? safe(awayPos.goles_contra) / aGames : AVG_LEAGUE_GOALS;
+            const lambdaHome = Math.max(0.1, Math.min(6.0, (hAtt * aDef / AVG_LEAGUE_GOALS) * 1.08));
+            const lambdaAway = Math.max(0.1, Math.min(6.0, (aAtt * hDef / AVG_LEAGUE_GOALS) / 1.08));
+            bttsProbability = (1 - Math.exp(-lambdaHome) - Math.exp(-lambdaAway) + Math.exp(-(lambdaHome + lambdaAway))) * 100;
+            reasoning = `Estimación Poisson: ${lambdaHome.toFixed(2)} xG local | ${lambdaAway.toFixed(2)} xG visitante`;
+        }
         
+        // Factores adicionales: goles favor y contra
         const homeGoalsPerGame = homePos.goles_favor / homePos.partidos;
         const awayGoalsPerGame = awayPos.goles_favor / awayPos.partidos;
         
@@ -347,7 +430,7 @@ const Calculator = {
             prediction: recommendation,
             probability: adjustedProb.toFixed(1),
             confidence: confidence,
-            reasoning: `Local BTTS: ${homeBTTS.toFixed(1)}% | Visitante BTTS: ${awayBTTS.toFixed(1)}%`
+            reasoning: reasoning
         };
     },
 
