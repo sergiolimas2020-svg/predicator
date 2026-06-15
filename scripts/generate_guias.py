@@ -196,7 +196,7 @@ def render_article(article: dict) -> str:
       <a href="/como-interpretar.html">Cómo usar</a>
       <a href="/guias/" class="active">Guías</a>
       <a href="/historial.html">Historial</a>
-      <a href="/about.html">Sobre</a>
+      <a href="/sobre">Sobre</a>
     </div>
   </nav>
 
@@ -227,7 +227,7 @@ def render_article(article: dict) -> str:
       <a href="/como-interpretar.html">Cómo usar</a>
       <a href="/guias/">Guías</a>
       <a href="/historial.html">Historial</a>
-      <a href="/about.html">Sobre</a>
+      <a href="/sobre">Sobre</a>
       <a href="/privacy.html">Privacidad</a>
     </div>
     <div class="footer-copy">© 2026 PREDIKTOR · contacto@prediktor.app</div>
@@ -337,7 +337,7 @@ def render_index(articles: list[dict]) -> str:
       <a href="/como-interpretar.html">Cómo usar</a>
       <a href="/guias/" class="active">Guías</a>
       <a href="/historial.html">Historial</a>
-      <a href="/about.html">Sobre</a>
+      <a href="/sobre">Sobre</a>
     </div>
   </nav>
 
@@ -365,7 +365,7 @@ def render_index(articles: list[dict]) -> str:
       <a href="/como-interpretar.html">Cómo usar</a>
       <a href="/guias/">Guías</a>
       <a href="/historial.html">Historial</a>
-      <a href="/about.html">Sobre</a>
+      <a href="/sobre">Sobre</a>
       <a href="/privacy.html">Privacidad</a>
     </div>
     <div class="footer-copy">© 2026 PREDIKTOR · contacto@prediktor.app</div>

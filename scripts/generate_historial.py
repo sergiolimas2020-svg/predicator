@@ -107,7 +107,7 @@ def _render_jsonld(stats: dict) -> str:
         "url":         "https://prediktorcol.com/historial.html",
         "creator":     {"@type": "Organization", "name": "PREDIKTOR",
                         "url": "https://prediktorcol.com"},
-        "license":     "https://prediktorcol.com/about.html",
+        "license":     "https://prediktorcol.com/sobre",
         "keywords":    "predicciones deportivas, fútbol, NBA, tasa de acierto, "
                        "value betting, picks verificados",
         "dateModified": stats["today"],
@@ -304,7 +304,7 @@ def render_html(stats: dict) -> str:
       <a href="/como-interpretar.html">Cómo usar</a>
       <a href="/guias/">Guías</a>
       <a href="/historial.html" class="active">Historial</a>
-      <a href="/about.html">Sobre</a>
+      <a href="/sobre">Sobre</a>
     </div>
   </nav>
 
@@ -349,7 +349,7 @@ def render_html(stats: dict) -> str:
       <a href="/como-interpretar.html">Cómo usar</a>
       <a href="/guias/">Guías</a>
       <a href="/historial.html">Historial</a>
-      <a href="/about.html">Sobre</a>
+      <a href="/sobre">Sobre</a>
       <a href="/privacy.html">Privacidad</a>
     </div>
     <div class="footer-copy">© 2026 PREDIKTOR · contacto@prediktor.app</div>

@@ -11,6 +11,8 @@
     }
   ],
   "redirects": [
+    { "source": "/about", "destination": "/sobre", "permanent": true },
+    { "source": "/about/", "destination": "/sobre", "permanent": true },
     { "source": "/about.html", "destination": "/sobre", "permanent": true },
     { "source": "/privacy.html", "destination": "/privacidad", "permanent": true },
     { "source": "/como-interpretar.html", "destination": "/como-usar", "permanent": true },
