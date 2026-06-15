@@ -22,6 +22,8 @@ ESPN_SPORT_MAP = {
     "Champions League":  "soccer/uefa.champions",
     "Copa Libertadores": "soccer/conmebol.libertadores",
     "Copa Sudamericana": "soccer/conmebol.sudamericana",
+    "Mundial 2026":      "soccer/fifa.world",
+    "Amistoso Selección": "soccer/fifa.friendly",
     "NBA":               "basketball/nba",
     "NBA 2025-26":       "basketball/nba",
 }
@@ -103,6 +105,17 @@ def check_acerto(pred, result, nba):
 
     return norm(p) in norm(winner) or norm(winner) in norm(p)
 
+def find_result(results, home, away):
+    """Busca resultado por local/visitante aceptando orden invertido.
+
+    En torneos neutrales ESPN y API-Football pueden discrepar en quién figura
+    primero. Para markets de goles/corners no importa, y para ganador comparamos
+    contra el nombre real del vencedor que trae ESPN.
+    """
+    direct_key = (norm(home), norm(away))
+    reverse_key = (norm(away), norm(home))
+    return results.get(direct_key) or results.get(reverse_key)
+
 def update_historial(log):
     """Recalcula historial.json desde el log completo.
     Excluye picks tipo_pick='rejected_recent_form' (rechazados por Filtro 1) —
@@ -154,12 +167,11 @@ def main():
 
         nba = "basketball" in sport_code
         for e in entries:
-            key = (norm(e["home"]), norm(e["away"]))
-            if key not in results:
+            res = find_result(results, e["home"], e["away"])
+            if not res:
                 print(f"   Pendiente: {e['home']} vs {e['away']} ({fecha})")
                 continue
 
-            res = results[key]
             acerto = check_acerto(e["prediccion"], res, nba)
             e["resultado_real"] = res["score"]
             if e.get("tipo_pick") == "rejected_recent_form":
