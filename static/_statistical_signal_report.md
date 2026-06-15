@@ -1,16 +1,16 @@
 # Auditoría estadística del motor
 
-Generado: 2026-06-15T10:50:08
+Generado: 2026-06-15T16:09:11
 
 Este reporte NO usa cuotas, EV ni ROI. Evalúa únicamente si la probabilidad del modelo se corresponde con los aciertos reales.
 
 ## Resumen
 
-- Picks resueltos evaluables: **111**
-- Acierto total: **57.7%**
-- Probabilidad media publicada: **71.1%**
-- Gap calibración (acierto - prob): **-13.4%**
-- Brier score: **0.2566**
+- Picks resueltos evaluables: **120**
+- Acierto total: **60.0%**
+- Probabilidad media publicada: **71.5%**
+- Gap calibración (acierto - prob): **-11.5%**
+- Brier score: **0.2456**
 
 ## Por banda de probabilidad
 
@@ -18,20 +18,20 @@ Este reporte NO usa cuotas, EV ni ROI. Evalúa únicamente si la probabilidad de
 |---|---:|---:|---:|---:|---:|
 | 40-49% | 4 | 25.0% | 47.8% | -22.8% | 0.2413 |
 | 50-59% | 12 | 66.7% | 56.4% | +10.3% | 0.2273 |
-| 60-69% | 31 | 51.6% | 65.5% | -13.9% | 0.269 |
-| 70-79% | 46 | 52.2% | 75.5% | -23.3% | 0.3051 |
-| 80-89% | 18 | 83.3% | 84.5% | -1.1% | 0.1341 |
+| 60-69% | 34 | 55.9% | 65.7% | -9.8% | 0.2547 |
+| 70-79% | 48 | 52.1% | 75.3% | -23.3% | 0.3048 |
+| 80-89% | 22 | 86.4% | 84.7% | +1.6% | 0.1134 |
 
 ## Por tipo de mercado
 
 | Grupo | N | Acierto | Prob. media | Gap | Brier |
 |---|---:|---:|---:|---:|---:|
-| winner | 34 | 61.8% | 64.1% | -2.4% | 0.2273 |
-| double_chance | 28 | 53.6% | 78.1% | -24.5% | 0.2898 |
-| over_1_5 | 20 | 85.0% | 77.2% | +7.8% | 0.1339 |
+| winner | 39 | 64.1% | 64.8% | -0.7% | 0.2215 |
+| double_chance | 30 | 56.7% | 78.7% | -22.1% | 0.2715 |
+| over_1_5 | 21 | 85.7% | 77.6% | +8.1% | 0.1285 |
 | draw_no_bet | 18 | 50.0% | 70.4% | -20.4% | 0.2925 |
 | corners | 6 | 0% | 77.2% | -77.2% | 0.5969 |
-| over_2_5 | 5 | 40.0% | 50.5% | -10.5% | 0.2231 |
+| over_2_5 | 6 | 50.0% | 55.6% | -5.6% | 0.1916 |
 
 ## Por liga
 
@@ -44,10 +44,12 @@ Este reporte NO usa cuotas, EV ni ROI. Evalúa únicamente si la probabilidad de
 | Liga Colombiana | 9 | 77.8% | 75.5% | +2.3% | 0.1625 |
 | Premier League | 8 | 37.5% | 69.8% | -32.3% | 0.3585 |
 | Super Lig | 7 | 28.6% | 71.4% | -42.8% | 0.4089 |
+| Amistoso Selección | 6 | 100% | 75.0% | +25.0% | 0.0713 |
 | Copa Libertadores | 6 | 66.7% | 76.6% | -9.9% | 0.2528 |
 | Copa Sudamericana | 6 | 83.3% | 76.0% | +7.3% | 0.1588 |
 | Liga Argentina | 4 | 50.0% | 68.0% | -18.0% | 0.1804 |
 | Bundesliga | 3 | 33.3% | 62.3% | -29.0% | 0.2213 |
+| Mundial 2026 | 3 | 66.7% | 79.8% | -13.1% | 0.1886 |
 | Ligue 1 | 2 | 0% | 65.8% | -65.8% | 0.4341 |
 
 ## Lectura rápida
