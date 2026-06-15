@@ -443,6 +443,23 @@ const Calculator = {
     predictCorners(homeStats, awayStats) {
         const homeCorners = homeStats.corners;
         const awayCorners = awayStats.corners;
+
+        const hasCornerSample = Boolean(
+            homeCorners?.corners_favor || homeCorners?.corners_contra ||
+            awayCorners?.corners_favor || awayCorners?.corners_contra
+        );
+
+        if (!hasCornerSample) {
+            return {
+                available: false,
+                reason: 'No hay datos confiables de corners para esta competición.',
+                totalExpected: null,
+                homeExpected: null,
+                awayExpected: null,
+                predictions: {},
+                recommended: null
+            };
+        }
         
         // Corners a favor
         const homeCornersFor = homeCorners.corners_favor || 0;
@@ -465,6 +482,7 @@ const Calculator = {
         const over105 = totalExpectedCorners > 10.5;
         
         return {
+            available: true,
             totalExpected: totalExpectedCorners.toFixed(1),
             homeExpected: expectedHomeCorners.toFixed(1),
             awayExpected: expectedAwayCorners.toFixed(1),

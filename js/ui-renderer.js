@@ -102,6 +102,24 @@ const UIRenderer = {
      */
     renderCorners(cornersData) {
         const container = document.getElementById('corners-prediction');
+
+        if (!cornersData || cornersData.available === false) {
+            container.innerHTML = `
+                <div class="corner-stat" style="background: rgba(255, 215, 0, 0.08); border-left: 3px solid var(--accent-secondary);">
+                    <span class="corner-label">Corners</span>
+                    <span class="corner-value" style="font-size: 1rem;">No disponible</span>
+                </div>
+                <div class="corner-stat">
+                    <span class="corner-label">Motivo</span>
+                    <span class="corner-value" style="font-size: 0.9rem; color: var(--text-muted);">${cornersData?.reason || 'Sin muestra suficiente'}</span>
+                </div>
+                <div class="corner-stat" style="background: rgba(255, 215, 0, 0.08);">
+                    <span class="corner-label">Recomendación</span>
+                    <span class="corner-value" style="font-size: 1rem; color: var(--text-muted);">Sin pick</span>
+                </div>
+            `;
+            return;
+        }
         
         container.innerHTML = `
             <div class="corner-stat" style="background: rgba(0, 255, 136, 0.1); border-left: 3px solid var(--accent-primary);">
@@ -136,6 +154,11 @@ const UIRenderer = {
         const position = stats.position;
         const corners = stats.corners;
         const goals = stats.goals;
+        const cornersText = (corners?.corners_favor || corners?.corners_contra)
+            ? `${corners.corners_favor} a favor | ${corners.corners_contra} en contra`
+            : 'No disponible';
+        const over25Text = goals.over_2_5 || 'Estimado por modelo';
+        const bttsText = goals.btts || goals.bts || 'Estimado por modelo';
         
         const winRate = ((position.ganados / position.partidos) * 100).toFixed(1);
         const avgGoalsScored = (position.goles_favor / position.partidos).toFixed(2);
@@ -174,15 +197,15 @@ const UIRenderer = {
             </div>
             <div class="stat-row">
                 <span class="stat-label">Corners Promedio</span>
-                <span class="stat-value">${corners.corners_favor} a favor | ${corners.corners_contra} en contra</span>
+                <span class="stat-value">${cornersText}</span>
             </div>
             <div class="stat-row">
                 <span class="stat-label">Over 2.5</span>
-                <span class="stat-value">${goals.over_2_5}</span>
+                <span class="stat-value">${over25Text}</span>
             </div>
             <div class="stat-row">
                 <span class="stat-label">BTTS</span>
-                <span class="stat-value">${goals.btts || goals.bts}</span>
+                <span class="stat-value">${bttsText}</span>
             </div>
         `;
     },
