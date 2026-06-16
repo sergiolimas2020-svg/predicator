@@ -1,16 +1,16 @@
 # Auditoría estadística del motor
 
-Generado: 2026-06-15T16:39:03
+Generado: 2026-06-16T10:01:59
 
 Este reporte NO usa cuotas, EV ni ROI. Evalúa únicamente si la probabilidad del modelo se corresponde con los aciertos reales.
 
 ## Resumen
 
-- Picks resueltos evaluables: **120**
-- Acierto total: **60.0%**
-- Probabilidad media publicada: **71.5%**
-- Gap calibración (acierto - prob): **-11.5%**
-- Brier score: **0.2456**
+- Picks resueltos evaluables: **121**
+- Acierto total: **60.3%**
+- Probabilidad media publicada: **71.6%**
+- Gap calibración (acierto - prob): **-11.3%**
+- Brier score: **0.2439**
 
 ## Por banda de probabilidad
 
@@ -20,7 +20,7 @@ Este reporte NO usa cuotas, EV ni ROI. Evalúa únicamente si la probabilidad de
 | 50-59% | 12 | 66.7% | 56.4% | +10.3% | 0.2273 |
 | 60-69% | 34 | 55.9% | 65.7% | -9.8% | 0.2547 |
 | 70-79% | 48 | 52.1% | 75.3% | -23.3% | 0.3048 |
-| 80-89% | 22 | 86.4% | 84.7% | +1.6% | 0.1134 |
+| 80-89% | 23 | 87.0% | 84.6% | +2.4% | 0.11 |
 
 ## Por tipo de mercado
 
@@ -28,7 +28,7 @@ Este reporte NO usa cuotas, EV ni ROI. Evalúa únicamente si la probabilidad de
 |---|---:|---:|---:|---:|---:|
 | winner | 39 | 64.1% | 64.8% | -0.7% | 0.2215 |
 | double_chance | 30 | 56.7% | 78.7% | -22.1% | 0.2715 |
-| over_1_5 | 21 | 85.7% | 77.6% | +8.1% | 0.1285 |
+| over_1_5 | 22 | 86.4% | 77.7% | +8.6% | 0.1243 |
 | draw_no_bet | 18 | 50.0% | 70.4% | -20.4% | 0.2925 |
 | corners | 6 | 0% | 77.2% | -77.2% | 0.5969 |
 | over_2_5 | 6 | 50.0% | 55.6% | -5.6% | 0.1916 |
@@ -48,8 +48,8 @@ Este reporte NO usa cuotas, EV ni ROI. Evalúa únicamente si la probabilidad de
 | Copa Libertadores | 6 | 66.7% | 76.6% | -9.9% | 0.2528 |
 | Copa Sudamericana | 6 | 83.3% | 76.0% | +7.3% | 0.1588 |
 | Liga Argentina | 4 | 50.0% | 68.0% | -18.0% | 0.1804 |
+| Mundial 2026 | 4 | 75.0% | 80.1% | -5.1% | 0.1503 |
 | Bundesliga | 3 | 33.3% | 62.3% | -29.0% | 0.2213 |
-| Mundial 2026 | 3 | 66.7% | 79.8% | -13.1% | 0.1886 |
 | Ligue 1 | 2 | 0% | 65.8% | -65.8% | 0.4341 |
 
 ## Lectura rápida

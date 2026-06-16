@@ -1,6 +1,6 @@
 # Radar estadístico — selección de mercado por probabilidad
 
-Generado: 2026-06-15T16:48:43
+Generado: 2026-06-16T10:11:35
 
 Motor probability-first. Busca el mercado donde la estadística apoya una probabilidad alta. **No usa EV, cuotas ni Betplay.** Alcance: Mundial/selecciones. **No conectado a publicación premium** — radar/shadow.
 
@@ -11,45 +11,45 @@ Umbrales: Victoria directa ≥ 62.0%, Over 1.5 ≥ 72.0%, DNB(selección) ≥ 72
 
 | Partido | Liga | Mercado recomendado | Prob | Fuente | Nivel | Razón / descarte |
 |---|---|---|---:|---|---|---|
-| Spain vs Cape Verde Islands | Mundial 2026 | Over 1.5 goles | 84.8% | api_football | oficial-elegible | supera umbral |
-| Belgium vs Egypt | Mundial 2026 | Over 1.5 goles | 73.2% | api_football | oficial-elegible | supera umbral |
-| Saudi Arabia vs Uruguay | Mundial 2026 | — sin señal — | — | api_football | — | Victoria directa 37.2%<62.0%; Over 1.5 goles 46.7%<72.0%; DNB (apuesta sin empate) 57.4%<72.0%; Doble oportunidad 72.5%<80.0% |
-| Iran vs New Zealand | Mundial 2026 | Over 1.5 goles | 81.2% | api_football | oficial-elegible | supera umbral |
+| France vs Senegal | Mundial 2026 | Over 1.5 goles | 87.3% | api_football | oficial-elegible | supera umbral |
+| Iraq vs Norway | Mundial 2026 | Over 1.5 goles | 75.1% | api_football | oficial-elegible | supera umbral |
+| Argentina vs Algeria | Mundial 2026 | — sin señal — | — | api_football | — | Victoria directa 38.8%<62.0%; Over 1.5 goles 44.0%<72.0%; DNB (apuesta sin empate) 60.3%<72.0%; Doble oportunidad 74.4%<80.0% |
+| Austria vs Jordan | Mundial 2026 | Over 1.5 goles | 89.2% | api_football | oficial-elegible | supera umbral |
 
 ## Detalle por partido
 
-### Spain vs Cape Verde Islands (Mundial 2026)
+### France vs Senegal (Mundial 2026)
 
 | Mercado | Pick | Prob | Umbral | ¿Pasa? | Nivel |
 |---|---|---:|---:|---|---|
-| Victoria directa | Spain | 47.4% | 62.0% | ✗ | oficial-elegible |
-| Over 1.5 goles | — | 84.8% | 72.0% | ✓ | oficial-elegible |
-| DNB (apuesta sin empate) | Spain | 66.0% | 72.0% | ✗ | radar |
-| Doble oportunidad | Spain | 75.6% | 80.0% | ✗ | radar |
+| Victoria directa | Senegal | 36.8% | 62.0% | ✗ | oficial-elegible |
+| Over 1.5 goles | — | 87.3% | 72.0% | ✓ | oficial-elegible |
+| DNB (apuesta sin empate) | Senegal | 51.8% | 72.0% | ✗ | radar |
+| Doble oportunidad | Senegal | 65.7% | 80.0% | ✗ | radar |
 
-### Belgium vs Egypt (Mundial 2026)
-
-| Mercado | Pick | Prob | Umbral | ¿Pasa? | Nivel |
-|---|---|---:|---:|---|---|
-| Victoria directa | Belgium | 43.3% | 62.0% | ✗ | oficial-elegible |
-| Over 1.5 goles | — | 73.2% | 72.0% | ✓ | oficial-elegible |
-| DNB (apuesta sin empate) | Belgium | 62.6% | 72.0% | ✗ | radar |
-| Doble oportunidad | Belgium | 74.1% | 80.0% | ✗ | radar |
-
-### Saudi Arabia vs Uruguay (Mundial 2026)
+### Iraq vs Norway (Mundial 2026)
 
 | Mercado | Pick | Prob | Umbral | ¿Pasa? | Nivel |
 |---|---|---:|---:|---|---|
-| Victoria directa | Uruguay | 37.2% | 62.0% | ✗ | oficial-elegible |
-| Over 1.5 goles | — | 46.7% | 72.0% | ✗ | oficial-elegible |
-| DNB (apuesta sin empate) | Uruguay | 57.4% | 72.0% | ✗ | radar |
-| Doble oportunidad | Uruguay | 72.5% | 80.0% | ✗ | radar |
+| Victoria directa | Norway | 54.8% | 62.0% | ✗ | oficial-elegible |
+| Over 1.5 goles | — | 75.1% | 72.0% | ✓ | oficial-elegible |
+| DNB (apuesta sin empate) | Norway | 76.3% | 72.0% | ✓ | radar |
+| Doble oportunidad | Norway | 83.0% | 80.0% | ✓ | radar |
 
-### Iran vs New Zealand (Mundial 2026)
+### Argentina vs Algeria (Mundial 2026)
 
 | Mercado | Pick | Prob | Umbral | ¿Pasa? | Nivel |
 |---|---|---:|---:|---|---|
-| Victoria directa | Iran | 59.7% | 62.0% | ✗ | oficial-elegible |
-| Over 1.5 goles | — | 81.2% | 72.0% | ✓ | oficial-elegible |
-| DNB (apuesta sin empate) | Iran | 80.5% | 72.0% | ✓ | radar |
-| Doble oportunidad | Iran | 85.5% | 80.0% | ✓ | radar |
+| Victoria directa | Argentina | 38.8% | 62.0% | ✗ | oficial-elegible |
+| Over 1.5 goles | — | 44.0% | 72.0% | ✗ | oficial-elegible |
+| DNB (apuesta sin empate) | Argentina | 60.3% | 72.0% | ✗ | radar |
+| Doble oportunidad | Argentina | 74.4% | 80.0% | ✗ | radar |
+
+### Austria vs Jordan (Mundial 2026)
+
+| Mercado | Pick | Prob | Umbral | ¿Pasa? | Nivel |
+|---|---|---:|---:|---|---|
+| Victoria directa | Austria | 58.8% | 62.0% | ✗ | oficial-elegible |
+| Over 1.5 goles | — | 89.2% | 72.0% | ✓ | oficial-elegible |
+| DNB (apuesta sin empate) | Austria | 77.9% | 72.0% | ✓ | radar |
+| Doble oportunidad | Austria | 83.3% | 80.0% | ✓ | radar |
