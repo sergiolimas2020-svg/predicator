@@ -1,55 +1,55 @@
 # Radar estadístico — selección de mercado por probabilidad
 
-Generado: 2026-06-16T10:11:35
+Generado: 2026-06-17T09:35:24
 
 Motor probability-first. Busca el mercado donde la estadística apoya una probabilidad alta. **No usa EV, cuotas ni Betplay.** Alcance: Mundial/selecciones. **No conectado a publicación premium** — radar/shadow.
 
 Umbrales: Victoria directa ≥ 62.0%, Over 1.5 ≥ 72.0%, DNB(selección) ≥ 72.0%, Doble oportunidad(selección) ≥ 80.0%.
 
 - Partidos evaluados: **4**
-- Con señal: **3**
+- Con señal: **2**
 
 | Partido | Liga | Mercado recomendado | Prob | Fuente | Nivel | Razón / descarte |
 |---|---|---|---:|---|---|---|
-| France vs Senegal | Mundial 2026 | Over 1.5 goles | 87.3% | api_football | oficial-elegible | supera umbral |
-| Iraq vs Norway | Mundial 2026 | Over 1.5 goles | 75.1% | api_football | oficial-elegible | supera umbral |
-| Argentina vs Algeria | Mundial 2026 | — sin señal — | — | api_football | — | Victoria directa 38.8%<62.0%; Over 1.5 goles 44.0%<72.0%; DNB (apuesta sin empate) 60.3%<72.0%; Doble oportunidad 74.4%<80.0% |
-| Austria vs Jordan | Mundial 2026 | Over 1.5 goles | 89.2% | api_football | oficial-elegible | supera umbral |
+| Portugal vs Congo DR | Mundial 2026 | — sin señal — | — | api_football | — | Victoria directa 35.1%<62.0%; Over 1.5 goles 52.2%<72.0%; DNB (apuesta sin empate) 53.6%<72.0%; Doble oportunidad 69.6%<80.0% |
+| England vs Croatia | Mundial 2026 | — sin señal — | — | api_football | — | Victoria directa 43.1%<62.0%; Over 1.5 goles 70.9%<72.0%; DNB (apuesta sin empate) 62.5%<72.0%; Doble oportunidad 74.2%<80.0% |
+| Ghana vs Panama | Mundial 2026 | Over 1.5 goles | 84.4% | api_football | oficial-elegible | supera umbral |
+| Uzbekistan vs Colombia | Mundial 2026 | Over 1.5 goles | 77.9% | api_football | oficial-elegible | supera umbral |
 
 ## Detalle por partido
 
-### France vs Senegal (Mundial 2026)
+### Portugal vs Congo DR (Mundial 2026)
 
 | Mercado | Pick | Prob | Umbral | ¿Pasa? | Nivel |
 |---|---|---:|---:|---|---|
-| Victoria directa | Senegal | 36.8% | 62.0% | ✗ | oficial-elegible |
-| Over 1.5 goles | — | 87.3% | 72.0% | ✓ | oficial-elegible |
-| DNB (apuesta sin empate) | Senegal | 51.8% | 72.0% | ✗ | radar |
-| Doble oportunidad | Senegal | 65.7% | 80.0% | ✗ | radar |
+| Victoria directa | Portugal | 35.1% | 62.0% | ✗ | oficial-elegible |
+| Over 1.5 goles | — | 52.2% | 72.0% | ✗ | oficial-elegible |
+| DNB (apuesta sin empate) | Portugal | 53.6% | 72.0% | ✗ | radar |
+| Doble oportunidad | Portugal | 69.6% | 80.0% | ✗ | radar |
 
-### Iraq vs Norway (Mundial 2026)
-
-| Mercado | Pick | Prob | Umbral | ¿Pasa? | Nivel |
-|---|---|---:|---:|---|---|
-| Victoria directa | Norway | 54.8% | 62.0% | ✗ | oficial-elegible |
-| Over 1.5 goles | — | 75.1% | 72.0% | ✓ | oficial-elegible |
-| DNB (apuesta sin empate) | Norway | 76.3% | 72.0% | ✓ | radar |
-| Doble oportunidad | Norway | 83.0% | 80.0% | ✓ | radar |
-
-### Argentina vs Algeria (Mundial 2026)
+### England vs Croatia (Mundial 2026)
 
 | Mercado | Pick | Prob | Umbral | ¿Pasa? | Nivel |
 |---|---|---:|---:|---|---|
-| Victoria directa | Argentina | 38.8% | 62.0% | ✗ | oficial-elegible |
-| Over 1.5 goles | — | 44.0% | 72.0% | ✗ | oficial-elegible |
-| DNB (apuesta sin empate) | Argentina | 60.3% | 72.0% | ✗ | radar |
-| Doble oportunidad | Argentina | 74.4% | 80.0% | ✗ | radar |
+| Victoria directa | England | 43.1% | 62.0% | ✗ | oficial-elegible |
+| Over 1.5 goles | — | 70.9% | 72.0% | ✗ | oficial-elegible |
+| DNB (apuesta sin empate) | England | 62.5% | 72.0% | ✗ | radar |
+| Doble oportunidad | England | 74.2% | 80.0% | ✗ | radar |
 
-### Austria vs Jordan (Mundial 2026)
+### Ghana vs Panama (Mundial 2026)
 
 | Mercado | Pick | Prob | Umbral | ¿Pasa? | Nivel |
 |---|---|---:|---:|---|---|
-| Victoria directa | Austria | 58.8% | 62.0% | ✗ | oficial-elegible |
-| Over 1.5 goles | — | 89.2% | 72.0% | ✓ | oficial-elegible |
-| DNB (apuesta sin empate) | Austria | 77.9% | 72.0% | ✓ | radar |
-| Doble oportunidad | Austria | 83.3% | 80.0% | ✓ | radar |
+| Victoria directa | Panama | 41.0% | 62.0% | ✗ | oficial-elegible |
+| Over 1.5 goles | — | 84.4% | 72.0% | ✓ | oficial-elegible |
+| DNB (apuesta sin empate) | Panama | 57.9% | 72.0% | ✗ | radar |
+| Doble oportunidad | Panama | 70.2% | 80.0% | ✗ | radar |
+
+### Uzbekistan vs Colombia (Mundial 2026)
+
+| Mercado | Pick | Prob | Umbral | ¿Pasa? | Nivel |
+|---|---|---:|---:|---|---|
+| Victoria directa | Colombia | 41.8% | 62.0% | ✗ | oficial-elegible |
+| Over 1.5 goles | — | 77.9% | 72.0% | ✓ | oficial-elegible |
+| DNB (apuesta sin empate) | Colombia | 59.9% | 72.0% | ✗ | radar |
+| Doble oportunidad | Colombia | 72.0% | 80.0% | ✗ | radar |
