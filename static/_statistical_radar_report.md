@@ -1,55 +1,55 @@
 # Radar estadístico — selección de mercado por probabilidad
 
-Generado: 2026-06-17T09:35:24
+Generado: 2026-06-18T09:18:31
 
 Motor probability-first. Busca el mercado donde la estadística apoya una probabilidad alta. **No usa EV, cuotas ni Betplay.** Alcance: Mundial/selecciones. **No conectado a publicación premium** — radar/shadow.
 
 Umbrales: Victoria directa ≥ 62.0%, Over 1.5 ≥ 72.0%, DNB(selección) ≥ 72.0%, Doble oportunidad(selección) ≥ 80.0%.
 
 - Partidos evaluados: **4**
-- Con señal: **2**
+- Con señal: **4**
 
 | Partido | Liga | Mercado recomendado | Prob | Fuente | Nivel | Razón / descarte |
 |---|---|---|---:|---|---|---|
-| Portugal vs Congo DR | Mundial 2026 | — sin señal — | — | api_football | — | Victoria directa 35.1%<62.0%; Over 1.5 goles 52.2%<72.0%; DNB (apuesta sin empate) 53.6%<72.0%; Doble oportunidad 69.6%<80.0% |
-| England vs Croatia | Mundial 2026 | — sin señal — | — | api_football | — | Victoria directa 43.1%<62.0%; Over 1.5 goles 70.9%<72.0%; DNB (apuesta sin empate) 62.5%<72.0%; Doble oportunidad 74.2%<80.0% |
-| Ghana vs Panama | Mundial 2026 | Over 1.5 goles | 84.4% | api_football | oficial-elegible | supera umbral |
-| Uzbekistan vs Colombia | Mundial 2026 | Over 1.5 goles | 77.9% | api_football | oficial-elegible | supera umbral |
+| Czechia vs South Africa | Mundial 2026 | Over 1.5 goles | 78.0% | api_football | oficial-elegible | supera umbral |
+| Switzerland vs Bosnia & Herzegovina | Mundial 2026 | Over 1.5 goles | 82.6% | api_football | oficial-elegible | supera umbral |
+| Canada vs Qatar | Mundial 2026 | DNB (apuesta sin empate) (Canada) | 81.1% | api_football | radar | supera umbral |
+| Mexico vs South Korea | Mundial 2026 | DNB (apuesta sin empate) (Mexico) | 73.9% | api_football | radar | supera umbral |
 
 ## Detalle por partido
 
-### Portugal vs Congo DR (Mundial 2026)
+### Czechia vs South Africa (Mundial 2026)
 
 | Mercado | Pick | Prob | Umbral | ¿Pasa? | Nivel |
 |---|---|---:|---:|---|---|
-| Victoria directa | Portugal | 35.1% | 62.0% | ✗ | oficial-elegible |
-| Over 1.5 goles | — | 52.2% | 72.0% | ✗ | oficial-elegible |
-| DNB (apuesta sin empate) | Portugal | 53.6% | 72.0% | ✗ | radar |
-| Doble oportunidad | Portugal | 69.6% | 80.0% | ✗ | radar |
+| Victoria directa | Czechia | 39.4% | 62.0% | ✗ | oficial-elegible |
+| Over 1.5 goles | — | 78.0% | 72.0% | ✓ | oficial-elegible |
+| DNB (apuesta sin empate) | Czechia | 56.6% | 72.0% | ✗ | radar |
+| Doble oportunidad | Czechia | 69.8% | 80.0% | ✗ | radar |
 
-### England vs Croatia (Mundial 2026)
-
-| Mercado | Pick | Prob | Umbral | ¿Pasa? | Nivel |
-|---|---|---:|---:|---|---|
-| Victoria directa | England | 43.1% | 62.0% | ✗ | oficial-elegible |
-| Over 1.5 goles | — | 70.9% | 72.0% | ✗ | oficial-elegible |
-| DNB (apuesta sin empate) | England | 62.5% | 72.0% | ✗ | radar |
-| Doble oportunidad | England | 74.2% | 80.0% | ✗ | radar |
-
-### Ghana vs Panama (Mundial 2026)
+### Switzerland vs Bosnia & Herzegovina (Mundial 2026)
 
 | Mercado | Pick | Prob | Umbral | ¿Pasa? | Nivel |
 |---|---|---:|---:|---|---|
-| Victoria directa | Panama | 41.0% | 62.0% | ✗ | oficial-elegible |
-| Over 1.5 goles | — | 84.4% | 72.0% | ✓ | oficial-elegible |
-| DNB (apuesta sin empate) | Panama | 57.9% | 72.0% | ✗ | radar |
-| Doble oportunidad | Panama | 70.2% | 80.0% | ✗ | radar |
+| Victoria directa | Switzerland | 47.6% | 62.0% | ✗ | oficial-elegible |
+| Over 1.5 goles | — | 82.6% | 72.0% | ✓ | oficial-elegible |
+| DNB (apuesta sin empate) | Switzerland | 66.7% | 72.0% | ✗ | radar |
+| Doble oportunidad | Switzerland | 76.2% | 80.0% | ✗ | radar |
 
-### Uzbekistan vs Colombia (Mundial 2026)
+### Canada vs Qatar (Mundial 2026)
 
 | Mercado | Pick | Prob | Umbral | ¿Pasa? | Nivel |
 |---|---|---:|---:|---|---|
-| Victoria directa | Colombia | 41.8% | 62.0% | ✗ | oficial-elegible |
-| Over 1.5 goles | — | 77.9% | 72.0% | ✓ | oficial-elegible |
-| DNB (apuesta sin empate) | Colombia | 59.9% | 72.0% | ✗ | radar |
-| Doble oportunidad | Colombia | 72.0% | 80.0% | ✗ | radar |
+| Victoria directa | Canada | 55.2% | 62.0% | ✗ | oficial-elegible |
+| Over 1.5 goles | — | 54.6% | 72.0% | ✗ | oficial-elegible |
+| DNB (apuesta sin empate) | Canada | 81.1% | 72.0% | ✓ | radar |
+| Doble oportunidad | Canada | 87.1% | 80.0% | ✓ | radar |
+
+### Mexico vs South Korea (Mundial 2026)
+
+| Mercado | Pick | Prob | Umbral | ¿Pasa? | Nivel |
+|---|---|---:|---:|---|---|
+| Victoria directa | Mexico | 51.2% | 62.0% | ✗ | oficial-elegible |
+| Over 1.5 goles | — | 64.1% | 72.0% | ✗ | oficial-elegible |
+| DNB (apuesta sin empate) | Mexico | 73.9% | 72.0% | ✓ | radar |
+| Doble oportunidad | Mexico | 81.9% | 80.0% | ✓ | radar |

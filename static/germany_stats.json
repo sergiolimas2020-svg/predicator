@@ -1,63 +1,125 @@
 {
-  "SC Freiburg": {
+  "Eintracht Frankfurt": {
     "position": {
       "partidos": 34,
-      "ganados": 13,
-      "empatados": 8,
-      "perdidos": 13,
-      "goles_favor": 51,
-      "goles_contra": 57,
-      "diferencia": -6,
-      "puntos": 47,
-      "posicion": 7
+      "ganados": 11,
+      "empatados": 11,
+      "perdidos": 12,
+      "goles_favor": 61,
+      "goles_contra": 65,
+      "diferencia": -4,
+      "puntos": 44,
+      "posicion": 8
     },
     "goals": {
-      "over_1_5": "82%",
-      "over_2_5": "65%",
-      "over_3_5": "38%",
-      "bts": "62%"
+      "over_1_5": "88%",
+      "over_2_5": "68%",
+      "over_3_5": "53%",
+      "bts": "74%"
     },
     "corners": {
       "local": {
         "partidos": 7,
-        "corners_favor": 3.71,
-        "corners_contra": 4.0
-      },
-      "visitante": {
-        "partidos": 6,
-        "corners_favor": 3.67,
-        "corners_contra": 4.5
-      }
-    }
-  },
-  "RB Leipzig": {
-    "position": {
-      "partidos": 34,
-      "ganados": 20,
-      "empatados": 5,
-      "perdidos": 9,
-      "goles_favor": 66,
-      "goles_contra": 47,
-      "diferencia": 19,
-      "puntos": 65,
-      "posicion": 3
-    },
-    "goals": {
-      "over_1_5": "85%",
-      "over_2_5": "71%",
-      "over_3_5": "47%",
-      "bts": "62%"
-    },
-    "corners": {
-      "local": {
-        "partidos": 7,
-        "corners_favor": 6.14,
-        "corners_contra": 4.0
+        "corners_favor": 5.57,
+        "corners_contra": 4.86
       },
       "visitante": {
         "partidos": 6,
         "corners_favor": 4.33,
-        "corners_contra": 3.67
+        "corners_contra": 6.83
+      }
+    }
+  },
+  "1. FC Heidenheim": {
+    "position": {
+      "partidos": 34,
+      "ganados": 6,
+      "empatados": 8,
+      "perdidos": 20,
+      "goles_favor": 41,
+      "goles_contra": 72,
+      "diferencia": -31,
+      "puntos": 26,
+      "posicion": 17
+    },
+    "goals": {
+      "over_1_5": "91%",
+      "over_2_5": "68%",
+      "over_3_5": "41%",
+      "bts": "62%"
+    },
+    "corners": {
+      "local": {
+        "partidos": 6,
+        "corners_favor": 4.0,
+        "corners_contra": 4.33
+      },
+      "visitante": {
+        "partidos": 7,
+        "corners_favor": 3.86,
+        "corners_contra": 5.43
+      }
+    }
+  },
+  "Bayer Leverkusen": {
+    "position": {
+      "partidos": 34,
+      "ganados": 17,
+      "empatados": 8,
+      "perdidos": 9,
+      "goles_favor": 68,
+      "goles_contra": 47,
+      "diferencia": 21,
+      "puntos": 59,
+      "posicion": 6
+    },
+    "goals": {
+      "over_1_5": "85%",
+      "over_2_5": "59%",
+      "over_3_5": "41%",
+      "bts": "65%"
+    },
+    "corners": {
+      "local": {
+        "partidos": 7,
+        "corners_favor": 8.0,
+        "corners_contra": 2.57
+      },
+      "visitante": {
+        "partidos": 7,
+        "corners_favor": 5.0,
+        "corners_contra": 3.86
+      }
+    }
+  },
+  "FC Augsburg": {
+    "position": {
+      "partidos": 34,
+      "ganados": 12,
+      "empatados": 7,
+      "perdidos": 15,
+      "goles_favor": 45,
+      "goles_contra": 61,
+      "diferencia": -16,
+      "puntos": 43,
+      "posicion": 9
+    },
+    "goals": {
+      "over_1_5": "85%",
+      "over_2_5": "62%",
+      "over_3_5": "41%",
+      "bts": "62%"
+    },
+    "corners": {
+      "local": {
+        "partidos": 6,
+        "corners_favor": 4.67,
+        "corners_contra": 5.33
+      },
+      "visitante": {
+        "partidos": 7,
+        "corners_favor": 5.29,
+        "corners_contra": 7.71
       }
     }
   },
@@ -92,65 +154,34 @@
       }
     }
   },
-  "Hamburger SV": {
+  "Borussia Mönchengladbach": {
     "position": {
       "partidos": 34,
       "ganados": 9,
       "empatados": 11,
       "perdidos": 14,
-      "goles_favor": 40,
-      "goles_contra": 54,
-      "diferencia": -14,
+      "goles_favor": 42,
+      "goles_contra": 53,
+      "diferencia": -11,
       "puntos": 38,
-      "posicion": 13
+      "posicion": 12
     },
     "goals": {
-      "over_1_5": "79%",
-      "over_2_5": "56%",
-      "over_3_5": "32%",
-      "bts": "65%"
+      "over_1_5": "71%",
+      "over_2_5": "53%",
+      "over_3_5": "38%",
+      "bts": "41%"
     },
     "corners": {
       "local": {
-        "partidos": 7,
-        "corners_favor": 4.0,
-        "corners_contra": 6.0
-      },
-      "visitante": {
-        "partidos": 7,
-        "corners_favor": 2.86,
-        "corners_contra": 8.14
-      }
-    }
-  },
-  "FC St. Pauli": {
-    "position": {
-      "partidos": 34,
-      "ganados": 6,
-      "empatados": 8,
-      "perdidos": 20,
-      "goles_favor": 29,
-      "goles_contra": 60,
-      "diferencia": -31,
-      "puntos": 26,
-      "posicion": 18
-    },
-    "goals": {
-      "over_1_5": "82%",
-      "over_2_5": "56%",
-      "over_3_5": "21%",
-      "bts": "56%"
-    },
-    "corners": {
-      "local": {
-        "partidos": 7,
-        "corners_favor": 5.14,
-        "corners_contra": 5.29
-      },
-      "visitante": {
         "partidos": 6,
-        "corners_favor": 3.5,
-        "corners_contra": 6.0
+        "corners_favor": 2.17,
+        "corners_contra": 3.83
+      },
+      "visitante": {
+        "partidos": 7,
+        "corners_favor": 3.71,
+        "corners_contra": 5.57
       }
     }
   },
@@ -185,34 +216,189 @@
       }
     }
   },
-  "FC Augsburg": {
+  "FC St. Pauli": {
     "position": {
       "partidos": 34,
-      "ganados": 12,
-      "empatados": 7,
-      "perdidos": 15,
-      "goles_favor": 45,
-      "goles_contra": 61,
-      "diferencia": -16,
-      "puntos": 43,
-      "posicion": 9
+      "ganados": 6,
+      "empatados": 8,
+      "perdidos": 20,
+      "goles_favor": 29,
+      "goles_contra": 60,
+      "diferencia": -31,
+      "puntos": 26,
+      "posicion": 18
     },
     "goals": {
-      "over_1_5": "85%",
-      "over_2_5": "62%",
-      "over_3_5": "41%",
+      "over_1_5": "82%",
+      "over_2_5": "56%",
+      "over_3_5": "21%",
+      "bts": "56%"
+    },
+    "corners": {
+      "local": {
+        "partidos": 7,
+        "corners_favor": 5.14,
+        "corners_contra": 5.29
+      },
+      "visitante": {
+        "partidos": 6,
+        "corners_favor": 3.5,
+        "corners_contra": 6.0
+      }
+    }
+  },
+  "Werder Bremen": {
+    "position": {
+      "partidos": 34,
+      "ganados": 8,
+      "empatados": 8,
+      "perdidos": 18,
+      "goles_favor": 37,
+      "goles_contra": 60,
+      "diferencia": -23,
+      "puntos": 32,
+      "posicion": 15
+    },
+    "goals": {
+      "over_1_5": "79%",
+      "over_2_5": "53%",
+      "over_3_5": "35%",
+      "bts": "47%"
+    },
+    "corners": {
+      "local": {
+        "partidos": 7,
+        "corners_favor": 4.86,
+        "corners_contra": 2.86
+      },
+      "visitante": {
+        "partidos": 6,
+        "corners_favor": 3.67,
+        "corners_contra": 6.67
+      }
+    }
+  },
+  "SC Freiburg": {
+    "position": {
+      "partidos": 34,
+      "ganados": 13,
+      "empatados": 8,
+      "perdidos": 13,
+      "goles_favor": 51,
+      "goles_contra": 57,
+      "diferencia": -6,
+      "puntos": 47,
+      "posicion": 7
+    },
+    "goals": {
+      "over_1_5": "82%",
+      "over_2_5": "65%",
+      "over_3_5": "38%",
       "bts": "62%"
     },
     "corners": {
       "local": {
+        "partidos": 7,
+        "corners_favor": 3.71,
+        "corners_contra": 4.0
+      },
+      "visitante": {
         "partidos": 6,
-        "corners_favor": 4.67,
-        "corners_contra": 5.33
+        "corners_favor": 3.67,
+        "corners_contra": 4.5
+      }
+    }
+  },
+  "Hamburger SV": {
+    "position": {
+      "partidos": 34,
+      "ganados": 9,
+      "empatados": 11,
+      "perdidos": 14,
+      "goles_favor": 40,
+      "goles_contra": 54,
+      "diferencia": -14,
+      "puntos": 38,
+      "posicion": 13
+    },
+    "goals": {
+      "over_1_5": "79%",
+      "over_2_5": "56%",
+      "over_3_5": "32%",
+      "bts": "65%"
+    },
+    "corners": {
+      "local": {
+        "partidos": 7,
+        "corners_favor": 4.0,
+        "corners_contra": 6.0
       },
       "visitante": {
         "partidos": 7,
-        "corners_favor": 5.29,
-        "corners_contra": 7.71
+        "corners_favor": 2.86,
+        "corners_contra": 8.14
+      }
+    }
+  },
+  "RB Leipzig": {
+    "position": {
+      "partidos": 34,
+      "ganados": 20,
+      "empatados": 5,
+      "perdidos": 9,
+      "goles_favor": 66,
+      "goles_contra": 47,
+      "diferencia": 19,
+      "puntos": 65,
+      "posicion": 3
+    },
+    "goals": {
+      "over_1_5": "85%",
+      "over_2_5": "71%",
+      "over_3_5": "47%",
+      "bts": "62%"
+    },
+    "corners": {
+      "local": {
+        "partidos": 7,
+        "corners_favor": 6.14,
+        "corners_contra": 4.0
+      },
+      "visitante": {
+        "partidos": 6,
+        "corners_favor": 4.33,
+        "corners_contra": 3.67
+      }
+    }
+  },
+  "VfL Wolfsburg": {
+    "position": {
+      "partidos": 36,
+      "ganados": 7,
+      "empatados": 9,
+      "perdidos": 20,
+      "goles_favor": 46,
+      "goles_contra": 71,
+      "diferencia": -25,
+      "puntos": 30,
+      "posicion": 16
+    },
+    "goals": {
+      "over_1_5": "78%",
+      "over_2_5": "64%",
+      "over_3_5": "42%",
+      "bts": "72%"
+    },
+    "corners": {
+      "local": {
+        "partidos": 7,
+        "corners_favor": 6.29,
+        "corners_contra": 4.71
+      },
+      "visitante": {
+        "partidos": 8,
+        "corners_favor": 4.12,
+        "corners_contra": 10.0
       }
     }
   },
@@ -309,37 +495,6 @@
       }
     }
   },
-  "SC Paderborn 07": {
-    "position": {
-      "partidos": 2,
-      "ganados": 1,
-      "empatados": 1,
-      "perdidos": 0,
-      "goles_favor": 2,
-      "goles_contra": 1,
-      "diferencia": 1,
-      "puntos": 4,
-      "posicion": 19
-    },
-    "goals": {
-      "over_1_5": "50%",
-      "over_2_5": "50%",
-      "over_3_5": "0%",
-      "bts": "50%"
-    },
-    "corners": {
-      "local": {
-        "partidos": 1,
-        "corners_favor": 19.0,
-        "corners_contra": 2.0
-      },
-      "visitante": {
-        "partidos": 1,
-        "corners_favor": 1.0,
-        "corners_contra": 4.0
-      }
-    }
-  },
   "1. FC Köln": {
     "position": {
       "partidos": 34,
@@ -402,194 +557,39 @@
       }
     }
   },
-  "Eintracht Frankfurt": {
+  "SC Paderborn 07": {
     "position": {
-      "partidos": 34,
-      "ganados": 11,
-      "empatados": 11,
-      "perdidos": 12,
-      "goles_favor": 61,
-      "goles_contra": 65,
-      "diferencia": -4,
-      "puntos": 44,
-      "posicion": 8
+      "partidos": 2,
+      "ganados": 1,
+      "empatados": 1,
+      "perdidos": 0,
+      "goles_favor": 2,
+      "goles_contra": 1,
+      "diferencia": 1,
+      "puntos": 4,
+      "posicion": 19
     },
     "goals": {
-      "over_1_5": "88%",
-      "over_2_5": "68%",
-      "over_3_5": "53%",
-      "bts": "74%"
+      "over_1_5": "50%",
+      "over_2_5": "50%",
+      "over_3_5": "0%",
+      "bts": "50%"
     },
     "corners": {
       "local": {
-        "partidos": 7,
-        "corners_favor": 5.57,
-        "corners_contra": 4.86
+        "partidos": 1,
+        "corners_favor": 19.0,
+        "corners_contra": 2.0
       },
       "visitante": {
-        "partidos": 6,
-        "corners_favor": 4.33,
-        "corners_contra": 6.83
-      }
-    }
-  },
-  "1. FC Heidenheim": {
-    "position": {
-      "partidos": 34,
-      "ganados": 6,
-      "empatados": 8,
-      "perdidos": 20,
-      "goles_favor": 41,
-      "goles_contra": 72,
-      "diferencia": -31,
-      "puntos": 26,
-      "posicion": 17
-    },
-    "goals": {
-      "over_1_5": "91%",
-      "over_2_5": "68%",
-      "over_3_5": "41%",
-      "bts": "62%"
-    },
-    "corners": {
-      "local": {
-        "partidos": 6,
-        "corners_favor": 4.0,
-        "corners_contra": 4.33
-      },
-      "visitante": {
-        "partidos": 7,
-        "corners_favor": 3.86,
-        "corners_contra": 5.43
-      }
-    }
-  },
-  "Borussia Mönchengladbach": {
-    "position": {
-      "partidos": 34,
-      "ganados": 9,
-      "empatados": 11,
-      "perdidos": 14,
-      "goles_favor": 42,
-      "goles_contra": 53,
-      "diferencia": -11,
-      "puntos": 38,
-      "posicion": 12
-    },
-    "goals": {
-      "over_1_5": "71%",
-      "over_2_5": "53%",
-      "over_3_5": "38%",
-      "bts": "41%"
-    },
-    "corners": {
-      "local": {
-        "partidos": 6,
-        "corners_favor": 2.17,
-        "corners_contra": 3.83
-      },
-      "visitante": {
-        "partidos": 7,
-        "corners_favor": 3.71,
-        "corners_contra": 5.57
-      }
-    }
-  },
-  "Werder Bremen": {
-    "position": {
-      "partidos": 34,
-      "ganados": 8,
-      "empatados": 8,
-      "perdidos": 18,
-      "goles_favor": 37,
-      "goles_contra": 60,
-      "diferencia": -23,
-      "puntos": 32,
-      "posicion": 15
-    },
-    "goals": {
-      "over_1_5": "79%",
-      "over_2_5": "53%",
-      "over_3_5": "35%",
-      "bts": "47%"
-    },
-    "corners": {
-      "local": {
-        "partidos": 7,
-        "corners_favor": 4.86,
-        "corners_contra": 2.86
-      },
-      "visitante": {
-        "partidos": 6,
-        "corners_favor": 3.67,
-        "corners_contra": 6.67
-      }
-    }
-  },
-  "Bayer Leverkusen": {
-    "position": {
-      "partidos": 34,
-      "ganados": 17,
-      "empatados": 8,
-      "perdidos": 9,
-      "goles_favor": 68,
-      "goles_contra": 47,
-      "diferencia": 21,
-      "puntos": 59,
-      "posicion": 6
-    },
-    "goals": {
-      "over_1_5": "85%",
-      "over_2_5": "59%",
-      "over_3_5": "41%",
-      "bts": "65%"
-    },
-    "corners": {
-      "local": {
-        "partidos": 7,
-        "corners_favor": 8.0,
-        "corners_contra": 2.57
-      },
-      "visitante": {
-        "partidos": 7,
-        "corners_favor": 5.0,
-        "corners_contra": 3.86
-      }
-    }
-  },
-  "VfL Wolfsburg": {
-    "position": {
-      "partidos": 36,
-      "ganados": 7,
-      "empatados": 9,
-      "perdidos": 20,
-      "goles_favor": 46,
-      "goles_contra": 71,
-      "diferencia": -25,
-      "puntos": 30,
-      "posicion": 16
-    },
-    "goals": {
-      "over_1_5": "78%",
-      "over_2_5": "64%",
-      "over_3_5": "42%",
-      "bts": "72%"
-    },
-    "corners": {
-      "local": {
-        "partidos": 7,
-        "corners_favor": 6.29,
-        "corners_contra": 4.71
-      },
-      "visitante": {
-        "partidos": 8,
-        "corners_favor": 4.12,
-        "corners_contra": 10.0
+        "partidos": 1,
+        "corners_favor": 1.0,
+        "corners_contra": 4.0
       }
     }
   },
   "_metadata": {
-    "fecha_actualizacion": "2026-06-17T09:28:42.323096",
+    "fecha_actualizacion": "2026-06-18T09:11:51.762934",
     "fuente": "API-Football",
     "league_id": 78,
     "season": 2025,
