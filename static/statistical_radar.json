@@ -1,7 +1,7 @@
 {
   "is_radar": true,
   "note": "Radar estadístico probability-first (Mundial/selecciones). No usa EV/cuotas/Betplay. NO conectado a publicación premium; el motor de publicación no lee este archivo.",
-  "generated_at": "2026-06-18T09:18:31",
+  "generated_at": "2026-06-19T09:34:04",
   "thresholds": {
     "win": 62.0,
     "over_1_5": 72.0,
@@ -10,290 +10,303 @@
   },
   "matches": [
     {
-      "match": "Czechia vs South Africa",
-      "home": "Czechia",
-      "away": "South Africa",
-      "league": "Mundial 2026",
-      "is_seleccion": true,
-      "source": "api_football",
-      "neutral": true,
-      "favorite": "Czechia",
-      "markets": [
-        {
-          "market": "Victoria directa",
-          "pick": "Czechia",
-          "prob": 39.4,
-          "threshold": 62.0,
-          "passed": false,
-          "tier": "official_eligible",
-          "reason": "prob 39.4% < umbral 62.0%"
-        },
-        {
-          "market": "Over 1.5 goles",
-          "pick": null,
-          "prob": 78.0,
-          "threshold": 72.0,
-          "passed": true,
-          "tier": "official_eligible",
-          "reason": "prob 78.0% ≥ umbral 72.0%"
-        },
-        {
-          "market": "DNB (apuesta sin empate)",
-          "pick": "Czechia",
-          "prob": 56.6,
-          "threshold": 72.0,
-          "passed": false,
-          "tier": "radar_only",
-          "reason": "prob 56.6% < umbral 72.0%"
-        },
-        {
-          "market": "Doble oportunidad",
-          "pick": "Czechia",
-          "prob": 69.8,
-          "threshold": 80.0,
-          "passed": false,
-          "tier": "radar_only",
-          "reason": "prob 69.8% < umbral 80.0%"
-        }
-      ],
-      "recommended": {
-        "market": "Over 1.5 goles",
-        "pick": null,
-        "prob": 78.0,
-        "tier": "official_eligible"
-      },
-      "status": "signal",
-      "discarded": [
-        {
-          "market": "Victoria directa",
-          "prob": 39.4,
-          "threshold": 62.0,
-          "reason": "prob 39.4% < umbral 62.0%"
-        },
-        {
-          "market": "DNB (apuesta sin empate)",
-          "prob": 56.6,
-          "threshold": 72.0,
-          "reason": "prob 56.6% < umbral 72.0%"
-        },
-        {
-          "market": "Doble oportunidad",
-          "prob": 69.8,
-          "threshold": 80.0,
-          "reason": "prob 69.8% < umbral 80.0%"
-        }
-      ]
-    },
-    {
-      "match": "Switzerland vs Bosnia & Herzegovina",
-      "home": "Switzerland",
-      "away": "Bosnia & Herzegovina",
-      "league": "Mundial 2026",
-      "is_seleccion": true,
-      "source": "api_football",
-      "neutral": true,
-      "favorite": "Switzerland",
-      "markets": [
-        {
-          "market": "Victoria directa",
-          "pick": "Switzerland",
-          "prob": 47.6,
-          "threshold": 62.0,
-          "passed": false,
-          "tier": "official_eligible",
-          "reason": "prob 47.6% < umbral 62.0%"
-        },
-        {
-          "market": "Over 1.5 goles",
-          "pick": null,
-          "prob": 82.6,
-          "threshold": 72.0,
-          "passed": true,
-          "tier": "official_eligible",
-          "reason": "prob 82.6% ≥ umbral 72.0%"
-        },
-        {
-          "market": "DNB (apuesta sin empate)",
-          "pick": "Switzerland",
-          "prob": 66.7,
-          "threshold": 72.0,
-          "passed": false,
-          "tier": "radar_only",
-          "reason": "prob 66.7% < umbral 72.0%"
-        },
-        {
-          "market": "Doble oportunidad",
-          "pick": "Switzerland",
-          "prob": 76.2,
-          "threshold": 80.0,
-          "passed": false,
-          "tier": "radar_only",
-          "reason": "prob 76.2% < umbral 80.0%"
-        }
-      ],
-      "recommended": {
-        "market": "Over 1.5 goles",
-        "pick": null,
-        "prob": 82.6,
-        "tier": "official_eligible"
-      },
-      "status": "signal",
-      "discarded": [
-        {
-          "market": "Victoria directa",
-          "prob": 47.6,
-          "threshold": 62.0,
-          "reason": "prob 47.6% < umbral 62.0%"
-        },
-        {
-          "market": "DNB (apuesta sin empate)",
-          "prob": 66.7,
-          "threshold": 72.0,
-          "reason": "prob 66.7% < umbral 72.0%"
-        },
-        {
-          "market": "Doble oportunidad",
-          "prob": 76.2,
-          "threshold": 80.0,
-          "reason": "prob 76.2% < umbral 80.0%"
-        }
-      ]
-    },
-    {
-      "match": "Canada vs Qatar",
-      "home": "Canada",
-      "away": "Qatar",
+      "match": "USA vs Australia",
+      "home": "USA",
+      "away": "Australia",
       "league": "Mundial 2026",
       "is_seleccion": true,
       "source": "api_football",
       "neutral": false,
-      "favorite": "Canada",
+      "favorite": "Australia",
       "markets": [
         {
           "market": "Victoria directa",
-          "pick": "Canada",
-          "prob": 55.2,
+          "pick": "Australia",
+          "prob": 36.0,
           "threshold": 62.0,
           "passed": false,
           "tier": "official_eligible",
-          "reason": "prob 55.2% < umbral 62.0%"
+          "reason": "prob 36.0% < umbral 62.0%"
         },
         {
           "market": "Over 1.5 goles",
           "pick": null,
-          "prob": 54.6,
+          "prob": 83.6,
           "threshold": 72.0,
-          "passed": false,
+          "passed": true,
           "tier": "official_eligible",
-          "reason": "prob 54.6% < umbral 72.0%"
+          "reason": "prob 83.6% ≥ umbral 72.0%"
         },
         {
           "market": "DNB (apuesta sin empate)",
-          "pick": "Canada",
-          "prob": 81.1,
-          "threshold": 72.0,
-          "passed": true,
-          "tier": "radar_only",
-          "reason": "prob 81.1% ≥ umbral 72.0%"
-        },
-        {
-          "market": "Doble oportunidad",
-          "pick": "Canada",
-          "prob": 87.1,
-          "threshold": 80.0,
-          "passed": true,
-          "tier": "radar_only",
-          "reason": "prob 87.1% ≥ umbral 80.0%"
-        }
-      ],
-      "recommended": {
-        "market": "DNB (apuesta sin empate)",
-        "pick": "Canada",
-        "prob": 81.1,
-        "tier": "radar_only"
-      },
-      "status": "signal",
-      "discarded": [
-        {
-          "market": "Victoria directa",
-          "prob": 55.2,
-          "threshold": 62.0,
-          "reason": "prob 55.2% < umbral 62.0%"
-        },
-        {
-          "market": "Over 1.5 goles",
-          "prob": 54.6,
-          "threshold": 72.0,
-          "reason": "prob 54.6% < umbral 72.0%"
-        }
-      ]
-    },
-    {
-      "match": "Mexico vs South Korea",
-      "home": "Mexico",
-      "away": "South Korea",
-      "league": "Mundial 2026",
-      "is_seleccion": true,
-      "source": "api_football",
-      "neutral": false,
-      "favorite": "Mexico",
-      "markets": [
-        {
-          "market": "Victoria directa",
-          "pick": "Mexico",
+          "pick": "Australia",
           "prob": 51.2,
+          "threshold": 72.0,
+          "passed": false,
+          "tier": "radar_only",
+          "reason": "prob 51.2% < umbral 72.0%"
+        },
+        {
+          "market": "Doble oportunidad",
+          "pick": "Australia",
+          "prob": 65.6,
+          "threshold": 80.0,
+          "passed": false,
+          "tier": "radar_only",
+          "reason": "prob 65.6% < umbral 80.0%"
+        }
+      ],
+      "recommended": {
+        "market": "Over 1.5 goles",
+        "pick": null,
+        "prob": 83.6,
+        "tier": "official_eligible"
+      },
+      "status": "signal",
+      "discarded": [
+        {
+          "market": "Victoria directa",
+          "prob": 36.0,
+          "threshold": 62.0,
+          "reason": "prob 36.0% < umbral 62.0%"
+        },
+        {
+          "market": "DNB (apuesta sin empate)",
+          "prob": 51.2,
+          "threshold": 72.0,
+          "reason": "prob 51.2% < umbral 72.0%"
+        },
+        {
+          "market": "Doble oportunidad",
+          "prob": 65.6,
+          "threshold": 80.0,
+          "reason": "prob 65.6% < umbral 80.0%"
+        }
+      ]
+    },
+    {
+      "match": "Scotland vs Morocco",
+      "home": "Scotland",
+      "away": "Morocco",
+      "league": "Mundial 2026",
+      "is_seleccion": true,
+      "source": "api_football",
+      "neutral": true,
+      "favorite": "Morocco",
+      "markets": [
+        {
+          "market": "Victoria directa",
+          "pick": "Morocco",
+          "prob": 41.2,
           "threshold": 62.0,
           "passed": false,
           "tier": "official_eligible",
-          "reason": "prob 51.2% < umbral 62.0%"
+          "reason": "prob 41.2% < umbral 62.0%"
         },
         {
           "market": "Over 1.5 goles",
           "pick": null,
-          "prob": 64.1,
+          "prob": 61.3,
           "threshold": 72.0,
           "passed": false,
           "tier": "official_eligible",
-          "reason": "prob 64.1% < umbral 72.0%"
+          "reason": "prob 61.3% < umbral 72.0%"
         },
         {
           "market": "DNB (apuesta sin empate)",
-          "pick": "Mexico",
+          "pick": "Morocco",
+          "prob": 61.2,
+          "threshold": 72.0,
+          "passed": false,
+          "tier": "radar_only",
+          "reason": "prob 61.2% < umbral 72.0%"
+        },
+        {
+          "market": "Doble oportunidad",
+          "pick": "Morocco",
           "prob": 73.9,
-          "threshold": 72.0,
-          "passed": true,
+          "threshold": 80.0,
+          "passed": false,
           "tier": "radar_only",
-          "reason": "prob 73.9% ≥ umbral 72.0%"
+          "reason": "prob 73.9% < umbral 80.0%"
+        }
+      ],
+      "recommended": null,
+      "status": "no_signal",
+      "discarded": [
+        {
+          "market": "Victoria directa",
+          "prob": 41.2,
+          "threshold": 62.0,
+          "reason": "prob 41.2% < umbral 62.0%"
+        },
+        {
+          "market": "Over 1.5 goles",
+          "prob": 61.3,
+          "threshold": 72.0,
+          "reason": "prob 61.3% < umbral 72.0%"
+        },
+        {
+          "market": "DNB (apuesta sin empate)",
+          "prob": 61.2,
+          "threshold": 72.0,
+          "reason": "prob 61.2% < umbral 72.0%"
         },
         {
           "market": "Doble oportunidad",
-          "pick": "Mexico",
-          "prob": 81.9,
+          "prob": 73.9,
           "threshold": 80.0,
+          "reason": "prob 73.9% < umbral 80.0%"
+        }
+      ]
+    },
+    {
+      "match": "Brazil vs Haiti",
+      "home": "Brazil",
+      "away": "Haiti",
+      "league": "Mundial 2026",
+      "is_seleccion": true,
+      "source": "api_football",
+      "neutral": true,
+      "favorite": "Brazil",
+      "markets": [
+        {
+          "market": "Victoria directa",
+          "pick": "Brazil",
+          "prob": 49.5,
+          "threshold": 62.0,
+          "passed": false,
+          "tier": "official_eligible",
+          "reason": "prob 49.5% < umbral 62.0%"
+        },
+        {
+          "market": "Over 1.5 goles",
+          "pick": null,
+          "prob": 82.8,
+          "threshold": 72.0,
           "passed": true,
+          "tier": "official_eligible",
+          "reason": "prob 82.8% ≥ umbral 72.0%"
+        },
+        {
+          "market": "DNB (apuesta sin empate)",
+          "pick": "Brazil",
+          "prob": 68.9,
+          "threshold": 72.0,
+          "passed": false,
           "tier": "radar_only",
-          "reason": "prob 81.9% ≥ umbral 80.0%"
+          "reason": "prob 68.9% < umbral 72.0%"
+        },
+        {
+          "market": "Doble oportunidad",
+          "pick": "Brazil",
+          "prob": 77.7,
+          "threshold": 80.0,
+          "passed": false,
+          "tier": "radar_only",
+          "reason": "prob 77.7% < umbral 80.0%"
         }
       ],
       "recommended": {
-        "market": "DNB (apuesta sin empate)",
-        "pick": "Mexico",
-        "prob": 73.9,
-        "tier": "radar_only"
+        "market": "Over 1.5 goles",
+        "pick": null,
+        "prob": 82.8,
+        "tier": "official_eligible"
       },
       "status": "signal",
       "discarded": [
         {
           "market": "Victoria directa",
-          "prob": 51.2,
+          "prob": 49.5,
           "threshold": 62.0,
-          "reason": "prob 51.2% < umbral 62.0%"
+          "reason": "prob 49.5% < umbral 62.0%"
+        },
+        {
+          "market": "DNB (apuesta sin empate)",
+          "prob": 68.9,
+          "threshold": 72.0,
+          "reason": "prob 68.9% < umbral 72.0%"
+        },
+        {
+          "market": "Doble oportunidad",
+          "prob": 77.7,
+          "threshold": 80.0,
+          "reason": "prob 77.7% < umbral 80.0%"
+        }
+      ]
+    },
+    {
+      "match": "Türkiye vs Paraguay",
+      "home": "Türkiye",
+      "away": "Paraguay",
+      "league": "Mundial 2026",
+      "is_seleccion": true,
+      "source": "api_football",
+      "neutral": true,
+      "favorite": "Türkiye",
+      "markets": [
+        {
+          "market": "Victoria directa",
+          "pick": "Türkiye",
+          "prob": 41.8,
+          "threshold": 62.0,
+          "passed": false,
+          "tier": "official_eligible",
+          "reason": "prob 41.8% < umbral 62.0%"
         },
         {
           "market": "Over 1.5 goles",
-          "prob": 64.1,
+          "pick": null,
+          "prob": 84.1,
           "threshold": 72.0,
-          "reason": "prob 64.1% < umbral 72.0%"
+          "passed": true,
+          "tier": "official_eligible",
+          "reason": "prob 84.1% ≥ umbral 72.0%"
+        },
+        {
+          "market": "DNB (apuesta sin empate)",
+          "pick": "Türkiye",
+          "prob": 59.0,
+          "threshold": 72.0,
+          "passed": false,
+          "tier": "radar_only",
+          "reason": "prob 59.0% < umbral 72.0%"
+        },
+        {
+          "market": "Doble oportunidad",
+          "pick": "Türkiye",
+          "prob": 70.9,
+          "threshold": 80.0,
+          "passed": false,
+          "tier": "radar_only",
+          "reason": "prob 70.9% < umbral 80.0%"
+        }
+      ],
+      "recommended": {
+        "market": "Over 1.5 goles",
+        "pick": null,
+        "prob": 84.1,
+        "tier": "official_eligible"
+      },
+      "status": "signal",
+      "discarded": [
+        {
+          "market": "Victoria directa",
+          "prob": 41.8,
+          "threshold": 62.0,
+          "reason": "prob 41.8% < umbral 62.0%"
+        },
+        {
+          "market": "DNB (apuesta sin empate)",
+          "prob": 59.0,
+          "threshold": 72.0,
+          "reason": "prob 59.0% < umbral 72.0%"
+        },
+        {
+          "market": "Doble oportunidad",
+          "prob": 70.9,
+          "threshold": 80.0,
+          "reason": "prob 70.9% < umbral 80.0%"
         }
       ]
     }

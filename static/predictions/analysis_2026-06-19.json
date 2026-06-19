@@ -1,0 +1,195 @@
+{
+  "date": "2026-06-19",
+  "total_fixtures": 4,
+  "matches": [
+    {
+      "matchup": "USA vs Australia",
+      "league": "Mundial 2026",
+      "home": "USA",
+      "away": "Australia",
+      "probabilities": {
+        "win_home": 30.6,
+        "draw": 29.3,
+        "win_away": 40.1,
+        "over_2_5": 64.1,
+        "over_1_5": 84.2
+      },
+      "favorite": "Australia",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.38,
+      "lambda_away": 1.93,
+      "elo_home": 1733.0,
+      "elo_away": 1775.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 84.2,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 64.1,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "corners_shots_players",
+            "status": "unavailable",
+            "reason": "selecciones usan modelo internacional; no se publican props/corners sin contrato calibrado"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Scotland vs Morocco",
+      "league": "Mundial 2026",
+      "home": "Scotland",
+      "away": "Morocco",
+      "probabilities": {
+        "win_home": 26.1,
+        "draw": 32.7,
+        "win_away": 41.2,
+        "over_2_5": 34.3,
+        "over_1_5": 61.3
+      },
+      "favorite": "Morocco",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 0.7,
+      "lambda_away": 1.37,
+      "elo_home": 1770.0,
+      "elo_away": 1822.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 61.3,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 34.3,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "corners_shots_players",
+            "status": "unavailable",
+            "reason": "selecciones usan modelo internacional; no se publican props/corners sin contrato calibrado"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Brazil vs Haiti",
+      "league": "Mundial 2026",
+      "home": "Brazil",
+      "away": "Haiti",
+      "probabilities": {
+        "win_home": 49.5,
+        "draw": 28.2,
+        "win_away": 22.3,
+        "over_2_5": 61.9,
+        "over_1_5": 82.8
+      },
+      "favorite": "Brazil",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 2.34,
+      "lambda_away": 0.85,
+      "elo_home": 1988.0,
+      "elo_away": 1532.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 82.8,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 61.9,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "corners_shots_players",
+            "status": "unavailable",
+            "reason": "selecciones usan modelo internacional; no se publican props/corners sin contrato calibrado"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Türkiye vs Paraguay",
+      "league": "Mundial 2026",
+      "home": "Türkiye",
+      "away": "Paraguay",
+      "probabilities": {
+        "win_home": 41.8,
+        "draw": 29.2,
+        "win_away": 29.1,
+        "over_2_5": 64.1,
+        "over_1_5": 84.1
+      },
+      "favorite": "Türkiye",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 2.02,
+      "lambda_away": 1.28,
+      "elo_home": 1906.0,
+      "elo_away": 1833.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 84.1,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 64.1,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "corners_shots_players",
+            "status": "unavailable",
+            "reason": "selecciones usan modelo internacional; no se publican props/corners sin contrato calibrado"
+          }
+        ]
+      }
+    }
+  ],
+  "nota": "Análisis estadístico de todos los partidos del día. Probabilidades crudas del modelo (sin ajuste por liga ni mercado). No incluye recomendación de apuesta — ver value_picks y featured_pick para picks oficiales."
+}
