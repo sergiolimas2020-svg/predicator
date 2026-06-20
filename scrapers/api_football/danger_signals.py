@@ -53,7 +53,8 @@ def _stat_value(statistics: List[Dict], *names: str) -> Optional[float]:
 
 def _domestic_recent(form_fixtures: List[Dict], lookback: int,
                      team_id: Optional[int] = None,
-                     venue: Optional[str] = None) -> List[Dict]:
+                     venue: Optional[str] = None,
+                     include_intl: bool = False) -> List[Dict]:
     """Últimos `lookback` fixtures domésticos terminados, más reciente primero.
 
     Si se pasa `venue` ("home"|"away") y `team_id`, filtra solo los partidos
@@ -63,7 +64,7 @@ def _domestic_recent(form_fixtures: List[Dict], lookback: int,
     domestic = []
     for f in form_fixtures or []:
         lid = ((f.get("league") or {}).get("id"))
-        if lid in INTL_LEAGUE_IDS:
+        if lid in INTL_LEAGUE_IDS and not include_intl:
             continue
         status = ((f.get("fixture") or {}).get("status") or {}).get("short")
         if status not in ("FT", "AET", "PEN"):
@@ -90,6 +91,7 @@ def extract_danger_signals(
     lookback: int = DEFAULT_LOOKBACK,
     logger: Optional[logging.Logger] = None,
     venue: Optional[str] = None,
+    include_intl: bool = False,
 ) -> Dict[str, Any]:
     """Promedio de tiros a puerta y corners de un equipo en sus últimos
     `lookback` partidos domésticos.
@@ -116,7 +118,9 @@ def extract_danger_signals(
             "n_fixtures": 0, "fixture_ids": [], "errors": ["sin_form_data"],
         }
 
-    chosen = _domestic_recent(form_fixtures, lookback, team_id=team_id, venue=venue)
+    chosen = _domestic_recent(
+        form_fixtures, lookback, team_id=team_id, venue=venue, include_intl=include_intl
+    )
     shots: List[float] = []
     corners: List[float] = []
     used: List[int] = []

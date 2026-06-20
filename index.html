@@ -333,6 +333,162 @@
     }
     .content-promo-links a.primary { background:var(--dorado); border-color:var(--dorado); color:#0b0b12; }
 
+    .ai-assistant-section {
+      max-width:1100px;
+      margin:2.5rem auto;
+      padding:0 1rem;
+    }
+    .ai-assistant-shell {
+      display:grid;
+      grid-template-columns:minmax(0, 0.85fr) minmax(320px, 1.15fr);
+      gap:1.2rem;
+      align-items:stretch;
+      background:linear-gradient(135deg, rgba(240,180,41,0.09), rgba(22,22,31,0.98) 48%, rgba(59,130,246,0.08));
+      border:1px solid rgba(240,180,41,0.26);
+      border-radius:8px;
+      padding:1.35rem;
+      box-shadow:0 18px 60px rgba(0,0,0,0.24);
+    }
+    .ai-assistant-copy {
+      min-width:0;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      gap:1.25rem;
+    }
+    .ai-assistant-label {
+      color:var(--dorado);
+      font-size:0.72rem;
+      text-transform:uppercase;
+      letter-spacing:1.8px;
+      font-weight:900;
+      margin-bottom:0.5rem;
+    }
+    .ai-assistant-title {
+      font-family:'Bebas Neue',sans-serif;
+      font-size:clamp(2rem, 5vw, 3.2rem);
+      line-height:0.95;
+      letter-spacing:1px;
+      margin-bottom:0.75rem;
+    }
+    .ai-assistant-text {
+      color:var(--gris);
+      font-size:0.95rem;
+      line-height:1.65;
+      max-width:520px;
+    }
+    .ai-assistant-tags {
+      display:flex;
+      flex-wrap:wrap;
+      gap:0.5rem;
+    }
+    .ai-assistant-tags span {
+      border:1px solid rgba(240,180,41,0.22);
+      background:rgba(10,10,15,0.42);
+      color:var(--texto);
+      border-radius:999px;
+      padding:0.35rem 0.65rem;
+      font-size:0.76rem;
+      font-weight:800;
+    }
+    .ai-chat-panel {
+      background:rgba(10,10,15,0.62);
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:8px;
+      overflow:hidden;
+      min-width:0;
+    }
+    .ai-chat-head {
+      display:flex;
+      justify-content:space-between;
+      gap:1rem;
+      padding:1rem;
+      border-bottom:1px solid var(--borde);
+    }
+    .ai-chat-head strong { display:block; color:var(--texto); font-size:1rem; }
+    .ai-chat-head span { display:block; color:var(--gris); font-size:0.78rem; line-height:1.45; margin-top:0.2rem; }
+    .ai-chat-head a, .ai-chat-foot a { color:var(--dorado); text-decoration:none; font-weight:900; }
+    .ai-chat-log {
+      min-height:190px;
+      max-height:310px;
+      overflow-y:auto;
+      padding:1rem;
+      display:grid;
+      gap:0.7rem;
+    }
+    .ai-chat-msg {
+      border-radius:8px;
+      padding:0.78rem 0.9rem;
+      font-size:0.88rem;
+      line-height:1.5;
+      white-space:pre-wrap;
+    }
+    .ai-chat-bot {
+      background:#111118;
+      border:1px solid rgba(255,255,255,0.07);
+      color:var(--gris);
+    }
+    .ai-chat-user {
+      background:rgba(240,180,41,0.14);
+      border:1px solid rgba(240,180,41,0.28);
+      color:var(--texto);
+    }
+    .ai-chat-examples {
+      display:flex;
+      flex-wrap:wrap;
+      gap:0.45rem;
+      padding:0 1rem 0.9rem;
+    }
+    .ai-chat-example {
+      border:1px solid rgba(240,180,41,0.22);
+      background:rgba(240,180,41,0.08);
+      color:var(--texto);
+      border-radius:999px;
+      padding:0.42rem 0.65rem;
+      font:inherit;
+      font-size:0.76rem;
+      font-weight:800;
+      cursor:pointer;
+    }
+    .ai-chat-example:hover { border-color:var(--dorado); }
+    .ai-chat-form {
+      display:grid;
+      grid-template-columns:1fr auto;
+      gap:0.6rem;
+      padding:0.9rem 1rem 1rem;
+      border-top:1px solid var(--borde);
+    }
+    .ai-chat-form textarea {
+      width:100%;
+      min-height:54px;
+      max-height:150px;
+      resize:vertical;
+      border:1px solid var(--borde);
+      border-radius:6px;
+      background:#0f0f16;
+      color:var(--texto);
+      font:inherit;
+      padding:0.75rem;
+    }
+    .ai-chat-form textarea:focus { outline:none; border-color:var(--dorado); }
+    .ai-chat-form button {
+      min-height:54px;
+      border:0;
+      border-radius:6px;
+      background:var(--dorado);
+      color:#0b0b12;
+      font:inherit;
+      font-weight:900;
+      padding:0 1rem;
+      cursor:pointer;
+    }
+    .ai-chat-form button:disabled { opacity:0.65; cursor:wait; }
+    .ai-chat-foot {
+      color:var(--gris);
+      font-size:0.78rem;
+      padding:0 1rem 1rem;
+    }
+
     /* ══ PAYWALL ══ */
     .pw-container { max-width:760px; margin:0 auto; padding:3rem 1.5rem; }
     .pw-container-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(2rem,5vw,3rem); text-align:center; margin-bottom:0.5rem; }
@@ -1128,6 +1284,9 @@
     @media (max-width: 640px) {
       .content-promo-inner { grid-template-columns:1fr; }
       .content-promo-links { justify-content:flex-start; }
+      .ai-assistant-shell { grid-template-columns:1fr; padding:1rem; }
+      .ai-chat-form { grid-template-columns:1fr; }
+      .ai-chat-form button { width:100%; }
     }
     @media (min-width: 1024px) {
       .dash-analysis .analysis-list {
@@ -1279,8 +1438,8 @@
     <a class="cta-secondary" href="/plan-pro">
       <div class="cta-icon">💎</div>
       <div class="cta-title">Plan Pro</div>
-      <div class="cta-price">Desde $9/mes</div>
-      <div class="cta-subtitle">Todos los picks + análisis VIP</div>
+      <div class="cta-price">$50.000/mes</div>
+      <div class="cta-subtitle">Herramientas web + análisis Pro</div>
       <div class="cta-action">Saber más →</div>
     </a>
   </div>
@@ -1432,6 +1591,27 @@ fetch('static/historial.json').then(r=>r.json()).then(h=>{
 <script src="js/paywall.js" defer></script>
 <script src="js/dashboard.js" defer></script>
 
+<section class="ai-assistant-section" aria-label="Asistente IA PREDIKTOR">
+  <div class="ai-assistant-shell">
+    <div class="ai-assistant-copy">
+      <div>
+        <div class="ai-assistant-label">Asistente estadistico</div>
+        <h2 class="ai-assistant-title">Pregunta sobre partidos, mercados y datos</h2>
+        <p class="ai-assistant-text">Pregunta por una linea concreta y el asistente la contrasta con las estadisticas disponibles: probabilidad, confianza, lectura SI/NO y stake sugerido. Por ahora funciona gratis con los datos ya publicados por PREDIKTOR, sin consumir OpenAI.</p>
+      </div>
+      <div class="ai-assistant-tags" aria-label="Mercados soportados">
+        <span>Over 1.5</span>
+        <span>Over 2.5</span>
+        <span>Ganador</span>
+        <span>DNB</span>
+        <span>Corners</span>
+        <span>Tiros a puerta</span>
+      </div>
+    </div>
+    <div id="ai-chat-root"></div>
+  </div>
+</section>
+
 <!-- GUIAS RECOMENDADAS -->
 <div class="content-promo">
   <div class="content-promo-inner">
@@ -1492,7 +1672,7 @@ fetch('static/historial.json').then(r=>r.json()).then(h=>{
     <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">¿Con qué frecuencia se actualizan las predicciones?<span class="faq-icon">+</span></div><div class="faq-a">Las predicciones se actualizan cada mañana automáticamente con los datos más recientes de cada liga.</div></div>
     <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">¿Las predicciones son 100% seguras?<span class="faq-icon">+</span></div><div class="faq-a">No. Ninguna predicción deportiva es 100% segura. PREDIKTOR usa estadísticas reales para calcular probabilidades, pero el deporte tiene factores impredecibles. Usa las predicciones como herramienta de análisis.</div></div>
     <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">¿Qué ligas de fútbol están disponibles?<span class="faq-icon">+</span></div><div class="faq-a">Mundial 2026, Liga Colombiana, Liga Argentina, Brasileirao, Premier League, La Liga, Serie A, Bundesliga, Ligue 1, Süper Lig y Champions League.</div></div>
-    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">¿Es gratuito usar PREDIKTOR?<span class="faq-icon">+</span></div><div class="faq-a">Sí, PREDIKTOR es completamente gratuito. Puedes ver todos los picks diarios y análisis sin costo.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">¿Es gratuito usar PREDIKTOR?<span class="faq-icon">+</span></div><div class="faq-a">Sí, PREDIKTOR mantiene picks, guías e historial gratuitos. Las herramientas avanzadas, señales Pro y analizador completo se desbloquean con el Plan Pro.</div></div>
   </div>
 </section>
 
@@ -1502,24 +1682,9 @@ fetch('static/historial.json').then(r=>r.json()).then(h=>{
   <p>Picks diarios con análisis estadístico real, verificados automáticamente con resultados oficiales de ESPN. Sin intuición — solo números.</p>
   <div class="hero-btns">
     <a href="/static/predictions/" class="btn-primary">Ver picks de hoy — gratis →</a>
-    <a href="app.html" class="btn-secondary">Analizar un partido →</a>
+    <a href="/plan-pro" class="btn-secondary">Desbloquear herramientas Pro →</a>
   </div>
 </section>
-
-<!-- CTA COMUNIDAD -->
-<div class="content-promo">
-  <div class="content-promo-inner">
-    <div>
-      <div class="content-promo-label">Analisis del dia</div>
-      <div class="content-promo-title">Picks, contexto y alertas en un solo lugar</div>
-      <p class="content-promo-text">Sigue el canal para recibir actualizaciones y vuelve al historial cuando quieras validar el rendimiento real.</p>
-    </div>
-    <div class="content-promo-links">
-      <a class="primary" href="https://t.me/prediktorcol" target="_blank" rel="noopener">Telegram</a>
-      <a href="/historial">Ver historial</a>
-    </div>
-  </div>
-</div>
 
 <div class="disclaimer">
   <div style="margin-bottom:0.5rem;font-weight:700;color:var(--dorado);">🔞 JUEGO RESPONSABLE Y LEGAL EN COLOMBIA</div>
@@ -1563,6 +1728,7 @@ fetch('static/historial.json').then(r=>r.json()).then(h=>{
     });
   });
 </script>
+<script src="js/ai-chat.js" defer></script>
 <script src="js/cookie-consent.js"></script>
   <script src="/js/analytics.js" defer></script>
 </body>

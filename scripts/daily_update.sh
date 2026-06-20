@@ -78,6 +78,7 @@ echo "  OK" >> "$LOG"
 # ── 3. Generar predicciones del día ──
 echo "[3/4] Generando predicciones..." >> "$LOG"
 $PYTHON scrapers/generate_predictions.py >> "$LOG" 2>&1
+$PYTHON scripts/build_market_analyzer.py >> "$LOG" 2>&1 || echo "    WARN: build_market_analyzer falló, continuing" >> "$LOG"
 echo "  OK" >> "$LOG"
 
 # ── 4. Push a GitHub → Vercel redespliega ──

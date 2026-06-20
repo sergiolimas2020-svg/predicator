@@ -45,6 +45,7 @@ def extract_player_shot_signals(
     lookback: int = DEFAULT_LOOKBACK,
     logger: Optional[logging.Logger] = None,
     venue: Optional[str] = None,
+    include_intl: bool = False,
 ) -> Dict[str, Any]:
     """Promedios recientes de tiros por jugador.
 
@@ -71,7 +72,9 @@ def extract_player_shot_signals(
             "players": [], "errors": ["sin_form_data"],
         }
 
-    chosen = _domestic_recent(form_fixtures, lookback, team_id=team_id, venue=venue)
+    chosen = _domestic_recent(
+        form_fixtures, lookback, team_id=team_id, venue=venue, include_intl=include_intl
+    )
     by_player: Dict[int, Dict[str, Any]] = {}
     used: List[int] = []
     errors: List[str] = []

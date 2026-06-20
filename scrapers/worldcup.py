@@ -50,6 +50,8 @@ from scrapers.api_football.client import (  # noqa: E402
     APIFootballError,
     APIFootballRateLimitError,
 )
+from scrapers.api_football.danger_signals import extract_danger_signals  # noqa: E402
+from scrapers.api_football.player_signals import extract_player_shot_signals  # noqa: E402
 from scrapers.elo_ratings import calculate_elo_update, ELO_BASE  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -79,6 +81,7 @@ HOST_NATIONS = {"USA", "United States", "Canada", "Mexico"}
 # Ventanas por defecto (nº de partidos internacionales hacia atrás).
 DEFAULT_FORM_LAST = 12   # forma reciente para ataque/defensa
 DEFAULT_ELO_LAST = 40    # histórico para asentar el Elo de selección
+DEFAULT_DANGER_LAST = 5  # corners/tiros recientes para mercados de chat
 
 # Estados de partido considerados "jugado".
 FINISHED_STATUSES = {"FT", "AET", "PEN"}
@@ -440,11 +443,48 @@ def build_friendlies(client: APIFootballClient, today: str,
     stats: Dict[str, Any] = {}
     for tid, nm in need.items():
         try:
-            hist = fetch_team_history(client, tid, last=form_last)
+            raw_hist = fetch_team_history_raw(client, tid, last=max(form_last, DEFAULT_DANGER_LAST))
+            hist = [m for fx in raw_hist if (m := extract_match(fx))]
         except APIFootballError as e:
             logger.warning("Sin forma para %s: %s", nm, e)
+            raw_hist = []
             hist = []
         form = compute_team_form(hist, tid, nm, form_last)
+        try:
+            form["danger"] = extract_danger_signals(
+                client,
+                tid,
+                raw_hist,
+                lookback=DEFAULT_DANGER_LAST,
+                logger=logger,
+                include_intl=True,
+            )
+        except APIFootballError as e:
+            logger.warning("Sin danger para %s: %s", nm, e)
+            form["danger"] = {
+                "shots_on_target_avg": None,
+                "corners_avg": None,
+                "n_fixtures": 0,
+                "fixture_ids": [],
+                "errors": [str(e)],
+            }
+        try:
+            form["player_shots"] = extract_player_shot_signals(
+                client,
+                tid,
+                raw_hist,
+                lookback=DEFAULT_DANGER_LAST,
+                logger=logger,
+                include_intl=True,
+            )
+        except APIFootballError as e:
+            logger.warning("Sin player_shots para %s: %s", nm, e)
+            form["player_shots"] = {
+                "n_fixtures": 0,
+                "fixture_ids": [],
+                "players": [],
+                "errors": [str(e)],
+            }
         form["elo"] = round(float(seed_elo_for(nm)), 1)
         form["elo_source"] = "world_football_elo"
         form["host"] = False
@@ -460,15 +500,14 @@ def build_friendlies(client: APIFootballClient, today: str,
 
 def fetch_team_history(client: APIFootballClient, team_id: int, last: int) -> List[Dict[str, Any]]:
     """Últimos `last` partidos jugados de una selección (todas las competiciones)."""
+    raw = fetch_team_history_raw(client, team_id, last)
+    return [m for fx in raw if (m := extract_match(fx))]
+
+
+def fetch_team_history_raw(client: APIFootballClient, team_id: int, last: int) -> List[Dict[str, Any]]:
+    """Fixtures crudos terminados de una selección, para forma y danger."""
     resp = client.get_team_last_fixtures(team_id, last=last)
-    matches = []
-    for fx in resp.get("response", []):
-        if not is_finished(fx):
-            continue
-        m = extract_match(fx)
-        if m:
-            matches.append(m)
-    return matches
+    return [fx for fx in resp.get("response", []) if is_finished(fx)]
 
 
 def build(
@@ -486,18 +525,22 @@ def build(
         raise APIFootballError("API-Football no devolvió equipos para league=1 season=2026")
 
     history_by_team: Dict[int, List[Dict[str, Any]]] = {}
+    raw_history_by_team: Dict[int, List[Dict[str, Any]]] = {}
     pool: List[Dict[str, Any]] = []
     depth = max(form_last, elo_last)
 
     for t in teams:
         try:
-            hist = fetch_team_history(client, t["id"], last=depth)
+            raw_hist = fetch_team_history_raw(client, t["id"], last=depth)
+            hist = [m for fx in raw_hist if (m := extract_match(fx))]
         except APIFootballRateLimitError:
             logger.error("Rate limit alcanzado en %s — abortando recolección.", t["name"])
             raise
         except APIFootballError as e:
             logger.warning("Sin histórico para %s: %s", t["name"], e)
+            raw_hist = []
             hist = []
+        raw_history_by_team[t["id"]] = raw_hist
         history_by_team[t["id"]] = hist
         pool.extend(hist)
         logger.info("  %-18s %d partidos", t["name"], len(hist))
@@ -511,6 +554,41 @@ def build(
     for t in teams:
         name = t["name"]
         form = compute_team_form(history_by_team[t["id"]], t["id"], name, form_last)
+        try:
+            form["danger"] = extract_danger_signals(
+                client,
+                t["id"],
+                raw_history_by_team.get(t["id"], []),
+                lookback=DEFAULT_DANGER_LAST,
+                logger=logger,
+                include_intl=True,
+            )
+        except APIFootballError as e:
+            logger.warning("Sin danger para %s: %s", name, e)
+            form["danger"] = {
+                "shots_on_target_avg": None,
+                "corners_avg": None,
+                "n_fixtures": 0,
+                "fixture_ids": [],
+                "errors": [str(e)],
+            }
+        try:
+            form["player_shots"] = extract_player_shot_signals(
+                client,
+                t["id"],
+                raw_history_by_team.get(t["id"], []),
+                lookback=DEFAULT_DANGER_LAST,
+                logger=logger,
+                include_intl=True,
+            )
+        except APIFootballError as e:
+            logger.warning("Sin player_shots para %s: %s", name, e)
+            form["player_shots"] = {
+                "n_fixtures": 0,
+                "fixture_ids": [],
+                "players": [],
+                "errors": [str(e)],
+            }
         # Prioridad: Elo REAL (World Football Elo) → dinámico → default.
         elo_val = seed_elo_for(name)
         if elo_val is not None:

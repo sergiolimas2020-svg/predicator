@@ -294,6 +294,13 @@ jobs:
         run: python3 scripts/statistical_radar.py
         continue-on-error: true
 
+      # ── Step 8d: Analizador universal de mercados ─────────────
+      # Genera static/market_analyzer.json para que el chat consulte el motor:
+      # línea preguntada, confianza, variables usadas y línea ideal.
+      - name: Analizador universal de mercados
+        run: python3 scripts/build_market_analyzer.py
+        continue-on-error: true
+
       # ── Step 9: Publicar en Telegram (no crítico — bot ya tiene fallback) ─
       - name: Publicar en Telegram
         env:
