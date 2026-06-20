@@ -1,6 +1,6 @@
 # Radar estadístico — selección de mercado por probabilidad
 
-Generado: 2026-06-19T09:34:04
+Generado: 2026-06-20T08:26:54
 
 Motor probability-first. Busca el mercado donde la estadística apoya una probabilidad alta. **No usa EV, cuotas ni Betplay.** Alcance: Mundial/selecciones. **No conectado a publicación premium** — radar/shadow.
 
@@ -11,45 +11,45 @@ Umbrales: Victoria directa ≥ 62.0%, Over 1.5 ≥ 72.0%, DNB(selección) ≥ 72
 
 | Partido | Liga | Mercado recomendado | Prob | Fuente | Nivel | Razón / descarte |
 |---|---|---|---:|---|---|---|
-| USA vs Australia | Mundial 2026 | Over 1.5 goles | 83.6% | api_football | oficial-elegible | supera umbral |
-| Scotland vs Morocco | Mundial 2026 | — sin señal — | — | api_football | — | Victoria directa 41.2%<62.0%; Over 1.5 goles 61.3%<72.0%; DNB (apuesta sin empate) 61.2%<72.0%; Doble oportunidad 73.9%<80.0% |
-| Brazil vs Haiti | Mundial 2026 | Over 1.5 goles | 82.8% | api_football | oficial-elegible | supera umbral |
-| Türkiye vs Paraguay | Mundial 2026 | Over 1.5 goles | 84.1% | api_football | oficial-elegible | supera umbral |
+| Netherlands vs Sweden | Mundial 2026 | Victoria directa (Netherlands) | 65.9% | api_football | oficial-elegible | supera umbral |
+| Germany vs Ivory Coast | Mundial 2026 | Over 1.5 goles | 79.0% | api_football | oficial-elegible | supera umbral |
+| Ecuador vs Curaçao | Mundial 2026 | — sin señal — | — | api_football | — | Victoria directa 48.6%<62.0%; Over 1.5 goles 69.2%<72.0%; DNB (apuesta sin empate) 70.0%<72.0%; Doble oportunidad 79.1%<80.0% |
+| Tunisia vs Japan | Mundial 2026 | Over 1.5 goles | 77.1% | api_football | oficial-elegible | supera umbral |
 
 ## Detalle por partido
 
-### USA vs Australia (Mundial 2026)
+### Netherlands vs Sweden (Mundial 2026)
 
 | Mercado | Pick | Prob | Umbral | ¿Pasa? | Nivel |
 |---|---|---:|---:|---|---|
-| Victoria directa | Australia | 36.0% | 62.0% | ✗ | oficial-elegible |
-| Over 1.5 goles | — | 83.6% | 72.0% | ✓ | oficial-elegible |
-| DNB (apuesta sin empate) | Australia | 51.2% | 72.0% | ✗ | radar |
-| Doble oportunidad | Australia | 65.6% | 80.0% | ✗ | radar |
+| Victoria directa | Netherlands | 65.9% | 62.0% | ✓ | oficial-elegible |
+| Over 1.5 goles | — | 98.0% | 72.0% | ✓ | oficial-elegible |
+| DNB (apuesta sin empate) | Netherlands | 81.7% | 72.0% | ✓ | radar |
+| Doble oportunidad | Netherlands | 85.2% | 80.0% | ✓ | radar |
 
-### Scotland vs Morocco (Mundial 2026)
-
-| Mercado | Pick | Prob | Umbral | ¿Pasa? | Nivel |
-|---|---|---:|---:|---|---|
-| Victoria directa | Morocco | 41.2% | 62.0% | ✗ | oficial-elegible |
-| Over 1.5 goles | — | 61.3% | 72.0% | ✗ | oficial-elegible |
-| DNB (apuesta sin empate) | Morocco | 61.2% | 72.0% | ✗ | radar |
-| Doble oportunidad | Morocco | 73.9% | 80.0% | ✗ | radar |
-
-### Brazil vs Haiti (Mundial 2026)
+### Germany vs Ivory Coast (Mundial 2026)
 
 | Mercado | Pick | Prob | Umbral | ¿Pasa? | Nivel |
 |---|---|---:|---:|---|---|
-| Victoria directa | Brazil | 49.5% | 62.0% | ✗ | oficial-elegible |
-| Over 1.5 goles | — | 82.8% | 72.0% | ✓ | oficial-elegible |
-| DNB (apuesta sin empate) | Brazil | 68.9% | 72.0% | ✗ | radar |
-| Doble oportunidad | Brazil | 77.7% | 80.0% | ✗ | radar |
+| Victoria directa | Germany | 40.2% | 62.0% | ✗ | oficial-elegible |
+| Over 1.5 goles | — | 79.0% | 72.0% | ✓ | oficial-elegible |
+| DNB (apuesta sin empate) | Germany | 57.6% | 72.0% | ✗ | radar |
+| Doble oportunidad | Germany | 70.4% | 80.0% | ✗ | radar |
 
-### Türkiye vs Paraguay (Mundial 2026)
+### Ecuador vs Curaçao (Mundial 2026)
 
 | Mercado | Pick | Prob | Umbral | ¿Pasa? | Nivel |
 |---|---|---:|---:|---|---|
-| Victoria directa | Türkiye | 41.8% | 62.0% | ✗ | oficial-elegible |
-| Over 1.5 goles | — | 84.1% | 72.0% | ✓ | oficial-elegible |
-| DNB (apuesta sin empate) | Türkiye | 59.0% | 72.0% | ✗ | radar |
-| Doble oportunidad | Türkiye | 70.9% | 80.0% | ✗ | radar |
+| Victoria directa | Ecuador | 48.6% | 62.0% | ✗ | oficial-elegible |
+| Over 1.5 goles | — | 69.2% | 72.0% | ✗ | oficial-elegible |
+| DNB (apuesta sin empate) | Ecuador | 70.0% | 72.0% | ✗ | radar |
+| Doble oportunidad | Ecuador | 79.1% | 80.0% | ✗ | radar |
+
+### Tunisia vs Japan (Mundial 2026)
+
+| Mercado | Pick | Prob | Umbral | ¿Pasa? | Nivel |
+|---|---|---:|---:|---|---|
+| Victoria directa | Japan | 53.5% | 62.0% | ✗ | oficial-elegible |
+| Over 1.5 goles | — | 77.1% | 72.0% | ✓ | oficial-elegible |
+| DNB (apuesta sin empate) | Japan | 74.5% | 72.0% | ✓ | radar |
+| Doble oportunidad | Japan | 81.7% | 80.0% | ✓ | radar |

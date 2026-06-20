@@ -1,0 +1,195 @@
+{
+  "date": "2026-06-20",
+  "total_fixtures": 4,
+  "matches": [
+    {
+      "matchup": "Netherlands vs Sweden",
+      "league": "Mundial 2026",
+      "home": "Netherlands",
+      "away": "Sweden",
+      "probabilities": {
+        "win_home": 65.9,
+        "draw": 19.3,
+        "win_away": 14.8,
+        "over_2_5": 93.2,
+        "over_1_5": 98.0
+      },
+      "favorite": "Netherlands",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 4.79,
+      "lambda_away": 1.07,
+      "elo_home": 1961.0,
+      "elo_away": 1714.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 98.0,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 93.2,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "corners_shots_players",
+            "status": "unavailable",
+            "reason": "selecciones usan modelo internacional; no se publican props/corners sin contrato calibrado"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Germany vs Ivory Coast",
+      "league": "Mundial 2026",
+      "home": "Germany",
+      "away": "Ivory Coast",
+      "probabilities": {
+        "win_home": 40.2,
+        "draw": 30.2,
+        "win_away": 29.6,
+        "over_2_5": 56.0,
+        "over_1_5": 79.0
+      },
+      "favorite": "Germany",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.75,
+      "lambda_away": 1.18,
+      "elo_home": 1925.0,
+      "elo_away": 1676.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 79.0,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 56.0,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "corners_shots_players",
+            "status": "unavailable",
+            "reason": "selecciones usan modelo internacional; no se publican props/corners sin contrato calibrado"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Ecuador vs Curaçao",
+      "league": "Mundial 2026",
+      "home": "Ecuador",
+      "away": "Curaçao",
+      "probabilities": {
+        "win_home": 48.6,
+        "draw": 30.5,
+        "win_away": 20.9,
+        "over_2_5": 43.0,
+        "over_1_5": 69.2
+      },
+      "favorite": "Ecuador",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.84,
+      "lambda_away": 0.56,
+      "elo_home": 1935.0,
+      "elo_away": 1433.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 69.2,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 43.0,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "corners_shots_players",
+            "status": "unavailable",
+            "reason": "selecciones usan modelo internacional; no se publican props/corners sin contrato calibrado"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Tunisia vs Japan",
+      "league": "Mundial 2026",
+      "home": "Tunisia",
+      "away": "Japan",
+      "probabilities": {
+        "win_home": 18.3,
+        "draw": 28.2,
+        "win_away": 53.5,
+        "over_2_5": 53.3,
+        "over_1_5": 77.1
+      },
+      "favorite": "Japan",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 0.54,
+      "lambda_away": 2.27,
+      "elo_home": 1633.0,
+      "elo_away": 1906.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 77.1,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 53.3,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "corners_shots_players",
+            "status": "unavailable",
+            "reason": "selecciones usan modelo internacional; no se publican props/corners sin contrato calibrado"
+          }
+        ]
+      }
+    }
+  ],
+  "nota": "Análisis estadístico de todos los partidos del día. Probabilidades crudas del modelo (sin ajuste por liga ni mercado). No incluye recomendación de apuesta — ver value_picks y featured_pick para picks oficiales."
+}

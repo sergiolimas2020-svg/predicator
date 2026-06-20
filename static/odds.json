@@ -1,75 +1,363 @@
 {
+  "Arsenal|Coventry City|2026-08-21": {
+    "league": "Premier League",
+    "home": "Arsenal",
+    "away": "Coventry City",
+    "date": "2026-08-21",
+    "win_home": 1.22,
+    "win_away": 26.0,
+    "draw": 9.0,
+    "over_2_5": 1.52,
+    "over_1_5": null,
+    "fetched_at": "2026-06-20T08:17:07.232832+00:00"
+  },
+  "Hull City|Manchester United|2026-08-22": {
+    "league": "Premier League",
+    "home": "Hull City",
+    "away": "Manchester United",
+    "date": "2026-08-22",
+    "win_home": 9.6,
+    "win_away": 1.52,
+    "draw": 5.4,
+    "over_2_5": 1.78,
+    "over_1_5": null,
+    "fetched_at": "2026-06-20T08:17:07.232875+00:00"
+  },
+  "Everton|Crystal Palace|2026-08-22": {
+    "league": "Premier League",
+    "home": "Everton",
+    "away": "Crystal Palace",
+    "date": "2026-08-22",
+    "win_home": 2.16,
+    "win_away": 4.0,
+    "draw": 3.8,
+    "over_2_5": 1.84,
+    "over_1_5": null,
+    "fetched_at": "2026-06-20T08:17:07.232917+00:00"
+  },
+  "Ipswich Town|Sunderland|2026-08-22": {
+    "league": "Premier League",
+    "home": "Ipswich Town",
+    "away": "Sunderland",
+    "date": "2026-08-22",
+    "win_home": 3.05,
+    "win_away": 2.9,
+    "draw": 3.6,
+    "over_2_5": 1.96,
+    "over_1_5": null,
+    "fetched_at": "2026-06-20T08:17:07.232949+00:00"
+  },
+  "Nottingham Forest|Leeds United|2026-08-22": {
+    "league": "Premier League",
+    "home": "Nottingham Forest",
+    "away": "Leeds United",
+    "date": "2026-08-22",
+    "win_home": 2.42,
+    "win_away": 3.5,
+    "draw": 3.7,
+    "over_2_5": 1.83,
+    "over_1_5": null,
+    "fetched_at": "2026-06-20T08:17:07.232978+00:00"
+  },
+  "Brentford|Tottenham Hotspur|2026-08-22": {
+    "league": "Premier League",
+    "home": "Brentford",
+    "away": "Tottenham Hotspur",
+    "date": "2026-08-22",
+    "win_home": 3.1,
+    "win_away": 3.15,
+    "draw": 3.95,
+    "over_2_5": 1.65,
+    "over_1_5": null,
+    "fetched_at": "2026-06-20T08:17:07.233008+00:00"
+  },
+  "Brighton and Hove Albion|Aston Villa|2026-08-23": {
+    "league": "Premier League",
+    "home": "Brighton and Hove Albion",
+    "away": "Aston Villa",
+    "date": "2026-08-23",
+    "win_home": 2.48,
+    "win_away": 3.3,
+    "draw": 3.9,
+    "over_2_5": 1.64,
+    "over_1_5": null,
+    "fetched_at": "2026-06-20T08:17:07.233045+00:00"
+  },
+  "Manchester City|Bournemouth|2026-08-23": {
+    "league": "Premier League",
+    "home": "Manchester City",
+    "away": "Bournemouth",
+    "date": "2026-08-23",
+    "win_home": 14.5,
+    "win_away": 16.5,
+    "draw": 15.5,
+    "over_2_5": 1.36,
+    "over_1_5": null,
+    "fetched_at": "2026-06-20T08:17:07.233075+00:00"
+  },
+  "Newcastle United|Liverpool|2026-08-23": {
+    "league": "Premier League",
+    "home": "Newcastle United",
+    "away": "Liverpool",
+    "date": "2026-08-23",
+    "win_home": 1000.0,
+    "win_away": 1000.0,
+    "draw": 4.2,
+    "over_2_5": 1.4,
+    "over_1_5": null,
+    "fetched_at": "2026-06-20T08:17:07.233106+00:00"
+  },
+  "Fulham|Chelsea|2026-08-24": {
+    "league": "Premier League",
+    "home": "Fulham",
+    "away": "Chelsea",
+    "date": "2026-08-24",
+    "win_home": 4.0,
+    "win_away": 2.44,
+    "draw": 4.1,
+    "over_2_5": 1.69,
+    "over_1_5": null,
+    "fetched_at": "2026-06-20T08:17:07.233135+00:00"
+  },
+  "Torino|AC Milan|2026-08-22": {
+    "league": "Serie A",
+    "home": "Torino",
+    "away": "AC Milan",
+    "date": "2026-08-22",
+    "win_home": 4.65,
+    "win_away": 1.84,
+    "draw": 3.88,
+    "over_2_5": 1.97,
+    "over_1_5": null,
+    "fetched_at": "2026-06-20T08:17:07.551631+00:00"
+  },
+  "AS Roma|Fiorentina|2026-08-22": {
+    "league": "Serie A",
+    "home": "AS Roma",
+    "away": "Fiorentina",
+    "date": "2026-08-22",
+    "win_home": 1.56,
+    "win_away": 6.75,
+    "draw": 4.45,
+    "over_2_5": 1.94,
+    "over_1_5": null,
+    "fetched_at": "2026-06-20T08:17:07.551659+00:00"
+  },
+  "Atalanta BC|Sassuolo|2026-08-22": {
+    "league": "Serie A",
+    "home": "Atalanta BC",
+    "away": "Sassuolo",
+    "date": "2026-08-22",
+    "win_home": 1.59,
+    "win_away": 6.04,
+    "draw": 4.55,
+    "over_2_5": 1.75,
+    "over_1_5": null,
+    "fetched_at": "2026-06-20T08:17:07.551680+00:00"
+  },
+  "Bologna|Lazio|2026-08-22": {
+    "league": "Serie A",
+    "home": "Bologna",
+    "away": "Lazio",
+    "date": "2026-08-22",
+    "win_home": 2.12,
+    "win_away": 3.87,
+    "draw": 3.52,
+    "over_2_5": 2.22,
+    "over_1_5": null,
+    "fetched_at": "2026-06-20T08:17:07.551700+00:00"
+  },
+  "Parma|Cagliari|2026-08-22": {
+    "league": "Serie A",
+    "home": "Parma",
+    "away": "Cagliari",
+    "date": "2026-08-22",
+    "win_home": 2.73,
+    "win_away": 3.01,
+    "draw": 3.15,
+    "over_2_5": 2.43,
+    "over_1_5": null,
+    "fetched_at": "2026-06-20T08:17:07.551719+00:00"
+  },
+  "Udinese|Como|2026-08-22": {
+    "league": "Serie A",
+    "home": "Udinese",
+    "away": "Como",
+    "date": "2026-08-22",
+    "win_home": 4.8,
+    "win_away": 1.86,
+    "draw": 3.73,
+    "over_2_5": 2.23,
+    "over_1_5": null,
+    "fetched_at": "2026-06-20T08:17:07.551738+00:00"
+  },
+  "Frosinone|Juventus|2026-08-22": {
+    "league": "Serie A",
+    "home": "Frosinone",
+    "away": "Juventus",
+    "date": "2026-08-22",
+    "win_home": 7.11,
+    "win_away": 1.51,
+    "draw": 4.66,
+    "over_2_5": 1.88,
+    "over_1_5": null,
+    "fetched_at": "2026-06-20T08:17:07.551757+00:00"
+  },
+  "Genoa|Napoli|2026-08-22": {
+    "league": "Serie A",
+    "home": "Genoa",
+    "away": "Napoli",
+    "date": "2026-08-22",
+    "win_home": 5.37,
+    "win_away": 1.76,
+    "draw": 3.83,
+    "over_2_5": 2.29,
+    "over_1_5": null,
+    "fetched_at": "2026-06-20T08:17:07.551819+00:00"
+  },
+  "Inter Milan|Monza|2026-08-22": {
+    "league": "Serie A",
+    "home": "Inter Milan",
+    "away": "Monza",
+    "date": "2026-08-22",
+    "win_home": 1.24,
+    "win_away": 14.6,
+    "draw": 7.5,
+    "over_2_5": 1.69,
+    "over_1_5": null,
+    "fetched_at": "2026-06-20T08:17:07.551846+00:00"
+  },
+  "Venezia|Lecce|2026-08-22": {
+    "league": "Serie A",
+    "home": "Venezia",
+    "away": "Lecce",
+    "date": "2026-08-22",
+    "win_home": 2.4,
+    "win_away": 3.33,
+    "draw": 3.33,
+    "over_2_5": 2.29,
+    "over_1_5": null,
+    "fetched_at": "2026-06-20T08:17:07.551865+00:00"
+  },
   "Torino|AC Milan|2026-08-23": {
     "league": "Serie A",
     "home": "Torino",
     "away": "AC Milan",
     "date": "2026-08-23",
-    "win_home": 1000.0,
-    "win_away": 1000.0,
-    "draw": 1000.0,
-    "over_2_5": null,
+    "win_home": 6.2,
+    "win_away": 1.99,
+    "draw": 4.8,
+    "over_2_5": 1.9,
     "over_1_5": null,
-    "fetched_at": "2026-06-19T09:24:31.350561+00:00"
+    "fetched_at": "2026-06-20T08:17:07.551875+00:00"
   },
   "AS Roma|Fiorentina|2026-08-23": {
     "league": "Serie A",
     "home": "AS Roma",
     "away": "Fiorentina",
     "date": "2026-08-23",
-    "win_home": 1000.0,
-    "win_away": 1000.0,
-    "draw": 1000.0,
+    "win_home": 1.63,
+    "win_away": 10.0,
+    "draw": 5.6,
+    "over_2_5": 1.86,
+    "over_1_5": null,
+    "fetched_at": "2026-06-20T08:17:07.551885+00:00"
+  },
+  "Atalanta BC|Sassuolo|2026-08-23": {
+    "league": "Serie A",
+    "home": "Atalanta BC",
+    "away": "Sassuolo",
+    "date": "2026-08-23",
+    "win_home": 1.68,
+    "win_away": 8.4,
+    "draw": 5.8,
     "over_2_5": null,
     "over_1_5": null,
-    "fetched_at": "2026-06-19T09:24:31.350588+00:00"
+    "fetched_at": "2026-06-20T08:17:07.551895+00:00"
   },
   "Bologna|Lazio|2026-08-23": {
     "league": "Serie A",
     "home": "Bologna",
     "away": "Lazio",
     "date": "2026-08-23",
-    "win_home": 1000.0,
-    "win_away": 1000.0,
-    "draw": 1000.0,
+    "win_home": 2.36,
+    "win_away": 5.1,
+    "draw": 4.2,
     "over_2_5": null,
     "over_1_5": null,
-    "fetched_at": "2026-06-19T09:24:31.350596+00:00"
+    "fetched_at": "2026-06-20T08:17:07.551904+00:00"
   },
   "Parma|Cagliari|2026-08-23": {
     "league": "Serie A",
     "home": "Parma",
     "away": "Cagliari",
     "date": "2026-08-23",
-    "win_home": 1000.0,
-    "win_away": 1000.0,
-    "draw": 1000.0,
+    "win_home": 3.2,
+    "win_away": 3.55,
+    "draw": 3.7,
     "over_2_5": null,
     "over_1_5": null,
-    "fetched_at": "2026-06-19T09:24:31.350602+00:00"
+    "fetched_at": "2026-06-20T08:17:07.551913+00:00"
+  },
+  "Udinese|Como|2026-08-23": {
+    "league": "Serie A",
+    "home": "Udinese",
+    "away": "Como",
+    "date": "2026-08-23",
+    "win_home": 6.6,
+    "win_away": 2.02,
+    "draw": 4.4,
+    "over_2_5": null,
+    "over_1_5": null,
+    "fetched_at": "2026-06-20T08:17:07.551925+00:00"
+  },
+  "Frosinone|Juventus|2026-08-23": {
+    "league": "Serie A",
+    "home": "Frosinone",
+    "away": "Juventus",
+    "date": "2026-08-23",
+    "win_home": 11.0,
+    "win_away": 1.56,
+    "draw": 5.8,
+    "over_2_5": 1.81,
+    "over_1_5": null,
+    "fetched_at": "2026-06-20T08:17:07.551934+00:00"
   },
   "Genoa|Napoli|2026-08-23": {
     "league": "Serie A",
     "home": "Genoa",
     "away": "Napoli",
     "date": "2026-08-23",
-    "win_home": 1000.0,
-    "win_away": 1000.0,
-    "draw": 1000.0,
+    "win_home": 7.4,
+    "win_away": 1.9,
+    "draw": 4.4,
     "over_2_5": null,
     "over_1_5": null,
-    "fetched_at": "2026-06-19T09:24:31.350612+00:00"
+    "fetched_at": "2026-06-20T08:17:07.551943+00:00"
   },
   "Inter Milan|Monza|2026-08-23": {
     "league": "Serie A",
     "home": "Inter Milan",
     "away": "Monza",
     "date": "2026-08-23",
-    "win_home": 1.25,
-    "win_away": 1000.0,
-    "draw": 1000.0,
+    "win_home": 1.27,
+    "win_away": 25.0,
+    "draw": 9.0,
     "over_2_5": null,
     "over_1_5": null,
-    "fetched_at": "2026-06-19T09:24:31.350620+00:00"
+    "fetched_at": "2026-06-20T08:17:07.551952+00:00"
+  },
+  "Venezia|Lecce|2026-08-23": {
+    "league": "Serie A",
+    "home": "Venezia",
+    "away": "Lecce",
+    "date": "2026-08-23",
+    "win_home": 2.76,
+    "win_away": 4.2,
+    "draw": 4.0,
+    "over_2_5": null,
+    "over_1_5": null,
+    "fetched_at": "2026-06-20T08:17:07.551961+00:00"
   },
   "Fluminense-RJ|Independiente Rivadavia|2026-08-11": {
     "league": "Copa Libertadores",
@@ -81,7 +369,7 @@
     "draw": 4.5,
     "over_2_5": 2.0,
     "over_1_5": null,
-    "fetched_at": "2026-06-19T09:24:31.921695+00:00"
+    "fetched_at": "2026-06-20T08:17:08.297657+00:00"
   },
   "Palmeiras-SP|Cerro Porteño|2026-08-12": {
     "league": "Copa Libertadores",
@@ -93,7 +381,7 @@
     "draw": 5.6,
     "over_2_5": 2.0,
     "over_1_5": null,
-    "fetched_at": "2026-06-19T09:24:31.921733+00:00"
+    "fetched_at": "2026-06-20T08:17:08.297691+00:00"
   },
   "Platense|Coquimbo Unido|2026-08-12": {
     "league": "Copa Libertadores",
@@ -105,7 +393,7 @@
     "draw": 3.5,
     "over_2_5": 2.27,
     "over_1_5": null,
-    "fetched_at": "2026-06-19T09:24:31.921757+00:00"
+    "fetched_at": "2026-06-20T08:17:08.297715+00:00"
   },
   "Rosario Central|Corinthians-SP|2026-08-12": {
     "league": "Copa Libertadores",
@@ -117,7 +405,7 @@
     "draw": 3.25,
     "over_2_5": 1.77,
     "over_1_5": null,
-    "fetched_at": "2026-06-19T09:24:31.921765+00:00"
+    "fetched_at": "2026-06-20T08:17:08.297724+00:00"
   },
   "Cruzeiro|Flamengo-RJ|2026-08-12": {
     "league": "Copa Libertadores",
@@ -129,7 +417,7 @@
     "draw": 3.35,
     "over_2_5": 2.17,
     "over_1_5": null,
-    "fetched_at": "2026-06-19T09:24:31.921788+00:00"
+    "fetched_at": "2026-06-20T08:17:08.297749+00:00"
   },
   "Mirassol|LDU Quito|2026-08-12": {
     "league": "Copa Libertadores",
@@ -141,7 +429,7 @@
     "draw": 3.44,
     "over_2_5": 2.4,
     "over_1_5": null,
-    "fetched_at": "2026-06-19T09:24:31.921813+00:00"
+    "fetched_at": "2026-06-20T08:17:08.297799+00:00"
   },
   "Deportes Tolima|Independiente del Valle|2026-08-12": {
     "league": "Copa Libertadores",
@@ -153,7 +441,7 @@
     "draw": 3.35,
     "over_2_5": 1.97,
     "over_1_5": null,
-    "fetched_at": "2026-06-19T09:24:31.921860+00:00"
+    "fetched_at": "2026-06-20T08:17:08.297828+00:00"
   },
   "Estudiantes La Plata|Universidad Católica (CHI)|2026-08-12": {
     "league": "Copa Libertadores",
@@ -165,7 +453,7 @@
     "draw": 3.75,
     "over_2_5": 2.42,
     "over_1_5": null,
-    "fetched_at": "2026-06-19T09:24:31.921883+00:00"
+    "fetched_at": "2026-06-20T08:17:08.297852+00:00"
   },
   "Rosario Central|Corinthians-SP|2026-08-14": {
     "league": "Copa Libertadores",
@@ -177,7 +465,7 @@
     "draw": 3.35,
     "over_2_5": 2.24,
     "over_1_5": null,
-    "fetched_at": "2026-06-19T09:24:31.921901+00:00"
+    "fetched_at": "2026-06-20T08:17:08.297872+00:00"
   },
   "Nacional de Montevideo|CA Tigre BA|2026-07-21": {
     "league": "Copa Sudamericana",
@@ -189,7 +477,7 @@
     "draw": 3.5,
     "over_2_5": 2.21,
     "over_1_5": null,
-    "fetched_at": "2026-06-19T09:24:31.969042+00:00"
+    "fetched_at": "2026-06-20T08:17:08.417692+00:00"
   },
   "Boca Juniors|O'Higgins|2026-07-22": {
     "league": "Copa Sudamericana",
@@ -201,7 +489,7 @@
     "draw": 3.95,
     "over_2_5": 2.02,
     "over_1_5": null,
-    "fetched_at": "2026-06-19T09:24:31.969063+00:00"
+    "fetched_at": "2026-06-20T08:17:08.417710+00:00"
   },
   "Sporting Cristal|Bragantino-SP|2026-07-22": {
     "league": "Copa Sudamericana",
@@ -213,7 +501,7 @@
     "draw": 1000.0,
     "over_2_5": 2.4,
     "over_1_5": null,
-    "fetched_at": "2026-06-19T09:24:31.969086+00:00"
+    "fetched_at": "2026-06-20T08:17:08.417741+00:00"
   },
   "Independiente Santa Fe|Caracas FC|2026-07-22": {
     "league": "Copa Sudamericana",
@@ -225,7 +513,7 @@
     "draw": 3.85,
     "over_2_5": 2.55,
     "over_1_5": null,
-    "fetched_at": "2026-06-19T09:24:31.969094+00:00"
+    "fetched_at": "2026-06-20T08:17:08.417753+00:00"
   },
   "Club Bolívar|Grêmio|2026-07-22": {
     "league": "Copa Sudamericana",
@@ -237,7 +525,7 @@
     "draw": 1000.0,
     "over_2_5": 1.71,
     "over_1_5": null,
-    "fetched_at": "2026-06-19T09:24:31.969114+00:00"
+    "fetched_at": "2026-06-20T08:17:08.417848+00:00"
   },
   "Lanus|Club Cienciano|2026-07-22": {
     "league": "Copa Sudamericana",
@@ -249,7 +537,7 @@
     "draw": 5.01,
     "over_2_5": 2.14,
     "over_1_5": null,
-    "fetched_at": "2026-06-19T09:24:31.969130+00:00"
+    "fetched_at": "2026-06-20T08:17:08.417869+00:00"
   },
   "Independiente Medellín|Vasco da Gama|2026-07-22": {
     "league": "Copa Sudamericana",
@@ -261,7 +549,7 @@
     "draw": 3.38,
     "over_2_5": 2.37,
     "over_1_5": null,
-    "fetched_at": "2026-06-19T09:24:31.969150+00:00"
+    "fetched_at": "2026-06-20T08:17:08.417889+00:00"
   },
   "UCV FC|Santos|2026-07-22": {
     "league": "Copa Sudamericana",
@@ -273,7 +561,7 @@
     "draw": 4.1,
     "over_2_5": 2.25,
     "over_1_5": null,
-    "fetched_at": "2026-06-19T09:24:31.969166+00:00"
+    "fetched_at": "2026-06-20T08:17:08.417906+00:00"
   },
   "Boca Juniors|O'Higgins|2026-07-24": {
     "league": "Copa Sudamericana",
@@ -285,7 +573,7 @@
     "draw": 4.74,
     "over_2_5": 2.08,
     "over_1_5": null,
-    "fetched_at": "2026-06-19T09:24:31.969180+00:00"
+    "fetched_at": "2026-06-20T08:17:08.417923+00:00"
   },
   "Independiente Santa Fe|Caracas FC|2026-07-24": {
     "league": "Copa Sudamericana",
@@ -297,6 +585,6 @@
     "draw": 4.1,
     "over_2_5": 2.48,
     "over_1_5": null,
-    "fetched_at": "2026-06-19T09:24:31.969193+00:00"
+    "fetched_at": "2026-06-20T08:17:08.417941+00:00"
   }
 }
