@@ -7,7 +7,7 @@
       <div class="ai-chat-head">
         <div>
           <strong>Chat de analisis</strong>
-          <span>Beta gratis con datos internos de PREDIKTOR</span>
+          <span>Beta con 3 preguntas gratis usando datos internos</span>
         </div>
         <a href="/plan-pro">Pro</a>
       </div>
@@ -25,7 +25,7 @@
         <textarea name="message" rows="2" maxlength="1200" placeholder="Ej: Over 1.5 tiros a puerta de Alexander Isak"></textarea>
         <button type="submit">Preguntar</button>
       </form>
-      <div class="ai-chat-foot">Modo gratis: usa archivos internos de PREDIKTOR, sin consumir OpenAI.</div>
+      <div class="ai-chat-foot">3 preguntas gratis. Pro desbloquea el asistente sin limite.</div>
     </section>
   `;
 
@@ -44,8 +44,21 @@
   }
 
   function ask(text) {
+    if (submit.disabled && textarea.disabled) return;
     textarea.value = text;
     form.requestSubmit();
+  }
+
+  function updateFoot(data) {
+    if (data.is_pro) {
+      foot.textContent = "Plan Pro activo: asistente estadistico sin limite.";
+      return;
+    }
+    if (typeof data.remaining === "number") {
+      foot.textContent = `${data.remaining} ${data.remaining === 1 ? "pregunta gratis restante" : "preguntas gratis restantes"}. Pro desbloquea el asistente sin limite.`;
+      return;
+    }
+    foot.textContent = "3 preguntas gratis. Pro desbloquea el asistente sin limite.";
   }
 
   mount.querySelectorAll(".ai-chat-example").forEach((button) => {
@@ -72,20 +85,23 @@
 
       if (data.locked) {
         appendMessage(data.error, "bot");
+        textarea.disabled = true;
+        submit.disabled = true;
+        submit.textContent = "Bloqueado";
         foot.innerHTML = '<a href="/plan-pro">Activar PREDIKTOR Pro</a>';
         return;
       }
       if (!response.ok) throw new Error(data.error || "No se pudo responder.");
 
       appendMessage(data.answer, "bot");
-      foot.textContent = data.free_data_mode
-        ? "Modo gratis: respuesta generada con datos internos, sin consumir OpenAI."
-        : "Respuesta generada.";
+      updateFoot(data);
     } catch (error) {
       appendMessage(error.message || "No se pudo responder.", "bot");
     } finally {
-      submit.disabled = false;
-      submit.textContent = "Preguntar";
+      if (!textarea.disabled) {
+        submit.disabled = false;
+        submit.textContent = "Preguntar";
+      }
     }
   });
 }());

@@ -1,7 +1,12 @@
 const fs = require("fs");
 const path = require("path");
+const crypto = require("crypto");
 
 const QUERY_LOG_PATH = path.join(process.cwd(), "static", "ai_chat_queries.log");
+const VIP_COOKIE_NAME = "prediktor_vip";
+const CHAT_USAGE_COOKIE_NAME = "prediktor_ai_free_count";
+const FREE_CHAT_LIMIT = 3;
+const FREE_CHAT_MAX_AGE = 60 * 60 * 24 * 365;
 
 const SUPPORTED_MARKETS = [
   "Over corners del partido",
@@ -88,6 +93,40 @@ function appendQueryLog(entry) {
   } catch (_) {
     // Logging is observability only; never block a user answer.
   }
+}
+
+function readCookie(header, name) {
+  return String(header || "")
+    .split(";")
+    .map((part) => part.trim())
+    .find((part) => part.startsWith(`${name}=`))
+    ?.slice(name.length + 1);
+}
+
+function sessionToken() {
+  const password = process.env.VIP_PASSWORD;
+  const secret = process.env.VIP_SESSION_SECRET || "prediktor-vip-v1";
+  if (!password) return null;
+  return crypto.createHash("sha256").update(`${password}:${secret}`).digest("hex");
+}
+
+function isProRequest(req) {
+  const expected = sessionToken();
+  if (!expected) return false;
+  return readCookie(req.headers.cookie, VIP_COOKIE_NAME) === expected;
+}
+
+function readFreeChatCount(req) {
+  const value = Number(readCookie(req.headers.cookie, CHAT_USAGE_COOKIE_NAME));
+  return Number.isFinite(value) && value > 0 ? Math.floor(value) : 0;
+}
+
+function setFreeChatCount(res, count) {
+  const safeCount = Math.max(0, Math.min(999, Number(count) || 0));
+  res.setHeader(
+    "Set-Cookie",
+    `${CHAT_USAGE_COOKIE_NAME}=${safeCount}; Path=/; Max-Age=${FREE_CHAT_MAX_AGE}; Secure; SameSite=Lax`
+  );
 }
 
 function pct(value) {
@@ -1040,9 +1079,41 @@ module.exports = async function handler(req, res) {
     return json(res, 400, { ok: false, error: "La pregunta es demasiado larga." });
   }
 
+  const isPro = isProRequest(req);
+  const currentCount = readFreeChatCount(req);
+  if (!isPro && currentCount >= FREE_CHAT_LIMIT) {
+    const detected = detectMarket(message);
+    appendQueryLog({
+      at: new Date().toISOString(),
+      question: normalizeQuestion(message).slice(0, 240),
+      market_key: detected.key,
+      market_label: detected.label,
+      unsupported: detected.key === "unsupported_market",
+      answered: false,
+      locked: true,
+      free_data_mode: true
+    });
+    return json(res, 402, {
+      ok: false,
+      locked: true,
+      error: "Ya usaste tus 3 preguntas gratis. Activa PREDIKTOR Pro para seguir usando el asistente estadistico sin limite.",
+      cta: {
+        label: "Ver Plan Pro",
+        href: "/plan-pro"
+      },
+      remaining: 0,
+      limit: FREE_CHAT_LIMIT,
+      is_pro: false
+    });
+  }
+
   const answer = buildAnswer(message);
   const detected = detectMarket(message);
   const unsupported = detected.key === "unsupported_market" || answer.includes("SIN COBERTURA DEL MOTOR");
+  const nextCount = isPro ? currentCount : currentCount + 1;
+  if (!isPro) {
+    setFreeChatCount(res, nextCount);
+  }
   appendQueryLog({
     at: new Date().toISOString(),
     question: normalizeQuestion(message).slice(0, 240),
@@ -1050,6 +1121,7 @@ module.exports = async function handler(req, res) {
     market_label: detected.label,
     unsupported,
     answered: Boolean(answer),
+    locked: false,
     free_data_mode: true
   });
   return json(res, 200, {
@@ -1061,8 +1133,9 @@ module.exports = async function handler(req, res) {
       unsupported
     },
     supported_markets: SUPPORTED_MARKETS,
-    is_pro: false,
+    is_pro: isPro,
     free_data_mode: true,
-    remaining: null
+    remaining: isPro ? null : Math.max(0, FREE_CHAT_LIMIT - nextCount),
+    limit: FREE_CHAT_LIMIT
   });
 };

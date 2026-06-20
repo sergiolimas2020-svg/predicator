@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>VIP — PREDIKTOR</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --bg:#0a0a0f; --panel:#16161f; --panel2:#1c1c28; --line:#2a2a3a; --gold:#f0b429; --text:#e8edf5; --muted:#94a3b8; --green:#22c55e; --red:#ef4444; --blue:#60a5fa; }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { background:var(--bg); color:var(--text); font-family:"DM Sans",sans-serif; line-height:1.55; }
+    nav { display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:1rem 1.5rem; border-bottom:1px solid var(--line); background:rgba(10,10,15,.96); position:sticky; top:0; z-index:10; }
+    .logo { font-family:"Bebas Neue",sans-serif; letter-spacing:3px; font-size:1.8rem; color:var(--text); text-decoration:none; }
+    .logo span, .gold { color:var(--gold); }
+    .nav-actions { display:flex; gap:.7rem; align-items:center; flex-wrap:wrap; justify-content:flex-end; }
+    a, button { color:inherit; }
+    .btn { border:1px solid var(--line); background:transparent; color:var(--muted); border-radius:6px; padding:.72rem 1rem; text-decoration:none; font-weight:700; cursor:pointer; font:inherit; }
+    .btn.primary { background:var(--gold); border-color:var(--gold); color:#111118; }
+    main { width:min(1180px, 100%); margin:0 auto; padding:2rem 1rem 4rem; }
+    .hero { border:1px solid rgba(240,180,41,.35); background:linear-gradient(135deg, rgba(240,180,41,.08), rgba(255,255,255,.015)); border-radius:8px; padding:1.6rem; margin-bottom:1.3rem; }
+    h1, h2, h3 { font-family:"Bebas Neue",sans-serif; letter-spacing:1px; line-height:1; }
+    h1 { font-size:clamp(2.8rem, 7vw, 5.2rem); }
+    h2 { font-size:2rem; margin:2rem 0 1rem; }
+    h3 { font-size:1.45rem; }
+    .muted { color:var(--muted); }
+    .grid { display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:1rem; }
+    .card { background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:1rem; min-width:0; }
+    .signal { border-color:rgba(240,180,41,.42); }
+    .kicker { color:var(--gold); font-size:.72rem; text-transform:uppercase; letter-spacing:.14em; font-weight:800; margin-bottom:.45rem; }
+    .metric { font-size:2rem; color:var(--gold); font-weight:800; }
+    .pill { display:inline-flex; align-items:center; border-radius:999px; padding:.25rem .55rem; font-size:.72rem; font-weight:800; background:rgba(34,197,94,.13); color:var(--green); margin-top:.55rem; }
+    .pill.warn { background:rgba(240,180,41,.12); color:var(--gold); }
+    .pill.block { background:rgba(239,68,68,.12); color:#fca5a5; }
+    .market-list { display:grid; gap:.6rem; margin-top:.8rem; }
+    .market-row { display:grid; grid-template-columns:1.2fr .6fr .7fr; gap:.7rem; align-items:center; background:#111118; border:1px solid rgba(255,255,255,.05); border-radius:6px; padding:.75rem; }
+    .history-table { width:100%; border-collapse:collapse; overflow:hidden; border-radius:8px; }
+    .history-table th, .history-table td { padding:.75rem; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; }
+    .history-table th { color:var(--muted); font-size:.75rem; text-transform:uppercase; letter-spacing:.08em; }
+    .table-wrap { overflow-x:auto; background:var(--panel); border:1px solid var(--line); border-radius:8px; }
+    .notice { border-left:3px solid var(--gold); padding:.85rem 1rem; background:rgba(240,180,41,.06); color:var(--muted); border-radius:6px; margin:1rem 0; }
+    @media(max-width:900px) { .grid { grid-template-columns:1fr; } .market-row { grid-template-columns:1fr; } nav { align-items:flex-start; flex-direction:column; } }
+  </style>
+</head>
+<body>
+  <nav>
+    <a class="logo" href="/">PREDI<span>KTOR</span></a>
+    <div class="nav-actions">
+      <a class="btn" href="/app.html?sport=futbol&liga=worldcup">Analizador</a>
+      <a class="btn" href="/historial">Historial público</a>
+      <button class="btn" id="logout-btn">Salir</button>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div class="kicker">VIP activo</div>
+      <h1>Centro VIP <span class="gold">PREDIKTOR</span></h1>
+      <p class="muted">Todas las señales elegibles Over 1.5 del día, radar informativo del Mundial y auditoría de mercados. Los mercados fuera de Over 1.5 aparecen solo como datos en validación.</p>
+    </section>
+
+    <div class="notice">Regla editorial: el único mercado publicable como señal oficial es <strong>Over 1.5 selecciones</strong>. Winner, DNB, doble oportunidad, Over 2.5, córners y tiros de jugadores son informativos o bloqueados según muestra.</div>
+
+    <section>
+      <h2>Señales VIP de Hoy</h2>
+      <div id="signals" class="grid"></div>
+    </section>
+
+    <section>
+      <h2>Radar Mundial</h2>
+      <p class="muted">Líneas exploradas por partido. Esto ayuda a leer el contexto, pero no convierte mercados no validados en picks.</p>
+      <div id="radar" class="grid"></div>
+    </section>
+
+    <section>
+      <h2>Estado de Mercados</h2>
+      <div id="market-health" class="grid"></div>
+    </section>
+
+    <section>
+      <h2>Historial Detallado</h2>
+      <div class="table-wrap">
+        <table class="history-table">
+          <thead>
+            <tr><th>Fecha</th><th>Partido</th><th>Mercado</th><th>Prob.</th><th>Resultado</th><th>Estado</th></tr>
+          </thead>
+          <tbody id="history-body"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const $ = (id) => document.getElementById(id);
+    const pct = (value) => Number.isFinite(Number(value)) ? `${Number(value).toFixed(1)}%` : "s/d";
+    const fairOdd = (prob) => Number(prob) > 0 ? (100 / Number(prob)).toFixed(2) : "s/d";
+
+    async function fetchJson(path) {
+      const response = await fetch(path, { cache: "no-store" });
+      if (!response.ok) throw new Error(`No se pudo cargar ${path}`);
+      return response.json();
+    }
+
+    function renderSignals(daily) {
+      const picks = (daily.picks_suscripcion || []).filter((pick) => /over 1\.5/i.test(pick.market || ""));
+      $("signals").innerHTML = picks.length ? picks.map((pick) => `
+        <article class="card signal">
+          <div class="kicker">Señal oficial Over 1.5</div>
+          <h3>${pick.matchup}</h3>
+          <p class="muted">${pick.league || "Fútbol"} · ${daily.date || ""}</p>
+          <div class="metric">${pct(pick.prob_adjusted)}</div>
+          <p>Cuota mínima de valor: <strong>${fairOdd(pick.prob_adjusted)}</strong></p>
+          <span class="pill">${pick.tipo === "pick_gratuito" ? "También será gratis" : "Solo VIP"}</span>
+        </article>
+      `).join("") : `<article class="card"><h3>Sin señal oficial</h3><p class="muted">Hoy no hay Over 1.5 elegible para publicar.</p></article>`;
+    }
+
+    function labelForMarket(market) {
+      const name = (market.market || "").toLowerCase();
+      if (name.includes("over 1.5") && market.passed) return ["Oficial elegible", "pill"];
+      if (name.includes("victoria")) return ["Referencia estadística", "pill warn"];
+      return ["En validación / no oficial", "pill warn"];
+    }
+
+    function renderRadar(radar) {
+      $("radar").innerHTML = (radar.matches || []).map((match) => `
+        <article class="card">
+          <div class="kicker">${match.status === "signal" ? "Con señal Over 1.5" : "Sin señal oficial"}</div>
+          <h3>${match.match}</h3>
+          <p class="muted">${match.league || "Mundial"} · fuente ${match.source || "datos"}</p>
+          <div class="market-list">
+            ${(match.markets || []).map((market) => {
+              const label = labelForMarket(market);
+              return `<div class="market-row">
+                <strong>${market.market}</strong>
+                <span>${market.pick || "Total partido"}</span>
+                <span>${pct(market.prob)}</span>
+                <span class="${label[1]}">${label[0]}</span>
+                <small class="muted">${market.reason || ""}</small>
+              </div>`;
+            }).join("")}
+          </div>
+        </article>
+      `).join("");
+    }
+
+    function verdict(key) {
+      if (key === "over_1_5") return ["Listo VIP", "pill"];
+      if (key === "corners") return ["Bloqueado", "pill block"];
+      return ["Validación / no oficial", "pill warn"];
+    }
+
+    function renderMarketHealth(calibration) {
+      const markets = calibration.markets || {};
+      $("market-health").innerHTML = Object.entries(markets).map(([key, value]) => {
+        const tag = verdict(key);
+        const gap = Number(value.hit_rate || 0) - Number(value.avg_prob || 0);
+        return `<article class="card">
+          <div class="kicker">${key.replaceAll("_", " ")}</div>
+          <h3>${tag[0]}</h3>
+          <p class="muted">Muestra: ${value.n || 0} picks</p>
+          <p>Hit rate real: <strong>${pct(value.hit_rate)}</strong></p>
+          <p>Probabilidad media: <strong>${pct(value.avg_prob)}</strong></p>
+          <p>Gap: <strong>${gap.toFixed(1)} pts</strong></p>
+          <span class="${tag[1]}">${tag[0]}</span>
+        </article>`;
+      }).join("");
+    }
+
+    function renderHistory(history) {
+      $("history-body").innerHTML = (history.ultimos || []).slice(0, 30).map((row) => `
+        <tr>
+          <td>${row.fecha || ""}</td>
+          <td>${row.home || ""} vs ${row.away || ""}<br><small class="muted">${row.league || ""}</small></td>
+          <td>${row.prediccion || ""}</td>
+          <td>${pct(row.prob_adjusted || row.prob_original)}</td>
+          <td>${row.resultado_real || "pendiente"}</td>
+          <td>${row.acerto === true ? "Acertó" : row.acerto === false ? "Falló" : "Pendiente"}</td>
+        </tr>
+      `).join("");
+    }
+
+    async function init() {
+      try {
+        localStorage.setItem("prediktor_vip_unlocked", "1");
+        const [daily, radar, calibration, history] = await Promise.all([
+          fetchJson("/static/predictions/daily_picks.json"),
+          fetchJson("/static/statistical_radar.json"),
+          fetchJson("/static/calibration_shadow.json"),
+          fetchJson("/static/historial.json")
+        ]);
+        renderSignals(daily);
+        renderRadar(radar);
+        renderMarketHealth(calibration);
+        renderHistory(history);
+      } catch (error) {
+        document.querySelector("main").insertAdjacentHTML("beforeend", `<div class="notice">${error.message}</div>`);
+      }
+    }
+
+    $("logout-btn").addEventListener("click", async () => {
+      await fetch("/api/vip-logout", { method: "POST" });
+      localStorage.removeItem("prediktor_vip_unlocked");
+      window.location.href = "/vip-login";
+    });
+
+    init();
+  </script>
+</body>
+</html>

@@ -23,13 +23,20 @@ async function initPaywall() {
   if (!container) return;
 
   try {
-    const [res, configRes] = await Promise.all([
+    const [res, configRes, proRes] = await Promise.all([
       fetch('static/predictions/daily_picks.json'),
-      fetch('/api/public-config').catch(() => null)
+      fetch('/api/public-config').catch(() => null),
+      fetch('/api/pro-status').catch(() => null)
     ]);
     if (!res.ok) throw new Error(res.status);
     const data = await res.json();
     const config = configRes && configRes.ok ? await configRes.json() : null;
+    const pro = proRes && proRes.ok ? await proRes.json() : null;
+    if (pro && pro.is_pro) {
+      userState.isLogged = true;
+      userState.isSubscribed = true;
+      userState.hasDayPick = true;
+    }
     if (shouldDelayFreeSignal(data.date, config)) {
       data._free_signal_delayed = true;
       data.pick_gratuito = null;
@@ -306,43 +313,41 @@ function renderLockedCard(pick, tier) {
 
 // ── CTA botones ──
 function renderCTA(tier) {
-  const telegramUrl = 'https://t.me/prediktorcol';
-
   if (tier === 'premium') {
     return `
     <div class="pw-cta pw-cta-premium">
       <div class="pw-cta-text">
         <strong>Desbloquea el Pick del Día</strong>
-        <span>El pick con mayor valor esperado, analizado por el motor</span>
+        <span>Acceso Pro web con pick destacado, probabilidad calibrada y herramientas avanzadas</span>
       </div>
-      <a href="#" class="pw-cta-btn pw-cta-btn-premium" onclick="alert('Pagos próximamente');return false;">
-        💎 Desbloquear — próximamente
+      <a href="/plan-pro" class="pw-cta-btn pw-cta-btn-premium">
+        Desbloquear Pro
       </a>
     </div>
     <div class="pw-telegram">
       <div class="pw-telegram-text">
-        <strong>El Pick del Día se adelanta en nuestro canal</strong>
-        <span>Síguenos en Telegram para no perderte las oportunidades</span>
+        <strong>¿Ya tienes acceso Pro?</strong>
+        <span>Ingresa con tu contraseña mensual para desbloquear las herramientas</span>
       </div>
-      <a href="${telegramUrl}" target="_blank" rel="noopener" class="pw-telegram-btn">🔥 Ir a Telegram</a>
+      <a href="/vip-login" class="pw-telegram-btn">Entrar al Pro</a>
     </div>`;
   }
   return `
   <div class="pw-cta pw-cta-sub">
     <div class="pw-cta-text">
       <strong>Accede a todos los picks diarios</strong>
-      <span>2 a 4 picks con mercado y probabilidad calibrada del modelo</span>
+      <span>Señales Pro, analizador completo y lectura estadística del día</span>
     </div>
-    <a href="#" class="pw-cta-btn pw-cta-btn-sub" onclick="alert('Suscripción próximamente');return false;">
-      📊 Suscribirse — próximamente
+    <a href="/plan-pro" class="pw-cta-btn pw-cta-btn-sub">
+      Ver Plan Pro
     </a>
   </div>
   <div class="pw-telegram">
     <div class="pw-telegram-text">
-      <strong>¿Quieres ver picks diarios reales?</strong>
-      <span>Únete gratis a nuestro canal de Telegram</span>
+      <strong>Acceso web, no grupo privado</strong>
+      <span>El pago desbloquea herramientas dentro de PREDIKTOR</span>
     </div>
-    <a href="${telegramUrl}" target="_blank" rel="noopener" class="pw-telegram-btn">📣 Ver picks en Telegram</a>
+    <a href="/vip-login" class="pw-telegram-btn">Ya tengo acceso</a>
   </div>`;
 }
 
