@@ -17,12 +17,7 @@
     <title>Analizador de Partidos — PREDIKTOR</title>
     <meta name="description" content="Analiza cualquier partido de fútbol o NBA con el motor estadístico de PREDIKTOR: probabilidades, cuota justa y mercados de goles en tiempo real.">
     <link rel="canonical" href="https://prediktorcol.com/app.html">
-
-    <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5953880132871590"
-     crossorigin="anonymous"></script>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
@@ -214,6 +209,46 @@
         font-size: 1.8rem; font-weight: 700;
         letter-spacing: 0.1em; margin-bottom: 0.5rem;
         color: var(--gold-500);
+    }
+
+    .vip-lock-banner {
+        margin: 0 0 1.5rem;
+        padding: 1rem 1.1rem;
+        border: 1px solid rgba(240,180,41,0.35);
+        border-radius: 8px;
+        background: linear-gradient(135deg, rgba(240,180,41,0.09), rgba(255,255,255,0.015));
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+    }
+    .vip-lock-banner[hidden] { display: none; }
+    .vip-lock-title {
+        font-family: var(--font-display);
+        color: var(--gold-500);
+        font-size: 1.35rem;
+        letter-spacing: 0.08em;
+        margin-bottom: 0.2rem;
+    }
+    .vip-lock-text { color: var(--gray-400); font-size: 0.9rem; line-height: 1.5; }
+    .vip-lock-actions { display: flex; gap: 0.6rem; flex-wrap: wrap; justify-content: flex-end; }
+    .vip-lock-btn {
+        min-height: 42px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.65rem 0.9rem;
+        border-radius: 6px;
+        border: 1px solid rgba(240,180,41,0.35);
+        color: var(--gray-100);
+        text-decoration: none;
+        font-weight: 800;
+        font-size: 0.88rem;
+    }
+    .vip-lock-btn.primary { background: var(--gold-500); color: var(--navy-900); border-color: var(--gold-500); }
+    @media(max-width:760px) {
+        .vip-lock-banner { align-items: stretch; flex-direction: column; }
+        .vip-lock-actions { justify-content: flex-start; }
     }
 
     .sport-desc {
@@ -751,6 +786,16 @@
 
             <section class="match-setup" style="padding: 2.5rem 0 2rem;">
                 <h2 class="section-title">Seleccionar Equipos</h2>
+                <div id="worldcup-vip-lock" class="vip-lock-banner" hidden>
+                    <div>
+                        <div class="vip-lock-title">Vista pública limitada</div>
+                        <div class="vip-lock-text">Mostramos algunos partidos de ejemplo. El Mundial completo, radar y líneas exploradas viven dentro del VIP.</div>
+                    </div>
+                    <div class="vip-lock-actions">
+                        <a class="vip-lock-btn primary" href="/plan-pro">Desbloquear VIP</a>
+                        <a class="vip-lock-btn" href="/vip-login">Ya tengo acceso</a>
+                    </div>
+                </div>
                 <div class="team-selectors">
                     <div class="team-selector home-team">
                         <label for="home-team">

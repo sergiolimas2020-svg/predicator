@@ -46,7 +46,6 @@ def value_score(wp):
     # Zona aceptable 1.40-1.44 o 1.76-2.00
     return round(wp * 0.80, 1)
 
-ADSENSE = '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5953880132871590" crossorigin="anonymous"></script>'
 GA = '<script async src="https://www.googletagmanager.com/gtag/js?id=G-K3JES4SQS9"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-K3JES4SQS9");</script>'
 
 # ── URL base del sitio en produccion ──
@@ -106,7 +105,6 @@ HTML = """<!DOCTYPE html>
   }}
 }}
 </script>
-{adsense}
 {ga}
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -183,7 +181,6 @@ INDEX = """<!DOCTYPE html>
 <meta property="og:description" content="Predicciones y pronosticos deportivos para hoy {date}. Partidos reales de futbol y NBA con estadisticas.">
 <meta property="og:url" content="{site_url}/static/predictions/index.html">
 <meta property="og:site_name" content="PREDIKTOR">
-{adsense}
 {ga}
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -689,7 +686,7 @@ def save(league, home, away, art):
     html  = HTML.format(
         title=title, desc=desc, kw=kw,
         canonical=canonical, site_url=SITE_URL,
-        date_iso=today, adsense=ADSENSE, ga=GA,
+        date_iso=today, ga=GA,
         league=league, date=today_display,
         home=home, away=away, article=art
     )
@@ -788,7 +785,7 @@ def main():
     ) if preds else '<div class="empty"><p>No hay partidos programados hoy.</p></div>'
 
     (OUTPUT_DIR / "index.html").write_text(
-        INDEX.format(date=today_display, adsense=ADSENSE, ga=GA,
+        INDEX.format(date=today_display, ga=GA,
                      site_url=SITE_URL, cards=cards),
         encoding='utf-8'
     )

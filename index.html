@@ -19,8 +19,7 @@
     gtag('js', new Date());
     gtag('config', 'G-K3JES4SQS9');
   </script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5953880132871590" crossorigin="anonymous"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
@@ -317,8 +316,22 @@
     .footer-links a:hover { color:var(--dorado); }
     .footer-copy { color:var(--borde); font-size:0.8rem; }
 
-    .ad-banner { max-width:900px; margin:2rem auto; padding:0 1rem; text-align:center; }
-    .ad-label { font-size:0.7rem; color:var(--gris); text-transform:uppercase; letter-spacing:1px; margin-bottom:0.5rem; }
+    .content-promo { max-width:900px; margin:2rem auto; padding:0 1rem; }
+    .content-promo-inner {
+      display:grid; grid-template-columns:1fr auto; gap:1rem; align-items:center;
+      background:linear-gradient(135deg, rgba(240,180,41,0.08), rgba(22,22,31,0.96));
+      border:1px solid rgba(240,180,41,0.22); border-radius:8px; padding:1.2rem 1.3rem;
+    }
+    .content-promo-label { color:var(--dorado); font-size:0.72rem; text-transform:uppercase; letter-spacing:1.6px; font-weight:800; margin-bottom:0.35rem; }
+    .content-promo-title { color:var(--texto); font-size:1.1rem; font-weight:800; margin-bottom:0.25rem; }
+    .content-promo-text { color:var(--gris); font-size:0.9rem; line-height:1.55; }
+    .content-promo-links { display:flex; gap:0.6rem; flex-wrap:wrap; justify-content:flex-end; }
+    .content-promo-links a {
+      min-height:40px; display:inline-flex; align-items:center; justify-content:center;
+      border:1px solid var(--borde); border-radius:6px; padding:0.65rem 0.85rem;
+      color:var(--texto); text-decoration:none; font-size:0.82rem; font-weight:800;
+    }
+    .content-promo-links a.primary { background:var(--dorado); border-color:var(--dorado); color:#0b0b12; }
 
     /* ══ PAYWALL ══ */
     .pw-container { max-width:760px; margin:0 auto; padding:3rem 1.5rem; }
@@ -1112,6 +1125,10 @@
       .featured-stats { gap:1rem; padding:1.2rem 0; }
       .featured-matchup { font-size:2.2rem; }
     }
+    @media (max-width: 640px) {
+      .content-promo-inner { grid-template-columns:1fr; }
+      .content-promo-links { justify-content:flex-start; }
+    }
     @media (min-width: 1024px) {
       .dash-analysis .analysis-list {
         display:grid; grid-template-columns:1fr 1fr;
@@ -1415,11 +1432,19 @@ fetch('static/historial.json').then(r=>r.json()).then(h=>{
 <script src="js/paywall.js" defer></script>
 <script src="js/dashboard.js" defer></script>
 
-<!-- AD -->
-<div class="ad-banner">
-  <div class="ad-label">Publicidad</div>
-  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5953880132871590" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
-  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+<!-- GUIAS RECOMENDADAS -->
+<div class="content-promo">
+  <div class="content-promo-inner">
+    <div>
+      <div class="content-promo-label">Guias recomendadas</div>
+      <div class="content-promo-title">Mejora tu criterio antes de elegir un pick</div>
+      <p class="content-promo-text">Repasa EV, value bets, gestion de bankroll y estadisticas clave para leer mejor cada prediccion.</p>
+    </div>
+    <div class="content-promo-links">
+      <a class="primary" href="/guias/">Ver guias</a>
+      <a href="/metodologia">Metodologia</a>
+    </div>
+  </div>
 </div>
 
 <!-- VIP -->
@@ -1481,11 +1506,19 @@ fetch('static/historial.json').then(r=>r.json()).then(h=>{
   </div>
 </section>
 
-<!-- AD FOOTER -->
-<div class="ad-banner">
-  <div class="ad-label">Publicidad</div>
-  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5953880132871590" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
-  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+<!-- CTA COMUNIDAD -->
+<div class="content-promo">
+  <div class="content-promo-inner">
+    <div>
+      <div class="content-promo-label">Analisis del dia</div>
+      <div class="content-promo-title">Picks, contexto y alertas en un solo lugar</div>
+      <p class="content-promo-text">Sigue el canal para recibir actualizaciones y vuelve al historial cuando quieras validar el rendimiento real.</p>
+    </div>
+    <div class="content-promo-links">
+      <a class="primary" href="https://t.me/prediktorcol" target="_blank" rel="noopener">Telegram</a>
+      <a href="/historial">Ver historial</a>
+    </div>
+  </div>
 </div>
 
 <div class="disclaimer">

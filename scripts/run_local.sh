@@ -98,7 +98,7 @@ step "2/7 Registrar resultados de ayer" \
   "python3 scrapers/update_results.py" \
   "false"
 
-# ── Step 2b: Generar página historial estática (SEO + AdSense) ──
+# ── Step 2b: Generar página historial estática (SEO) ──
 step "2b/7 Generar página historial" \
   "python3 scripts/generate_historial.py" \
   "false"

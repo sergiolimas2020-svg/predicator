@@ -1038,7 +1038,6 @@ def danger_index(danger):
     return round((sot or 0.0) + 0.5 * (cor or 0.0), 2)
 
 
-ADSENSE = '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5953880132871590" crossorigin="anonymous"></script>'
 GA = '<script async src="https://www.googletagmanager.com/gtag/js?id=G-K3JES4SQS9"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-K3JES4SQS9");</script><script src="/js/analytics.js" defer></script>'
 
 # ── URL base del sitio en produccion ──
@@ -1100,7 +1099,6 @@ HTML = """<!DOCTYPE html>
   }}
 }}
 </script>
-{adsense}
 {ga}
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -1177,7 +1175,6 @@ INDEX = """<!DOCTYPE html>
 <meta property="og:description" content="Predicciones y pronosticos deportivos para hoy {date}. Partidos reales de futbol y NBA con estadisticas.">
 <meta property="og:url" content="{site_url}/static/predictions/">
 <meta property="og:site_name" content="PREDIKTOR">
-{adsense}
 {ga}
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -2339,7 +2336,7 @@ def save(league, home, away, art):
     html  = HTML.format(
         title=title, desc=desc, kw=kw,
         canonical=canonical, site_url=SITE_URL,
-        date_iso=today, adsense=ADSENSE, ga=GA,
+        date_iso=today, ga=GA,
         league=league, date=today_display,
         home=home, away=away, article=art
     )
@@ -2374,7 +2371,7 @@ def generate_sitemap(slugs):
         f"{SITE_URL}/casas-autorizadas",
         f"{SITE_URL}/plan-pro",
     ]
-    # Páginas de contenido educativo (críticas para AdSense)
+    # Páginas de contenido educativo (críticas para contenido propio)
     content_urls = [
         f"{SITE_URL}/metodologia",
         f"{SITE_URL}/glosario",
@@ -2393,7 +2390,7 @@ def generate_sitemap(slugs):
         if url == f"{SITE_URL}/":
             return "1.0"
         if url in content_urls:
-            # Páginas de contenido importantes para SEO y AdSense
+            # Páginas de contenido importantes para SEO y contenido propio
             if "metodologia" in url:       return "0.9"
             if "historial" in url:         return "0.9"
             if url.endswith("/guias/"):    return "0.85"
@@ -4596,7 +4593,7 @@ def main():
 
         cards = ''.join(_card_html(p) for p in preds) if preds else '<div class="empty"><p>No hay partidos programados hoy.</p></div>'
         _index_path.write_text(
-            INDEX.format(date=today_display, adsense=ADSENSE, ga=GA,
+            INDEX.format(date=today_display, ga=GA,
                          site_url=SITE_URL, cards=cards),
             encoding='utf-8'
         )

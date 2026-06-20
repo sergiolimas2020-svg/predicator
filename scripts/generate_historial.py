@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Genera historial.html (página estática indexable por Google y AdSense)
+Genera historial.html (página estática indexable por Google)
 y reescribe los 3 contadores del home (index.html) con valores reales.
 
 Lee:
@@ -196,8 +196,6 @@ def render_html(stats: dict) -> str:
     gtag('js', new Date());
     gtag('config', 'G-K3JES4SQS9');
   </script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5953880132871590" crossorigin="anonymous"></script>
-
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>

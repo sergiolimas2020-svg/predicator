@@ -23,9 +23,17 @@ async function initPaywall() {
   if (!container) return;
 
   try {
-    const res = await fetch('static/predictions/daily_picks.json');
+    const [res, configRes] = await Promise.all([
+      fetch('static/predictions/daily_picks.json'),
+      fetch('/api/public-config').catch(() => null)
+    ]);
     if (!res.ok) throw new Error(res.status);
     const data = await res.json();
+    const config = configRes && configRes.ok ? await configRes.json() : null;
+    if (shouldDelayFreeSignal(data.date, config)) {
+      data._free_signal_delayed = true;
+      data.pick_gratuito = null;
+    }
     window._lastDailyData = data;
 
     // Detectar si existe Featured Pick (Nivel 3 de la arquitectura).
@@ -62,6 +70,15 @@ async function initPaywall() {
         <p style="font-size:0.85rem;color:var(--gris);margin-top:0.5rem">Los picks se publican cada mañana antes de los partidos.</p>
       </div>`;
   }
+}
+
+function shouldDelayFreeSignal(dataDate, config) {
+  const hours = Number(config && config.free_signal_delay_hours);
+  if (!Number.isFinite(hours) || hours <= 0) return false;
+  const today = new Date().toLocaleDateString('en-CA', { timeZone: 'America/Bogota' });
+  if (dataDate !== today) return false;
+  const nowColombia = new Date(new Date().toLocaleString('en-US', { timeZone: 'America/Bogota' }));
+  return nowColombia.getHours() < hours;
 }
 
 function renderPaywall(data) {
@@ -260,23 +277,24 @@ function renderGoalsAnalysisCard(item) {
 function renderLockedCard(pick, tier) {
   const icon = (pick.league || '').includes('NBA') ? '🏀' : (pick.league || '').includes('Mundial') ? '🏆' : '⚽';
   const lockClass = tier === 'premium' ? 'pw-locked-premium' : 'pw-locked-sub';
+  const market = pick.market || pick.prediction || pick.pick || 'Mercado disponible';
 
   return `
   <div class="pw-card pw-card-locked ${lockClass}">
     <div class="pw-card-league">${icon} ${pick.league || '—'}</div>
     <div class="pw-card-matchup">${pick.matchup || '—'}</div>
-    <div class="pw-card-details pw-blurred">
+    <div class="pw-card-details">
       <div class="pw-detail">
         <div class="pw-detail-label">Mercado</div>
-        <div class="pw-detail-value">████████</div>
+        <div class="pw-detail-value">${market}</div>
       </div>
       <div class="pw-detail">
         <div class="pw-detail-label">Probabilidad</div>
-        <div class="pw-detail-value">██%</div>
+        <div class="pw-detail-value">Disponible con acceso</div>
       </div>
       <div class="pw-detail">
         <div class="pw-detail-label">Confianza</div>
-        <div class="pw-detail-value">████</div>
+        <div class="pw-detail-value">Reservada</div>
       </div>
     </div>
     <div class="pw-lock-overlay">

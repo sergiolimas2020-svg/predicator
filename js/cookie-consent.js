@@ -126,7 +126,7 @@
             <span>🍪</span> Configuración de Cookies
         </div>
         <p class="pk-cookie-text">
-            En PREDIKTOR utilizamos cookies propias y tecnologías de terceros (como Google AdSense) para analizar tu navegación, recordar tus preferencias y personalizar la publicidad que se te muestra. Al pulsar en "Aceptar Todo", prestas tu consentimiento. Puedes conocer más en nuestra <a href="privacy.html">Política de Privacidad</a>.
+            En PREDIKTOR utilizamos cookies propias y tecnologías de terceros para analizar tu navegación y recordar tus preferencias. Al pulsar en "Aceptar Todo", prestas tu consentimiento. Puedes conocer más en nuestra <a href="privacy.html">Política de Privacidad</a>.
         </p>
         <div class="pk-cookie-actions">
             <button class="pk-cookie-btn pk-cookie-btn-reject" id="pk-cookie-reject">Rechazar</button>
