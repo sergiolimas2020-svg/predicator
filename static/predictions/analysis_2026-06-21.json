@@ -1,0 +1,195 @@
+{
+  "date": "2026-06-21",
+  "total_fixtures": 4,
+  "matches": [
+    {
+      "matchup": "Spain vs Saudi Arabia",
+      "league": "Mundial 2026",
+      "home": "Spain",
+      "away": "Saudi Arabia",
+      "probabilities": {
+        "win_home": 65.9,
+        "draw": 22.6,
+        "win_away": 11.5,
+        "over_2_5": 68.8,
+        "over_1_5": 86.9
+      },
+      "favorite": "Spain",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 3.2,
+      "lambda_away": 0.35,
+      "elo_home": 2165.0,
+      "elo_away": 1566.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 86.9,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 68.8,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "corners_shots_players",
+            "status": "unavailable",
+            "reason": "selecciones usan modelo internacional; no se publican props/corners sin contrato calibrado"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Belgium vs Iran",
+      "league": "Mundial 2026",
+      "home": "Belgium",
+      "away": "Iran",
+      "probabilities": {
+        "win_home": 44.3,
+        "draw": 29.1,
+        "win_away": 26.6,
+        "over_2_5": 62.2,
+        "over_1_5": 83.0
+      },
+      "favorite": "Belgium",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 2.1,
+      "lambda_away": 1.11,
+      "elo_home": 1866.0,
+      "elo_away": 1764.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 83.0,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 62.2,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "corners_shots_players",
+            "status": "unavailable",
+            "reason": "selecciones usan modelo internacional; no se publican props/corners sin contrato calibrado"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Uruguay vs Cape Verde Islands",
+      "league": "Mundial 2026",
+      "home": "Uruguay",
+      "away": "Cape Verde Islands",
+      "probabilities": {
+        "win_home": 29.6,
+        "draw": 35.0,
+        "win_away": 35.4,
+        "over_2_5": 22.8,
+        "over_1_5": 48.9
+      },
+      "favorite": "Cape Verde Islands",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 0.71,
+      "lambda_away": 0.94,
+      "elo_home": 1892.0,
+      "elo_away": 1576.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 48.9,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 22.8,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "corners_shots_players",
+            "status": "unavailable",
+            "reason": "selecciones usan modelo internacional; no se publican props/corners sin contrato calibrado"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "New Zealand vs Egypt",
+      "league": "Mundial 2026",
+      "home": "New Zealand",
+      "away": "Egypt",
+      "probabilities": {
+        "win_home": 17.3,
+        "draw": 29.2,
+        "win_away": 53.6,
+        "over_2_5": 45.3,
+        "over_1_5": 71.0
+      },
+      "favorite": "Egypt",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 0.42,
+      "lambda_away": 2.07,
+      "elo_home": 1585.0,
+      "elo_away": 1699.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 71.0,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 45.3,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "corners_shots_players",
+            "status": "unavailable",
+            "reason": "selecciones usan modelo internacional; no se publican props/corners sin contrato calibrado"
+          }
+        ]
+      }
+    }
+  ],
+  "nota": "Análisis estadístico de todos los partidos del día. Probabilidades crudas del modelo (sin ajuste por liga ni mercado). No incluye recomendación de apuesta — ver value_picks y featured_pick para picks oficiales."
+}

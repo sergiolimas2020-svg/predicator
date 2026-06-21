@@ -1,6 +1,6 @@
 # Radar estadístico — selección de mercado por probabilidad
 
-Generado: 2026-06-20T08:26:54
+Generado: 2026-06-21T09:03:46
 
 Motor probability-first. Busca el mercado donde la estadística apoya una probabilidad alta. **No usa EV, cuotas ni Betplay.** Alcance: Mundial/selecciones. **No conectado a publicación premium** — radar/shadow.
 
@@ -11,45 +11,45 @@ Umbrales: Victoria directa ≥ 62.0%, Over 1.5 ≥ 72.0%, DNB(selección) ≥ 72
 
 | Partido | Liga | Mercado recomendado | Prob | Fuente | Nivel | Razón / descarte |
 |---|---|---|---:|---|---|---|
-| Netherlands vs Sweden | Mundial 2026 | Victoria directa (Netherlands) | 65.9% | api_football | oficial-elegible | supera umbral |
-| Germany vs Ivory Coast | Mundial 2026 | Over 1.5 goles | 79.0% | api_football | oficial-elegible | supera umbral |
-| Ecuador vs Curaçao | Mundial 2026 | — sin señal — | — | api_football | — | Victoria directa 48.6%<62.0%; Over 1.5 goles 69.2%<72.0%; DNB (apuesta sin empate) 70.0%<72.0%; Doble oportunidad 79.1%<80.0% |
-| Tunisia vs Japan | Mundial 2026 | Over 1.5 goles | 77.1% | api_football | oficial-elegible | supera umbral |
+| Spain vs Saudi Arabia | Mundial 2026 | Victoria directa (Spain) | 65.9% | api_football | oficial-elegible | supera umbral |
+| Belgium vs Iran | Mundial 2026 | Over 1.5 goles | 83.0% | api_football | oficial-elegible | supera umbral |
+| Uruguay vs Cape Verde Islands | Mundial 2026 | — sin señal — | — | api_football | — | Victoria directa 35.4%<62.0%; Over 1.5 goles 48.9%<72.0%; DNB (apuesta sin empate) 54.5%<72.0%; Doble oportunidad 70.4%<80.0% |
+| New Zealand vs Egypt | Mundial 2026 | DNB (apuesta sin empate) (Egypt) | 75.6% | api_football | radar | supera umbral |
 
 ## Detalle por partido
 
-### Netherlands vs Sweden (Mundial 2026)
+### Spain vs Saudi Arabia (Mundial 2026)
 
 | Mercado | Pick | Prob | Umbral | ¿Pasa? | Nivel |
 |---|---|---:|---:|---|---|
-| Victoria directa | Netherlands | 65.9% | 62.0% | ✓ | oficial-elegible |
-| Over 1.5 goles | — | 98.0% | 72.0% | ✓ | oficial-elegible |
-| DNB (apuesta sin empate) | Netherlands | 81.7% | 72.0% | ✓ | radar |
-| Doble oportunidad | Netherlands | 85.2% | 80.0% | ✓ | radar |
+| Victoria directa | Spain | 65.9% | 62.0% | ✓ | oficial-elegible |
+| Over 1.5 goles | — | 86.9% | 72.0% | ✓ | oficial-elegible |
+| DNB (apuesta sin empate) | Spain | 85.2% | 72.0% | ✓ | radar |
+| Doble oportunidad | Spain | 88.5% | 80.0% | ✓ | radar |
 
-### Germany vs Ivory Coast (Mundial 2026)
-
-| Mercado | Pick | Prob | Umbral | ¿Pasa? | Nivel |
-|---|---|---:|---:|---|---|
-| Victoria directa | Germany | 40.2% | 62.0% | ✗ | oficial-elegible |
-| Over 1.5 goles | — | 79.0% | 72.0% | ✓ | oficial-elegible |
-| DNB (apuesta sin empate) | Germany | 57.6% | 72.0% | ✗ | radar |
-| Doble oportunidad | Germany | 70.4% | 80.0% | ✗ | radar |
-
-### Ecuador vs Curaçao (Mundial 2026)
+### Belgium vs Iran (Mundial 2026)
 
 | Mercado | Pick | Prob | Umbral | ¿Pasa? | Nivel |
 |---|---|---:|---:|---|---|
-| Victoria directa | Ecuador | 48.6% | 62.0% | ✗ | oficial-elegible |
-| Over 1.5 goles | — | 69.2% | 72.0% | ✗ | oficial-elegible |
-| DNB (apuesta sin empate) | Ecuador | 70.0% | 72.0% | ✗ | radar |
-| Doble oportunidad | Ecuador | 79.1% | 80.0% | ✗ | radar |
+| Victoria directa | Belgium | 44.3% | 62.0% | ✗ | oficial-elegible |
+| Over 1.5 goles | — | 83.0% | 72.0% | ✓ | oficial-elegible |
+| DNB (apuesta sin empate) | Belgium | 62.5% | 72.0% | ✗ | radar |
+| Doble oportunidad | Belgium | 73.4% | 80.0% | ✗ | radar |
 
-### Tunisia vs Japan (Mundial 2026)
+### Uruguay vs Cape Verde Islands (Mundial 2026)
 
 | Mercado | Pick | Prob | Umbral | ¿Pasa? | Nivel |
 |---|---|---:|---:|---|---|
-| Victoria directa | Japan | 53.5% | 62.0% | ✗ | oficial-elegible |
-| Over 1.5 goles | — | 77.1% | 72.0% | ✓ | oficial-elegible |
-| DNB (apuesta sin empate) | Japan | 74.5% | 72.0% | ✓ | radar |
-| Doble oportunidad | Japan | 81.7% | 80.0% | ✓ | radar |
+| Victoria directa | Cape Verde Islands | 35.4% | 62.0% | ✗ | oficial-elegible |
+| Over 1.5 goles | — | 48.9% | 72.0% | ✗ | oficial-elegible |
+| DNB (apuesta sin empate) | Cape Verde Islands | 54.5% | 72.0% | ✗ | radar |
+| Doble oportunidad | Cape Verde Islands | 70.4% | 80.0% | ✗ | radar |
+
+### New Zealand vs Egypt (Mundial 2026)
+
+| Mercado | Pick | Prob | Umbral | ¿Pasa? | Nivel |
+|---|---|---:|---:|---|---|
+| Victoria directa | Egypt | 53.6% | 62.0% | ✗ | oficial-elegible |
+| Over 1.5 goles | — | 71.0% | 72.0% | ✗ | oficial-elegible |
+| DNB (apuesta sin empate) | Egypt | 75.6% | 72.0% | ✓ | radar |
+| Doble oportunidad | Egypt | 82.7% | 80.0% | ✓ | radar |

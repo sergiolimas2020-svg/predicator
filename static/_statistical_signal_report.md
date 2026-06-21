@@ -1,16 +1,16 @@
 # Auditoría estadística del motor
 
-Generado: 2026-06-20T08:17:04
+Generado: 2026-06-21T08:53:44
 
 Este reporte NO usa cuotas, EV ni ROI. Evalúa únicamente si la probabilidad del modelo se corresponde con los aciertos reales.
 
 ## Resumen
 
-- Picks resueltos evaluables: **128**
-- Acierto total: **60.9%**
-- Probabilidad media publicada: **72.0%**
-- Gap calibración (acierto - prob): **-11.1%**
-- Brier score: **0.2437**
+- Picks resueltos evaluables: **130**
+- Acierto total: **61.5%**
+- Probabilidad media publicada: **72.2%**
+- Gap calibración (acierto - prob): **-10.7%**
+- Brier score: **0.2403**
 
 ## Por banda de probabilidad
 
@@ -19,8 +19,9 @@ Este reporte NO usa cuotas, EV ni ROI. Evalúa únicamente si la probabilidad de
 | 40-49% | 4 | 25.0% | 47.8% | -22.8% | 0.2413 |
 | 50-59% | 12 | 66.7% | 56.4% | +10.3% | 0.2273 |
 | 60-69% | 35 | 57.1% | 65.8% | -8.7% | 0.25 |
-| 70-79% | 50 | 54.0% | 75.4% | -21.4% | 0.2947 |
+| 70-79% | 51 | 54.9% | 75.5% | -20.6% | 0.2897 |
 | 80-89% | 27 | 81.5% | 84.4% | -2.9% | 0.1487 |
+| 90-99% | 1 | 100% | 93.2% | +6.8% | 0.0046 |
 
 ## Por tipo de mercado
 
@@ -28,9 +29,9 @@ Este reporte NO usa cuotas, EV ni ROI. Evalúa únicamente si la probabilidad de
 |---|---:|---:|---:|---:|---:|
 | winner | 39 | 64.1% | 64.8% | -0.7% | 0.2215 |
 | double_chance | 30 | 56.7% | 78.7% | -22.1% | 0.2715 |
-| over_1_5 | 26 | 80.8% | 78.4% | +2.3% | 0.1627 |
+| over_1_5 | 27 | 81.5% | 78.5% | +3.0% | 0.1583 |
 | draw_no_bet | 20 | 55.0% | 71.2% | -16.2% | 0.2678 |
-| over_2_5 | 7 | 57.1% | 57.6% | -0.5% | 0.1774 |
+| over_2_5 | 8 | 62.5% | 62.1% | +0.4% | 0.1558 |
 | corners | 6 | 0% | 77.2% | -77.2% | 0.5969 |
 
 ## Por liga
@@ -40,8 +41,8 @@ Este reporte NO usa cuotas, EV ni ROI. Evalúa únicamente si la probabilidad de
 | Brasileirao | 21 | 57.1% | 76.9% | -19.7% | 0.2718 |
 | NBA | 20 | 80.0% | 64.6% | +15.4% | 0.1776 |
 | La Liga | 13 | 30.8% | 69.4% | -38.6% | 0.3691 |
+| Mundial 2026 | 13 | 76.9% | 80.7% | -3.8% | 0.1794 |
 | Serie A | 12 | 66.7% | 70.1% | -3.4% | 0.209 |
-| Mundial 2026 | 11 | 72.7% | 79.7% | -7.0% | 0.2076 |
 | Liga Colombiana | 9 | 77.8% | 75.5% | +2.3% | 0.1625 |
 | Premier League | 8 | 37.5% | 69.8% | -32.3% | 0.3585 |
 | Super Lig | 7 | 28.6% | 71.4% | -42.8% | 0.4089 |
