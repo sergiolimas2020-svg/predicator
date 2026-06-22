@@ -1,0 +1,195 @@
+{
+  "date": "2026-06-22",
+  "total_fixtures": 4,
+  "matches": [
+    {
+      "matchup": "Argentina vs Austria",
+      "league": "Mundial 2026",
+      "home": "Argentina",
+      "away": "Austria",
+      "probabilities": {
+        "win_home": 39.8,
+        "draw": 34.7,
+        "win_away": 25.5,
+        "over_2_5": 23.0,
+        "over_1_5": 49.2
+      },
+      "favorite": "Argentina",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.1,
+      "lambda_away": 0.55,
+      "elo_home": 2113.0,
+      "elo_away": 1830.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 49.2,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 23.0,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "corners_shots_players",
+            "status": "unavailable",
+            "reason": "selecciones usan modelo internacional; no se publican props/corners sin contrato calibrado"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "France vs Iraq",
+      "league": "Mundial 2026",
+      "home": "France",
+      "away": "Iraq",
+      "probabilities": {
+        "win_home": 58.6,
+        "draw": 25.5,
+        "win_away": 15.9,
+        "over_2_5": 64.7,
+        "over_1_5": 84.5
+      },
+      "favorite": "France",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 2.8,
+      "lambda_away": 0.53,
+      "elo_home": 2081.0,
+      "elo_away": 1608.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 84.5,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 64.7,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "corners_shots_players",
+            "status": "unavailable",
+            "reason": "selecciones usan modelo internacional; no se publican props/corners sin contrato calibrado"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Norway vs Senegal",
+      "league": "Mundial 2026",
+      "home": "Norway",
+      "away": "Senegal",
+      "probabilities": {
+        "win_home": 49.1,
+        "draw": 27.7,
+        "win_away": 23.2,
+        "over_2_5": 66.7,
+        "over_1_5": 85.7
+      },
+      "favorite": "Norway",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 2.46,
+      "lambda_away": 0.97,
+      "elo_home": 1917.0,
+      "elo_away": 1866.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 85.7,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 66.7,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "corners_shots_players",
+            "status": "unavailable",
+            "reason": "selecciones usan modelo internacional; no se publican props/corners sin contrato calibrado"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Jordan vs Algeria",
+      "league": "Mundial 2026",
+      "home": "Jordan",
+      "away": "Algeria",
+      "probabilities": {
+        "win_home": 19.9,
+        "draw": 27.9,
+        "win_away": 52.2,
+        "over_2_5": 58.7,
+        "over_1_5": 80.8
+      },
+      "favorite": "Algeria",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 0.68,
+      "lambda_away": 2.37,
+      "elo_home": 1685.0,
+      "elo_away": 1743.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 80.8,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 58.7,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "corners_shots_players",
+            "status": "unavailable",
+            "reason": "selecciones usan modelo internacional; no se publican props/corners sin contrato calibrado"
+          }
+        ]
+      }
+    }
+  ],
+  "nota": "Análisis estadístico de todos los partidos del día. Probabilidades crudas del modelo (sin ajuste por liga ni mercado). No incluye recomendación de apuesta — ver value_picks y featured_pick para picks oficiales."
+}

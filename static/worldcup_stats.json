@@ -5,28 +5,28 @@
     "position": {
       "posicion": 0,
       "partidos": 12,
-      "ganados": 8,
-      "empatados": 4,
+      "ganados": 7,
+      "empatados": 5,
       "perdidos": 0,
-      "goles_favor": 42,
-      "goles_contra": 10,
-      "diferencia": 32,
-      "puntos": 28
+      "goles_favor": 38,
+      "goles_contra": 7,
+      "diferencia": 31,
+      "puntos": 26
     },
     "_source": "api_football:form",
     "_team_id": 1,
     "_team_name": "Belgium",
     "danger": {
-      "shots_on_target_avg": 6.2,
-      "corners_avg": 5.4,
+      "shots_on_target_avg": 5.6,
+      "corners_avg": 5.0,
       "venue": null,
       "n_fixtures": 5,
       "fixture_ids": [
+        1489395,
         1489377,
         1512767,
         1512766,
-        1514471,
-        1503003
+        1514471
       ],
       "errors": []
     },
@@ -34,27 +34,30 @@
       "venue": null,
       "n_fixtures": 5,
       "fixture_ids": [
+        1489395,
         1489377,
         1512767,
         1512766,
-        1514471,
-        1503003
+        1514471
       ],
       "players": [
         {
-          "player_id": 1946,
-          "name": "Leandro Trossard",
+          "player_id": 629,
+          "name": "Kevin De Bruyne",
           "position": "M",
-          "appearances": 2,
-          "starts": 2,
-          "minutes_avg": 82.0,
-          "shots_total_avg": 1.5,
-          "shots_on_target_avg": 1.5,
-          "shots_total_per90": 1.65,
-          "shots_on_target_per90": 1.65,
+          "appearances": 5,
+          "starts": 5,
+          "minutes_avg": 78.4,
+          "shots_total_avg": 2.2,
+          "shots_on_target_avg": 1.0,
+          "shots_total_per90": 2.53,
+          "shots_on_target_per90": 1.15,
           "fixture_ids": [
+            1489395,
             1489377,
-            1512767
+            1512767,
+            1512766,
+            1514471
           ]
         },
         {
@@ -63,53 +66,69 @@
           "position": "F",
           "appearances": 3,
           "starts": 1,
-          "minutes_avg": 40.0,
+          "minutes_avg": 43.3,
           "shots_total_avg": 1.33,
-          "shots_on_target_avg": 1.33,
-          "shots_total_per90": 3.0,
-          "shots_on_target_per90": 3.0,
+          "shots_on_target_avg": 1.0,
+          "shots_total_per90": 2.77,
+          "shots_on_target_per90": 2.08,
           "fixture_ids": [
+            1489395,
             1512767,
-            1514471,
-            1503003
+            1514471
           ]
         },
         {
-          "player_id": 629,
-          "name": "Kevin De Bruyne",
+          "player_id": 1946,
+          "name": "Leandro Trossard",
           "position": "M",
-          "appearances": 5,
-          "starts": 5,
-          "minutes_avg": 75.0,
-          "shots_total_avg": 1.8,
+          "appearances": 3,
+          "starts": 3,
+          "minutes_avg": 86.7,
+          "shots_total_avg": 1.0,
           "shots_on_target_avg": 1.0,
-          "shots_total_per90": 2.16,
-          "shots_on_target_per90": 1.2,
+          "shots_total_per90": 1.04,
+          "shots_on_target_per90": 1.04,
           "fixture_ids": [
+            1489395,
+            1489377,
+            1512767
+          ]
+        },
+        {
+          "player_id": 162007,
+          "name": "Maxim De Cuyper",
+          "position": "D",
+          "appearances": 5,
+          "starts": 3,
+          "minutes_avg": 58.2,
+          "shots_total_avg": 1.2,
+          "shots_on_target_avg": 0.8,
+          "shots_total_per90": 1.86,
+          "shots_on_target_per90": 1.24,
+          "fixture_ids": [
+            1489395,
             1489377,
             1512767,
             1512766,
-            1514471,
-            1503003
+            1514471
           ]
         },
         {
           "player_id": 1422,
           "name": "Jérémy Doku",
           "position": "M",
-          "appearances": 5,
-          "starts": 4,
-          "minutes_avg": 66.0,
-          "shots_total_avg": 1.2,
-          "shots_on_target_avg": 1.0,
-          "shots_total_per90": 1.64,
-          "shots_on_target_per90": 1.36,
+          "appearances": 4,
+          "starts": 3,
+          "minutes_avg": 65.0,
+          "shots_total_avg": 1.0,
+          "shots_on_target_avg": 0.75,
+          "shots_total_per90": 1.38,
+          "shots_on_target_per90": 1.04,
           "fixture_ids": [
             1489377,
             1512767,
             1512766,
-            1514471,
-            1503003
+            1514471
           ]
         },
         {
@@ -118,117 +137,13 @@
           "position": "D",
           "appearances": 4,
           "starts": 3,
-          "minutes_avg": 67.0,
-          "shots_total_avg": 1.25,
+          "minutes_avg": 75.5,
+          "shots_total_avg": 1.5,
           "shots_on_target_avg": 0.5,
-          "shots_total_per90": 1.68,
-          "shots_on_target_per90": 0.67,
+          "shots_total_per90": 1.79,
+          "shots_on_target_per90": 0.6,
           "fixture_ids": [
-            1489377,
-            1512767,
-            1512766,
-            1503003
-          ]
-        },
-        {
-          "player_id": 304228,
-          "name": "Zeno Debast",
-          "position": "D",
-          "appearances": 2,
-          "starts": 1,
-          "minutes_avg": 40.0,
-          "shots_total_avg": 1.0,
-          "shots_on_target_avg": 0.5,
-          "shots_total_per90": 2.25,
-          "shots_on_target_per90": 1.12,
-          "fixture_ids": [
-            1514471,
-            1503003
-          ]
-        },
-        {
-          "player_id": 86,
-          "name": "Loïs Openda",
-          "position": "F",
-          "appearances": 2,
-          "starts": 1,
-          "minutes_avg": 45.5,
-          "shots_total_avg": 0.5,
-          "shots_on_target_avg": 0.5,
-          "shots_total_per90": 0.99,
-          "shots_on_target_per90": 0.99,
-          "fixture_ids": [
-            1514471,
-            1503003
-          ]
-        },
-        {
-          "player_id": 312964,
-          "name": "Nathan Ngoy",
-          "position": "D",
-          "appearances": 5,
-          "starts": 4,
-          "minutes_avg": 70.4,
-          "shots_total_avg": 0.4,
-          "shots_on_target_avg": 0.4,
-          "shots_total_per90": 0.51,
-          "shots_on_target_per90": 0.51,
-          "fixture_ids": [
-            1489377,
-            1512767,
-            1512766,
-            1514471,
-            1503003
-          ]
-        },
-        {
-          "player_id": 147859,
-          "name": "Charles De Ketelaere",
-          "position": "F",
-          "appearances": 5,
-          "starts": 4,
-          "minutes_avg": 58.8,
-          "shots_total_avg": 0.4,
-          "shots_on_target_avg": 0.4,
-          "shots_total_per90": 0.61,
-          "shots_on_target_per90": 0.61,
-          "fixture_ids": [
-            1489377,
-            1512767,
-            1512766,
-            1514471,
-            1503003
-          ]
-        },
-        {
-          "player_id": 1417,
-          "name": "Alexis Saelemaekers",
-          "position": "M",
-          "appearances": 3,
-          "starts": 2,
-          "minutes_avg": 49.0,
-          "shots_total_avg": 1.0,
-          "shots_on_target_avg": 0.33,
-          "shots_total_per90": 1.84,
-          "shots_on_target_per90": 0.61,
-          "fixture_ids": [
-            1512766,
-            1514471,
-            1503003
-          ]
-        },
-        {
-          "player_id": 907,
-          "name": "Romelu Lukaku",
-          "position": "F",
-          "appearances": 3,
-          "starts": 0,
-          "minutes_avg": 23.0,
-          "shots_total_avg": 0.67,
-          "shots_on_target_avg": 0.33,
-          "shots_total_per90": 2.61,
-          "shots_on_target_per90": 1.3,
-          "fixture_ids": [
+            1489395,
             1489377,
             1512767,
             1512766
@@ -239,37 +154,73 @@
           "name": "Youri Tielemans",
           "position": "M",
           "appearances": 5,
-          "starts": 4,
-          "minutes_avg": 67.4,
-          "shots_total_avg": 0.8,
-          "shots_on_target_avg": 0.2,
-          "shots_total_per90": 1.07,
-          "shots_on_target_per90": 0.27,
+          "starts": 5,
+          "minutes_avg": 82.6,
+          "shots_total_avg": 1.2,
+          "shots_on_target_avg": 0.4,
+          "shots_total_per90": 1.31,
+          "shots_on_target_per90": 0.44,
           "fixture_ids": [
+            1489395,
             1489377,
             1512767,
             1512766,
-            1514471,
-            1503003
+            1514471
           ]
         },
         {
-          "player_id": 162714,
-          "name": "Amadou Onana",
-          "position": "M",
+          "player_id": 312964,
+          "name": "Nathan Ngoy",
+          "position": "D",
           "appearances": 5,
-          "starts": 4,
-          "minutes_avg": 57.2,
+          "starts": 5,
+          "minutes_avg": 78.0,
           "shots_total_avg": 0.6,
-          "shots_on_target_avg": 0.2,
-          "shots_total_per90": 0.94,
-          "shots_on_target_per90": 0.31,
+          "shots_on_target_avg": 0.4,
+          "shots_total_per90": 0.69,
+          "shots_on_target_per90": 0.46,
+          "fixture_ids": [
+            1489395,
+            1489377,
+            1512767,
+            1512766,
+            1514471
+          ]
+        },
+        {
+          "player_id": 907,
+          "name": "Romelu Lukaku",
+          "position": "F",
+          "appearances": 4,
+          "starts": 1,
+          "minutes_avg": 35.5,
+          "shots_total_avg": 0.5,
+          "shots_on_target_avg": 0.25,
+          "shots_total_per90": 1.27,
+          "shots_on_target_per90": 0.63,
+          "fixture_ids": [
+            1489395,
+            1489377,
+            1512767,
+            1512766
+          ]
+        },
+        {
+          "player_id": 147859,
+          "name": "Charles De Ketelaere",
+          "position": "F",
+          "appearances": 4,
+          "starts": 3,
+          "minutes_avg": 58.0,
+          "shots_total_avg": 0.25,
+          "shots_on_target_avg": 0.25,
+          "shots_total_per90": 0.39,
+          "shots_on_target_per90": 0.39,
           "fixture_ids": [
             1489377,
             1512767,
             1512766,
-            1514471,
-            1503003
+            1514471
           ]
         },
         {
@@ -278,33 +229,68 @@
           "position": "D",
           "appearances": 5,
           "starts": 3,
-          "minutes_avg": 58.0,
+          "minutes_avg": 55.6,
           "shots_total_avg": 0.2,
           "shots_on_target_avg": 0.2,
-          "shots_total_per90": 0.31,
-          "shots_on_target_per90": 0.31,
+          "shots_total_per90": 0.32,
+          "shots_on_target_per90": 0.32,
           "fixture_ids": [
+            1489395,
             1489377,
             1512767,
             1512766,
-            1514471,
-            1503003
+            1514471
           ]
         },
         {
           "player_id": 78,
           "name": "Hans Vanaken",
           "position": "M",
-          "appearances": 2,
+          "appearances": 3,
           "starts": 0,
-          "minutes_avg": 25.0,
+          "minutes_avg": 29.3,
+          "shots_total_avg": 1.0,
+          "shots_on_target_avg": 0.0,
+          "shots_total_per90": 3.07,
+          "shots_on_target_per90": 0.0,
+          "fixture_ids": [
+            1489395,
+            1512767,
+            1512766
+          ]
+        },
+        {
+          "player_id": 162714,
+          "name": "Amadou Onana",
+          "position": "M",
+          "appearances": 4,
+          "starts": 3,
+          "minutes_avg": 54.0,
           "shots_total_avg": 0.5,
           "shots_on_target_avg": 0.0,
-          "shots_total_per90": 1.8,
+          "shots_total_per90": 0.83,
+          "shots_on_target_per90": 0.0,
+          "fixture_ids": [
+            1489377,
+            1512767,
+            1512766,
+            1514471
+          ]
+        },
+        {
+          "player_id": 20,
+          "name": "Axel Witsel",
+          "position": "M",
+          "appearances": 2,
+          "starts": 1,
+          "minutes_avg": 41.5,
+          "shots_total_avg": 0.5,
+          "shots_on_target_avg": 0.0,
+          "shots_total_per90": 1.08,
           "shots_on_target_per90": 0.0,
           "fixture_ids": [
             1512767,
-            1512766
+            1514471
           ]
         },
         {
@@ -324,71 +310,35 @@
           ]
         },
         {
-          "player_id": 162007,
-          "name": "Maxim De Cuyper",
-          "position": "D",
-          "appearances": 5,
-          "starts": 3,
-          "minutes_avg": 51.2,
-          "shots_total_avg": 0.4,
-          "shots_on_target_avg": 0.0,
-          "shots_total_per90": 0.7,
-          "shots_on_target_per90": 0.0,
-          "fixture_ids": [
-            1489377,
-            1512767,
-            1512766,
-            1514471,
-            1503003
-          ]
-        },
-        {
-          "player_id": 20,
-          "name": "Axel Witsel",
+          "player_id": 1417,
+          "name": "Alexis Saelemaekers",
           "position": "M",
           "appearances": 3,
-          "starts": 1,
-          "minutes_avg": 34.3,
+          "starts": 2,
+          "minutes_avg": 47.7,
           "shots_total_avg": 0.33,
           "shots_on_target_avg": 0.0,
-          "shots_total_per90": 0.87,
+          "shots_total_per90": 0.63,
           "shots_on_target_per90": 0.0,
           "fixture_ids": [
-            1512767,
-            1514471,
-            1503003
-          ]
-        },
-        {
-          "player_id": 2120,
-          "name": "Nicolas Raskin",
-          "position": "M",
-          "appearances": 4,
-          "starts": 2,
-          "minutes_avg": 52.5,
-          "shots_total_avg": 0.25,
-          "shots_on_target_avg": 0.0,
-          "shots_total_per90": 0.43,
-          "shots_on_target_per90": 0.0,
-          "fixture_ids": [
-            1489377,
+            1489395,
             1512766,
-            1514471,
-            1503003
+            1514471
           ]
         },
         {
           "player_id": 730,
           "name": "Thibaut Courtois",
           "position": "G",
-          "appearances": 3,
-          "starts": 3,
-          "minutes_avg": 91.3,
+          "appearances": 4,
+          "starts": 4,
+          "minutes_avg": 92.5,
           "shots_total_avg": 0.0,
           "shots_on_target_avg": 0.0,
           "shots_total_per90": 0.0,
           "shots_on_target_per90": 0.0,
           "fixture_ids": [
+            1489395,
             1489377,
             1512767,
             1512766
@@ -410,27 +360,78 @@
           ]
         },
         {
-          "player_id": 162511,
-          "name": "Senne Lammens",
-          "position": "G",
+          "player_id": 340153,
+          "name": "Mika Godts",
+          "position": "M",
           "appearances": 1,
           "starts": 1,
-          "minutes_avg": 90.0,
+          "minutes_avg": 63.0,
           "shots_total_avg": 0.0,
           "shots_on_target_avg": 0.0,
           "shots_total_per90": 0.0,
           "shots_on_target_per90": 0.0,
           "fixture_ids": [
-            1503003
+            1514471
           ]
         },
         {
-          "player_id": 204043,
-          "name": "Arthur Theate",
+          "player_id": 86,
+          "name": "Loïs Openda",
+          "position": "F",
+          "appearances": 1,
+          "starts": 1,
+          "minutes_avg": 63.0,
+          "shots_total_avg": 0.0,
+          "shots_on_target_avg": 0.0,
+          "shots_total_per90": 0.0,
+          "shots_on_target_per90": 0.0,
+          "fixture_ids": [
+            1514471
+          ]
+        },
+        {
+          "player_id": 2920,
+          "name": "Timothy Castagne",
+          "position": "D",
+          "appearances": 4,
+          "starts": 3,
+          "minutes_avg": 57.5,
+          "shots_total_avg": 0.0,
+          "shots_on_target_avg": 0.0,
+          "shots_total_per90": 0.0,
+          "shots_on_target_per90": 0.0,
+          "fixture_ids": [
+            1489395,
+            1489377,
+            1512767,
+            1514471
+          ]
+        },
+        {
+          "player_id": 2120,
+          "name": "Nicolas Raskin",
+          "position": "M",
+          "appearances": 4,
+          "starts": 2,
+          "minutes_avg": 49.5,
+          "shots_total_avg": 0.0,
+          "shots_on_target_avg": 0.0,
+          "shots_total_per90": 0.0,
+          "shots_on_target_per90": 0.0,
+          "fixture_ids": [
+            1489395,
+            1489377,
+            1512766,
+            1514471
+          ]
+        },
+        {
+          "player_id": 162141,
+          "name": "Koni De Winter",
           "position": "D",
           "appearances": 2,
           "starts": 1,
-          "minutes_avg": 54.0,
+          "minutes_avg": 47.5,
           "shots_total_avg": 0.0,
           "shots_on_target_avg": 0.0,
           "shots_total_per90": 0.0,
@@ -441,86 +442,51 @@
           ]
         },
         {
-          "player_id": 2920,
-          "name": "Timothy Castagne",
-          "position": "D",
-          "appearances": 4,
-          "starts": 3,
-          "minutes_avg": 53.0,
-          "shots_total_avg": 0.0,
-          "shots_on_target_avg": 0.0,
-          "shots_total_per90": 0.0,
-          "shots_on_target_per90": 0.0,
-          "fixture_ids": [
-            1489377,
-            1512767,
-            1514471,
-            1503003
-          ]
-        },
-        {
-          "player_id": 340153,
-          "name": "Mika Godts",
-          "position": "M",
-          "appearances": 2,
-          "starts": 1,
-          "minutes_avg": 41.5,
-          "shots_total_avg": 0.0,
-          "shots_on_target_avg": 0.0,
-          "shots_total_per90": 0.0,
-          "shots_on_target_per90": 0.0,
-          "fixture_ids": [
-            1514471,
-            1503003
-          ]
-        },
-        {
-          "player_id": 162141,
-          "name": "Koni De Winter",
+          "player_id": 204043,
+          "name": "Arthur Theate",
           "position": "D",
           "appearances": 3,
           "starts": 1,
-          "minutes_avg": 41.0,
+          "minutes_avg": 43.7,
           "shots_total_avg": 0.0,
           "shots_on_target_avg": 0.0,
           "shots_total_per90": 0.0,
           "shots_on_target_per90": 0.0,
           "fixture_ids": [
+            1489395,
             1512766,
-            1514471,
-            1503003
+            1514471
           ]
         },
         {
           "player_id": 375974,
           "name": "Joaquin Seys",
           "position": "D",
-          "appearances": 3,
+          "appearances": 2,
           "starts": 0,
-          "minutes_avg": 23.3,
+          "minutes_avg": 20.5,
           "shots_total_avg": 0.0,
           "shots_on_target_avg": 0.0,
           "shots_total_per90": 0.0,
           "shots_on_target_per90": 0.0,
           "fixture_ids": [
             1512766,
-            1514471,
-            1503003
+            1514471
           ]
         },
         {
-          "player_id": 453903,
-          "name": "Nathan De Cat",
-          "position": "M",
+          "player_id": 304228,
+          "name": "Zeno Debast",
+          "position": "D",
           "appearances": 1,
           "starts": 0,
-          "minutes_avg": 20.0,
+          "minutes_avg": 18.0,
           "shots_total_avg": 0.0,
           "shots_on_target_avg": 0.0,
           "shots_total_per90": 0.0,
           "shots_on_target_per90": 0.0,
           "fixture_ids": [
-            1503003
+            1514471
           ]
         },
         {
@@ -2480,8 +2446,8 @@
       "ganados": 4,
       "empatados": 6,
       "perdidos": 2,
-      "goles_favor": 11,
-      "goles_contra": 10,
+      "goles_favor": 13,
+      "goles_contra": 12,
       "diferencia": 1,
       "puntos": 18
     },
@@ -2490,15 +2456,15 @@
     "_team_name": "Uruguay",
     "danger": {
       "shots_on_target_avg": 3.2,
-      "corners_avg": 6.25,
+      "corners_avg": 7.2,
       "venue": null,
       "n_fixtures": 5,
       "fixture_ids": [
+        1489398,
         1489379,
         1528280,
         1502470,
-        1457379,
-        1469292
+        1457379
       ],
       "errors": []
     },
@@ -2506,61 +2472,29 @@
       "venue": null,
       "n_fixtures": 5,
       "fixture_ids": [
+        1489398,
         1489379,
         1528280,
         1502470,
-        1457379,
-        1469292
+        1457379
       ],
       "players": [
         {
           "player_id": 756,
           "name": "Federico Valverde",
           "position": "M",
-          "appearances": 3,
-          "starts": 3,
-          "minutes_avg": 89.7,
-          "shots_total_avg": 1.67,
-          "shots_on_target_avg": 1.33,
-          "shots_total_per90": 1.67,
-          "shots_on_target_per90": 1.34,
+          "appearances": 4,
+          "starts": 4,
+          "minutes_avg": 90.5,
+          "shots_total_avg": 2.25,
+          "shots_on_target_avg": 1.0,
+          "shots_total_per90": 2.24,
+          "shots_on_target_per90": 0.99,
           "fixture_ids": [
+            1489398,
             1489379,
             1528280,
             1502470
-          ]
-        },
-        {
-          "player_id": 5995,
-          "name": "Nicolás de la Cruz",
-          "position": "M",
-          "appearances": 1,
-          "starts": 0,
-          "minutes_avg": 18.0,
-          "shots_total_avg": 1.0,
-          "shots_on_target_avg": 1.0,
-          "shots_total_per90": 5.0,
-          "shots_on_target_per90": 5.0,
-          "fixture_ids": [
-            1489379
-          ]
-        },
-        {
-          "player_id": 51530,
-          "name": "Federico Viñas",
-          "position": "M",
-          "appearances": 4,
-          "starts": 3,
-          "minutes_avg": 57.2,
-          "shots_total_avg": 1.5,
-          "shots_on_target_avg": 0.75,
-          "shots_total_per90": 2.36,
-          "shots_on_target_per90": 1.18,
-          "fixture_ids": [
-            1489379,
-            1528280,
-            1502470,
-            1457379
           ]
         },
         {
@@ -2581,68 +2515,18 @@
           ]
         },
         {
-          "player_id": 51618,
-          "name": "Brian Rodríguez",
+          "player_id": 51530,
+          "name": "Federico Viñas",
           "position": "F",
-          "appearances": 2,
-          "starts": 1,
-          "minutes_avg": 60.0,
-          "shots_total_avg": 0.5,
-          "shots_on_target_avg": 0.5,
-          "shots_total_per90": 0.75,
-          "shots_on_target_per90": 0.75,
-          "fixture_ids": [
-            1457379,
-            1469292
-          ]
-        },
-        {
-          "player_id": 51620,
-          "name": "Facundo Torres",
-          "position": "F",
-          "appearances": 2,
-          "starts": 0,
-          "minutes_avg": 32.0,
-          "shots_total_avg": 0.5,
-          "shots_on_target_avg": 0.5,
-          "shots_total_per90": 1.41,
-          "shots_on_target_per90": 1.41,
-          "fixture_ids": [
-            1457379,
-            1469292
-          ]
-        },
-        {
-          "player_id": 51776,
-          "name": "Maximiliano Araújo",
-          "position": "M",
           "appearances": 5,
           "starts": 4,
-          "minutes_avg": 64.0,
-          "shots_total_avg": 0.4,
-          "shots_on_target_avg": 0.4,
-          "shots_total_per90": 0.56,
-          "shots_on_target_per90": 0.56,
+          "minutes_avg": 59.8,
+          "shots_total_avg": 1.2,
+          "shots_on_target_avg": 0.6,
+          "shots_total_per90": 1.81,
+          "shots_on_target_per90": 0.9,
           "fixture_ids": [
-            1489379,
-            1528280,
-            1502470,
-            1457379,
-            1469292
-          ]
-        },
-        {
-          "player_id": 51494,
-          "name": "Manuel Ugarte",
-          "position": "M",
-          "appearances": 4,
-          "starts": 4,
-          "minutes_avg": 85.0,
-          "shots_total_avg": 0.5,
-          "shots_on_target_avg": 0.25,
-          "shots_total_per90": 0.53,
-          "shots_on_target_per90": 0.26,
-          "fixture_ids": [
+            1489398,
             1489379,
             1528280,
             1502470,
@@ -2650,36 +2534,75 @@
           ]
         },
         {
+          "player_id": 51776,
+          "name": "Maximiliano Araújo",
+          "position": "M",
+          "appearances": 5,
+          "starts": 5,
+          "minutes_avg": 77.0,
+          "shots_total_avg": 0.8,
+          "shots_on_target_avg": 0.6,
+          "shots_total_per90": 0.94,
+          "shots_on_target_per90": 0.7,
+          "fixture_ids": [
+            1489398,
+            1489379,
+            1528280,
+            1502470,
+            1457379
+          ]
+        },
+        {
+          "player_id": 5995,
+          "name": "Nicolás de la Cruz",
+          "position": "M",
+          "appearances": 2,
+          "starts": 0,
+          "minutes_avg": 20.5,
+          "shots_total_avg": 1.0,
+          "shots_on_target_avg": 0.5,
+          "shots_total_per90": 4.39,
+          "shots_on_target_per90": 2.2,
+          "fixture_ids": [
+            1489398,
+            1489379
+          ]
+        },
+        {
           "player_id": 51603,
           "name": "Agustín Canobbio",
-          "position": "F",
-          "appearances": 3,
-          "starts": 2,
-          "minutes_avg": 73.0,
-          "shots_total_avg": 1.67,
-          "shots_on_target_avg": 0.0,
-          "shots_total_per90": 2.05,
-          "shots_on_target_per90": 0.0,
+          "position": "M",
+          "appearances": 4,
+          "starts": 3,
+          "minutes_avg": 78.0,
+          "shots_total_avg": 1.5,
+          "shots_on_target_avg": 0.25,
+          "shots_total_per90": 1.73,
+          "shots_on_target_per90": 0.29,
           "fixture_ids": [
+            1489398,
             1489379,
             1528280,
             1502470
           ]
         },
         {
-          "player_id": 51535,
-          "name": "Sebastián Cáceres",
-          "position": "D",
-          "appearances": 2,
-          "starts": 1,
-          "minutes_avg": 67.5,
-          "shots_total_avg": 1.0,
-          "shots_on_target_avg": 0.0,
-          "shots_total_per90": 1.33,
-          "shots_on_target_per90": 0.0,
+          "player_id": 51494,
+          "name": "Manuel Ugarte",
+          "position": "M",
+          "appearances": 5,
+          "starts": 5,
+          "minutes_avg": 82.0,
+          "shots_total_avg": 0.6,
+          "shots_on_target_avg": 0.2,
+          "shots_total_per90": 0.66,
+          "shots_on_target_per90": 0.22,
           "fixture_ids": [
+            1489398,
             1489379,
-            1528280
+            1528280,
+            1502470,
+            1457379
           ]
         },
         {
@@ -2688,15 +2611,32 @@
           "position": "M",
           "appearances": 3,
           "starts": 3,
-          "minutes_avg": 81.3,
+          "minutes_avg": 82.3,
           "shots_total_avg": 0.67,
           "shots_on_target_avg": 0.0,
-          "shots_total_per90": 0.74,
+          "shots_total_per90": 0.73,
           "shots_on_target_per90": 0.0,
           "fixture_ids": [
+            1489398,
             1489379,
-            1457379,
-            1469292
+            1457379
+          ]
+        },
+        {
+          "player_id": 51535,
+          "name": "Sebastián Cáceres",
+          "position": "D",
+          "appearances": 3,
+          "starts": 2,
+          "minutes_avg": 76.0,
+          "shots_total_avg": 0.67,
+          "shots_on_target_avg": 0.0,
+          "shots_total_per90": 0.79,
+          "shots_on_target_per90": 0.0,
+          "fixture_ids": [
+            1489398,
+            1489379,
+            1528280
           ]
         },
         {
@@ -2705,65 +2645,48 @@
           "position": "D",
           "appearances": 4,
           "starts": 4,
-          "minutes_avg": 90.0,
+          "minutes_avg": 90.8,
           "shots_total_avg": 0.5,
           "shots_on_target_avg": 0.0,
           "shots_total_per90": 0.5,
           "shots_on_target_per90": 0.0,
           "fixture_ids": [
+            1489398,
             1489379,
             1528280,
-            1502470,
-            1469292
-          ]
-        },
-        {
-          "player_id": 162891,
-          "name": "Juan Sanabria",
-          "position": "M",
-          "appearances": 2,
-          "starts": 1,
-          "minutes_avg": 45.0,
-          "shots_total_avg": 0.5,
-          "shots_on_target_avg": 0.0,
-          "shots_total_per90": 1.0,
-          "shots_on_target_per90": 0.0,
-          "fixture_ids": [
-            1489379,
-            1469292
-          ]
-        },
-        {
-          "player_id": 51617,
-          "name": "Darwin Núñez",
-          "position": "F",
-          "appearances": 2,
-          "starts": 1,
-          "minutes_avg": 33.0,
-          "shots_total_avg": 0.5,
-          "shots_on_target_avg": 0.0,
-          "shots_total_per90": 1.36,
-          "shots_on_target_per90": 0.0,
-          "fixture_ids": [
-            1489379,
-            1528280
+            1502470
           ]
         },
         {
           "player_id": 31,
           "name": "José María Giménez",
           "position": "D",
-          "appearances": 3,
-          "starts": 2,
-          "minutes_avg": 84.7,
-          "shots_total_avg": 0.33,
+          "appearances": 2,
+          "starts": 1,
+          "minutes_avg": 82.0,
+          "shots_total_avg": 0.5,
           "shots_on_target_avg": 0.0,
-          "shots_total_per90": 0.35,
+          "shots_total_per90": 0.55,
           "shots_on_target_per90": 0.0,
           "fixture_ids": [
             1528280,
-            1502470,
-            1469292
+            1502470
+          ]
+        },
+        {
+          "player_id": 162891,
+          "name": "Juan Sanabria",
+          "position": "D",
+          "appearances": 2,
+          "starts": 1,
+          "minutes_avg": 69.0,
+          "shots_total_avg": 0.5,
+          "shots_on_target_avg": 0.0,
+          "shots_total_per90": 0.65,
+          "shots_on_target_per90": 0.0,
+          "fixture_ids": [
+            1489398,
+            1489379
           ]
         },
         {
@@ -2784,22 +2707,37 @@
           ]
         },
         {
-          "player_id": 47254,
-          "name": "Mathías Olivera",
-          "position": "D",
-          "appearances": 5,
-          "starts": 5,
-          "minutes_avg": 89.6,
-          "shots_total_avg": 0.2,
+          "player_id": 51617,
+          "name": "Darwin Núñez",
+          "position": "F",
+          "appearances": 3,
+          "starts": 1,
+          "minutes_avg": 29.7,
+          "shots_total_avg": 0.33,
           "shots_on_target_avg": 0.0,
-          "shots_total_per90": 0.2,
+          "shots_total_per90": 1.01,
           "shots_on_target_per90": 0.0,
           "fixture_ids": [
+            1489398,
             1489379,
-            1528280,
-            1502470,
-            1457379,
-            1469292
+            1528280
+          ]
+        },
+        {
+          "player_id": 429,
+          "name": "Fernando Muslera",
+          "position": "G",
+          "appearances": 3,
+          "starts": 3,
+          "minutes_avg": 91.0,
+          "shots_total_avg": 0.0,
+          "shots_on_target_avg": 0.0,
+          "shots_total_per90": 0.0,
+          "shots_on_target_per90": 0.0,
+          "fixture_ids": [
+            1489398,
+            1489379,
+            1502470
           ]
         },
         {
@@ -2818,19 +2756,37 @@
           ]
         },
         {
-          "player_id": 429,
-          "name": "Fernando Muslera",
-          "position": "G",
-          "appearances": 2,
-          "starts": 2,
-          "minutes_avg": 90.0,
+          "player_id": 2614,
+          "name": "Nahitan Nández",
+          "position": "D",
+          "appearances": 1,
+          "starts": 1,
+          "minutes_avg": 91.0,
           "shots_total_avg": 0.0,
           "shots_on_target_avg": 0.0,
           "shots_total_per90": 0.0,
           "shots_on_target_per90": 0.0,
           "fixture_ids": [
+            1457379
+          ]
+        },
+        {
+          "player_id": 47254,
+          "name": "Mathías Olivera",
+          "position": "D",
+          "appearances": 5,
+          "starts": 5,
+          "minutes_avg": 90.2,
+          "shots_total_avg": 0.0,
+          "shots_on_target_avg": 0.0,
+          "shots_total_per90": 0.0,
+          "shots_on_target_per90": 0.0,
+          "fixture_ids": [
+            1489398,
             1489379,
-            1502470
+            1528280,
+            1502470,
+            1457379
           ]
         },
         {
@@ -2849,84 +2805,34 @@
           ]
         },
         {
-          "player_id": 61895,
-          "name": "Santiago Mele",
-          "position": "G",
-          "appearances": 1,
-          "starts": 1,
-          "minutes_avg": 90.0,
-          "shots_total_avg": 0.0,
-          "shots_on_target_avg": 0.0,
-          "shots_total_per90": 0.0,
-          "shots_on_target_per90": 0.0,
-          "fixture_ids": [
-            1469292
-          ]
-        },
-        {
-          "player_id": 2614,
-          "name": "Nahitan Nández",
-          "position": "D",
-          "appearances": 2,
-          "starts": 1,
-          "minutes_avg": 68.0,
-          "shots_total_avg": 0.0,
-          "shots_on_target_avg": 0.0,
-          "shots_total_per90": 0.0,
-          "shots_on_target_per90": 0.0,
-          "fixture_ids": [
-            1457379,
-            1469292
-          ]
-        },
-        {
           "player_id": 16482,
           "name": "Rodrigo Aguirre",
           "position": "F",
-          "appearances": 3,
-          "starts": 2,
-          "minutes_avg": 66.7,
-          "shots_total_avg": 0.0,
-          "shots_on_target_avg": 0.0,
-          "shots_total_per90": 0.0,
-          "shots_on_target_per90": 0.0,
-          "fixture_ids": [
-            1502470,
-            1457379,
-            1469292
-          ]
-        },
-        {
-          "player_id": 153083,
-          "name": "Emiliano Martínez",
-          "position": "M",
           "appearances": 2,
           "starts": 1,
-          "minutes_avg": 57.0,
-          "shots_total_avg": 0.0,
-          "shots_on_target_avg": 0.0,
-          "shots_total_per90": 0.0,
-          "shots_on_target_per90": 0.0,
-          "fixture_ids": [
-            1457379,
-            1469292
-          ]
-        },
-        {
-          "player_id": 51466,
-          "name": "Joaquín Piquerez",
-          "position": "D",
-          "appearances": 3,
-          "starts": 2,
-          "minutes_avg": 50.7,
+          "minutes_avg": 55.0,
           "shots_total_avg": 0.0,
           "shots_on_target_avg": 0.0,
           "shots_total_per90": 0.0,
           "shots_on_target_per90": 0.0,
           "fixture_ids": [
             1502470,
-            1457379,
-            1469292
+            1457379
+          ]
+        },
+        {
+          "player_id": 51618,
+          "name": "Brian Rodríguez",
+          "position": "F",
+          "appearances": 1,
+          "starts": 0,
+          "minutes_avg": 46.0,
+          "shots_total_avg": 0.0,
+          "shots_on_target_avg": 0.0,
+          "shots_total_per90": 0.0,
+          "shots_on_target_per90": 0.0,
+          "fixture_ids": [
+            1457379
           ]
         },
         {
@@ -2949,16 +2855,31 @@
           "player_id": 108563,
           "name": "Rodrigo Zalazar",
           "position": "M",
-          "appearances": 2,
-          "starts": 2,
+          "appearances": 1,
+          "starts": 1,
           "minutes_avg": 45.0,
           "shots_total_avg": 0.0,
           "shots_on_target_avg": 0.0,
           "shots_total_per90": 0.0,
           "shots_on_target_per90": 0.0,
           "fixture_ids": [
-            1457379,
-            1469292
+            1457379
+          ]
+        },
+        {
+          "player_id": 51466,
+          "name": "Joaquín Piquerez",
+          "position": "D",
+          "appearances": 2,
+          "starts": 1,
+          "minutes_avg": 31.0,
+          "shots_total_avg": 0.0,
+          "shots_on_target_avg": 0.0,
+          "shots_total_per90": 0.0,
+          "shots_on_target_per90": 0.0,
+          "fixture_ids": [
+            1502470,
+            1457379
           ]
         },
         {
@@ -2974,6 +2895,36 @@
           "shots_on_target_per90": 0.0,
           "fixture_ids": [
             1502470
+          ]
+        },
+        {
+          "player_id": 153083,
+          "name": "Emiliano Martínez",
+          "position": "M",
+          "appearances": 1,
+          "starts": 0,
+          "minutes_avg": 24.0,
+          "shots_total_avg": 0.0,
+          "shots_on_target_avg": 0.0,
+          "shots_total_per90": 0.0,
+          "shots_on_target_per90": 0.0,
+          "fixture_ids": [
+            1457379
+          ]
+        },
+        {
+          "player_id": 51620,
+          "name": "Facundo Torres",
+          "position": "F",
+          "appearances": 1,
+          "starts": 0,
+          "minutes_avg": 19.0,
+          "shots_total_avg": 0.0,
+          "shots_on_target_avg": 0.0,
+          "shots_total_per90": 0.0,
+          "shots_on_target_per90": 0.0,
+          "fixture_ids": [
+            1457379
           ]
         }
       ],
@@ -3422,27 +3373,27 @@
     "position": {
       "posicion": 0,
       "partidos": 12,
-      "ganados": 7,
-      "empatados": 5,
+      "ganados": 8,
+      "empatados": 4,
       "perdidos": 0,
-      "goles_favor": 30,
-      "goles_contra": 6,
-      "diferencia": 24,
-      "puntos": 26
+      "goles_favor": 32,
+      "goles_contra": 4,
+      "diferencia": 28,
+      "puntos": 28
     },
     "_source": "api_football:form",
     "_team_id": 9,
     "_team_name": "Spain",
     "danger": {
       "shots_on_target_avg": 6.25,
-      "corners_avg": 8.0,
+      "corners_avg": 8.25,
       "venue": null,
       "n_fixtures": 4,
       "fixture_ids": [
+        1489397,
         1489380,
         1544359,
-        1511778,
-        1536910
+        1511778
       ],
       "errors": []
     },
@@ -3450,10 +3401,10 @@
       "venue": null,
       "n_fixtures": 4,
       "fixture_ids": [
+        1489397,
         1489380,
         1544359,
-        1511778,
-        1536910
+        1511778
       ],
       "players": [
         {
@@ -3462,14 +3413,14 @@
           "position": "F",
           "appearances": 2,
           "starts": 2,
-          "minutes_avg": 76.5,
-          "shots_total_avg": 3.0,
-          "shots_on_target_avg": 1.5,
-          "shots_total_per90": 3.53,
-          "shots_on_target_per90": 1.76,
+          "minutes_avg": 67.5,
+          "shots_total_avg": 4.5,
+          "shots_on_target_avg": 2.0,
+          "shots_total_per90": 6.0,
+          "shots_on_target_per90": 2.67,
           "fixture_ids": [
-            1489380,
-            1536910
+            1489397,
+            1489380
           ]
         },
         {
@@ -3478,31 +3429,16 @@
           "position": "F",
           "appearances": 4,
           "starts": 3,
-          "minutes_avg": 53.8,
-          "shots_total_avg": 2.0,
-          "shots_on_target_avg": 1.5,
-          "shots_total_per90": 3.35,
-          "shots_on_target_per90": 2.51,
+          "minutes_avg": 58.2,
+          "shots_total_avg": 1.75,
+          "shots_on_target_avg": 1.25,
+          "shots_total_per90": 2.7,
+          "shots_on_target_per90": 1.93,
           "fixture_ids": [
+            1489397,
             1489380,
             1544359,
-            1511778,
-            1536910
-          ]
-        },
-        {
-          "player_id": 328,
-          "name": "Fabián Ruiz",
-          "position": "M",
-          "appearances": 1,
-          "starts": 1,
-          "minutes_avg": 71.0,
-          "shots_total_avg": 5.0,
-          "shots_on_target_avg": 1.0,
-          "shots_total_per90": 6.34,
-          "shots_on_target_per90": 1.27,
-          "fixture_ids": [
-            1489380
+            1511778
           ]
         },
         {
@@ -3511,80 +3447,15 @@
           "position": "M",
           "appearances": 3,
           "starts": 2,
-          "minutes_avg": 60.0,
-          "shots_total_avg": 1.33,
+          "minutes_avg": 68.3,
+          "shots_total_avg": 1.67,
           "shots_on_target_avg": 1.0,
-          "shots_total_per90": 2.0,
-          "shots_on_target_per90": 1.5,
+          "shots_total_per90": 2.2,
+          "shots_on_target_per90": 1.32,
           "fixture_ids": [
+            1489397,
             1489380,
-            1511778,
-            1536910
-          ]
-        },
-        {
-          "player_id": 1323,
-          "name": "Dani Olmo",
-          "position": "M",
-          "appearances": 3,
-          "starts": 2,
-          "minutes_avg": 45.0,
-          "shots_total_avg": 1.33,
-          "shots_on_target_avg": 1.0,
-          "shots_total_per90": 2.67,
-          "shots_on_target_per90": 2.0,
-          "fixture_ids": [
-            1544359,
-            1511778,
-            1536910
-          ]
-        },
-        {
-          "player_id": 340626,
-          "name": "Fermín López",
-          "position": "M",
-          "appearances": 2,
-          "starts": 1,
-          "minutes_avg": 45.0,
-          "shots_total_avg": 1.0,
-          "shots_on_target_avg": 1.0,
-          "shots_total_per90": 2.0,
-          "shots_on_target_per90": 2.0,
-          "fixture_ids": [
-            1511778,
-            1536910
-          ]
-        },
-        {
-          "player_id": 338751,
-          "name": "Victor Muñoz",
-          "position": "F",
-          "appearances": 2,
-          "starts": 0,
-          "minutes_avg": 36.0,
-          "shots_total_avg": 1.0,
-          "shots_on_target_avg": 1.0,
-          "shots_total_per90": 2.5,
-          "shots_on_target_per90": 2.5,
-          "fixture_ids": [
-            1511778,
-            1536910
-          ]
-        },
-        {
-          "player_id": 182219,
-          "name": "Alex Baena",
-          "position": "M",
-          "appearances": 2,
-          "starts": 2,
-          "minutes_avg": 72.5,
-          "shots_total_avg": 2.0,
-          "shots_on_target_avg": 0.5,
-          "shots_total_per90": 2.48,
-          "shots_on_target_per90": 0.62,
-          "fixture_ids": [
-            1544359,
-            1536910
+            1511778
           ]
         },
         {
@@ -3594,13 +3465,94 @@
           "appearances": 2,
           "starts": 2,
           "minutes_avg": 90.0,
-          "shots_total_avg": 1.0,
-          "shots_on_target_avg": 0.5,
-          "shots_total_per90": 1.0,
-          "shots_on_target_per90": 0.5,
+          "shots_total_avg": 1.5,
+          "shots_on_target_avg": 1.0,
+          "shots_total_per90": 1.5,
+          "shots_on_target_per90": 1.0,
           "fixture_ids": [
+            1489397,
+            1489380
+          ]
+        },
+        {
+          "player_id": 340626,
+          "name": "Fermín López",
+          "position": "M",
+          "appearances": 1,
+          "starts": 0,
+          "minutes_avg": 45.0,
+          "shots_total_avg": 1.0,
+          "shots_on_target_avg": 1.0,
+          "shots_total_per90": 2.0,
+          "shots_on_target_per90": 2.0,
+          "fixture_ids": [
+            1511778
+          ]
+        },
+        {
+          "player_id": 386828,
+          "name": "Lamine Yamal",
+          "position": "F",
+          "appearances": 3,
+          "starts": 2,
+          "minutes_avg": 36.3,
+          "shots_total_avg": 2.33,
+          "shots_on_target_avg": 0.67,
+          "shots_total_per90": 5.78,
+          "shots_on_target_per90": 1.65,
+          "fixture_ids": [
+            1489397,
             1489380,
-            1536910
+            1511778
+          ]
+        },
+        {
+          "player_id": 1323,
+          "name": "Dani Olmo",
+          "position": "M",
+          "appearances": 3,
+          "starts": 3,
+          "minutes_avg": 50.3,
+          "shots_total_avg": 1.67,
+          "shots_on_target_avg": 0.67,
+          "shots_total_per90": 2.98,
+          "shots_on_target_per90": 1.19,
+          "fixture_ids": [
+            1489397,
+            1544359,
+            1511778
+          ]
+        },
+        {
+          "player_id": 328,
+          "name": "Fabián Ruiz",
+          "position": "M",
+          "appearances": 2,
+          "starts": 1,
+          "minutes_avg": 45.5,
+          "shots_total_avg": 2.5,
+          "shots_on_target_avg": 0.5,
+          "shots_total_per90": 4.95,
+          "shots_on_target_per90": 0.99,
+          "fixture_ids": [
+            1489397,
+            1489380
+          ]
+        },
+        {
+          "player_id": 182219,
+          "name": "Alex Baena",
+          "position": "F",
+          "appearances": 2,
+          "starts": 2,
+          "minutes_avg": 64.5,
+          "shots_total_avg": 1.5,
+          "shots_on_target_avg": 0.5,
+          "shots_total_per90": 2.09,
+          "shots_on_target_per90": 0.7,
+          "fixture_ids": [
+            1489397,
+            1544359
           ]
         },
         {
@@ -3620,19 +3572,20 @@
           ]
         },
         {
-          "player_id": 47311,
-          "name": "Mikel Merino",
-          "position": "M",
-          "appearances": 2,
-          "starts": 0,
-          "minutes_avg": 20.5,
-          "shots_total_avg": 0.5,
-          "shots_on_target_avg": 0.5,
-          "shots_total_per90": 2.2,
-          "shots_on_target_per90": 2.2,
+          "player_id": 47519,
+          "name": "Pedro Porro",
+          "position": "D",
+          "appearances": 3,
+          "starts": 3,
+          "minutes_avg": 84.3,
+          "shots_total_avg": 1.0,
+          "shots_on_target_avg": 0.33,
+          "shots_total_per90": 1.07,
+          "shots_on_target_per90": 0.36,
           "fixture_ids": [
-            1489380,
-            1544359
+            1489397,
+            1544359,
+            1511778
           ]
         },
         {
@@ -3647,9 +3600,43 @@
           "shots_total_per90": 0.8,
           "shots_on_target_per90": 0.4,
           "fixture_ids": [
+            1489397,
             1489380,
-            1544359,
-            1536910
+            1544359
+          ]
+        },
+        {
+          "player_id": 47311,
+          "name": "Mikel Merino",
+          "position": "M",
+          "appearances": 3,
+          "starts": 0,
+          "minutes_avg": 23.3,
+          "shots_total_avg": 0.33,
+          "shots_on_target_avg": 0.33,
+          "shots_total_per90": 1.29,
+          "shots_on_target_per90": 1.29,
+          "fixture_ids": [
+            1489397,
+            1489380,
+            1544359
+          ]
+        },
+        {
+          "player_id": 44,
+          "name": "Rodri",
+          "position": "M",
+          "appearances": 3,
+          "starts": 2,
+          "minutes_avg": 74.0,
+          "shots_total_avg": 1.33,
+          "shots_on_target_avg": 0.0,
+          "shots_total_per90": 1.62,
+          "shots_on_target_per90": 0.0,
+          "fixture_ids": [
+            1489397,
+            1489380,
+            1511778
           ]
         },
         {
@@ -3680,23 +3667,6 @@
           "shots_on_target_per90": 0.0,
           "fixture_ids": [
             1511778
-          ]
-        },
-        {
-          "player_id": 44,
-          "name": "Rodri",
-          "position": "M",
-          "appearances": 3,
-          "starts": 2,
-          "minutes_avg": 69.7,
-          "shots_total_avg": 1.0,
-          "shots_on_target_avg": 0.0,
-          "shots_total_per90": 1.29,
-          "shots_on_target_per90": 0.0,
-          "fixture_ids": [
-            1489380,
-            1511778,
-            1536910
           ]
         },
         {
@@ -3745,39 +3715,6 @@
           ]
         },
         {
-          "player_id": 386828,
-          "name": "Lamine Yamal",
-          "position": "F",
-          "appearances": 3,
-          "starts": 2,
-          "minutes_avg": 42.3,
-          "shots_total_avg": 1.0,
-          "shots_on_target_avg": 0.0,
-          "shots_total_per90": 2.13,
-          "shots_on_target_per90": 0.0,
-          "fixture_ids": [
-            1489380,
-            1511778,
-            1536910
-          ]
-        },
-        {
-          "player_id": 47519,
-          "name": "Pedro Porro",
-          "position": "D",
-          "appearances": 2,
-          "starts": 2,
-          "minutes_avg": 81.5,
-          "shots_total_avg": 0.5,
-          "shots_on_target_avg": 0.0,
-          "shots_total_per90": 0.55,
-          "shots_on_target_per90": 0.0,
-          "fixture_ids": [
-            1544359,
-            1511778
-          ]
-        },
-        {
           "player_id": 47348,
           "name": "Borja Iglesias",
           "position": "F",
@@ -3797,14 +3734,15 @@
           "player_id": 184226,
           "name": "Yéremy Pino",
           "position": "M",
-          "appearances": 2,
+          "appearances": 3,
           "starts": 0,
-          "minutes_avg": 31.0,
-          "shots_total_avg": 0.5,
+          "minutes_avg": 35.7,
+          "shots_total_avg": 0.33,
           "shots_on_target_avg": 0.0,
-          "shots_total_per90": 1.45,
+          "shots_total_per90": 0.84,
           "shots_on_target_per90": 0.0,
           "fixture_ids": [
+            1489397,
             1544359,
             1511778
           ]
@@ -3821,13 +3759,13 @@
           "shots_total_per90": 0.0,
           "shots_on_target_per90": 0.0,
           "fixture_ids": [
-            1489380,
-            1536910
+            1489397,
+            1489380
           ]
         },
         {
-          "player_id": 753,
-          "name": "Marcos Llorente",
+          "player_id": 396623,
+          "name": "Pau Cubarsí",
           "position": "D",
           "appearances": 2,
           "starts": 2,
@@ -3837,8 +3775,23 @@
           "shots_total_per90": 0.0,
           "shots_on_target_per90": 0.0,
           "fixture_ids": [
-            1489380,
-            1536910
+            1489397,
+            1489380
+          ]
+        },
+        {
+          "player_id": 753,
+          "name": "Marcos Llorente",
+          "position": "D",
+          "appearances": 1,
+          "starts": 1,
+          "minutes_avg": 90.0,
+          "shots_total_avg": 0.0,
+          "shots_on_target_avg": 0.0,
+          "shots_total_per90": 0.0,
+          "shots_on_target_per90": 0.0,
+          "fixture_ids": [
+            1489380
           ]
         },
         {
@@ -3854,22 +3807,6 @@
           "shots_on_target_per90": 0.0,
           "fixture_ids": [
             1511778
-          ]
-        },
-        {
-          "player_id": 396623,
-          "name": "Pau Cubarsí",
-          "position": "D",
-          "appearances": 2,
-          "starts": 2,
-          "minutes_avg": 86.5,
-          "shots_total_avg": 0.0,
-          "shots_on_target_avg": 0.0,
-          "shots_total_per90": 0.0,
-          "shots_on_target_per90": 0.0,
-          "fixture_ids": [
-            1489380,
-            1536910
           ]
         },
         {
@@ -3968,7 +3905,7 @@
           "player_id": 1697,
           "name": "Pablo Fornals",
           "position": "M",
-          "appearances": 2,
+          "appearances": 1,
           "starts": 1,
           "minutes_avg": 45.0,
           "shots_total_avg": 0.0,
@@ -3976,8 +3913,7 @@
           "shots_total_per90": 0.0,
           "shots_on_target_per90": 0.0,
           "fixture_ids": [
-            1511778,
-            1536910
+            1511778
           ]
         },
         {
@@ -3986,6 +3922,21 @@
           "position": "M",
           "appearances": 1,
           "starts": 1,
+          "minutes_avg": 45.0,
+          "shots_total_avg": 0.0,
+          "shots_on_target_avg": 0.0,
+          "shots_total_per90": 0.0,
+          "shots_on_target_per90": 0.0,
+          "fixture_ids": [
+            1511778
+          ]
+        },
+        {
+          "player_id": 338751,
+          "name": "Victor Muñoz",
+          "position": "F",
+          "appearances": 1,
+          "starts": 0,
           "minutes_avg": 45.0,
           "shots_total_avg": 0.0,
           "shots_on_target_avg": 0.0,
@@ -4038,6 +3989,21 @@
           "shots_on_target_per90": 0.0,
           "fixture_ids": [
             1544359
+          ]
+        },
+        {
+          "player_id": 183799,
+          "name": "Nico Williams",
+          "position": "F",
+          "appearances": 1,
+          "starts": 0,
+          "minutes_avg": 29.0,
+          "shots_total_avg": 0.0,
+          "shots_on_target_avg": 0.0,
+          "shots_total_per90": 0.0,
+          "shots_on_target_per90": 0.0,
+          "fixture_ids": [
+            1489397
           ]
         },
         {
@@ -8210,31 +8176,33 @@
     "position": {
       "posicion": 0,
       "partidos": 12,
-      "ganados": 5,
-      "empatados": 4,
+      "ganados": 4,
+      "empatados": 5,
       "perdidos": 3,
-      "goles_favor": 21,
+      "goles_favor": 18,
       "goles_contra": 10,
-      "diferencia": 11,
-      "puntos": 19
+      "diferencia": 8,
+      "puntos": 17
     },
     "_source": "api_football:form",
     "_team_id": 22,
     "_team_name": "Iran",
     "danger": {
-      "shots_on_target_avg": 4.0,
-      "corners_avg": 4.0,
+      "shots_on_target_avg": 3.5,
+      "corners_avg": 3.0,
       "venue": null,
-      "n_fixtures": 1,
+      "n_fixtures": 2,
       "fixture_ids": [
+        1489395,
         1489378
       ],
       "errors": []
     },
     "player_shots": {
       "venue": null,
-      "n_fixtures": 1,
+      "n_fixtures": 2,
       "fixture_ids": [
+        1489395,
         1489378
       ],
       "players": [
@@ -8242,45 +8210,31 @@
           "player_id": 19614,
           "name": "Saeid Ezatolahi",
           "position": "M",
-          "appearances": 1,
-          "starts": 1,
-          "minutes_avg": 90.0,
+          "appearances": 2,
+          "starts": 2,
+          "minutes_avg": 87.5,
           "shots_total_avg": 2.0,
           "shots_on_target_avg": 1.0,
-          "shots_total_per90": 2.0,
-          "shots_on_target_per90": 1.0,
+          "shots_total_per90": 2.06,
+          "shots_on_target_per90": 1.03,
           "fixture_ids": [
+            1489395,
             1489378
           ]
         },
         {
-          "player_id": 2691,
-          "name": "Ramin Rezaeian",
+          "player_id": 2687,
+          "name": "Hossein Kanaani",
           "position": "D",
           "appearances": 1,
           "starts": 1,
-          "minutes_avg": 90.0,
+          "minutes_avg": 96.0,
           "shots_total_avg": 1.0,
           "shots_on_target_avg": 1.0,
-          "shots_total_per90": 1.0,
-          "shots_on_target_per90": 1.0,
+          "shots_total_per90": 0.94,
+          "shots_on_target_per90": 0.94,
           "fixture_ids": [
-            1489378
-          ]
-        },
-        {
-          "player_id": 134217,
-          "name": "Mohammad Mohebi",
-          "position": "M",
-          "appearances": 1,
-          "starts": 1,
-          "minutes_avg": 90.0,
-          "shots_total_avg": 1.0,
-          "shots_on_target_avg": 1.0,
-          "shots_total_per90": 1.0,
-          "shots_on_target_per90": 1.0,
-          "fixture_ids": [
-            1489378
+            1489395
           ]
         },
         {
@@ -8302,14 +8256,47 @@
           "player_id": 42315,
           "name": "Mehdi Taremi",
           "position": "F",
-          "appearances": 1,
-          "starts": 1,
-          "minutes_avg": 80.0,
-          "shots_total_avg": 2.0,
-          "shots_on_target_avg": 0.0,
-          "shots_total_per90": 2.25,
-          "shots_on_target_per90": 0.0,
+          "appearances": 2,
+          "starts": 2,
+          "minutes_avg": 88.0,
+          "shots_total_avg": 1.5,
+          "shots_on_target_avg": 0.5,
+          "shots_total_per90": 1.53,
+          "shots_on_target_per90": 0.51,
           "fixture_ids": [
+            1489395,
+            1489378
+          ]
+        },
+        {
+          "player_id": 2691,
+          "name": "Ramin Rezaeian",
+          "position": "M",
+          "appearances": 2,
+          "starts": 2,
+          "minutes_avg": 93.0,
+          "shots_total_avg": 0.5,
+          "shots_on_target_avg": 0.5,
+          "shots_total_per90": 0.48,
+          "shots_on_target_per90": 0.48,
+          "fixture_ids": [
+            1489395,
+            1489378
+          ]
+        },
+        {
+          "player_id": 134217,
+          "name": "Mohammad Mohebi",
+          "position": "M",
+          "appearances": 2,
+          "starts": 2,
+          "minutes_avg": 78.0,
+          "shots_total_avg": 0.5,
+          "shots_on_target_avg": 0.5,
+          "shots_total_per90": 0.58,
+          "shots_on_target_per90": 0.58,
+          "fixture_ids": [
+            1489395,
             1489378
           ]
         },
@@ -8317,59 +8304,46 @@
           "player_id": 2699,
           "name": "Saman Ghoddos",
           "position": "M",
-          "appearances": 1,
-          "starts": 1,
-          "minutes_avg": 65.0,
-          "shots_total_avg": 2.0,
+          "appearances": 2,
+          "starts": 2,
+          "minutes_avg": 72.0,
+          "shots_total_avg": 1.0,
           "shots_on_target_avg": 0.0,
-          "shots_total_per90": 2.77,
+          "shots_total_per90": 1.25,
           "shots_on_target_per90": 0.0,
           "fixture_ids": [
+            1489395,
             1489378
+          ]
+        },
+        {
+          "player_id": 2700,
+          "name": "Alireza Jahanbakhsh",
+          "position": "F",
+          "appearances": 1,
+          "starts": 0,
+          "minutes_avg": 51.0,
+          "shots_total_avg": 1.0,
+          "shots_on_target_avg": 0.0,
+          "shots_total_per90": 1.76,
+          "shots_on_target_per90": 0.0,
+          "fixture_ids": [
+            1489395
           ]
         },
         {
           "player_id": 89982,
           "name": "Shahriar Moghanlou",
           "position": "F",
-          "appearances": 1,
+          "appearances": 2,
           "starts": 1,
-          "minutes_avg": 53.0,
-          "shots_total_avg": 2.0,
-          "shots_on_target_avg": 0.0,
-          "shots_total_per90": 3.4,
-          "shots_on_target_per90": 0.0,
-          "fixture_ids": [
-            1489378
-          ]
-        },
-        {
-          "player_id": 29809,
-          "name": "Ali Nemati",
-          "position": "D",
-          "appearances": 1,
-          "starts": 1,
-          "minutes_avg": 90.0,
+          "minutes_avg": 35.0,
           "shots_total_avg": 1.0,
           "shots_on_target_avg": 0.0,
-          "shots_total_per90": 1.0,
+          "shots_total_per90": 2.57,
           "shots_on_target_per90": 0.0,
           "fixture_ids": [
-            1489378
-          ]
-        },
-        {
-          "player_id": 2682,
-          "name": "Alireza Beiranvand",
-          "position": "G",
-          "appearances": 1,
-          "starts": 1,
-          "minutes_avg": 90.0,
-          "shots_total_avg": 0.0,
-          "shots_on_target_avg": 0.0,
-          "shots_total_per90": 0.0,
-          "shots_on_target_per90": 0.0,
-          "fixture_ids": [
+            1489395,
             1489378
           ]
         },
@@ -8377,14 +8351,47 @@
           "player_id": 29704,
           "name": "Shoja Khalilzadeh",
           "position": "D",
-          "appearances": 1,
-          "starts": 1,
-          "minutes_avg": 90.0,
+          "appearances": 2,
+          "starts": 2,
+          "minutes_avg": 93.0,
+          "shots_total_avg": 0.5,
+          "shots_on_target_avg": 0.0,
+          "shots_total_per90": 0.48,
+          "shots_on_target_per90": 0.0,
+          "fixture_ids": [
+            1489395,
+            1489378
+          ]
+        },
+        {
+          "player_id": 29809,
+          "name": "Ali Nemati",
+          "position": "D",
+          "appearances": 2,
+          "starts": 2,
+          "minutes_avg": 93.0,
+          "shots_total_avg": 0.5,
+          "shots_on_target_avg": 0.0,
+          "shots_total_per90": 0.48,
+          "shots_on_target_per90": 0.0,
+          "fixture_ids": [
+            1489395,
+            1489378
+          ]
+        },
+        {
+          "player_id": 2682,
+          "name": "Alireza Beiranvand",
+          "position": "G",
+          "appearances": 2,
+          "starts": 2,
+          "minutes_avg": 93.0,
           "shots_total_avg": 0.0,
           "shots_on_target_avg": 0.0,
           "shots_total_per90": 0.0,
           "shots_on_target_per90": 0.0,
           "fixture_ids": [
+            1489395,
             1489378
           ]
         },
@@ -8392,15 +8399,47 @@
           "player_id": 2688,
           "name": "Milad Mohammadi",
           "position": "D",
-          "appearances": 1,
+          "appearances": 2,
           "starts": 1,
-          "minutes_avg": 90.0,
+          "minutes_avg": 60.0,
           "shots_total_avg": 0.0,
           "shots_on_target_avg": 0.0,
           "shots_total_per90": 0.0,
           "shots_on_target_per90": 0.0,
           "fixture_ids": [
+            1489395,
             1489378
+          ]
+        },
+        {
+          "player_id": 2685,
+          "name": "Ehsan Hajsafi",
+          "position": "D",
+          "appearances": 2,
+          "starts": 1,
+          "minutes_avg": 45.5,
+          "shots_total_avg": 0.0,
+          "shots_on_target_avg": 0.0,
+          "shots_total_per90": 0.0,
+          "shots_on_target_per90": 0.0,
+          "fixture_ids": [
+            1489395,
+            1489378
+          ]
+        },
+        {
+          "player_id": 136880,
+          "name": "Saleh Hardani",
+          "position": "D",
+          "appearances": 1,
+          "starts": 1,
+          "minutes_avg": 45.0,
+          "shots_total_avg": 0.0,
+          "shots_on_target_avg": 0.0,
+          "shots_total_per90": 0.0,
+          "shots_on_target_per90": 0.0,
+          "fixture_ids": [
+            1489395
           ]
         },
         {
@@ -8434,18 +8473,18 @@
           ]
         },
         {
-          "player_id": 2685,
-          "name": "Ehsan Hajsafi",
-          "position": "D",
+          "player_id": 2697,
+          "name": "Mahdi Torabi",
+          "position": "M",
           "appearances": 1,
           "starts": 0,
-          "minutes_avg": 25.0,
+          "minutes_avg": 30.0,
           "shots_total_avg": 0.0,
           "shots_on_target_avg": 0.0,
           "shots_total_per90": 0.0,
           "shots_on_target_per90": 0.0,
           "fixture_ids": [
-            1489378
+            1489395
           ]
         }
       ],
@@ -8465,8 +8504,8 @@
       "empatados": 2,
       "perdidos": 6,
       "goles_favor": 13,
-      "goles_contra": 16,
-      "diferencia": -3,
+      "goles_contra": 18,
+      "diferencia": -5,
       "puntos": 14
     },
     "_source": "api_football:form",
@@ -8478,9 +8517,9 @@
       "venue": null,
       "n_fixtures": 3,
       "fixture_ids": [
+        1489397,
         1489379,
-        1540948,
-        1514468
+        1540948
       ],
       "errors": []
     },
@@ -8488,27 +8527,11 @@
       "venue": null,
       "n_fixtures": 3,
       "fixture_ids": [
+        1489397,
         1489379,
-        1540948,
-        1514468
+        1540948
       ],
       "players": [
-        {
-          "player_id": 44475,
-          "name": "Abdulelah Al-Amri",
-          "position": "D",
-          "appearances": 2,
-          "starts": 2,
-          "minutes_avg": 67.5,
-          "shots_total_avg": 1.0,
-          "shots_on_target_avg": 1.0,
-          "shots_total_per90": 1.33,
-          "shots_on_target_per90": 1.33,
-          "fixture_ids": [
-            1489379,
-            1540948
-          ]
-        },
         {
           "player_id": 2639,
           "name": "Sultan Mandash",
@@ -8525,17 +8548,18 @@
           ]
         },
         {
-          "player_id": 44340,
-          "name": "Salem Al-Dawsari",
-          "position": "M",
-          "appearances": 2,
-          "starts": 2,
-          "minutes_avg": 82.0,
-          "shots_total_avg": 1.5,
-          "shots_on_target_avg": 0.5,
-          "shots_total_per90": 1.65,
-          "shots_on_target_per90": 0.55,
+          "player_id": 44475,
+          "name": "Abdulelah Al-Amri",
+          "position": "D",
+          "appearances": 3,
+          "starts": 3,
+          "minutes_avg": 65.0,
+          "shots_total_avg": 1.0,
+          "shots_on_target_avg": 0.67,
+          "shots_total_per90": 1.38,
+          "shots_on_target_per90": 0.92,
           "fixture_ids": [
+            1489397,
             1489379,
             1540948
           ]
@@ -8545,15 +8569,32 @@
           "name": "Abdullah Al-Hamdan",
           "position": "F",
           "appearances": 2,
-          "starts": 1,
-          "minutes_avg": 38.5,
+          "starts": 0,
+          "minutes_avg": 30.5,
           "shots_total_avg": 0.5,
           "shots_on_target_avg": 0.5,
-          "shots_total_per90": 1.17,
-          "shots_on_target_per90": 1.17,
+          "shots_total_per90": 1.48,
+          "shots_on_target_per90": 1.48,
           "fixture_ids": [
-            1540948,
-            1514468
+            1489397,
+            1540948
+          ]
+        },
+        {
+          "player_id": 44340,
+          "name": "Salem Al-Dawsari",
+          "position": "M",
+          "appearances": 3,
+          "starts": 3,
+          "minutes_avg": 84.7,
+          "shots_total_avg": 1.0,
+          "shots_on_target_avg": 0.33,
+          "shots_total_per90": 1.06,
+          "shots_on_target_per90": 0.35,
+          "fixture_ids": [
+            1489397,
+            1489379,
+            1540948
           ]
         },
         {
@@ -8561,62 +8602,33 @@
           "name": "Mohamed Kanno",
           "position": "M",
           "appearances": 3,
-          "starts": 3,
-          "minutes_avg": 82.3,
+          "starts": 2,
+          "minutes_avg": 69.3,
           "shots_total_avg": 0.33,
           "shots_on_target_avg": 0.33,
-          "shots_total_per90": 0.36,
-          "shots_on_target_per90": 0.36,
+          "shots_total_per90": 0.43,
+          "shots_on_target_per90": 0.43,
           "fixture_ids": [
+            1489397,
             1489379,
-            1540948,
-            1514468
+            1540948
           ]
         },
         {
           "player_id": 403087,
           "name": "Mohammed Abu Al-Shamat",
           "position": "M",
-          "appearances": 2,
+          "appearances": 3,
           "starts": 2,
-          "minutes_avg": 71.5,
-          "shots_total_avg": 1.5,
+          "minutes_avg": 57.7,
+          "shots_total_avg": 1.0,
           "shots_on_target_avg": 0.0,
-          "shots_total_per90": 1.89,
+          "shots_total_per90": 1.56,
           "shots_on_target_per90": 0.0,
           "fixture_ids": [
+            1489397,
             1489379,
             1540948
-          ]
-        },
-        {
-          "player_id": 381176,
-          "name": "Marwan Alsahafi",
-          "position": "M",
-          "appearances": 1,
-          "starts": 1,
-          "minutes_avg": 72.0,
-          "shots_total_avg": 1.0,
-          "shots_on_target_avg": 0.0,
-          "shots_total_per90": 1.25,
-          "shots_on_target_per90": 0.0,
-          "fixture_ids": [
-            1514468
-          ]
-        },
-        {
-          "player_id": 44551,
-          "name": "Saleh Al-Shehri",
-          "position": "F",
-          "appearances": 1,
-          "starts": 0,
-          "minutes_avg": 18.0,
-          "shots_total_avg": 1.0,
-          "shots_on_target_avg": 0.0,
-          "shots_total_per90": 5.0,
-          "shots_on_target_per90": 0.0,
-          "fixture_ids": [
-            1514468
           ]
         },
         {
@@ -8635,49 +8647,34 @@
           ]
         },
         {
-          "player_id": 44362,
-          "name": "Hassan Altambakti",
-          "position": "D",
-          "appearances": 2,
-          "starts": 2,
-          "minutes_avg": 90.0,
-          "shots_total_avg": 0.5,
-          "shots_on_target_avg": 0.0,
-          "shots_total_per90": 0.5,
-          "shots_on_target_per90": 0.0,
-          "fixture_ids": [
-            1489379,
-            1540948
-          ]
-        },
-        {
           "player_id": 44594,
           "name": "Saud Abdulhamid",
           "position": "D",
           "appearances": 2,
           "starts": 2,
-          "minutes_avg": 86.5,
+          "minutes_avg": 89.5,
           "shots_total_avg": 0.5,
           "shots_on_target_avg": 0.0,
-          "shots_total_per90": 0.52,
+          "shots_total_per90": 0.5,
           "shots_on_target_per90": 0.0,
           "fixture_ids": [
-            1489379,
-            1514468
+            1489397,
+            1489379
           ]
         },
         {
-          "player_id": 44339,
-          "name": "Nasser Al-Dawsari",
-          "position": "M",
-          "appearances": 2,
-          "starts": 0,
-          "minutes_avg": 36.0,
-          "shots_total_avg": 0.5,
+          "player_id": 44362,
+          "name": "Hassan Tambakti",
+          "position": "D",
+          "appearances": 3,
+          "starts": 3,
+          "minutes_avg": 90.0,
+          "shots_total_avg": 0.33,
           "shots_on_target_avg": 0.0,
-          "shots_total_per90": 1.25,
+          "shots_total_per90": 0.33,
           "shots_on_target_per90": 0.0,
           "fixture_ids": [
+            1489397,
             1489379,
             1540948
           ]
@@ -8687,16 +8684,16 @@
           "name": "Firas Al-Buraikan",
           "position": "F",
           "appearances": 3,
-          "starts": 2,
-          "minutes_avg": 69.3,
+          "starts": 3,
+          "minutes_avg": 74.3,
           "shots_total_avg": 0.33,
           "shots_on_target_avg": 0.0,
-          "shots_total_per90": 0.43,
+          "shots_total_per90": 0.4,
           "shots_on_target_per90": 0.0,
           "fixture_ids": [
+            1489397,
             1489379,
-            1540948,
-            1514468
+            1540948
           ]
         },
         {
@@ -8704,16 +8701,33 @@
           "name": "Abdullah Al-Khaibari",
           "position": "M",
           "appearances": 3,
-          "starts": 2,
-          "minutes_avg": 54.7,
+          "starts": 3,
+          "minutes_avg": 60.0,
           "shots_total_avg": 0.33,
           "shots_on_target_avg": 0.0,
-          "shots_total_per90": 0.55,
+          "shots_total_per90": 0.5,
           "shots_on_target_per90": 0.0,
           "fixture_ids": [
+            1489397,
             1489379,
-            1540948,
-            1514468
+            1540948
+          ]
+        },
+        {
+          "player_id": 44339,
+          "name": "Nasser Al-Dawsari",
+          "position": "M",
+          "appearances": 3,
+          "starts": 1,
+          "minutes_avg": 53.7,
+          "shots_total_avg": 0.33,
+          "shots_on_target_avg": 0.0,
+          "shots_total_per90": 0.56,
+          "shots_on_target_per90": 0.0,
+          "fixture_ids": [
+            1489397,
+            1489379,
+            1540948
           ]
         },
         {
@@ -8728,14 +8742,14 @@
           "shots_total_per90": 0.0,
           "shots_on_target_per90": 0.0,
           "fixture_ids": [
+            1489397,
             1489379,
-            1540948,
-            1514468
+            1540948
           ]
         },
         {
-          "player_id": 327574,
-          "name": "Rayan Hamed",
+          "player_id": 134995,
+          "name": "Nawaf Boushal",
           "position": "D",
           "appearances": 1,
           "starts": 1,
@@ -8745,204 +8759,72 @@
           "shots_total_per90": 0.0,
           "shots_on_target_per90": 0.0,
           "fixture_ids": [
-            1514468
+            1540948
           ]
         },
         {
           "player_id": 202381,
           "name": "Moteb Al-Harbi",
           "position": "D",
-          "appearances": 2,
-          "starts": 2,
-          "minutes_avg": 86.5,
+          "appearances": 3,
+          "starts": 3,
+          "minutes_avg": 87.7,
           "shots_total_avg": 0.0,
           "shots_on_target_avg": 0.0,
           "shots_total_per90": 0.0,
           "shots_on_target_per90": 0.0,
           "fixture_ids": [
+            1489397,
             1489379,
             1540948
-          ]
-        },
-        {
-          "player_id": 269172,
-          "name": "Ziyad Aljohani",
-          "position": "M",
-          "appearances": 1,
-          "starts": 1,
-          "minutes_avg": 72.0,
-          "shots_total_avg": 0.0,
-          "shots_on_target_avg": 0.0,
-          "shots_total_per90": 0.0,
-          "shots_on_target_per90": 0.0,
-          "fixture_ids": [
-            1514468
-          ]
-        },
-        {
-          "player_id": 306380,
-          "name": "Musab Al Juwayr",
-          "position": "F",
-          "appearances": 2,
-          "starts": 2,
-          "minutes_avg": 68.0,
-          "shots_total_avg": 0.0,
-          "shots_on_target_avg": 0.0,
-          "shots_total_per90": 0.0,
-          "shots_on_target_per90": 0.0,
-          "fixture_ids": [
-            1489379,
-            1540948
-          ]
-        },
-        {
-          "player_id": 134995,
-          "name": "Nawaf Boushal",
-          "position": "D",
-          "appearances": 2,
-          "starts": 2,
-          "minutes_avg": 67.5,
-          "shots_total_avg": 0.0,
-          "shots_on_target_avg": 0.0,
-          "shots_total_per90": 0.0,
-          "shots_on_target_per90": 0.0,
-          "fixture_ids": [
-            1540948,
-            1514468
-          ]
-        },
-        {
-          "player_id": 403086,
-          "name": "Naif Masoud",
-          "position": "M",
-          "appearances": 1,
-          "starts": 1,
-          "minutes_avg": 61.0,
-          "shots_total_avg": 0.0,
-          "shots_on_target_avg": 0.0,
-          "shots_total_per90": 0.0,
-          "shots_on_target_per90": 0.0,
-          "fixture_ids": [
-            1514468
           ]
         },
         {
           "player_id": 44507,
           "name": "Ali Lajami",
           "position": "D",
-          "appearances": 1,
-          "starts": 0,
-          "minutes_avg": 45.0,
+          "appearances": 2,
+          "starts": 1,
+          "minutes_avg": 67.5,
           "shots_total_avg": 0.0,
           "shots_on_target_avg": 0.0,
           "shots_total_per90": 0.0,
           "shots_on_target_per90": 0.0,
           "fixture_ids": [
+            1489397,
             1540948
           ]
         },
         {
-          "player_id": 2628,
-          "name": "Muteb Al-Mufarrij",
-          "position": "D",
-          "appearances": 1,
-          "starts": 1,
-          "minutes_avg": 45.0,
-          "shots_total_avg": 0.0,
-          "shots_on_target_avg": 0.0,
-          "shots_total_per90": 0.0,
-          "shots_on_target_per90": 0.0,
-          "fixture_ids": [
-            1514468
-          ]
-        },
-        {
-          "player_id": 351914,
-          "name": "Abdulaziz Al-Aliwa",
+          "player_id": 306380,
+          "name": "Musab Al Juwayr",
           "position": "M",
-          "appearances": 1,
-          "starts": 1,
-          "minutes_avg": 45.0,
+          "appearances": 3,
+          "starts": 3,
+          "minutes_avg": 60.3,
           "shots_total_avg": 0.0,
           "shots_on_target_avg": 0.0,
           "shots_total_per90": 0.0,
           "shots_on_target_per90": 0.0,
           "fixture_ids": [
-            1514468
-          ]
-        },
-        {
-          "player_id": 44684,
-          "name": "Khalifah Al-Dawsari",
-          "position": "D",
-          "appearances": 1,
-          "starts": 0,
-          "minutes_avg": 45.0,
-          "shots_total_avg": 0.0,
-          "shots_on_target_avg": 0.0,
-          "shots_total_per90": 0.0,
-          "shots_on_target_per90": 0.0,
-          "fixture_ids": [
-            1514468
-          ]
-        },
-        {
-          "player_id": 326984,
-          "name": "Mohammed Mahzari",
-          "position": "M",
-          "appearances": 1,
-          "starts": 0,
-          "minutes_avg": 45.0,
-          "shots_total_avg": 0.0,
-          "shots_on_target_avg": 0.0,
-          "shots_total_per90": 0.0,
-          "shots_on_target_per90": 0.0,
-          "fixture_ids": [
-            1514468
-          ]
-        },
-        {
-          "player_id": 44341,
-          "name": "Salman Al-Faraj",
-          "position": "M",
-          "appearances": 1,
-          "starts": 0,
-          "minutes_avg": 29.0,
-          "shots_total_avg": 0.0,
-          "shots_on_target_avg": 0.0,
-          "shots_total_per90": 0.0,
-          "shots_on_target_per90": 0.0,
-          "fixture_ids": [
-            1514468
-          ]
-        },
-        {
-          "player_id": 147812,
-          "name": "Ayman Yahya",
-          "position": "M",
-          "appearances": 1,
-          "starts": 0,
-          "minutes_avg": 18.0,
-          "shots_total_avg": 0.0,
-          "shots_on_target_avg": 0.0,
-          "shots_total_per90": 0.0,
-          "shots_on_target_per90": 0.0,
-          "fixture_ids": [
-            1514468
+            1489397,
+            1489379,
+            1540948
           ]
         },
         {
           "player_id": 43953,
           "name": "Ala'a Al-Hejji",
           "position": "M",
-          "appearances": 1,
+          "appearances": 2,
           "starts": 0,
-          "minutes_avg": 17.0,
+          "minutes_avg": 23.5,
           "shots_total_avg": 0.0,
           "shots_on_target_avg": 0.0,
           "shots_total_per90": 0.0,
           "shots_on_target_per90": 0.0,
           "fixture_ids": [
+            1489397,
             1540948
           ]
         },
@@ -11437,25 +11319,25 @@
       "ganados": 6,
       "empatados": 4,
       "perdidos": 2,
-      "goles_favor": 16,
+      "goles_favor": 17,
       "goles_contra": 8,
-      "diferencia": 8,
+      "diferencia": 9,
       "puntos": 22
     },
     "_source": "api_football:form",
     "_team_id": 32,
     "_team_name": "Egypt",
     "danger": {
-      "shots_on_target_avg": 3.6,
-      "corners_avg": 3.2,
+      "shots_on_target_avg": 3.4,
+      "corners_avg": 3.6,
       "venue": null,
       "n_fixtures": 5,
       "fixture_ids": [
+        1489396,
         1489377,
         1528287,
         1543816,
-        1511778,
-        1514461
+        1511778
       ],
       "errors": []
     },
@@ -11463,27 +11345,45 @@
       "venue": null,
       "n_fixtures": 4,
       "fixture_ids": [
+        1489396,
         1489377,
         1528287,
-        1543816,
-        1511778
+        1543816
       ],
       "players": [
         {
           "player_id": 395075,
           "name": "Mostafa Ziko",
           "position": "M",
-          "appearances": 3,
-          "starts": 2,
-          "minutes_avg": 69.3,
-          "shots_total_avg": 1.33,
-          "shots_on_target_avg": 1.33,
-          "shots_total_per90": 1.73,
-          "shots_on_target_per90": 1.73,
+          "appearances": 4,
+          "starts": 3,
+          "minutes_avg": 71.0,
+          "shots_total_avg": 1.5,
+          "shots_on_target_avg": 1.25,
+          "shots_total_per90": 1.9,
+          "shots_on_target_per90": 1.58,
           "fixture_ids": [
+            1489396,
             1489377,
             1528287,
             1543816
+          ]
+        },
+        {
+          "player_id": 306,
+          "name": "Mohamed Salah",
+          "position": "M",
+          "appearances": 3,
+          "starts": 2,
+          "minutes_avg": 68.3,
+          "shots_total_avg": 1.33,
+          "shots_on_target_avg": 1.0,
+          "shots_total_per90": 1.76,
+          "shots_on_target_per90": 1.32,
+          "fixture_ids": [
+            1489396,
+            1489377,
+            1528287
           ]
         },
         {
@@ -11502,19 +11402,36 @@
           ]
         },
         {
-          "player_id": 306,
-          "name": "Mohamed Salah",
-          "position": "M",
-          "appearances": 2,
-          "starts": 1,
-          "minutes_avg": 60.0,
-          "shots_total_avg": 0.5,
-          "shots_on_target_avg": 0.5,
-          "shots_total_per90": 0.75,
-          "shots_on_target_per90": 0.75,
+          "player_id": 2649,
+          "name": "Ahmed Fatouh",
+          "position": "D",
+          "appearances": 3,
+          "starts": 3,
+          "minutes_avg": 88.0,
+          "shots_total_avg": 0.67,
+          "shots_on_target_avg": 0.67,
+          "shots_total_per90": 0.68,
+          "shots_on_target_per90": 0.68,
           "fixture_ids": [
+            1489396,
             1489377,
             1528287
+          ]
+        },
+        {
+          "player_id": 16871,
+          "name": "Zizo",
+          "position": "F",
+          "appearances": 2,
+          "starts": 1,
+          "minutes_avg": 25.0,
+          "shots_total_avg": 0.5,
+          "shots_on_target_avg": 0.5,
+          "shots_total_per90": 1.8,
+          "shots_on_target_per90": 1.8,
+          "fixture_ids": [
+            1489396,
+            1543816
           ]
         },
         {
@@ -11523,50 +11440,32 @@
           "position": "M",
           "appearances": 3,
           "starts": 3,
-          "minutes_avg": 50.0,
-          "shots_total_avg": 1.33,
+          "minutes_avg": 63.3,
+          "shots_total_avg": 2.0,
           "shots_on_target_avg": 0.33,
-          "shots_total_per90": 2.4,
-          "shots_on_target_per90": 0.6,
+          "shots_total_per90": 2.84,
+          "shots_on_target_per90": 0.47,
           "fixture_ids": [
+            1489396,
             1489377,
-            1543816,
-            1511778
+            1543816
           ]
         },
         {
-          "player_id": 2649,
-          "name": "Ahmed Fatouh",
-          "position": "D",
+          "player_id": 2664,
+          "name": "Mahmoud Trézéguet",
+          "position": "F",
           "appearances": 3,
-          "starts": 3,
-          "minutes_avg": 84.3,
-          "shots_total_avg": 0.33,
+          "starts": 2,
+          "minutes_avg": 34.7,
+          "shots_total_avg": 0.67,
           "shots_on_target_avg": 0.33,
-          "shots_total_per90": 0.36,
-          "shots_on_target_per90": 0.36,
+          "shots_total_per90": 1.73,
+          "shots_on_target_per90": 0.87,
           "fixture_ids": [
-            1489377,
+            1489396,
             1528287,
-            1511778
-          ]
-        },
-        {
-          "player_id": 16841,
-          "name": "Mohanad Lasheen",
-          "position": "M",
-          "appearances": 4,
-          "starts": 4,
-          "minutes_avg": 86.0,
-          "shots_total_avg": 0.25,
-          "shots_on_target_avg": 0.25,
-          "shots_total_per90": 0.26,
-          "shots_on_target_per90": 0.26,
-          "fixture_ids": [
-            1489377,
-            1528287,
-            1543816,
-            1511778
+            1543816
           ]
         },
         {
@@ -11575,33 +11474,16 @@
           "position": "F",
           "appearances": 4,
           "starts": 4,
-          "minutes_avg": 83.0,
-          "shots_total_avg": 1.0,
-          "shots_on_target_avg": 0.0,
-          "shots_total_per90": 1.08,
-          "shots_on_target_per90": 0.0,
+          "minutes_avg": 80.8,
+          "shots_total_avg": 1.5,
+          "shots_on_target_avg": 0.25,
+          "shots_total_per90": 1.67,
+          "shots_on_target_per90": 0.28,
           "fixture_ids": [
+            1489396,
             1489377,
             1528287,
-            1543816,
-            1511778
-          ]
-        },
-        {
-          "player_id": 2664,
-          "name": "Mahmoud Trézéguet",
-          "position": "M",
-          "appearances": 3,
-          "starts": 2,
-          "minutes_avg": 41.3,
-          "shots_total_avg": 0.67,
-          "shots_on_target_avg": 0.0,
-          "shots_total_per90": 1.45,
-          "shots_on_target_per90": 0.0,
-          "fixture_ids": [
-            1528287,
-            1543816,
-            1511778
+            1543816
           ]
         },
         {
@@ -11610,16 +11492,34 @@
           "position": "D",
           "appearances": 4,
           "starts": 4,
-          "minutes_avg": 89.0,
+          "minutes_avg": 91.8,
           "shots_total_avg": 0.25,
           "shots_on_target_avg": 0.0,
           "shots_total_per90": 0.25,
           "shots_on_target_per90": 0.0,
           "fixture_ids": [
+            1489396,
             1489377,
             1528287,
-            1543816,
-            1511778
+            1543816
+          ]
+        },
+        {
+          "player_id": 190575,
+          "name": "Marwan Attia",
+          "position": "M",
+          "appearances": 4,
+          "starts": 4,
+          "minutes_avg": 91.5,
+          "shots_total_avg": 0.0,
+          "shots_on_target_avg": 0.0,
+          "shots_total_per90": 0.0,
+          "shots_on_target_per90": 0.0,
+          "fixture_ids": [
+            1489396,
+            1489377,
+            1528287,
+            1543816
           ]
         },
         {
@@ -11638,8 +11538,8 @@
           ]
         },
         {
-          "player_id": 190575,
-          "name": "Marwan Attia",
+          "player_id": 16841,
+          "name": "Mohanad Lasheen",
           "position": "M",
           "appearances": 4,
           "starts": 4,
@@ -11649,27 +11549,10 @@
           "shots_total_per90": 0.0,
           "shots_on_target_per90": 0.0,
           "fixture_ids": [
+            1489396,
             1489377,
             1528287,
-            1543816,
-            1511778
-          ]
-        },
-        {
-          "player_id": 16813,
-          "name": "Hamdy Fathy",
-          "position": "D",
-          "appearances": 3,
-          "starts": 3,
-          "minutes_avg": 87.0,
-          "shots_total_avg": 0.0,
-          "shots_on_target_avg": 0.0,
-          "shots_total_per90": 0.0,
-          "shots_on_target_per90": 0.0,
-          "fixture_ids": [
-            1489377,
-            1528287,
-            1511778
+            1543816
           ]
         },
         {
@@ -11678,16 +11561,16 @@
           "position": "D",
           "appearances": 4,
           "starts": 4,
-          "minutes_avg": 85.0,
+          "minutes_avg": 87.8,
           "shots_total_avg": 0.0,
           "shots_on_target_avg": 0.0,
           "shots_total_per90": 0.0,
           "shots_on_target_per90": 0.0,
           "fixture_ids": [
+            1489396,
             1489377,
             1528287,
-            1543816,
-            1511778
+            1543816
           ]
         },
         {
@@ -11696,47 +11579,49 @@
           "position": "G",
           "appearances": 4,
           "starts": 4,
-          "minutes_avg": 78.5,
+          "minutes_avg": 81.2,
           "shots_total_avg": 0.0,
           "shots_on_target_avg": 0.0,
           "shots_total_per90": 0.0,
           "shots_on_target_per90": 0.0,
           "fixture_ids": [
+            1489396,
             1489377,
             1528287,
-            1543816,
-            1511778
+            1543816
           ]
         },
         {
-          "player_id": 16901,
-          "name": "Islam Issa",
-          "position": "M",
-          "appearances": 1,
-          "starts": 1,
-          "minutes_avg": 68.0,
+          "player_id": 16813,
+          "name": "Hamdy Fathy",
+          "position": "D",
+          "appearances": 3,
+          "starts": 3,
+          "minutes_avg": 72.7,
           "shots_total_avg": 0.0,
           "shots_on_target_avg": 0.0,
           "shots_total_per90": 0.0,
           "shots_on_target_per90": 0.0,
           "fixture_ids": [
-            1511778
+            1489396,
+            1489377,
+            1528287
           ]
         },
         {
-          "player_id": 16871,
-          "name": "Zizo",
+          "player_id": 20844,
+          "name": "Haissem Hassan",
           "position": "M",
           "appearances": 2,
-          "starts": 2,
-          "minutes_avg": 58.0,
+          "starts": 1,
+          "minutes_avg": 48.5,
           "shots_total_avg": 0.0,
           "shots_on_target_avg": 0.0,
           "shots_total_per90": 0.0,
           "shots_on_target_per90": 0.0,
           "fixture_ids": [
-            1543816,
-            1511778
+            1528287,
+            1543816
           ]
         },
         {
@@ -11771,36 +11656,35 @@
           ]
         },
         {
-          "player_id": 20844,
-          "name": "Haissem Hassan",
-          "position": "M",
-          "appearances": 3,
-          "starts": 1,
-          "minutes_avg": 39.7,
-          "shots_total_avg": 0.0,
-          "shots_on_target_avg": 0.0,
-          "shots_total_per90": 0.0,
-          "shots_on_target_per90": 0.0,
-          "fixture_ids": [
-            1528287,
-            1543816,
-            1511778
-          ]
-        },
-        {
           "player_id": 16805,
           "name": "Rami Rabia",
           "position": "D",
-          "appearances": 2,
+          "appearances": 3,
           "starts": 0,
-          "minutes_avg": 32.0,
+          "minutes_avg": 41.3,
           "shots_total_avg": 0.0,
           "shots_on_target_avg": 0.0,
           "shots_total_per90": 0.0,
           "shots_on_target_per90": 0.0,
           "fixture_ids": [
+            1489396,
             1489377,
             1543816
+          ]
+        },
+        {
+          "player_id": 550547,
+          "name": "Hamza Abdelkarim",
+          "position": "F",
+          "appearances": 1,
+          "starts": 0,
+          "minutes_avg": 25.0,
+          "shots_total_avg": 0.0,
+          "shots_on_target_avg": 0.0,
+          "shots_total_per90": 0.0,
+          "shots_on_target_per90": 0.0,
+          "fixture_ids": [
+            1489396
           ]
         },
         {
@@ -11820,7 +11704,7 @@
         }
       ],
       "errors": [
-        "fixture 1514461: 429 rate-limited: {\"get\": \"\",\"parameters\": [],\"errors\": {\"rateLimit\": \"Too many requests. You have reached your per-minute request limit. Please wait a few seconds before retrying or upgrade your plan for higher limits"
+        "fixture 1511778: 429 rate-limited: {\"get\": \"\",\"parameters\": [],\"errors\": {\"rateLimit\": \"Too many requests. You have reached your per-minute request limit. Please wait a few seconds before retrying or upgrade your plan for higher limits"
       ]
     },
     "elo_source": "world_football_elo",
@@ -12412,8 +12296,8 @@
       "ganados": 5,
       "empatados": 6,
       "perdidos": 1,
-      "goles_favor": 20,
-      "goles_contra": 10,
+      "goles_favor": 21,
+      "goles_contra": 11,
       "diferencia": 10,
       "puntos": 21
     },
@@ -12427,11 +12311,11 @@
       "n_fixtures": 0,
       "fixture_ids": [],
       "errors": [
+        "fixture 1489398: 429 rate-limited: {\"get\": \"\",\"parameters\": [],\"errors\": {\"rateLimit\": \"Too many requests. You have reached your per-minute request limit. Please wait a few seconds before retrying or upgrade your plan for higher limits",
         "fixture 1489380: 429 rate-limited: {\"get\": \"\",\"parameters\": [],\"errors\": {\"rateLimit\": \"Too many requests. You have reached your per-minute request limit. Please wait a few seconds before retrying or upgrade your plan for higher limits",
         "fixture 1546499: 429 rate-limited: {\"get\": \"\",\"parameters\": [],\"errors\": {\"rateLimit\": \"Too many requests. You have reached your per-minute request limit. Please wait a few seconds before retrying or upgrade your plan for higher limits",
         "fixture 1543819: 429 rate-limited: {\"get\": \"\",\"parameters\": [],\"errors\": {\"rateLimit\": \"Too many requests. You have reached your per-minute request limit. Please wait a few seconds before retrying or upgrade your plan for higher limits",
-        "fixture 1537253: 429 rate-limited: {\"get\": \"\",\"parameters\": [],\"errors\": {\"rateLimit\": \"Too many requests. You have reached your per-minute request limit. Please wait a few seconds before retrying or upgrade your plan for higher limits",
-        "fixture 1537246: 429 rate-limited: {\"get\": \"\",\"parameters\": [],\"errors\": {\"rateLimit\": \"Too many requests. You have reached your per-minute request limit. Please wait a few seconds before retrying or upgrade your plan for higher limits"
+        "fixture 1537253: 429 rate-limited: {\"get\": \"\",\"parameters\": [],\"errors\": {\"rateLimit\": \"Too many requests. You have reached your per-minute request limit. Please wait a few seconds before retrying or upgrade your plan for higher limits"
       ]
     },
     "player_shots": {
@@ -12440,11 +12324,11 @@
       "fixture_ids": [],
       "players": [],
       "errors": [
+        "fixture 1489398: 429 rate-limited: {\"get\": \"\",\"parameters\": [],\"errors\": {\"rateLimit\": \"Too many requests. You have reached your per-minute request limit. Please wait a few seconds before retrying or upgrade your plan for higher limits",
         "fixture 1489380: 429 rate-limited: {\"get\": \"\",\"parameters\": [],\"errors\": {\"rateLimit\": \"Too many requests. You have reached your per-minute request limit. Please wait a few seconds before retrying or upgrade your plan for higher limits",
         "fixture 1546499: 429 rate-limited: {\"get\": \"\",\"parameters\": [],\"errors\": {\"rateLimit\": \"Too many requests. You have reached your per-minute request limit. Please wait a few seconds before retrying or upgrade your plan for higher limits",
         "fixture 1543819: 429 rate-limited: {\"get\": \"\",\"parameters\": [],\"errors\": {\"rateLimit\": \"Too many requests. You have reached your per-minute request limit. Please wait a few seconds before retrying or upgrade your plan for higher limits",
-        "fixture 1537253: 429 rate-limited: {\"get\": \"\",\"parameters\": [],\"errors\": {\"rateLimit\": \"Too many requests. You have reached your per-minute request limit. Please wait a few seconds before retrying or upgrade your plan for higher limits",
-        "fixture 1537246: 429 rate-limited: {\"get\": \"\",\"parameters\": [],\"errors\": {\"rateLimit\": \"Too many requests. You have reached your per-minute request limit. Please wait a few seconds before retrying or upgrade your plan for higher limits"
+        "fixture 1537253: 429 rate-limited: {\"get\": \"\",\"parameters\": [],\"errors\": {\"rateLimit\": \"Too many requests. You have reached your per-minute request limit. Please wait a few seconds before retrying or upgrade your plan for higher limits"
       ]
     },
     "elo_source": "world_football_elo",
@@ -12845,8 +12729,8 @@
       "empatados": 2,
       "perdidos": 9,
       "goles_favor": 10,
-      "goles_contra": 22,
-      "diferencia": -12,
+      "goles_contra": 23,
+      "diferencia": -13,
       "puntos": 5
     },
     "_source": "api_football:form",
@@ -12859,11 +12743,11 @@
       "n_fixtures": 0,
       "fixture_ids": [],
       "errors": [
+        "fixture 1489396: 429 rate-limited: {\"get\": \"\",\"parameters\": [],\"errors\": {\"rateLimit\": \"Too many requests. You have reached your per-minute request limit. Please wait a few seconds before retrying or upgrade your plan for higher limits",
         "fixture 1489378: 429 rate-limited: {\"get\": \"\",\"parameters\": [],\"errors\": {\"rateLimit\": \"Too many requests. You have reached your per-minute request limit. Please wait a few seconds before retrying or upgrade your plan for higher limits",
         "fixture 1525492: 429 rate-limited: {\"get\": \"\",\"parameters\": [],\"errors\": {\"rateLimit\": \"Too many requests. You have reached your per-minute request limit. Please wait a few seconds before retrying or upgrade your plan for higher limits",
         "fixture 1544806: 429 rate-limited: {\"get\": \"\",\"parameters\": [],\"errors\": {\"rateLimit\": \"Too many requests. You have reached your per-minute request limit. Please wait a few seconds before retrying or upgrade your plan for higher limits",
-        "fixture 1537252: 429 rate-limited: {\"get\": \"\",\"parameters\": [],\"errors\": {\"rateLimit\": \"Too many requests. You have reached your per-minute request limit. Please wait a few seconds before retrying or upgrade your plan for higher limits",
-        "fixture 1537244: 429 rate-limited: {\"get\": \"\",\"parameters\": [],\"errors\": {\"rateLimit\": \"Too many requests. You have reached your per-minute request limit. Please wait a few seconds before retrying or upgrade your plan for higher limits"
+        "fixture 1537252: 429 rate-limited: {\"get\": \"\",\"parameters\": [],\"errors\": {\"rateLimit\": \"Too many requests. You have reached your per-minute request limit. Please wait a few seconds before retrying or upgrade your plan for higher limits"
       ]
     },
     "player_shots": {
@@ -12872,11 +12756,11 @@
       "fixture_ids": [],
       "players": [],
       "errors": [
+        "fixture 1489396: 429 rate-limited: {\"get\": \"\",\"parameters\": [],\"errors\": {\"rateLimit\": \"Too many requests. You have reached your per-minute request limit. Please wait a few seconds before retrying or upgrade your plan for higher limits",
         "fixture 1489378: 429 rate-limited: {\"get\": \"\",\"parameters\": [],\"errors\": {\"rateLimit\": \"Too many requests. You have reached your per-minute request limit. Please wait a few seconds before retrying or upgrade your plan for higher limits",
         "fixture 1525492: 429 rate-limited: {\"get\": \"\",\"parameters\": [],\"errors\": {\"rateLimit\": \"Too many requests. You have reached your per-minute request limit. Please wait a few seconds before retrying or upgrade your plan for higher limits",
         "fixture 1544806: 429 rate-limited: {\"get\": \"\",\"parameters\": [],\"errors\": {\"rateLimit\": \"Too many requests. You have reached your per-minute request limit. Please wait a few seconds before retrying or upgrade your plan for higher limits",
-        "fixture 1537252: 429 rate-limited: {\"get\": \"\",\"parameters\": [],\"errors\": {\"rateLimit\": \"Too many requests. You have reached your per-minute request limit. Please wait a few seconds before retrying or upgrade your plan for higher limits",
-        "fixture 1537244: 429 rate-limited: {\"get\": \"\",\"parameters\": [],\"errors\": {\"rateLimit\": \"Too many requests. You have reached your per-minute request limit. Please wait a few seconds before retrying or upgrade your plan for higher limits"
+        "fixture 1537252: 429 rate-limited: {\"get\": \"\",\"parameters\": [],\"errors\": {\"rateLimit\": \"Too many requests. You have reached your per-minute request limit. Please wait a few seconds before retrying or upgrade your plan for higher limits"
       ]
     },
     "elo_source": "world_football_elo",
