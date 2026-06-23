@@ -1,0 +1,195 @@
+{
+  "date": "2026-06-23",
+  "total_fixtures": 4,
+  "matches": [
+    {
+      "matchup": "Portugal vs Uzbekistan",
+      "league": "Mundial 2026",
+      "home": "Portugal",
+      "away": "Uzbekistan",
+      "probabilities": {
+        "win_home": 49.9,
+        "draw": 27.4,
+        "win_away": 22.8,
+        "over_2_5": 68.6,
+        "over_1_5": 86.8
+      },
+      "favorite": "Portugal",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 2.56,
+      "lambda_away": 0.98,
+      "elo_home": 1984.0,
+      "elo_away": 1718.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 86.8,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 68.6,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "corners_shots_players",
+            "status": "unavailable",
+            "reason": "selecciones usan modelo internacional; no se publican props/corners sin contrato calibrado"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "England vs Ghana",
+      "league": "Mundial 2026",
+      "home": "England",
+      "away": "Ghana",
+      "probabilities": {
+        "win_home": 58.4,
+        "draw": 25.9,
+        "win_away": 15.7,
+        "over_2_5": 62.1,
+        "over_1_5": 82.9
+      },
+      "favorite": "England",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 2.71,
+      "lambda_away": 0.5,
+      "elo_home": 2020.0,
+      "elo_away": 1503.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 82.9,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 62.1,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "corners_shots_players",
+            "status": "unavailable",
+            "reason": "selecciones usan modelo internacional; no se publican props/corners sin contrato calibrado"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Panama vs Croatia",
+      "league": "Mundial 2026",
+      "home": "Panama",
+      "away": "Croatia",
+      "probabilities": {
+        "win_home": 26.6,
+        "draw": 27.0,
+        "win_away": 46.4,
+        "over_2_5": 78.0,
+        "over_1_5": 91.7
+      },
+      "favorite": "Croatia",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.43,
+      "lambda_away": 2.7,
+      "elo_home": 1733.0,
+      "elo_away": 1930.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 91.7,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 78.0,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "corners_shots_players",
+            "status": "unavailable",
+            "reason": "selecciones usan modelo internacional; no se publican props/corners sin contrato calibrado"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Colombia vs Congo DR",
+      "league": "Mundial 2026",
+      "home": "Colombia",
+      "away": "Congo DR",
+      "probabilities": {
+        "win_home": 37.1,
+        "draw": 33.7,
+        "win_away": 29.1,
+        "over_2_5": 29.8,
+        "over_1_5": 56.8
+      },
+      "favorite": "Colombia",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.12,
+      "lambda_away": 0.78,
+      "elo_home": 1977.0,
+      "elo_away": 1655.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 56.8,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 29.8,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "corners_shots_players",
+            "status": "unavailable",
+            "reason": "selecciones usan modelo internacional; no se publican props/corners sin contrato calibrado"
+          }
+        ]
+      }
+    }
+  ],
+  "nota": "Análisis estadístico de todos los partidos del día. Probabilidades crudas del modelo (sin ajuste por liga ni mercado). No incluye recomendación de apuesta — ver value_picks y featured_pick para picks oficiales."
+}
