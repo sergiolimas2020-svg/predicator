@@ -1,0 +1,289 @@
+{
+  "date": "2026-06-24",
+  "total_fixtures": 6,
+  "matches": [
+    {
+      "matchup": "Switzerland vs Canada",
+      "league": "Mundial 2026",
+      "home": "Switzerland",
+      "away": "Canada",
+      "probabilities": {
+        "win_home": 31.7,
+        "draw": 35.1,
+        "win_away": 33.2,
+        "over_2_5": 22.5,
+        "over_1_5": 48.5
+      },
+      "favorite": "Empate técnico",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 0.79,
+      "lambda_away": 0.84,
+      "elo_home": 1894.0,
+      "elo_away": 1793.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 48.5,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 22.5,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "corners_shots_players",
+            "status": "unavailable",
+            "reason": "selecciones usan modelo internacional; no se publican props/corners sin contrato calibrado"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Bosnia & Herzegovina vs Qatar",
+      "league": "Mundial 2026",
+      "home": "Bosnia & Herzegovina",
+      "away": "Qatar",
+      "probabilities": {
+        "win_home": 58.3,
+        "draw": 25.2,
+        "win_away": 16.5,
+        "over_2_5": 68.4,
+        "over_1_5": 86.7
+      },
+      "favorite": "Bosnia & Herzegovina",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 2.91,
+      "lambda_away": 0.61,
+      "elo_home": 1591.0,
+      "elo_away": 1423.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 86.7,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 68.4,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "corners_shots_players",
+            "status": "unavailable",
+            "reason": "selecciones usan modelo internacional; no se publican props/corners sin contrato calibrado"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Morocco vs Haiti",
+      "league": "Mundial 2026",
+      "home": "Morocco",
+      "away": "Haiti",
+      "probabilities": {
+        "win_home": 57.2,
+        "draw": 28.5,
+        "win_away": 14.3,
+        "over_2_5": 43.6,
+        "over_1_5": 69.6
+      },
+      "favorite": "Morocco",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 2.14,
+      "lambda_away": 0.28,
+      "elo_home": 1822.0,
+      "elo_away": 1532.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 69.6,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 43.6,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "corners_shots_players",
+            "status": "unavailable",
+            "reason": "selecciones usan modelo internacional; no se publican props/corners sin contrato calibrado"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Scotland vs Brazil",
+      "league": "Mundial 2026",
+      "home": "Scotland",
+      "away": "Brazil",
+      "probabilities": {
+        "win_home": 29.6,
+        "draw": 29.3,
+        "win_away": 41.1,
+        "over_2_5": 63.5,
+        "over_1_5": 83.8
+      },
+      "favorite": "Brazil",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.31,
+      "lambda_away": 1.97,
+      "elo_home": 1770.0,
+      "elo_away": 1988.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 83.8,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 63.5,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "corners_shots_players",
+            "status": "unavailable",
+            "reason": "selecciones usan modelo internacional; no se publican props/corners sin contrato calibrado"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Czechia vs Mexico",
+      "league": "Mundial 2026",
+      "home": "Czechia",
+      "away": "Mexico",
+      "probabilities": {
+        "win_home": 22.3,
+        "draw": 34.3,
+        "win_away": 43.4,
+        "over_2_5": 23.6,
+        "over_1_5": 49.9
+      },
+      "favorite": "Mexico",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 0.44,
+      "lambda_away": 1.24,
+      "elo_home": 1733.0,
+      "elo_away": 1868.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 49.9,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 23.6,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "corners_shots_players",
+            "status": "unavailable",
+            "reason": "selecciones usan modelo internacional; no se publican props/corners sin contrato calibrado"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "South Africa vs South Korea",
+      "league": "Mundial 2026",
+      "home": "South Africa",
+      "away": "South Korea",
+      "probabilities": {
+        "win_home": 28.8,
+        "draw": 31.6,
+        "win_away": 39.5,
+        "over_2_5": 44.0,
+        "over_1_5": 70.0
+      },
+      "favorite": "South Korea",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 0.96,
+      "lambda_away": 1.48,
+      "elo_home": 1517.0,
+      "elo_away": 1756.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 70.0,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 44.0,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "corners_shots_players",
+            "status": "unavailable",
+            "reason": "selecciones usan modelo internacional; no se publican props/corners sin contrato calibrado"
+          }
+        ]
+      }
+    }
+  ],
+  "nota": "Análisis estadístico de todos los partidos del día. Probabilidades crudas del modelo (sin ajuste por liga ni mercado). No incluye recomendación de apuesta — ver value_picks y featured_pick para picks oficiales."
+}
