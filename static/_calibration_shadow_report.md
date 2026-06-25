@@ -1,6 +1,6 @@
 # Calibración conservadora — propuesta SHADOW
 
-Generado: 2026-06-24T08:18:02
+Generado: 2026-06-25T08:17:27
 
 **Artefacto shadow.** No toca publicación oficial. El motor sigue sin calibrar (o con el calibrador global válido si lo hubiera). Una propuesta solo se acepta si Platt es monótono (A<0) **y** mejora el Brier en validación cruzada leave-one-out. No reintroduce EV/cuotas.
 
@@ -12,9 +12,9 @@ Generado: 2026-06-24T08:18:02
 | Mercado | N | Acierto | Prob. media | Gap | A | B | Brier CV antes→después | Estado |
 |---|---:|---:|---:|---:|---:|---:|---|---|
 | winner | 40 | 65.0% | 64.8% | +0.2% | -4.136941 | 2.048744 | 0.2189 → 0.2375 | rejected_no_cv_improvement |
-| over_1_5 | 32 | 78.1% | 79.2% | -1.1% | 1.83926 | -2.700579 | 0.1791 → 0.1829 | rejected_non_monotonic |
+| over_1_5 | 33 | 78.8% | 79.4% | -0.6% | 1.54207 | -2.506044 | 0.1745 → 0.1787 | rejected_non_monotonic |
 | double_chance | 30 | 56.7% | 78.7% | -22.0% | — | — | in-sample 0.2715 | disabled_market |
-| draw_no_bet | 21 | 57.1% | 71.4% | -14.3% | — | — | in-sample 0.2579 | disabled_market |
+| draw_no_bet | 22 | 59.1% | 71.8% | -12.7% | — | — | in-sample 0.248 | disabled_market |
 | over_2_5 | 10 | 60.0% | 64.3% | -4.3% | — | — | in-sample 0.1954 | disabled_market |
 | corners | 6 | 0% | 77.2% | -77.2% | — | — | in-sample 0.5969 | disabled_market |
 
