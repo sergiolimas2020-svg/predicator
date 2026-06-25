@@ -42,6 +42,8 @@ PLAYER_TOTAL_LINES = [0.5, 1.5, 2.5, 3.5]
 PLAYER_SOT_LINES = [0.5, 1.5]
 PLAYER_MIN_APPS = 2
 PLAYER_MIN_MINUTES = 30.0
+SELECTION_PLAYER_MIN_APPS = 1
+SELECTION_PLAYER_MIN_MINUTES = 0.0
 
 
 def read_json(path: Path) -> Any:
@@ -290,12 +292,12 @@ def build_for_record(record: dict[str, Any]) -> dict[str, Any] | None:
     ):
         sample = int((pdata or {}).get("n_fixtures") or 0)
         player_confidence = LOW_SAMPLE_CONFIDENCE_FACTOR if is_selection and sample < MIN_SAMPLE else 1.0
+        min_apps = SELECTION_PLAYER_MIN_APPS if is_selection else PLAYER_MIN_APPS
+        min_minutes = SELECTION_PLAYER_MIN_MINUTES if is_selection else PLAYER_MIN_MINUTES
         for player in (pdata or {}).get("players") or []:
             apps = int(player.get("appearances") or 0)
             minutes = finite(player.get("minutes_avg")) or 0.0
-            if apps < PLAYER_MIN_APPS or minutes < PLAYER_MIN_MINUTES:
-                continue
-            if (player.get("position") or "").upper() == "G":
+            if apps < min_apps or minutes < min_minutes:
                 continue
 
             total_avg = finite(player.get("shots_total_avg"))
