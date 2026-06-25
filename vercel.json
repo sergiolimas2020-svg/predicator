@@ -1,4 +1,12 @@
 {
+  "functions": {
+    "api/ai-chat.js": {
+      "includeFiles": "static/**/*.json"
+    },
+    "api/health.js": {
+      "includeFiles": "static/**/*.json"
+    }
+  },
   "headers": [
     {
       "source": "/(.*)",
