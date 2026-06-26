@@ -1,7 +1,7 @@
 {
   "is_shadow": true,
   "note": "PROPUESTA shadow de calibración por mercado. El motor NO lee este archivo. Producción sigue usando static/calibrator.json (global) con el guard A<0. No activar hasta validar.",
-  "generated_at": "2026-06-25T08:17:27",
+  "generated_at": "2026-06-26T08:25:48",
   "model_version": "v1.2-clean-signal",
   "min_samples": 20,
   "active_markets": [
@@ -61,14 +61,14 @@
       "proposed_calibrator": null
     },
     "draw_no_bet": {
-      "n": 22,
-      "hit_rate": 59.1,
-      "avg_prob": 71.8,
-      "cal_gap": -12.7,
+      "n": 23,
+      "hit_rate": 56.5,
+      "avg_prob": 72.0,
+      "cal_gap": -15.5,
       "A": null,
       "B": null,
       "valid_monotonic": null,
-      "brier_in_sample_before": 0.248,
+      "brier_in_sample_before": 0.2629,
       "brier_in_sample_after": null,
       "brier_cv_before": null,
       "brier_cv_after": null,
@@ -76,14 +76,14 @@
       "proposed_calibrator": null
     },
     "over_2_5": {
-      "n": 10,
-      "hit_rate": 60.0,
-      "avg_prob": 64.3,
-      "cal_gap": -4.3,
+      "n": 11,
+      "hit_rate": 63.6,
+      "avg_prob": 66.5,
+      "cal_gap": -2.9,
       "A": null,
       "B": null,
       "valid_monotonic": null,
-      "brier_in_sample_before": 0.1954,
+      "brier_in_sample_before": 0.179,
       "brier_in_sample_after": null,
       "brier_cv_before": null,
       "brier_cv_after": null,
