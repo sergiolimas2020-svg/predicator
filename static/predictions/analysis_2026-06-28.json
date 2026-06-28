@@ -1,0 +1,54 @@
+{
+  "date": "2026-06-28",
+  "total_fixtures": 1,
+  "matches": [
+    {
+      "matchup": "South Africa vs Canada",
+      "league": "Mundial 2026",
+      "home": "South Africa",
+      "away": "Canada",
+      "probabilities": {
+        "win_home": 21.1,
+        "draw": 33.9,
+        "win_away": 45.0,
+        "over_2_5": 24.7,
+        "over_1_5": 51.2
+      },
+      "favorite": "Canada",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 0.4,
+      "lambda_away": 1.32,
+      "elo_home": 1517.0,
+      "elo_away": 1793.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 51.2,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 24.7,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "corners_shots_players",
+            "status": "unavailable",
+            "reason": "selecciones usan modelo internacional; no se publican props/corners sin contrato calibrado"
+          }
+        ]
+      }
+    }
+  ],
+  "nota": "Análisis estadístico de todos los partidos del día. Probabilidades crudas del modelo (sin ajuste por liga ni mercado). No incluye recomendación de apuesta — ver value_picks y featured_pick para picks oficiales."
+}
