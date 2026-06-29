@@ -22,3 +22,6 @@ python-telegram-bot==21.6
 # /content/guias/*.md desde scrapers/generate_predictions.py para sitemap)
 markdown==3.7
 python-frontmatter==1.1.0
+
+# Generación de la pieza diaria para redes (scripts/social_card.py)
+Pillow==11.3.0
