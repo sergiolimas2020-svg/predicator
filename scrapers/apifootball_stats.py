@@ -58,6 +58,7 @@ LEAGUES: Dict[str, Any] = {
     "superlig":    (203, 2025, "static/turkey_stats.json"),
     "champions":   (2,   2025, "static/uefa-champions-league_stats.json"),
     "brazil":      (71,  2026, "static/brazil_stats.json"),
+    "brazil_b":    (72,  2026, "static/brazil_b_stats.json"),
     "argentina":   (128, 2026, "static/argentina_stats.json"),
     "colombia":    (239, 2026, "static/colombia_stats.json"),
 }
