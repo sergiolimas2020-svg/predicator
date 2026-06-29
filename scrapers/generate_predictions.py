@@ -1053,6 +1053,8 @@ ESPN_LEAGUES = {
     "soccer/arg.1":          ("Liga Argentina",     "argentina_stats.json"),
     "soccer/bra.1":          ("Brasileirao",        "brazil_stats.json"),
     "soccer/bra.2":          ("Brasileirao Serie B", "brazil_b_stats.json"),
+    "soccer/nor.1":          ("Eliteserien",        "norway_stats.json"),
+    "soccer/swe.1":          ("Allsvenskan",        "sweden_stats.json"),
     "soccer/tur.1":          ("Super Lig",          "turkey_stats.json"),
     "soccer/uefa.champions": ("Champions League",   "uefa_champions_league_stats.json"),
     "soccer/conmebol.libertadores":  ("Copa Libertadores",  "conmebol_libertadores_stats.json"),

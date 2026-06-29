@@ -61,6 +61,8 @@ LEAGUES: Dict[str, Any] = {
     "brazil_b":    (72,  2026, "static/brazil_b_stats.json"),
     "argentina":   (128, 2026, "static/argentina_stats.json"),
     "colombia":    (239, 2026, "static/colombia_stats.json"),
+    "norway":      (103, 2026, "static/norway_stats.json"),
+    "sweden":      (113, 2026, "static/sweden_stats.json"),
 }
 
 
