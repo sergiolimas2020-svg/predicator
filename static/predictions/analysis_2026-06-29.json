@@ -1,0 +1,101 @@
+{
+  "date": "2026-06-29",
+  "total_fixtures": 2,
+  "matches": [
+    {
+      "matchup": "Brazil vs Japan",
+      "league": "Mundial 2026",
+      "home": "Brazil",
+      "away": "Japan",
+      "probabilities": {
+        "win_home": 36.8,
+        "draw": 30.8,
+        "win_away": 32.4,
+        "over_2_5": 52.8,
+        "over_1_5": 76.7
+      },
+      "favorite": "Brazil",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.51,
+      "lambda_away": 1.28,
+      "elo_home": 1988.0,
+      "elo_away": 1906.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 76.7,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 52.8,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "corners_shots_players",
+            "status": "unavailable",
+            "reason": "selecciones usan modelo internacional; no se publican props/corners sin contrato calibrado"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Netherlands vs Morocco",
+      "league": "Mundial 2026",
+      "home": "Netherlands",
+      "away": "Morocco",
+      "probabilities": {
+        "win_home": 31.1,
+        "draw": 31.5,
+        "win_away": 37.4,
+        "over_2_5": 46.3,
+        "over_1_5": 71.8
+      },
+      "favorite": "Morocco",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.11,
+      "lambda_away": 1.42,
+      "elo_home": 1961.0,
+      "elo_away": 1822.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 71.8,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 46.3,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "corners_shots_players",
+            "status": "unavailable",
+            "reason": "selecciones usan modelo internacional; no se publican props/corners sin contrato calibrado"
+          }
+        ]
+      }
+    }
+  ],
+  "nota": "Análisis estadístico de todos los partidos del día. Probabilidades crudas del modelo (sin ajuste por liga ni mercado). No incluye recomendación de apuesta — ver value_picks y featured_pick para picks oficiales."
+}
