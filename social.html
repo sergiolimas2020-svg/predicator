@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pieza del día para redes — PREDIKTOR</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--negro:#0a0a0f;--card:#16161f;--borde:#2a2a3a;--dorado:#f0b429;--texto:#e2e8f0;--gris:#94a3b8;--verde:#22c55e;}
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:'DM Sans',sans-serif;background:var(--negro);color:var(--texto);line-height:1.6;}
+    nav{display:flex;justify-content:space-between;align-items:center;padding:1rem 1.2rem;border-bottom:1px solid var(--borde);}
+    .logo{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:3px;color:var(--texto);text-decoration:none;}
+    .logo span{color:var(--dorado);}
+    .back{color:var(--gris);text-decoration:none;font-size:.9rem;}
+    main{max-width:520px;margin:1.5rem auto 4rem;padding:0 1.2rem;}
+    h1{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;letter-spacing:1px;color:#fff;margin-bottom:.3rem;}
+    .sub{color:var(--gris);font-size:.95rem;margin-bottom:1.5rem;}
+    .pieza{width:100%;border-radius:14px;border:1px solid var(--borde);display:block;margin-bottom:1rem;background:var(--card);}
+    .btn{display:block;width:100%;text-align:center;padding:.9rem;border-radius:10px;font-family:'DM Sans',sans-serif;
+         font-size:1rem;font-weight:700;cursor:pointer;border:none;margin-bottom:.8rem;text-decoration:none;}
+    .btn-gold{background:var(--dorado);color:#2a1d00;}
+    .btn-ghost{background:transparent;color:var(--dorado);border:1px solid var(--dorado);}
+    .step{display:flex;gap:.7rem;align-items:flex-start;margin-bottom:.7rem;color:var(--gris);font-size:.92rem;}
+    .step b{color:var(--dorado);font-family:'Bebas Neue',sans-serif;font-size:1.3rem;line-height:1;min-width:1.4rem;}
+    h2{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:1px;color:#fff;margin:1.8rem 0 .8rem;}
+    textarea{width:100%;min-height:170px;background:var(--card);border:1px solid var(--borde);border-radius:10px;
+             color:var(--texto);padding:.9rem;font-family:'DM Sans',sans-serif;font-size:.92rem;resize:vertical;margin-bottom:.6rem;}
+    .ok{color:var(--verde);font-size:.85rem;text-align:center;min-height:1.2rem;}
+    .empty{background:var(--card);border:1px solid var(--borde);border-radius:12px;padding:2rem 1rem;text-align:center;color:var(--gris);}
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="/" class="logo">PREDI<span>KTOR</span></a>
+    <a href="/" class="back">← Inicio</a>
+  </nav>
+  <main>
+    <h1>Pieza del día para redes</h1>
+    <p class="sub">Se genera sola cada mañana con el pick del día. Descárgala, copia el texto y publícala en TikTok, Instagram y Telegram.</p>
+
+    <div id="contenido">
+      <img id="pieza" class="pieza" alt="Pieza del día para redes" src="/static/social/today.png?v=0">
+      <a id="descargar" class="btn btn-gold" href="/static/social/today.png" download>⬇ Descargar imagen</a>
+
+      <h2>Texto para acompañar</h2>
+      <textarea id="caption" readonly>Cargando…</textarea>
+      <button class="btn btn-ghost" onclick="copiar()">📋 Copiar texto</button>
+      <div class="ok" id="ok"></div>
+
+      <h2>Cómo publicar</h2>
+      <div class="step"><b>1</b><span>Toca <b style="font-size:1rem">Descargar imagen</b> y guárdala en tu galería.</span></div>
+      <div class="step"><b>2</b><span>Toca <b style="font-size:1rem">Copiar texto</b>.</span></div>
+      <div class="step"><b>3</b><span>Abre TikTok / Instagram / Telegram, sube la imagen y pega el texto. ¡Listo!</span></div>
+      <div class="step"><b>4</b><span>Hazlo <b style="font-size:1rem">todos los días</b>. La constancia es lo que hace crecer la audiencia.</span></div>
+    </div>
+  </main>
+
+  <script>
+    var v = Date.now();
+    document.getElementById('pieza').src = '/static/social/today.png?v=' + v;
+    fetch('/static/social/today.txt?v=' + v)
+      .then(function(r){ return r.ok ? r.text() : Promise.reject(); })
+      .then(function(t){ document.getElementById('caption').value = t.trim(); })
+      .catch(function(){
+        document.getElementById('contenido').innerHTML =
+          '<div class="empty">Aún no se ha generado la pieza de hoy. Vuelve después de la actualización de la mañana.</div>';
+      });
+    function copiar(){
+      var ta = document.getElementById('caption');
+      navigator.clipboard.writeText(ta.value).then(function(){
+        document.getElementById('ok').textContent = '✓ Texto copiado';
+      }, function(){
+        ta.removeAttribute('readonly'); ta.select(); document.execCommand('copy');
+        document.getElementById('ok').textContent = '✓ Texto copiado';
+      });
+    }
+  </script>
+</body>
+</html>

@@ -257,6 +257,13 @@ jobs:
             python3 scrapers/generate_predictions.py
           fi
 
+      # ── Step 7b: Pieza diaria para redes (imagen + caption) ────
+      # Genera static/social/today.png + today.txt a partir del pick del día.
+      # No depende de red; si falta el pick, hace una tarjeta de "descanso".
+      - name: Generar pieza social del día
+        run: python3 scripts/social_card.py
+        continue-on-error: true
+
       # ── Step 8: Validar que se generó JSON con fecha de hoy ─────
       - name: Validar daily_picks.json
         run: |
