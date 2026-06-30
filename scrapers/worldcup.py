@@ -655,9 +655,28 @@ def main() -> int:
 
     client = APIFootballClient(api_key=api_key)
     # Workaround SSL local (igual que elo_ratings.py)
-    import urllib3
+    import urllib3, time
     urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
     client.session.verify = False
+
+    # Calendario del Mundial PRIMERO (1 request, crítico: incluye las eliminatorias).
+    # Se trae ANTES del build() de stats para no chocar con el límite POR MINUTO de
+    # la API. Reintenta ante 429 esperando a que la ventana de un minuto se libere.
+    schedule = None
+    if not args.dry_run:
+        for _intento in range(4):
+            try:
+                schedule = fetch_wc_schedule(client)
+                break
+            except APIFootballError as e:
+                if "429" in str(e) or "rate" in str(e).lower():
+                    espera = 20 * (_intento + 1)
+                    logger.warning("Calendario Mundial rate-limited (intento %d/4); "
+                                   "espero %ds…", _intento + 1, espera)
+                    time.sleep(espera)
+                    continue
+                logger.warning("No se pudo traer el calendario del Mundial: %s", e)
+                break
 
     try:
         stats, wc_elos = build(client, form_last=args.form_last, elo_last=args.elo_last)
@@ -676,13 +695,15 @@ def main() -> int:
     logger.info("Escrito: %s", STATS_OUTPUT)
     logger.info("Escrito: %s [%s]", ELO_OUTPUT, ELO_KEY)
 
-    # Calendario completo del Mundial (para que el generador filtre el día sin red).
-    try:
-        schedule = fetch_wc_schedule(client)
+    # Escribir el calendario (ya traído arriba, antes del build). Si no se pudo
+    # (rate-limit persistente), se CONSERVA el archivo previo en vez de perderlo,
+    # pero se avisa fuerte para no quedarnos con fixtures congelados sin saberlo.
+    if schedule:
         FIXTURES_OUTPUT.write_text(json.dumps(schedule, ensure_ascii=False, indent=2))
         logger.info("Escrito: %s (%d partidos)", FIXTURES_OUTPUT, len(schedule))
-    except APIFootballError as e:
-        logger.warning("No se pudo traer el calendario del Mundial: %s", e)
+    else:
+        logger.error("⚠️ Calendario del Mundial NO actualizado (rate-limit u error); "
+                     "se conserva el archivo previo. Los cruces nuevos podrían faltar.")
 
     # Amistosos de selecciones (preparación) — opcional, no crítico.
     try:
