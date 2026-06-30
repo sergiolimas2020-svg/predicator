@@ -1606,9 +1606,14 @@ def _compute_lambdas(hd, ad, danger=None, neutral=False, intl=False):
         lambda_h *= max(0.8, min(1.2, adj_h))
         lambda_a *= max(0.8, min(1.2, adj_a))
 
-    # Límites de lambdas
-    lambda_h = max(0.1, min(6.0, lambda_h))
-    lambda_a = max(0.1, min(6.0, lambda_a))
+    # Límites de lambdas. En SELECCIONES (intl) el tope es más estricto: con datos
+    # escasos + diferencias de Elo grandes, la fórmula (GF×GA/avg) puede inflar la
+    # expectativa de gol a valores irreales (p.ej. France 5.42) y disparar el
+    # Over 2.5 a ~95%. Una expectativa real por equipo rara vez supera ~3.5 goles.
+    # Clubes sin cambio → no afecta la paridad Py↔JS (que solo cubre clubes).
+    _lambda_cap = 3.5 if intl else 6.0
+    lambda_h = max(0.1, min(_lambda_cap, lambda_h))
+    lambda_a = max(0.1, min(_lambda_cap, lambda_a))
     return lambda_h, lambda_a
 
 
