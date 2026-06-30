@@ -49,20 +49,26 @@ logger = logging.getLogger("apifootball_stats")
 FINISHED = {"FT", "AET", "PEN"}
 
 # liga conocida → (api_football_league_id, season, archivo de salida)
+# ORDEN IMPORTA: el cron corre `--all` con timeout y cada liga tarda ~50s, así
+# que solo alcanza a construir las primeras. Por eso las ligas EN TEMPORADA van
+# PRIMERO (se construyen sí o sí); las europeas (en receso jun–ago, datos
+# estáticos que ya existen) van al final y si se cortan, no pasa nada.
 LEAGUES: Dict[str, Any] = {
-    "premier":     (39,  2025, "static/england_stats.json"),
-    "laliga":      (140, 2025, "static/spain_stats.json"),
-    "seriea":      (135, 2025, "static/italy_stats.json"),
-    "bundesliga":  (78,  2025, "static/germany_stats.json"),
-    "ligue1":      (61,  2025, "static/france_stats.json"),
-    "superlig":    (203, 2025, "static/turkey_stats.json"),
-    "champions":   (2,   2025, "static/uefa-champions-league_stats.json"),
+    # En temporada AHORA (calendario-año sudamericano + verano nórdico):
     "brazil":      (71,  2026, "static/brazil_stats.json"),
     "brazil_b":    (72,  2026, "static/brazil_b_stats.json"),
     "argentina":   (128, 2026, "static/argentina_stats.json"),
     "colombia":    (239, 2026, "static/colombia_stats.json"),
     "norway":      (103, 2026, "static/norway_stats.json"),
     "sweden":      (113, 2026, "static/sweden_stats.json"),
+    "champions":   (2,   2025, "static/uefa-champions-league_stats.json"),
+    # En receso hasta agosto (datos ya presentes, no cambian día a día):
+    "premier":     (39,  2025, "static/england_stats.json"),
+    "laliga":      (140, 2025, "static/spain_stats.json"),
+    "seriea":      (135, 2025, "static/italy_stats.json"),
+    "bundesliga":  (78,  2025, "static/germany_stats.json"),
+    "ligue1":      (61,  2025, "static/france_stats.json"),
+    "superlig":    (203, 2025, "static/turkey_stats.json"),
 }
 
 
