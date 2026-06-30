@@ -1,6 +1,6 @@
 {
   "date": "2026-06-30",
-  "total_fixtures": 1,
+  "total_fixtures": 4,
   "matches": [
     {
       "matchup": "Botafogo-SP vs CRB",
@@ -8,18 +8,18 @@
       "home": "Botafogo-SP",
       "away": "CRB",
       "probabilities": {
-        "win_home": 52.6,
-        "draw": 18.5,
-        "win_away": 28.9,
-        "over_2_5": 87.3,
-        "over_1_5": 95.9
+        "win_home": 46.9,
+        "draw": 28.9,
+        "win_away": 24.2,
+        "over_2_5": 44.1,
+        "over_1_5": 70.1
       },
       "favorite": "Botafogo-SP",
       "stats_complete": true,
       "confidence_factor": 1.0,
       "is_nba": false,
-      "lambda_home": 2.83,
-      "lambda_away": 2.14,
+      "lambda_home": 1.46,
+      "lambda_away": 0.98,
       "elo_home": 1500.0,
       "elo_away": 1500.0,
       "danger": null,
@@ -28,16 +28,16 @@
           {
             "market": "Over 1.5 goles",
             "market_key": "over15",
-            "prob_adjusted": 95.9,
+            "prob_adjusted": 70.1,
             "source": "model_goals",
-            "official_pick_candidate": true
+            "official_pick_candidate": false
           },
           {
             "market": "Over 2.5 goles",
             "market_key": "over25",
-            "prob_adjusted": 87.3,
+            "prob_adjusted": 44.1,
             "source": "model_goals",
-            "official_pick_candidate": true
+            "official_pick_candidate": false
           }
         ],
         "unavailable": [
@@ -45,6 +45,147 @@
             "group": "api_football_markets",
             "status": "unavailable",
             "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Ivory Coast vs Norway",
+      "league": "Mundial 2026",
+      "home": "Ivory Coast",
+      "away": "Norway",
+      "probabilities": {
+        "win_home": 33.0,
+        "draw": 28.6,
+        "win_away": 38.4,
+        "over_2_5": 71.5,
+        "over_1_5": 88.4
+      },
+      "favorite": "Norway",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.69,
+      "lambda_away": 2.02,
+      "elo_home": 1676.0,
+      "elo_away": 1917.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 88.4,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 71.5,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "corners_shots_players",
+            "status": "unavailable",
+            "reason": "selecciones usan modelo internacional; no se publican props/corners sin contrato calibrado"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "France vs Sweden",
+      "league": "Mundial 2026",
+      "home": "France",
+      "away": "Sweden",
+      "probabilities": {
+        "win_home": 72.2,
+        "draw": 16.4,
+        "win_away": 11.4,
+        "over_2_5": 95.1,
+        "over_1_5": 98.7
+      },
+      "favorite": "France",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 5.42,
+      "lambda_away": 0.9,
+      "elo_home": 2081.0,
+      "elo_away": 1714.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 98.7,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 95.1,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "corners_shots_players",
+            "status": "unavailable",
+            "reason": "selecciones usan modelo internacional; no se publican props/corners sin contrato calibrado"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Mexico vs Ecuador",
+      "league": "Mundial 2026",
+      "home": "Mexico",
+      "away": "Ecuador",
+      "probabilities": {
+        "win_home": 39.1,
+        "draw": 38.2,
+        "win_away": 22.7,
+        "over_2_5": 10.9,
+        "over_1_5": 31.9
+      },
+      "favorite": "Mexico",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 0.83,
+      "lambda_away": 0.32,
+      "elo_home": 1868.0,
+      "elo_away": 1935.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 31.9,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 10.9,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "corners_shots_players",
+            "status": "unavailable",
+            "reason": "selecciones usan modelo internacional; no se publican props/corners sin contrato calibrado"
           }
         ]
       }

@@ -1,12 +1,220 @@
 {
   "is_radar": true,
   "note": "Radar estadístico probability-first (Mundial/selecciones). No usa EV/cuotas/Betplay. NO conectado a publicación premium; el motor de publicación no lee este archivo.",
-  "generated_at": "2026-06-30T08:34:52",
+  "generated_at": "2026-06-30T15:14:36",
   "thresholds": {
     "win": 62.0,
     "over_1_5": 72.0,
     "dnb_seleccion": 72.0,
     "dc_seleccion": 80.0
   },
-  "matches": []
+  "matches": [
+    {
+      "match": "Ivory Coast vs Norway",
+      "home": "Ivory Coast",
+      "away": "Norway",
+      "league": "Mundial 2026",
+      "is_seleccion": true,
+      "source": "api_football",
+      "neutral": true,
+      "favorite": "Norway",
+      "markets": [
+        {
+          "market": "Victoria directa",
+          "pick": "Norway",
+          "prob": 38.4,
+          "threshold": 62.0,
+          "passed": false,
+          "tier": "official_eligible",
+          "reason": "prob 38.4% < umbral 62.0%"
+        },
+        {
+          "market": "Over 1.5 goles",
+          "pick": null,
+          "prob": 88.4,
+          "threshold": 72.0,
+          "passed": true,
+          "tier": "official_eligible",
+          "reason": "prob 88.4% ≥ umbral 72.0%"
+        },
+        {
+          "market": "DNB (apuesta sin empate)",
+          "pick": "Norway",
+          "prob": 53.8,
+          "threshold": 72.0,
+          "passed": false,
+          "tier": "radar_only",
+          "reason": "prob 53.8% < umbral 72.0%"
+        },
+        {
+          "market": "Doble oportunidad",
+          "pick": "Norway",
+          "prob": 67.0,
+          "threshold": 80.0,
+          "passed": false,
+          "tier": "radar_only",
+          "reason": "prob 67.0% < umbral 80.0%"
+        }
+      ],
+      "recommended": {
+        "market": "Over 1.5 goles",
+        "pick": null,
+        "prob": 88.4,
+        "tier": "official_eligible"
+      },
+      "status": "signal",
+      "discarded": [
+        {
+          "market": "Victoria directa",
+          "prob": 38.4,
+          "threshold": 62.0,
+          "reason": "prob 38.4% < umbral 62.0%"
+        },
+        {
+          "market": "DNB (apuesta sin empate)",
+          "prob": 53.8,
+          "threshold": 72.0,
+          "reason": "prob 53.8% < umbral 72.0%"
+        },
+        {
+          "market": "Doble oportunidad",
+          "prob": 67.0,
+          "threshold": 80.0,
+          "reason": "prob 67.0% < umbral 80.0%"
+        }
+      ]
+    },
+    {
+      "match": "France vs Sweden",
+      "home": "France",
+      "away": "Sweden",
+      "league": "Mundial 2026",
+      "is_seleccion": true,
+      "source": "api_football",
+      "neutral": true,
+      "favorite": "France",
+      "markets": [
+        {
+          "market": "Victoria directa",
+          "pick": "France",
+          "prob": 72.2,
+          "threshold": 62.0,
+          "passed": true,
+          "tier": "official_eligible",
+          "reason": "prob 72.2% ≥ umbral 62.0%"
+        },
+        {
+          "market": "Over 1.5 goles",
+          "pick": null,
+          "prob": 98.7,
+          "threshold": 72.0,
+          "passed": true,
+          "tier": "official_eligible",
+          "reason": "prob 98.7% ≥ umbral 72.0%"
+        },
+        {
+          "market": "DNB (apuesta sin empate)",
+          "pick": "France",
+          "prob": 86.4,
+          "threshold": 72.0,
+          "passed": true,
+          "tier": "radar_only",
+          "reason": "prob 86.4% ≥ umbral 72.0%"
+        },
+        {
+          "market": "Doble oportunidad",
+          "pick": "France",
+          "prob": 88.6,
+          "threshold": 80.0,
+          "passed": true,
+          "tier": "radar_only",
+          "reason": "prob 88.6% ≥ umbral 80.0%"
+        }
+      ],
+      "recommended": {
+        "market": "Victoria directa",
+        "pick": "France",
+        "prob": 72.2,
+        "tier": "official_eligible"
+      },
+      "status": "signal",
+      "discarded": []
+    },
+    {
+      "match": "Mexico vs Ecuador",
+      "home": "Mexico",
+      "away": "Ecuador",
+      "league": "Mundial 2026",
+      "is_seleccion": true,
+      "source": "api_football",
+      "neutral": false,
+      "favorite": "Mexico",
+      "markets": [
+        {
+          "market": "Victoria directa",
+          "pick": "Mexico",
+          "prob": 42.0,
+          "threshold": 62.0,
+          "passed": false,
+          "tier": "official_eligible",
+          "reason": "prob 42.0% < umbral 62.0%"
+        },
+        {
+          "market": "Over 1.5 goles",
+          "pick": null,
+          "prob": 34.8,
+          "threshold": 72.0,
+          "passed": false,
+          "tier": "official_eligible",
+          "reason": "prob 34.8% < umbral 72.0%"
+        },
+        {
+          "market": "DNB (apuesta sin empate)",
+          "pick": "Mexico",
+          "prob": 67.1,
+          "threshold": 72.0,
+          "passed": false,
+          "tier": "radar_only",
+          "reason": "prob 67.1% < umbral 72.0%"
+        },
+        {
+          "market": "Doble oportunidad",
+          "pick": "Mexico",
+          "prob": 79.4,
+          "threshold": 80.0,
+          "passed": false,
+          "tier": "radar_only",
+          "reason": "prob 79.4% < umbral 80.0%"
+        }
+      ],
+      "recommended": null,
+      "status": "no_signal",
+      "discarded": [
+        {
+          "market": "Victoria directa",
+          "prob": 42.0,
+          "threshold": 62.0,
+          "reason": "prob 42.0% < umbral 62.0%"
+        },
+        {
+          "market": "Over 1.5 goles",
+          "prob": 34.8,
+          "threshold": 72.0,
+          "reason": "prob 34.8% < umbral 72.0%"
+        },
+        {
+          "market": "DNB (apuesta sin empate)",
+          "prob": 67.1,
+          "threshold": 72.0,
+          "reason": "prob 67.1% < umbral 72.0%"
+        },
+        {
+          "market": "Doble oportunidad",
+          "prob": 79.4,
+          "threshold": 80.0,
+          "reason": "prob 79.4% < umbral 80.0%"
+        }
+      ]
+    }
+  ]
 }

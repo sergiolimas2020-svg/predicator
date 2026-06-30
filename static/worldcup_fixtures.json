@@ -545,7 +545,7 @@
     "away": "Iraq",
     "venue": "BMO Field",
     "neutral": true,
-    "status": "NS",
+    "status": "FT",
     "round": "Group Stage - 3"
   },
   {
@@ -554,7 +554,7 @@
     "away": "France",
     "venue": "Gillette Stadium",
     "neutral": true,
-    "status": "NS",
+    "status": "FT",
     "round": "Group Stage - 3"
   },
   {
@@ -563,7 +563,7 @@
     "away": "Spain",
     "venue": "Estadio Akron",
     "neutral": true,
-    "status": "NS",
+    "status": "FT",
     "round": "Group Stage - 3"
   },
   {
@@ -572,7 +572,7 @@
     "away": "Saudi Arabia",
     "venue": "NRG Stadium",
     "neutral": true,
-    "status": "NS",
+    "status": "FT",
     "round": "Group Stage - 3"
   },
   {
@@ -581,7 +581,7 @@
     "away": "Iran",
     "venue": "Lumen Field",
     "neutral": true,
-    "status": "NS",
+    "status": "FT",
     "round": "Group Stage - 3"
   },
   {
@@ -590,7 +590,7 @@
     "away": "Belgium",
     "venue": "BC Place",
     "neutral": true,
-    "status": "NS",
+    "status": "FT",
     "round": "Group Stage - 3"
   },
   {
@@ -599,7 +599,7 @@
     "away": "Ghana",
     "venue": "Lincoln Financial Field",
     "neutral": true,
-    "status": "NS",
+    "status": "FT",
     "round": "Group Stage - 3"
   },
   {
@@ -608,7 +608,7 @@
     "away": "England",
     "venue": "MetLife Stadium",
     "neutral": true,
-    "status": "NS",
+    "status": "FT",
     "round": "Group Stage - 3"
   },
   {
@@ -617,7 +617,7 @@
     "away": "Portugal",
     "venue": "Hard Rock Stadium",
     "neutral": true,
-    "status": "NS",
+    "status": "FT",
     "round": "Group Stage - 3"
   },
   {
@@ -626,7 +626,7 @@
     "away": "Uzbekistan",
     "venue": "Mercedes-Benz Stadium",
     "neutral": true,
-    "status": "NS",
+    "status": "FT",
     "round": "Group Stage - 3"
   },
   {
@@ -635,7 +635,7 @@
     "away": "Austria",
     "venue": "Arrowhead Stadium",
     "neutral": true,
-    "status": "NS",
+    "status": "FT",
     "round": "Group Stage - 3"
   },
   {
@@ -644,7 +644,7 @@
     "away": "Argentina",
     "venue": "AT&T Stadium",
     "neutral": true,
-    "status": "NS",
+    "status": "FT",
     "round": "Group Stage - 3"
   },
   {
@@ -653,23 +653,77 @@
     "away": "Canada",
     "venue": "SoFi Stadium",
     "neutral": true,
-    "status": "NS",
+    "status": "FT",
     "round": "Round of 32"
   },
   {
     "date": "2026-06-29T17:00:00+00:00",
     "home": "Brazil",
     "away": "Japan",
-    "venue": null,
+    "venue": "NRG Stadium",
     "neutral": true,
-    "status": "NS",
+    "status": "FT",
+    "round": "Round of 32"
+  },
+  {
+    "date": "2026-06-29T20:30:00+00:00",
+    "home": "Germany",
+    "away": "Paraguay",
+    "venue": "Gillette Stadium",
+    "neutral": true,
+    "status": "PEN",
     "round": "Round of 32"
   },
   {
     "date": "2026-06-30T01:00:00+00:00",
     "home": "Netherlands",
     "away": "Morocco",
-    "venue": null,
+    "venue": "Estadio BBVA",
+    "neutral": true,
+    "status": "PEN",
+    "round": "Round of 32"
+  },
+  {
+    "date": "2026-06-30T17:00:00+00:00",
+    "home": "Ivory Coast",
+    "away": "Norway",
+    "venue": "AT&T Stadium",
+    "neutral": true,
+    "status": "NS",
+    "round": "Round of 32"
+  },
+  {
+    "date": "2026-06-30T21:00:00+00:00",
+    "home": "France",
+    "away": "Sweden",
+    "venue": "MetLife Stadium",
+    "neutral": true,
+    "status": "NS",
+    "round": "Round of 32"
+  },
+  {
+    "date": "2026-07-01T01:00:00+00:00",
+    "home": "Mexico",
+    "away": "Ecuador",
+    "venue": "Estadio Banorte",
+    "neutral": false,
+    "status": "NS",
+    "round": "Round of 32"
+  },
+  {
+    "date": "2026-07-01T16:00:00+00:00",
+    "home": "England",
+    "away": "Congo DR",
+    "venue": "Mercedes-Benz Stadium",
+    "neutral": true,
+    "status": "NS",
+    "round": "Round of 32"
+  },
+  {
+    "date": "2026-07-01T20:00:00+00:00",
+    "home": "Belgium",
+    "away": "Senegal",
+    "venue": "Lumen Field",
     "neutral": true,
     "status": "NS",
     "round": "Round of 32"
@@ -678,9 +732,72 @@
     "date": "2026-07-02T00:00:00+00:00",
     "home": "USA",
     "away": "Bosnia & Herzegovina",
-    "venue": null,
+    "venue": "Levi's Stadium",
     "neutral": false,
     "status": "NS",
     "round": "Round of 32"
+  },
+  {
+    "date": "2026-07-02T19:00:00+00:00",
+    "home": "Spain",
+    "away": "Austria",
+    "venue": "SoFi Stadium",
+    "neutral": true,
+    "status": "NS",
+    "round": "Round of 32"
+  },
+  {
+    "date": "2026-07-02T23:00:00+00:00",
+    "home": "Portugal",
+    "away": "Croatia",
+    "venue": "BMO Field",
+    "neutral": true,
+    "status": "NS",
+    "round": "Round of 32"
+  },
+  {
+    "date": "2026-07-03T03:00:00+00:00",
+    "home": "Switzerland",
+    "away": "Algeria",
+    "venue": "BC Place",
+    "neutral": true,
+    "status": "NS",
+    "round": "Round of 32"
+  },
+  {
+    "date": "2026-07-03T18:00:00+00:00",
+    "home": "Australia",
+    "away": "Egypt",
+    "venue": "AT&T Stadium",
+    "neutral": true,
+    "status": "NS",
+    "round": "Round of 32"
+  },
+  {
+    "date": "2026-07-03T22:00:00+00:00",
+    "home": "Argentina",
+    "away": "Cape Verde Islands",
+    "venue": "Hard Rock Stadium",
+    "neutral": true,
+    "status": "NS",
+    "round": "Round of 32"
+  },
+  {
+    "date": "2026-07-04T01:30:00+00:00",
+    "home": "Colombia",
+    "away": "Ghana",
+    "venue": "Arrowhead Stadium",
+    "neutral": true,
+    "status": "NS",
+    "round": "Round of 32"
+  },
+  {
+    "date": "2026-07-04T17:00:00+00:00",
+    "home": "Canada",
+    "away": "Morocco",
+    "venue": "NRG Stadium",
+    "neutral": false,
+    "status": "NS",
+    "round": "Round of 16"
   }
 ]
