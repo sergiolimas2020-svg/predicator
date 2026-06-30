@@ -1,0 +1,54 @@
+{
+  "date": "2026-06-30",
+  "total_fixtures": 1,
+  "matches": [
+    {
+      "matchup": "Botafogo-SP vs CRB",
+      "league": "Brasileirao Serie B",
+      "home": "Botafogo-SP",
+      "away": "CRB",
+      "probabilities": {
+        "win_home": 52.6,
+        "draw": 18.5,
+        "win_away": 28.9,
+        "over_2_5": 87.3,
+        "over_1_5": 95.9
+      },
+      "favorite": "Botafogo-SP",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 2.83,
+      "lambda_away": 2.14,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 95.9,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 87.3,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    }
+  ],
+  "nota": "Análisis estadístico de todos los partidos del día. Probabilidades crudas del modelo (sin ajuste por liga ni mercado). No incluye recomendación de apuesta — ver value_picks y featured_pick para picks oficiales."
+}
