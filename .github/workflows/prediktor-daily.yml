@@ -170,7 +170,7 @@ jobs:
         env:
           API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
         run: |
-          timeout 330s python3 scrapers/apifootball_stats.py --all --max-fixtures 120 \
+          timeout 540s python3 scrapers/apifootball_stats.py --all --max-fixtures 120 \
             || echo "::warning::Stats ligas (API-Football) no terminó a tiempo o falló; se continúa con datos existentes."
         continue-on-error: true
 
