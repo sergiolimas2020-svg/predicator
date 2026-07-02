@@ -1,0 +1,370 @@
+{
+  "date": "2026-07-02",
+  "total_fixtures": 5,
+  "matches": [
+    {
+      "matchup": "Cuiabá vs América Mineiro",
+      "league": "Brasileirao Serie B",
+      "home": "Cuiabá",
+      "away": "América Mineiro",
+      "probabilities": {
+        "win_home": 58.6,
+        "draw": 33.9,
+        "win_away": 7.5,
+        "over_2_5": 16.6,
+        "over_1_5": 40.8
+      },
+      "favorite": "Cuiabá",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.14,
+      "lambda_away": 0.26,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": {
+        "home_sot": 6.2,
+        "away_sot": 4.25
+      },
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 6.5 tiros a puerta",
+            "market_key": "shots",
+            "prob_adjusted": 89.6,
+            "source": "api_football_fixture_statistics",
+            "official_pick_candidate": true,
+            "lambda_total": 10.45,
+            "line": 6.5
+          },
+          {
+            "market": "Over 7.5 tiros a puerta",
+            "market_key": "shots",
+            "prob_adjusted": 81.8,
+            "source": "api_football_fixture_statistics",
+            "official_pick_candidate": true,
+            "lambda_total": 10.45,
+            "line": 7.5
+          },
+          {
+            "market": "Over 8.5 tiros a puerta",
+            "market_key": "shots",
+            "prob_adjusted": 71.6,
+            "source": "api_football_fixture_statistics",
+            "official_pick_candidate": true,
+            "lambda_total": 10.45,
+            "line": 8.5
+          },
+          {
+            "market": "Over 7.5 córners",
+            "market_key": "corners",
+            "prob_adjusted": 89.4,
+            "source": "api_football_fixture_statistics",
+            "official_pick_candidate": true,
+            "lambda_total": 11.65,
+            "line": 7.5
+          },
+          {
+            "market": "Over 8.5 córners",
+            "market_key": "corners",
+            "prob_adjusted": 82.1,
+            "source": "api_football_fixture_statistics",
+            "official_pick_candidate": true,
+            "lambda_total": 11.65,
+            "line": 8.5
+          },
+          {
+            "market": "Over 9.5 córners",
+            "market_key": "corners",
+            "prob_adjusted": 72.6,
+            "source": "api_football_fixture_statistics",
+            "official_pick_candidate": true,
+            "lambda_total": 11.65,
+            "line": 9.5
+          },
+          {
+            "market": "Rodrigo Rodrigues Over 0.5 tiros",
+            "market_key": "player_shots",
+            "prob_adjusted": 86.5,
+            "source": "api_football_fixture_players",
+            "official_pick_candidate": true,
+            "team": "Cuiabá",
+            "player_id": 162684,
+            "appearances": 5,
+            "minutes_avg": 66.8,
+            "line": 0.5
+          },
+          {
+            "market": "G. Mastriani Over 0.5 tiros",
+            "market_key": "player_shots",
+            "prob_adjusted": 86.5,
+            "source": "api_football_fixture_players",
+            "official_pick_candidate": true,
+            "team": "América Mineiro",
+            "player_id": 16669,
+            "appearances": 3,
+            "minutes_avg": 88.0,
+            "line": 0.5
+          },
+          {
+            "market": "G. Mastriani Over 0.5 tiros a puerta",
+            "market_key": "player_shots",
+            "prob_adjusted": 81.2,
+            "source": "api_football_fixture_players",
+            "official_pick_candidate": true,
+            "team": "América Mineiro",
+            "player_id": 16669,
+            "appearances": 3,
+            "minutes_avg": 88.0,
+            "line": 0.5
+          },
+          {
+            "market": "Matías Segovia Over 0.5 tiros",
+            "market_key": "player_shots",
+            "prob_adjusted": 77.7,
+            "source": "api_football_fixture_players",
+            "official_pick_candidate": true,
+            "team": "América Mineiro",
+            "player_id": 180386,
+            "appearances": 4,
+            "minutes_avg": 80.5,
+            "line": 0.5
+          },
+          {
+            "market": "David Over 0.5 tiros",
+            "market_key": "player_shots",
+            "prob_adjusted": 71.3,
+            "source": "api_football_fixture_players",
+            "official_pick_candidate": true,
+            "team": "Cuiabá",
+            "player_id": 452871,
+            "appearances": 4,
+            "minutes_avg": 80.2,
+            "line": 0.5
+          },
+          {
+            "market": "Rodrigo Rodrigues Over 0.5 tiros a puerta",
+            "market_key": "player_shots",
+            "prob_adjusted": 69.9,
+            "source": "api_football_fixture_players",
+            "official_pick_candidate": true,
+            "team": "Cuiabá",
+            "player_id": 162684,
+            "appearances": 5,
+            "minutes_avg": 66.8,
+            "line": 0.5
+          },
+          {
+            "market": "João Basso Over 0.5 tiros",
+            "market_key": "player_shots",
+            "prob_adjusted": 69.9,
+            "source": "api_football_fixture_players",
+            "official_pick_candidate": true,
+            "team": "Cuiabá",
+            "player_id": 41609,
+            "appearances": 5,
+            "minutes_avg": 91.2,
+            "line": 0.5
+          },
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 40.8,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": []
+      }
+    },
+    {
+      "matchup": "Fortaleza vs Ponte Preta",
+      "league": "Brasileirao Serie B",
+      "home": "Fortaleza",
+      "away": "Ponte Preta",
+      "probabilities": {
+        "win_home": 73.0,
+        "draw": 20.3,
+        "win_away": 6.8,
+        "over_2_5": 43.9,
+        "over_1_5": 69.9
+      },
+      "favorite": "Fortaleza",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.98,
+      "lambda_away": 0.46,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 69.9,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 43.9,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Spain vs Austria",
+      "league": "Mundial 2026",
+      "home": "Spain",
+      "away": "Austria",
+      "probabilities": {
+        "win_home": 50.2,
+        "draw": 29.9,
+        "win_away": 19.9,
+        "over_2_5": 45.2,
+        "over_1_5": 70.9
+      },
+      "favorite": "Spain",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.95,
+      "lambda_away": 0.54,
+      "elo_home": 2165.0,
+      "elo_away": 1830.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 70.9,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 45.2,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "corners_shots_players",
+            "status": "unavailable",
+            "reason": "selecciones usan modelo internacional; no se publican props/corners sin contrato calibrado"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Portugal vs Croatia",
+      "league": "Mundial 2026",
+      "home": "Portugal",
+      "away": "Croatia",
+      "probabilities": {
+        "win_home": 44.8,
+        "draw": 28.3,
+        "win_away": 26.9,
+        "over_2_5": 68.9,
+        "over_1_5": 87.0
+      },
+      "favorite": "Portugal",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 2.31,
+      "lambda_away": 1.24,
+      "elo_home": 1984.0,
+      "elo_away": 1930.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 87.0,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 68.9,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "corners_shots_players",
+            "status": "unavailable",
+            "reason": "selecciones usan modelo internacional; no se publican props/corners sin contrato calibrado"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Switzerland vs Algeria",
+      "league": "Mundial 2026",
+      "home": "Switzerland",
+      "away": "Algeria",
+      "probabilities": {
+        "win_home": 35.5,
+        "draw": 30.5,
+        "win_away": 34.0,
+        "over_2_5": 55.5,
+        "over_1_5": 78.6
+      },
+      "favorite": "Switzerland",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.49,
+      "lambda_away": 1.41,
+      "elo_home": 1894.0,
+      "elo_away": 1743.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 78.6,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 55.5,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "corners_shots_players",
+            "status": "unavailable",
+            "reason": "selecciones usan modelo internacional; no se publican props/corners sin contrato calibrado"
+          }
+        ]
+      }
+    }
+  ],
+  "nota": "Análisis estadístico de todos los partidos del día. Probabilidades crudas del modelo (sin ajuste por liga ni mercado). No incluye recomendación de apuesta — ver value_picks y featured_pick para picks oficiales."
+}

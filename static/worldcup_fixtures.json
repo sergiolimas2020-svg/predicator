@@ -716,7 +716,7 @@
     "away": "Congo DR",
     "venue": "Mercedes-Benz Stadium",
     "neutral": true,
-    "status": "NS",
+    "status": "FT",
     "round": "Round of 32"
   },
   {
@@ -725,7 +725,7 @@
     "away": "Senegal",
     "venue": "Lumen Field",
     "neutral": true,
-    "status": "NS",
+    "status": "AET",
     "round": "Round of 32"
   },
   {
@@ -734,7 +734,7 @@
     "away": "Bosnia & Herzegovina",
     "venue": "Levi's Stadium",
     "neutral": false,
-    "status": "NS",
+    "status": "FT",
     "round": "Round of 32"
   },
   {
@@ -813,8 +813,26 @@
     "date": "2026-07-05T20:00:00+00:00",
     "home": "Brazil",
     "away": "Norway",
-    "venue": null,
+    "venue": "MetLife Stadium",
     "neutral": true,
+    "status": "NS",
+    "round": "Round of 16"
+  },
+  {
+    "date": "2026-07-06T00:00:00+00:00",
+    "home": "Mexico",
+    "away": "England",
+    "venue": "Estadio Banorte",
+    "neutral": false,
+    "status": "NS",
+    "round": "Round of 16"
+  },
+  {
+    "date": "2026-07-07T00:00:00+00:00",
+    "home": "USA",
+    "away": "Belgium",
+    "venue": "Lumen Field",
+    "neutral": false,
     "status": "NS",
     "round": "Round of 16"
   }
