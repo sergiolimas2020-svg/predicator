@@ -1,0 +1,195 @@
+{
+  "date": "2026-07-03",
+  "total_fixtures": 4,
+  "matches": [
+    {
+      "matchup": "IK Sirius vs Mjällby AIF",
+      "league": "Allsvenskan",
+      "home": "IK Sirius",
+      "away": "Mjällby AIF",
+      "probabilities": {
+        "win_home": 71.9,
+        "draw": 17.5,
+        "win_away": 10.5,
+        "over_2_5": 66.6,
+        "over_1_5": 85.7
+      },
+      "favorite": "IK Sirius",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 2.53,
+      "lambda_away": 0.9,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 85.7,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 66.6,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Australia vs Egypt",
+      "league": "Mundial 2026",
+      "home": "Australia",
+      "away": "Egypt",
+      "probabilities": {
+        "win_home": 28.5,
+        "draw": 34.1,
+        "win_away": 37.4,
+        "over_2_5": 27.4,
+        "over_1_5": 54.2
+      },
+      "favorite": "Egypt",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 0.73,
+      "lambda_away": 1.09,
+      "elo_home": 1775.0,
+      "elo_away": 1699.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 54.2,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 27.4,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "corners_shots_players",
+            "status": "unavailable",
+            "reason": "selecciones usan modelo internacional; no se publican props/corners sin contrato calibrado"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Argentina vs Cape Verde Islands",
+      "league": "Mundial 2026",
+      "home": "Argentina",
+      "away": "Cape Verde Islands",
+      "probabilities": {
+        "win_home": 58.9,
+        "draw": 27.2,
+        "win_away": 13.8,
+        "over_2_5": 49.4,
+        "over_1_5": 74.2
+      },
+      "favorite": "Argentina",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 2.35,
+      "lambda_away": 0.3,
+      "elo_home": 2113.0,
+      "elo_away": 1576.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 74.2,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 49.4,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "corners_shots_players",
+            "status": "unavailable",
+            "reason": "selecciones usan modelo internacional; no se publican props/corners sin contrato calibrado"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Colombia vs Ghana",
+      "league": "Mundial 2026",
+      "home": "Colombia",
+      "away": "Ghana",
+      "probabilities": {
+        "win_home": 55.8,
+        "draw": 26.6,
+        "win_away": 17.5,
+        "over_2_5": 61.7,
+        "over_1_5": 82.7
+      },
+      "favorite": "Colombia",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 2.6,
+      "lambda_away": 0.59,
+      "elo_home": 1977.0,
+      "elo_away": 1503.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 82.7,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 61.7,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "corners_shots_players",
+            "status": "unavailable",
+            "reason": "selecciones usan modelo internacional; no se publican props/corners sin contrato calibrado"
+          }
+        ]
+      }
+    }
+  ],
+  "nota": "Análisis estadístico de todos los partidos del día. Probabilidades crudas del modelo (sin ajuste por liga ni mercado). No incluye recomendación de apuesta — ver value_picks y featured_pick para picks oficiales."
+}

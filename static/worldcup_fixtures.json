@@ -743,7 +743,7 @@
     "away": "Austria",
     "venue": "SoFi Stadium",
     "neutral": true,
-    "status": "NS",
+    "status": "FT",
     "round": "Round of 32"
   },
   {
@@ -752,7 +752,7 @@
     "away": "Croatia",
     "venue": "BMO Field",
     "neutral": true,
-    "status": "NS",
+    "status": "FT",
     "round": "Round of 32"
   },
   {
@@ -761,7 +761,7 @@
     "away": "Algeria",
     "venue": "BC Place",
     "neutral": true,
-    "status": "NS",
+    "status": "FT",
     "round": "Round of 32"
   },
   {
@@ -824,6 +824,15 @@
     "away": "England",
     "venue": "Estadio Banorte",
     "neutral": false,
+    "status": "NS",
+    "round": "Round of 16"
+  },
+  {
+    "date": "2026-07-06T19:00:00+00:00",
+    "home": "Portugal",
+    "away": "Spain",
+    "venue": null,
+    "neutral": true,
     "status": "NS",
     "round": "Round of 16"
   },
