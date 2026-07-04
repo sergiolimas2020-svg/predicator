@@ -1,7 +1,7 @@
 {
   "is_radar": true,
   "note": "Radar estadístico probability-first (Mundial/selecciones). No usa EV/cuotas/Betplay. NO conectado a publicación premium; el motor de publicación no lee este archivo.",
-  "generated_at": "2026-07-03T08:08:51",
+  "generated_at": "2026-07-04T07:50:44",
   "thresholds": {
     "win": 62.0,
     "over_1_5": 72.0,
@@ -10,50 +10,50 @@
   },
   "matches": [
     {
-      "match": "Australia vs Egypt",
-      "home": "Australia",
-      "away": "Egypt",
+      "match": "Canada vs Morocco",
+      "home": "Canada",
+      "away": "Morocco",
       "league": "Mundial 2026",
       "is_seleccion": true,
       "source": "api_football",
-      "neutral": true,
-      "favorite": "Egypt",
+      "neutral": false,
+      "favorite": "Canada",
       "markets": [
         {
           "market": "Victoria directa",
-          "pick": "Egypt",
-          "prob": 37.4,
+          "pick": "Canada",
+          "prob": 32.2,
           "threshold": 62.0,
           "passed": false,
           "tier": "official_eligible",
-          "reason": "prob 37.4% < umbral 62.0%"
+          "reason": "prob 32.2% < umbral 62.0%"
         },
         {
           "market": "Over 1.5 goles",
           "pick": null,
-          "prob": 54.2,
+          "prob": 43.7,
           "threshold": 72.0,
           "passed": false,
           "tier": "official_eligible",
-          "reason": "prob 54.2% < umbral 72.0%"
+          "reason": "prob 43.7% < umbral 72.0%"
         },
         {
           "market": "DNB (apuesta sin empate)",
-          "pick": "Egypt",
-          "prob": 56.7,
+          "pick": "Canada",
+          "prob": 50.3,
           "threshold": 72.0,
           "passed": false,
           "tier": "radar_only",
-          "reason": "prob 56.7% < umbral 72.0%"
+          "reason": "prob 50.3% < umbral 72.0%"
         },
         {
           "market": "Doble oportunidad",
-          "pick": "Egypt",
-          "prob": 71.5,
+          "pick": "Canada",
+          "prob": 68.2,
           "threshold": 80.0,
           "passed": false,
           "tier": "radar_only",
-          "reason": "prob 71.5% < umbral 80.0%"
+          "reason": "prob 68.2% < umbral 80.0%"
         }
       ],
       "recommended": null,
@@ -61,124 +61,61 @@
       "discarded": [
         {
           "market": "Victoria directa",
-          "prob": 37.4,
+          "prob": 32.2,
           "threshold": 62.0,
-          "reason": "prob 37.4% < umbral 62.0%"
+          "reason": "prob 32.2% < umbral 62.0%"
         },
         {
           "market": "Over 1.5 goles",
-          "prob": 54.2,
+          "prob": 43.7,
           "threshold": 72.0,
-          "reason": "prob 54.2% < umbral 72.0%"
+          "reason": "prob 43.7% < umbral 72.0%"
         },
         {
           "market": "DNB (apuesta sin empate)",
-          "prob": 56.7,
+          "prob": 50.3,
           "threshold": 72.0,
-          "reason": "prob 56.7% < umbral 72.0%"
+          "reason": "prob 50.3% < umbral 72.0%"
         },
         {
           "market": "Doble oportunidad",
-          "prob": 71.5,
+          "prob": 68.2,
           "threshold": 80.0,
-          "reason": "prob 71.5% < umbral 80.0%"
+          "reason": "prob 68.2% < umbral 80.0%"
         }
       ]
     },
     {
-      "match": "Argentina vs Cape Verde Islands",
-      "home": "Argentina",
-      "away": "Cape Verde Islands",
+      "match": "Paraguay vs France",
+      "home": "Paraguay",
+      "away": "France",
       "league": "Mundial 2026",
       "is_seleccion": true,
       "source": "api_football",
       "neutral": true,
-      "favorite": "Argentina",
+      "favorite": "France",
       "markets": [
         {
           "market": "Victoria directa",
-          "pick": "Argentina",
-          "prob": 58.9,
+          "pick": "France",
+          "prob": 56.9,
           "threshold": 62.0,
           "passed": false,
           "tier": "official_eligible",
-          "reason": "prob 58.9% < umbral 62.0%"
+          "reason": "prob 56.9% < umbral 62.0%"
         },
         {
           "market": "Over 1.5 goles",
           "pick": null,
-          "prob": 74.2,
+          "prob": 88.4,
           "threshold": 72.0,
           "passed": true,
           "tier": "official_eligible",
-          "reason": "prob 74.2% ≥ umbral 72.0%"
+          "reason": "prob 88.4% ≥ umbral 72.0%"
         },
         {
           "market": "DNB (apuesta sin empate)",
-          "pick": "Argentina",
-          "prob": 81.0,
-          "threshold": 72.0,
-          "passed": true,
-          "tier": "radar_only",
-          "reason": "prob 81.0% ≥ umbral 72.0%"
-        },
-        {
-          "market": "Doble oportunidad",
-          "pick": "Argentina",
-          "prob": 86.2,
-          "threshold": 80.0,
-          "passed": true,
-          "tier": "radar_only",
-          "reason": "prob 86.2% ≥ umbral 80.0%"
-        }
-      ],
-      "recommended": {
-        "market": "Over 1.5 goles",
-        "pick": null,
-        "prob": 74.2,
-        "tier": "official_eligible"
-      },
-      "status": "signal",
-      "discarded": [
-        {
-          "market": "Victoria directa",
-          "prob": 58.9,
-          "threshold": 62.0,
-          "reason": "prob 58.9% < umbral 62.0%"
-        }
-      ]
-    },
-    {
-      "match": "Colombia vs Ghana",
-      "home": "Colombia",
-      "away": "Ghana",
-      "league": "Mundial 2026",
-      "is_seleccion": true,
-      "source": "api_football",
-      "neutral": true,
-      "favorite": "Colombia",
-      "markets": [
-        {
-          "market": "Victoria directa",
-          "pick": "Colombia",
-          "prob": 55.8,
-          "threshold": 62.0,
-          "passed": false,
-          "tier": "official_eligible",
-          "reason": "prob 55.8% < umbral 62.0%"
-        },
-        {
-          "market": "Over 1.5 goles",
-          "pick": null,
-          "prob": 82.7,
-          "threshold": 72.0,
-          "passed": true,
-          "tier": "official_eligible",
-          "reason": "prob 82.7% ≥ umbral 72.0%"
-        },
-        {
-          "market": "DNB (apuesta sin empate)",
-          "pick": "Colombia",
+          "pick": "France",
           "prob": 76.1,
           "threshold": 72.0,
           "passed": true,
@@ -187,27 +124,27 @@
         },
         {
           "market": "Doble oportunidad",
-          "pick": "Colombia",
-          "prob": 82.5,
+          "pick": "France",
+          "prob": 82.2,
           "threshold": 80.0,
           "passed": true,
           "tier": "radar_only",
-          "reason": "prob 82.5% ≥ umbral 80.0%"
+          "reason": "prob 82.2% ≥ umbral 80.0%"
         }
       ],
       "recommended": {
         "market": "Over 1.5 goles",
         "pick": null,
-        "prob": 82.7,
+        "prob": 88.4,
         "tier": "official_eligible"
       },
       "status": "signal",
       "discarded": [
         {
           "market": "Victoria directa",
-          "prob": 55.8,
+          "prob": 56.9,
           "threshold": 62.0,
-          "reason": "prob 55.8% < umbral 62.0%"
+          "reason": "prob 56.9% < umbral 62.0%"
         }
       ]
     }

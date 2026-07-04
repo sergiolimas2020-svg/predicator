@@ -770,7 +770,7 @@
     "away": "Egypt",
     "venue": "AT&T Stadium",
     "neutral": true,
-    "status": "NS",
+    "status": "PEN",
     "round": "Round of 32"
   },
   {
@@ -779,7 +779,7 @@
     "away": "Cape Verde Islands",
     "venue": "Hard Rock Stadium",
     "neutral": true,
-    "status": "NS",
+    "status": "AET",
     "round": "Round of 32"
   },
   {
@@ -788,7 +788,7 @@
     "away": "Ghana",
     "venue": "Arrowhead Stadium",
     "neutral": true,
-    "status": "NS",
+    "status": "FT",
     "round": "Round of 32"
   },
   {
@@ -842,6 +842,24 @@
     "away": "Belgium",
     "venue": "Lumen Field",
     "neutral": false,
+    "status": "NS",
+    "round": "Round of 16"
+  },
+  {
+    "date": "2026-07-07T16:00:00+00:00",
+    "home": "Argentina",
+    "away": "Egypt",
+    "venue": null,
+    "neutral": true,
+    "status": "NS",
+    "round": "Round of 16"
+  },
+  {
+    "date": "2026-07-07T20:00:00+00:00",
+    "home": "Switzerland",
+    "away": "Colombia",
+    "venue": null,
+    "neutral": true,
     "status": "NS",
     "round": "Round of 16"
   }

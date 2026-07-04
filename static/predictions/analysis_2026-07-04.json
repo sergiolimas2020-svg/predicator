@@ -1,0 +1,893 @@
+{
+  "date": "2026-07-04",
+  "total_fixtures": 8,
+  "matches": [
+    {
+      "matchup": "Criciúma vs Sport",
+      "league": "Brasileirao Serie B",
+      "home": "Criciúma",
+      "away": "Sport",
+      "probabilities": {
+        "win_home": 33.1,
+        "draw": 42.6,
+        "win_away": 24.3,
+        "over_2_5": 13.7,
+        "over_1_5": 36.4
+      },
+      "favorite": "Empate técnico",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 0.71,
+      "lambda_away": 0.57,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 36.4,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 13.7,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Londrina vs CRB",
+      "league": "Brasileirao Serie B",
+      "home": "Londrina",
+      "away": "CRB",
+      "probabilities": {
+        "win_home": 36.5,
+        "draw": 24.6,
+        "win_away": 38.9,
+        "over_2_5": 65.7,
+        "over_1_5": 85.1
+      },
+      "favorite": "CRB",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.66,
+      "lambda_away": 1.72,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": {
+        "home_sot": 3.4,
+        "away_sot": 5.8
+      },
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 85.1,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 65.7,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 6.5 tiros a puerta",
+            "market_key": "shots",
+            "prob_adjusted": 81.1,
+            "source": "api_football_fixture_statistics",
+            "official_pick_candidate": true,
+            "lambda_total": 9.2,
+            "line": 6.5
+          },
+          {
+            "market": "Over 7.5 tiros a puerta",
+            "market_key": "shots",
+            "prob_adjusted": 69.9,
+            "source": "api_football_fixture_statistics",
+            "official_pick_candidate": true,
+            "lambda_total": 9.2,
+            "line": 7.5
+          },
+          {
+            "market": "Over 7.5 córners",
+            "market_key": "corners",
+            "prob_adjusted": 85.7,
+            "source": "api_football_fixture_statistics",
+            "official_pick_candidate": true,
+            "lambda_total": 11.0,
+            "line": 7.5
+          },
+          {
+            "market": "Over 8.5 córners",
+            "market_key": "corners",
+            "prob_adjusted": 76.8,
+            "source": "api_football_fixture_statistics",
+            "official_pick_candidate": true,
+            "lambda_total": 11.0,
+            "line": 8.5
+          },
+          {
+            "market": "Bruno Santos Over 0.5 tiros",
+            "market_key": "player_shots",
+            "prob_adjusted": 86.5,
+            "source": "api_football_fixture_players",
+            "official_pick_candidate": true,
+            "team": "Londrina",
+            "player_id": 159843,
+            "appearances": 5,
+            "minutes_avg": 90.0,
+            "line": 0.5
+          },
+          {
+            "market": "Iago Teles Over 0.5 tiros",
+            "market_key": "player_shots",
+            "prob_adjusted": 81.2,
+            "source": "api_football_fixture_players",
+            "official_pick_candidate": true,
+            "team": "Londrina",
+            "player_id": 195385,
+            "appearances": 3,
+            "minutes_avg": 63.3,
+            "line": 0.5
+          },
+          {
+            "market": "Mikael Over 0.5 tiros",
+            "market_key": "player_shots",
+            "prob_adjusted": 79.8,
+            "source": "api_football_fixture_players",
+            "official_pick_candidate": true,
+            "team": "CRB",
+            "player_id": 137607,
+            "appearances": 5,
+            "minutes_avg": 74.6,
+            "line": 0.5
+          },
+          {
+            "market": "Dadá Belmonte Over 0.5 tiros",
+            "market_key": "player_shots",
+            "prob_adjusted": 77.7,
+            "source": "api_football_fixture_players",
+            "official_pick_candidate": true,
+            "team": "CRB",
+            "player_id": 64364,
+            "appearances": 4,
+            "minutes_avg": 87.2,
+            "line": 0.5
+          },
+          {
+            "market": "Crystopher Over 0.5 tiros",
+            "market_key": "player_shots",
+            "prob_adjusted": 77.7,
+            "source": "api_football_fixture_players",
+            "official_pick_candidate": true,
+            "team": "CRB",
+            "player_id": 54760,
+            "appearances": 4,
+            "minutes_avg": 90.0,
+            "line": 0.5
+          },
+          {
+            "market": "Dadá Belmonte Over 0.5 tiros a puerta",
+            "market_key": "player_shots",
+            "prob_adjusted": 71.3,
+            "source": "api_football_fixture_players",
+            "official_pick_candidate": true,
+            "team": "CRB",
+            "player_id": 64364,
+            "appearances": 4,
+            "minutes_avg": 87.2,
+            "line": 0.5
+          },
+          {
+            "market": "Bruno Santos Over 0.5 tiros a puerta",
+            "market_key": "player_shots",
+            "prob_adjusted": 69.9,
+            "source": "api_football_fixture_players",
+            "official_pick_candidate": true,
+            "team": "Londrina",
+            "player_id": 159843,
+            "appearances": 5,
+            "minutes_avg": 90.0,
+            "line": 0.5
+          },
+          {
+            "market": "Mikael Over 0.5 tiros a puerta",
+            "market_key": "player_shots",
+            "prob_adjusted": 69.9,
+            "source": "api_football_fixture_players",
+            "official_pick_candidate": true,
+            "team": "CRB",
+            "player_id": 137607,
+            "appearances": 5,
+            "minutes_avg": 74.6,
+            "line": 0.5
+          }
+        ],
+        "unavailable": []
+      }
+    },
+    {
+      "matchup": "Novorizontino vs Atlético Goianiense",
+      "league": "Brasileirao Serie B",
+      "home": "Novorizontino",
+      "away": "Atlético Goianiense",
+      "probabilities": {
+        "win_home": 54.8,
+        "draw": 28.6,
+        "win_away": 16.6,
+        "over_2_5": 37.7,
+        "over_1_5": 64.5
+      },
+      "favorite": "Novorizontino",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.49,
+      "lambda_away": 0.71,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": {
+        "home_sot": 5.25,
+        "away_sot": 4.0
+      },
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 6.5 tiros a puerta",
+            "market_key": "shots",
+            "prob_adjusted": 81.5,
+            "source": "api_football_fixture_statistics",
+            "official_pick_candidate": true,
+            "lambda_total": 9.25,
+            "line": 6.5
+          },
+          {
+            "market": "Over 7.5 tiros a puerta",
+            "market_key": "shots",
+            "prob_adjusted": 70.5,
+            "source": "api_football_fixture_statistics",
+            "official_pick_candidate": true,
+            "lambda_total": 9.25,
+            "line": 7.5
+          },
+          {
+            "market": "Robson Over 0.5 tiros",
+            "market_key": "player_shots",
+            "prob_adjusted": 89.5,
+            "source": "api_football_fixture_players",
+            "official_pick_candidate": true,
+            "team": "Novorizontino",
+            "player_id": 77821,
+            "appearances": 4,
+            "minutes_avg": 87.8,
+            "line": 0.5
+          },
+          {
+            "market": "Marrony Over 0.5 tiros",
+            "market_key": "player_shots",
+            "prob_adjusted": 83.5,
+            "source": "api_football_fixture_players",
+            "official_pick_candidate": true,
+            "team": "Atlético Goianiense",
+            "player_id": 10574,
+            "appearances": 5,
+            "minutes_avg": 77.0,
+            "line": 0.5
+          },
+          {
+            "market": "Juninho Over 0.5 tiros a puerta",
+            "market_key": "player_shots",
+            "prob_adjusted": 82.6,
+            "source": "api_football_fixture_players",
+            "official_pick_candidate": true,
+            "team": "Novorizontino",
+            "player_id": 197038,
+            "appearances": 4,
+            "minutes_avg": 47.5,
+            "line": 0.5
+          },
+          {
+            "market": "Juninho Over 0.5 tiros",
+            "market_key": "player_shots",
+            "prob_adjusted": 82.6,
+            "source": "api_football_fixture_players",
+            "official_pick_candidate": true,
+            "team": "Novorizontino",
+            "player_id": 197038,
+            "appearances": 4,
+            "minutes_avg": 47.5,
+            "line": 0.5
+          },
+          {
+            "market": "Luís Oyama Over 0.5 tiros",
+            "market_key": "player_shots",
+            "prob_adjusted": 81.2,
+            "source": "api_football_fixture_players",
+            "official_pick_candidate": true,
+            "team": "Novorizontino",
+            "player_id": 160176,
+            "appearances": 3,
+            "minutes_avg": 52.0,
+            "line": 0.5
+          },
+          {
+            "market": "Gustavo Coutinho Over 0.5 tiros",
+            "market_key": "player_shots",
+            "prob_adjusted": 77.7,
+            "source": "api_football_fixture_players",
+            "official_pick_candidate": true,
+            "team": "Atlético Goianiense",
+            "player_id": 10423,
+            "appearances": 4,
+            "minutes_avg": 82.8,
+            "line": 0.5
+          },
+          {
+            "market": "Geovany Soares Over 0.5 tiros",
+            "market_key": "player_shots",
+            "prob_adjusted": 69.9,
+            "source": "api_football_fixture_players",
+            "official_pick_candidate": true,
+            "team": "Atlético Goianiense",
+            "player_id": 630982,
+            "appearances": 5,
+            "minutes_avg": 75.8,
+            "line": 0.5
+          },
+          {
+            "market": "Robson Over 0.5 tiros a puerta",
+            "market_key": "player_shots",
+            "prob_adjusted": 63.2,
+            "source": "api_football_fixture_players",
+            "official_pick_candidate": true,
+            "team": "Novorizontino",
+            "player_id": 77821,
+            "appearances": 4,
+            "minutes_avg": 87.8,
+            "line": 0.5
+          },
+          {
+            "market": "Luís Oyama Over 0.5 tiros a puerta",
+            "market_key": "player_shots",
+            "prob_adjusted": 63.2,
+            "source": "api_football_fixture_players",
+            "official_pick_candidate": true,
+            "team": "Novorizontino",
+            "player_id": 160176,
+            "appearances": 3,
+            "minutes_avg": 52.0,
+            "line": 0.5
+          },
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 64.5,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 37.7,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 8.5 tiros a puerta",
+            "market_key": "shots",
+            "prob_adjusted": 57.7,
+            "source": "api_football_fixture_statistics",
+            "official_pick_candidate": false,
+            "lambda_total": 9.25,
+            "line": 8.5
+          }
+        ],
+        "unavailable": []
+      }
+    },
+    {
+      "matchup": "Goiás vs Ceará",
+      "league": "Brasileirao Serie B",
+      "home": "Goiás",
+      "away": "Ceará",
+      "probabilities": {
+        "win_home": 36.5,
+        "draw": 35.6,
+        "win_away": 27.9,
+        "over_2_5": 26.4,
+        "over_1_5": 53.2
+      },
+      "favorite": "Goiás",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 0.97,
+      "lambda_away": 0.81,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": {
+        "home_sot": 5.0,
+        "away_sot": 1.5
+      },
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 7.5 córners",
+            "market_key": "corners",
+            "prob_adjusted": 84.0,
+            "source": "api_football_fixture_statistics",
+            "official_pick_candidate": true,
+            "lambda_total": 10.75,
+            "line": 7.5
+          },
+          {
+            "market": "Over 8.5 córners",
+            "market_key": "corners",
+            "prob_adjusted": 74.5,
+            "source": "api_football_fixture_statistics",
+            "official_pick_candidate": true,
+            "lambda_total": 10.75,
+            "line": 8.5
+          },
+          {
+            "market": "Esli García Over 0.5 tiros",
+            "market_key": "player_shots",
+            "prob_adjusted": 90.3,
+            "source": "api_football_fixture_players",
+            "official_pick_candidate": true,
+            "team": "Goiás",
+            "player_id": 52749,
+            "appearances": 3,
+            "minutes_avg": 75.0,
+            "line": 0.5
+          },
+          {
+            "market": "Jean Carlos Over 0.5 tiros",
+            "market_key": "player_shots",
+            "prob_adjusted": 82.6,
+            "source": "api_football_fixture_players",
+            "official_pick_candidate": true,
+            "team": "Goiás",
+            "player_id": 486067,
+            "appearances": 4,
+            "minutes_avg": 54.5,
+            "line": 0.5
+          },
+          {
+            "market": "Esli García Over 0.5 tiros a puerta",
+            "market_key": "player_shots",
+            "prob_adjusted": 81.2,
+            "source": "api_football_fixture_players",
+            "official_pick_candidate": true,
+            "team": "Goiás",
+            "player_id": 52749,
+            "appearances": 3,
+            "minutes_avg": 75.0,
+            "line": 0.5
+          },
+          {
+            "market": "Nicolas Over 0.5 tiros",
+            "market_key": "player_shots",
+            "prob_adjusted": 77.7,
+            "source": "api_football_fixture_players",
+            "official_pick_candidate": true,
+            "team": "Goiás",
+            "player_id": 9316,
+            "appearances": 4,
+            "minutes_avg": 85.8,
+            "line": 0.5
+          },
+          {
+            "market": "Lucca Over 0.5 tiros",
+            "market_key": "player_shots",
+            "prob_adjusted": 73.6,
+            "source": "api_football_fixture_players",
+            "official_pick_candidate": true,
+            "team": "Ceará",
+            "player_id": 354012,
+            "appearances": 3,
+            "minutes_avg": 70.0,
+            "line": 0.5
+          },
+          {
+            "market": "Esli García Over 1.5 tiros",
+            "market_key": "player_shots",
+            "prob_adjusted": 67.6,
+            "source": "api_football_fixture_players",
+            "official_pick_candidate": true,
+            "team": "Goiás",
+            "player_id": 52749,
+            "appearances": 3,
+            "minutes_avg": 75.0,
+            "line": 1.5
+          },
+          {
+            "market": "Lucca Over 0.5 tiros a puerta",
+            "market_key": "player_shots",
+            "prob_adjusted": 63.2,
+            "source": "api_football_fixture_players",
+            "official_pick_candidate": true,
+            "team": "Ceará",
+            "player_id": 354012,
+            "appearances": 3,
+            "minutes_avg": 70.0,
+            "line": 0.5
+          },
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 53.2,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 26.4,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 6.5 tiros a puerta",
+            "market_key": "shots",
+            "prob_adjusted": 47.3,
+            "source": "api_football_fixture_statistics",
+            "official_pick_candidate": false,
+            "lambda_total": 6.5,
+            "line": 6.5
+          },
+          {
+            "market": "Over 7.5 tiros a puerta",
+            "market_key": "shots",
+            "prob_adjusted": 32.7,
+            "source": "api_football_fixture_statistics",
+            "official_pick_candidate": false,
+            "lambda_total": 6.5,
+            "line": 7.5
+          },
+          {
+            "market": "Over 8.5 tiros a puerta",
+            "market_key": "shots",
+            "prob_adjusted": 20.8,
+            "source": "api_football_fixture_statistics",
+            "official_pick_candidate": false,
+            "lambda_total": 6.5,
+            "line": 8.5
+          }
+        ],
+        "unavailable": []
+      }
+    },
+    {
+      "matchup": "Degerfors IF vs Malmö FF",
+      "league": "Allsvenskan",
+      "home": "Degerfors IF",
+      "away": "Malmö FF",
+      "probabilities": {
+        "win_home": 36.4,
+        "draw": 22.4,
+        "win_away": 41.2,
+        "over_2_5": 75.1,
+        "over_1_5": 90.3
+      },
+      "favorite": "Malmö FF",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.9,
+      "lambda_away": 2.03,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": {
+        "home_sot": 2.4,
+        "away_sot": 4.0
+      },
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 90.3,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 75.1,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Sead Hakšabanović Over 0.5 tiros",
+            "market_key": "player_shots",
+            "prob_adjusted": 79.8,
+            "source": "api_football_fixture_players",
+            "official_pick_candidate": true,
+            "team": "Malmö FF",
+            "player_id": 48196,
+            "appearances": 5,
+            "minutes_avg": 72.6,
+            "line": 0.5
+          },
+          {
+            "market": "Otto Rosengren Over 0.5 tiros",
+            "market_key": "player_shots",
+            "prob_adjusted": 77.7,
+            "source": "api_football_fixture_players",
+            "official_pick_candidate": true,
+            "team": "Malmö FF",
+            "player_id": 306955,
+            "appearances": 4,
+            "minutes_avg": 90.0,
+            "line": 0.5
+          },
+          {
+            "market": "Marcus Rafferty Over 0.5 tiros",
+            "market_key": "player_shots",
+            "prob_adjusted": 75.3,
+            "source": "api_football_fixture_players",
+            "official_pick_candidate": true,
+            "team": "Degerfors IF",
+            "player_id": 338745,
+            "appearances": 5,
+            "minutes_avg": 90.0,
+            "line": 0.5
+          },
+          {
+            "market": "Yiriyon Gideon Over 0.5 tiros",
+            "market_key": "player_shots",
+            "prob_adjusted": 71.3,
+            "source": "api_football_fixture_players",
+            "official_pick_candidate": true,
+            "team": "Degerfors IF",
+            "player_id": 342528,
+            "appearances": 4,
+            "minutes_avg": 70.2,
+            "line": 0.5
+          },
+          {
+            "market": "Ludvig Fritzson Over 0.5 tiros",
+            "market_key": "player_shots",
+            "prob_adjusted": 69.9,
+            "source": "api_football_fixture_players",
+            "official_pick_candidate": true,
+            "team": "Degerfors IF",
+            "player_id": 48100,
+            "appearances": 5,
+            "minutes_avg": 90.0,
+            "line": 0.5
+          },
+          {
+            "market": "Arman Taranis Over 0.5 tiros a puerta",
+            "market_key": "player_shots",
+            "prob_adjusted": 63.2,
+            "source": "api_football_fixture_players",
+            "official_pick_candidate": true,
+            "team": "Degerfors IF",
+            "player_id": 215868,
+            "appearances": 3,
+            "minutes_avg": 45.0,
+            "line": 0.5
+          },
+          {
+            "market": "Over 6.5 tiros a puerta",
+            "market_key": "shots",
+            "prob_adjusted": 45.8,
+            "source": "api_football_fixture_statistics",
+            "official_pick_candidate": false,
+            "lambda_total": 6.4,
+            "line": 6.5
+          },
+          {
+            "market": "Over 7.5 tiros a puerta",
+            "market_key": "shots",
+            "prob_adjusted": 31.3,
+            "source": "api_football_fixture_statistics",
+            "official_pick_candidate": false,
+            "lambda_total": 6.4,
+            "line": 7.5
+          },
+          {
+            "market": "Over 8.5 tiros a puerta",
+            "market_key": "shots",
+            "prob_adjusted": 19.7,
+            "source": "api_football_fixture_statistics",
+            "official_pick_candidate": false,
+            "lambda_total": 6.4,
+            "line": 8.5
+          },
+          {
+            "market": "Over 9.5 tiros a puerta",
+            "market_key": "shots",
+            "prob_adjusted": 11.4,
+            "source": "api_football_fixture_statistics",
+            "official_pick_candidate": false,
+            "lambda_total": 6.4,
+            "line": 9.5
+          },
+          {
+            "market": "Over 10.5 tiros a puerta",
+            "market_key": "shots",
+            "prob_adjusted": 6.1,
+            "source": "api_football_fixture_statistics",
+            "official_pick_candidate": false,
+            "lambda_total": 6.4,
+            "line": 10.5
+          },
+          {
+            "market": "Over 7.5 córners",
+            "market_key": "corners",
+            "prob_adjusted": 69.9,
+            "source": "api_football_fixture_statistics",
+            "official_pick_candidate": false,
+            "lambda_total": 9.2,
+            "line": 7.5
+          }
+        ],
+        "unavailable": []
+      }
+    },
+    {
+      "matchup": "Halmstads BK vs Västerås SK",
+      "league": "Allsvenskan",
+      "home": "Halmstads BK",
+      "away": "Västerås SK",
+      "probabilities": {
+        "win_home": 29.2,
+        "draw": 22.0,
+        "win_away": 48.8,
+        "over_2_5": 74.3,
+        "over_1_5": 89.9
+      },
+      "favorite": "Västerås SK",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.69,
+      "lambda_away": 2.19,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 89.9,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 74.3,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Canada vs Morocco",
+      "league": "Mundial 2026",
+      "home": "Canada",
+      "away": "Morocco",
+      "probabilities": {
+        "win_home": 29.5,
+        "draw": 35.8,
+        "win_away": 34.7,
+        "over_2_5": 19.0,
+        "over_1_5": 44.1
+      },
+      "favorite": "Empate técnico",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 0.65,
+      "lambda_away": 0.85,
+      "elo_home": 1793.0,
+      "elo_away": 1822.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 44.1,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 19.0,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "corners_shots_players",
+            "status": "unavailable",
+            "reason": "selecciones usan modelo internacional; no se publican props/corners sin contrato calibrado"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Paraguay vs France",
+      "league": "Mundial 2026",
+      "home": "Paraguay",
+      "away": "France",
+      "probabilities": {
+        "win_home": 17.8,
+        "draw": 25.2,
+        "win_away": 56.9,
+        "over_2_5": 71.5,
+        "over_1_5": 88.4
+      },
+      "favorite": "France",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 0.73,
+      "lambda_away": 2.97,
+      "elo_home": 1833.0,
+      "elo_away": 2081.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 88.4,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 71.5,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "corners_shots_players",
+            "status": "unavailable",
+            "reason": "selecciones usan modelo internacional; no se publican props/corners sin contrato calibrado"
+          }
+        ]
+      }
+    }
+  ],
+  "nota": "Análisis estadístico de todos los partidos del día. Probabilidades crudas del modelo (sin ajuste por liga ni mercado). No incluye recomendación de apuesta — ver value_picks y featured_pick para picks oficiales."
+}
