@@ -1,0 +1,418 @@
+{
+  "date": "2026-07-05",
+  "total_fixtures": 6,
+  "matches": [
+    {
+      "matchup": "Náutico vs Juventude",
+      "league": "Brasileirao Serie B",
+      "home": "Náutico",
+      "away": "Juventude",
+      "probabilities": {
+        "win_home": 23.8,
+        "draw": 38.7,
+        "win_away": 37.5,
+        "over_2_5": 19.3,
+        "over_1_5": 44.4
+      },
+      "favorite": "Empate técnico",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 0.64,
+      "lambda_away": 0.87,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 44.4,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 19.3,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "IFK Göteborg vs AIK",
+      "league": "Allsvenskan",
+      "home": "IFK Göteborg",
+      "away": "AIK",
+      "probabilities": {
+        "win_home": 39.4,
+        "draw": 24.2,
+        "win_away": 36.4,
+        "over_2_5": 67.4,
+        "over_1_5": 86.1
+      },
+      "favorite": "IFK Göteborg",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.77,
+      "lambda_away": 1.7,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 86.1,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 67.4,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Kalmar FF vs Örgryte IS",
+      "league": "Allsvenskan",
+      "home": "Kalmar FF",
+      "away": "Örgryte IS",
+      "probabilities": {
+        "win_home": 70.6,
+        "draw": 18.1,
+        "win_away": 11.3,
+        "over_2_5": 66.1,
+        "over_1_5": 85.4
+      },
+      "favorite": "Kalmar FF",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 2.48,
+      "lambda_away": 0.93,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": {
+        "home_sot": 6.25,
+        "away_sot": 3.25
+      },
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 85.4,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 66.1,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 6.5 tiros a puerta",
+            "market_key": "shots",
+            "prob_adjusted": 83.5,
+            "source": "api_football_fixture_statistics",
+            "official_pick_candidate": true,
+            "lambda_total": 9.5,
+            "line": 6.5
+          },
+          {
+            "market": "Over 7.5 tiros a puerta",
+            "market_key": "shots",
+            "prob_adjusted": 73.1,
+            "source": "api_football_fixture_statistics",
+            "official_pick_candidate": true,
+            "lambda_total": 9.5,
+            "line": 7.5
+          },
+          {
+            "market": "Over 7.5 córners",
+            "market_key": "corners",
+            "prob_adjusted": 85.7,
+            "source": "api_football_fixture_statistics",
+            "official_pick_candidate": true,
+            "lambda_total": 11.0,
+            "line": 7.5
+          },
+          {
+            "market": "Over 8.5 córners",
+            "market_key": "corners",
+            "prob_adjusted": 76.8,
+            "source": "api_football_fixture_statistics",
+            "official_pick_candidate": true,
+            "lambda_total": 11.0,
+            "line": 8.5
+          },
+          {
+            "market": "Anthony Olusanya Over 0.5 tiros",
+            "market_key": "player_shots",
+            "prob_adjusted": 91.8,
+            "source": "api_football_fixture_players",
+            "official_pick_candidate": true,
+            "team": "Kalmar FF",
+            "player_id": 55664,
+            "appearances": 4,
+            "minutes_avg": 75.0,
+            "line": 0.5
+          },
+          {
+            "market": "Anthony Olusanya Over 0.5 tiros a puerta",
+            "market_key": "player_shots",
+            "prob_adjusted": 82.6,
+            "source": "api_football_fixture_players",
+            "official_pick_candidate": true,
+            "team": "Kalmar FF",
+            "player_id": 55664,
+            "appearances": 4,
+            "minutes_avg": 75.0,
+            "line": 0.5
+          },
+          {
+            "market": "Charles Sagoe Jr. Over 0.5 tiros",
+            "market_key": "player_shots",
+            "prob_adjusted": 82.6,
+            "source": "api_football_fixture_players",
+            "official_pick_candidate": true,
+            "team": "Kalmar FF",
+            "player_id": 284571,
+            "appearances": 4,
+            "minutes_avg": 84.8,
+            "line": 0.5
+          },
+          {
+            "market": "Jerome Tibbling Ugwo Over 0.5 tiros",
+            "market_key": "player_shots",
+            "prob_adjusted": 82.6,
+            "source": "api_football_fixture_players",
+            "official_pick_candidate": true,
+            "team": "Örgryte IS",
+            "player_id": 553568,
+            "appearances": 4,
+            "minutes_avg": 67.5,
+            "line": 0.5
+          },
+          {
+            "market": "Melker Hallberg Over 0.5 tiros",
+            "market_key": "player_shots",
+            "prob_adjusted": 77.7,
+            "source": "api_football_fixture_players",
+            "official_pick_candidate": true,
+            "team": "Kalmar FF",
+            "player_id": 15666,
+            "appearances": 4,
+            "minutes_avg": 71.5,
+            "line": 0.5
+          },
+          {
+            "market": "Charlie Rosenqvist Over 0.5 tiros",
+            "market_key": "player_shots",
+            "prob_adjusted": 77.7,
+            "source": "api_football_fixture_players",
+            "official_pick_candidate": true,
+            "team": "Kalmar FF",
+            "player_id": 510476,
+            "appearances": 4,
+            "minutes_avg": 85.2,
+            "line": 0.5
+          },
+          {
+            "market": "Nassef Chourak Over 0.5 tiros",
+            "market_key": "player_shots",
+            "prob_adjusted": 77.7,
+            "source": "api_football_fixture_players",
+            "official_pick_candidate": true,
+            "team": "Kalmar FF",
+            "player_id": 345816,
+            "appearances": 4,
+            "minutes_avg": 84.5,
+            "line": 0.5
+          },
+          {
+            "market": "Anthony Olusanya Over 1.5 tiros",
+            "market_key": "player_shots",
+            "prob_adjusted": 71.3,
+            "source": "api_football_fixture_players",
+            "official_pick_candidate": true,
+            "team": "Kalmar FF",
+            "player_id": 55664,
+            "appearances": 4,
+            "minutes_avg": 75.0,
+            "line": 1.5
+          }
+        ],
+        "unavailable": []
+      }
+    },
+    {
+      "matchup": "IF Elfsborg vs Hammarby IF",
+      "league": "Allsvenskan",
+      "home": "IF Elfsborg",
+      "away": "Hammarby IF",
+      "probabilities": {
+        "win_home": 37.7,
+        "draw": 27.2,
+        "win_away": 35.1,
+        "over_2_5": 54.7,
+        "over_1_5": 78.0
+      },
+      "favorite": "IF Elfsborg",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.46,
+      "lambda_away": 1.41,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 78.0,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 54.7,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Brazil vs Norway",
+      "league": "Mundial 2026",
+      "home": "Brazil",
+      "away": "Norway",
+      "probabilities": {
+        "win_home": 42.5,
+        "draw": 26.9,
+        "win_away": 30.7,
+        "over_2_5": 83.1,
+        "over_1_5": 94.1
+      },
+      "favorite": "Brazil",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 2.68,
+      "lambda_away": 1.86,
+      "elo_home": 1988.0,
+      "elo_away": 1917.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 94.1,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 83.1,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "corners_shots_players",
+            "status": "unavailable",
+            "reason": "selecciones usan modelo internacional; no se publican props/corners sin contrato calibrado"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Mexico vs England",
+      "league": "Mundial 2026",
+      "home": "Mexico",
+      "away": "England",
+      "probabilities": {
+        "win_home": 31.6,
+        "draw": 38.5,
+        "win_away": 29.9,
+        "over_2_5": 10.5,
+        "over_1_5": 31.1
+      },
+      "favorite": "Empate técnico",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 0.59,
+      "lambda_away": 0.54,
+      "elo_home": 1868.0,
+      "elo_away": 2020.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 31.1,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 10.5,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "corners_shots_players",
+            "status": "unavailable",
+            "reason": "selecciones usan modelo internacional; no se publican props/corners sin contrato calibrado"
+          }
+        ]
+      }
+    }
+  ],
+  "nota": "Análisis estadístico de todos los partidos del día. Probabilidades crudas del modelo (sin ajuste por liga ni mercado). No incluye recomendación de apuesta — ver value_picks y featured_pick para picks oficiales."
+}
