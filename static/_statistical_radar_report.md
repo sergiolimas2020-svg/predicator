@@ -1,6 +1,6 @@
 # Radar estadístico — selección de mercado por probabilidad
 
-Generado: 2026-07-05T08:06:04
+Generado: 2026-07-06T09:08:59
 
 Motor probability-first. Busca el mercado donde la estadística apoya una probabilidad alta. **No usa EV, cuotas ni Betplay.** Alcance: Mundial/selecciones. **No conectado a publicación premium** — radar/shadow.
 
@@ -11,25 +11,25 @@ Umbrales: Victoria directa ≥ 62.0%, Over 1.5 ≥ 72.0%, DNB(selección) ≥ 72
 
 | Partido | Liga | Mercado recomendado | Prob | Fuente | Nivel | Razón / descarte |
 |---|---|---|---:|---|---|---|
-| Brazil vs Norway | Mundial 2026 | Over 1.5 goles | 94.1% | api_football | oficial-elegible | supera umbral |
-| Mexico vs England | Mundial 2026 | — sin señal — | — | api_football | — | Victoria directa 34.2%<62.0%; Over 1.5 goles 31.8%<72.0%; DNB (apuesta sin empate) 55.4%<72.0%; Doble oportunidad 72.5%<80.0% |
+| Portugal vs Spain | Mundial 2026 | — sin señal — | — | api_football | — | Victoria directa 45.0%<62.0%; Over 1.5 goles 59.3%<72.0%; DNB (apuesta sin empate) 66.7%<72.0%; Doble oportunidad 77.5%<80.0% |
+| USA vs Belgium | Mundial 2026 | Over 1.5 goles | 95.5% | api_football | oficial-elegible | supera umbral |
 
 ## Detalle por partido
 
-### Brazil vs Norway (Mundial 2026)
+### Portugal vs Spain (Mundial 2026)
 
 | Mercado | Pick | Prob | Umbral | ¿Pasa? | Nivel |
 |---|---|---:|---:|---|---|
-| Victoria directa | Brazil | 42.5% | 62.0% | ✗ | oficial-elegible |
-| Over 1.5 goles | — | 94.1% | 72.0% | ✓ | oficial-elegible |
-| DNB (apuesta sin empate) | Brazil | 58.1% | 72.0% | ✗ | radar |
-| Doble oportunidad | Brazil | 69.3% | 80.0% | ✗ | radar |
+| Victoria directa | Spain | 45.0% | 62.0% | ✗ | oficial-elegible |
+| Over 1.5 goles | — | 59.3% | 72.0% | ✗ | oficial-elegible |
+| DNB (apuesta sin empate) | Spain | 66.7% | 72.0% | ✗ | radar |
+| Doble oportunidad | Spain | 77.5% | 80.0% | ✗ | radar |
 
-### Mexico vs England (Mundial 2026)
+### USA vs Belgium (Mundial 2026)
 
 | Mercado | Pick | Prob | Umbral | ¿Pasa? | Nivel |
 |---|---|---:|---:|---|---|
-| Victoria directa | Mexico | 34.2% | 62.0% | ✗ | oficial-elegible |
-| Over 1.5 goles | — | 31.8% | 72.0% | ✗ | oficial-elegible |
-| DNB (apuesta sin empate) | Mexico | 55.4% | 72.0% | ✗ | radar |
-| Doble oportunidad | Mexico | 72.5% | 80.0% | ✗ | radar |
+| Victoria directa | Belgium | 50.1% | 62.0% | ✗ | oficial-elegible |
+| Over 1.5 goles | — | 95.5% | 72.0% | ✓ | oficial-elegible |
+| DNB (apuesta sin empate) | Belgium | 67.0% | 72.0% | ✗ | radar |
+| Doble oportunidad | Belgium | 75.3% | 80.0% | ✗ | radar |

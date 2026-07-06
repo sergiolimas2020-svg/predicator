@@ -1,0 +1,507 @@
+{
+  "date": "2026-07-06",
+  "total_fixtures": 6,
+  "matches": [
+    {
+      "matchup": "Botafogo-SP vs Avaí",
+      "league": "Brasileirao Serie B",
+      "home": "Botafogo-SP",
+      "away": "Avaí",
+      "probabilities": {
+        "win_home": 46.7,
+        "draw": 34.6,
+        "win_away": 18.6,
+        "over_2_5": 24.6,
+        "over_1_5": 51.1
+      },
+      "favorite": "Botafogo-SP",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.11,
+      "lambda_away": 0.6,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 51.1,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 24.6,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Vila Nova vs São Bernardo",
+      "league": "Brasileirao Serie B",
+      "home": "Vila Nova",
+      "away": "São Bernardo",
+      "probabilities": {
+        "win_home": 36.4,
+        "draw": 33.2,
+        "win_away": 30.4,
+        "over_2_5": 33.1,
+        "over_1_5": 60.2
+      },
+      "favorite": "Vila Nova",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.07,
+      "lambda_away": 0.96,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": {
+        "home_sot": 5.25,
+        "away_sot": 4.0
+      },
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 6.5 tiros a puerta",
+            "market_key": "shots",
+            "prob_adjusted": 81.5,
+            "source": "api_football_fixture_statistics",
+            "official_pick_candidate": true,
+            "lambda_total": 9.25,
+            "line": 6.5
+          },
+          {
+            "market": "Over 7.5 tiros a puerta",
+            "market_key": "shots",
+            "prob_adjusted": 70.5,
+            "source": "api_football_fixture_statistics",
+            "official_pick_candidate": true,
+            "lambda_total": 9.25,
+            "line": 7.5
+          },
+          {
+            "market": "Ryan Lima Over 0.5 tiros",
+            "market_key": "player_shots",
+            "prob_adjusted": 89.5,
+            "source": "api_football_fixture_players",
+            "official_pick_candidate": true,
+            "team": "Vila Nova",
+            "player_id": 362425,
+            "appearances": 4,
+            "minutes_avg": 87.5,
+            "line": 0.5
+          },
+          {
+            "market": "Janderson Over 0.5 tiros",
+            "market_key": "player_shots",
+            "prob_adjusted": 86.5,
+            "source": "api_football_fixture_players",
+            "official_pick_candidate": true,
+            "team": "Vila Nova",
+            "player_id": 10260,
+            "appearances": 3,
+            "minutes_avg": 85.3,
+            "line": 0.5
+          },
+          {
+            "market": "Janderson Over 0.5 tiros a puerta",
+            "market_key": "player_shots",
+            "prob_adjusted": 81.2,
+            "source": "api_football_fixture_players",
+            "official_pick_candidate": true,
+            "team": "Vila Nova",
+            "player_id": 10260,
+            "appearances": 3,
+            "minutes_avg": 85.3,
+            "line": 0.5
+          },
+          {
+            "market": "Pablo Dyego Over 0.5 tiros",
+            "market_key": "player_shots",
+            "prob_adjusted": 73.6,
+            "source": "api_football_fixture_players",
+            "official_pick_candidate": true,
+            "team": "São Bernardo",
+            "player_id": 10324,
+            "appearances": 3,
+            "minutes_avg": 61.0,
+            "line": 0.5
+          },
+          {
+            "market": "Hyoran Over 0.5 tiros",
+            "market_key": "player_shots",
+            "prob_adjusted": 73.6,
+            "source": "api_football_fixture_players",
+            "official_pick_candidate": true,
+            "team": "São Bernardo",
+            "player_id": 9923,
+            "appearances": 3,
+            "minutes_avg": 45.3,
+            "line": 0.5
+          },
+          {
+            "market": "Ryan Lima Over 0.5 tiros a puerta",
+            "market_key": "player_shots",
+            "prob_adjusted": 71.3,
+            "source": "api_football_fixture_players",
+            "official_pick_candidate": true,
+            "team": "Vila Nova",
+            "player_id": 362425,
+            "appearances": 4,
+            "minutes_avg": 87.5,
+            "line": 0.5
+          },
+          {
+            "market": "Higor Over 0.5 tiros",
+            "market_key": "player_shots",
+            "prob_adjusted": 71.3,
+            "source": "api_football_fixture_players",
+            "official_pick_candidate": true,
+            "team": "Vila Nova",
+            "player_id": 544944,
+            "appearances": 4,
+            "minutes_avg": 87.8,
+            "line": 0.5
+          },
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 60.2,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 33.1,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 8.5 tiros a puerta",
+            "market_key": "shots",
+            "prob_adjusted": 57.7,
+            "source": "api_football_fixture_statistics",
+            "official_pick_candidate": false,
+            "lambda_total": 9.25,
+            "line": 8.5
+          },
+          {
+            "market": "Over 9.5 tiros a puerta",
+            "market_key": "shots",
+            "prob_adjusted": 44.5,
+            "source": "api_football_fixture_statistics",
+            "official_pick_candidate": false,
+            "lambda_total": 9.25,
+            "line": 9.5
+          },
+          {
+            "market": "Over 10.5 tiros a puerta",
+            "market_key": "shots",
+            "prob_adjusted": 32.4,
+            "source": "api_football_fixture_statistics",
+            "official_pick_candidate": false,
+            "lambda_total": 9.25,
+            "line": 10.5
+          }
+        ],
+        "unavailable": []
+      }
+    },
+    {
+      "matchup": "BK Häcken vs Djurgården",
+      "league": "Allsvenskan",
+      "home": "BK Häcken",
+      "away": "Djurgården",
+      "probabilities": {
+        "win_home": 50.5,
+        "draw": 20.8,
+        "win_away": 28.7,
+        "over_2_5": 78.8,
+        "over_1_5": 92.1
+      },
+      "favorite": "BK Häcken",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 2.39,
+      "lambda_away": 1.8,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 92.1,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 78.8,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "IF Brommapojkarna vs GAIS",
+      "league": "Allsvenskan",
+      "home": "IF Brommapojkarna",
+      "away": "GAIS",
+      "probabilities": {
+        "win_home": 31.1,
+        "draw": 27.9,
+        "win_away": 41.0,
+        "over_2_5": 51.4,
+        "over_1_5": 75.7
+      },
+      "favorite": "GAIS",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.26,
+      "lambda_away": 1.47,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": {
+        "home_sot": 4.0,
+        "away_sot": 4.0
+      },
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 75.7,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Samuel Salter Over 0.5 tiros",
+            "market_key": "player_shots",
+            "prob_adjusted": 86.5,
+            "source": "api_football_fixture_players",
+            "official_pick_candidate": true,
+            "team": "GAIS",
+            "player_id": 318824,
+            "appearances": 4,
+            "minutes_avg": 79.0,
+            "line": 0.5
+          },
+          {
+            "market": "Mads Hansen Over 0.5 tiros",
+            "market_key": "player_shots",
+            "prob_adjusted": 81.2,
+            "source": "api_football_fixture_players",
+            "official_pick_candidate": true,
+            "team": "IF Brommapojkarna",
+            "player_id": 156536,
+            "appearances": 3,
+            "minutes_avg": 90.0,
+            "line": 0.5
+          },
+          {
+            "market": "Oliver Zandén Over 0.5 tiros",
+            "market_key": "player_shots",
+            "prob_adjusted": 81.2,
+            "source": "api_football_fixture_players",
+            "official_pick_candidate": true,
+            "team": "IF Brommapojkarna",
+            "player_id": 162382,
+            "appearances": 3,
+            "minutes_avg": 90.0,
+            "line": 0.5
+          },
+          {
+            "market": "Róbert Frosti Thorkelsson Over 0.5 tiros",
+            "market_key": "player_shots",
+            "prob_adjusted": 77.7,
+            "source": "api_football_fixture_players",
+            "official_pick_candidate": true,
+            "team": "GAIS",
+            "player_id": 342462,
+            "appearances": 4,
+            "minutes_avg": 87.2,
+            "line": 0.5
+          },
+          {
+            "market": "David Isso Over 0.5 tiros",
+            "market_key": "player_shots",
+            "prob_adjusted": 73.6,
+            "source": "api_football_fixture_players",
+            "official_pick_candidate": true,
+            "team": "IF Brommapojkarna",
+            "player_id": 515618,
+            "appearances": 3,
+            "minutes_avg": 55.7,
+            "line": 0.5
+          },
+          {
+            "market": "Mads Hansen Over 0.5 tiros a puerta",
+            "market_key": "player_shots",
+            "prob_adjusted": 63.2,
+            "source": "api_football_fixture_players",
+            "official_pick_candidate": true,
+            "team": "IF Brommapojkarna",
+            "player_id": 156536,
+            "appearances": 3,
+            "minutes_avg": 90.0,
+            "line": 0.5
+          },
+          {
+            "market": "Max Andersson Over 0.5 tiros a puerta",
+            "market_key": "player_shots",
+            "prob_adjusted": 63.2,
+            "source": "api_football_fixture_players",
+            "official_pick_candidate": true,
+            "team": "GAIS",
+            "player_id": 269167,
+            "appearances": 3,
+            "minutes_avg": 60.7,
+            "line": 0.5
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 51.4,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "corners",
+            "status": "unavailable",
+            "reason": "sin muestra suficiente de corners por localía"
+          },
+          {
+            "group": "shots",
+            "status": "unavailable",
+            "reason": "sin muestra suficiente de tiros a puerta por localía"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Portugal vs Spain",
+      "league": "Mundial 2026",
+      "home": "Portugal",
+      "away": "Spain",
+      "probabilities": {
+        "win_home": 22.5,
+        "draw": 32.6,
+        "win_away": 45.0,
+        "over_2_5": 32.3,
+        "over_1_5": 59.3
+      },
+      "favorite": "Spain",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 0.53,
+      "lambda_away": 1.47,
+      "elo_home": 1984.0,
+      "elo_away": 2165.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 59.3,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 32.3,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "corners_shots_players",
+            "status": "unavailable",
+            "reason": "selecciones usan modelo internacional; no se publican props/corners sin contrato calibrado"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "USA vs Belgium",
+      "league": "Mundial 2026",
+      "home": "USA",
+      "away": "Belgium",
+      "probabilities": {
+        "win_home": 22.1,
+        "draw": 24.4,
+        "win_away": 53.4,
+        "over_2_5": 86.2,
+        "over_1_5": 95.4
+      },
+      "favorite": "Belgium",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.35,
+      "lambda_away": 3.5,
+      "elo_home": 1733.0,
+      "elo_away": 1866.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 95.4,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 86.2,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "corners_shots_players",
+            "status": "unavailable",
+            "reason": "selecciones usan modelo internacional; no se publican props/corners sin contrato calibrado"
+          }
+        ]
+      }
+    }
+  ],
+  "nota": "Análisis estadístico de todos los partidos del día. Probabilidades crudas del modelo (sin ajuste por liga ni mercado). No incluye recomendación de apuesta — ver value_picks y featured_pick para picks oficiales."
+}
