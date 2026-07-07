@@ -1,38 +1,73 @@
 {
-  "Deportivo Cuenca": {
+  "I. del Valle": {
     "corners": {},
-    "goals": {},
-    "position": {
-      "posicion": 4,
-      "partidos": 17,
-      "ganados": 8,
-      "empatados": 3,
-      "perdidos": 6,
-      "goles_favor": 18,
-      "goles_contra": 19,
-      "diferencia": -1,
-      "puntos": 27
-    }
+    "goals": {
+      "over_1_5": "88%",
+      "over_2_5": "59%",
+      "over_3_5": "41%",
+      "bts": "47%"
+    },
+    "position": {}
   },
   "Mushuc Runa": {
     "corners": {},
     "goals": {
-      "over_1_5": "62%",
-      "over_2_5": "50%",
-      "over_3_5": "44%",
-      "bts": "56%"
+      "over_1_5": "65%",
+      "over_2_5": "53%",
+      "over_3_5": "47%",
+      "bts": "59%"
     },
     "position": {
-      "posicion": 13,
-      "partidos": 16,
-      "ganados": 4,
+      "posicion": 11,
+      "partidos": 17,
+      "ganados": 5,
       "empatados": 6,
       "perdidos": 6,
-      "goles_favor": 19,
-      "goles_contra": 21,
-      "diferencia": -2,
-      "puntos": 18
+      "goles_favor": 22,
+      "goles_contra": 23,
+      "diferencia": -1,
+      "puntos": 21
     }
+  },
+  "D. Cuenca": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "59%",
+      "over_2_5": "29%",
+      "over_3_5": "18%",
+      "bts": "47%"
+    },
+    "position": {}
+  },
+  "Orense": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "88%",
+      "over_2_5": "59%",
+      "over_3_5": "18%",
+      "bts": "71%"
+    },
+    "position": {
+      "posicion": 10,
+      "partidos": 17,
+      "ganados": 6,
+      "empatados": 4,
+      "perdidos": 7,
+      "goles_favor": 22,
+      "goles_contra": 24,
+      "diferencia": -2,
+      "puntos": 22
+    }
+  },
+  "Manta": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "47%",
+      "over_2_5": "24%",
+      "over_3_5": "12%",
+      "bts": "24%"
+    },
+    "position": {}
   },
   "Guayaquil City": {
     "corners": {},
@@ -44,19 +79,34 @@
     },
     "position": {}
   },
-  "Independiente del Valle": {
+  "Leones Norte": {
     "corners": {},
-    "goals": {},
+    "goals": {
+      "over_1_5": "76%",
+      "over_2_5": "41%",
+      "over_3_5": "12%",
+      "bts": "47%"
+    },
+    "position": {}
+  },
+  "Liga de Quito": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "65%",
+      "over_2_5": "29%",
+      "over_3_5": "6%",
+      "bts": "35%"
+    },
     "position": {
-      "posicion": 1,
+      "posicion": 3,
       "partidos": 17,
-      "ganados": 13,
-      "empatados": 1,
-      "perdidos": 3,
-      "goles_favor": 36,
-      "goles_contra": 18,
-      "diferencia": 18,
-      "puntos": 40
+      "ganados": 8,
+      "empatados": 3,
+      "perdidos": 6,
+      "goles_favor": 19,
+      "goles_contra": 14,
+      "diferencia": 5,
+      "puntos": 27
     }
   },
   "Barcelona SC": {
@@ -82,32 +132,22 @@
   "Tecnico U.": {
     "corners": {},
     "goals": {
-      "over_1_5": "62%",
-      "over_2_5": "38%",
+      "over_1_5": "65%",
+      "over_2_5": "41%",
       "over_3_5": "6%",
-      "bts": "44%"
+      "bts": "47%"
     },
     "position": {}
   },
-  "Aucas": {
+  "Libertad": {
     "corners": {},
     "goals": {
-      "over_1_5": "56%",
-      "over_2_5": "38%",
-      "over_3_5": "25%",
-      "bts": "44%"
+      "over_1_5": "71%",
+      "over_2_5": "53%",
+      "over_3_5": "24%",
+      "bts": "59%"
     },
-    "position": {
-      "posicion": 6,
-      "partidos": 16,
-      "ganados": 7,
-      "empatados": 5,
-      "perdidos": 4,
-      "goles_favor": 19,
-      "goles_contra": 16,
-      "diferencia": 3,
-      "puntos": 26
-    }
+    "position": {}
   },
   "Manta F.C.": {
     "corners": {},
@@ -124,106 +164,6 @@
       "puntos": 12
     }
   },
-  "Liga de Quito": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "65%",
-      "over_2_5": "29%",
-      "over_3_5": "6%",
-      "bts": "35%"
-    },
-    "position": {
-      "posicion": 3,
-      "partidos": 17,
-      "ganados": 8,
-      "empatados": 3,
-      "perdidos": 6,
-      "goles_favor": 19,
-      "goles_contra": 14,
-      "diferencia": 5,
-      "puntos": 27
-    }
-  },
-  "U. Catolica": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "75%",
-      "over_2_5": "44%",
-      "over_3_5": "25%",
-      "bts": "50%"
-    },
-    "position": {}
-  },
-  "Delfin": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "29%",
-      "over_2_5": "18%",
-      "over_3_5": "12%",
-      "bts": "24%"
-    },
-    "position": {}
-  },
-  "Leones": {
-    "corners": {},
-    "goals": {},
-    "position": {
-      "posicion": 11,
-      "partidos": 17,
-      "ganados": 5,
-      "empatados": 5,
-      "perdidos": 7,
-      "goles_favor": 18,
-      "goles_contra": 19,
-      "diferencia": -1,
-      "puntos": 20
-    }
-  },
-  "League average": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "36.8%",
-      "over_2_5": "18.0%",
-      "over_3_5": "6.8%",
-      "bts": "32.3%"
-    },
-    "position": {}
-  },
-  "Libertad (Ecuador)": {
-    "corners": {},
-    "goals": {},
-    "position": {
-      "posicion": 15,
-      "partidos": 17,
-      "ganados": 4,
-      "empatados": 5,
-      "perdidos": 8,
-      "goles_favor": 17,
-      "goles_contra": 25,
-      "diferencia": -8,
-      "puntos": 17
-    }
-  },
-  "D. Cuenca": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "59%",
-      "over_2_5": "29%",
-      "over_3_5": "18%",
-      "bts": "47%"
-    },
-    "position": {}
-  },
-  "Leones Norte": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "76%",
-      "over_2_5": "41%",
-      "over_3_5": "12%",
-      "bts": "47%"
-    },
-    "position": {}
-  },
   "Macara": {
     "corners": {},
     "goals": {
@@ -234,49 +174,19 @@
     },
     "position": {}
   },
-  "Guayaquil City FC": {
+  "Universidad Católica (Quito)": {
     "corners": {},
     "goals": {},
     "position": {
-      "posicion": 12,
-      "partidos": 16,
-      "ganados": 5,
-      "empatados": 4,
-      "perdidos": 7,
-      "goles_favor": 14,
-      "goles_contra": 19,
-      "diferencia": -5,
-      "puntos": 19
-    }
-  },
-  "Manta": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "47%",
-      "over_2_5": "24%",
-      "over_3_5": "12%",
-      "bts": "24%"
-    },
-    "position": {}
-  },
-  "Emelec": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "71%",
-      "over_2_5": "12%",
-      "over_3_5": "6%",
-      "bts": "35%"
-    },
-    "position": {
-      "posicion": 8,
+      "posicion": 5,
       "partidos": 17,
-      "ganados": 6,
+      "ganados": 7,
       "empatados": 5,
-      "perdidos": 6,
-      "goles_favor": 14,
+      "perdidos": 5,
+      "goles_favor": 28,
       "goles_contra": 17,
-      "diferencia": -3,
-      "puntos": 23
+      "diferencia": 11,
+      "puntos": 26
     }
   },
   "Delfín": {
@@ -292,91 +202,6 @@
       "goles_contra": 16,
       "diferencia": -7,
       "puntos": 17
-    }
-  },
-  "I. del Valle": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "88%",
-      "over_2_5": "59%",
-      "over_3_5": "41%",
-      "bts": "47%"
-    },
-    "position": {}
-  },
-  "Universidad Católica (Quito)": {
-    "corners": {},
-    "goals": {},
-    "position": {
-      "posicion": 5,
-      "partidos": 16,
-      "ganados": 7,
-      "empatados": 5,
-      "perdidos": 4,
-      "goles_favor": 26,
-      "goles_contra": 14,
-      "diferencia": 12,
-      "puntos": 26
-    }
-  },
-  "Orense": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "88%",
-      "over_2_5": "56%",
-      "over_3_5": "19%",
-      "bts": "69%"
-    },
-    "position": {
-      "posicion": 9,
-      "partidos": 16,
-      "ganados": 6,
-      "empatados": 4,
-      "perdidos": 6,
-      "goles_favor": 21,
-      "goles_contra": 22,
-      "diferencia": -1,
-      "puntos": 22
-    }
-  },
-  "Macará": {
-    "corners": {},
-    "goals": {},
-    "position": {
-      "posicion": 7,
-      "partidos": 17,
-      "ganados": 6,
-      "empatados": 5,
-      "perdidos": 6,
-      "goles_favor": 16,
-      "goles_contra": 18,
-      "diferencia": -2,
-      "puntos": 23
-    }
-  },
-  "Libertad": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "71%",
-      "over_2_5": "53%",
-      "over_3_5": "24%",
-      "bts": "59%"
-    },
-    "position": {}
-  },
-  "Técnico Universitario": {
-    "corners": {},
-    "goals": {},
-    "position": {
-      "posicion": 10,
-      "partidos": 16,
-      "ganados": 6,
-      "empatados": 2,
-      "perdidos": 8,
-      "goles_favor": 17,
-      "goles_contra": 16,
-      "diferencia": 1,
-      "puntos": 20
     }
   },
   "LDU Quito": {
@@ -398,6 +223,181 @@
       "diferencia": 5,
       "puntos": 27
     }
+  },
+  "Delfin": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "29%",
+      "over_2_5": "18%",
+      "over_3_5": "12%",
+      "bts": "24%"
+    },
+    "position": {}
+  },
+  "Técnico Universitario": {
+    "corners": {},
+    "goals": {},
+    "position": {
+      "posicion": 7,
+      "partidos": 17,
+      "ganados": 7,
+      "empatados": 2,
+      "perdidos": 8,
+      "goles_favor": 19,
+      "goles_contra": 17,
+      "diferencia": 2,
+      "puntos": 23
+    }
+  },
+  "Emelec": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "71%",
+      "over_2_5": "12%",
+      "over_3_5": "6%",
+      "bts": "35%"
+    },
+    "position": {
+      "posicion": 9,
+      "partidos": 17,
+      "ganados": 6,
+      "empatados": 5,
+      "perdidos": 6,
+      "goles_favor": 14,
+      "goles_contra": 17,
+      "diferencia": -3,
+      "puntos": 23
+    }
+  },
+  "Aucas": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "56%",
+      "over_2_5": "38%",
+      "over_3_5": "25%",
+      "bts": "44%"
+    },
+    "position": {
+      "posicion": 6,
+      "partidos": 16,
+      "ganados": 7,
+      "empatados": 5,
+      "perdidos": 4,
+      "goles_favor": 19,
+      "goles_contra": 16,
+      "diferencia": 3,
+      "puntos": 26
+    }
+  },
+  "League average": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "37.8%",
+      "over_2_5": "18.5%",
+      "over_3_5": "7.4%",
+      "bts": "31.9%"
+    },
+    "position": {}
+  },
+  "Macará": {
+    "corners": {},
+    "goals": {},
+    "position": {
+      "posicion": 8,
+      "partidos": 17,
+      "ganados": 6,
+      "empatados": 5,
+      "perdidos": 6,
+      "goles_favor": 16,
+      "goles_contra": 18,
+      "diferencia": -2,
+      "puntos": 23
+    }
+  },
+  "Leones": {
+    "corners": {},
+    "goals": {},
+    "position": {
+      "posicion": 12,
+      "partidos": 17,
+      "ganados": 5,
+      "empatados": 5,
+      "perdidos": 7,
+      "goles_favor": 18,
+      "goles_contra": 19,
+      "diferencia": -1,
+      "puntos": 20
+    }
+  },
+  "Guayaquil City FC": {
+    "corners": {},
+    "goals": {},
+    "position": {
+      "posicion": 13,
+      "partidos": 16,
+      "ganados": 5,
+      "empatados": 4,
+      "perdidos": 7,
+      "goles_favor": 14,
+      "goles_contra": 19,
+      "diferencia": -5,
+      "puntos": 19
+    }
+  },
+  "Libertad (Ecuador)": {
+    "corners": {},
+    "goals": {},
+    "position": {
+      "posicion": 15,
+      "partidos": 17,
+      "ganados": 4,
+      "empatados": 5,
+      "perdidos": 8,
+      "goles_favor": 17,
+      "goles_contra": 25,
+      "diferencia": -8,
+      "puntos": 17
+    }
+  },
+  "Deportivo Cuenca": {
+    "corners": {},
+    "goals": {},
+    "position": {
+      "posicion": 4,
+      "partidos": 17,
+      "ganados": 8,
+      "empatados": 3,
+      "perdidos": 6,
+      "goles_favor": 18,
+      "goles_contra": 19,
+      "diferencia": -1,
+      "puntos": 27
+    }
+  },
+  "Independiente del Valle": {
+    "corners": {},
+    "goals": {},
+    "position": {
+      "posicion": 1,
+      "partidos": 17,
+      "ganados": 13,
+      "empatados": 1,
+      "perdidos": 3,
+      "goles_favor": 36,
+      "goles_contra": 18,
+      "diferencia": 18,
+      "puntos": 40
+    }
+  },
+  "U. Catolica": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "76%",
+      "over_2_5": "47%",
+      "over_3_5": "29%",
+      "bts": "53%"
+    },
+    "position": {}
   },
   "L.D.U. Quito": {
     "corners": {},
@@ -444,13 +444,13 @@
     "goals": {},
     "position": {
       "posicion": 5,
-      "partidos": 16,
+      "partidos": 17,
       "ganados": 7,
       "empatados": 5,
-      "perdidos": 4,
-      "goles_favor": 26,
-      "goles_contra": 14,
-      "diferencia": 12,
+      "perdidos": 5,
+      "goles_favor": 28,
+      "goles_contra": 17,
+      "diferencia": 11,
       "puntos": 26
     }
   },
@@ -459,18 +459,18 @@
     "goals": {},
     "position": {
       "posicion": 5,
-      "partidos": 16,
+      "partidos": 17,
       "ganados": 7,
       "empatados": 5,
-      "perdidos": 4,
-      "goles_favor": 26,
-      "goles_contra": 14,
-      "diferencia": 12,
+      "perdidos": 5,
+      "goles_favor": 28,
+      "goles_contra": 17,
+      "diferencia": 11,
       "puntos": 26
     }
   },
   "_metadata": {
-    "fecha_actualizacion": "2026-07-06T09:04:10.428783",
+    "fecha_actualizacion": "2026-07-07T08:24:27.942741",
     "liga": "ecuador",
     "fuente": "ESPN API"
   }

@@ -1,0 +1,4385 @@
+[
+  {
+    "key": "Athletic Club|Operario-PR|2026-07-07",
+    "home": "Athletic Club",
+    "away": "Operario-PR",
+    "league": "Brasileirao Serie B",
+    "date": "2026-07-07",
+    "home_id": 13975,
+    "away_id": 1223,
+    "league_id": 72,
+    "season": 2026,
+    "h2h": [
+      {
+        "fixture": {
+          "id": 1353565,
+          "referee": "Anderson Daronco, Brazil",
+          "timezone": "UTC",
+          "date": "2025-10-08T22:00:00+00:00",
+          "timestamp": 1759960800,
+          "periods": {
+            "first": 1759960800,
+            "second": 1759964400
+          },
+          "venue": {
+            "id": 256,
+            "name": "Estádio Germano Krüger",
+            "city": "Ponta Grossa"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": null
+          }
+        },
+        "league": {
+          "id": 72,
+          "name": "Serie B",
+          "country": "Brazil",
+          "logo": "https://media.api-sports.io/football/leagues/72.png",
+          "flag": "https://media.api-sports.io/flags/br.svg",
+          "season": 2025,
+          "round": "Regular Season - 31",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1223,
+            "name": "Operario-PR",
+            "logo": "https://media.api-sports.io/football/teams/1223.png",
+            "winner": false
+          },
+          "away": {
+            "id": 13975,
+            "name": "Athletic Club",
+            "logo": "https://media.api-sports.io/football/teams/13975.png",
+            "winner": true
+          }
+        },
+        "goals": {
+          "home": 1,
+          "away": 4
+        },
+        "score": {
+          "halftime": {
+            "home": 1,
+            "away": 4
+          },
+          "fulltime": {
+            "home": 1,
+            "away": 4
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1353377,
+          "referee": "Paulo Schleich Vollkopf, Brazil",
+          "timezone": "UTC",
+          "date": "2025-06-14T23:30:00+00:00",
+          "timestamp": 1749943800,
+          "periods": {
+            "first": 1749943800,
+            "second": 1749947400
+          },
+          "venue": {
+            "id": 10545,
+            "name": "Estádio Joaquim Portugal",
+            "city": "Minas Gerais"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 12
+          }
+        },
+        "league": {
+          "id": 72,
+          "name": "Serie B",
+          "country": "Brazil",
+          "logo": "https://media.api-sports.io/football/leagues/72.png",
+          "flag": "https://media.api-sports.io/flags/br.svg",
+          "season": 2025,
+          "round": "Regular Season - 12",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 13975,
+            "name": "Athletic Club",
+            "logo": "https://media.api-sports.io/football/teams/13975.png",
+            "winner": true
+          },
+          "away": {
+            "id": 1223,
+            "name": "Operario-PR",
+            "logo": "https://media.api-sports.io/football/teams/1223.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 2,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 1,
+            "away": 1
+          },
+          "fulltime": {
+            "home": 2,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      }
+    ],
+    "home_form": [
+      {
+        "fixture": {
+          "id": 1520740,
+          "referee": "Daiane Caroline Muniz Dos Santos, Brazil",
+          "timezone": "UTC",
+          "date": "2026-06-28T19:00:00+00:00",
+          "timestamp": 1782673200,
+          "periods": {
+            "first": 1782673200,
+            "second": 1782676800
+          },
+          "venue": {
+            "id": null,
+            "name": "Estádio Joaquim Portugal",
+            "city": "São João del Rei"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 6
+          }
+        },
+        "league": {
+          "id": 72,
+          "name": "Serie B",
+          "country": "Brazil",
+          "logo": "https://media.api-sports.io/football/leagues/72.png",
+          "flag": "https://media.api-sports.io/flags/br.svg",
+          "season": 2026,
+          "round": "Regular Season - 15",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 13975,
+            "name": "Athletic Club",
+            "logo": "https://media.api-sports.io/football/teams/13975.png",
+            "winner": true
+          },
+          "away": {
+            "id": 145,
+            "name": "Avai",
+            "logo": "https://media.api-sports.io/football/teams/145.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 1,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 1,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1520735,
+          "referee": "Charly Wendy Straub Deretti, Brazil",
+          "timezone": "UTC",
+          "date": "2026-06-20T14:00:00+00:00",
+          "timestamp": 1781964000,
+          "periods": {
+            "first": 1781964000,
+            "second": 1781967600
+          },
+          "venue": {
+            "id": null,
+            "name": "Estadio Vitorino Goncalves Dias",
+            "city": "Londrina"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 7
+          }
+        },
+        "league": {
+          "id": 72,
+          "name": "Serie B",
+          "country": "Brazil",
+          "logo": "https://media.api-sports.io/football/leagues/72.png",
+          "flag": "https://media.api-sports.io/flags/br.svg",
+          "season": 2026,
+          "round": "Regular Season - 14",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 148,
+            "name": "Londrina",
+            "logo": "https://media.api-sports.io/football/teams/148.png",
+            "winner": true
+          },
+          "away": {
+            "id": 13975,
+            "name": "Athletic Club",
+            "logo": "https://media.api-sports.io/football/teams/13975.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 2,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 2,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1520720,
+          "referee": "Alisson Sidnei Furtado, Brazil",
+          "timezone": "UTC",
+          "date": "2026-06-14T19:00:00+00:00",
+          "timestamp": 1781463600,
+          "periods": {
+            "first": 1781463600,
+            "second": 1781467200
+          },
+          "venue": {
+            "id": null,
+            "name": "Estádio Joaquim Portugal",
+            "city": "São João del Rei"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 7
+          }
+        },
+        "league": {
+          "id": 72,
+          "name": "Serie B",
+          "country": "Brazil",
+          "logo": "https://media.api-sports.io/football/leagues/72.png",
+          "flag": "https://media.api-sports.io/flags/br.svg",
+          "season": 2026,
+          "round": "Regular Season - 13",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 13975,
+            "name": "Athletic Club",
+            "logo": "https://media.api-sports.io/football/teams/13975.png",
+            "winner": null
+          },
+          "away": {
+            "id": 151,
+            "name": "Goias",
+            "logo": "https://media.api-sports.io/football/teams/151.png",
+            "winner": null
+          }
+        },
+        "goals": {
+          "home": 1,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 1
+          },
+          "fulltime": {
+            "home": 1,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1520718,
+          "referee": "Afro Rocha De Carvalho Filho, Brazil",
+          "timezone": "UTC",
+          "date": "2026-06-11T00:00:00+00:00",
+          "timestamp": 1781136000,
+          "periods": {
+            "first": 1781136000,
+            "second": 1781139600
+          },
+          "venue": {
+            "id": null,
+            "name": "Ilha do Retiro",
+            "city": "Recife"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 7
+          }
+        },
+        "league": {
+          "id": 72,
+          "name": "Serie B",
+          "country": "Brazil",
+          "logo": "https://media.api-sports.io/football/leagues/72.png",
+          "flag": "https://media.api-sports.io/flags/br.svg",
+          "season": 2026,
+          "round": "Regular Season - 12",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 123,
+            "name": "Sport Recife",
+            "logo": "https://media.api-sports.io/football/teams/123.png",
+            "winner": null
+          },
+          "away": {
+            "id": 13975,
+            "name": "Athletic Club",
+            "logo": "https://media.api-sports.io/football/teams/13975.png",
+            "winner": null
+          }
+        },
+        "goals": {
+          "home": 1,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 1,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1520700,
+          "referee": "Wagner do Nascimento Magalhaes, Brazil",
+          "timezone": "UTC",
+          "date": "2026-05-30T21:00:00+00:00",
+          "timestamp": 1780174800,
+          "periods": {
+            "first": 1780174800,
+            "second": 1780178400
+          },
+          "venue": {
+            "id": null,
+            "name": "Estádio Joaquim Portugal",
+            "city": "São João del Rei"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 7
+          }
+        },
+        "league": {
+          "id": 72,
+          "name": "Serie B",
+          "country": "Brazil",
+          "logo": "https://media.api-sports.io/football/leagues/72.png",
+          "flag": "https://media.api-sports.io/flags/br.svg",
+          "season": 2026,
+          "round": "Regular Season - 11",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 13975,
+            "name": "Athletic Club",
+            "logo": "https://media.api-sports.io/football/teams/13975.png",
+            "winner": true
+          },
+          "away": {
+            "id": 154,
+            "name": "Fortaleza EC",
+            "logo": "https://media.api-sports.io/football/teams/154.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 1,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 1,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1520693,
+          "referee": "Bruno Pereira Vasconcelos, Brazil",
+          "timezone": "UTC",
+          "date": "2026-05-25T22:00:00+00:00",
+          "timestamp": 1779746400,
+          "periods": {
+            "first": 1779746400,
+            "second": 1779750000
+          },
+          "venue": {
+            "id": null,
+            "name": "Estádio Santa Cruz",
+            "city": "Ribeirao Preto"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 12
+          }
+        },
+        "league": {
+          "id": 72,
+          "name": "Serie B",
+          "country": "Brazil",
+          "logo": "https://media.api-sports.io/football/leagues/72.png",
+          "flag": "https://media.api-sports.io/flags/br.svg",
+          "season": 2026,
+          "round": "Regular Season - 10",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 2618,
+            "name": "Botafogo SP",
+            "logo": "https://media.api-sports.io/football/teams/2618.png",
+            "winner": false
+          },
+          "away": {
+            "id": 13975,
+            "name": "Athletic Club",
+            "logo": "https://media.api-sports.io/football/teams/13975.png",
+            "winner": true
+          }
+        },
+        "goals": {
+          "home": 1,
+          "away": 2
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 1
+          },
+          "fulltime": {
+            "home": 1,
+            "away": 2
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1520680,
+          "referee": "Joao Vitor Gobi, Brazil",
+          "timezone": "UTC",
+          "date": "2026-05-17T19:00:00+00:00",
+          "timestamp": 1779044400,
+          "periods": {
+            "first": 1779044400,
+            "second": 1779048000
+          },
+          "venue": {
+            "id": null,
+            "name": "Estádio Joaquim Portugal",
+            "city": "São João del Rei"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 7
+          }
+        },
+        "league": {
+          "id": 72,
+          "name": "Serie B",
+          "country": "Brazil",
+          "logo": "https://media.api-sports.io/football/leagues/72.png",
+          "flag": "https://media.api-sports.io/flags/br.svg",
+          "season": 2026,
+          "round": "Regular Season - 9",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 13975,
+            "name": "Athletic Club",
+            "logo": "https://media.api-sports.io/football/teams/13975.png",
+            "winner": null
+          },
+          "away": {
+            "id": 152,
+            "name": "Juventude",
+            "logo": "https://media.api-sports.io/football/teams/152.png",
+            "winner": null
+          }
+        },
+        "goals": {
+          "home": 1,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 1,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 1,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1537014,
+          "referee": "L. Casagrande",
+          "timezone": "UTC",
+          "date": "2026-05-12T22:30:00+00:00",
+          "timestamp": 1778625000,
+          "periods": {
+            "first": 1778625000,
+            "second": 1778628600
+          },
+          "venue": {
+            "id": null,
+            "name": "Estádio Beira-Rio",
+            "city": "Porto Alegre"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 6
+          }
+        },
+        "league": {
+          "id": 73,
+          "name": "Copa Do Brasil",
+          "country": "Brazil",
+          "logo": "https://media.api-sports.io/football/leagues/73.png",
+          "flag": "https://media.api-sports.io/flags/br.svg",
+          "season": 2026,
+          "round": "Round of 32",
+          "standings": false
+        },
+        "teams": {
+          "home": {
+            "id": 119,
+            "name": "Internacional",
+            "logo": "https://media.api-sports.io/football/teams/119.png",
+            "winner": true
+          },
+          "away": {
+            "id": 13975,
+            "name": "Athletic Club",
+            "logo": "https://media.api-sports.io/football/teams/13975.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 3,
+          "away": 2
+        },
+        "score": {
+          "halftime": {
+            "home": 2,
+            "away": 1
+          },
+          "fulltime": {
+            "home": 3,
+            "away": 2
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1520670,
+          "referee": "Yuri Elino Ferreira Da Cruz, Brazil",
+          "timezone": "UTC",
+          "date": "2026-05-09T21:00:00+00:00",
+          "timestamp": 1778360400,
+          "periods": {
+            "first": 1778360400,
+            "second": 1778364000
+          },
+          "venue": {
+            "id": null,
+            "name": "Estádio Joaquim Portugal",
+            "city": "São João del Rei"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 4
+          }
+        },
+        "league": {
+          "id": 72,
+          "name": "Serie B",
+          "country": "Brazil",
+          "logo": "https://media.api-sports.io/football/leagues/72.png",
+          "flag": "https://media.api-sports.io/flags/br.svg",
+          "season": 2026,
+          "round": "Regular Season - 8",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 13975,
+            "name": "Athletic Club",
+            "logo": "https://media.api-sports.io/football/teams/13975.png",
+            "winner": null
+          },
+          "away": {
+            "id": 1193,
+            "name": "Cuiaba",
+            "logo": "https://media.api-sports.io/football/teams/1193.png",
+            "winner": null
+          }
+        },
+        "goals": {
+          "home": 0,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 0,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1520669,
+          "referee": "Marcelo de Lima Henrique, Brazil",
+          "timezone": "UTC",
+          "date": "2026-05-04T22:00:00+00:00",
+          "timestamp": 1777932000,
+          "periods": {
+            "first": 1777932000,
+            "second": 1777935600
+          },
+          "venue": {
+            "id": null,
+            "name": "Estádio Onésio Brasileiro Alvarenga",
+            "city": "Goiânia"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 6
+          }
+        },
+        "league": {
+          "id": 72,
+          "name": "Serie B",
+          "country": "Brazil",
+          "logo": "https://media.api-sports.io/football/leagues/72.png",
+          "flag": "https://media.api-sports.io/flags/br.svg",
+          "season": 2026,
+          "round": "Regular Season - 7",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 142,
+            "name": "Vila Nova",
+            "logo": "https://media.api-sports.io/football/teams/142.png",
+            "winner": null
+          },
+          "away": {
+            "id": 13975,
+            "name": "Athletic Club",
+            "logo": "https://media.api-sports.io/football/teams/13975.png",
+            "winner": null
+          }
+        },
+        "goals": {
+          "home": 1,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 1,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1520650,
+          "referee": "Lucas Paulo Torezin, Brazil",
+          "timezone": "UTC",
+          "date": "2026-04-27T22:00:00+00:00",
+          "timestamp": 1777327200,
+          "periods": {
+            "first": 1777327200,
+            "second": 1777330800
+          },
+          "venue": {
+            "id": null,
+            "name": "Estádio Joaquim Portugal",
+            "city": "São João del Rei"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 5
+          }
+        },
+        "league": {
+          "id": 72,
+          "name": "Serie B",
+          "country": "Brazil",
+          "logo": "https://media.api-sports.io/football/leagues/72.png",
+          "flag": "https://media.api-sports.io/flags/br.svg",
+          "season": 2026,
+          "round": "Regular Season - 6",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 13975,
+            "name": "Athletic Club",
+            "logo": "https://media.api-sports.io/football/teams/13975.png",
+            "winner": false
+          },
+          "away": {
+            "id": 755,
+            "name": "Nautico Recife",
+            "logo": "https://media.api-sports.io/football/teams/755.png",
+            "winner": true
+          }
+        },
+        "goals": {
+          "home": 0,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 0,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1537039,
+          "referee": "F. Rodrigues",
+          "timezone": "UTC",
+          "date": "2026-04-22T23:30:00+00:00",
+          "timestamp": 1776900600,
+          "periods": {
+            "first": 1776900600,
+            "second": 1776904200
+          },
+          "venue": {
+            "id": null,
+            "name": "Orlando Scarpelli",
+            "city": "Florianópolis"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 6
+          }
+        },
+        "league": {
+          "id": 73,
+          "name": "Copa Do Brasil",
+          "country": "Brazil",
+          "logo": "https://media.api-sports.io/football/leagues/73.png",
+          "flag": "https://media.api-sports.io/flags/br.svg",
+          "season": 2026,
+          "round": "Round of 32",
+          "standings": false
+        },
+        "teams": {
+          "home": {
+            "id": 13975,
+            "name": "Athletic Club",
+            "logo": "https://media.api-sports.io/football/teams/13975.png",
+            "winner": false
+          },
+          "away": {
+            "id": 119,
+            "name": "Internacional",
+            "logo": "https://media.api-sports.io/football/teams/119.png",
+            "winner": true
+          }
+        },
+        "goals": {
+          "home": 1,
+          "away": 2
+        },
+        "score": {
+          "halftime": {
+            "home": 1,
+            "away": 1
+          },
+          "fulltime": {
+            "home": 1,
+            "away": 2
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1520648,
+          "referee": "Jefferson Ferreira de Moraes, Brazil",
+          "timezone": "UTC",
+          "date": "2026-04-19T23:00:00+00:00",
+          "timestamp": 1776639600,
+          "periods": {
+            "first": 1776639600,
+            "second": 1776643200
+          },
+          "venue": {
+            "id": null,
+            "name": "Estádio Dr. Jorge Ismael de Biasi",
+            "city": "Novo Horizonte"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 8
+          }
+        },
+        "league": {
+          "id": 72,
+          "name": "Serie B",
+          "country": "Brazil",
+          "logo": "https://media.api-sports.io/football/leagues/72.png",
+          "flag": "https://media.api-sports.io/flags/br.svg",
+          "season": 2026,
+          "round": "Regular Season - 5",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 7834,
+            "name": "Novorizontino",
+            "logo": "https://media.api-sports.io/football/teams/7834.png",
+            "winner": true
+          },
+          "away": {
+            "id": 13975,
+            "name": "Athletic Club",
+            "logo": "https://media.api-sports.io/football/teams/13975.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 2,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 1,
+            "away": 1
+          },
+          "fulltime": {
+            "home": 2,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1520633,
+          "referee": "Alex Gomes Stefano, Brazil",
+          "timezone": "UTC",
+          "date": "2026-04-12T23:00:00+00:00",
+          "timestamp": 1776034800,
+          "periods": {
+            "first": 1776034800,
+            "second": 1776038400
+          },
+          "venue": {
+            "id": null,
+            "name": "Estádio Rei Pelé",
+            "city": "Maceió"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 12
+          }
+        },
+        "league": {
+          "id": 72,
+          "name": "Serie B",
+          "country": "Brazil",
+          "logo": "https://media.api-sports.io/football/leagues/72.png",
+          "flag": "https://media.api-sports.io/flags/br.svg",
+          "season": 2026,
+          "round": "Regular Season - 4",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 146,
+            "name": "CRB",
+            "logo": "https://media.api-sports.io/football/teams/146.png",
+            "winner": false
+          },
+          "away": {
+            "id": 13975,
+            "name": "Athletic Club",
+            "logo": "https://media.api-sports.io/football/teams/13975.png",
+            "winner": true
+          }
+        },
+        "goals": {
+          "home": 2,
+          "away": 3
+        },
+        "score": {
+          "halftime": {
+            "home": 2,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 2,
+            "away": 3
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1520620,
+          "referee": "Davi de Oliveira Lacerda, Brazil",
+          "timezone": "UTC",
+          "date": "2026-04-05T23:00:00+00:00",
+          "timestamp": 1775430000,
+          "periods": {
+            "first": 1775430000,
+            "second": 1775433600
+          },
+          "venue": {
+            "id": null,
+            "name": "Estádio Joaquim Portugal",
+            "city": "São João del Rei"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 7
+          }
+        },
+        "league": {
+          "id": 72,
+          "name": "Serie B",
+          "country": "Brazil",
+          "logo": "https://media.api-sports.io/football/leagues/72.png",
+          "flag": "https://media.api-sports.io/flags/br.svg",
+          "season": 2026,
+          "round": "Regular Season - 3",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 13975,
+            "name": "Athletic Club",
+            "logo": "https://media.api-sports.io/football/teams/13975.png",
+            "winner": null
+          },
+          "away": {
+            "id": 125,
+            "name": "America Mineiro",
+            "logo": "https://media.api-sports.io/football/teams/125.png",
+            "winner": null
+          }
+        },
+        "goals": {
+          "home": 1,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 1,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 1,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1520613,
+          "referee": "B. Vasconcelos",
+          "timezone": "UTC",
+          "date": "2026-04-02T00:30:00+00:00",
+          "timestamp": 1775089800,
+          "periods": {
+            "first": 1775089800,
+            "second": 1775093400
+          },
+          "venue": {
+            "id": null,
+            "name": "Estádio Heriberto Hülse",
+            "city": "Criciúma"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 7
+          }
+        },
+        "league": {
+          "id": 72,
+          "name": "Serie B",
+          "country": "Brazil",
+          "logo": "https://media.api-sports.io/football/leagues/72.png",
+          "flag": "https://media.api-sports.io/flags/br.svg",
+          "season": 2026,
+          "round": "Regular Season - 2",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 140,
+            "name": "Criciuma",
+            "logo": "https://media.api-sports.io/football/teams/140.png",
+            "winner": null
+          },
+          "away": {
+            "id": 13975,
+            "name": "Athletic Club",
+            "logo": "https://media.api-sports.io/football/teams/13975.png",
+            "winner": null
+          }
+        },
+        "goals": {
+          "home": 1,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 1
+          },
+          "fulltime": {
+            "home": 1,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1520600,
+          "referee": "Fernando Antonio Mendes de Salles Nascimento Filho, Brazil",
+          "timezone": "UTC",
+          "date": "2026-03-22T21:00:00+00:00",
+          "timestamp": 1774213200,
+          "periods": {
+            "first": 1774213200,
+            "second": 1774216800
+          },
+          "venue": {
+            "id": null,
+            "name": "Estádio Joaquim Portugal",
+            "city": "São João del Rei"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 9
+          }
+        },
+        "league": {
+          "id": 72,
+          "name": "Serie B",
+          "country": "Brazil",
+          "logo": "https://media.api-sports.io/football/leagues/72.png",
+          "flag": "https://media.api-sports.io/flags/br.svg",
+          "season": 2026,
+          "round": "Regular Season - 1",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 13975,
+            "name": "Athletic Club",
+            "logo": "https://media.api-sports.io/football/teams/13975.png",
+            "winner": true
+          },
+          "away": {
+            "id": 139,
+            "name": "Ponte Preta",
+            "logo": "https://media.api-sports.io/football/teams/139.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 2,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 2,
+            "away": 1
+          },
+          "fulltime": {
+            "home": 2,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1532920,
+          "referee": "L. Casagrande",
+          "timezone": "UTC",
+          "date": "2026-03-18T00:30:00+00:00",
+          "timestamp": 1773793800,
+          "periods": {
+            "first": 1773793800,
+            "second": 1773797400
+          },
+          "venue": {
+            "id": null,
+            "name": "Estadio Adelmar da Costa Carvalho",
+            "city": "Recife"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 9
+          }
+        },
+        "league": {
+          "id": 73,
+          "name": "Copa Do Brasil",
+          "country": "Brazil",
+          "logo": "https://media.api-sports.io/football/leagues/73.png",
+          "flag": "https://media.api-sports.io/flags/br.svg",
+          "season": 2026,
+          "round": "Round of 64",
+          "standings": false
+        },
+        "teams": {
+          "home": {
+            "id": 123,
+            "name": "Sport Recife",
+            "logo": "https://media.api-sports.io/football/teams/123.png",
+            "winner": false
+          },
+          "away": {
+            "id": 13975,
+            "name": "Athletic Club",
+            "logo": "https://media.api-sports.io/football/teams/13975.png",
+            "winner": true
+          }
+        },
+        "goals": {
+          "home": 1,
+          "away": 3
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 1
+          },
+          "fulltime": {
+            "home": 1,
+            "away": 3
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1529474,
+          "referee": null,
+          "timezone": "UTC",
+          "date": "2026-03-11T22:30:00+00:00",
+          "timestamp": 1773268200,
+          "periods": {
+            "first": 1773268200,
+            "second": 1773271800
+          },
+          "venue": {
+            "id": null,
+            "name": "Estádio Joaquim Portugal",
+            "city": "Minas Gerais"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 9
+          }
+        },
+        "league": {
+          "id": 73,
+          "name": "Copa Do Brasil",
+          "country": "Brazil",
+          "logo": "https://media.api-sports.io/football/leagues/73.png",
+          "flag": "https://media.api-sports.io/flags/br.svg",
+          "season": 2026,
+          "round": "Round of 128",
+          "standings": false
+        },
+        "teams": {
+          "home": {
+            "id": 13975,
+            "name": "Athletic Club",
+            "logo": "https://media.api-sports.io/football/teams/13975.png",
+            "winner": true
+          },
+          "away": {
+            "id": 1221,
+            "name": "Ypiranga-RS",
+            "logo": "https://media.api-sports.io/football/teams/1221.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 2,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 2,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1515276,
+          "referee": null,
+          "timezone": "UTC",
+          "date": "2026-03-04T23:00:00+00:00",
+          "timestamp": 1772665200,
+          "periods": {
+            "first": 1772665200,
+            "second": 1772668800
+          },
+          "venue": {
+            "id": null,
+            "name": "Estádio Kleber Andrade",
+            "city": "Cachoeiro de Itapemirim"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "PEN",
+            "elapsed": 120,
+            "extra": null
+          }
+        },
+        "league": {
+          "id": 73,
+          "name": "Copa Do Brasil",
+          "country": "Brazil",
+          "logo": "https://media.api-sports.io/football/leagues/73.png",
+          "flag": "https://media.api-sports.io/flags/br.svg",
+          "season": 2026,
+          "round": "1/128-finals",
+          "standings": false
+        },
+        "teams": {
+          "home": {
+            "id": 10690,
+            "name": "Rio Branco ES",
+            "logo": "https://media.api-sports.io/football/teams/10690.png",
+            "winner": false
+          },
+          "away": {
+            "id": 13975,
+            "name": "Athletic Club",
+            "logo": "https://media.api-sports.io/football/teams/13975.png",
+            "winner": true
+          }
+        },
+        "goals": {
+          "home": 1,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 1,
+            "away": 1
+          },
+          "fulltime": {
+            "home": 1,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": 5,
+            "away": 6
+          }
+        }
+      }
+    ],
+    "away_form": [
+      {
+        "fixture": {
+          "id": 1520749,
+          "referee": "Jonathan Benkenstein Pinheiro, Brazil",
+          "timezone": "UTC",
+          "date": "2026-06-27T14:00:00+00:00",
+          "timestamp": 1782568800,
+          "periods": {
+            "first": 1782568800,
+            "second": 1782572400
+          },
+          "venue": {
+            "id": null,
+            "name": "Estádio Germano Krüger",
+            "city": "Ponta Grossa"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 5
+          }
+        },
+        "league": {
+          "id": 72,
+          "name": "Serie B",
+          "country": "Brazil",
+          "logo": "https://media.api-sports.io/football/leagues/72.png",
+          "flag": "https://media.api-sports.io/flags/br.svg",
+          "season": 2026,
+          "round": "Regular Season - 15",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1223,
+            "name": "Operario-PR",
+            "logo": "https://media.api-sports.io/football/teams/1223.png",
+            "winner": true
+          },
+          "away": {
+            "id": 125,
+            "name": "America Mineiro",
+            "logo": "https://media.api-sports.io/football/teams/125.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 1,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 1,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1520734,
+          "referee": "Bruno Pereira Vasconcelos, Brazil",
+          "timezone": "UTC",
+          "date": "2026-06-21T21:30:00+00:00",
+          "timestamp": 1782077400,
+          "periods": {
+            "first": 1782077400,
+            "second": 1782081000
+          },
+          "venue": {
+            "id": null,
+            "name": "Estádio da Serrinha",
+            "city": "Goiânia"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 3
+          }
+        },
+        "league": {
+          "id": 72,
+          "name": "Serie B",
+          "country": "Brazil",
+          "logo": "https://media.api-sports.io/football/leagues/72.png",
+          "flag": "https://media.api-sports.io/flags/br.svg",
+          "season": 2026,
+          "round": "Regular Season - 14",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 151,
+            "name": "Goias",
+            "logo": "https://media.api-sports.io/football/teams/151.png",
+            "winner": false
+          },
+          "away": {
+            "id": 1223,
+            "name": "Operario-PR",
+            "logo": "https://media.api-sports.io/football/teams/1223.png",
+            "winner": true
+          }
+        },
+        "goals": {
+          "home": 0,
+          "away": 3
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 3
+          },
+          "fulltime": {
+            "home": 0,
+            "away": 3
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1520722,
+          "referee": "Jefferson Ferreira de Moraes, Brazil",
+          "timezone": "UTC",
+          "date": "2026-06-14T22:00:00+00:00",
+          "timestamp": 1781474400,
+          "periods": {
+            "first": 1781474400,
+            "second": 1781478000
+          },
+          "venue": {
+            "id": null,
+            "name": "Estádio Santa Cruz",
+            "city": "Ribeirao Preto"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 8
+          }
+        },
+        "league": {
+          "id": 72,
+          "name": "Serie B",
+          "country": "Brazil",
+          "logo": "https://media.api-sports.io/football/leagues/72.png",
+          "flag": "https://media.api-sports.io/flags/br.svg",
+          "season": 2026,
+          "round": "Regular Season - 13",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 2618,
+            "name": "Botafogo SP",
+            "logo": "https://media.api-sports.io/football/teams/2618.png",
+            "winner": true
+          },
+          "away": {
+            "id": 1223,
+            "name": "Operario-PR",
+            "logo": "https://media.api-sports.io/football/teams/1223.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 2,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 1
+          },
+          "fulltime": {
+            "home": 2,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1520716,
+          "referee": "Yuri Elino Ferreira Da Cruz, Brazil",
+          "timezone": "UTC",
+          "date": "2026-06-05T23:00:00+00:00",
+          "timestamp": 1780700400,
+          "periods": {
+            "first": 1780700400,
+            "second": 1780704000
+          },
+          "venue": {
+            "id": null,
+            "name": "Estádio Germano Krüger",
+            "city": "Ponta Grossa"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 7
+          }
+        },
+        "league": {
+          "id": 72,
+          "name": "Serie B",
+          "country": "Brazil",
+          "logo": "https://media.api-sports.io/football/leagues/72.png",
+          "flag": "https://media.api-sports.io/flags/br.svg",
+          "season": 2026,
+          "round": "Regular Season - 12",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1223,
+            "name": "Operario-PR",
+            "logo": "https://media.api-sports.io/football/teams/1223.png",
+            "winner": true
+          },
+          "away": {
+            "id": 152,
+            "name": "Juventude",
+            "logo": "https://media.api-sports.io/football/teams/152.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 2,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 1,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 2,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1520703,
+          "referee": "Gustavo Ervino Bauermann, Brazil",
+          "timezone": "UTC",
+          "date": "2026-05-31T19:00:00+00:00",
+          "timestamp": 1780254000,
+          "periods": {
+            "first": 1780254000,
+            "second": 1780257600
+          },
+          "venue": {
+            "id": null,
+            "name": "Estádio Governador Plácido Castelo",
+            "city": "Fortaleza"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 8
+          }
+        },
+        "league": {
+          "id": 72,
+          "name": "Serie B",
+          "country": "Brazil",
+          "logo": "https://media.api-sports.io/football/leagues/72.png",
+          "flag": "https://media.api-sports.io/flags/br.svg",
+          "season": 2026,
+          "round": "Regular Season - 11",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 129,
+            "name": "Ceara",
+            "logo": "https://media.api-sports.io/football/teams/129.png",
+            "winner": false
+          },
+          "away": {
+            "id": 1223,
+            "name": "Operario-PR",
+            "logo": "https://media.api-sports.io/football/teams/1223.png",
+            "winner": true
+          }
+        },
+        "goals": {
+          "home": 1,
+          "away": 2
+        },
+        "score": {
+          "halftime": {
+            "home": 1,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 1,
+            "away": 2
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1520699,
+          "referee": "Alex Gomes Stefano, Brazil",
+          "timezone": "UTC",
+          "date": "2026-05-24T23:30:00+00:00",
+          "timestamp": 1779665400,
+          "periods": {
+            "first": 1779665400,
+            "second": 1779669000
+          },
+          "venue": {
+            "id": null,
+            "name": "Estádio Germano Krüger",
+            "city": "Ponta Grossa"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 5
+          }
+        },
+        "league": {
+          "id": 72,
+          "name": "Serie B",
+          "country": "Brazil",
+          "logo": "https://media.api-sports.io/football/leagues/72.png",
+          "flag": "https://media.api-sports.io/flags/br.svg",
+          "season": 2026,
+          "round": "Regular Season - 10",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1223,
+            "name": "Operario-PR",
+            "logo": "https://media.api-sports.io/football/teams/1223.png",
+            "winner": null
+          },
+          "away": {
+            "id": 140,
+            "name": "Criciuma",
+            "logo": "https://media.api-sports.io/football/teams/140.png",
+            "winner": null
+          }
+        },
+        "goals": {
+          "home": 1,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 1,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1520685,
+          "referee": "Arthur Gomes Rabelo, Brazil",
+          "timezone": "UTC",
+          "date": "2026-05-16T19:00:00+00:00",
+          "timestamp": 1778958000,
+          "periods": {
+            "first": 1778958000,
+            "second": 1778961600
+          },
+          "venue": {
+            "id": null,
+            "name": "Estádio Germano Krüger",
+            "city": "Ponta Grossa"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 6
+          }
+        },
+        "league": {
+          "id": 72,
+          "name": "Serie B",
+          "country": "Brazil",
+          "logo": "https://media.api-sports.io/football/leagues/72.png",
+          "flag": "https://media.api-sports.io/flags/br.svg",
+          "season": 2026,
+          "round": "Regular Season - 9",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1223,
+            "name": "Operario-PR",
+            "logo": "https://media.api-sports.io/football/teams/1223.png",
+            "winner": false
+          },
+          "away": {
+            "id": 755,
+            "name": "Nautico Recife",
+            "logo": "https://media.api-sports.io/football/teams/755.png",
+            "winner": true
+          }
+        },
+        "goals": {
+          "home": 2,
+          "away": 6
+        },
+        "score": {
+          "halftime": {
+            "home": 1,
+            "away": 2
+          },
+          "fulltime": {
+            "home": 2,
+            "away": 6
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1537015,
+          "referee": "J. Vitor Gobi",
+          "timezone": "UTC",
+          "date": "2026-05-13T00:30:00+00:00",
+          "timestamp": 1778632200,
+          "periods": {
+            "first": 1778632200,
+            "second": 1778635800
+          },
+          "venue": {
+            "id": null,
+            "name": "Estádio do Maracanã",
+            "city": "Rio de Janeiro"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 11
+          }
+        },
+        "league": {
+          "id": 73,
+          "name": "Copa Do Brasil",
+          "country": "Brazil",
+          "logo": "https://media.api-sports.io/football/leagues/73.png",
+          "flag": "https://media.api-sports.io/flags/br.svg",
+          "season": 2026,
+          "round": "Round of 32",
+          "standings": false
+        },
+        "teams": {
+          "home": {
+            "id": 124,
+            "name": "Fluminense",
+            "logo": "https://media.api-sports.io/football/teams/124.png",
+            "winner": true
+          },
+          "away": {
+            "id": 1223,
+            "name": "Operario-PR",
+            "logo": "https://media.api-sports.io/football/teams/1223.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 2,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 2,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 2,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1520673,
+          "referee": "Leo Simao Holanda, Brazil",
+          "timezone": "UTC",
+          "date": "2026-05-09T23:30:00+00:00",
+          "timestamp": 1778369400,
+          "periods": {
+            "first": 1778369400,
+            "second": 1778373000
+          },
+          "venue": {
+            "id": null,
+            "name": "Estádio Rei Pelé",
+            "city": "Maceió"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 6
+          }
+        },
+        "league": {
+          "id": 72,
+          "name": "Serie B",
+          "country": "Brazil",
+          "logo": "https://media.api-sports.io/football/leagues/72.png",
+          "flag": "https://media.api-sports.io/flags/br.svg",
+          "season": 2026,
+          "round": "Regular Season - 8",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 146,
+            "name": "CRB",
+            "logo": "https://media.api-sports.io/football/teams/146.png",
+            "winner": true
+          },
+          "away": {
+            "id": 1223,
+            "name": "Operario-PR",
+            "logo": "https://media.api-sports.io/football/teams/1223.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 3,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 2,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 3,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1537330,
+          "referee": null,
+          "timezone": "UTC",
+          "date": "2026-05-07T00:30:00+00:00",
+          "timestamp": 1778113800,
+          "periods": {
+            "first": 1778113800,
+            "second": 1778117400
+          },
+          "venue": {
+            "id": null,
+            "name": null,
+            "city": "Ponta Grossa"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 8
+          }
+        },
+        "league": {
+          "id": 1224,
+          "name": "Copa Sul-Sudeste",
+          "country": "Brazil",
+          "logo": "https://media.api-sports.io/football/leagues/1224.png",
+          "flag": "https://media.api-sports.io/flags/br.svg",
+          "season": 2026,
+          "round": "Group Stage - 6",
+          "standings": false
+        },
+        "teams": {
+          "home": {
+            "id": 1223,
+            "name": "Operario-PR",
+            "logo": "https://media.api-sports.io/football/teams/1223.png",
+            "winner": false
+          },
+          "away": {
+            "id": 132,
+            "name": "Chapecoense-sc",
+            "logo": "https://media.api-sports.io/football/teams/132.png",
+            "winner": true
+          }
+        },
+        "goals": {
+          "home": 1,
+          "away": 2
+        },
+        "score": {
+          "halftime": {
+            "home": 1,
+            "away": 1
+          },
+          "fulltime": {
+            "home": 1,
+            "away": 2
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1520666,
+          "referee": "Anderson Daronco, Brazil",
+          "timezone": "UTC",
+          "date": "2026-05-03T19:00:00+00:00",
+          "timestamp": 1777834800,
+          "periods": {
+            "first": 1777834800,
+            "second": 1777838400
+          },
+          "venue": {
+            "id": null,
+            "name": "Estádio Germano Krüger",
+            "city": "Ponta Grossa"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 1
+          }
+        },
+        "league": {
+          "id": 72,
+          "name": "Serie B",
+          "country": "Brazil",
+          "logo": "https://media.api-sports.io/football/leagues/72.png",
+          "flag": "https://media.api-sports.io/flags/br.svg",
+          "season": 2026,
+          "round": "Regular Season - 7",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1223,
+            "name": "Operario-PR",
+            "logo": "https://media.api-sports.io/football/teams/1223.png",
+            "winner": true
+          },
+          "away": {
+            "id": 148,
+            "name": "Londrina",
+            "logo": "https://media.api-sports.io/football/teams/148.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 3,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 2,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 3,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1537326,
+          "referee": null,
+          "timezone": "UTC",
+          "date": "2026-04-29T23:00:00+00:00",
+          "timestamp": 1777503600,
+          "periods": {
+            "first": 1777503600,
+            "second": 1777507200
+          },
+          "venue": {
+            "id": null,
+            "name": "Estadio Lourival Gomes",
+            "city": "Saquarema"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 5
+          }
+        },
+        "league": {
+          "id": 1224,
+          "name": "Copa Sul-Sudeste",
+          "country": "Brazil",
+          "logo": "https://media.api-sports.io/football/leagues/1224.png",
+          "flag": "https://media.api-sports.io/flags/br.svg",
+          "season": 2026,
+          "round": "Group Stage - 5",
+          "standings": false
+        },
+        "teams": {
+          "home": {
+            "id": 13115,
+            "name": "Sampaio Corrêa RJ",
+            "logo": "https://media.api-sports.io/football/teams/13115.png",
+            "winner": false
+          },
+          "away": {
+            "id": 1223,
+            "name": "Operario-PR",
+            "logo": "https://media.api-sports.io/football/teams/1223.png",
+            "winner": true
+          }
+        },
+        "goals": {
+          "home": 1,
+          "away": 2
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 1,
+            "away": 2
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1520656,
+          "referee": "Jefferson Ferreira de Moraes, Brazil",
+          "timezone": "UTC",
+          "date": "2026-04-26T21:00:00+00:00",
+          "timestamp": 1777237200,
+          "periods": {
+            "first": 1777237200,
+            "second": 1777240800
+          },
+          "venue": {
+            "id": null,
+            "name": "Estádio Germano Krüger",
+            "city": "Ponta Grossa"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 9
+          }
+        },
+        "league": {
+          "id": 72,
+          "name": "Serie B",
+          "country": "Brazil",
+          "logo": "https://media.api-sports.io/football/leagues/72.png",
+          "flag": "https://media.api-sports.io/flags/br.svg",
+          "season": 2026,
+          "round": "Regular Season - 6",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1223,
+            "name": "Operario-PR",
+            "logo": "https://media.api-sports.io/football/teams/1223.png",
+            "winner": null
+          },
+          "away": {
+            "id": 154,
+            "name": "Fortaleza EC",
+            "logo": "https://media.api-sports.io/football/teams/154.png",
+            "winner": null
+          }
+        },
+        "goals": {
+          "home": 0,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 0,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1537028,
+          "referee": "M. Delgado",
+          "timezone": "UTC",
+          "date": "2026-04-24T00:30:00+00:00",
+          "timestamp": 1776990600,
+          "periods": {
+            "first": 1776990600,
+            "second": 1776994200
+          },
+          "venue": {
+            "id": null,
+            "name": "Estádio Germano Krüger",
+            "city": "Ponta Grossa"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 6
+          }
+        },
+        "league": {
+          "id": 73,
+          "name": "Copa Do Brasil",
+          "country": "Brazil",
+          "logo": "https://media.api-sports.io/football/leagues/73.png",
+          "flag": "https://media.api-sports.io/flags/br.svg",
+          "season": 2026,
+          "round": "Round of 32",
+          "standings": false
+        },
+        "teams": {
+          "home": {
+            "id": 1223,
+            "name": "Operario-PR",
+            "logo": "https://media.api-sports.io/football/teams/1223.png",
+            "winner": null
+          },
+          "away": {
+            "id": 124,
+            "name": "Fluminense",
+            "logo": "https://media.api-sports.io/football/teams/124.png",
+            "winner": null
+          }
+        },
+        "goals": {
+          "home": 0,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 0,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1520649,
+          "referee": "Jodis Nascimento de Souza, Brazil",
+          "timezone": "UTC",
+          "date": "2026-04-18T21:30:00+00:00",
+          "timestamp": 1776547800,
+          "periods": {
+            "first": 1776547800,
+            "second": 1776551400
+          },
+          "venue": {
+            "id": null,
+            "name": "Estádio Onésio Brasileiro Alvarenga",
+            "city": "Goiânia"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 9
+          }
+        },
+        "league": {
+          "id": 72,
+          "name": "Serie B",
+          "country": "Brazil",
+          "logo": "https://media.api-sports.io/football/leagues/72.png",
+          "flag": "https://media.api-sports.io/flags/br.svg",
+          "season": 2026,
+          "round": "Regular Season - 5",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 142,
+            "name": "Vila Nova",
+            "logo": "https://media.api-sports.io/football/teams/142.png",
+            "winner": true
+          },
+          "away": {
+            "id": 1223,
+            "name": "Operario-PR",
+            "logo": "https://media.api-sports.io/football/teams/1223.png",
+            "winner": false
+          }
+        },
+        "goals": {
+          "home": 2,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 1,
+            "away": 1
+          },
+          "fulltime": {
+            "home": 2,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1537320,
+          "referee": null,
+          "timezone": "UTC",
+          "date": "2026-04-15T22:00:00+00:00",
+          "timestamp": 1776290400,
+          "periods": {
+            "first": 1776290400,
+            "second": 1776294000
+          },
+          "venue": {
+            "id": null,
+            "name": null,
+            "city": "Ponta Grossa"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 8
+          }
+        },
+        "league": {
+          "id": 1224,
+          "name": "Copa Sul-Sudeste",
+          "country": "Brazil",
+          "logo": "https://media.api-sports.io/football/leagues/1224.png",
+          "flag": "https://media.api-sports.io/flags/br.svg",
+          "season": 2026,
+          "round": "Group Stage - 4",
+          "standings": false
+        },
+        "teams": {
+          "home": {
+            "id": 1223,
+            "name": "Operario-PR",
+            "logo": "https://media.api-sports.io/football/teams/1223.png",
+            "winner": null
+          },
+          "away": {
+            "id": 7834,
+            "name": "Novorizontino",
+            "logo": "https://media.api-sports.io/football/teams/7834.png",
+            "winner": null
+          }
+        },
+        "goals": {
+          "home": 1,
+          "away": 1
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 1,
+            "away": 1
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1520636,
+          "referee": "Thaillan Azevedo Gomes, Brazil",
+          "timezone": "UTC",
+          "date": "2026-04-12T21:00:00+00:00",
+          "timestamp": 1776027600,
+          "periods": {
+            "first": 1776027600,
+            "second": 1776031200
+          },
+          "venue": {
+            "id": null,
+            "name": "Estádio Germano Krüger",
+            "city": "Ponta Grossa"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 7
+          }
+        },
+        "league": {
+          "id": 72,
+          "name": "Serie B",
+          "country": "Brazil",
+          "logo": "https://media.api-sports.io/football/leagues/72.png",
+          "flag": "https://media.api-sports.io/flags/br.svg",
+          "season": 2026,
+          "round": "Regular Season - 4",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 1223,
+            "name": "Operario-PR",
+            "logo": "https://media.api-sports.io/football/teams/1223.png",
+            "winner": null
+          },
+          "away": {
+            "id": 1193,
+            "name": "Cuiaba",
+            "logo": "https://media.api-sports.io/football/teams/1193.png",
+            "winner": null
+          }
+        },
+        "goals": {
+          "home": 0,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 0,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1537311,
+          "referee": null,
+          "timezone": "UTC",
+          "date": "2026-04-09T00:30:00+00:00",
+          "timestamp": 1775694600,
+          "periods": {
+            "first": 1775694600,
+            "second": 1775698200
+          },
+          "venue": {
+            "id": null,
+            "name": "Estadio Olimpico Albino Turbay",
+            "city": "Cianorte"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 7
+          }
+        },
+        "league": {
+          "id": 1224,
+          "name": "Copa Sul-Sudeste",
+          "country": "Brazil",
+          "logo": "https://media.api-sports.io/football/leagues/1224.png",
+          "flag": "https://media.api-sports.io/flags/br.svg",
+          "season": 2026,
+          "round": "Group Stage - 3",
+          "standings": false
+        },
+        "teams": {
+          "home": {
+            "id": 1194,
+            "name": "Cianorte",
+            "logo": "https://media.api-sports.io/football/teams/1194.png",
+            "winner": null
+          },
+          "away": {
+            "id": 1223,
+            "name": "Operario-PR",
+            "logo": "https://media.api-sports.io/football/teams/1223.png",
+            "winner": null
+          }
+        },
+        "goals": {
+          "home": 0,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 0,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1520621,
+          "referee": "Denis da Silva Ribeiro Serafim, Brazil",
+          "timezone": "UTC",
+          "date": "2026-04-05T19:00:00+00:00",
+          "timestamp": 1775415600,
+          "periods": {
+            "first": 1775415600,
+            "second": 1775419200
+          },
+          "venue": {
+            "id": null,
+            "name": "Estádio da Ressacada",
+            "city": "Florianópolis"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 8
+          }
+        },
+        "league": {
+          "id": 72,
+          "name": "Serie B",
+          "country": "Brazil",
+          "logo": "https://media.api-sports.io/football/leagues/72.png",
+          "flag": "https://media.api-sports.io/flags/br.svg",
+          "season": 2026,
+          "round": "Regular Season - 3",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 145,
+            "name": "Avai",
+            "logo": "https://media.api-sports.io/football/teams/145.png",
+            "winner": null
+          },
+          "away": {
+            "id": 1223,
+            "name": "Operario-PR",
+            "logo": "https://media.api-sports.io/football/teams/1223.png",
+            "winner": null
+          }
+        },
+        "goals": {
+          "home": 0,
+          "away": 0
+        },
+        "score": {
+          "halftime": {
+            "home": 0,
+            "away": 0
+          },
+          "fulltime": {
+            "home": 0,
+            "away": 0
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      },
+      {
+        "fixture": {
+          "id": 1520618,
+          "referee": "Leo Simao Holanda, Brazil",
+          "timezone": "UTC",
+          "date": "2026-04-02T22:00:00+00:00",
+          "timestamp": 1775167200,
+          "periods": {
+            "first": 1775167200,
+            "second": 1775170800
+          },
+          "venue": {
+            "id": null,
+            "name": "Estádio Primeiro de Maio",
+            "city": "São Bernardo do Campo"
+          },
+          "status": {
+            "long": "Match Finished",
+            "short": "FT",
+            "elapsed": 90,
+            "extra": 7
+          }
+        },
+        "league": {
+          "id": 72,
+          "name": "Serie B",
+          "country": "Brazil",
+          "logo": "https://media.api-sports.io/football/leagues/72.png",
+          "flag": "https://media.api-sports.io/flags/br.svg",
+          "season": 2026,
+          "round": "Regular Season - 2",
+          "standings": true
+        },
+        "teams": {
+          "home": {
+            "id": 7865,
+            "name": "São Bernardo",
+            "logo": "https://media.api-sports.io/football/teams/7865.png",
+            "winner": false
+          },
+          "away": {
+            "id": 1223,
+            "name": "Operario-PR",
+            "logo": "https://media.api-sports.io/football/teams/1223.png",
+            "winner": true
+          }
+        },
+        "goals": {
+          "home": 1,
+          "away": 2
+        },
+        "score": {
+          "halftime": {
+            "home": 1,
+            "away": 1
+          },
+          "fulltime": {
+            "home": 1,
+            "away": 2
+          },
+          "extratime": {
+            "home": null,
+            "away": null
+          },
+          "penalty": {
+            "home": null,
+            "away": null
+          }
+        }
+      }
+    ],
+    "home_stats": {
+      "league": {
+        "id": 72,
+        "name": "Serie B",
+        "country": "Brazil",
+        "logo": "https://media.api-sports.io/football/leagues/72.png",
+        "flag": "https://media.api-sports.io/flags/br.svg",
+        "season": 2026
+      },
+      "team": {
+        "id": 13975,
+        "name": "Athletic Club",
+        "logo": "https://media.api-sports.io/football/teams/13975.png"
+      },
+      "form": "WDDWLLDDDWWDDLW",
+      "fixtures": {
+        "played": {
+          "home": 8,
+          "away": 7,
+          "total": 15
+        },
+        "wins": {
+          "home": 3,
+          "away": 2,
+          "total": 5
+        },
+        "draws": {
+          "home": 4,
+          "away": 3,
+          "total": 7
+        },
+        "loses": {
+          "home": 1,
+          "away": 2,
+          "total": 3
+        }
+      },
+      "goals": {
+        "for": {
+          "total": {
+            "home": 7,
+            "away": 9,
+            "total": 16
+          },
+          "average": {
+            "home": "0.9",
+            "away": "1.3",
+            "total": "1.1"
+          },
+          "minute": {
+            "0-15": {
+              "total": 1,
+              "percentage": "6.25%"
+            },
+            "16-30": {
+              "total": 3,
+              "percentage": "18.75%"
+            },
+            "31-45": {
+              "total": 3,
+              "percentage": "18.75%"
+            },
+            "46-60": {
+              "total": 2,
+              "percentage": "12.50%"
+            },
+            "61-75": {
+              "total": 3,
+              "percentage": "18.75%"
+            },
+            "76-90": {
+              "total": 4,
+              "percentage": "25.00%"
+            },
+            "91-105": {
+              "total": null,
+              "percentage": null
+            },
+            "106-120": {
+              "total": null,
+              "percentage": null
+            }
+          },
+          "under_over": {
+            "0.5": {
+              "over": 12,
+              "under": 3
+            },
+            "1.5": {
+              "over": 3,
+              "under": 12
+            },
+            "2.5": {
+              "over": 1,
+              "under": 14
+            },
+            "3.5": {
+              "over": 0,
+              "under": 15
+            },
+            "4.5": {
+              "over": 0,
+              "under": 15
+            }
+          }
+        },
+        "against": {
+          "total": {
+            "home": 5,
+            "away": 10,
+            "total": 15
+          },
+          "average": {
+            "home": "0.6",
+            "away": "1.4",
+            "total": "1.0"
+          },
+          "minute": {
+            "0-15": {
+              "total": 1,
+              "percentage": "6.67%"
+            },
+            "16-30": {
+              "total": 1,
+              "percentage": "6.67%"
+            },
+            "31-45": {
+              "total": 3,
+              "percentage": "20.00%"
+            },
+            "46-60": {
+              "total": 2,
+              "percentage": "13.33%"
+            },
+            "61-75": {
+              "total": 4,
+              "percentage": "26.67%"
+            },
+            "76-90": {
+              "total": 4,
+              "percentage": "26.67%"
+            },
+            "91-105": {
+              "total": null,
+              "percentage": null
+            },
+            "106-120": {
+              "total": null,
+              "percentage": null
+            }
+          },
+          "under_over": {
+            "0.5": {
+              "over": 12,
+              "under": 3
+            },
+            "1.5": {
+              "over": 3,
+              "under": 12
+            },
+            "2.5": {
+              "over": 0,
+              "under": 15
+            },
+            "3.5": {
+              "over": 0,
+              "under": 15
+            },
+            "4.5": {
+              "over": 0,
+              "under": 15
+            }
+          }
+        }
+      },
+      "biggest": {
+        "streak": {
+          "wins": 2,
+          "draws": 3,
+          "loses": 2
+        },
+        "wins": {
+          "home": "2-1",
+          "away": "2-3"
+        },
+        "loses": {
+          "home": "0-1",
+          "away": "2-0"
+        },
+        "goals": {
+          "for": {
+            "home": 2,
+            "away": 3
+          },
+          "against": {
+            "home": 1,
+            "away": 2
+          }
+        }
+      },
+      "clean_sheet": {
+        "home": 3,
+        "away": 0,
+        "total": 3
+      },
+      "failed_to_score": {
+        "home": 2,
+        "away": 1,
+        "total": 3
+      },
+      "penalty": {
+        "scored": {
+          "total": 1,
+          "percentage": "50.00%"
+        },
+        "missed": {
+          "total": 1,
+          "percentage": "50.00%"
+        },
+        "total": 2
+      },
+      "lineups": [
+        {
+          "formation": "4-3-3",
+          "played": 6
+        },
+        {
+          "formation": "4-2-3-1",
+          "played": 3
+        },
+        {
+          "formation": "3-4-2-1",
+          "played": 3
+        },
+        {
+          "formation": "4-3-1-2",
+          "played": 1
+        },
+        {
+          "formation": "3-4-1-2",
+          "played": 1
+        },
+        {
+          "formation": "4-1-4-1",
+          "played": 1
+        }
+      ],
+      "cards": {
+        "yellow": {
+          "0-15": {
+            "total": 2,
+            "percentage": "5.00%"
+          },
+          "16-30": {
+            "total": 5,
+            "percentage": "12.50%"
+          },
+          "31-45": {
+            "total": 6,
+            "percentage": "15.00%"
+          },
+          "46-60": {
+            "total": 10,
+            "percentage": "25.00%"
+          },
+          "61-75": {
+            "total": 4,
+            "percentage": "10.00%"
+          },
+          "76-90": {
+            "total": 5,
+            "percentage": "12.50%"
+          },
+          "91-105": {
+            "total": 6,
+            "percentage": "15.00%"
+          },
+          "106-120": {
+            "total": null,
+            "percentage": null
+          },
+          "": {
+            "total": 2,
+            "percentage": "5.00%"
+          }
+        },
+        "red": {
+          "0-15": {
+            "total": null,
+            "percentage": null
+          },
+          "16-30": {
+            "total": null,
+            "percentage": null
+          },
+          "31-45": {
+            "total": 3,
+            "percentage": "42.86%"
+          },
+          "46-60": {
+            "total": 3,
+            "percentage": "42.86%"
+          },
+          "61-75": {
+            "total": null,
+            "percentage": null
+          },
+          "76-90": {
+            "total": 1,
+            "percentage": "14.29%"
+          },
+          "91-105": {
+            "total": null,
+            "percentage": null
+          },
+          "106-120": {
+            "total": null,
+            "percentage": null
+          }
+        }
+      }
+    },
+    "away_stats": {
+      "league": {
+        "id": 72,
+        "name": "Serie B",
+        "country": "Brazil",
+        "logo": "https://media.api-sports.io/football/leagues/72.png",
+        "flag": "https://media.api-sports.io/flags/br.svg",
+        "season": 2026
+      },
+      "team": {
+        "id": 1223,
+        "name": "Operario-PR",
+        "logo": "https://media.api-sports.io/football/teams/1223.png"
+      },
+      "form": "WWDDLDWLLDWWLWW",
+      "fixtures": {
+        "played": {
+          "home": 8,
+          "away": 7,
+          "total": 15
+        },
+        "wins": {
+          "home": 4,
+          "away": 3,
+          "total": 7
+        },
+        "draws": {
+          "home": 3,
+          "away": 1,
+          "total": 4
+        },
+        "loses": {
+          "home": 1,
+          "away": 3,
+          "total": 4
+        }
+      },
+      "goals": {
+        "for": {
+          "total": {
+            "home": 10,
+            "away": 9,
+            "total": 19
+          },
+          "average": {
+            "home": "1.3",
+            "away": "1.3",
+            "total": "1.3"
+          },
+          "minute": {
+            "0-15": {
+              "total": 3,
+              "percentage": "15.79%"
+            },
+            "16-30": {
+              "total": 2,
+              "percentage": "10.53%"
+            },
+            "31-45": {
+              "total": 6,
+              "percentage": "31.58%"
+            },
+            "46-60": {
+              "total": 3,
+              "percentage": "15.79%"
+            },
+            "61-75": {
+              "total": 2,
+              "percentage": "10.53%"
+            },
+            "76-90": {
+              "total": 3,
+              "percentage": "15.79%"
+            },
+            "91-105": {
+              "total": null,
+              "percentage": null
+            },
+            "106-120": {
+              "total": null,
+              "percentage": null
+            }
+          },
+          "under_over": {
+            "0.5": {
+              "over": 11,
+              "under": 4
+            },
+            "1.5": {
+              "over": 6,
+              "under": 9
+            },
+            "2.5": {
+              "over": 2,
+              "under": 13
+            },
+            "3.5": {
+              "over": 0,
+              "under": 15
+            },
+            "4.5": {
+              "over": 0,
+              "under": 15
+            }
+          }
+        },
+        "against": {
+          "total": {
+            "home": 8,
+            "away": 9,
+            "total": 17
+          },
+          "average": {
+            "home": "1.0",
+            "away": "1.3",
+            "total": "1.1"
+          },
+          "minute": {
+            "0-15": {
+              "total": 2,
+              "percentage": "11.76%"
+            },
+            "16-30": {
+              "total": 3,
+              "percentage": "17.65%"
+            },
+            "31-45": {
+              "total": 2,
+              "percentage": "11.76%"
+            },
+            "46-60": {
+              "total": 4,
+              "percentage": "23.53%"
+            },
+            "61-75": {
+              "total": 3,
+              "percentage": "17.65%"
+            },
+            "76-90": {
+              "total": 3,
+              "percentage": "17.65%"
+            },
+            "91-105": {
+              "total": null,
+              "percentage": null
+            },
+            "106-120": {
+              "total": null,
+              "percentage": null
+            }
+          },
+          "under_over": {
+            "0.5": {
+              "over": 8,
+              "under": 7
+            },
+            "1.5": {
+              "over": 4,
+              "under": 11
+            },
+            "2.5": {
+              "over": 2,
+              "under": 13
+            },
+            "3.5": {
+              "over": 1,
+              "under": 14
+            },
+            "4.5": {
+              "over": 1,
+              "under": 14
+            }
+          }
+        }
+      },
+      "biggest": {
+        "streak": {
+          "wins": 2,
+          "draws": 2,
+          "loses": 2
+        },
+        "wins": {
+          "home": "3-0",
+          "away": "0-3"
+        },
+        "loses": {
+          "home": "2-6",
+          "away": "3-0"
+        },
+        "goals": {
+          "for": {
+            "home": 3,
+            "away": 3
+          },
+          "against": {
+            "home": 6,
+            "away": 3
+          }
+        }
+      },
+      "clean_sheet": {
+        "home": 5,
+        "away": 2,
+        "total": 7
+      },
+      "failed_to_score": {
+        "home": 2,
+        "away": 2,
+        "total": 4
+      },
+      "penalty": {
+        "scored": {
+          "total": 3,
+          "percentage": "100.00%"
+        },
+        "missed": {
+          "total": 0,
+          "percentage": "0%"
+        },
+        "total": 3
+      },
+      "lineups": [
+        {
+          "formation": "4-2-3-1",
+          "played": 5
+        },
+        {
+          "formation": "4-1-4-1",
+          "played": 5
+        },
+        {
+          "formation": "4-3-3",
+          "played": 3
+        },
+        {
+          "formation": "4-4-1-1",
+          "played": 2
+        }
+      ],
+      "cards": {
+        "yellow": {
+          "0-15": {
+            "total": 1,
+            "percentage": "2.44%"
+          },
+          "16-30": {
+            "total": 12,
+            "percentage": "29.27%"
+          },
+          "31-45": {
+            "total": 8,
+            "percentage": "19.51%"
+          },
+          "46-60": {
+            "total": 3,
+            "percentage": "7.32%"
+          },
+          "61-75": {
+            "total": 4,
+            "percentage": "9.76%"
+          },
+          "76-90": {
+            "total": 9,
+            "percentage": "21.95%"
+          },
+          "91-105": {
+            "total": 3,
+            "percentage": "7.32%"
+          },
+          "106-120": {
+            "total": null,
+            "percentage": null
+          },
+          "": {
+            "total": 1,
+            "percentage": "2.44%"
+          }
+        },
+        "red": {
+          "0-15": {
+            "total": null,
+            "percentage": null
+          },
+          "16-30": {
+            "total": null,
+            "percentage": null
+          },
+          "31-45": {
+            "total": null,
+            "percentage": null
+          },
+          "46-60": {
+            "total": null,
+            "percentage": null
+          },
+          "61-75": {
+            "total": null,
+            "percentage": null
+          },
+          "76-90": {
+            "total": null,
+            "percentage": null
+          },
+          "91-105": {
+            "total": 1,
+            "percentage": "100.00%"
+          },
+          "106-120": {
+            "total": null,
+            "percentage": null
+          }
+        }
+      }
+    },
+    "home_danger": {
+      "shots_on_target_avg": 3.6,
+      "corners_avg": 6.4,
+      "venue": "home",
+      "n_fixtures": 5,
+      "fixture_ids": [
+        1520740,
+        1520720,
+        1520700,
+        1520680,
+        1520670
+      ],
+      "errors": []
+    },
+    "away_danger": {
+      "shots_on_target_avg": 3.2,
+      "corners_avg": 1.4,
+      "venue": "away",
+      "n_fixtures": 5,
+      "fixture_ids": [
+        1520734,
+        1520722,
+        1520703,
+        1537015,
+        1520673
+      ],
+      "errors": []
+    },
+    "home_player_shots": {
+      "venue": "home",
+      "n_fixtures": 5,
+      "fixture_ids": [
+        1520740,
+        1520720,
+        1520700,
+        1520680,
+        1520670
+      ],
+      "players": [
+        {
+          "player_id": 660332,
+          "name": "Luiz Fernando",
+          "position": "F",
+          "appearances": 1,
+          "starts": 0,
+          "minutes_avg": 21.0,
+          "shots_total_avg": 2.0,
+          "shots_on_target_avg": 2.0,
+          "shots_total_per90": 8.57,
+          "shots_on_target_per90": 8.57,
+          "fixture_ids": [
+            1520740
+          ]
+        },
+        {
+          "player_id": 266389,
+          "name": "Ian Luccas",
+          "position": "F",
+          "appearances": 4,
+          "starts": 4,
+          "minutes_avg": 83.8,
+          "shots_total_avg": 3.0,
+          "shots_on_target_avg": 0.75,
+          "shots_total_per90": 3.22,
+          "shots_on_target_per90": 0.81,
+          "fixture_ids": [
+            1520740,
+            1520720,
+            1520700,
+            1520680
+          ]
+        },
+        {
+          "player_id": 346824,
+          "name": "Dixon Vera",
+          "position": "F",
+          "appearances": 4,
+          "starts": 3,
+          "minutes_avg": 51.8,
+          "shots_total_avg": 0.75,
+          "shots_on_target_avg": 0.75,
+          "shots_total_per90": 1.3,
+          "shots_on_target_per90": 1.3,
+          "fixture_ids": [
+            1520740,
+            1520720,
+            1520700,
+            1520680
+          ]
+        },
+        {
+          "player_id": 396358,
+          "name": "Kauan Rodrigues",
+          "position": "F",
+          "appearances": 3,
+          "starts": 3,
+          "minutes_avg": 87.0,
+          "shots_total_avg": 0.67,
+          "shots_on_target_avg": 0.67,
+          "shots_total_per90": 0.69,
+          "shots_on_target_per90": 0.69,
+          "fixture_ids": [
+            1520740,
+            1520720,
+            1520670
+          ]
+        },
+        {
+          "player_id": 314162,
+          "name": "Diogo Batista de Souza",
+          "position": "D",
+          "appearances": 4,
+          "starts": 4,
+          "minutes_avg": 90.0,
+          "shots_total_avg": 1.25,
+          "shots_on_target_avg": 0.5,
+          "shots_total_per90": 1.25,
+          "shots_on_target_per90": 0.5,
+          "fixture_ids": [
+            1520720,
+            1520700,
+            1520680,
+            1520670
+          ]
+        },
+        {
+          "player_id": 10376,
+          "name": "Zeca",
+          "position": "D",
+          "appearances": 4,
+          "starts": 4,
+          "minutes_avg": 81.5,
+          "shots_total_avg": 0.75,
+          "shots_on_target_avg": 0.5,
+          "shots_total_per90": 0.83,
+          "shots_on_target_per90": 0.55,
+          "fixture_ids": [
+            1520740,
+            1520720,
+            1520700,
+            1520670
+          ]
+        },
+        {
+          "player_id": 363316,
+          "name": "Jota",
+          "position": "M",
+          "appearances": 5,
+          "starts": 4,
+          "minutes_avg": 68.6,
+          "shots_total_avg": 1.6,
+          "shots_on_target_avg": 0.4,
+          "shots_total_per90": 2.1,
+          "shots_on_target_per90": 0.52,
+          "fixture_ids": [
+            1520740,
+            1520720,
+            1520700,
+            1520680,
+            1520670
+          ]
+        },
+        {
+          "player_id": 608547,
+          "name": "Bruninho",
+          "position": "F",
+          "appearances": 4,
+          "starts": 0,
+          "minutes_avg": 29.0,
+          "shots_total_avg": 0.25,
+          "shots_on_target_avg": 0.25,
+          "shots_total_per90": 0.78,
+          "shots_on_target_per90": 0.78,
+          "fixture_ids": [
+            1520740,
+            1520720,
+            1520700,
+            1520670
+          ]
+        },
+        {
+          "player_id": 504618,
+          "name": "Felipe Vieira",
+          "position": "D",
+          "appearances": 1,
+          "starts": 1,
+          "minutes_avg": 90.0,
+          "shots_total_avg": 1.0,
+          "shots_on_target_avg": 0.0,
+          "shots_total_per90": 1.0,
+          "shots_on_target_per90": 0.0,
+          "fixture_ids": [
+            1520740
+          ]
+        },
+        {
+          "player_id": 452915,
+          "name": "Joao Miguel",
+          "position": "M",
+          "appearances": 5,
+          "starts": 5,
+          "minutes_avg": 90.0,
+          "shots_total_avg": 1.0,
+          "shots_on_target_avg": 0.0,
+          "shots_total_per90": 1.0,
+          "shots_on_target_per90": 0.0,
+          "fixture_ids": [
+            1520740,
+            1520720,
+            1520700,
+            1520680,
+            1520670
+          ]
+        },
+        {
+          "player_id": 356757,
+          "name": "Enzo",
+          "position": "M",
+          "appearances": 1,
+          "starts": 1,
+          "minutes_avg": 89.0,
+          "shots_total_avg": 1.0,
+          "shots_on_target_avg": 0.0,
+          "shots_total_per90": 1.01,
+          "shots_on_target_per90": 0.0,
+          "fixture_ids": [
+            1520740
+          ]
+        },
+        {
+          "player_id": 374663,
+          "name": "Gabriel Moyses",
+          "position": "F",
+          "appearances": 3,
+          "starts": 2,
+          "minutes_avg": 49.0,
+          "shots_total_avg": 1.0,
+          "shots_on_target_avg": 0.0,
+          "shots_total_per90": 1.84,
+          "shots_on_target_per90": 0.0,
+          "fixture_ids": [
+            1520720,
+            1520680,
+            1520670
+          ]
+        },
+        {
+          "player_id": 269419,
+          "name": "Gustavinho",
+          "position": "M",
+          "appearances": 1,
+          "starts": 0,
+          "minutes_avg": 26.0,
+          "shots_total_avg": 1.0,
+          "shots_on_target_avg": 0.0,
+          "shots_total_per90": 3.46,
+          "shots_on_target_per90": 0.0,
+          "fixture_ids": [
+            1520720
+          ]
+        },
+        {
+          "player_id": 195975,
+          "name": "Jhonathan",
+          "position": "D",
+          "appearances": 5,
+          "starts": 5,
+          "minutes_avg": 83.4,
+          "shots_total_avg": 0.8,
+          "shots_on_target_avg": 0.0,
+          "shots_total_per90": 0.86,
+          "shots_on_target_per90": 0.0,
+          "fixture_ids": [
+            1520740,
+            1520720,
+            1520700,
+            1520680,
+            1520670
+          ]
+        },
+        {
+          "player_id": 454454,
+          "name": "Max",
+          "position": "F",
+          "appearances": 5,
+          "starts": 5,
+          "minutes_avg": 65.2,
+          "shots_total_avg": 0.8,
+          "shots_on_target_avg": 0.0,
+          "shots_total_per90": 1.1,
+          "shots_on_target_per90": 0.0,
+          "fixture_ids": [
+            1520740,
+            1520720,
+            1520700,
+            1520680,
+            1520670
+          ]
+        },
+        {
+          "player_id": 458373,
+          "name": "Marcelo Henrique",
+          "position": "D",
+          "appearances": 3,
+          "starts": 2,
+          "minutes_avg": 71.0,
+          "shots_total_avg": 0.67,
+          "shots_on_target_avg": 0.0,
+          "shots_total_per90": 0.85,
+          "shots_on_target_per90": 0.0,
+          "fixture_ids": [
+            1520720,
+            1520700,
+            1520680
+          ]
+        },
+        {
+          "player_id": 416073,
+          "name": "Oluwasegun Samuel Otusanya",
+          "position": "F",
+          "appearances": 2,
+          "starts": 0,
+          "minutes_avg": 33.0,
+          "shots_total_avg": 0.5,
+          "shots_on_target_avg": 0.0,
+          "shots_total_per90": 1.36,
+          "shots_on_target_per90": 0.0,
+          "fixture_ids": [
+            1520680,
+            1520670
+          ]
+        },
+        {
+          "player_id": 322327,
+          "name": "Lucas Belezi",
+          "position": "D",
+          "appearances": 4,
+          "starts": 4,
+          "minutes_avg": 90.0,
+          "shots_total_avg": 0.25,
+          "shots_on_target_avg": 0.0,
+          "shots_total_per90": 0.25,
+          "shots_on_target_per90": 0.0,
+          "fixture_ids": [
+            1520720,
+            1520700,
+            1520680,
+            1520670
+          ]
+        },
+        {
+          "player_id": 9556,
+          "name": "Luan Polli",
+          "position": "G",
+          "appearances": 5,
+          "starts": 5,
+          "minutes_avg": 90.0,
+          "shots_total_avg": 0.0,
+          "shots_on_target_avg": 0.0,
+          "shots_total_per90": 0.0,
+          "shots_on_target_per90": 0.0,
+          "fixture_ids": [
+            1520740,
+            1520720,
+            1520700,
+            1520680,
+            1520670
+          ]
+        },
+        {
+          "player_id": 129966,
+          "name": "Pedro Oliveira",
+          "position": "M",
+          "appearances": 1,
+          "starts": 1,
+          "minutes_avg": 75.0,
+          "shots_total_avg": 0.0,
+          "shots_on_target_avg": 0.0,
+          "shots_total_per90": 0.0,
+          "shots_on_target_per90": 0.0,
+          "fixture_ids": [
+            1520670
+          ]
+        },
+        {
+          "player_id": 307870,
+          "name": "Gian Cabezas",
+          "position": "M",
+          "appearances": 3,
+          "starts": 1,
+          "minutes_avg": 40.0,
+          "shots_total_avg": 0.0,
+          "shots_on_target_avg": 0.0,
+          "shots_total_per90": 0.0,
+          "shots_on_target_per90": 0.0,
+          "fixture_ids": [
+            1520700,
+            1520680,
+            1520670
+          ]
+        },
+        {
+          "player_id": 305980,
+          "name": "Douglas Pele",
+          "position": "M",
+          "appearances": 2,
+          "starts": 1,
+          "minutes_avg": 36.0,
+          "shots_total_avg": 0.0,
+          "shots_on_target_avg": 0.0,
+          "shots_total_per90": 0.0,
+          "shots_on_target_per90": 0.0,
+          "fixture_ids": [
+            1520740,
+            1520680
+          ]
+        },
+        {
+          "player_id": 420690,
+          "name": "Ruan Lucas de Assis",
+          "position": "F",
+          "appearances": 1,
+          "starts": 0,
+          "minutes_avg": 26.0,
+          "shots_total_avg": 0.0,
+          "shots_on_target_avg": 0.0,
+          "shots_total_per90": 0.0,
+          "shots_on_target_per90": 0.0,
+          "fixture_ids": [
+            1520680
+          ]
+        }
+      ],
+      "errors": []
+    },
+    "away_player_shots": {
+      "venue": "away",
+      "n_fixtures": 5,
+      "fixture_ids": [
+        1520734,
+        1520722,
+        1520703,
+        1537015,
+        1520673
+      ],
+      "players": [
+        {
+          "player_id": 21093,
+          "name": "Gabriel Boschilia",
+          "position": "F",
+          "appearances": 5,
+          "starts": 5,
+          "minutes_avg": 93.8,
+          "shots_total_avg": 1.2,
+          "shots_on_target_avg": 0.8,
+          "shots_total_per90": 1.15,
+          "shots_on_target_per90": 0.77,
+          "fixture_ids": [
+            1520734,
+            1520722,
+            1520703,
+            1537015,
+            1520673
+          ]
+        },
+        {
+          "player_id": 41395,
+          "name": "Hildeberto Pereira",
+          "position": "M",
+          "appearances": 5,
+          "starts": 4,
+          "minutes_avg": 54.0,
+          "shots_total_avg": 0.6,
+          "shots_on_target_avg": 0.6,
+          "shots_total_per90": 1.0,
+          "shots_on_target_per90": 1.0,
+          "fixture_ids": [
+            1520734,
+            1520722,
+            1520703,
+            1537015,
+            1520673
+          ]
+        },
+        {
+          "player_id": 403432,
+          "name": "Gabriel Feliciano",
+          "position": "D",
+          "appearances": 4,
+          "starts": 3,
+          "minutes_avg": 78.8,
+          "shots_total_avg": 1.5,
+          "shots_on_target_avg": 0.5,
+          "shots_total_per90": 1.71,
+          "shots_on_target_per90": 0.57,
+          "fixture_ids": [
+            1520734,
+            1520722,
+            1520703,
+            1537015
+          ]
+        },
+        {
+          "player_id": 197813,
+          "name": "Vinicius Diniz Dall Antonia",
+          "position": "M",
+          "appearances": 5,
+          "starts": 5,
+          "minutes_avg": 85.0,
+          "shots_total_avg": 1.0,
+          "shots_on_target_avg": 0.4,
+          "shots_total_per90": 1.06,
+          "shots_on_target_per90": 0.42,
+          "fixture_ids": [
+            1520734,
+            1520722,
+            1520703,
+            1537015,
+            1520673
+          ]
+        },
+        {
+          "player_id": 10223,
+          "name": "Aylon",
+          "position": "M",
+          "appearances": 4,
+          "starts": 4,
+          "minutes_avg": 74.8,
+          "shots_total_avg": 1.0,
+          "shots_on_target_avg": 0.25,
+          "shots_total_per90": 1.2,
+          "shots_on_target_per90": 0.3,
+          "fixture_ids": [
+            1520734,
+            1520703,
+            1537015,
+            1520673
+          ]
+        },
+        {
+          "player_id": 9505,
+          "name": "Felipe Augusto",
+          "position": "F",
+          "appearances": 4,
+          "starts": 0,
+          "minutes_avg": 19.2,
+          "shots_total_avg": 0.75,
+          "shots_on_target_avg": 0.25,
+          "shots_total_per90": 3.51,
+          "shots_on_target_per90": 1.17,
+          "fixture_ids": [
+            1520734,
+            1520722,
+            1537015,
+            1520673
+          ]
+        },
+        {
+          "player_id": 59692,
+          "name": "José Cuenú",
+          "position": "D",
+          "appearances": 4,
+          "starts": 4,
+          "minutes_avg": 94.8,
+          "shots_total_avg": 0.25,
+          "shots_on_target_avg": 0.25,
+          "shots_total_per90": 0.24,
+          "shots_on_target_per90": 0.24,
+          "fixture_ids": [
+            1520734,
+            1520703,
+            1537015,
+            1520673
+          ]
+        },
+        {
+          "player_id": 54242,
+          "name": "Matheus Trindade",
+          "position": "M",
+          "appearances": 4,
+          "starts": 4,
+          "minutes_avg": 80.8,
+          "shots_total_avg": 0.25,
+          "shots_on_target_avg": 0.25,
+          "shots_total_per90": 0.28,
+          "shots_on_target_per90": 0.28,
+          "fixture_ids": [
+            1520734,
+            1520722,
+            1520703,
+            1520673
+          ]
+        },
+        {
+          "player_id": 96318,
+          "name": "Neto Paraíba",
+          "position": "M",
+          "appearances": 5,
+          "starts": 0,
+          "minutes_avg": 29.8,
+          "shots_total_avg": 0.4,
+          "shots_on_target_avg": 0.2,
+          "shots_total_per90": 1.21,
+          "shots_on_target_per90": 0.6,
+          "fixture_ids": [
+            1520734,
+            1520722,
+            1520703,
+            1537015,
+            1520673
+          ]
+        },
+        {
+          "player_id": 9976,
+          "name": "Pablo",
+          "position": "F",
+          "appearances": 5,
+          "starts": 4,
+          "minutes_avg": 73.6,
+          "shots_total_avg": 0.8,
+          "shots_on_target_avg": 0.0,
+          "shots_total_per90": 0.98,
+          "shots_on_target_per90": 0.0,
+          "fixture_ids": [
+            1520734,
+            1520722,
+            1520703,
+            1537015,
+            1520673
+          ]
+        },
+        {
+          "player_id": 10557,
+          "name": "Miranda",
+          "position": "D",
+          "appearances": 4,
+          "starts": 4,
+          "minutes_avg": 94.8,
+          "shots_total_avg": 0.25,
+          "shots_on_target_avg": 0.0,
+          "shots_total_per90": 0.24,
+          "shots_on_target_per90": 0.0,
+          "fixture_ids": [
+            1520734,
+            1520722,
+            1520703,
+            1537015
+          ]
+        },
+        {
+          "player_id": 9310,
+          "name": "Moraes Júnior",
+          "position": "M",
+          "appearances": 4,
+          "starts": 4,
+          "minutes_avg": 76.2,
+          "shots_total_avg": 0.25,
+          "shots_on_target_avg": 0.0,
+          "shots_total_per90": 0.3,
+          "shots_on_target_per90": 0.0,
+          "fixture_ids": [
+            1520722,
+            1520703,
+            1537015,
+            1520673
+          ]
+        },
+        {
+          "player_id": 279814,
+          "name": "Mikael Doka",
+          "position": "D",
+          "appearances": 5,
+          "starts": 5,
+          "minutes_avg": 69.8,
+          "shots_total_avg": 0.2,
+          "shots_on_target_avg": 0.0,
+          "shots_total_per90": 0.26,
+          "shots_on_target_per90": 0.0,
+          "fixture_ids": [
+            1520734,
+            1520722,
+            1520703,
+            1537015,
+            1520673
+          ]
+        },
+        {
+          "player_id": 1530,
+          "name": "Vágner",
+          "position": "G",
+          "appearances": 5,
+          "starts": 5,
+          "minutes_avg": 93.8,
+          "shots_total_avg": 0.0,
+          "shots_on_target_avg": 0.0,
+          "shots_total_per90": 0.0,
+          "shots_on_target_per90": 0.0,
+          "fixture_ids": [
+            1520734,
+            1520722,
+            1520703,
+            1537015,
+            1520673
+          ]
+        },
+        {
+          "player_id": 10380,
+          "name": "William Klaus",
+          "position": "D",
+          "appearances": 2,
+          "starts": 2,
+          "minutes_avg": 90.0,
+          "shots_total_avg": 0.0,
+          "shots_on_target_avg": 0.0,
+          "shots_total_per90": 0.0,
+          "shots_on_target_per90": 0.0,
+          "fixture_ids": [
+            1520722,
+            1520673
+          ]
+        },
+        {
+          "player_id": 9499,
+          "name": "Índio",
+          "position": "M",
+          "appearances": 1,
+          "starts": 1,
+          "minutes_avg": 64.0,
+          "shots_total_avg": 0.0,
+          "shots_on_target_avg": 0.0,
+          "shots_total_per90": 0.0,
+          "shots_on_target_per90": 0.0,
+          "fixture_ids": [
+            1537015
+          ]
+        },
+        {
+          "player_id": 9258,
+          "name": "Caio Dantas",
+          "position": "F",
+          "appearances": 2,
+          "starts": 1,
+          "minutes_avg": 42.0,
+          "shots_total_avg": 0.0,
+          "shots_on_target_avg": 0.0,
+          "shots_total_per90": 0.0,
+          "shots_on_target_per90": 0.0,
+          "fixture_ids": [
+            1520722,
+            1520673
+          ]
+        },
+        {
+          "player_id": 32948,
+          "name": "Maguinho",
+          "position": "D",
+          "appearances": 3,
+          "starts": 0,
+          "minutes_avg": 36.0,
+          "shots_total_avg": 0.0,
+          "shots_on_target_avg": 0.0,
+          "shots_total_per90": 0.0,
+          "shots_on_target_per90": 0.0,
+          "fixture_ids": [
+            1520722,
+            1520703,
+            1520673
+          ]
+        },
+        {
+          "player_id": 180924,
+          "name": "Pedro Vilhena",
+          "position": "M",
+          "appearances": 3,
+          "starts": 0,
+          "minutes_avg": 32.3,
+          "shots_total_avg": 0.0,
+          "shots_on_target_avg": 0.0,
+          "shots_total_per90": 0.0,
+          "shots_on_target_per90": 0.0,
+          "fixture_ids": [
+            1520722,
+            1537015,
+            1520673
+          ]
+        }
+      ],
+      "errors": []
+    },
+    "errors": []
+  }
+]

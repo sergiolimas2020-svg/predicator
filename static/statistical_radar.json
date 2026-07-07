@@ -1,7 +1,7 @@
 {
   "is_radar": true,
   "note": "Radar estadístico probability-first (Mundial/selecciones). No usa EV/cuotas/Betplay. NO conectado a publicación premium; el motor de publicación no lee este archivo.",
-  "generated_at": "2026-07-06T09:08:59",
+  "generated_at": "2026-07-07T08:29:49",
   "thresholds": {
     "win": 62.0,
     "over_1_5": 72.0,
@@ -10,50 +10,113 @@
   },
   "matches": [
     {
-      "match": "Portugal vs Spain",
-      "home": "Portugal",
-      "away": "Spain",
+      "match": "Argentina vs Egypt",
+      "home": "Argentina",
+      "away": "Egypt",
       "league": "Mundial 2026",
       "is_seleccion": true,
       "source": "api_football",
       "neutral": true,
-      "favorite": "Spain",
+      "favorite": "Argentina",
       "markets": [
         {
           "market": "Victoria directa",
-          "pick": "Spain",
-          "prob": 45.0,
+          "pick": "Argentina",
+          "prob": 54.6,
           "threshold": 62.0,
           "passed": false,
           "tier": "official_eligible",
-          "reason": "prob 45.0% < umbral 62.0%"
+          "reason": "prob 54.6% < umbral 62.0%"
         },
         {
           "market": "Over 1.5 goles",
           "pick": null,
-          "prob": 59.3,
+          "prob": 72.0,
           "threshold": 72.0,
-          "passed": false,
+          "passed": true,
           "tier": "official_eligible",
-          "reason": "prob 59.3% < umbral 72.0%"
+          "reason": "prob 72.0% ≥ umbral 72.0%"
         },
         {
           "market": "DNB (apuesta sin empate)",
-          "pick": "Spain",
-          "prob": 66.7,
+          "pick": "Argentina",
+          "prob": 76.7,
           "threshold": 72.0,
-          "passed": false,
+          "passed": true,
           "tier": "radar_only",
-          "reason": "prob 66.7% < umbral 72.0%"
+          "reason": "prob 76.7% ≥ umbral 72.0%"
         },
         {
           "market": "Doble oportunidad",
-          "pick": "Spain",
-          "prob": 77.5,
+          "pick": "Argentina",
+          "prob": 83.4,
+          "threshold": 80.0,
+          "passed": true,
+          "tier": "radar_only",
+          "reason": "prob 83.4% ≥ umbral 80.0%"
+        }
+      ],
+      "recommended": {
+        "market": "Over 1.5 goles",
+        "pick": null,
+        "prob": 72.0,
+        "tier": "official_eligible"
+      },
+      "status": "signal",
+      "discarded": [
+        {
+          "market": "Victoria directa",
+          "prob": 54.6,
+          "threshold": 62.0,
+          "reason": "prob 54.6% < umbral 62.0%"
+        }
+      ]
+    },
+    {
+      "match": "Switzerland vs Colombia",
+      "home": "Switzerland",
+      "away": "Colombia",
+      "league": "Mundial 2026",
+      "is_seleccion": true,
+      "source": "api_football",
+      "neutral": true,
+      "favorite": "Colombia",
+      "markets": [
+        {
+          "market": "Victoria directa",
+          "pick": "Colombia",
+          "prob": 37.3,
+          "threshold": 62.0,
+          "passed": false,
+          "tier": "official_eligible",
+          "reason": "prob 37.3% < umbral 62.0%"
+        },
+        {
+          "market": "Over 1.5 goles",
+          "pick": null,
+          "prob": 68.2,
+          "threshold": 72.0,
+          "passed": false,
+          "tier": "official_eligible",
+          "reason": "prob 68.2% < umbral 72.0%"
+        },
+        {
+          "market": "DNB (apuesta sin empate)",
+          "pick": "Colombia",
+          "prob": 54.8,
+          "threshold": 72.0,
+          "passed": false,
+          "tier": "radar_only",
+          "reason": "prob 54.8% < umbral 72.0%"
+        },
+        {
+          "market": "Doble oportunidad",
+          "pick": "Colombia",
+          "prob": 69.3,
           "threshold": 80.0,
           "passed": false,
           "tier": "radar_only",
-          "reason": "prob 77.5% < umbral 80.0%"
+          "reason": "prob 69.3% < umbral 80.0%"
         }
       ],
       "recommended": null,
@@ -61,102 +124,27 @@
       "discarded": [
         {
           "market": "Victoria directa",
-          "prob": 45.0,
+          "prob": 37.3,
           "threshold": 62.0,
-          "reason": "prob 45.0% < umbral 62.0%"
+          "reason": "prob 37.3% < umbral 62.0%"
         },
         {
           "market": "Over 1.5 goles",
-          "prob": 59.3,
+          "prob": 68.2,
           "threshold": 72.0,
-          "reason": "prob 59.3% < umbral 72.0%"
+          "reason": "prob 68.2% < umbral 72.0%"
         },
         {
           "market": "DNB (apuesta sin empate)",
-          "prob": 66.7,
+          "prob": 54.8,
           "threshold": 72.0,
-          "reason": "prob 66.7% < umbral 72.0%"
+          "reason": "prob 54.8% < umbral 72.0%"
         },
         {
           "market": "Doble oportunidad",
-          "prob": 77.5,
+          "prob": 69.3,
           "threshold": 80.0,
-          "reason": "prob 77.5% < umbral 80.0%"
-        }
-      ]
-    },
-    {
-      "match": "USA vs Belgium",
-      "home": "USA",
-      "away": "Belgium",
-      "league": "Mundial 2026",
-      "is_seleccion": true,
-      "source": "api_football",
-      "neutral": false,
-      "favorite": "Belgium",
-      "markets": [
-        {
-          "market": "Victoria directa",
-          "pick": "Belgium",
-          "prob": 50.1,
-          "threshold": 62.0,
-          "passed": false,
-          "tier": "official_eligible",
-          "reason": "prob 50.1% < umbral 62.0%"
-        },
-        {
-          "market": "Over 1.5 goles",
-          "pick": null,
-          "prob": 95.5,
-          "threshold": 72.0,
-          "passed": true,
-          "tier": "official_eligible",
-          "reason": "prob 95.5% ≥ umbral 72.0%"
-        },
-        {
-          "market": "DNB (apuesta sin empate)",
-          "pick": "Belgium",
-          "prob": 67.0,
-          "threshold": 72.0,
-          "passed": false,
-          "tier": "radar_only",
-          "reason": "prob 67.0% < umbral 72.0%"
-        },
-        {
-          "market": "Doble oportunidad",
-          "pick": "Belgium",
-          "prob": 75.3,
-          "threshold": 80.0,
-          "passed": false,
-          "tier": "radar_only",
-          "reason": "prob 75.3% < umbral 80.0%"
-        }
-      ],
-      "recommended": {
-        "market": "Over 1.5 goles",
-        "pick": null,
-        "prob": 95.5,
-        "tier": "official_eligible"
-      },
-      "status": "signal",
-      "discarded": [
-        {
-          "market": "Victoria directa",
-          "prob": 50.1,
-          "threshold": 62.0,
-          "reason": "prob 50.1% < umbral 62.0%"
-        },
-        {
-          "market": "DNB (apuesta sin empate)",
-          "prob": 67.0,
-          "threshold": 72.0,
-          "reason": "prob 67.0% < umbral 72.0%"
-        },
-        {
-          "market": "Doble oportunidad",
-          "prob": 75.3,
-          "threshold": 80.0,
-          "reason": "prob 75.3% < umbral 80.0%"
+          "reason": "prob 69.3% < umbral 80.0%"
         }
       ]
     }
