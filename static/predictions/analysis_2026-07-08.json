@@ -1,0 +1,177 @@
+{
+  "date": "2026-07-08",
+  "total_fixtures": 1,
+  "matches": [
+    {
+      "matchup": "Ponte Preta vs Criciúma",
+      "league": "Brasileirao Serie B",
+      "home": "Ponte Preta",
+      "away": "Criciúma",
+      "probabilities": {
+        "win_home": 8.3,
+        "draw": 29.2,
+        "win_away": 62.4,
+        "over_2_5": 24.7,
+        "over_1_5": 51.2
+      },
+      "favorite": "Criciúma",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 0.35,
+      "lambda_away": 1.37,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": {
+        "home_sot": 2.8,
+        "away_sot": 3.8
+      },
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 7.5 córners",
+            "market_key": "corners",
+            "prob_adjusted": 97.2,
+            "source": "api_football_fixture_statistics",
+            "official_pick_candidate": true,
+            "lambda_total": 14.2,
+            "line": 7.5
+          },
+          {
+            "market": "Over 8.5 córners",
+            "market_key": "corners",
+            "prob_adjusted": 94.4,
+            "source": "api_football_fixture_statistics",
+            "official_pick_candidate": true,
+            "lambda_total": 14.2,
+            "line": 8.5
+          },
+          {
+            "market": "Over 9.5 córners",
+            "market_key": "corners",
+            "prob_adjusted": 90.0,
+            "source": "api_football_fixture_statistics",
+            "official_pick_candidate": true,
+            "lambda_total": 14.2,
+            "line": 9.5
+          },
+          {
+            "market": "Over 10.5 córners",
+            "market_key": "corners",
+            "prob_adjusted": 83.7,
+            "source": "api_football_fixture_statistics",
+            "official_pick_candidate": true,
+            "lambda_total": 14.2,
+            "line": 10.5
+          },
+          {
+            "market": "Over 11.5 córners",
+            "market_key": "corners",
+            "prob_adjusted": 75.6,
+            "source": "api_football_fixture_statistics",
+            "official_pick_candidate": true,
+            "lambda_total": 14.2,
+            "line": 11.5
+          },
+          {
+            "market": "Marcinho Over 0.5 tiros",
+            "market_key": "player_shots",
+            "prob_adjusted": 81.2,
+            "source": "api_football_fixture_players",
+            "official_pick_candidate": true,
+            "team": "Criciúma",
+            "player_id": 10048,
+            "appearances": 3,
+            "minutes_avg": 83.3,
+            "line": 0.5
+          },
+          {
+            "market": "William Pottker Over 0.5 tiros",
+            "market_key": "player_shots",
+            "prob_adjusted": 77.7,
+            "source": "api_football_fixture_players",
+            "official_pick_candidate": true,
+            "team": "Ponte Preta",
+            "player_id": 10400,
+            "appearances": 4,
+            "minutes_avg": 73.2,
+            "line": 0.5
+          },
+          {
+            "market": "David da Hora Over 0.5 tiros",
+            "market_key": "player_shots",
+            "prob_adjusted": 75.3,
+            "source": "api_football_fixture_players",
+            "official_pick_candidate": true,
+            "team": "Ponte Preta",
+            "player_id": 237666,
+            "appearances": 5,
+            "minutes_avg": 60.0,
+            "line": 0.5
+          },
+          {
+            "market": "Waguininho Over 0.5 tiros",
+            "market_key": "player_shots",
+            "prob_adjusted": 75.3,
+            "source": "api_football_fixture_players",
+            "official_pick_candidate": true,
+            "team": "Criciúma",
+            "player_id": 34704,
+            "appearances": 5,
+            "minutes_avg": 62.2,
+            "line": 0.5
+          },
+          {
+            "market": "César Martins Over 0.5 tiros",
+            "market_key": "player_shots",
+            "prob_adjusted": 73.6,
+            "source": "api_football_fixture_players",
+            "official_pick_candidate": true,
+            "team": "Criciúma",
+            "player_id": 41206,
+            "appearances": 3,
+            "minutes_avg": 78.0,
+            "line": 0.5
+          },
+          {
+            "market": "César Martins Over 0.5 tiros a puerta",
+            "market_key": "player_shots",
+            "prob_adjusted": 63.2,
+            "source": "api_football_fixture_players",
+            "official_pick_candidate": true,
+            "team": "Criciúma",
+            "player_id": 41206,
+            "appearances": 3,
+            "minutes_avg": 78.0,
+            "line": 0.5
+          },
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 51.2,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 24.7,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 6.5 tiros a puerta",
+            "market_key": "shots",
+            "prob_adjusted": 48.9,
+            "source": "api_football_fixture_statistics",
+            "official_pick_candidate": false,
+            "lambda_total": 6.6,
+            "line": 6.5
+          }
+        ],
+        "unavailable": []
+      }
+    }
+  ],
+  "nota": "Análisis estadístico de todos los partidos del día. Probabilidades crudas del modelo (sin ajuste por liga ni mercado). No incluye recomendación de apuesta — ver value_picks y featured_pick para picks oficiales."
+}

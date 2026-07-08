@@ -851,7 +851,7 @@
     "away": "Egypt",
     "venue": "Mercedes-Benz Stadium",
     "neutral": true,
-    "status": "NS",
+    "status": "FT",
     "round": "Round of 16"
   },
   {
@@ -860,7 +860,7 @@
     "away": "Colombia",
     "venue": "BC Place",
     "neutral": true,
-    "status": "NS",
+    "status": "PEN",
     "round": "Round of 16"
   },
   {
@@ -886,6 +886,15 @@
     "home": "Norway",
     "away": "England",
     "venue": "Hard Rock Stadium",
+    "neutral": true,
+    "status": "NS",
+    "round": "Quarter-finals"
+  },
+  {
+    "date": "2026-07-12T01:00:00+00:00",
+    "home": "Argentina",
+    "away": "Switzerland",
+    "venue": null,
     "neutral": true,
     "status": "NS",
     "round": "Quarter-finals"
