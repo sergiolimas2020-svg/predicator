@@ -1,0 +1,54 @@
+{
+  "date": "2026-07-09",
+  "total_fixtures": 1,
+  "matches": [
+    {
+      "matchup": "France vs Morocco",
+      "league": "Mundial 2026",
+      "home": "France",
+      "away": "Morocco",
+      "probabilities": {
+        "win_home": 35.9,
+        "draw": 31.2,
+        "win_away": 33.0,
+        "over_2_5": 49.7,
+        "over_1_5": 74.5
+      },
+      "favorite": "France",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.41,
+      "lambda_away": 1.26,
+      "elo_home": 2081.0,
+      "elo_away": 1822.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 74.5,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 49.7,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "corners_shots_players",
+            "status": "unavailable",
+            "reason": "selecciones usan modelo internacional; no se publican props/corners sin contrato calibrado"
+          }
+        ]
+      }
+    }
+  ],
+  "nota": "Análisis estadístico de todos los partidos del día. Probabilidades crudas del modelo (sin ajuste por liga ni mercado). No incluye recomendación de apuesta — ver value_picks y featured_pick para picks oficiales."
+}
