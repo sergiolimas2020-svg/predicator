@@ -1,7 +1,7 @@
 {
   "is_radar": true,
   "note": "Radar estadístico probability-first (Mundial/selecciones). No usa EV/cuotas/Betplay. NO conectado a publicación premium; el motor de publicación no lee este archivo.",
-  "generated_at": "2026-07-10T08:29:50",
+  "generated_at": "2026-07-11T07:10:32",
   "thresholds": {
     "win": 62.0,
     "over_1_5": 72.0,
@@ -10,78 +10,140 @@
   },
   "matches": [
     {
-      "match": "Spain vs Belgium",
-      "home": "Spain",
-      "away": "Belgium",
+      "match": "Norway vs England",
+      "home": "Norway",
+      "away": "England",
       "league": "Mundial 2026",
       "is_seleccion": true,
       "source": "api_football",
       "neutral": true,
-      "favorite": "Spain",
+      "favorite": "England",
       "markets": [
         {
           "market": "Victoria directa",
-          "pick": "Spain",
-          "prob": 46.7,
+          "pick": "England",
+          "prob": 48.2,
           "threshold": 62.0,
           "passed": false,
           "tier": "official_eligible",
-          "reason": "prob 46.7% < umbral 62.0%"
+          "reason": "prob 48.2% < umbral 62.0%"
         },
         {
           "market": "Over 1.5 goles",
           "pick": null,
-          "prob": 71.4,
+          "prob": 84.1,
           "threshold": 72.0,
-          "passed": false,
+          "passed": true,
           "tier": "official_eligible",
-          "reason": "prob 71.4% < umbral 72.0%"
+          "reason": "prob 84.1% ≥ umbral 72.0%"
         },
         {
           "market": "DNB (apuesta sin empate)",
-          "pick": "Spain",
-          "prob": 67.2,
+          "pick": "England",
+          "prob": 67.1,
           "threshold": 72.0,
           "passed": false,
           "tier": "radar_only",
-          "reason": "prob 67.2% < umbral 72.0%"
+          "reason": "prob 67.1% < umbral 72.0%"
         },
         {
           "market": "Doble oportunidad",
-          "pick": "Spain",
-          "prob": 77.2,
+          "pick": "England",
+          "prob": 76.4,
           "threshold": 80.0,
           "passed": false,
           "tier": "radar_only",
-          "reason": "prob 77.2% < umbral 80.0%"
+          "reason": "prob 76.4% < umbral 80.0%"
         }
       ],
-      "recommended": null,
-      "status": "no_signal",
+      "recommended": {
+        "market": "Over 1.5 goles",
+        "pick": null,
+        "prob": 84.1,
+        "tier": "official_eligible"
+      },
+      "status": "signal",
       "discarded": [
         {
           "market": "Victoria directa",
-          "prob": 46.7,
+          "prob": 48.2,
           "threshold": 62.0,
-          "reason": "prob 46.7% < umbral 62.0%"
-        },
-        {
-          "market": "Over 1.5 goles",
-          "prob": 71.4,
-          "threshold": 72.0,
-          "reason": "prob 71.4% < umbral 72.0%"
+          "reason": "prob 48.2% < umbral 62.0%"
         },
         {
           "market": "DNB (apuesta sin empate)",
-          "prob": 67.2,
+          "prob": 67.1,
           "threshold": 72.0,
-          "reason": "prob 67.2% < umbral 72.0%"
+          "reason": "prob 67.1% < umbral 72.0%"
         },
         {
           "market": "Doble oportunidad",
-          "prob": 77.2,
+          "prob": 76.4,
           "threshold": 80.0,
-          "reason": "prob 77.2% < umbral 80.0%"
+          "reason": "prob 76.4% < umbral 80.0%"
+        }
+      ]
+    },
+    {
+      "match": "Argentina vs Switzerland",
+      "home": "Argentina",
+      "away": "Switzerland",
+      "league": "Mundial 2026",
+      "is_seleccion": true,
+      "source": "api_football",
+      "neutral": true,
+      "favorite": "Argentina",
+      "markets": [
+        {
+          "market": "Victoria directa",
+          "pick": "Argentina",
+          "prob": 52.6,
+          "threshold": 62.0,
+          "passed": false,
+          "tier": "official_eligible",
+          "reason": "prob 52.6% < umbral 62.0%"
+        },
+        {
+          "market": "Over 1.5 goles",
+          "pick": null,
+          "prob": 80.5,
+          "threshold": 72.0,
+          "passed": true,
+          "tier": "official_eligible",
+          "reason": "prob 80.5% ≥ umbral 72.0%"
+        },
+        {
+          "market": "DNB (apuesta sin empate)",
+          "pick": "Argentina",
+          "prob": 72.9,
+          "threshold": 72.0,
+          "passed": true,
+          "tier": "radar_only",
+          "reason": "prob 72.9% ≥ umbral 72.0%"
+        },
+        {
+          "market": "Doble oportunidad",
+          "pick": "Argentina",
+          "prob": 80.5,
+          "threshold": 80.0,
+          "passed": true,
+          "tier": "radar_only",
+          "reason": "prob 80.5% ≥ umbral 80.0%"
+        }
+      ],
+      "recommended": {
+        "market": "Over 1.5 goles",
+        "pick": null,
+        "prob": 80.5,
+        "tier": "official_eligible"
+      },
+      "status": "signal",
+      "discarded": [
+        {
+          "market": "Victoria directa",
+          "prob": 52.6,
+          "threshold": 62.0,
+          "reason": "prob 52.6% < umbral 62.0%"
         }
       ]
     }
