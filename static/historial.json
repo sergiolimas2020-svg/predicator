@@ -1,8 +1,85 @@
 {
-  "total": 157,
-  "aciertos": 101,
-  "porcentaje": 64,
+  "total": 158,
+  "aciertos": 102,
+  "porcentaje": 65,
   "ultimos": [
+    {
+      "fecha": "2026-07-16",
+      "slug": "botafogo-vs-santos-brasileirao-2026-07-16",
+      "home": "Botafogo",
+      "away": "Santos",
+      "league": "Brasileirao",
+      "prediccion": "Over 2.5 goles",
+      "confianza": "Probabilidad: 63.5%",
+      "resultado_real": "2-1",
+      "acerto": true,
+      "prob_original": 79.0,
+      "confidence_factor": 0.9409,
+      "prob_adjusted": 63.5,
+      "bk_odds": 2.0,
+      "ev": 58.0,
+      "penalty": 0.0,
+      "ev_adjusted": 27.0,
+      "value_score": 17.6089,
+      "reason": "ok",
+      "version": "v1.2-clean-signal",
+      "stake_sugerido_pct": 6.75,
+      "stake_real_pct": 6.75,
+      "stake_modo": "activo",
+      "tipo_pick": "pick_exploratorio",
+      "base_pick": "Santos",
+      "value_level": "medio",
+      "markets_evaluated": [
+        {
+          "market": "Santos",
+          "ev_adjusted": 21.6,
+          "value_score": 27.6934,
+          "reason": "ok"
+        },
+        {
+          "market": "Over 2.5 goles",
+          "ev_adjusted": 27.0,
+          "value_score": 17.6089,
+          "reason": "ok"
+        },
+        {
+          "market": "Botafogo",
+          "ev_adjusted": 8.2,
+          "value_score": null,
+          "reason": "ev_insuficiente"
+        },
+        {
+          "market": "Apuesta sin empate: Botafogo",
+          "ev_adjusted": -8.7,
+          "value_score": null,
+          "reason": "ev_negativo"
+        },
+        {
+          "market": "Doble oportunidad: Botafogo",
+          "ev_adjusted": null,
+          "value_score": null,
+          "reason": "cuota_baja"
+        },
+        {
+          "market": "Apuesta sin empate: Santos",
+          "ev_adjusted": -28.4,
+          "value_score": null,
+          "reason": "ev_negativo"
+        },
+        {
+          "market": "Doble oportunidad: Santos",
+          "ev_adjusted": -18.2,
+          "value_score": null,
+          "reason": "ev_negativo"
+        },
+        {
+          "market": "Over 1.5 goles",
+          "ev_adjusted": null,
+          "value_score": null,
+          "reason": "mercado_no_disponible"
+        }
+      ]
+    },
     {
       "fecha": "2026-07-07",
       "slug": "argentina-vs-egypt-mundial-2026-2026-07-07",
@@ -520,34 +597,6 @@
       "prob_original": 68.6,
       "confidence_factor": 1.0,
       "prob_adjusted": 68.6,
-      "bk_odds": null,
-      "ev": null,
-      "penalty": null,
-      "ev_adjusted": null,
-      "value_score": null,
-      "reason": "confianza_goles_seleccion",
-      "version": "v1.2-clean-signal",
-      "stake_sugerido_pct": 0.0,
-      "stake_real_pct": 0.0,
-      "stake_modo": "activo",
-      "tipo_pick": "pick_suscripcion",
-      "base_pick": "",
-      "value_level": "estadistico",
-      "markets_evaluated": []
-    },
-    {
-      "fecha": "2026-06-23",
-      "slug": "panama-vs-croatia-mundial-2026-2026-06-23",
-      "home": "Panama",
-      "away": "Croatia",
-      "league": "Mundial 2026",
-      "prediccion": "Over 2.5 goles",
-      "confianza": "Probabilidad: 78.0%",
-      "resultado_real": "0-1",
-      "acerto": false,
-      "prob_original": 78.0,
-      "confidence_factor": 1.0,
-      "prob_adjusted": 78.0,
       "bk_odds": null,
       "ev": null,
       "penalty": null,
