@@ -1,8 +1,85 @@
 {
-  "total": 158,
-  "aciertos": 102,
+  "total": 159,
+  "aciertos": 103,
   "porcentaje": 65,
   "ultimos": [
+    {
+      "fecha": "2026-07-17",
+      "slug": "bahia-vs-chapecoense-brasileirao-2026-07-17",
+      "home": "Bahia",
+      "away": "Chapecoense",
+      "league": "Brasileirao",
+      "prediccion": "Over 1.5 goles",
+      "confianza": "Probabilidad: 85.2%",
+      "resultado_real": "2-0",
+      "acerto": true,
+      "prob_original": 85.2,
+      "confidence_factor": 0.97,
+      "prob_adjusted": 85.2,
+      "bk_odds": null,
+      "ev": null,
+      "penalty": null,
+      "ev_adjusted": null,
+      "value_score": null,
+      "reason": "confianza",
+      "version": "v1.2-clean-signal",
+      "stake_sugerido_pct": 0.0,
+      "stake_real_pct": 0.0,
+      "stake_modo": "activo",
+      "tipo_pick": "pick_gratuito",
+      "base_pick": "Chapecoense",
+      "value_level": "estadistico",
+      "markets_evaluated": [
+        {
+          "market": "Chapecoense",
+          "ev_adjusted": 93.8,
+          "value_score": 189.2001,
+          "reason": "ok"
+        },
+        {
+          "market": "Bahia",
+          "ev_adjusted": null,
+          "value_score": null,
+          "reason": "cuota_baja"
+        },
+        {
+          "market": "Apuesta sin empate: Bahia",
+          "ev_adjusted": null,
+          "value_score": null,
+          "reason": "cuota_baja"
+        },
+        {
+          "market": "Doble oportunidad: Bahia",
+          "ev_adjusted": null,
+          "value_score": null,
+          "reason": "cuota_baja"
+        },
+        {
+          "market": "Apuesta sin empate: Chapecoense",
+          "ev_adjusted": -37.1,
+          "value_score": null,
+          "reason": "ev_negativo"
+        },
+        {
+          "market": "Doble oportunidad: Chapecoense",
+          "ev_adjusted": 3.6,
+          "value_score": null,
+          "reason": "ev_insuficiente"
+        },
+        {
+          "market": "Over 2.5 goles",
+          "ev_adjusted": -8.0,
+          "value_score": null,
+          "reason": "ev_negativo"
+        },
+        {
+          "market": "Over 1.5 goles",
+          "ev_adjusted": null,
+          "value_score": null,
+          "reason": "mercado_no_disponible"
+        }
+      ]
+    },
     {
       "fecha": "2026-07-16",
       "slug": "botafogo-vs-santos-brasileirao-2026-07-16",
@@ -580,34 +657,6 @@
       "stake_real_pct": 0.0,
       "stake_modo": "activo",
       "tipo_pick": "pick_gratuito",
-      "base_pick": "",
-      "value_level": "estadistico",
-      "markets_evaluated": []
-    },
-    {
-      "fecha": "2026-06-23",
-      "slug": "portugal-vs-uzbekistan-mundial-2026-2026-06-23",
-      "home": "Portugal",
-      "away": "Uzbekistan",
-      "league": "Mundial 2026",
-      "prediccion": "Over 2.5 goles",
-      "confianza": "Probabilidad: 68.6%",
-      "resultado_real": "5-0",
-      "acerto": true,
-      "prob_original": 68.6,
-      "confidence_factor": 1.0,
-      "prob_adjusted": 68.6,
-      "bk_odds": null,
-      "ev": null,
-      "penalty": null,
-      "ev_adjusted": null,
-      "value_score": null,
-      "reason": "confianza_goles_seleccion",
-      "version": "v1.2-clean-signal",
-      "stake_sugerido_pct": 0.0,
-      "stake_real_pct": 0.0,
-      "stake_modo": "activo",
-      "tipo_pick": "pick_suscripcion",
       "base_pick": "",
       "value_level": "estadistico",
       "markets_evaluated": []

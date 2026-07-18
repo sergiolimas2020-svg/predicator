@@ -1,0 +1,524 @@
+{
+  "date": "2026-07-18",
+  "total_fixtures": 11,
+  "matches": [
+    {
+      "matchup": "Criciúma vs Vila Nova",
+      "league": "Brasileirao Serie B",
+      "home": "Criciúma",
+      "away": "Vila Nova",
+      "probabilities": {
+        "win_home": 44.2,
+        "draw": 34.0,
+        "win_away": 21.8,
+        "over_2_5": 28.0,
+        "over_1_5": 54.8
+      },
+      "favorite": "Criciúma",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.13,
+      "lambda_away": 0.71,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 54.8,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 28.0,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Ponte Preta vs Goiás",
+      "league": "Brasileirao Serie B",
+      "home": "Ponte Preta",
+      "away": "Goiás",
+      "probabilities": {
+        "win_home": 20.3,
+        "draw": 32.1,
+        "win_away": 47.6,
+        "over_2_5": 31.6,
+        "over_1_5": 58.7
+      },
+      "favorite": "Goiás",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 0.72,
+      "lambda_away": 1.25,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 58.7,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 31.6,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Sport vs Operário PR",
+      "league": "Brasileirao Serie B",
+      "home": "Sport",
+      "away": "Operário PR",
+      "probabilities": {
+        "win_home": 43.5,
+        "draw": 36.3,
+        "win_away": 20.2,
+        "over_2_5": 22.2,
+        "over_1_5": 48.2
+      },
+      "favorite": "Sport",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.02,
+      "lambda_away": 0.6,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 48.2,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 22.2,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Atlético Goianiense vs Athletic",
+      "league": "Brasileirao Serie B",
+      "home": "Atlético Goianiense",
+      "away": "Athletic",
+      "probabilities": {
+        "win_home": 37.3,
+        "draw": 36.2,
+        "win_away": 26.6,
+        "over_2_5": 24.9,
+        "over_1_5": 51.4
+      },
+      "favorite": "Atlético Goianiense",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 0.96,
+      "lambda_away": 0.76,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 51.4,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 24.9,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Hamarkameratene vs Tromso",
+      "league": "Eliteserien",
+      "home": "Hamarkameratene",
+      "away": "Tromso",
+      "probabilities": {
+        "win_home": 42.2,
+        "draw": 31.1,
+        "win_away": 26.8,
+        "over_2_5": 38.6,
+        "over_1_5": 65.3
+      },
+      "favorite": "Hamarkameratene",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.27,
+      "lambda_away": 0.96,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 65.3,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 38.6,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "IK Start vs Rosenborg",
+      "league": "Eliteserien",
+      "home": "IK Start",
+      "away": "Rosenborg",
+      "probabilities": {
+        "win_home": 42.5,
+        "draw": 27.7,
+        "win_away": 29.7,
+        "over_2_5": 51.6,
+        "over_1_5": 75.8
+      },
+      "favorite": "IK Start",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.51,
+      "lambda_away": 1.23,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 75.8,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 51.6,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Kristiansund BK vs Sarpsborg FK",
+      "league": "Eliteserien",
+      "home": "Kristiansund BK",
+      "away": "Sarpsborg FK",
+      "probabilities": {
+        "win_home": 43.4,
+        "draw": 29.4,
+        "win_away": 27.2,
+        "over_2_5": 44.3,
+        "over_1_5": 70.2
+      },
+      "favorite": "Kristiansund BK",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.39,
+      "lambda_away": 1.05,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 70.2,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 44.3,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Lillestrom vs KFUM Oslo",
+      "league": "Eliteserien",
+      "home": "Lillestrom",
+      "away": "KFUM Oslo",
+      "probabilities": {
+        "win_home": 67.6,
+        "draw": 21.5,
+        "win_away": 10.9,
+        "over_2_5": 51.5,
+        "over_1_5": 75.8
+      },
+      "favorite": "Lillestrom",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 2.03,
+      "lambda_away": 0.7,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 75.8,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 51.5,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Molde vs SK Brann",
+      "league": "Eliteserien",
+      "home": "Molde",
+      "away": "SK Brann",
+      "probabilities": {
+        "win_home": 54.8,
+        "draw": 21.2,
+        "win_away": 24.0,
+        "over_2_5": 73.8,
+        "over_1_5": 89.6
+      },
+      "favorite": "Molde",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 2.32,
+      "lambda_away": 1.52,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 89.6,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 73.8,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Viking FK vs Sandefjord",
+      "league": "Eliteserien",
+      "home": "Viking FK",
+      "away": "Sandefjord",
+      "probabilities": {
+        "win_home": 83.9,
+        "draw": 11.8,
+        "win_away": 4.3,
+        "over_2_5": 68.0,
+        "over_1_5": 86.5
+      },
+      "favorite": "Viking FK",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 2.92,
+      "lambda_away": 0.59,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 86.5,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 68.0,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "AIK vs GAIS",
+      "league": "Allsvenskan",
+      "home": "AIK",
+      "away": "GAIS",
+      "probabilities": {
+        "win_home": 27.7,
+        "draw": 29.1,
+        "win_away": 43.2,
+        "over_2_5": 45.5,
+        "over_1_5": 71.2
+      },
+      "favorite": "GAIS",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.08,
+      "lambda_away": 1.41,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 71.2,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 45.5,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    }
+  ],
+  "nota": "Análisis estadístico de todos los partidos del día. Probabilidades crudas del modelo (sin ajuste por liga ni mercado). No incluye recomendación de apuesta — ver value_picks y featured_pick para picks oficiales."
+}
