@@ -1,0 +1,148 @@
+{
+  "date": "2026-07-19",
+  "total_fixtures": 3,
+  "matches": [
+    {
+      "matchup": "Halmstads BK vs BK Häcken",
+      "league": "Allsvenskan",
+      "home": "Halmstads BK",
+      "away": "BK Häcken",
+      "probabilities": {
+        "win_home": 15.2,
+        "draw": 17.9,
+        "win_away": 67.0,
+        "over_2_5": 75.6,
+        "over_1_5": 90.5
+      },
+      "favorite": "BK Häcken",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.27,
+      "lambda_away": 2.69,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 90.5,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 75.6,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Hammarby IF vs Degerfors IF",
+      "league": "Allsvenskan",
+      "home": "Hammarby IF",
+      "away": "Degerfors IF",
+      "probabilities": {
+        "win_home": 78.5,
+        "draw": 14.2,
+        "win_away": 7.3,
+        "over_2_5": 71.0,
+        "over_1_5": 88.1
+      },
+      "favorite": "Hammarby IF",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 2.85,
+      "lambda_away": 0.82,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 88.1,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 71.0,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "IF Elfsborg vs IK Sirius",
+      "league": "Allsvenskan",
+      "home": "IF Elfsborg",
+      "away": "IK Sirius",
+      "probabilities": {
+        "win_home": 29.4,
+        "draw": 23.6,
+        "win_away": 47.0,
+        "over_2_5": 68.0,
+        "over_1_5": 86.4
+      },
+      "favorite": "IK Sirius",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.54,
+      "lambda_away": 1.97,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 86.4,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 68.0,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    }
+  ],
+  "nota": "Análisis estadístico de todos los partidos del día. Probabilidades crudas del modelo (sin ajuste por liga ni mercado). No incluye recomendación de apuesta — ver value_picks y featured_pick para picks oficiales."
+}
