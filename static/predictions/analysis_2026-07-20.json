@@ -1,0 +1,101 @@
+{
+  "date": "2026-07-20",
+  "total_fixtures": 2,
+  "matches": [
+    {
+      "matchup": "Kalmar FF vs Malmö FF",
+      "league": "Allsvenskan",
+      "home": "Kalmar FF",
+      "away": "Malmö FF",
+      "probabilities": {
+        "win_home": 44.3,
+        "draw": 23.3,
+        "win_away": 32.5,
+        "over_2_5": 70.6,
+        "over_1_5": 87.9
+      },
+      "favorite": "Kalmar FF",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.97,
+      "lambda_away": 1.68,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 87.9,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 70.6,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Örgryte IS vs Djurgården",
+      "league": "Allsvenskan",
+      "home": "Örgryte IS",
+      "away": "Djurgården",
+      "probabilities": {
+        "win_home": 48.0,
+        "draw": 23.6,
+        "win_away": 28.4,
+        "over_2_5": 67.2,
+        "over_1_5": 86.0
+      },
+      "favorite": "Örgryte IS",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.97,
+      "lambda_away": 1.49,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 86.0,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 67.2,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    }
+  ],
+  "nota": "Análisis estadístico de todos los partidos del día. Probabilidades crudas del modelo (sin ajuste por liga ni mercado). No incluye recomendación de apuesta — ver value_picks y featured_pick para picks oficiales."
+}
