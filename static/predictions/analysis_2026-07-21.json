@@ -1,0 +1,289 @@
+{
+  "date": "2026-07-21",
+  "total_fixtures": 6,
+  "matches": [
+    {
+      "matchup": "Atlético-MG vs Bahia",
+      "league": "Brasileirao",
+      "home": "Atlético-MG",
+      "away": "Bahia",
+      "probabilities": {
+        "win_home": 40.0,
+        "draw": 28.6,
+        "win_away": 31.3,
+        "over_2_5": 48.6,
+        "over_1_5": 73.6
+      },
+      "favorite": "Atlético-MG",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.4,
+      "lambda_away": 1.22,
+      "elo_home": 1500.0,
+      "elo_away": 1508.7,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 73.6,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 48.6,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Avaí vs América Mineiro",
+      "league": "Brasileirao Serie B",
+      "home": "Avaí",
+      "away": "América Mineiro",
+      "probabilities": {
+        "win_home": 56.3,
+        "draw": 29.2,
+        "win_away": 14.5,
+        "over_2_5": 33.5,
+        "over_1_5": 60.5
+      },
+      "favorite": "Avaí",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.44,
+      "lambda_away": 0.6,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 60.5,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 33.5,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Novorizontino vs Criciúma",
+      "league": "Brasileirao Serie B",
+      "home": "Novorizontino",
+      "away": "Criciúma",
+      "probabilities": {
+        "win_home": 41.8,
+        "draw": 36.0,
+        "win_away": 22.2,
+        "over_2_5": 23.7,
+        "over_1_5": 50.0
+      },
+      "favorite": "Novorizontino",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.01,
+      "lambda_away": 0.66,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 50.0,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 23.7,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Vila Nova vs Fortaleza",
+      "league": "Brasileirao Serie B",
+      "home": "Vila Nova",
+      "away": "Fortaleza",
+      "probabilities": {
+        "win_home": 45.3,
+        "draw": 30.6,
+        "win_away": 24.2,
+        "over_2_5": 38.7,
+        "over_1_5": 65.4
+      },
+      "favorite": "Vila Nova",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.33,
+      "lambda_away": 0.91,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 65.4,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 38.7,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Nacional vs Tigre",
+      "league": "Copa Sudamericana",
+      "home": "Nacional",
+      "away": "Tigre",
+      "probabilities": {
+        "win_home": 33.0,
+        "draw": 35.4,
+        "win_away": 31.6,
+        "over_2_5": 27.4,
+        "over_1_5": 54.2
+      },
+      "favorite": "Empate técnico",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 0.92,
+      "lambda_away": 0.9,
+      "elo_home": 1500.0,
+      "elo_away": 1521.7,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 54.2,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 27.4,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "UCV FC vs Santos",
+      "league": "Copa Sudamericana",
+      "home": "UCV FC",
+      "away": "Santos",
+      "probabilities": {
+        "win_home": 47.7,
+        "draw": 23.6,
+        "win_away": 28.7,
+        "over_2_5": 67.5,
+        "over_1_5": 86.2
+      },
+      "favorite": "UCV FC",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.97,
+      "lambda_away": 1.51,
+      "elo_home": 1500.0,
+      "elo_away": 1510.8,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 86.2,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 67.5,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    }
+  ],
+  "nota": "Análisis estadístico de todos los partidos del día. Probabilidades crudas del modelo (sin ajuste por liga ni mercado). No incluye recomendación de apuesta — ver value_picks y featured_pick para picks oficiales."
+}
