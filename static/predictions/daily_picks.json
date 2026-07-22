@@ -1,11 +1,41 @@
 {
-  "date": "2026-07-21",
+  "date": "2026-07-22",
   "model_version": "v1.2-clean-signal",
   "shadow_mode": false,
   "shadow_until": "2026-06-15",
   "pick_dia": null,
-  "picks_suscripcion": [],
-  "pick_gratuito": null,
+  "picks_suscripcion": [
+    {
+      "slug": "independiente-medellin-vs-vasco-da-gama-copa-sudamericana-2026-07-22",
+      "matchup": "Independiente Medellín vs Vasco da Gama",
+      "league": "Copa Sudamericana",
+      "tipo": "pick_gratuito",
+      "market": "Independiente Medellín",
+      "prob_adjusted": 51.0,
+      "value_score": 24.4421,
+      "confidence_factor": 0.97,
+      "ev_adjusted": 27.5,
+      "bk_odds": 2.5,
+      "stake_sugerido_pct": 4.58,
+      "stake_real_pct": 4.58,
+      "stake_modo": "activo"
+    }
+  ],
+  "pick_gratuito": {
+    "slug": "independiente-medellin-vs-vasco-da-gama-copa-sudamericana-2026-07-22",
+    "matchup": "Independiente Medellín vs Vasco da Gama",
+    "league": "Copa Sudamericana",
+    "tipo": "pick_gratuito",
+    "market": "Independiente Medellín",
+    "prob_adjusted": 51.0,
+    "value_score": 24.4421,
+    "confidence_factor": 0.97,
+    "ev_adjusted": 27.5,
+    "bk_odds": 2.5,
+    "stake_sugerido_pct": 4.58,
+    "stake_real_pct": 4.58,
+    "stake_modo": "activo"
+  },
   "pick_exploratorio": null,
   "analisis_goles": []
 }

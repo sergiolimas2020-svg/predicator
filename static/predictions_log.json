@@ -7438,5 +7438,82 @@
         "reason": "mercado_no_disponible"
       }
     ]
+  },
+  {
+    "fecha": "2026-07-22",
+    "slug": "independiente-medellin-vs-vasco-da-gama-copa-sudamericana-2026-07-22",
+    "home": "Independiente Medellín",
+    "away": "Vasco da Gama",
+    "league": "Copa Sudamericana",
+    "prediccion": "Independiente Medellín",
+    "confianza": "Probabilidad: 51.0%",
+    "resultado_real": null,
+    "acerto": null,
+    "prob_original": 57.8,
+    "confidence_factor": 0.97,
+    "prob_adjusted": 51.0,
+    "bk_odds": 2.5,
+    "ev": 44.4,
+    "penalty": 0.0,
+    "ev_adjusted": 27.5,
+    "value_score": 24.4421,
+    "reason": "ok",
+    "version": "v1.2-clean-signal",
+    "stake_sugerido_pct": 4.58,
+    "stake_real_pct": 4.58,
+    "stake_modo": "activo",
+    "tipo_pick": "pick_gratuito",
+    "base_pick": "Independiente Medellín",
+    "value_level": "medio",
+    "markets_evaluated": [
+      {
+        "market": "Independiente Medellín",
+        "ev_adjusted": 27.5,
+        "value_score": 24.4421,
+        "reason": "ok"
+      },
+      {
+        "market": "Over 2.5 goles",
+        "ev_adjusted": 17.0,
+        "value_score": 12.9711,
+        "reason": "ok"
+      },
+      {
+        "market": "Apuesta sin empate: Independiente Medellín",
+        "ev_adjusted": 8.4,
+        "value_score": null,
+        "reason": "ev_insuficiente"
+      },
+      {
+        "market": "Doble oportunidad: Independiente Medellín",
+        "ev_adjusted": null,
+        "value_score": null,
+        "reason": "cuota_baja"
+      },
+      {
+        "market": "Vasco da Gama",
+        "ev_adjusted": -3.2,
+        "value_score": null,
+        "reason": "ev_negativo"
+      },
+      {
+        "market": "Apuesta sin empate: Vasco da Gama",
+        "ev_adjusted": -37.2,
+        "value_score": null,
+        "reason": "ev_negativo"
+      },
+      {
+        "market": "Doble oportunidad: Vasco da Gama",
+        "ev_adjusted": -29.7,
+        "value_score": null,
+        "reason": "ev_negativo"
+      },
+      {
+        "market": "Over 1.5 goles",
+        "ev_adjusted": null,
+        "value_score": null,
+        "reason": "mercado_no_disponible"
+      }
+    ]
   }
 ]
