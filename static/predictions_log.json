@@ -7447,8 +7447,8 @@
     "league": "Copa Sudamericana",
     "prediccion": "Independiente Medellín",
     "confianza": "Probabilidad: 51.0%",
-    "resultado_real": null,
-    "acerto": null,
+    "resultado_real": "2-2",
+    "acerto": false,
     "prob_original": 57.8,
     "confidence_factor": 0.97,
     "prob_adjusted": 51.0,
@@ -7507,6 +7507,83 @@
         "ev_adjusted": -29.7,
         "value_score": null,
         "reason": "ev_negativo"
+      },
+      {
+        "market": "Over 1.5 goles",
+        "ev_adjusted": null,
+        "value_score": null,
+        "reason": "mercado_no_disponible"
+      }
+    ]
+  },
+  {
+    "fecha": "2026-07-23",
+    "slug": "botafogo-vs-vitoria-brasileirao-2026-07-23",
+    "home": "Botafogo",
+    "away": "Vitória",
+    "league": "Brasileirao",
+    "prediccion": "Over 2.5 goles",
+    "confianza": "Probabilidad: 59.6%",
+    "resultado_real": null,
+    "acerto": null,
+    "prob_original": 72.0,
+    "confidence_factor": 0.9409,
+    "prob_adjusted": 59.6,
+    "bk_odds": 1.92,
+    "ev": 38.3,
+    "penalty": 0.0,
+    "ev_adjusted": 14.3,
+    "value_score": null,
+    "reason": "ev_insuficiente",
+    "version": "v1.2-clean-signal",
+    "stake_sugerido_pct": 3.92,
+    "stake_real_pct": 3.92,
+    "stake_modo": "activo",
+    "tipo_pick": "pick_exploratorio",
+    "base_pick": "Vitória",
+    "value_level": "medio",
+    "markets_evaluated": [
+      {
+        "market": "Vitória",
+        "ev_adjusted": 47.5,
+        "value_score": 78.5463,
+        "reason": "ok"
+      },
+      {
+        "market": "Botafogo",
+        "ev_adjusted": -12.7,
+        "value_score": null,
+        "reason": "ev_negativo"
+      },
+      {
+        "market": "Apuesta sin empate: Botafogo",
+        "ev_adjusted": -14.2,
+        "value_score": null,
+        "reason": "ev_negativo"
+      },
+      {
+        "market": "Doble oportunidad: Botafogo",
+        "ev_adjusted": null,
+        "value_score": null,
+        "reason": "cuota_baja"
+      },
+      {
+        "market": "Apuesta sin empate: Vitória",
+        "ev_adjusted": -26.4,
+        "value_score": null,
+        "reason": "ev_negativo"
+      },
+      {
+        "market": "Doble oportunidad: Vitória",
+        "ev_adjusted": -7.9,
+        "value_score": null,
+        "reason": "ev_negativo"
+      },
+      {
+        "market": "Over 2.5 goles",
+        "ev_adjusted": 14.3,
+        "value_score": null,
+        "reason": "ev_insuficiente"
       },
       {
         "market": "Over 1.5 goles",

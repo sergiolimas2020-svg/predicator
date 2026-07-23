@@ -1,41 +1,54 @@
 {
-  "date": "2026-07-22",
+  "date": "2026-07-23",
   "model_version": "v1.2-clean-signal",
   "shadow_mode": false,
   "shadow_until": "2026-06-15",
   "pick_dia": null,
-  "picks_suscripcion": [
-    {
-      "slug": "independiente-medellin-vs-vasco-da-gama-copa-sudamericana-2026-07-22",
-      "matchup": "Independiente Medellín vs Vasco da Gama",
-      "league": "Copa Sudamericana",
-      "tipo": "pick_gratuito",
-      "market": "Independiente Medellín",
-      "prob_adjusted": 51.0,
-      "value_score": 24.4421,
-      "confidence_factor": 0.97,
-      "ev_adjusted": 27.5,
-      "bk_odds": 2.5,
-      "stake_sugerido_pct": 4.58,
-      "stake_real_pct": 4.58,
-      "stake_modo": "activo"
-    }
-  ],
+  "picks_suscripcion": [],
   "pick_gratuito": {
-    "slug": "independiente-medellin-vs-vasco-da-gama-copa-sudamericana-2026-07-22",
-    "matchup": "Independiente Medellín vs Vasco da Gama",
-    "league": "Copa Sudamericana",
-    "tipo": "pick_gratuito",
-    "market": "Independiente Medellín",
-    "prob_adjusted": 51.0,
-    "value_score": 24.4421,
-    "confidence_factor": 0.97,
-    "ev_adjusted": 27.5,
-    "bk_odds": 2.5,
-    "stake_sugerido_pct": 4.58,
-    "stake_real_pct": 4.58,
-    "stake_modo": "activo"
+    "slug": "botafogo-vs-vitoria-brasileirao-2026-07-23",
+    "matchup": "Botafogo vs Vitória",
+    "league": "Brasileirao",
+    "tipo": "pick_exploratorio",
+    "market": "Over 2.5 goles",
+    "prob_adjusted": 59.6,
+    "value_score": null,
+    "confidence_factor": 0.9409,
+    "ev_adjusted": 14.3,
+    "bk_odds": 1.92,
+    "stake_sugerido_pct": 3.92,
+    "stake_real_pct": 3.92,
+    "stake_modo": "activo",
+    "riesgo": "medio",
+    "nota": "Pick exploratorio — hoy no hay valor premium claro"
   },
-  "pick_exploratorio": null,
-  "analisis_goles": []
+  "pick_exploratorio": {
+    "slug": "botafogo-vs-vitoria-brasileirao-2026-07-23",
+    "matchup": "Botafogo vs Vitória",
+    "league": "Brasileirao",
+    "tipo": "pick_exploratorio",
+    "market": "Over 2.5 goles",
+    "prob_adjusted": 59.6,
+    "value_score": null,
+    "confidence_factor": 0.9409,
+    "ev_adjusted": 14.3,
+    "bk_odds": 1.92,
+    "stake_sugerido_pct": 3.92,
+    "stake_real_pct": 3.92,
+    "stake_modo": "activo",
+    "riesgo": "medio",
+    "nota": "Pick exploratorio — hoy no hay valor premium claro"
+  },
+  "analisis_goles": [
+    {
+      "league": "Brasileirao",
+      "matchup": "Botafogo vs Vitória",
+      "market": "Over 2.5 goles",
+      "bk_odds": 1.92,
+      "prob_adjusted": 59.6,
+      "ev_adjusted": 14.3,
+      "confidence_factor": 0.9409,
+      "nota": "Análisis de goles — no es pick oficial"
+    }
+  ]
 }
