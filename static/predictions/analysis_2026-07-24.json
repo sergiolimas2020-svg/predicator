@@ -1,0 +1,396 @@
+{
+  "date": "2026-07-24",
+  "total_fixtures": 8,
+  "matches": [
+    {
+      "matchup": "Llaneros FC vs Deportivo Pereira",
+      "league": "Liga Colombiana",
+      "home": "Llaneros FC",
+      "away": "Deportivo Pereira",
+      "probabilities": {
+        "win_home": 56.4,
+        "draw": 30.6,
+        "win_away": 13.0,
+        "over_2_5": 28.4,
+        "over_1_5": 55.3
+      },
+      "favorite": "Llaneros FC",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.34,
+      "lambda_away": 0.51,
+      "elo_home": 1500.0,
+      "elo_away": 1408.9,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 55.3,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 28.4,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Deportivo Cali vs Jaguares de Córdoba",
+      "league": "Liga Colombiana",
+      "home": "Deportivo Cali",
+      "away": "Jaguares de Córdoba",
+      "probabilities": {
+        "win_home": 60.9,
+        "draw": 27.0,
+        "win_away": 12.1,
+        "over_2_5": 36.0,
+        "over_1_5": 63.0
+      },
+      "favorite": "Deportivo Cali",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.57,
+      "lambda_away": 0.57,
+      "elo_home": 1517.3,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 63.0,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 36.0,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Gimnasia (Mendoza) vs Central Córdoba (Santiago del Estero)",
+      "league": "Liga Argentina",
+      "home": "Gimnasia (Mendoza)",
+      "away": "Central Córdoba (Santiago del Estero)",
+      "probabilities": {
+        "win_home": 26.8,
+        "draw": 38.7,
+        "win_away": 34.5,
+        "over_2_5": 19.9,
+        "over_1_5": 45.2
+      },
+      "favorite": "Empate técnico",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 0.7,
+      "lambda_away": 0.83,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 45.2,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 19.9,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Racing Club vs Gimnasia La Plata",
+      "league": "Liga Argentina",
+      "home": "Racing Club",
+      "away": "Gimnasia La Plata",
+      "probabilities": {
+        "win_home": 52.5,
+        "draw": 32.5,
+        "win_away": 14.9,
+        "over_2_5": 26.1,
+        "over_1_5": 52.7
+      },
+      "favorite": "Racing Club",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.23,
+      "lambda_away": 0.53,
+      "elo_home": 1508.6,
+      "elo_away": 1511.7,
+      "danger": {
+        "home_sot": null,
+        "away_sot": null
+      },
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 52.7,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 26.1,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "corners",
+            "status": "unavailable",
+            "reason": "sin muestra suficiente de corners por localía"
+          },
+          {
+            "group": "shots",
+            "status": "unavailable",
+            "reason": "sin muestra suficiente de tiros a puerta por localía"
+          },
+          {
+            "group": "player_shots",
+            "status": "unavailable",
+            "reason": "API-Football no entregó tiros de jugadores suficientes para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Vélez Sarsfield vs Instituto (Córdoba)",
+      "league": "Liga Argentina",
+      "home": "Vélez Sarsfield",
+      "away": "Instituto (Córdoba)",
+      "probabilities": {
+        "win_home": 43.7,
+        "draw": 37.9,
+        "win_away": 18.4,
+        "over_2_5": 18.7,
+        "over_1_5": 43.6
+      },
+      "favorite": "Vélez Sarsfield",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 0.96,
+      "lambda_away": 0.52,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 43.6,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 18.7,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Huracán vs Banfield",
+      "league": "Liga Argentina",
+      "home": "Huracán",
+      "away": "Banfield",
+      "probabilities": {
+        "win_home": 47.4,
+        "draw": 34.3,
+        "win_away": 18.3,
+        "over_2_5": 25.3,
+        "over_1_5": 51.8
+      },
+      "favorite": "Huracán",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.13,
+      "lambda_away": 0.6,
+      "elo_home": 1500.0,
+      "elo_away": 1480.4,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 51.8,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 25.3,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Platense vs Unión (Santa Fe)",
+      "league": "Liga Argentina",
+      "home": "Platense",
+      "away": "Unión (Santa Fe)",
+      "probabilities": {
+        "win_home": 24.5,
+        "draw": 38.1,
+        "win_away": 37.4,
+        "over_2_5": 20.5,
+        "over_1_5": 46.1
+      },
+      "favorite": "Empate técnico",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 0.67,
+      "lambda_away": 0.89,
+      "elo_home": 1458.9,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 46.1,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 20.5,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Västerås SK vs Örgryte IS",
+      "league": "Allsvenskan",
+      "home": "Västerås SK",
+      "away": "Örgryte IS",
+      "probabilities": {
+        "win_home": 83.8,
+        "draw": 9.7,
+        "win_away": 6.6,
+        "over_2_5": 88.9,
+        "over_1_5": 96.5
+      },
+      "favorite": "Västerås SK",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 3.94,
+      "lambda_away": 1.22,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 96.5,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 88.9,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    }
+  ],
+  "nota": "Análisis estadístico de todos los partidos del día. Probabilidades crudas del modelo (sin ajuste por liga ni mercado). No incluye recomendación de apuesta — ver value_picks y featured_pick para picks oficiales."
+}

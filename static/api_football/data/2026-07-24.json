@@ -1,0 +1,109 @@
+[
+  {
+    "key": "Gimnasia Mendoza|Central Córdoba|2026-07-24",
+    "home": "Gimnasia Mendoza",
+    "away": "Central Córdoba",
+    "league": "Liga Argentina",
+    "date": "2026-07-24",
+    "home_id": null,
+    "away_id": null,
+    "league_id": 128,
+    "season": 2026,
+    "h2h": null,
+    "home_form": null,
+    "away_form": null,
+    "home_stats": null,
+    "away_stats": null,
+    "home_danger": null,
+    "away_danger": null,
+    "home_player_shots": null,
+    "away_player_shots": null,
+    "errors": [
+      "missing_team_mapping"
+    ]
+  },
+  {
+    "key": "Racing Club|Gimnasia La Plata|2026-07-24",
+    "home": "Racing Club",
+    "away": "Gimnasia La Plata",
+    "league": "Liga Argentina",
+    "date": "2026-07-24",
+    "home_id": 436,
+    "away_id": 434,
+    "league_id": 128,
+    "season": 2026,
+    "h2h": null,
+    "home_form": null,
+    "away_form": null,
+    "home_stats": null,
+    "away_stats": null,
+    "home_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "home_player_shots": {
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_player_shots": {
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "errors": [
+      "h2h: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "away_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}",
+      "away_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}"
+    ]
+  },
+  {
+    "key": "Velez Sarsfield BA|Instituto de Córdoba|2026-07-24",
+    "home": "Velez Sarsfield BA",
+    "away": "Instituto de Córdoba",
+    "league": "Liga Argentina",
+    "date": "2026-07-24",
+    "home_id": 438,
+    "away_id": null,
+    "league_id": 128,
+    "season": 2026,
+    "h2h": null,
+    "home_form": null,
+    "away_form": null,
+    "home_stats": null,
+    "away_stats": null,
+    "home_danger": null,
+    "away_danger": null,
+    "home_player_shots": null,
+    "away_player_shots": null,
+    "errors": [
+      "missing_team_mapping"
+    ]
+  }
+]

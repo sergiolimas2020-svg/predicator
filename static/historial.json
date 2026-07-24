@@ -1,8 +1,85 @@
 {
-  "total": 160,
+  "total": 161,
   "aciertos": 103,
   "porcentaje": 64,
   "ultimos": [
+    {
+      "fecha": "2026-07-23",
+      "slug": "botafogo-vs-vitoria-brasileirao-2026-07-23",
+      "home": "Botafogo",
+      "away": "Vitória",
+      "league": "Brasileirao",
+      "prediccion": "Over 2.5 goles",
+      "confianza": "Probabilidad: 59.6%",
+      "resultado_real": "0-0",
+      "acerto": false,
+      "prob_original": 72.0,
+      "confidence_factor": 0.9409,
+      "prob_adjusted": 59.6,
+      "bk_odds": 1.92,
+      "ev": 38.3,
+      "penalty": 0.0,
+      "ev_adjusted": 14.3,
+      "value_score": null,
+      "reason": "ev_insuficiente",
+      "version": "v1.2-clean-signal",
+      "stake_sugerido_pct": 3.92,
+      "stake_real_pct": 3.92,
+      "stake_modo": "activo",
+      "tipo_pick": "pick_exploratorio",
+      "base_pick": "Vitória",
+      "value_level": "medio",
+      "markets_evaluated": [
+        {
+          "market": "Vitória",
+          "ev_adjusted": 47.5,
+          "value_score": 78.5463,
+          "reason": "ok"
+        },
+        {
+          "market": "Botafogo",
+          "ev_adjusted": -12.7,
+          "value_score": null,
+          "reason": "ev_negativo"
+        },
+        {
+          "market": "Apuesta sin empate: Botafogo",
+          "ev_adjusted": -14.2,
+          "value_score": null,
+          "reason": "ev_negativo"
+        },
+        {
+          "market": "Doble oportunidad: Botafogo",
+          "ev_adjusted": null,
+          "value_score": null,
+          "reason": "cuota_baja"
+        },
+        {
+          "market": "Apuesta sin empate: Vitória",
+          "ev_adjusted": -26.4,
+          "value_score": null,
+          "reason": "ev_negativo"
+        },
+        {
+          "market": "Doble oportunidad: Vitória",
+          "ev_adjusted": -7.9,
+          "value_score": null,
+          "reason": "ev_negativo"
+        },
+        {
+          "market": "Over 2.5 goles",
+          "ev_adjusted": 14.3,
+          "value_score": null,
+          "reason": "ev_insuficiente"
+        },
+        {
+          "market": "Over 1.5 goles",
+          "ev_adjusted": null,
+          "value_score": null,
+          "reason": "mercado_no_disponible"
+        }
+      ]
+    },
     {
       "fecha": "2026-07-22",
       "slug": "independiente-medellin-vs-vasco-da-gama-copa-sudamericana-2026-07-22",
@@ -679,34 +756,6 @@
       "stake_modo": "activo",
       "tipo_pick": "pick_gratuito",
       "base_pick": "",
-      "value_level": "estadistico",
-      "markets_evaluated": []
-    },
-    {
-      "fecha": "2026-06-24",
-      "slug": "morocco-vs-haiti-mundial-2026-2026-06-24",
-      "home": "Morocco",
-      "away": "Haiti",
-      "league": "Mundial 2026",
-      "prediccion": "Morocco sin empate (DNB)",
-      "confianza": "Probabilidad: 80.0%",
-      "resultado_real": "4-2",
-      "acerto": true,
-      "prob_original": 80.0,
-      "confidence_factor": 1.0,
-      "prob_adjusted": 80.0,
-      "bk_odds": null,
-      "ev": null,
-      "penalty": null,
-      "ev_adjusted": null,
-      "value_score": null,
-      "reason": "confianza",
-      "version": "v1.2-clean-signal",
-      "stake_sugerido_pct": 0.0,
-      "stake_real_pct": 0.0,
-      "stake_modo": "activo",
-      "tipo_pick": "pick_suscripcion",
-      "base_pick": "Morocco",
       "value_level": "estadistico",
       "markets_evaluated": []
     }
