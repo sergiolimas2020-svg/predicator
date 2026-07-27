@@ -1,8 +1,85 @@
 {
-  "total": 163,
+  "total": 164,
   "aciertos": 105,
   "porcentaje": 64,
   "ultimos": [
+    {
+      "fecha": "2026-07-26",
+      "slug": "cruzeiro-vs-botafogo-brasileirao-2026-07-26",
+      "home": "Cruzeiro",
+      "away": "Botafogo",
+      "league": "Brasileirao",
+      "prediccion": "Over 2.5 goles",
+      "confianza": "Probabilidad: 61.5%",
+      "resultado_real": "0-1",
+      "acerto": false,
+      "prob_original": 74.7,
+      "confidence_factor": 0.9409,
+      "prob_adjusted": 61.5,
+      "bk_odds": 1.9,
+      "ev": 41.9,
+      "penalty": 0.0,
+      "ev_adjusted": 16.9,
+      "value_score": 10.2063,
+      "reason": "ok",
+      "version": "v1.2-clean-signal",
+      "stake_sugerido_pct": 4.68,
+      "stake_real_pct": 4.68,
+      "stake_modo": "activo",
+      "tipo_pick": "pick_exploratorio",
+      "base_pick": "Botafogo",
+      "value_level": "medio",
+      "markets_evaluated": [
+        {
+          "market": "Botafogo",
+          "ev_adjusted": 59.7,
+          "value_score": 93.2009,
+          "reason": "ok"
+        },
+        {
+          "market": "Over 2.5 goles",
+          "ev_adjusted": 16.9,
+          "value_score": 10.2063,
+          "reason": "ok"
+        },
+        {
+          "market": "Cruzeiro",
+          "ev_adjusted": -28.3,
+          "value_score": null,
+          "reason": "ev_negativo"
+        },
+        {
+          "market": "Apuesta sin empate: Cruzeiro",
+          "ev_adjusted": -29.8,
+          "value_score": null,
+          "reason": "ev_negativo"
+        },
+        {
+          "market": "Doble oportunidad: Cruzeiro",
+          "ev_adjusted": null,
+          "value_score": null,
+          "reason": "cuota_baja"
+        },
+        {
+          "market": "Apuesta sin empate: Botafogo",
+          "ev_adjusted": -13.2,
+          "value_score": null,
+          "reason": "ev_negativo"
+        },
+        {
+          "market": "Doble oportunidad: Botafogo",
+          "ev_adjusted": 6.3,
+          "value_score": null,
+          "reason": "ev_insuficiente"
+        },
+        {
+          "market": "Over 1.5 goles",
+          "ev_adjusted": null,
+          "value_score": null,
+          "reason": "mercado_no_disponible"
+        }
+      ]
+    },
     {
       "fecha": "2026-07-25",
       "slug": "vasco-da-gama-vs-mirassol-brasileirao-2026-07-25",
@@ -825,34 +902,6 @@
       "stake_real_pct": 0.0,
       "stake_modo": "activo",
       "tipo_pick": "pick_suscripcion",
-      "base_pick": "",
-      "value_level": "estadistico",
-      "markets_evaluated": []
-    },
-    {
-      "fecha": "2026-06-26",
-      "slug": "new-zealand-vs-belgium-mundial-2026-2026-06-26",
-      "home": "New Zealand",
-      "away": "Belgium",
-      "league": "Mundial 2026",
-      "prediccion": "Over 2.5 goles",
-      "confianza": "Probabilidad: 91.6%",
-      "resultado_real": "1-5",
-      "acerto": true,
-      "prob_original": 91.6,
-      "confidence_factor": 1.0,
-      "prob_adjusted": 91.6,
-      "bk_odds": null,
-      "ev": null,
-      "penalty": null,
-      "ev_adjusted": null,
-      "value_score": null,
-      "reason": "confianza_goles_seleccion",
-      "version": "v1.2-clean-signal",
-      "stake_sugerido_pct": 0.0,
-      "stake_real_pct": 0.0,
-      "stake_modo": "activo",
-      "tipo_pick": "pick_gratuito",
       "base_pick": "",
       "value_level": "estadistico",
       "markets_evaluated": []

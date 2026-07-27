@@ -1,9 +1,9 @@
 {
-  "n": 163,
-  "brier": 0.2265,
-  "brier_baseline": 0.2292,
-  "acierto_global": 64.4,
-  "actualizado": "2026-07-26",
+  "n": 164,
+  "brier": 0.2274,
+  "brier_baseline": 0.2303,
+  "acierto_global": 64.0,
+  "actualizado": "2026-07-27",
   "buckets": [
     {
       "rango": "50-60%",
@@ -13,9 +13,9 @@
     },
     {
       "rango": "60-70%",
-      "n": 40,
-      "prob_predicha": 65.9,
-      "acierto_real": 60.0
+      "n": 41,
+      "prob_predicha": 65.8,
+      "acierto_real": 58.5
     },
     {
       "rango": "70-80%",
