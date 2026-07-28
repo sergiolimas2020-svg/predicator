@@ -1,0 +1,430 @@
+{
+  "date": "2026-07-28",
+  "total_fixtures": 9,
+  "matches": [
+    {
+      "matchup": "Banfield vs Sarmiento (Junín)",
+      "league": "Liga Argentina",
+      "home": "Banfield",
+      "away": "Sarmiento (Junín)",
+      "probabilities": {
+        "win_home": 46.2,
+        "draw": 34.4,
+        "win_away": 19.3,
+        "over_2_5": 25.6,
+        "over_1_5": 52.1
+      },
+      "favorite": "Banfield",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.12,
+      "lambda_away": 0.63,
+      "elo_home": 1480.4,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 52.1,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 25.6,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "San Lorenzo vs Gimnasia (Mendoza)",
+      "league": "Liga Argentina",
+      "home": "San Lorenzo",
+      "away": "Gimnasia (Mendoza)",
+      "probabilities": {
+        "win_home": 47.2,
+        "draw": 36.4,
+        "win_away": 16.3,
+        "over_2_5": 19.9,
+        "over_1_5": 45.3
+      },
+      "favorite": "San Lorenzo",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.04,
+      "lambda_away": 0.5,
+      "elo_home": 1505.3,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 45.3,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 19.9,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Argentinos Juniors vs Estudiantes de Río Cuarto",
+      "league": "Liga Argentina",
+      "home": "Argentinos Juniors",
+      "away": "Estudiantes de Río Cuarto",
+      "probabilities": {
+        "win_home": 70.3,
+        "draw": 26.4,
+        "win_away": 3.2,
+        "over_2_5": 20.8,
+        "over_1_5": 46.4
+      },
+      "favorite": "Argentinos Juniors",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.42,
+      "lambda_away": 0.15,
+      "elo_home": 1506.2,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 46.4,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 20.8,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Rosario Central vs Racing Club",
+      "league": "Liga Argentina",
+      "home": "Rosario Central",
+      "away": "Racing Club",
+      "probabilities": {
+        "win_home": 43.7,
+        "draw": 35.0,
+        "win_away": 21.3,
+        "over_2_5": 25.5,
+        "over_1_5": 52.1
+      },
+      "favorite": "Rosario Central",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.08,
+      "lambda_away": 0.67,
+      "elo_home": 1542.1,
+      "elo_away": 1508.6,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 52.1,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 25.5,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Juventude vs Avaí",
+      "league": "Brasileirao Serie B",
+      "home": "Juventude",
+      "away": "Avaí",
+      "probabilities": {
+        "win_home": 60.5,
+        "draw": 31.1,
+        "win_away": 8.4,
+        "over_2_5": 21.7,
+        "over_1_5": 47.5
+      },
+      "favorite": "Juventude",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.28,
+      "lambda_away": 0.32,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 47.5,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 21.7,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Ponte Preta vs Athletic",
+      "league": "Brasileirao Serie B",
+      "home": "Ponte Preta",
+      "away": "Athletic",
+      "probabilities": {
+        "win_home": 15.2,
+        "draw": 32.3,
+        "win_away": 52.5,
+        "over_2_5": 27.0,
+        "over_1_5": 53.8
+      },
+      "favorite": "Athletic",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 0.55,
+      "lambda_away": 1.25,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 53.8,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 27.0,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Fortaleza vs Botafogo-SP",
+      "league": "Brasileirao Serie B",
+      "home": "Fortaleza",
+      "away": "Botafogo-SP",
+      "probabilities": {
+        "win_home": 40.7,
+        "draw": 36.2,
+        "win_away": 23.2,
+        "over_2_5": 23.8,
+        "over_1_5": 50.1
+      },
+      "favorite": "Fortaleza",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.0,
+      "lambda_away": 0.68,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 50.1,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 23.8,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Tigre vs Nacional",
+      "league": "Copa Sudamericana",
+      "home": "Tigre",
+      "away": "Nacional",
+      "probabilities": {
+        "win_home": 46.3,
+        "draw": 33.2,
+        "win_away": 20.5,
+        "over_2_5": 29.1,
+        "over_1_5": 56.1
+      },
+      "favorite": "Tigre",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.18,
+      "lambda_away": 0.7,
+      "elo_home": 1521.7,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 56.1,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 29.1,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Santos vs UCV FC",
+      "league": "Copa Sudamericana",
+      "home": "Santos",
+      "away": "UCV FC",
+      "probabilities": {
+        "win_home": 48.5,
+        "draw": 23.5,
+        "win_away": 28.0,
+        "over_2_5": 67.6,
+        "over_1_5": 86.2
+      },
+      "favorite": "Santos",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.99,
+      "lambda_away": 1.49,
+      "elo_home": 1510.8,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 86.2,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 67.6,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    }
+  ],
+  "nota": "Análisis estadístico de todos los partidos del día. Probabilidades crudas del modelo (sin ajuste por liga ni mercado). No incluye recomendación de apuesta — ver value_picks y featured_pick para picks oficiales."
+}
