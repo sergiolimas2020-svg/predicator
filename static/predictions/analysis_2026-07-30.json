@@ -1,0 +1,477 @@
+{
+  "date": "2026-07-30",
+  "total_fixtures": 10,
+  "matches": [
+    {
+      "matchup": "Atlético Bucaramanga vs Llaneros FC",
+      "league": "Liga Colombiana",
+      "home": "Atlético Bucaramanga",
+      "away": "Llaneros FC",
+      "probabilities": {
+        "win_home": 50.2,
+        "draw": 32.7,
+        "win_away": 17.2,
+        "over_2_5": 27.8,
+        "over_1_5": 54.7
+      },
+      "favorite": "Atlético Bucaramanga",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.23,
+      "lambda_away": 0.61,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 54.7,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 27.8,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Independiente Rivadavia vs Huracán",
+      "league": "Liga Argentina",
+      "home": "Independiente Rivadavia",
+      "away": "Huracán",
+      "probabilities": {
+        "win_home": 39.4,
+        "draw": 32.5,
+        "win_away": 28.1,
+        "over_2_5": 34.7,
+        "over_1_5": 61.7
+      },
+      "favorite": "Independiente Rivadavia",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.15,
+      "lambda_away": 0.93,
+      "elo_home": 1570.6,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 61.7,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 34.7,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Talleres (Córdoba) vs Vélez Sarsfield",
+      "league": "Liga Argentina",
+      "home": "Talleres (Córdoba)",
+      "away": "Vélez Sarsfield",
+      "probabilities": {
+        "win_home": 30.9,
+        "draw": 43.8,
+        "win_away": 25.3,
+        "over_2_5": 12.3,
+        "over_1_5": 34.2
+      },
+      "favorite": "Empate técnico",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 0.65,
+      "lambda_away": 0.56,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 34.2,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 12.3,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Central Córdoba (Santiago del Estero) vs Atlético Tucumán",
+      "league": "Liga Argentina",
+      "home": "Central Córdoba (Santiago del Estero)",
+      "away": "Atlético Tucumán",
+      "probabilities": {
+        "win_home": 43.9,
+        "draw": 36.9,
+        "win_away": 19.2,
+        "over_2_5": 20.8,
+        "over_1_5": 46.4
+      },
+      "favorite": "Central Córdoba (Santiago del Estero)",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.0,
+      "lambda_away": 0.57,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 46.4,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 20.8,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Independiente vs Newell's Old Boys",
+      "league": "Liga Argentina",
+      "home": "Independiente",
+      "away": "Newell's Old Boys",
+      "probabilities": {
+        "win_home": 66.7,
+        "draw": 21.1,
+        "win_away": 12.2,
+        "over_2_5": 56.3,
+        "over_1_5": 79.1
+      },
+      "favorite": "Independiente",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 2.12,
+      "lambda_away": 0.81,
+      "elo_home": 1509.7,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 79.1,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 56.3,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Corinthians vs Athletico-PR",
+      "league": "Brasileirao",
+      "home": "Corinthians",
+      "away": "Athletico-PR",
+      "probabilities": {
+        "win_home": 37.4,
+        "draw": 37.8,
+        "win_away": 24.8,
+        "over_2_5": 21.1,
+        "over_1_5": 46.8
+      },
+      "favorite": "Empate técnico",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 0.9,
+      "lambda_away": 0.68,
+      "elo_home": 1501.8,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 46.8,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 21.1,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Coritiba vs Cruzeiro",
+      "league": "Brasileirao",
+      "home": "Coritiba",
+      "away": "Cruzeiro",
+      "probabilities": {
+        "win_home": 51.0,
+        "draw": 25.6,
+        "win_away": 23.4,
+        "over_2_5": 55.7,
+        "over_1_5": 78.8
+      },
+      "favorite": "Coritiba",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.77,
+      "lambda_away": 1.14,
+      "elo_home": 1506.2,
+      "elo_away": 1500.3,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 78.8,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 55.7,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Grêmio vs Bolívar",
+      "league": "Copa Sudamericana",
+      "home": "Grêmio",
+      "away": "Bolívar",
+      "probabilities": {
+        "win_home": 42.4,
+        "draw": 31.8,
+        "win_away": 25.7,
+        "over_2_5": 35.8,
+        "over_1_5": 62.8
+      },
+      "favorite": "Grêmio",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.23,
+      "lambda_away": 0.9,
+      "elo_home": 1532.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 62.8,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 35.8,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Caracas FC vs Independiente Santa Fe",
+      "league": "Copa Sudamericana",
+      "home": "Caracas FC",
+      "away": "Independiente Santa Fe",
+      "probabilities": {
+        "win_home": 46.2,
+        "draw": 26.0,
+        "win_away": 27.8,
+        "over_2_5": 57.2,
+        "over_1_5": 79.7
+      },
+      "favorite": "Caracas FC",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.7,
+      "lambda_away": 1.28,
+      "elo_home": 1503.7,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 79.7,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 57.2,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "O'Higgins vs Boca Juniors",
+      "league": "Copa Sudamericana",
+      "home": "O'Higgins",
+      "away": "Boca Juniors",
+      "probabilities": {
+        "win_home": 18.6,
+        "draw": 30.6,
+        "win_away": 50.8,
+        "over_2_5": 34.3,
+        "over_1_5": 61.4
+      },
+      "favorite": "Boca Juniors",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 0.72,
+      "lambda_away": 1.35,
+      "elo_home": 1514.3,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 61.4,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 34.3,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    }
+  ],
+  "nota": "Análisis estadístico de todos los partidos del día. Probabilidades crudas del modelo (sin ajuste por liga ni mercado). No incluye recomendación de apuesta — ver value_picks y featured_pick para picks oficiales."
+}
