@@ -1,0 +1,383 @@
+{
+  "date": "2026-08-03",
+  "total_fixtures": 8,
+  "matches": [
+    {
+      "matchup": "Atlético Bucaramanga vs Cúcuta Deportivo",
+      "league": "Liga Colombiana",
+      "home": "Atlético Bucaramanga",
+      "away": "Cúcuta Deportivo",
+      "probabilities": {
+        "win_home": 67.8,
+        "draw": 20.7,
+        "win_away": 11.5,
+        "over_2_5": 56.1,
+        "over_1_5": 79.0
+      },
+      "favorite": "Atlético Bucaramanga",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 2.15,
+      "lambda_away": 0.79,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 79.0,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 56.1,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Sarmiento (Junín) vs Independiente Rivadavia",
+      "league": "Liga Argentina",
+      "home": "Sarmiento (Junín)",
+      "away": "Independiente Rivadavia",
+      "probabilities": {
+        "win_home": 25.9,
+        "draw": 31.8,
+        "win_away": 42.3,
+        "over_2_5": 35.8,
+        "over_1_5": 62.8
+      },
+      "favorite": "Independiente Rivadavia",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 0.9,
+      "lambda_away": 1.23,
+      "elo_home": 1500.0,
+      "elo_away": 1570.6,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 62.8,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 35.8,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Platense vs Talleres (Córdoba)",
+      "league": "Liga Argentina",
+      "home": "Platense",
+      "away": "Talleres (Córdoba)",
+      "probabilities": {
+        "win_home": 20.3,
+        "draw": 46.9,
+        "win_away": 32.7,
+        "over_2_5": 8.9,
+        "over_1_5": 28.1
+      },
+      "favorite": "Empate técnico",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 0.43,
+      "lambda_away": 0.62,
+      "elo_home": 1458.9,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 28.1,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 8.9,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Vélez Sarsfield vs Independiente",
+      "league": "Liga Argentina",
+      "home": "Vélez Sarsfield",
+      "away": "Independiente",
+      "probabilities": {
+        "win_home": 46.4,
+        "draw": 32.6,
+        "win_away": 20.9,
+        "over_2_5": 30.8,
+        "over_1_5": 57.8
+      },
+      "favorite": "Vélez Sarsfield",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.21,
+      "lambda_away": 0.73,
+      "elo_home": 1500.0,
+      "elo_away": 1509.7,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 57.8,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 30.8,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Central Córdoba (Santiago del Estero) vs San Lorenzo",
+      "league": "Liga Argentina",
+      "home": "Central Córdoba (Santiago del Estero)",
+      "away": "San Lorenzo",
+      "probabilities": {
+        "win_home": 33.7,
+        "draw": 43.2,
+        "win_away": 23.1,
+        "over_2_5": 12.9,
+        "over_1_5": 35.1
+      },
+      "favorite": "Empate técnico",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 0.7,
+      "lambda_away": 0.53,
+      "elo_home": 1500.0,
+      "elo_away": 1505.3,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 35.1,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 12.9,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Huracán vs Atlético Tucumán",
+      "league": "Liga Argentina",
+      "home": "Huracán",
+      "away": "Atlético Tucumán",
+      "probabilities": {
+        "win_home": 50.8,
+        "draw": 33.5,
+        "win_away": 15.7,
+        "over_2_5": 24.8,
+        "over_1_5": 51.3
+      },
+      "favorite": "Huracán",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.18,
+      "lambda_away": 0.54,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 51.3,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 24.8,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Djurgården vs Västerås SK",
+      "league": "Allsvenskan",
+      "home": "Djurgården",
+      "away": "Västerås SK",
+      "probabilities": {
+        "win_home": 54.3,
+        "draw": 16.9,
+        "win_away": 28.9,
+        "over_2_5": 92.2,
+        "over_1_5": 97.7
+      },
+      "favorite": "Djurgården",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 3.24,
+      "lambda_away": 2.45,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 97.7,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 92.2,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Halmstads BK vs IK Sirius",
+      "league": "Allsvenskan",
+      "home": "Halmstads BK",
+      "away": "IK Sirius",
+      "probabilities": {
+        "win_home": 5.0,
+        "draw": 9.1,
+        "win_away": 85.9,
+        "over_2_5": 85.6,
+        "over_1_5": 95.2
+      },
+      "favorite": "IK Sirius",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 0.99,
+      "lambda_away": 3.8,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 95.2,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 85.6,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    }
+  ],
+  "nota": "Análisis estadístico de todos los partidos del día. Probabilidades crudas del modelo (sin ajuste por liga ni mercado). No incluye recomendación de apuesta — ver value_picks y featured_pick para picks oficiales."
+}
