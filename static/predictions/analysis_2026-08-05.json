@@ -1,0 +1,195 @@
+{
+  "date": "2026-08-05",
+  "total_fixtures": 4,
+  "matches": [
+    {
+      "matchup": "Internacional de Bogotá vs Jaguares de Córdoba",
+      "league": "Liga Colombiana",
+      "home": "Internacional de Bogotá",
+      "away": "Jaguares de Córdoba",
+      "probabilities": {
+        "win_home": 55.9,
+        "draw": 23.7,
+        "win_away": 20.4,
+        "over_2_5": 59.9,
+        "over_1_5": 81.6
+      },
+      "favorite": "Internacional de Bogotá",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.97,
+      "lambda_away": 1.13,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 81.6,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 59.9,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Once Caldas vs América de Cali",
+      "league": "Liga Colombiana",
+      "home": "Once Caldas",
+      "away": "América de Cali",
+      "probabilities": {
+        "win_home": 43.3,
+        "draw": 30.9,
+        "win_away": 25.7,
+        "over_2_5": 38.5,
+        "over_1_5": 65.2
+      },
+      "favorite": "Once Caldas",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.29,
+      "lambda_away": 0.94,
+      "elo_home": 1548.2,
+      "elo_away": 1522.9,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 65.2,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 38.5,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Boca Juniors vs Estudiantes de La Plata",
+      "league": "Liga Argentina",
+      "home": "Boca Juniors",
+      "away": "Estudiantes de La Plata",
+      "probabilities": {
+        "win_home": 38.1,
+        "draw": 38.7,
+        "win_away": 23.2,
+        "over_2_5": 19.1,
+        "over_1_5": 44.1
+      },
+      "favorite": "Empate técnico",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 0.88,
+      "lambda_away": 0.62,
+      "elo_home": 1565.4,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 44.1,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 19.1,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Tigre vs Belgrano (Córdoba)",
+      "league": "Liga Argentina",
+      "home": "Tigre",
+      "away": "Belgrano (Córdoba)",
+      "probabilities": {
+        "win_home": 31.6,
+        "draw": 39.4,
+        "win_away": 29.1,
+        "over_2_5": 18.9,
+        "over_1_5": 43.9
+      },
+      "favorite": "Empate técnico",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 0.77,
+      "lambda_away": 0.72,
+      "elo_home": 1500.4,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 43.9,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 18.9,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    }
+  ],
+  "nota": "Análisis estadístico de todos los partidos del día. Probabilidades crudas del modelo (sin ajuste por liga ni mercado). No incluye recomendación de apuesta — ver value_picks y featured_pick para picks oficiales."
+}
