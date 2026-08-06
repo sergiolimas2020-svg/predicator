@@ -1,64 +1,4 @@
 {
-  "Guarani": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "64%",
-      "over_2_5": "41%",
-      "over_3_5": "27%",
-      "bts": "45%"
-    },
-    "position": {}
-  },
-  "2 de Mayo": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "73%",
-      "over_2_5": "41%",
-      "over_3_5": "18%",
-      "bts": "45%"
-    },
-    "position": {}
-  },
-  "S. Ameliano": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "68%",
-      "over_2_5": "36%",
-      "over_3_5": "14%",
-      "bts": "59%"
-    },
-    "position": {}
-  },
-  "San Lorenzo": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "64%",
-      "over_2_5": "36%",
-      "over_3_5": "23%",
-      "bts": "41%"
-    },
-    "position": {}
-  },
-  "S. Trinidense": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "77%",
-      "over_2_5": "50%",
-      "over_3_5": "18%",
-      "bts": "73%"
-    },
-    "position": {}
-  },
-  "D. Recoleta": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "82%",
-      "over_2_5": "64%",
-      "over_3_5": "32%",
-      "bts": "68%"
-    },
-    "position": {}
-  },
   "S. Luqueno": {
     "corners": {},
     "goals": {
@@ -66,16 +6,6 @@
       "over_2_5": "55%",
       "over_3_5": "23%",
       "bts": "64%"
-    },
-    "position": {}
-  },
-  "Cerro Porteno": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "77%",
-      "over_2_5": "36%",
-      "over_3_5": "18%",
-      "bts": "36%"
     },
     "position": {}
   },
@@ -89,6 +19,76 @@
     },
     "position": {}
   },
+  "D. Recoleta": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "82%",
+      "over_2_5": "64%",
+      "over_3_5": "32%",
+      "bts": "68%"
+    },
+    "position": {}
+  },
+  "S. Trinidense": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "77%",
+      "over_2_5": "50%",
+      "over_3_5": "18%",
+      "bts": "73%"
+    },
+    "position": {}
+  },
+  "Cerro Porteno": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "77%",
+      "over_2_5": "36%",
+      "over_3_5": "18%",
+      "bts": "36%"
+    },
+    "position": {}
+  },
+  "Nacional": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "77%",
+      "over_2_5": "45%",
+      "over_3_5": "14%",
+      "bts": "68%"
+    },
+    "position": {}
+  },
+  "S. Ameliano": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "68%",
+      "over_2_5": "36%",
+      "over_3_5": "14%",
+      "bts": "59%"
+    },
+    "position": {}
+  },
+  "2 de Mayo": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "73%",
+      "over_2_5": "41%",
+      "over_3_5": "18%",
+      "bts": "45%"
+    },
+    "position": {}
+  },
+  "San Lorenzo": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "64%",
+      "over_2_5": "36%",
+      "over_3_5": "23%",
+      "bts": "41%"
+    },
+    "position": {}
+  },
   "League average": {
     "corners": {},
     "goals": {
@@ -96,16 +96,6 @@
       "over_2_5": "20.5%",
       "over_3_5": "13.6%",
       "bts": "28.8%"
-    },
-    "position": {}
-  },
-  "Olimpia": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "68%",
-      "over_2_5": "45%",
-      "over_3_5": "18%",
-      "bts": "50%"
     },
     "position": {}
   },
@@ -119,13 +109,23 @@
     },
     "position": {}
   },
-  "Nacional": {
+  "Olimpia": {
     "corners": {},
     "goals": {
-      "over_1_5": "77%",
+      "over_1_5": "68%",
       "over_2_5": "45%",
-      "over_3_5": "14%",
-      "bts": "68%"
+      "over_3_5": "18%",
+      "bts": "50%"
+    },
+    "position": {}
+  },
+  "Guarani": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "64%",
+      "over_2_5": "41%",
+      "over_3_5": "27%",
+      "bts": "45%"
     },
     "position": {}
   },
@@ -160,7 +160,7 @@
     "position": {}
   },
   "_metadata": {
-    "fecha_actualizacion": "2026-08-05T07:32:59.944019",
+    "fecha_actualizacion": "2026-08-06T07:33:30.139689",
     "liga": "paraguay",
     "fuente": "ESPN API"
   }

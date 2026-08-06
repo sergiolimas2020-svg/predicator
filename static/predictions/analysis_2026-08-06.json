@@ -1,0 +1,54 @@
+{
+  "date": "2026-08-06",
+  "total_fixtures": 1,
+  "matches": [
+    {
+      "matchup": "Unión (Santa Fe) vs Lanús",
+      "league": "Liga Argentina",
+      "home": "Unión (Santa Fe)",
+      "away": "Lanús",
+      "probabilities": {
+        "win_home": 43.2,
+        "draw": 31.9,
+        "win_away": 24.9,
+        "over_2_5": 35.1,
+        "over_1_5": 62.1
+      },
+      "favorite": "Unión (Santa Fe)",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.23,
+      "lambda_away": 0.87,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 62.1,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 35.1,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    }
+  ],
+  "nota": "Análisis estadístico de todos los partidos del día. Probabilidades crudas del modelo (sin ajuste por liga ni mercado). No incluye recomendación de apuesta — ver value_picks y featured_pick para picks oficiales."
+}
