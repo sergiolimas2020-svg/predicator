@@ -1,0 +1,242 @@
+{
+  "date": "2026-08-07",
+  "total_fixtures": 5,
+  "matches": [
+    {
+      "matchup": "Rosario Central vs Aldosivi",
+      "league": "Liga Argentina",
+      "home": "Rosario Central",
+      "away": "Aldosivi",
+      "probabilities": {
+        "win_home": 67.5,
+        "draw": 27.4,
+        "win_away": 5.1,
+        "over_2_5": 22.7,
+        "over_1_5": 48.8
+      },
+      "favorite": "Rosario Central",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.41,
+      "lambda_away": 0.23,
+      "elo_home": 1542.1,
+      "elo_away": 1417.9,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 48.8,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 22.7,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Independiente Rivadavia vs Estudiantes de Río Cuarto",
+      "league": "Liga Argentina",
+      "home": "Independiente Rivadavia",
+      "away": "Estudiantes de Río Cuarto",
+      "probabilities": {
+        "win_home": 77.9,
+        "draw": 18.5,
+        "win_away": 3.6,
+        "over_2_5": 38.0,
+        "over_1_5": 64.7
+      },
+      "favorite": "Independiente Rivadavia",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.95,
+      "lambda_away": 0.26,
+      "elo_home": 1570.6,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 64.7,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 38.0,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Operário PR vs São Bernardo",
+      "league": "Brasileirao Serie B",
+      "home": "Operário PR",
+      "away": "São Bernardo",
+      "probabilities": {
+        "win_home": 33.3,
+        "draw": 35.2,
+        "win_away": 31.5,
+        "over_2_5": 27.7,
+        "over_1_5": 54.6
+      },
+      "favorite": "Empate técnico",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 0.93,
+      "lambda_away": 0.9,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 54.6,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 27.7,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Ceará vs Ponte Preta",
+      "league": "Brasileirao Serie B",
+      "home": "Ceará",
+      "away": "Ponte Preta",
+      "probabilities": {
+        "win_home": 61.7,
+        "draw": 27.1,
+        "win_away": 11.2,
+        "over_2_5": 34.3,
+        "over_1_5": 61.3
+      },
+      "favorite": "Ceará",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.55,
+      "lambda_away": 0.52,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 61.3,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 34.3,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Sandefjord vs KFUM Oslo",
+      "league": "Eliteserien",
+      "home": "Sandefjord",
+      "away": "KFUM Oslo",
+      "probabilities": {
+        "win_home": 43.2,
+        "draw": 32.5,
+        "win_away": 24.3,
+        "over_2_5": 33.1,
+        "over_1_5": 60.1
+      },
+      "favorite": "Sandefjord",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.2,
+      "lambda_away": 0.83,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 60.1,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 33.1,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    }
+  ],
+  "nota": "Análisis estadístico de todos los partidos del día. Probabilidades crudas del modelo (sin ajuste por liga ni mercado). No incluye recomendación de apuesta — ver value_picks y featured_pick para picks oficiales."
+}
