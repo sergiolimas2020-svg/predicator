@@ -1,10 +1,20 @@
 {
-  "Penarol": {
+  "Progreso": {
     "corners": {},
     "goals": {
-      "over_1_5": "80%",
+      "over_1_5": "60%",
+      "over_2_5": "40%",
+      "over_3_5": "20%",
+      "bts": "40%"
+    },
+    "position": {}
+  },
+  "Montevideo City": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "67%",
       "over_2_5": "47%",
-      "over_3_5": "27%",
+      "over_3_5": "33%",
       "bts": "60%"
     },
     "position": {}
@@ -19,123 +29,13 @@
     },
     "position": {}
   },
-  "Danubio": {
+  "Albion": {
     "corners": {},
     "goals": {
-      "over_1_5": "80%",
-      "over_2_5": "47%",
-      "over_3_5": "27%",
-      "bts": "53%"
-    },
-    "position": {}
-  },
-  "Wanderers": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "73%",
+      "over_1_5": "67%",
       "over_2_5": "60%",
-      "over_3_5": "13%",
-      "bts": "53%"
-    },
-    "position": {}
-  },
-  "Progreso": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "60%",
-      "over_2_5": "40%",
-      "over_3_5": "20%",
-      "bts": "40%"
-    },
-    "position": {}
-  },
-  "Boston River": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "67%",
-      "over_2_5": "40%",
-      "over_3_5": "13%",
-      "bts": "47%"
-    },
-    "position": {}
-  },
-  "Cerro": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "60%",
-      "over_2_5": "33%",
-      "over_3_5": "20%",
-      "bts": "40%"
-    },
-    "position": {}
-  },
-  "Cerro Largo": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "60%",
-      "over_2_5": "40%",
-      "over_3_5": "27%",
-      "bts": "40%"
-    },
-    "position": {}
-  },
-  "Liverpool M.": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "73%",
-      "over_2_5": "40%",
-      "over_3_5": "20%",
-      "bts": "47%"
-    },
-    "position": {}
-  },
-  "Montevideo City": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "67%",
-      "over_2_5": "47%",
       "over_3_5": "33%",
       "bts": "60%"
-    },
-    "position": {}
-  },
-  "Racing CM": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "73%",
-      "over_2_5": "40%",
-      "over_3_5": "20%",
-      "bts": "60%"
-    },
-    "position": {}
-  },
-  "Defensor S.": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "53%",
-      "over_2_5": "20%",
-      "over_3_5": "0%",
-      "bts": "47%"
-    },
-    "position": {}
-  },
-  "Central Espanol": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "73%",
-      "over_2_5": "67%",
-      "over_3_5": "33%",
-      "bts": "60%"
-    },
-    "position": {}
-  },
-  "League average": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "47.5%",
-      "over_2_5": "23.3%",
-      "over_3_5": "9.2%",
-      "bts": "25.4%"
     },
     "position": {}
   },
@@ -149,6 +49,96 @@
     },
     "position": {}
   },
+  "Danubio": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "80%",
+      "over_2_5": "47%",
+      "over_3_5": "27%",
+      "bts": "53%"
+    },
+    "position": {}
+  },
+  "Cerro Largo": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "60%",
+      "over_2_5": "40%",
+      "over_3_5": "27%",
+      "bts": "40%"
+    },
+    "position": {}
+  },
+  "Penarol": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "80%",
+      "over_2_5": "47%",
+      "over_3_5": "27%",
+      "bts": "60%"
+    },
+    "position": {}
+  },
+  "Liverpool M.": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "73%",
+      "over_2_5": "40%",
+      "over_3_5": "20%",
+      "bts": "47%"
+    },
+    "position": {}
+  },
+  "Defensor S.": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "53%",
+      "over_2_5": "20%",
+      "over_3_5": "0%",
+      "bts": "47%"
+    },
+    "position": {}
+  },
+  "Wanderers": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "73%",
+      "over_2_5": "60%",
+      "over_3_5": "13%",
+      "bts": "53%"
+    },
+    "position": {}
+  },
+  "League average": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "47.5%",
+      "over_2_5": "23.3%",
+      "over_3_5": "9.2%",
+      "bts": "25.4%"
+    },
+    "position": {}
+  },
+  "Central Espanol": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "73%",
+      "over_2_5": "67%",
+      "over_3_5": "33%",
+      "bts": "60%"
+    },
+    "position": {}
+  },
+  "Cerro": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "60%",
+      "over_2_5": "33%",
+      "over_3_5": "20%",
+      "bts": "40%"
+    },
+    "position": {}
+  },
   "Nacional": {
     "corners": {},
     "goals": {
@@ -159,18 +149,28 @@
     },
     "position": {}
   },
-  "Albion": {
+  "Boston River": {
     "corners": {},
     "goals": {
       "over_1_5": "67%",
-      "over_2_5": "60%",
-      "over_3_5": "33%",
+      "over_2_5": "40%",
+      "over_3_5": "13%",
+      "bts": "47%"
+    },
+    "position": {}
+  },
+  "Racing CM": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "73%",
+      "over_2_5": "40%",
+      "over_3_5": "20%",
       "bts": "60%"
     },
     "position": {}
   },
   "_metadata": {
-    "fecha_actualizacion": "2026-08-08T05:35:39.935594",
+    "fecha_actualizacion": "2026-08-09T05:41:12.570176",
     "liga": "uruguay",
     "fuente": "ESPN API"
   }

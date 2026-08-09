@@ -7832,8 +7832,8 @@
     "league": "Brasileirao",
     "prediccion": "Over 1.5 goles",
     "confianza": "Probabilidad: 82.0%",
-    "resultado_real": null,
-    "acerto": null,
+    "resultado_real": "2-1",
+    "acerto": true,
     "prob_original": 82.0,
     "confidence_factor": 0.97,
     "prob_adjusted": 82.0,
@@ -7892,6 +7892,237 @@
         "ev_adjusted": 4.7,
         "value_score": null,
         "reason": "ev_insuficiente"
+      },
+      {
+        "market": "Over 1.5 goles",
+        "ev_adjusted": null,
+        "value_score": null,
+        "reason": "mercado_no_disponible"
+      }
+    ]
+  },
+  {
+    "fecha": "2026-08-09",
+    "slug": "bahia-vs-vasco-da-gama-brasileirao-2026-08-09",
+    "home": "Bahia",
+    "away": "Vasco da Gama",
+    "league": "Brasileirao",
+    "prediccion": "Over 1.5 goles",
+    "confianza": "Probabilidad: 81.6%",
+    "resultado_real": null,
+    "acerto": null,
+    "prob_original": 81.6,
+    "confidence_factor": 1.0,
+    "prob_adjusted": 81.6,
+    "bk_odds": null,
+    "ev": null,
+    "penalty": null,
+    "ev_adjusted": null,
+    "value_score": null,
+    "reason": "confianza",
+    "version": "v1.2-clean-signal",
+    "stake_sugerido_pct": 0.0,
+    "stake_real_pct": 0.0,
+    "stake_modo": "activo",
+    "tipo_pick": "pick_gratuito",
+    "base_pick": "Bahia",
+    "value_level": "estadistico",
+    "markets_evaluated": [
+      {
+        "market": "Bahia",
+        "ev_adjusted": 4.6,
+        "value_score": null,
+        "reason": "ev_insuficiente"
+      },
+      {
+        "market": "Apuesta sin empate: Bahia",
+        "ev_adjusted": -0.5,
+        "value_score": null,
+        "reason": "ev_negativo"
+      },
+      {
+        "market": "Doble oportunidad: Bahia",
+        "ev_adjusted": null,
+        "value_score": null,
+        "reason": "cuota_baja"
+      },
+      {
+        "market": "Vasco da Gama",
+        "ev_adjusted": -9.6,
+        "value_score": null,
+        "reason": "ev_negativo"
+      },
+      {
+        "market": "Apuesta sin empate: Vasco da Gama",
+        "ev_adjusted": -47.8,
+        "value_score": null,
+        "reason": "ev_negativo"
+      },
+      {
+        "market": "Doble oportunidad: Vasco da Gama",
+        "ev_adjusted": -30.9,
+        "value_score": null,
+        "reason": "ev_negativo"
+      },
+      {
+        "market": "Over 2.5 goles",
+        "ev_adjusted": 0.1,
+        "value_score": null,
+        "reason": "ev_insuficiente"
+      },
+      {
+        "market": "Over 1.5 goles",
+        "ev_adjusted": null,
+        "value_score": null,
+        "reason": "mercado_no_disponible"
+      }
+    ]
+  },
+  {
+    "fecha": "2026-08-09",
+    "slug": "flamengo-vs-vitoria-brasileirao-2026-08-09",
+    "home": "Flamengo",
+    "away": "Vitória",
+    "league": "Brasileirao",
+    "prediccion": "Over 1.5 goles",
+    "confianza": "Probabilidad: 81.4%",
+    "resultado_real": null,
+    "acerto": null,
+    "prob_original": 81.4,
+    "confidence_factor": 0.97,
+    "prob_adjusted": 81.4,
+    "bk_odds": null,
+    "ev": null,
+    "penalty": null,
+    "ev_adjusted": null,
+    "value_score": null,
+    "reason": "confianza",
+    "version": "v1.2-clean-signal",
+    "stake_sugerido_pct": 0.0,
+    "stake_real_pct": 0.0,
+    "stake_modo": "activo",
+    "tipo_pick": "pick_suscripcion",
+    "base_pick": "Vitória",
+    "value_level": "estadistico",
+    "markets_evaluated": [
+      {
+        "market": "Vitória",
+        "ev_adjusted": 186.9,
+        "value_score": 508.2296,
+        "reason": "ok"
+      },
+      {
+        "market": "Doble oportunidad: Vitória",
+        "ev_adjusted": 31.1,
+        "value_score": 48.0347,
+        "reason": "ok"
+      },
+      {
+        "market": "Flamengo",
+        "ev_adjusted": null,
+        "value_score": null,
+        "reason": "cuota_baja"
+      },
+      {
+        "market": "Apuesta sin empate: Flamengo",
+        "ev_adjusted": null,
+        "value_score": null,
+        "reason": "cuota_baja"
+      },
+      {
+        "market": "Doble oportunidad: Flamengo",
+        "ev_adjusted": null,
+        "value_score": null,
+        "reason": "cuota_baja"
+      },
+      {
+        "market": "Apuesta sin empate: Vitória",
+        "ev_adjusted": -38.8,
+        "value_score": null,
+        "reason": "ev_negativo"
+      },
+      {
+        "market": "Over 2.5 goles",
+        "ev_adjusted": -17.4,
+        "value_score": null,
+        "reason": "ev_negativo"
+      },
+      {
+        "market": "Over 1.5 goles",
+        "ev_adjusted": null,
+        "value_score": null,
+        "reason": "mercado_no_disponible"
+      }
+    ]
+  },
+  {
+    "fecha": "2026-08-09",
+    "slug": "cruzeiro-vs-mirassol-brasileirao-2026-08-09",
+    "home": "Cruzeiro",
+    "away": "Mirassol",
+    "league": "Brasileirao",
+    "prediccion": "Over 1.5 goles",
+    "confianza": "Probabilidad: 74.7%",
+    "resultado_real": null,
+    "acerto": null,
+    "prob_original": 74.7,
+    "confidence_factor": 0.97,
+    "prob_adjusted": 74.7,
+    "bk_odds": null,
+    "ev": null,
+    "penalty": null,
+    "ev_adjusted": null,
+    "value_score": null,
+    "reason": "confianza",
+    "version": "v1.2-clean-signal",
+    "stake_sugerido_pct": 0.0,
+    "stake_real_pct": 0.0,
+    "stake_modo": "activo",
+    "tipo_pick": "pick_suscripcion",
+    "base_pick": "Mirassol",
+    "value_level": "estadistico",
+    "markets_evaluated": [
+      {
+        "market": "Mirassol",
+        "ev_adjusted": 46.7,
+        "value_score": 81.1649,
+        "reason": "ok"
+      },
+      {
+        "market": "Cruzeiro",
+        "ev_adjusted": -22.8,
+        "value_score": null,
+        "reason": "ev_negativo"
+      },
+      {
+        "market": "Apuesta sin empate: Cruzeiro",
+        "ev_adjusted": -15.6,
+        "value_score": null,
+        "reason": "ev_negativo"
+      },
+      {
+        "market": "Doble oportunidad: Cruzeiro",
+        "ev_adjusted": null,
+        "value_score": null,
+        "reason": "cuota_baja"
+      },
+      {
+        "market": "Apuesta sin empate: Mirassol",
+        "ev_adjusted": -23.3,
+        "value_score": null,
+        "reason": "ev_negativo"
+      },
+      {
+        "market": "Doble oportunidad: Mirassol",
+        "ev_adjusted": -2.0,
+        "value_score": null,
+        "reason": "ev_negativo"
+      },
+      {
+        "market": "Over 2.5 goles",
+        "ev_adjusted": -10.3,
+        "value_score": null,
+        "reason": "ev_negativo"
       },
       {
         "market": "Over 1.5 goles",

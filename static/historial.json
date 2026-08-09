@@ -1,8 +1,85 @@
 {
-  "total": 164,
-  "aciertos": 105,
+  "total": 165,
+  "aciertos": 106,
   "porcentaje": 64,
   "ultimos": [
+    {
+      "fecha": "2026-08-08",
+      "slug": "coritiba-vs-chapecoense-brasileirao-2026-08-08",
+      "home": "Coritiba",
+      "away": "Chapecoense",
+      "league": "Brasileirao",
+      "prediccion": "Over 1.5 goles",
+      "confianza": "Probabilidad: 82.0%",
+      "resultado_real": "2-1",
+      "acerto": true,
+      "prob_original": 82.0,
+      "confidence_factor": 0.97,
+      "prob_adjusted": 82.0,
+      "bk_odds": null,
+      "ev": null,
+      "penalty": null,
+      "ev_adjusted": null,
+      "value_score": null,
+      "reason": "confianza",
+      "version": "v1.2-clean-signal",
+      "stake_sugerido_pct": 0.0,
+      "stake_real_pct": 0.0,
+      "stake_modo": "activo",
+      "tipo_pick": "pick_gratuito",
+      "base_pick": "Chapecoense",
+      "value_level": "estadistico",
+      "markets_evaluated": [
+        {
+          "market": "Chapecoense",
+          "ev_adjusted": 17.6,
+          "value_score": 31.1487,
+          "reason": "ok"
+        },
+        {
+          "market": "Coritiba",
+          "ev_adjusted": -1.5,
+          "value_score": null,
+          "reason": "ev_negativo"
+        },
+        {
+          "market": "Apuesta sin empate: Coritiba",
+          "ev_adjusted": -2.7,
+          "value_score": null,
+          "reason": "ev_negativo"
+        },
+        {
+          "market": "Doble oportunidad: Coritiba",
+          "ev_adjusted": null,
+          "value_score": null,
+          "reason": "cuota_baja"
+        },
+        {
+          "market": "Apuesta sin empate: Chapecoense",
+          "ev_adjusted": -50.1,
+          "value_score": null,
+          "reason": "ev_negativo"
+        },
+        {
+          "market": "Doble oportunidad: Chapecoense",
+          "ev_adjusted": -27.0,
+          "value_score": null,
+          "reason": "ev_negativo"
+        },
+        {
+          "market": "Over 2.5 goles",
+          "ev_adjusted": 4.7,
+          "value_score": null,
+          "reason": "ev_insuficiente"
+        },
+        {
+          "market": "Over 1.5 goles",
+          "ev_adjusted": null,
+          "value_score": null,
+          "reason": "mercado_no_disponible"
+        }
+      ]
+    },
     {
       "fecha": "2026-07-26",
       "slug": "cruzeiro-vs-botafogo-brasileirao-2026-07-26",
@@ -874,34 +951,6 @@
       "stake_real_pct": 0.0,
       "stake_modo": "activo",
       "tipo_pick": "pick_gratuito",
-      "base_pick": "",
-      "value_level": "estadistico",
-      "markets_evaluated": []
-    },
-    {
-      "fecha": "2026-06-26",
-      "slug": "senegal-vs-iraq-mundial-2026-2026-06-26",
-      "home": "Senegal",
-      "away": "Iraq",
-      "league": "Mundial 2026",
-      "prediccion": "Over 1.5 goles",
-      "confianza": "Probabilidad: 78.5%",
-      "resultado_real": "5-0",
-      "acerto": true,
-      "prob_original": 78.5,
-      "confidence_factor": 1.0,
-      "prob_adjusted": 78.5,
-      "bk_odds": null,
-      "ev": null,
-      "penalty": null,
-      "ev_adjusted": null,
-      "value_score": null,
-      "reason": "confianza_goles_seleccion",
-      "version": "v1.2-clean-signal",
-      "stake_sugerido_pct": 0.0,
-      "stake_real_pct": 0.0,
-      "stake_modo": "activo",
-      "tipo_pick": "pick_suscripcion",
       "base_pick": "",
       "value_level": "estadistico",
       "markets_evaluated": []
