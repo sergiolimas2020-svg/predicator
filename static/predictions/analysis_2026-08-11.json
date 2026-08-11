@@ -1,0 +1,430 @@
+{
+  "date": "2026-08-11",
+  "total_fixtures": 9,
+  "matches": [
+    {
+      "matchup": "Águilas Doradas vs Llaneros FC",
+      "league": "Liga Colombiana",
+      "home": "Águilas Doradas",
+      "away": "Llaneros FC",
+      "probabilities": {
+        "win_home": 36.5,
+        "draw": 36.5,
+        "win_away": 27.0,
+        "over_2_5": 24.3,
+        "over_1_5": 50.7
+      },
+      "favorite": "Águilas Doradas",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 0.94,
+      "lambda_away": 0.77,
+      "elo_home": 1482.1,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 50.7,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 24.3,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Atlético Junior vs Deportivo Pereira",
+      "league": "Liga Colombiana",
+      "home": "Atlético Junior",
+      "away": "Deportivo Pereira",
+      "probabilities": {
+        "win_home": 76.1,
+        "draw": 17.4,
+        "win_away": 6.5,
+        "over_2_5": 53.6,
+        "over_1_5": 77.3
+      },
+      "favorite": "Atlético Junior",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 2.28,
+      "lambda_away": 0.54,
+      "elo_home": 1500.0,
+      "elo_away": 1408.9,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 77.3,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 53.6,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Talleres (Córdoba) vs Lanús",
+      "league": "Liga Argentina",
+      "home": "Talleres (Córdoba)",
+      "away": "Lanús",
+      "probabilities": {
+        "win_home": 38.8,
+        "draw": 39.8,
+        "win_away": 21.5,
+        "over_2_5": 17.0,
+        "over_1_5": 41.3
+      },
+      "favorite": "Empate técnico",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 0.85,
+      "lambda_away": 0.56,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 41.3,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 17.0,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Avaí vs CRB",
+      "league": "Brasileirao Serie B",
+      "home": "Avaí",
+      "away": "CRB",
+      "probabilities": {
+        "win_home": 38.8,
+        "draw": 26.5,
+        "win_away": 34.6,
+        "over_2_5": 57.5,
+        "over_1_5": 80.0
+      },
+      "favorite": "Avaí",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.54,
+      "lambda_away": 1.45,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 80.0,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 57.5,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Fluminense vs Independiente Rivadavia",
+      "league": "Copa Libertadores",
+      "home": "Fluminense",
+      "away": "Independiente Rivadavia",
+      "probabilities": {
+        "win_home": 47.9,
+        "draw": 25.8,
+        "win_away": 26.3,
+        "over_2_5": 57.4,
+        "over_1_5": 79.9
+      },
+      "favorite": "Fluminense",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.74,
+      "lambda_away": 1.25,
+      "elo_home": 1502.1,
+      "elo_away": 1560.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 79.9,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 57.4,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Deportes Tolima vs Independiente del Valle",
+      "league": "Copa Libertadores",
+      "home": "Deportes Tolima",
+      "away": "Independiente del Valle",
+      "probabilities": {
+        "win_home": 51.5,
+        "draw": 28.2,
+        "win_away": 20.3,
+        "over_2_5": 43.3,
+        "over_1_5": 69.3
+      },
+      "favorite": "Deportes Tolima",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.53,
+      "lambda_away": 0.88,
+      "elo_home": 1506.8,
+      "elo_away": 1533.5,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 69.3,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 43.3,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Estudiantes de La Plata vs Universidad Católica",
+      "league": "Copa Libertadores",
+      "home": "Estudiantes de La Plata",
+      "away": "Universidad Católica",
+      "probabilities": {
+        "win_home": 44.9,
+        "draw": 27.5,
+        "win_away": 27.6,
+        "over_2_5": 51.3,
+        "over_1_5": 75.6
+      },
+      "favorite": "Estudiantes de La Plata",
+      "stats_complete": false,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.55,
+      "lambda_away": 1.17,
+      "elo_home": null,
+      "elo_away": null,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 75.6,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 51.3,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Boca Juniors vs Deportivo Recoleta",
+      "league": "Copa Sudamericana",
+      "home": "Boca Juniors",
+      "away": "Deportivo Recoleta",
+      "probabilities": {
+        "win_home": 36.3,
+        "draw": 39.1,
+        "win_away": 24.6,
+        "over_2_5": 18.9,
+        "over_1_5": 43.9
+      },
+      "favorite": "Empate técnico",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 0.84,
+      "lambda_away": 0.65,
+      "elo_home": 1500.0,
+      "elo_away": 1510.5,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 43.9,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 18.9,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Bolívar vs São Paulo",
+      "league": "Copa Sudamericana",
+      "home": "Bolívar",
+      "away": "São Paulo",
+      "probabilities": {
+        "win_home": 41.5,
+        "draw": 32.0,
+        "win_away": 26.5,
+        "over_2_5": 35.7,
+        "over_1_5": 62.6
+      },
+      "favorite": "Bolívar",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.21,
+      "lambda_away": 0.91,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 62.6,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 35.7,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    }
+  ],
+  "nota": "Análisis estadístico de todos los partidos del día. Probabilidades crudas del modelo (sin ajuste por liga ni mercado). No incluye recomendación de apuesta — ver value_picks y featured_pick para picks oficiales."
+}
