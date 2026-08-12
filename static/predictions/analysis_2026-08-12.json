@@ -1,0 +1,302 @@
+{
+  "date": "2026-08-12",
+  "total_fixtures": 6,
+  "matches": [
+    {
+      "matchup": "Palmeiras vs Cerro Porteño",
+      "league": "Copa Libertadores",
+      "home": "Palmeiras",
+      "away": "Cerro Porteño",
+      "probabilities": {
+        "win_home": 67.1,
+        "draw": 22.5,
+        "win_away": 10.4,
+        "over_2_5": 46.7,
+        "over_1_5": 72.1
+      },
+      "favorite": "Palmeiras",
+      "stats_complete": false,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.91,
+      "lambda_away": 0.63,
+      "elo_home": 1530.4,
+      "elo_away": 1534.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 72.1,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 46.7,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Platense vs Coquimbo Unido",
+      "league": "Copa Libertadores",
+      "home": "Platense",
+      "away": "Coquimbo Unido",
+      "probabilities": {
+        "win_home": 27.8,
+        "draw": 38.7,
+        "win_away": 33.5,
+        "over_2_5": 20.0,
+        "over_1_5": 45.4
+      },
+      "favorite": "Empate técnico",
+      "stats_complete": false,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 0.72,
+      "lambda_away": 0.82,
+      "elo_home": 1510.5,
+      "elo_away": 1513.6,
+      "danger": {
+        "home_sot": null,
+        "away_sot": null
+      },
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 45.4,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 20.0,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "corners",
+            "status": "unavailable",
+            "reason": "sin muestra suficiente de corners por localía"
+          },
+          {
+            "group": "shots",
+            "status": "unavailable",
+            "reason": "sin muestra suficiente de tiros a puerta por localía"
+          },
+          {
+            "group": "player_shots",
+            "status": "unavailable",
+            "reason": "API-Football no entregó tiros de jugadores suficientes para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Cruzeiro vs Flamengo",
+      "league": "Copa Libertadores",
+      "home": "Cruzeiro",
+      "away": "Flamengo",
+      "probabilities": {
+        "win_home": 20.3,
+        "draw": 24.8,
+        "win_away": 55.0,
+        "over_2_5": 55.6,
+        "over_1_5": 78.6
+      },
+      "favorite": "Flamengo",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.05,
+      "lambda_away": 1.85,
+      "elo_home": 1527.0,
+      "elo_away": 1554.8,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 78.6,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 55.6,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Red Bull Bragantino vs Atlético-MG",
+      "league": "Copa Sudamericana",
+      "home": "Red Bull Bragantino",
+      "away": "Atlético-MG",
+      "probabilities": {
+        "win_home": 42.8,
+        "draw": 30.2,
+        "win_away": 27.0,
+        "over_2_5": 41.4,
+        "over_1_5": 67.7
+      },
+      "favorite": "Red Bull Bragantino",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.33,
+      "lambda_away": 1.01,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 67.7,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 41.4,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Tigre vs Montevideo City Torque",
+      "league": "Copa Sudamericana",
+      "home": "Tigre",
+      "away": "Montevideo City Torque",
+      "probabilities": {
+        "win_home": 45.7,
+        "draw": 31.5,
+        "win_away": 22.8,
+        "over_2_5": 35.1,
+        "over_1_5": 62.1
+      },
+      "favorite": "Tigre",
+      "stats_complete": false,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.28,
+      "lambda_away": 0.83,
+      "elo_home": 1521.7,
+      "elo_away": 1546.8,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 62.1,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 35.1,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Independiente Santa Fe vs River Plate",
+      "league": "Copa Sudamericana",
+      "home": "Independiente Santa Fe",
+      "away": "River Plate",
+      "probabilities": {
+        "win_home": 27.7,
+        "draw": 31.2,
+        "win_away": 41.0,
+        "over_2_5": 38.5,
+        "over_1_5": 65.2
+      },
+      "favorite": "River Plate",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 0.98,
+      "lambda_away": 1.25,
+      "elo_home": 1500.0,
+      "elo_away": 1543.7,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 65.2,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 38.5,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    }
+  ],
+  "nota": "Análisis estadístico de todos los partidos del día. Probabilidades crudas del modelo (sin ajuste por liga ni mercado). No incluye recomendación de apuesta — ver value_picks y featured_pick para picks oficiales."
+}
