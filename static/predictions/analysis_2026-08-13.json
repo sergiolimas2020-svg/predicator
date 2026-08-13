@@ -1,0 +1,255 @@
+{
+  "date": "2026-08-13",
+  "total_fixtures": 5,
+  "matches": [
+    {
+      "matchup": "Mirassol vs Liga de Quito",
+      "league": "Copa Libertadores",
+      "home": "Mirassol",
+      "away": "Liga de Quito",
+      "probabilities": {
+        "win_home": 42.9,
+        "draw": 30.9,
+        "win_away": 26.2,
+        "over_2_5": 38.8,
+        "over_1_5": 65.5
+      },
+      "favorite": "Mirassol",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.29,
+      "lambda_away": 0.95,
+      "elo_home": 1521.8,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 65.5,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 38.8,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Rosario Central vs Corinthians",
+      "league": "Copa Libertadores",
+      "home": "Rosario Central",
+      "away": "Corinthians",
+      "probabilities": {
+        "win_home": 48.3,
+        "draw": 33.2,
+        "win_away": 18.6,
+        "over_2_5": 27.8,
+        "over_1_5": 54.7
+      },
+      "favorite": "Rosario Central",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.19,
+      "lambda_away": 0.64,
+      "elo_home": 1540.8,
+      "elo_away": 1522.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 54.7,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 27.8,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Santos vs Macará",
+      "league": "Copa Sudamericana",
+      "home": "Santos",
+      "away": "Macará",
+      "probabilities": {
+        "win_home": 42.0,
+        "draw": 26.0,
+        "win_away": 32.0,
+        "over_2_5": 59.0,
+        "over_1_5": 81.0
+      },
+      "favorite": "Santos",
+      "stats_complete": false,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.64,
+      "lambda_away": 1.42,
+      "elo_home": 1510.8,
+      "elo_away": 1531.3,
+      "danger": {
+        "home_sot": null,
+        "away_sot": null
+      },
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 81.0,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 59.0,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "corners",
+            "status": "unavailable",
+            "reason": "sin muestra suficiente de corners por localía"
+          },
+          {
+            "group": "shots",
+            "status": "unavailable",
+            "reason": "sin muestra suficiente de tiros a puerta por localía"
+          },
+          {
+            "group": "player_shots",
+            "status": "unavailable",
+            "reason": "API-Football no entregó tiros de jugadores suficientes para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Vasco da Gama vs Club Olimpia",
+      "league": "Copa Sudamericana",
+      "home": "Vasco da Gama",
+      "away": "Club Olimpia",
+      "probabilities": {
+        "win_home": 36.9,
+        "draw": 27.6,
+        "win_away": 35.5,
+        "over_2_5": 53.2,
+        "over_1_5": 77.0
+      },
+      "favorite": "Vasco da Gama",
+      "stats_complete": false,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.42,
+      "lambda_away": 1.39,
+      "elo_home": 1519.4,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 77.0,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 53.2,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Cienciano del Cusco vs Botafogo",
+      "league": "Copa Sudamericana",
+      "home": "Cienciano del Cusco",
+      "away": "Botafogo",
+      "probabilities": {
+        "win_home": 49.8,
+        "draw": 18.8,
+        "win_away": 31.3,
+        "over_2_5": 87.1,
+        "over_1_5": 95.8
+      },
+      "favorite": "Cienciano del Cusco",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 2.74,
+      "lambda_away": 2.21,
+      "elo_home": 1500.0,
+      "elo_away": 1562.5,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 95.8,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 87.1,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    }
+  ],
+  "nota": "Análisis estadístico de todos los partidos del día. Probabilidades crudas del modelo (sin ajuste por liga ni mercado). No incluye recomendación de apuesta — ver value_picks y featured_pick para picks oficiales."
+}
