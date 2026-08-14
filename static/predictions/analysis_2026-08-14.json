@@ -1,0 +1,409 @@
+{
+  "date": "2026-08-14",
+  "total_fixtures": 8,
+  "matches": [
+    {
+      "matchup": "Llaneros FC vs Deportes Tolima",
+      "league": "Liga Colombiana",
+      "home": "Llaneros FC",
+      "away": "Deportes Tolima",
+      "probabilities": {
+        "win_home": 24.2,
+        "draw": 37.2,
+        "win_away": 38.6,
+        "over_2_5": 22.0,
+        "over_1_5": 48.0
+      },
+      "favorite": "Deportes Tolima",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 0.68,
+      "lambda_away": 0.93,
+      "elo_home": 1500.0,
+      "elo_away": 1543.7,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 48.0,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 22.0,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Racing Club vs Banfield",
+      "league": "Liga Argentina",
+      "home": "Racing Club",
+      "away": "Banfield",
+      "probabilities": {
+        "win_home": 44.8,
+        "draw": 35.0,
+        "win_away": 20.2,
+        "over_2_5": 24.8,
+        "over_1_5": 51.3
+      },
+      "favorite": "Racing Club",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.08,
+      "lambda_away": 0.64,
+      "elo_home": 1508.6,
+      "elo_away": 1480.4,
+      "danger": {
+        "home_sot": null,
+        "away_sot": null
+      },
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 51.3,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 24.8,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "corners",
+            "status": "unavailable",
+            "reason": "sin muestra suficiente de corners por localía"
+          },
+          {
+            "group": "shots",
+            "status": "unavailable",
+            "reason": "sin muestra suficiente de tiros a puerta por localía"
+          },
+          {
+            "group": "player_shots",
+            "status": "unavailable",
+            "reason": "API-Football no entregó tiros de jugadores suficientes para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Ponte Preta vs Náutico",
+      "league": "Brasileirao Serie B",
+      "home": "Ponte Preta",
+      "away": "Náutico",
+      "probabilities": {
+        "win_home": 13.5,
+        "draw": 26.3,
+        "win_away": 60.2,
+        "over_2_5": 40.3,
+        "over_1_5": 66.8
+      },
+      "favorite": "Náutico",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 0.65,
+      "lambda_away": 1.64,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 66.8,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 40.3,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "São Bernardo vs Botafogo-SP",
+      "league": "Brasileirao Serie B",
+      "home": "São Bernardo",
+      "away": "Botafogo-SP",
+      "probabilities": {
+        "win_home": 44.7,
+        "draw": 35.8,
+        "win_away": 19.5,
+        "over_2_5": 22.9,
+        "over_1_5": 49.0
+      },
+      "favorite": "São Bernardo",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.05,
+      "lambda_away": 0.6,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 49.0,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 22.9,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Sport vs Londrina",
+      "league": "Brasileirao Serie B",
+      "home": "Sport",
+      "away": "Londrina",
+      "probabilities": {
+        "win_home": 52.9,
+        "draw": 29.4,
+        "win_away": 17.7,
+        "over_2_5": 36.7,
+        "over_1_5": 63.6
+      },
+      "favorite": "Sport",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.44,
+      "lambda_away": 0.72,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 63.6,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 36.7,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Rosenborg vs Viking FK",
+      "league": "Eliteserien",
+      "home": "Rosenborg",
+      "away": "Viking FK",
+      "probabilities": {
+        "win_home": 5.0,
+        "draw": 11.7,
+        "win_away": 83.3,
+        "over_2_5": 72.4,
+        "over_1_5": 88.9
+      },
+      "favorite": "Viking FK",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 0.7,
+      "lambda_away": 3.06,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 88.9,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 72.4,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "IF Elfsborg vs Västerås SK",
+      "league": "Allsvenskan",
+      "home": "IF Elfsborg",
+      "away": "Västerås SK",
+      "probabilities": {
+        "win_home": 63.9,
+        "draw": 19.2,
+        "win_away": 16.8,
+        "over_2_5": 73.0,
+        "over_1_5": 89.2
+      },
+      "favorite": "IF Elfsborg",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 2.52,
+      "lambda_away": 1.27,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 89.2,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 73.0,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Galatasaray vs Çorum FK",
+      "league": "Super Lig",
+      "home": "Galatasaray",
+      "away": "Çorum FK",
+      "probabilities": {
+        "win_home": 88.3,
+        "draw": 8.5,
+        "win_away": 3.2,
+        "over_2_5": 78.9,
+        "over_1_5": 92.2
+      },
+      "favorite": "Galatasaray",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 3.53,
+      "lambda_away": 0.67,
+      "elo_home": 1645.8,
+      "elo_away": 1500.0,
+      "danger": {
+        "home_sot": null,
+        "away_sot": null
+      },
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 92.2,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 78.9,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "corners",
+            "status": "unavailable",
+            "reason": "sin muestra suficiente de corners por localía"
+          },
+          {
+            "group": "shots",
+            "status": "unavailable",
+            "reason": "sin muestra suficiente de tiros a puerta por localía"
+          },
+          {
+            "group": "player_shots",
+            "status": "unavailable",
+            "reason": "API-Football no entregó tiros de jugadores suficientes para este partido"
+          }
+        ]
+      }
+    }
+  ],
+  "nota": "Análisis estadístico de todos los partidos del día. Probabilidades crudas del modelo (sin ajuste por liga ni mercado). No incluye recomendación de apuesta — ver value_picks y featured_pick para picks oficiales."
+}

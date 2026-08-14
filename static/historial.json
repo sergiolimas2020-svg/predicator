@@ -1,8 +1,85 @@
 {
-  "total": 168,
-  "aciertos": 108,
+  "total": 169,
+  "aciertos": 109,
   "porcentaje": 64,
   "ultimos": [
+    {
+      "fecha": "2026-08-13",
+      "slug": "santos-vs-macara-copa-sudamericana-2026-08-13",
+      "home": "Santos",
+      "away": "Macará",
+      "league": "Copa Sudamericana",
+      "prediccion": "Over 1.5 goles",
+      "confianza": "Probabilidad: 81.0%",
+      "resultado_real": "2-1",
+      "acerto": true,
+      "prob_original": 81.0,
+      "confidence_factor": 0.97,
+      "prob_adjusted": 81.0,
+      "bk_odds": null,
+      "ev": null,
+      "penalty": null,
+      "ev_adjusted": null,
+      "value_score": null,
+      "reason": "confianza",
+      "version": "v1.2-clean-signal",
+      "stake_sugerido_pct": 0.0,
+      "stake_real_pct": 0.0,
+      "stake_modo": "activo",
+      "tipo_pick": "pick_gratuito",
+      "base_pick": "Macará",
+      "value_level": "estadistico",
+      "markets_evaluated": [
+        {
+          "market": "Macará",
+          "ev_adjusted": 194.4,
+          "value_score": 425.5115,
+          "reason": "ok"
+        },
+        {
+          "market": "Doble oportunidad: Macará",
+          "ev_adjusted": 61.4,
+          "value_score": 70.7819,
+          "reason": "ok"
+        },
+        {
+          "market": "Santos",
+          "ev_adjusted": null,
+          "value_score": null,
+          "reason": "cuota_baja"
+        },
+        {
+          "market": "Apuesta sin empate: Santos",
+          "ev_adjusted": null,
+          "value_score": null,
+          "reason": "cuota_baja"
+        },
+        {
+          "market": "Doble oportunidad: Santos",
+          "ev_adjusted": null,
+          "value_score": null,
+          "reason": "cuota_baja"
+        },
+        {
+          "market": "Apuesta sin empate: Macará",
+          "ev_adjusted": 11.7,
+          "value_score": null,
+          "reason": "ev_insuficiente"
+        },
+        {
+          "market": "Over 2.5 goles",
+          "ev_adjusted": -7.2,
+          "value_score": null,
+          "reason": "ev_negativo"
+        },
+        {
+          "market": "Over 1.5 goles",
+          "ev_adjusted": null,
+          "value_score": null,
+          "reason": "mercado_no_disponible"
+        }
+      ]
+    },
     {
       "fecha": "2026-08-09",
       "slug": "cruzeiro-vs-mirassol-brasileirao-2026-08-09",
@@ -1070,34 +1147,6 @@
       "stake_real_pct": 0.0,
       "stake_modo": "activo",
       "tipo_pick": "pick_suscripcion",
-      "base_pick": "",
-      "value_level": "estadistico",
-      "markets_evaluated": []
-    },
-    {
-      "fecha": "2026-06-30",
-      "slug": "france-vs-sweden-mundial-2026-2026-06-30",
-      "home": "France",
-      "away": "Sweden",
-      "league": "Mundial 2026",
-      "prediccion": "Over 2.5 goles",
-      "confianza": "Probabilidad: 95.1%",
-      "resultado_real": "3-0",
-      "acerto": true,
-      "prob_original": 95.1,
-      "confidence_factor": 1.0,
-      "prob_adjusted": 95.1,
-      "bk_odds": null,
-      "ev": null,
-      "penalty": null,
-      "ev_adjusted": null,
-      "value_score": null,
-      "reason": "confianza_goles_seleccion",
-      "version": "v1.2-clean-signal",
-      "stake_sugerido_pct": 0.0,
-      "stake_real_pct": 0.0,
-      "stake_modo": "activo",
-      "tipo_pick": "pick_gratuito",
       "base_pick": "",
       "value_level": "estadistico",
       "markets_evaluated": []

@@ -1,16 +1,16 @@
 # Auditoría estadística del motor
 
-Generado: 2026-08-13T06:09:27
+Generado: 2026-08-14T06:07:12
 
 Este reporte NO usa cuotas, EV ni ROI. Evalúa únicamente si la probabilidad del modelo se corresponde con los aciertos reales.
 
 ## Resumen
 
-- Picks resueltos evaluables: **168**
-- Acierto total: **64.3%**
-- Probabilidad media publicada: **73.3%**
-- Gap calibración (acierto - prob): **-9.0%**
-- Brier score: **0.2267**
+- Picks resueltos evaluables: **169**
+- Acierto total: **64.5%**
+- Probabilidad media publicada: **73.4%**
+- Gap calibración (acierto - prob): **-8.9%**
+- Brier score: **0.2256**
 
 ## Por banda de probabilidad
 
@@ -20,14 +20,14 @@ Este reporte NO usa cuotas, EV ni ROI. Evalúa únicamente si la probabilidad de
 | 50-59% | 14 | 57.1% | 56.2% | +0.9% | 0.2388 |
 | 60-69% | 41 | 58.5% | 65.8% | -7.3% | 0.2457 |
 | 70-79% | 63 | 60.3% | 75.4% | -15.1% | 0.2638 |
-| 80-89% | 43 | 79.1% | 83.9% | -4.9% | 0.1646 |
+| 80-89% | 44 | 79.5% | 83.9% | -4.3% | 0.1617 |
 | 90-99% | 3 | 100% | 93.3% | +6.7% | 0.0047 |
 
 ## Por tipo de mercado
 
 | Grupo | N | Acierto | Prob. media | Gap | Brier |
 |---|---:|---:|---:|---:|---:|
-| over_1_5 | 43 | 79.1% | 79.6% | -0.5% | 0.1732 |
+| over_1_5 | 44 | 79.5% | 79.6% | -0.1% | 0.1701 |
 | winner | 42 | 64.3% | 64.5% | -0.2% | 0.2174 |
 | double_chance | 30 | 56.7% | 78.7% | -22.1% | 0.2715 |
 | draw_no_bet | 27 | 63.0% | 72.3% | -9.4% | 0.234 |
@@ -44,8 +44,8 @@ Este reporte NO usa cuotas, EV ni ROI. Evalúa únicamente si la probabilidad de
 | La Liga | 13 | 30.8% | 69.4% | -38.6% | 0.3691 |
 | Serie A | 12 | 66.7% | 70.1% | -3.4% | 0.209 |
 | Liga Colombiana | 9 | 77.8% | 75.5% | +2.3% | 0.1625 |
+| Copa Sudamericana | 8 | 75.0% | 73.5% | +1.5% | 0.1561 |
 | Premier League | 8 | 37.5% | 69.8% | -32.3% | 0.3585 |
-| Copa Sudamericana | 7 | 71.4% | 72.4% | -1.0% | 0.1733 |
 | Super Lig | 7 | 28.6% | 71.4% | -42.8% | 0.4089 |
 | Amistoso Selección | 6 | 100% | 75.0% | +25.0% | 0.0713 |
 | Copa Libertadores | 6 | 66.7% | 76.6% | -9.9% | 0.2528 |
