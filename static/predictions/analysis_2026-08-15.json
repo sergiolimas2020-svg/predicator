@@ -1,0 +1,1174 @@
+{
+  "date": "2026-08-15",
+  "total_fixtures": 24,
+  "matches": [
+    {
+      "matchup": "Alavés vs Getafe",
+      "league": "La Liga",
+      "home": "Alavés",
+      "away": "Getafe",
+      "probabilities": {
+        "win_home": 36.3,
+        "draw": 35.6,
+        "win_away": 28.1,
+        "over_2_5": 26.5,
+        "over_1_5": 53.2
+      },
+      "favorite": "Alavés",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 0.97,
+      "lambda_away": 0.82,
+      "elo_home": 1453.2,
+      "elo_away": 1495.4,
+      "danger": {
+        "home_sot": null,
+        "away_sot": null
+      },
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 53.2,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 26.5,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "corners",
+            "status": "unavailable",
+            "reason": "sin muestra suficiente de corners por localía"
+          },
+          {
+            "group": "shots",
+            "status": "unavailable",
+            "reason": "sin muestra suficiente de tiros a puerta por localía"
+          },
+          {
+            "group": "player_shots",
+            "status": "unavailable",
+            "reason": "API-Football no entregó tiros de jugadores suficientes para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Sevilla vs Rayo Vallecano",
+      "league": "La Liga",
+      "home": "Sevilla",
+      "away": "Rayo Vallecano",
+      "probabilities": {
+        "win_home": 34.6,
+        "draw": 31.1,
+        "win_away": 34.3,
+        "over_2_5": 40.1,
+        "over_1_5": 66.6
+      },
+      "favorite": "Sevilla",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.15,
+      "lambda_away": 1.14,
+      "elo_home": 1437.8,
+      "elo_away": 1518.0,
+      "danger": {
+        "home_sot": null,
+        "away_sot": null
+      },
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 66.6,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 40.1,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "corners",
+            "status": "unavailable",
+            "reason": "sin muestra suficiente de corners por localía"
+          },
+          {
+            "group": "shots",
+            "status": "unavailable",
+            "reason": "sin muestra suficiente de tiros a puerta por localía"
+          },
+          {
+            "group": "player_shots",
+            "status": "unavailable",
+            "reason": "API-Football no entregó tiros de jugadores suficientes para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Atlético Nacional vs Independiente Santa Fe",
+      "league": "Liga Colombiana",
+      "home": "Atlético Nacional",
+      "away": "Independiente Santa Fe",
+      "probabilities": {
+        "win_home": 58.1,
+        "draw": 25.6,
+        "win_away": 16.3,
+        "over_2_5": 47.3,
+        "over_1_5": 72.6
+      },
+      "favorite": "Atlético Nacional",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.74,
+      "lambda_away": 0.82,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 72.6,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 47.3,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Boyacá Chicó FC vs Atlético Junior",
+      "league": "Liga Colombiana",
+      "home": "Boyacá Chicó FC",
+      "away": "Atlético Junior",
+      "probabilities": {
+        "win_home": 15.8,
+        "draw": 26.6,
+        "win_away": 57.7,
+        "over_2_5": 43.1,
+        "over_1_5": 69.2
+      },
+      "favorite": "Atlético Junior",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 0.75,
+      "lambda_away": 1.65,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 69.2,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 43.1,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Cúcuta Deportivo vs Águilas Doradas",
+      "league": "Liga Colombiana",
+      "home": "Cúcuta Deportivo",
+      "away": "Águilas Doradas",
+      "probabilities": {
+        "win_home": 37.1,
+        "draw": 29.2,
+        "win_away": 33.7,
+        "over_2_5": 46.8,
+        "over_1_5": 72.2
+      },
+      "favorite": "Cúcuta Deportivo",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.31,
+      "lambda_away": 1.24,
+      "elo_home": 1500.0,
+      "elo_away": 1482.1,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 72.2,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 46.8,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Aldosivi vs Tigre",
+      "league": "Liga Argentina",
+      "home": "Aldosivi",
+      "away": "Tigre",
+      "probabilities": {
+        "win_home": 10.7,
+        "draw": 40.6,
+        "win_away": 48.7,
+        "over_2_5": 11.7,
+        "over_1_5": 33.1
+      },
+      "favorite": "Tigre",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 0.29,
+      "lambda_away": 0.9,
+      "elo_home": 1417.9,
+      "elo_away": 1500.4,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 33.1,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 11.7,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "San Lorenzo vs Unión (Santa Fe)",
+      "league": "Liga Argentina",
+      "home": "San Lorenzo",
+      "away": "Unión (Santa Fe)",
+      "probabilities": {
+        "win_home": 36.1,
+        "draw": 35.6,
+        "win_away": 28.2,
+        "over_2_5": 26.5,
+        "over_1_5": 53.2
+      },
+      "favorite": "San Lorenzo",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 0.96,
+      "lambda_away": 0.82,
+      "elo_home": 1505.3,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 53.2,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 26.5,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Estudiantes de La Plata vs Gimnasia La Plata",
+      "league": "Liga Argentina",
+      "home": "Estudiantes de La Plata",
+      "away": "Gimnasia La Plata",
+      "probabilities": {
+        "win_home": 38.9,
+        "draw": 35.2,
+        "win_away": 25.9,
+        "over_2_5": 26.9,
+        "over_1_5": 53.7
+      },
+      "favorite": "Estudiantes de La Plata",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.02,
+      "lambda_away": 0.78,
+      "elo_home": 1500.0,
+      "elo_away": 1511.7,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 53.7,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 26.9,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Belgrano (Córdoba) vs Independiente Rivadavia",
+      "league": "Liga Argentina",
+      "home": "Belgrano (Córdoba)",
+      "away": "Independiente Rivadavia",
+      "probabilities": {
+        "win_home": 48.4,
+        "draw": 30.8,
+        "win_away": 20.7,
+        "over_2_5": 35.5,
+        "over_1_5": 62.5
+      },
+      "favorite": "Belgrano (Córdoba)",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.33,
+      "lambda_away": 0.78,
+      "elo_home": 1500.0,
+      "elo_away": 1570.6,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 62.5,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 35.5,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Newell's Old Boys vs Deportivo Riestra",
+      "league": "Liga Argentina",
+      "home": "Newell's Old Boys",
+      "away": "Deportivo Riestra",
+      "probabilities": {
+        "win_home": 35.2,
+        "draw": 48.8,
+        "win_away": 16.0,
+        "over_2_5": 7.0,
+        "over_1_5": 24.4
+      },
+      "favorite": "Empate técnico",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 0.61,
+      "lambda_away": 0.33,
+      "elo_home": 1500.0,
+      "elo_away": 1453.8,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 24.4,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 7.0,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Platense vs Boca Juniors",
+      "league": "Liga Argentina",
+      "home": "Platense",
+      "away": "Boca Juniors",
+      "probabilities": {
+        "win_home": 13.2,
+        "draw": 40.2,
+        "win_away": 46.5,
+        "over_2_5": 13.2,
+        "over_1_5": 35.7
+      },
+      "favorite": "Boca Juniors",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 0.36,
+      "lambda_away": 0.9,
+      "elo_home": 1458.9,
+      "elo_away": 1565.4,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 35.7,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 13.2,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Fluminense vs Palmeiras",
+      "league": "Brasileirao",
+      "home": "Fluminense",
+      "away": "Palmeiras",
+      "probabilities": {
+        "win_home": 23.1,
+        "draw": 29.4,
+        "win_away": 47.5,
+        "over_2_5": 41.6,
+        "over_1_5": 67.9
+      },
+      "favorite": "Palmeiras",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 0.92,
+      "lambda_away": 1.42,
+      "elo_home": 1526.9,
+      "elo_away": 1602.4,
+      "danger": {
+        "home_sot": null,
+        "away_sot": null
+      },
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 67.9,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 41.6,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "corners",
+            "status": "unavailable",
+            "reason": "sin muestra suficiente de corners por localía"
+          },
+          {
+            "group": "shots",
+            "status": "unavailable",
+            "reason": "sin muestra suficiente de tiros a puerta por localía"
+          },
+          {
+            "group": "player_shots",
+            "status": "unavailable",
+            "reason": "API-Football no entregó tiros de jugadores suficientes para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Athletico-PR vs Red Bull Bragantino",
+      "league": "Brasileirao",
+      "home": "Athletico-PR",
+      "away": "Red Bull Bragantino",
+      "probabilities": {
+        "win_home": 44.9,
+        "draw": 27.5,
+        "win_away": 27.6,
+        "over_2_5": 51.3,
+        "over_1_5": 75.6
+      },
+      "favorite": "Athletico-PR",
+      "stats_complete": false,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.55,
+      "lambda_away": 1.17,
+      "elo_home": null,
+      "elo_away": null,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 75.6,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 51.3,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "São Paulo vs Coritiba",
+      "league": "Brasileirao",
+      "home": "São Paulo",
+      "away": "Coritiba",
+      "probabilities": {
+        "win_home": 47.2,
+        "draw": 29.1,
+        "win_away": 23.7,
+        "over_2_5": 43.1,
+        "over_1_5": 69.2
+      },
+      "favorite": "São Paulo",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.45,
+      "lambda_away": 0.96,
+      "elo_home": 1500.0,
+      "elo_away": 1506.2,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 69.2,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 43.1,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Atlético Goianiense vs Vila Nova",
+      "league": "Brasileirao Serie B",
+      "home": "Atlético Goianiense",
+      "away": "Vila Nova",
+      "probabilities": {
+        "win_home": 31.5,
+        "draw": 31.2,
+        "win_away": 37.3,
+        "over_2_5": 39.7,
+        "over_1_5": 66.3
+      },
+      "favorite": "Vila Nova",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.08,
+      "lambda_away": 1.2,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 66.3,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 39.7,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Ceará vs Cuiabá",
+      "league": "Brasileirao Serie B",
+      "home": "Ceará",
+      "away": "Cuiabá",
+      "probabilities": {
+        "win_home": 21.4,
+        "draw": 46.9,
+        "win_away": 31.7,
+        "over_2_5": 9.0,
+        "over_1_5": 28.4
+      },
+      "favorite": "Empate técnico",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 0.45,
+      "lambda_away": 0.6,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 28.4,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 9.0,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Criciúma vs Goiás",
+      "league": "Brasileirao Serie B",
+      "home": "Criciúma",
+      "away": "Goiás",
+      "probabilities": {
+        "win_home": 57.3,
+        "draw": 30.9,
+        "win_away": 11.8,
+        "over_2_5": 26.1,
+        "over_1_5": 52.8
+      },
+      "favorite": "Criciúma",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.32,
+      "lambda_away": 0.45,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 52.8,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 26.1,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Juventude vs Fortaleza",
+      "league": "Brasileirao Serie B",
+      "home": "Juventude",
+      "away": "Fortaleza",
+      "probabilities": {
+        "win_home": 43.3,
+        "draw": 41.1,
+        "win_away": 15.6,
+        "over_2_5": 13.2,
+        "over_1_5": 35.7
+      },
+      "favorite": "Juventude",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 0.85,
+      "lambda_away": 0.4,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 35.7,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 13.2,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "KFUM Oslo vs Lillestrom",
+      "league": "Eliteserien",
+      "home": "KFUM Oslo",
+      "away": "Lillestrom",
+      "probabilities": {
+        "win_home": 21.6,
+        "draw": 28.1,
+        "win_away": 50.3,
+        "over_2_5": 44.8,
+        "over_1_5": 70.6
+      },
+      "favorite": "Lillestrom",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 0.93,
+      "lambda_away": 1.54,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 70.6,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 44.8,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Mjällby AIF vs IK Sirius",
+      "league": "Allsvenskan",
+      "home": "Mjällby AIF",
+      "away": "IK Sirius",
+      "probabilities": {
+        "win_home": 26.9,
+        "draw": 20.3,
+        "win_away": 52.8,
+        "over_2_5": 79.6,
+        "over_1_5": 92.5
+      },
+      "favorite": "IK Sirius",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.77,
+      "lambda_away": 2.48,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 92.5,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 79.6,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Kasimpasa vs Trabzonspor",
+      "league": "Super Lig",
+      "home": "Kasimpasa",
+      "away": "Trabzonspor",
+      "probabilities": {
+        "win_home": 18.1,
+        "draw": 25.7,
+        "win_away": 56.2,
+        "over_2_5": 49.4,
+        "over_1_5": 74.2
+      },
+      "favorite": "Trabzonspor",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 0.9,
+      "lambda_away": 1.75,
+      "elo_home": 1500.0,
+      "elo_away": 1596.1,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 74.2,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 49.4,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Konyaspor vs Caykur Rizespor",
+      "league": "Super Lig",
+      "home": "Konyaspor",
+      "away": "Caykur Rizespor",
+      "probabilities": {
+        "win_home": 44.0,
+        "draw": 26.6,
+        "win_away": 29.4,
+        "over_2_5": 56.0,
+        "over_1_5": 78.9
+      },
+      "favorite": "Konyaspor",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.63,
+      "lambda_away": 1.3,
+      "elo_home": 1475.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 78.9,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 56.0,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Gaziantep FK vs Alanyaspor",
+      "league": "Super Lig",
+      "home": "Gaziantep FK",
+      "away": "Alanyaspor",
+      "probabilities": {
+        "win_home": 33.6,
+        "draw": 28.7,
+        "win_away": 37.6,
+        "over_2_5": 48.8,
+        "over_1_5": 73.7
+      },
+      "favorite": "Alanyaspor",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.27,
+      "lambda_away": 1.36,
+      "elo_home": 1426.6,
+      "elo_away": 1472.1,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 73.7,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 48.8,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Genclerbirligi vs Fenerbahce",
+      "league": "Super Lig",
+      "home": "Genclerbirligi",
+      "away": "Fenerbahce",
+      "probabilities": {
+        "win_home": 13.7,
+        "draw": 21.1,
+        "win_away": 65.2,
+        "over_2_5": 59.3,
+        "over_1_5": 81.2
+      },
+      "favorite": "Fenerbahce",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 0.91,
+      "lambda_away": 2.17,
+      "elo_home": 1500.0,
+      "elo_away": 1647.7,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 81.2,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 59.3,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    }
+  ],
+  "nota": "Análisis estadístico de todos los partidos del día. Probabilidades crudas del modelo (sin ajuste por liga ni mercado). No incluye recomendación de apuesta — ver value_picks y featured_pick para picks oficiales."
+}
