@@ -1,16 +1,16 @@
 # Auditoría estadística del motor
 
-Generado: 2026-08-20T05:21:55
+Generado: 2026-08-21T05:23:47
 
 Este reporte NO usa cuotas, EV ni ROI. Evalúa únicamente si la probabilidad del modelo se corresponde con los aciertos reales.
 
 ## Resumen
 
-- Picks resueltos evaluables: **170**
-- Acierto total: **64.1%**
+- Picks resueltos evaluables: **171**
+- Acierto total: **63.7%**
 - Probabilidad media publicada: **73.3%**
-- Gap calibración (acierto - prob): **-9.2%**
-- Brier score: **0.2263**
+- Gap calibración (acierto - prob): **-9.6%**
+- Brier score: **0.2289**
 
 ## Por banda de probabilidad
 
@@ -20,14 +20,14 @@ Este reporte NO usa cuotas, EV ni ROI. Evalúa únicamente si la probabilidad de
 | 50-59% | 15 | 53.3% | 56.4% | -3.1% | 0.2458 |
 | 60-69% | 41 | 58.5% | 65.8% | -7.3% | 0.2457 |
 | 70-79% | 63 | 60.3% | 75.4% | -15.1% | 0.2638 |
-| 80-89% | 44 | 79.5% | 83.9% | -4.3% | 0.1617 |
+| 80-89% | 45 | 77.8% | 83.8% | -6.0% | 0.173 |
 | 90-99% | 3 | 100% | 93.3% | +6.7% | 0.0047 |
 
 ## Por tipo de mercado
 
 | Grupo | N | Acierto | Prob. media | Gap | Brier |
 |---|---:|---:|---:|---:|---:|
-| over_1_5 | 44 | 79.5% | 79.6% | -0.1% | 0.1701 |
+| over_1_5 | 45 | 77.8% | 79.7% | -1.9% | 0.1811 |
 | winner | 42 | 64.3% | 64.5% | -0.2% | 0.2174 |
 | double_chance | 30 | 56.7% | 78.7% | -22.1% | 0.2715 |
 | draw_no_bet | 27 | 63.0% | 72.3% | -9.4% | 0.234 |
@@ -43,8 +43,8 @@ Este reporte NO usa cuotas, EV ni ROI. Evalúa únicamente si la probabilidad de
 | NBA | 20 | 80.0% | 64.6% | +15.4% | 0.1776 |
 | La Liga | 13 | 30.8% | 69.4% | -38.6% | 0.3691 |
 | Serie A | 12 | 66.7% | 70.1% | -3.4% | 0.209 |
+| Copa Sudamericana | 9 | 66.7% | 74.4% | -7.7% | 0.2129 |
 | Liga Colombiana | 9 | 77.8% | 75.5% | +2.3% | 0.1625 |
-| Copa Sudamericana | 8 | 75.0% | 73.5% | +1.5% | 0.1561 |
 | Premier League | 8 | 37.5% | 69.8% | -32.3% | 0.3585 |
 | Super Lig | 7 | 28.6% | 71.4% | -42.8% | 0.4089 |
 | Amistoso Selección | 6 | 100% | 75.0% | +25.0% | 0.0713 |

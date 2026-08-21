@@ -1,0 +1,495 @@
+{
+  "date": "2026-08-21",
+  "total_fixtures": 9,
+  "matches": [
+    {
+      "matchup": "Arsenal vs Coventry City",
+      "league": "Premier League",
+      "home": "Arsenal",
+      "away": "Coventry City",
+      "probabilities": {
+        "win_home": 45.2,
+        "draw": 32.3,
+        "win_away": 22.4,
+        "over_2_5": 32.6,
+        "over_1_5": 59.6
+      },
+      "favorite": "Arsenal",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.22,
+      "lambda_away": 0.78,
+      "elo_home": 1665.3,
+      "elo_away": 1500.0,
+      "danger": {
+        "home_sot": null,
+        "away_sot": null
+      },
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 59.6,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 32.6,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "corners",
+            "status": "unavailable",
+            "reason": "sin muestra suficiente de corners por localía"
+          },
+          {
+            "group": "shots",
+            "status": "unavailable",
+            "reason": "sin muestra suficiente de tiros a puerta por localía"
+          },
+          {
+            "group": "player_shots",
+            "status": "unavailable",
+            "reason": "API-Football no entregó tiros de jugadores suficientes para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Real Betis vs Real Sociedad",
+      "league": "La Liga",
+      "home": "Real Betis",
+      "away": "Real Sociedad",
+      "probabilities": {
+        "win_home": 58.6,
+        "draw": 21.8,
+        "win_away": 19.6,
+        "over_2_5": 66.3,
+        "over_1_5": 85.5
+      },
+      "favorite": "Real Betis",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 2.19,
+      "lambda_away": 1.22,
+      "elo_home": 1551.4,
+      "elo_away": 1483.9,
+      "danger": {
+        "home_sot": null,
+        "away_sot": null
+      },
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 85.5,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 66.3,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "corners",
+            "status": "unavailable",
+            "reason": "sin muestra suficiente de corners por localía"
+          },
+          {
+            "group": "shots",
+            "status": "unavailable",
+            "reason": "sin muestra suficiente de tiros a puerta por localía"
+          },
+          {
+            "group": "player_shots",
+            "status": "unavailable",
+            "reason": "API-Football no entregó tiros de jugadores suficientes para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Marseille vs Strasbourg",
+      "league": "Ligue 1",
+      "home": "Marseille",
+      "away": "Strasbourg",
+      "probabilities": {
+        "win_home": 53.3,
+        "draw": 22.2,
+        "win_away": 24.5,
+        "over_2_5": 70.4,
+        "over_1_5": 87.8
+      },
+      "favorite": "Marseille",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 2.18,
+      "lambda_away": 1.45,
+      "elo_home": 1539.2,
+      "elo_away": 1539.5,
+      "danger": {
+        "home_sot": null,
+        "away_sot": null
+      },
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 87.8,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 70.4,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "corners",
+            "status": "unavailable",
+            "reason": "sin muestra suficiente de corners por localía"
+          },
+          {
+            "group": "shots",
+            "status": "unavailable",
+            "reason": "sin muestra suficiente de tiros a puerta por localía"
+          },
+          {
+            "group": "player_shots",
+            "status": "unavailable",
+            "reason": "API-Football no entregó tiros de jugadores suficientes para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Jaguares de Córdoba vs Boyacá Chicó FC",
+      "league": "Liga Colombiana",
+      "home": "Jaguares de Córdoba",
+      "away": "Boyacá Chicó FC",
+      "probabilities": {
+        "win_home": 50.7,
+        "draw": 28.5,
+        "win_away": 20.8,
+        "over_2_5": 42.9,
+        "over_1_5": 69.0
+      },
+      "favorite": "Jaguares de Córdoba",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.51,
+      "lambda_away": 0.88,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 69.0,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 42.9,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Alianza FC vs Deportivo Pereira",
+      "league": "Liga Colombiana",
+      "home": "Alianza FC",
+      "away": "Deportivo Pereira",
+      "probabilities": {
+        "win_home": 41.5,
+        "draw": 35.7,
+        "win_away": 22.8,
+        "over_2_5": 24.7,
+        "over_1_5": 51.2
+      },
+      "favorite": "Alianza FC",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.03,
+      "lambda_away": 0.69,
+      "elo_home": 1500.0,
+      "elo_away": 1408.9,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 51.2,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 24.7,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Aldosivi vs Unión (Santa Fe)",
+      "league": "Liga Argentina",
+      "home": "Aldosivi",
+      "away": "Unión (Santa Fe)",
+      "probabilities": {
+        "win_home": 11.6,
+        "draw": 34.1,
+        "win_away": 54.3,
+        "over_2_5": 20.2,
+        "over_1_5": 45.6
+      },
+      "favorite": "Unión (Santa Fe)",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 0.39,
+      "lambda_away": 1.15,
+      "elo_home": 1417.9,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 45.6,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 20.2,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Estudiantes de Río Cuarto vs San Lorenzo",
+      "league": "Liga Argentina",
+      "home": "Estudiantes de Río Cuarto",
+      "away": "San Lorenzo",
+      "probabilities": {
+        "win_home": 9.1,
+        "draw": 42.1,
+        "win_away": 48.8,
+        "over_2_5": 9.7,
+        "over_1_5": 29.7
+      },
+      "favorite": "San Lorenzo",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 0.23,
+      "lambda_away": 0.85,
+      "elo_home": 1500.0,
+      "elo_away": 1505.3,
+      "danger": {
+        "home_sot": null,
+        "away_sot": null
+      },
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 29.7,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 9.7,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "corners",
+            "status": "unavailable",
+            "reason": "sin muestra suficiente de corners por localía"
+          },
+          {
+            "group": "shots",
+            "status": "unavailable",
+            "reason": "sin muestra suficiente de tiros a puerta por localía"
+          },
+          {
+            "group": "player_shots",
+            "status": "unavailable",
+            "reason": "API-Football no entregó tiros de jugadores suficientes para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "IK Sirius vs BK Häcken",
+      "league": "Allsvenskan",
+      "home": "IK Sirius",
+      "away": "BK Häcken",
+      "probabilities": {
+        "win_home": 77.5,
+        "draw": 11.7,
+        "win_away": 10.9,
+        "over_2_5": 91.6,
+        "over_1_5": 97.5
+      },
+      "favorite": "IK Sirius",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 3.93,
+      "lambda_away": 1.64,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 97.5,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 91.6,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Erzurum BB vs Galatasaray",
+      "league": "Super Lig",
+      "home": "Erzurum BB",
+      "away": "Galatasaray",
+      "probabilities": {
+        "win_home": 41.0,
+        "draw": 26.6,
+        "win_away": 32.3,
+        "over_2_5": 56.8,
+        "over_1_5": 79.5
+      },
+      "favorite": "Erzurum BB",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.58,
+      "lambda_away": 1.38,
+      "elo_home": 1500.0,
+      "elo_away": 1645.8,
+      "danger": {
+        "home_sot": null,
+        "away_sot": null
+      },
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 79.5,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 56.8,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "corners",
+            "status": "unavailable",
+            "reason": "sin muestra suficiente de corners por localía"
+          },
+          {
+            "group": "shots",
+            "status": "unavailable",
+            "reason": "sin muestra suficiente de tiros a puerta por localía"
+          },
+          {
+            "group": "player_shots",
+            "status": "unavailable",
+            "reason": "API-Football no entregó tiros de jugadores suficientes para este partido"
+          }
+        ]
+      }
+    }
+  ],
+  "nota": "Análisis estadístico de todos los partidos del día. Probabilidades crudas del modelo (sin ajuste por liga ni mercado). No incluye recomendación de apuesta — ver value_picks y featured_pick para picks oficiales."
+}
