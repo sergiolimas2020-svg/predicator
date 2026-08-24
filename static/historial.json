@@ -1,8 +1,85 @@
 {
-  "total": 173,
-  "aciertos": 111,
+  "total": 174,
+  "aciertos": 112,
   "porcentaje": 64,
   "ultimos": [
+    {
+      "fecha": "2026-08-23",
+      "slug": "coritiba-vs-corinthians-brasileirao-2026-08-23",
+      "home": "Coritiba",
+      "away": "Corinthians",
+      "league": "Brasileirao",
+      "prediccion": "Apuesta sin empate: Coritiba",
+      "confianza": "Probabilidad: 52.5%",
+      "resultado_real": "2-1",
+      "acerto": true,
+      "prob_original": 63.1,
+      "confidence_factor": 0.97,
+      "prob_adjusted": 52.5,
+      "bk_odds": 2.032,
+      "ev": 28.2,
+      "penalty": 0.0,
+      "ev_adjusted": 6.7,
+      "value_score": null,
+      "reason": "ev_insuficiente",
+      "version": "v1.2-clean-signal",
+      "stake_sugerido_pct": 1.62,
+      "stake_real_pct": 1.62,
+      "stake_modo": "activo",
+      "tipo_pick": "pick_exploratorio",
+      "base_pick": "Coritiba",
+      "value_level": "medio",
+      "markets_evaluated": [
+        {
+          "market": "Coritiba",
+          "ev_adjusted": 20.6,
+          "value_score": 23.5519,
+          "reason": "ok"
+        },
+        {
+          "market": "Apuesta sin empate: Coritiba",
+          "ev_adjusted": 6.7,
+          "value_score": null,
+          "reason": "ev_insuficiente"
+        },
+        {
+          "market": "Doble oportunidad: Coritiba",
+          "ev_adjusted": -1.6,
+          "value_score": null,
+          "reason": "ev_negativo"
+        },
+        {
+          "market": "Corinthians",
+          "ev_adjusted": -29.7,
+          "value_score": null,
+          "reason": "ev_negativo"
+        },
+        {
+          "market": "Apuesta sin empate: Corinthians",
+          "ev_adjusted": -38.0,
+          "value_score": null,
+          "reason": "ev_negativo"
+        },
+        {
+          "market": "Doble oportunidad: Corinthians",
+          "ev_adjusted": null,
+          "value_score": null,
+          "reason": "cuota_baja"
+        },
+        {
+          "market": "Over 2.5 goles",
+          "ev_adjusted": -21.8,
+          "value_score": null,
+          "reason": "ev_negativo"
+        },
+        {
+          "market": "Over 1.5 goles",
+          "ev_adjusted": -23.7,
+          "value_score": null,
+          "reason": "ev_negativo"
+        }
+      ]
+    },
     {
       "fecha": "2026-08-22",
       "slug": "cruzeiro-vs-flamengo-brasileirao-2026-08-22",
@@ -1316,34 +1393,6 @@
       "stake_modo": "activo",
       "tipo_pick": "pick_gratuito",
       "base_pick": "France",
-      "value_level": "estadistico",
-      "markets_evaluated": []
-    },
-    {
-      "fecha": "2026-07-03",
-      "slug": "colombia-vs-ghana-mundial-2026-2026-07-03",
-      "home": "Colombia",
-      "away": "Ghana",
-      "league": "Mundial 2026",
-      "prediccion": "Over 1.5 goles",
-      "confianza": "Probabilidad: 82.7%",
-      "resultado_real": "1-0",
-      "acerto": false,
-      "prob_original": 82.7,
-      "confidence_factor": 1.0,
-      "prob_adjusted": 82.7,
-      "bk_odds": null,
-      "ev": null,
-      "penalty": null,
-      "ev_adjusted": null,
-      "value_score": null,
-      "reason": "confianza_goles_seleccion",
-      "version": "v1.2-clean-signal",
-      "stake_sugerido_pct": 0.0,
-      "stake_real_pct": 0.0,
-      "stake_modo": "activo",
-      "tipo_pick": "pick_gratuito",
-      "base_pick": "",
       "value_level": "estadistico",
       "markets_evaluated": []
     }
