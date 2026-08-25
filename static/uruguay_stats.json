@@ -1,31 +1,11 @@
 {
-  "Liverpool M.": {
+  "Wanderers": {
     "corners": {},
     "goals": {
       "over_1_5": "73%",
-      "over_2_5": "40%",
-      "over_3_5": "20%",
-      "bts": "47%"
-    },
-    "position": {}
-  },
-  "Racing CM": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "73%",
-      "over_2_5": "40%",
-      "over_3_5": "20%",
-      "bts": "60%"
-    },
-    "position": {}
-  },
-  "Progreso": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "60%",
-      "over_2_5": "40%",
-      "over_3_5": "20%",
-      "bts": "40%"
+      "over_2_5": "60%",
+      "over_3_5": "13%",
+      "bts": "53%"
     },
     "position": {}
   },
@@ -36,6 +16,26 @@
       "over_2_5": "40%",
       "over_3_5": "13%",
       "bts": "47%"
+    },
+    "position": {}
+  },
+  "D. Maldonado": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "73%",
+      "over_2_5": "53%",
+      "over_3_5": "20%",
+      "bts": "60%"
+    },
+    "position": {}
+  },
+  "Juventud": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "67%",
+      "over_2_5": "60%",
+      "over_3_5": "27%",
+      "bts": "67%"
     },
     "position": {}
   },
@@ -59,22 +59,12 @@
     },
     "position": {}
   },
-  "Albion": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "67%",
-      "over_2_5": "60%",
-      "over_3_5": "33%",
-      "bts": "60%"
-    },
-    "position": {}
-  },
-  "D. Maldonado": {
+  "Central Espanol": {
     "corners": {},
     "goals": {
       "over_1_5": "73%",
-      "over_2_5": "53%",
-      "over_3_5": "20%",
+      "over_2_5": "67%",
+      "over_3_5": "33%",
       "bts": "60%"
     },
     "position": {}
@@ -89,16 +79,6 @@
     },
     "position": {}
   },
-  "Cerro Largo": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "60%",
-      "over_2_5": "40%",
-      "over_3_5": "27%",
-      "bts": "40%"
-    },
-    "position": {}
-  },
   "Defensor S.": {
     "corners": {},
     "goals": {
@@ -109,53 +89,43 @@
     },
     "position": {}
   },
-  "Penarol": {
+  "Albion": {
     "corners": {},
     "goals": {
-      "over_1_5": "80%",
-      "over_2_5": "47%",
-      "over_3_5": "27%",
-      "bts": "60%"
-    },
-    "position": {}
-  },
-  "Wanderers": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "73%",
+      "over_1_5": "67%",
       "over_2_5": "60%",
-      "over_3_5": "13%",
-      "bts": "53%"
-    },
-    "position": {}
-  },
-  "Central Espanol": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "73%",
-      "over_2_5": "67%",
       "over_3_5": "33%",
       "bts": "60%"
     },
     "position": {}
   },
-  "Juventud": {
+  "Racing CM": {
     "corners": {},
     "goals": {
-      "over_1_5": "67%",
-      "over_2_5": "60%",
-      "over_3_5": "27%",
-      "bts": "67%"
+      "over_1_5": "73%",
+      "over_2_5": "40%",
+      "over_3_5": "20%",
+      "bts": "60%"
     },
     "position": {}
   },
-  "Nacional": {
+  "Progreso": {
     "corners": {},
     "goals": {
-      "over_1_5": "80%",
-      "over_2_5": "67%",
-      "over_3_5": "40%",
-      "bts": "60%"
+      "over_1_5": "60%",
+      "over_2_5": "40%",
+      "over_3_5": "20%",
+      "bts": "40%"
+    },
+    "position": {}
+  },
+  "Cerro Largo": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "60%",
+      "over_2_5": "40%",
+      "over_3_5": "27%",
+      "bts": "40%"
     },
     "position": {}
   },
@@ -169,8 +139,38 @@
     },
     "position": {}
   },
+  "Penarol": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "80%",
+      "over_2_5": "47%",
+      "over_3_5": "27%",
+      "bts": "60%"
+    },
+    "position": {}
+  },
+  "Liverpool M.": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "73%",
+      "over_2_5": "40%",
+      "over_3_5": "20%",
+      "bts": "47%"
+    },
+    "position": {}
+  },
+  "Nacional": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "80%",
+      "over_2_5": "67%",
+      "over_3_5": "40%",
+      "bts": "60%"
+    },
+    "position": {}
+  },
   "_metadata": {
-    "fecha_actualizacion": "2026-08-24T05:30:19.473699",
+    "fecha_actualizacion": "2026-08-25T05:23:35.324845",
     "liga": "uruguay",
     "fuente": "ESPN API"
   }

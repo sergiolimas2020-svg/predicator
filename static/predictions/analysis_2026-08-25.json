@@ -1,0 +1,383 @@
+{
+  "date": "2026-08-25",
+  "total_fixtures": 8,
+  "matches": [
+    {
+      "matchup": "Valencia vs Real Betis",
+      "league": "La Liga",
+      "home": "Valencia",
+      "away": "Real Betis",
+      "probabilities": {
+        "win_home": 31.5,
+        "draw": 27.8,
+        "win_away": 40.8,
+        "over_2_5": 51.9,
+        "over_1_5": 76.1
+      },
+      "favorite": "Real Betis",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.27,
+      "lambda_away": 1.48,
+      "elo_home": 1508.3,
+      "elo_away": 1551.4,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 76.1,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 51.9,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Deportivo Pereira vs Jaguares de Córdoba",
+      "league": "Liga Colombiana",
+      "home": "Deportivo Pereira",
+      "away": "Jaguares de Córdoba",
+      "probabilities": {
+        "win_home": 32.6,
+        "draw": 30.9,
+        "win_away": 36.5,
+        "over_2_5": 40.6,
+        "over_1_5": 67.1
+      },
+      "favorite": "Jaguares de Córdoba",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.11,
+      "lambda_away": 1.19,
+      "elo_home": 1408.9,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 67.1,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 40.6,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Atlético Bucaramanga vs Águilas Doradas",
+      "league": "Liga Colombiana",
+      "home": "Atlético Bucaramanga",
+      "away": "Águilas Doradas",
+      "probabilities": {
+        "win_home": 56.4,
+        "draw": 27.8,
+        "win_away": 15.8,
+        "over_2_5": 39.2,
+        "over_1_5": 65.9
+      },
+      "favorite": "Atlético Bucaramanga",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.55,
+      "lambda_away": 0.71,
+      "elo_home": 1500.0,
+      "elo_away": 1482.1,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 65.9,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 39.2,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Cúcuta Deportivo vs Alianza FC",
+      "league": "Liga Colombiana",
+      "home": "Cúcuta Deportivo",
+      "away": "Alianza FC",
+      "probabilities": {
+        "win_home": 49.6,
+        "draw": 29.9,
+        "win_away": 20.5,
+        "over_2_5": 38.1,
+        "over_1_5": 64.9
+      },
+      "favorite": "Cúcuta Deportivo",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.4,
+      "lambda_away": 0.81,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 64.9,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 38.1,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Independiente Santa Fe vs Jaguares de Córdoba",
+      "league": "Liga Colombiana",
+      "home": "Independiente Santa Fe",
+      "away": "Jaguares de Córdoba",
+      "probabilities": {
+        "win_home": 71.6,
+        "draw": 19.0,
+        "win_away": 9.3,
+        "over_2_5": 56.8,
+        "over_1_5": 79.5
+      },
+      "favorite": "Independiente Santa Fe",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 2.25,
+      "lambda_away": 0.71,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 79.5,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 56.8,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Atlético Goianiense vs Botafogo-SP",
+      "league": "Brasileirao Serie B",
+      "home": "Atlético Goianiense",
+      "away": "Botafogo-SP",
+      "probabilities": {
+        "win_home": 34.1,
+        "draw": 36.5,
+        "win_away": 29.4,
+        "over_2_5": 24.6,
+        "over_1_5": 51.0
+      },
+      "favorite": "Empate técnico",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 0.9,
+      "lambda_away": 0.81,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 51.0,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 24.6,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Juventude vs CRB",
+      "league": "Brasileirao Serie B",
+      "home": "Juventude",
+      "away": "CRB",
+      "probabilities": {
+        "win_home": 62.7,
+        "draw": 27.0,
+        "win_away": 10.4,
+        "over_2_5": 33.1,
+        "over_1_5": 60.1
+      },
+      "favorite": "Juventude",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.54,
+      "lambda_away": 0.48,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 60.1,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 33.1,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Independiente del Valle vs Deportes Tolima",
+      "league": "Copa Libertadores",
+      "home": "Independiente del Valle",
+      "away": "Deportes Tolima",
+      "probabilities": {
+        "win_home": 34.6,
+        "draw": 30.9,
+        "win_away": 34.6,
+        "over_2_5": 40.9,
+        "over_1_5": 67.3
+      },
+      "favorite": "Independiente del Valle",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.16,
+      "lambda_away": 1.16,
+      "elo_home": 1533.5,
+      "elo_away": 1506.8,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 67.3,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 40.9,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    }
+  ],
+  "nota": "Análisis estadístico de todos los partidos del día. Probabilidades crudas del modelo (sin ajuste por liga ni mercado). No incluye recomendación de apuesta — ver value_picks y featured_pick para picks oficiales."
+}
