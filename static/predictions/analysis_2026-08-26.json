@@ -1,0 +1,242 @@
+{
+  "date": "2026-08-26",
+  "total_fixtures": 5,
+  "matches": [
+    {
+      "matchup": "Real Madrid vs Real Sociedad",
+      "league": "La Liga",
+      "home": "Real Madrid",
+      "away": "Real Sociedad",
+      "probabilities": {
+        "win_home": 80.0,
+        "draw": 13.2,
+        "win_away": 6.9,
+        "over_2_5": 73.9,
+        "over_1_5": 89.7
+      },
+      "favorite": "Real Madrid",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 3.0,
+      "lambda_away": 0.84,
+      "elo_home": 1651.6,
+      "elo_away": 1483.9,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 89.7,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 73.9,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Boyacá Chicó FC vs Fortaleza CEIF",
+      "league": "Liga Colombiana",
+      "home": "Boyacá Chicó FC",
+      "away": "Fortaleza CEIF",
+      "probabilities": {
+        "win_home": 40.6,
+        "draw": 33.2,
+        "win_away": 26.2,
+        "over_2_5": 32.0,
+        "over_1_5": 59.1
+      },
+      "favorite": "Boyacá Chicó FC",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.13,
+      "lambda_away": 0.86,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 59.1,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 32.0,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "América de Cali vs Atlético Junior",
+      "league": "Liga Colombiana",
+      "home": "América de Cali",
+      "away": "Atlético Junior",
+      "probabilities": {
+        "win_home": 40.9,
+        "draw": 32.1,
+        "win_away": 27.0,
+        "over_2_5": 35.5,
+        "over_1_5": 62.5
+      },
+      "favorite": "América de Cali",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.19,
+      "lambda_away": 0.92,
+      "elo_home": 1522.9,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 62.5,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 35.5,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Atlético Nacional vs Deportivo Cali",
+      "league": "Liga Colombiana",
+      "home": "Atlético Nacional",
+      "away": "Deportivo Cali",
+      "probabilities": {
+        "win_home": 56.0,
+        "draw": 29.8,
+        "win_away": 14.2,
+        "over_2_5": 31.5,
+        "over_1_5": 58.5
+      },
+      "favorite": "Atlético Nacional",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.39,
+      "lambda_away": 0.57,
+      "elo_home": 1500.0,
+      "elo_away": 1517.3,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 58.5,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 31.5,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "River Plate vs Independiente Santa Fe",
+      "league": "Copa Sudamericana",
+      "home": "River Plate",
+      "away": "Independiente Santa Fe",
+      "probabilities": {
+        "win_home": 58.0,
+        "draw": 26.5,
+        "win_away": 15.5,
+        "over_2_5": 42.8,
+        "over_1_5": 68.9
+      },
+      "favorite": "River Plate",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.65,
+      "lambda_away": 0.74,
+      "elo_home": 1543.7,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 68.9,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 42.8,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    }
+  ],
+  "nota": "Análisis estadístico de todos los partidos del día. Probabilidades crudas del modelo (sin ajuste por liga ni mercado). No incluye recomendación de apuesta — ver value_picks y featured_pick para picks oficiales."
+}
