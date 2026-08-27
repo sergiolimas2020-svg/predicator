@@ -1,6 +1,6 @@
 # Radar estadístico — selección de mercado por probabilidad
 
-Generado: 2026-08-26T05:28:27
+Generado: 2026-08-27T16:04:29
 
 Motor probability-first. Busca el mercado donde la estadística apoya una probabilidad alta. **No usa EV, cuotas ni Betplay.** Alcance: Mundial/selecciones. **No conectado a publicación premium** — radar/shadow.
 
