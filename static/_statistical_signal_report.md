@@ -1,23 +1,23 @@
 # Auditoría estadística del motor
 
-Generado: 2026-09-04T09:11:56
+Generado: 2026-09-05T08:42:50
 
 Este reporte NO usa cuotas, EV ni ROI. Evalúa únicamente si la probabilidad del modelo se corresponde con los aciertos reales.
 
 ## Resumen
 
-- Picks resueltos evaluables: **175**
-- Acierto total: **64.6%**
-- Probabilidad media publicada: **73.3%**
-- Gap calibración (acierto - prob): **-8.7%**
-- Brier score: **0.2259**
+- Picks resueltos evaluables: **176**
+- Acierto total: **64.2%**
+- Probabilidad media publicada: **73.1%**
+- Gap calibración (acierto - prob): **-8.9%**
+- Brier score: **0.2263**
 
 ## Por banda de probabilidad
 
 | Grupo | N | Acierto | Prob. media | Gap | Brier |
 |---|---:|---:|---:|---:|---:|
 | 40-49% | 4 | 25.0% | 47.8% | -22.8% | 0.2413 |
-| 50-59% | 16 | 56.2% | 56.1% | +0.1% | 0.2445 |
+| 50-59% | 17 | 52.9% | 56.0% | -3.0% | 0.2466 |
 | 60-69% | 42 | 59.5% | 65.9% | -6.3% | 0.2422 |
 | 70-79% | 64 | 60.9% | 75.5% | -14.6% | 0.2604 |
 | 80-89% | 46 | 78.3% | 83.8% | -5.5% | 0.1699 |
@@ -30,7 +30,7 @@ Este reporte NO usa cuotas, EV ni ROI. Evalúa únicamente si la probabilidad de
 | over_1_5 | 47 | 78.7% | 79.7% | -1.0% | 0.1751 |
 | winner | 43 | 65.1% | 64.6% | +0.5% | 0.2146 |
 | double_chance | 30 | 56.7% | 78.7% | -22.1% | 0.2715 |
-| draw_no_bet | 28 | 64.3% | 71.6% | -7.3% | 0.2337 |
+| draw_no_bet | 29 | 62.1% | 71.0% | -8.9% | 0.2353 |
 | over_2_5 | 21 | 61.9% | 69.8% | -7.9% | 0.1817 |
 | corners | 6 | 0% | 77.2% | -77.2% | 0.5969 |
 
@@ -41,8 +41,8 @@ Este reporte NO usa cuotas, EV ni ROI. Evalúa únicamente si la probabilidad de
 | Mundial 2026 | 40 | 77.5% | 79.4% | -1.9% | 0.1786 |
 | Brasileirao | 35 | 62.9% | 75.3% | -12.4% | 0.2324 |
 | NBA | 20 | 80.0% | 64.6% | +15.4% | 0.1776 |
+| Serie A | 14 | 64.3% | 68.7% | -4.4% | 0.2062 |
 | La Liga | 13 | 30.8% | 69.4% | -38.6% | 0.3691 |
-| Serie A | 13 | 69.2% | 70.0% | -0.7% | 0.2006 |
 | Copa Sudamericana | 9 | 66.7% | 74.4% | -7.7% | 0.2129 |
 | Liga Colombiana | 9 | 77.8% | 75.5% | +2.3% | 0.1625 |
 | Premier League | 8 | 37.5% | 69.8% | -32.3% | 0.3585 |
