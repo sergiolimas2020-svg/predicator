@@ -1,0 +1,1391 @@
+[
+  {
+    "key": "Rosario Central|Newells Old Boys|2026-09-06",
+    "home": "Rosario Central",
+    "away": "Newells Old Boys",
+    "league": "Liga Argentina",
+    "date": "2026-09-06",
+    "home_id": 437,
+    "away_id": null,
+    "league_id": 128,
+    "season": 2026,
+    "h2h": null,
+    "home_form": null,
+    "away_form": null,
+    "home_stats": null,
+    "away_stats": null,
+    "home_danger": null,
+    "away_danger": null,
+    "home_player_shots": null,
+    "away_player_shots": null,
+    "errors": [
+      "missing_team_mapping"
+    ]
+  },
+  {
+    "key": "Central Córdoba|Independiente|2026-09-06",
+    "home": "Central Córdoba",
+    "away": "Independiente",
+    "league": "Liga Argentina",
+    "date": "2026-09-06",
+    "home_id": null,
+    "away_id": 453,
+    "league_id": 128,
+    "season": 2026,
+    "h2h": null,
+    "home_form": null,
+    "away_form": null,
+    "home_stats": null,
+    "away_stats": null,
+    "home_danger": null,
+    "away_danger": null,
+    "home_player_shots": null,
+    "away_player_shots": null,
+    "errors": [
+      "missing_team_mapping"
+    ]
+  },
+  {
+    "key": "Lanus|Defensa y Justicia|2026-09-06",
+    "home": "Lanus",
+    "away": "Defensa y Justicia",
+    "league": "Liga Argentina",
+    "date": "2026-09-06",
+    "home_id": 446,
+    "away_id": null,
+    "league_id": 128,
+    "season": 2026,
+    "h2h": null,
+    "home_form": null,
+    "away_form": null,
+    "home_stats": null,
+    "away_stats": null,
+    "home_danger": null,
+    "away_danger": null,
+    "home_player_shots": null,
+    "away_player_shots": null,
+    "errors": [
+      "missing_team_mapping"
+    ]
+  },
+  {
+    "key": "River Plate|Independiente Rivadavia|2026-09-06",
+    "home": "River Plate",
+    "away": "Independiente Rivadavia",
+    "league": "Liga Argentina",
+    "date": "2026-09-06",
+    "home_id": 435,
+    "away_id": 473,
+    "league_id": 128,
+    "season": 2026,
+    "h2h": null,
+    "home_form": null,
+    "away_form": null,
+    "home_stats": null,
+    "away_stats": null,
+    "home_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "home_player_shots": {
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_player_shots": {
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "errors": [
+      "h2h: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "away_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}",
+      "away_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}"
+    ]
+  },
+  {
+    "key": "Everton|Manchester United|2026-09-06",
+    "home": "Everton",
+    "away": "Manchester United",
+    "league": "Premier League",
+    "date": "2026-09-06",
+    "home_id": 45,
+    "away_id": 33,
+    "league_id": 39,
+    "season": 2025,
+    "h2h": null,
+    "home_form": null,
+    "away_form": null,
+    "home_stats": null,
+    "away_stats": null,
+    "home_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "home_player_shots": {
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_player_shots": {
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "errors": [
+      "h2h: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "away_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}",
+      "away_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}"
+    ]
+  },
+  {
+    "key": "Arsenal|Chelsea|2026-09-06",
+    "home": "Arsenal",
+    "away": "Chelsea",
+    "league": "Premier League",
+    "date": "2026-09-06",
+    "home_id": 42,
+    "away_id": 49,
+    "league_id": 39,
+    "season": 2025,
+    "h2h": null,
+    "home_form": null,
+    "away_form": null,
+    "home_stats": null,
+    "away_stats": null,
+    "home_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "home_player_shots": {
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_player_shots": {
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "errors": [
+      "h2h: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "away_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}",
+      "away_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}"
+    ]
+  },
+  {
+    "key": "Valencia|Barcelona|2026-09-06",
+    "home": "Valencia",
+    "away": "Barcelona",
+    "league": "La Liga",
+    "date": "2026-09-06",
+    "home_id": 532,
+    "away_id": 529,
+    "league_id": 140,
+    "season": 2025,
+    "h2h": null,
+    "home_form": null,
+    "away_form": null,
+    "home_stats": null,
+    "away_stats": null,
+    "home_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "home_player_shots": {
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_player_shots": {
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "errors": [
+      "h2h: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "away_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}",
+      "away_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}"
+    ]
+  },
+  {
+    "key": "Alavés|CA Osasuna|2026-09-06",
+    "home": "Alavés",
+    "away": "CA Osasuna",
+    "league": "La Liga",
+    "date": "2026-09-06",
+    "home_id": 542,
+    "away_id": 727,
+    "league_id": 140,
+    "season": 2025,
+    "h2h": null,
+    "home_form": null,
+    "away_form": null,
+    "home_stats": null,
+    "away_stats": null,
+    "home_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "home_player_shots": {
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_player_shots": {
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "errors": [
+      "h2h: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "away_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}",
+      "away_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}"
+    ]
+  },
+  {
+    "key": "Málaga|Levante|2026-09-06",
+    "home": "Málaga",
+    "away": "Levante",
+    "league": "La Liga",
+    "date": "2026-09-06",
+    "home_id": null,
+    "away_id": 539,
+    "league_id": 140,
+    "season": 2025,
+    "h2h": null,
+    "home_form": null,
+    "away_form": null,
+    "home_stats": null,
+    "away_stats": null,
+    "home_danger": null,
+    "away_danger": null,
+    "home_player_shots": null,
+    "away_player_shots": null,
+    "errors": [
+      "missing_team_mapping"
+    ]
+  },
+  {
+    "key": "Espanyol|Sevilla|2026-09-06",
+    "home": "Espanyol",
+    "away": "Sevilla",
+    "league": "La Liga",
+    "date": "2026-09-06",
+    "home_id": 540,
+    "away_id": 536,
+    "league_id": 140,
+    "season": 2025,
+    "h2h": null,
+    "home_form": null,
+    "away_form": null,
+    "home_stats": null,
+    "away_stats": null,
+    "home_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "home_player_shots": {
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_player_shots": {
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "errors": [
+      "h2h: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "away_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}",
+      "away_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}"
+    ]
+  },
+  {
+    "key": "Frosinone|Venezia|2026-09-06",
+    "home": "Frosinone",
+    "away": "Venezia",
+    "league": "Serie A",
+    "date": "2026-09-06",
+    "home_id": null,
+    "away_id": null,
+    "league_id": 135,
+    "season": 2025,
+    "h2h": null,
+    "home_form": null,
+    "away_form": null,
+    "home_stats": null,
+    "away_stats": null,
+    "home_danger": null,
+    "away_danger": null,
+    "home_player_shots": null,
+    "away_player_shots": null,
+    "errors": [
+      "missing_team_mapping"
+    ]
+  },
+  {
+    "key": "Parma|Monza|2026-09-06",
+    "home": "Parma",
+    "away": "Monza",
+    "league": "Serie A",
+    "date": "2026-09-06",
+    "home_id": 523,
+    "away_id": null,
+    "league_id": 135,
+    "season": 2025,
+    "h2h": null,
+    "home_form": null,
+    "away_form": null,
+    "home_stats": null,
+    "away_stats": null,
+    "home_danger": null,
+    "away_danger": null,
+    "home_player_shots": null,
+    "away_player_shots": null,
+    "errors": [
+      "missing_team_mapping"
+    ]
+  },
+  {
+    "key": "Bologna|Sassuolo|2026-09-06",
+    "home": "Bologna",
+    "away": "Sassuolo",
+    "league": "Serie A",
+    "date": "2026-09-06",
+    "home_id": 500,
+    "away_id": 488,
+    "league_id": 135,
+    "season": 2025,
+    "h2h": null,
+    "home_form": null,
+    "away_form": null,
+    "home_stats": null,
+    "away_stats": null,
+    "home_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "home_player_shots": {
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_player_shots": {
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "errors": [
+      "h2h: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "away_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}",
+      "away_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}"
+    ]
+  },
+  {
+    "key": "Juventus|AC Milan|2026-09-06",
+    "home": "Juventus",
+    "away": "AC Milan",
+    "league": "Serie A",
+    "date": "2026-09-06",
+    "home_id": 496,
+    "away_id": 489,
+    "league_id": 135,
+    "season": 2025,
+    "h2h": null,
+    "home_form": null,
+    "away_form": null,
+    "home_stats": null,
+    "away_stats": null,
+    "home_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "home_player_shots": {
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_player_shots": {
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "errors": [
+      "h2h: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "away_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}",
+      "away_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}"
+    ]
+  },
+  {
+    "key": "Hamburger SV|FSV Mainz 05|2026-09-06",
+    "home": "Hamburger SV",
+    "away": "FSV Mainz 05",
+    "league": "Bundesliga",
+    "date": "2026-09-06",
+    "home_id": 175,
+    "away_id": 164,
+    "league_id": 78,
+    "season": 2025,
+    "h2h": null,
+    "home_form": null,
+    "away_form": null,
+    "home_stats": null,
+    "away_stats": null,
+    "home_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "home_player_shots": {
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_player_shots": {
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "errors": [
+      "h2h: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "away_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}",
+      "away_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}"
+    ]
+  },
+  {
+    "key": "Eintracht Frankfurt|Augsburg|2026-09-06",
+    "home": "Eintracht Frankfurt",
+    "away": "Augsburg",
+    "league": "Bundesliga",
+    "date": "2026-09-06",
+    "home_id": null,
+    "away_id": 170,
+    "league_id": 78,
+    "season": 2025,
+    "h2h": null,
+    "home_form": null,
+    "away_form": null,
+    "home_stats": null,
+    "away_stats": null,
+    "home_danger": null,
+    "away_danger": null,
+    "home_player_shots": null,
+    "away_player_shots": null,
+    "errors": [
+      "missing_team_mapping"
+    ]
+  },
+  {
+    "key": "Troyes|Strasbourg|2026-09-06",
+    "home": "Troyes",
+    "away": "Strasbourg",
+    "league": "Ligue 1",
+    "date": "2026-09-06",
+    "home_id": null,
+    "away_id": 95,
+    "league_id": 61,
+    "season": 2025,
+    "h2h": null,
+    "home_form": null,
+    "away_form": null,
+    "home_stats": null,
+    "away_stats": null,
+    "home_danger": null,
+    "away_danger": null,
+    "home_player_shots": null,
+    "away_player_shots": null,
+    "errors": [
+      "missing_team_mapping"
+    ]
+  },
+  {
+    "key": "Angers|Rennes|2026-09-06",
+    "home": "Angers",
+    "away": "Rennes",
+    "league": "Ligue 1",
+    "date": "2026-09-06",
+    "home_id": 77,
+    "away_id": 94,
+    "league_id": 61,
+    "season": 2025,
+    "h2h": null,
+    "home_form": null,
+    "away_form": null,
+    "home_stats": null,
+    "away_stats": null,
+    "home_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "home_player_shots": {
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_player_shots": {
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "errors": [
+      "h2h: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "away_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}",
+      "away_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}"
+    ]
+  },
+  {
+    "key": "Marseille|Paris FC|2026-09-06",
+    "home": "Marseille",
+    "away": "Paris FC",
+    "league": "Ligue 1",
+    "date": "2026-09-06",
+    "home_id": 81,
+    "away_id": 114,
+    "league_id": 61,
+    "season": 2025,
+    "h2h": null,
+    "home_form": null,
+    "away_form": null,
+    "home_stats": null,
+    "away_stats": null,
+    "home_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "home_player_shots": {
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_player_shots": {
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "errors": [
+      "h2h: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "away_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}",
+      "away_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}"
+    ]
+  },
+  {
+    "key": "Coritiba|Mirassol|2026-09-06",
+    "home": "Coritiba",
+    "away": "Mirassol",
+    "league": "Brasileirao",
+    "date": "2026-09-06",
+    "home_id": 147,
+    "away_id": 7848,
+    "league_id": 71,
+    "season": 2026,
+    "h2h": null,
+    "home_form": null,
+    "away_form": null,
+    "home_stats": null,
+    "away_stats": null,
+    "home_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "home_player_shots": {
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_player_shots": {
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "errors": [
+      "h2h: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "away_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}",
+      "away_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}"
+    ]
+  },
+  {
+    "key": "Cruzeiro|Atletico Paranaense|2026-09-06",
+    "home": "Cruzeiro",
+    "away": "Atletico Paranaense",
+    "league": "Brasileirao",
+    "date": "2026-09-06",
+    "home_id": 135,
+    "away_id": 134,
+    "league_id": 71,
+    "season": 2026,
+    "h2h": null,
+    "home_form": null,
+    "away_form": null,
+    "home_stats": null,
+    "away_stats": null,
+    "home_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "home_player_shots": {
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_player_shots": {
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "errors": [
+      "h2h: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "away_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}",
+      "away_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}"
+    ]
+  },
+  {
+    "key": "Remo|Flamengo|2026-09-06",
+    "home": "Remo",
+    "away": "Flamengo",
+    "league": "Brasileirao",
+    "date": "2026-09-06",
+    "home_id": 1198,
+    "away_id": 127,
+    "league_id": 71,
+    "season": 2026,
+    "h2h": null,
+    "home_form": null,
+    "away_form": null,
+    "home_stats": null,
+    "away_stats": null,
+    "home_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "home_player_shots": {
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_player_shots": {
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "errors": [
+      "h2h: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "away_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}",
+      "away_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}"
+    ]
+  },
+  {
+    "key": "Internacional|Santos|2026-09-06",
+    "home": "Internacional",
+    "away": "Santos",
+    "league": "Brasileirao",
+    "date": "2026-09-06",
+    "home_id": 119,
+    "away_id": 128,
+    "league_id": 71,
+    "season": 2026,
+    "h2h": null,
+    "home_form": null,
+    "away_form": null,
+    "home_stats": null,
+    "away_stats": null,
+    "home_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "home_player_shots": {
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_player_shots": {
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "errors": [
+      "h2h: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "away_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}",
+      "away_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}"
+    ]
+  },
+  {
+    "key": "Botafogo|Palmeiras|2026-09-06",
+    "home": "Botafogo",
+    "away": "Palmeiras",
+    "league": "Brasileirao",
+    "date": "2026-09-06",
+    "home_id": 120,
+    "away_id": 121,
+    "league_id": 71,
+    "season": 2026,
+    "h2h": null,
+    "home_form": null,
+    "away_form": null,
+    "home_stats": null,
+    "away_stats": null,
+    "home_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "home_player_shots": {
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_player_shots": {
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "errors": [
+      "h2h: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "away_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}",
+      "away_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}"
+    ]
+  },
+  {
+    "key": "Corinthians|Chapecoense|2026-09-06",
+    "home": "Corinthians",
+    "away": "Chapecoense",
+    "league": "Brasileirao",
+    "date": "2026-09-06",
+    "home_id": 131,
+    "away_id": 132,
+    "league_id": 71,
+    "season": 2026,
+    "h2h": null,
+    "home_form": null,
+    "away_form": null,
+    "home_stats": null,
+    "away_stats": null,
+    "home_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "home_player_shots": {
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_player_shots": {
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "errors": [
+      "h2h: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "away_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}",
+      "away_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}"
+    ]
+  },
+  {
+    "key": "Kasimpasa SK|Amed SK|2026-09-06",
+    "home": "Kasimpasa SK",
+    "away": "Amed SK",
+    "league": "Super Lig",
+    "date": "2026-09-06",
+    "home_id": 1004,
+    "away_id": null,
+    "league_id": 203,
+    "season": 2025,
+    "h2h": null,
+    "home_form": null,
+    "away_form": null,
+    "home_stats": null,
+    "away_stats": null,
+    "home_danger": null,
+    "away_danger": null,
+    "home_player_shots": null,
+    "away_player_shots": null,
+    "errors": [
+      "missing_team_mapping"
+    ]
+  },
+  {
+    "key": "Çorum FK|Eyüpspor|2026-09-06",
+    "home": "Çorum FK",
+    "away": "Eyüpspor",
+    "league": "Super Lig",
+    "date": "2026-09-06",
+    "home_id": null,
+    "away_id": 3588,
+    "league_id": 203,
+    "season": 2025,
+    "h2h": null,
+    "home_form": null,
+    "away_form": null,
+    "home_stats": null,
+    "away_stats": null,
+    "home_danger": null,
+    "away_danger": null,
+    "home_player_shots": null,
+    "away_player_shots": null,
+    "errors": [
+      "missing_team_mapping"
+    ]
+  },
+  {
+    "key": "Trabzonspor|Genclerbirligi SK|2026-09-06",
+    "home": "Trabzonspor",
+    "away": "Genclerbirligi SK",
+    "league": "Super Lig",
+    "date": "2026-09-06",
+    "home_id": 998,
+    "away_id": 997,
+    "league_id": 203,
+    "season": 2025,
+    "h2h": null,
+    "home_form": null,
+    "away_form": null,
+    "home_stats": null,
+    "away_stats": null,
+    "home_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "home_player_shots": {
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_player_shots": {
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "errors": [
+      "h2h: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "away_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}",
+      "away_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}"
+    ]
+  },
+  {
+    "key": "Kocaelispor|Samsunspor|2026-09-06",
+    "home": "Kocaelispor",
+    "away": "Samsunspor",
+    "league": "Super Lig",
+    "date": "2026-09-06",
+    "home_id": 7411,
+    "away_id": 3603,
+    "league_id": 203,
+    "season": 2025,
+    "h2h": null,
+    "home_form": null,
+    "away_form": null,
+    "home_stats": null,
+    "away_stats": null,
+    "home_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "home_player_shots": {
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_player_shots": {
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "errors": [
+      "h2h: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "away_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}",
+      "away_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}"
+    ]
+  }
+]

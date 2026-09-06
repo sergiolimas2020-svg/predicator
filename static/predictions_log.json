@@ -8747,5 +8747,82 @@
         "reason": "mercado_no_disponible"
       }
     ]
+  },
+  {
+    "fecha": "2026-09-06",
+    "slug": "remo-vs-flamengo-brasileirao-2026-09-06",
+    "home": "Remo",
+    "away": "Flamengo",
+    "league": "Brasileirao",
+    "prediccion": "Apuesta sin empate: Remo",
+    "confianza": "Probabilidad: 52.0%",
+    "resultado_real": null,
+    "acerto": null,
+    "prob_original": 61.9,
+    "confidence_factor": 0.97,
+    "prob_adjusted": 52.0,
+    "bk_odds": 2.647,
+    "ev": 63.9,
+    "penalty": 0.0,
+    "ev_adjusted": 37.6,
+    "value_score": 35.5028,
+    "reason": "ok",
+    "version": "v1.2-clean-signal",
+    "stake_sugerido_pct": 5.71,
+    "stake_real_pct": 5.71,
+    "stake_modo": "activo",
+    "tipo_pick": "pick_exploratorio",
+    "base_pick": "Remo",
+    "value_level": "alto",
+    "markets_evaluated": [
+      {
+        "market": "Remo",
+        "ev_adjusted": 229.5,
+        "value_score": 473.7763,
+        "reason": "ok"
+      },
+      {
+        "market": "Doble oportunidad: Remo",
+        "ev_adjusted": 89.8,
+        "value_score": 100.5793,
+        "reason": "ok"
+      },
+      {
+        "market": "Apuesta sin empate: Remo",
+        "ev_adjusted": 37.6,
+        "value_score": 35.5028,
+        "reason": "ok"
+      },
+      {
+        "market": "Flamengo",
+        "ev_adjusted": null,
+        "value_score": null,
+        "reason": "cuota_baja"
+      },
+      {
+        "market": "Apuesta sin empate: Flamengo",
+        "ev_adjusted": null,
+        "value_score": null,
+        "reason": "cuota_baja"
+      },
+      {
+        "market": "Doble oportunidad: Flamengo",
+        "ev_adjusted": null,
+        "value_score": null,
+        "reason": "cuota_baja"
+      },
+      {
+        "market": "Over 2.5 goles",
+        "ev_adjusted": -22.2,
+        "value_score": null,
+        "reason": "ev_negativo"
+      },
+      {
+        "market": "Over 1.5 goles",
+        "ev_adjusted": null,
+        "value_score": null,
+        "reason": "mercado_no_disponible"
+      }
+    ]
   }
 ]
