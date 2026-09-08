@@ -1,21 +1,11 @@
 {
-  "Libertad": {
+  "S. Trinidense": {
     "corners": {},
     "goals": {
-      "over_1_5": "64%",
-      "over_2_5": "45%",
-      "over_3_5": "27%",
-      "bts": "41%"
-    },
-    "position": {}
-  },
-  "Olimpia": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "68%",
-      "over_2_5": "45%",
+      "over_1_5": "77%",
+      "over_2_5": "50%",
       "over_3_5": "18%",
-      "bts": "50%"
+      "bts": "73%"
     },
     "position": {}
   },
@@ -29,6 +19,16 @@
     },
     "position": {}
   },
+  "Nacional": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "77%",
+      "over_2_5": "45%",
+      "over_3_5": "14%",
+      "bts": "68%"
+    },
+    "position": {}
+  },
   "San Lorenzo": {
     "corners": {},
     "goals": {
@@ -39,13 +39,13 @@
     },
     "position": {}
   },
-  "S. Trinidense": {
+  "2 de Mayo": {
     "corners": {},
     "goals": {
-      "over_1_5": "77%",
-      "over_2_5": "50%",
+      "over_1_5": "73%",
+      "over_2_5": "41%",
       "over_3_5": "18%",
-      "bts": "73%"
+      "bts": "45%"
     },
     "position": {}
   },
@@ -59,16 +59,6 @@
     },
     "position": {}
   },
-  "S. Ameliano": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "68%",
-      "over_2_5": "36%",
-      "over_3_5": "14%",
-      "bts": "59%"
-    },
-    "position": {}
-  },
   "Rubio Nu": {
     "corners": {},
     "goals": {
@@ -79,12 +69,22 @@
     },
     "position": {}
   },
-  "Nacional": {
+  "Libertad": {
     "corners": {},
     "goals": {
-      "over_1_5": "77%",
+      "over_1_5": "64%",
       "over_2_5": "45%",
-      "over_3_5": "14%",
+      "over_3_5": "27%",
+      "bts": "41%"
+    },
+    "position": {}
+  },
+  "D. Recoleta": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "82%",
+      "over_2_5": "64%",
+      "over_3_5": "32%",
       "bts": "68%"
     },
     "position": {}
@@ -99,26 +99,6 @@
     },
     "position": {}
   },
-  "2 de Mayo": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "73%",
-      "over_2_5": "41%",
-      "over_3_5": "18%",
-      "bts": "45%"
-    },
-    "position": {}
-  },
-  "D. Recoleta": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "82%",
-      "over_2_5": "64%",
-      "over_3_5": "32%",
-      "bts": "68%"
-    },
-    "position": {}
-  },
   "League average": {
     "corners": {},
     "goals": {
@@ -126,6 +106,26 @@
       "over_2_5": "20.5%",
       "over_3_5": "13.6%",
       "bts": "28.8%"
+    },
+    "position": {}
+  },
+  "Olimpia": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "68%",
+      "over_2_5": "45%",
+      "over_3_5": "18%",
+      "bts": "50%"
+    },
+    "position": {}
+  },
+  "S. Ameliano": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "68%",
+      "over_2_5": "36%",
+      "over_3_5": "14%",
+      "bts": "59%"
     },
     "position": {}
   },
@@ -160,7 +160,7 @@
     "position": {}
   },
   "_metadata": {
-    "fecha_actualizacion": "2026-09-07T09:50:56.139909",
+    "fecha_actualizacion": "2026-09-08T09:15:15.910786",
     "liga": "paraguay",
     "fuente": "ESPN API"
   }
