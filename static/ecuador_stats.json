@@ -1,4 +1,14 @@
 {
+  "I. del Valle": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "90%",
+      "over_2_5": "69%",
+      "over_3_5": "48%",
+      "bts": "55%"
+    },
+    "position": {}
+  },
   "Libertad": {
     "corners": {},
     "goals": {
@@ -19,36 +29,6 @@
     },
     "position": {}
   },
-  "Mushuc Runa": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "66%",
-      "over_2_5": "48%",
-      "over_3_5": "31%",
-      "bts": "55%"
-    },
-    "position": {}
-  },
-  "I. del Valle": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "90%",
-      "over_2_5": "69%",
-      "over_3_5": "48%",
-      "bts": "55%"
-    },
-    "position": {}
-  },
-  "LDU Quito": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "59%",
-      "over_2_5": "28%",
-      "over_3_5": "7%",
-      "bts": "34%"
-    },
-    "position": {}
-  },
   "D. Cuenca": {
     "corners": {},
     "goals": {
@@ -59,33 +39,13 @@
     },
     "position": {}
   },
-  "Macara": {
+  "Manta": {
     "corners": {},
     "goals": {
-      "over_1_5": "76%",
-      "over_2_5": "52%",
-      "over_3_5": "17%",
-      "bts": "52%"
-    },
-    "position": {}
-  },
-  "U. Catolica": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "72%",
-      "over_2_5": "45%",
-      "over_3_5": "28%",
-      "bts": "52%"
-    },
-    "position": {}
-  },
-  "Orense": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "86%",
-      "over_2_5": "59%",
-      "over_3_5": "17%",
-      "bts": "62%"
+      "over_1_5": "52%",
+      "over_2_5": "28%",
+      "over_3_5": "14%",
+      "bts": "31%"
     },
     "position": {}
   },
@@ -109,43 +69,33 @@
     },
     "position": {}
   },
-  "Manta": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "52%",
-      "over_2_5": "28%",
-      "over_3_5": "14%",
-      "bts": "31%"
-    },
-    "position": {}
-  },
-  "League average": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "39.7%",
-      "over_2_5": "17.7%",
-      "over_3_5": "9.1%",
-      "bts": "31.5%"
-    },
-    "position": {}
-  },
-  "Delfin": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "34%",
-      "over_2_5": "24%",
-      "over_3_5": "10%",
-      "bts": "31%"
-    },
-    "position": {}
-  },
-  "Barcelona SC": {
+  "Tecnico U.": {
     "corners": {},
     "goals": {
       "over_1_5": "66%",
-      "over_2_5": "34%",
-      "over_3_5": "3%",
-      "bts": "48%"
+      "over_2_5": "48%",
+      "over_3_5": "17%",
+      "bts": "41%"
+    },
+    "position": {}
+  },
+  "Orense": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "86%",
+      "over_2_5": "59%",
+      "over_3_5": "17%",
+      "bts": "62%"
+    },
+    "position": {}
+  },
+  "Macara": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "76%",
+      "over_2_5": "52%",
+      "over_3_5": "17%",
+      "bts": "52%"
     },
     "position": {}
   },
@@ -159,18 +109,68 @@
     },
     "position": {}
   },
-  "Tecnico U.": {
+  "Mushuc Runa": {
     "corners": {},
     "goals": {
       "over_1_5": "66%",
       "over_2_5": "48%",
-      "over_3_5": "17%",
-      "bts": "41%"
+      "over_3_5": "31%",
+      "bts": "55%"
+    },
+    "position": {}
+  },
+  "League average": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "39.7%",
+      "over_2_5": "17.7%",
+      "over_3_5": "9.1%",
+      "bts": "31.5%"
+    },
+    "position": {}
+  },
+  "Barcelona SC": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "66%",
+      "over_2_5": "34%",
+      "over_3_5": "3%",
+      "bts": "48%"
+    },
+    "position": {}
+  },
+  "LDU Quito": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "59%",
+      "over_2_5": "28%",
+      "over_3_5": "7%",
+      "bts": "34%"
+    },
+    "position": {}
+  },
+  "Delfin": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "34%",
+      "over_2_5": "24%",
+      "over_3_5": "10%",
+      "bts": "31%"
+    },
+    "position": {}
+  },
+  "U. Catolica": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "72%",
+      "over_2_5": "45%",
+      "over_3_5": "28%",
+      "bts": "52%"
     },
     "position": {}
   },
   "_metadata": {
-    "fecha_actualizacion": "2026-09-09T09:18:34.452210",
+    "fecha_actualizacion": "2026-09-10T09:17:25.764976",
     "liga": "ecuador",
     "fuente": "ESPN API"
   }

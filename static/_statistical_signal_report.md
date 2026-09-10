@@ -1,16 +1,16 @@
 # Auditoría estadística del motor
 
-Generado: 2026-09-09T09:18:23
+Generado: 2026-09-10T09:17:14
 
 Este reporte NO usa cuotas, EV ni ROI. Evalúa únicamente si la probabilidad del modelo se corresponde con los aciertos reales.
 
 ## Resumen
 
-- Picks resueltos evaluables: **177**
-- Acierto total: **63.8%**
+- Picks resueltos evaluables: **178**
+- Acierto total: **64.0%**
 - Probabilidad media publicada: **73.0%**
-- Gap calibración (acierto - prob): **-9.2%**
-- Brier score: **0.2265**
+- Gap calibración (acierto - prob): **-9.0%**
+- Brier score: **0.2256**
 
 ## Por banda de probabilidad
 
@@ -19,7 +19,7 @@ Este reporte NO usa cuotas, EV ni ROI. Evalúa únicamente si la probabilidad de
 | 40-49% | 4 | 25.0% | 47.8% | -22.8% | 0.2413 |
 | 50-59% | 18 | 50.0% | 55.7% | -5.7% | 0.2479 |
 | 60-69% | 42 | 59.5% | 65.9% | -6.3% | 0.2422 |
-| 70-79% | 64 | 60.9% | 75.5% | -14.6% | 0.2604 |
+| 70-79% | 65 | 61.5% | 75.5% | -14.0% | 0.2573 |
 | 80-89% | 46 | 78.3% | 83.8% | -5.5% | 0.1699 |
 | 90-99% | 3 | 100% | 93.3% | +6.7% | 0.0047 |
 
@@ -27,7 +27,7 @@ Este reporte NO usa cuotas, EV ni ROI. Evalúa únicamente si la probabilidad de
 
 | Grupo | N | Acierto | Prob. media | Gap | Brier |
 |---|---:|---:|---:|---:|---:|
-| over_1_5 | 47 | 78.7% | 79.7% | -1.0% | 0.1751 |
+| over_1_5 | 48 | 79.2% | 79.6% | -0.5% | 0.1726 |
 | winner | 43 | 65.1% | 64.6% | +0.5% | 0.2146 |
 | double_chance | 30 | 56.7% | 78.7% | -22.1% | 0.2715 |
 | draw_no_bet | 30 | 60.0% | 70.4% | -10.4% | 0.2364 |

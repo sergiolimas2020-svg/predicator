@@ -1,6 +1,6 @@
 # Calibración conservadora — propuesta SHADOW
 
-Generado: 2026-09-09T09:18:27
+Generado: 2026-09-10T09:17:17
 
 **Artefacto shadow.** No toca publicación oficial. El motor sigue sin calibrar (o con el calibrador global válido si lo hubiera). Una propuesta solo se acepta si Platt es monótono (A<0) **y** mejora el Brier en validación cruzada leave-one-out. No reintroduce EV/cuotas.
 
@@ -11,7 +11,7 @@ Generado: 2026-09-09T09:18:27
 
 | Mercado | N | Acierto | Prob. media | Gap | A | B | Brier CV antes→después | Estado |
 |---|---:|---:|---:|---:|---:|---:|---|---|
-| over_1_5 | 47 | 78.7% | 79.7% | -1.0% | 1.80632 | -2.730202 | 0.1751 → 0.1747 | rejected_non_monotonic |
+| over_1_5 | 48 | 79.2% | 79.6% | -0.4% | 1.904944 | -2.833668 | 0.1726 → 0.1717 | rejected_non_monotonic |
 | winner | 43 | 65.1% | 64.6% | +0.5% | -5.290916 | 2.768144 | 0.2146 → 0.2307 | rejected_no_cv_improvement |
 | double_chance | 30 | 56.7% | 78.7% | -22.0% | — | — | in-sample 0.2715 | disabled_market |
 | draw_no_bet | 30 | 60.0% | 70.4% | -10.4% | — | — | in-sample 0.2364 | disabled_market |
