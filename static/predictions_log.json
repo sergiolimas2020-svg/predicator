@@ -8910,7 +8910,7 @@
     "league": "Serie A",
     "prediccion": "Apuesta sin empate: Lazio",
     "confianza": "Probabilidad: 51.3%",
-    "resultado_real": null,
+    "resultado_real": "2-2",
     "acerto": null,
     "prob_original": 61.9,
     "confidence_factor": 1.0,
@@ -8968,6 +8968,83 @@
       {
         "market": "Over 2.5 goles",
         "ev_adjusted": -2.6,
+        "value_score": null,
+        "reason": "ev_negativo"
+      },
+      {
+        "market": "Over 1.5 goles",
+        "ev_adjusted": null,
+        "value_score": null,
+        "reason": "mercado_no_disponible"
+      }
+    ]
+  },
+  {
+    "fecha": "2026-09-13",
+    "slug": "sassuolo-vs-juventus-serie-a-2026-09-13",
+    "home": "Sassuolo",
+    "away": "Juventus",
+    "league": "Serie A",
+    "prediccion": "Apuesta sin empate: Sassuolo",
+    "confianza": "Probabilidad: 51.3%",
+    "resultado_real": null,
+    "acerto": null,
+    "prob_original": 61.9,
+    "confidence_factor": 1.0,
+    "prob_adjusted": 51.3,
+    "bk_odds": 2.39,
+    "ev": 48.0,
+    "penalty": 0.0,
+    "ev_adjusted": 22.6,
+    "value_score": 19.6912,
+    "reason": "ok",
+    "version": "v1.2-clean-signal",
+    "stake_sugerido_pct": 4.07,
+    "stake_real_pct": 4.07,
+    "stake_modo": "activo",
+    "tipo_pick": "pick_exploratorio",
+    "base_pick": "Sassuolo",
+    "value_level": "alto",
+    "markets_evaluated": [
+      {
+        "market": "Sassuolo",
+        "ev_adjusted": 115.0,
+        "value_score": 200.1536,
+        "reason": "ok"
+      },
+      {
+        "market": "Doble oportunidad: Sassuolo",
+        "ev_adjusted": 42.3,
+        "value_score": 36.7671,
+        "reason": "ok"
+      },
+      {
+        "market": "Apuesta sin empate: Sassuolo",
+        "ev_adjusted": 22.6,
+        "value_score": 19.6912,
+        "reason": "ok"
+      },
+      {
+        "market": "Juventus",
+        "ev_adjusted": -55.3,
+        "value_score": null,
+        "reason": "ev_negativo"
+      },
+      {
+        "market": "Apuesta sin empate: Juventus",
+        "ev_adjusted": -53.4,
+        "value_score": null,
+        "reason": "ev_negativo"
+      },
+      {
+        "market": "Doble oportunidad: Juventus",
+        "ev_adjusted": null,
+        "value_score": null,
+        "reason": "cuota_baja"
+      },
+      {
+        "market": "Over 2.5 goles",
+        "ev_adjusted": -20.1,
         "value_score": null,
         "reason": "ev_negativo"
       },
