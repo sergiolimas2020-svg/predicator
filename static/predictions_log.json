@@ -8987,8 +8987,8 @@
     "league": "Serie A",
     "prediccion": "Apuesta sin empate: Sassuolo",
     "confianza": "Probabilidad: 51.3%",
-    "resultado_real": null,
-    "acerto": null,
+    "resultado_real": "3-2",
+    "acerto": true,
     "prob_original": 61.9,
     "confidence_factor": 1.0,
     "prob_adjusted": 51.3,
@@ -9045,6 +9045,83 @@
       {
         "market": "Over 2.5 goles",
         "ev_adjusted": -20.1,
+        "value_score": null,
+        "reason": "ev_negativo"
+      },
+      {
+        "market": "Over 1.5 goles",
+        "ev_adjusted": null,
+        "value_score": null,
+        "reason": "mercado_no_disponible"
+      }
+    ]
+  },
+  {
+    "fecha": "2026-09-14",
+    "slug": "torino-vs-as-roma-serie-a-2026-09-14",
+    "home": "Torino",
+    "away": "AS Roma",
+    "league": "Serie A",
+    "prediccion": "Apuesta sin empate: Torino",
+    "confianza": "Probabilidad: 52.1%",
+    "resultado_real": null,
+    "acerto": null,
+    "prob_original": 61.9,
+    "confidence_factor": 1.0,
+    "prob_adjusted": 52.1,
+    "bk_odds": 2.556,
+    "ev": 58.3,
+    "penalty": 0.0,
+    "ev_adjusted": 33.2,
+    "value_score": 31.1563,
+    "reason": "ok",
+    "version": "v1.2-clean-signal",
+    "stake_sugerido_pct": 5.33,
+    "stake_real_pct": 5.33,
+    "stake_modo": "activo",
+    "tipo_pick": "pick_exploratorio",
+    "base_pick": "Torino",
+    "value_level": "alto",
+    "markets_evaluated": [
+      {
+        "market": "Torino",
+        "ev_adjusted": 174.5,
+        "value_score": 339.5613,
+        "reason": "ok"
+      },
+      {
+        "market": "Doble oportunidad: Torino",
+        "ev_adjusted": 64.5,
+        "value_score": 64.9897,
+        "reason": "ok"
+      },
+      {
+        "market": "Apuesta sin empate: Torino",
+        "ev_adjusted": 33.2,
+        "value_score": 31.1563,
+        "reason": "ok"
+      },
+      {
+        "market": "AS Roma",
+        "ev_adjusted": -56.0,
+        "value_score": null,
+        "reason": "ev_negativo"
+      },
+      {
+        "market": "Apuesta sin empate: AS Roma",
+        "ev_adjusted": -53.4,
+        "value_score": null,
+        "reason": "ev_negativo"
+      },
+      {
+        "market": "Doble oportunidad: AS Roma",
+        "ev_adjusted": null,
+        "value_score": null,
+        "reason": "cuota_baja"
+      },
+      {
+        "market": "Over 2.5 goles",
+        "ev_adjusted": -21.3,
         "value_score": null,
         "reason": "ev_negativo"
       },

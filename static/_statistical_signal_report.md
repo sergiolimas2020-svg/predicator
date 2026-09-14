@@ -1,15 +1,15 @@
 # Auditoría estadística del motor
 
-Generado: 2026-09-13T09:53:31
+Generado: 2026-09-14T10:12:40
 
 Este reporte NO usa cuotas, EV ni ROI. Evalúa únicamente si la probabilidad del modelo se corresponde con los aciertos reales.
 
 ## Resumen
 
-- Picks resueltos evaluables: **178**
-- Acierto total: **64.0%**
-- Probabilidad media publicada: **73.0%**
-- Gap calibración (acierto - prob): **-9.0%**
+- Picks resueltos evaluables: **179**
+- Acierto total: **64.2%**
+- Probabilidad media publicada: **72.9%**
+- Gap calibración (acierto - prob): **-8.7%**
 - Brier score: **0.2256**
 
 ## Por banda de probabilidad
@@ -17,7 +17,7 @@ Este reporte NO usa cuotas, EV ni ROI. Evalúa únicamente si la probabilidad de
 | Grupo | N | Acierto | Prob. media | Gap | Brier |
 |---|---:|---:|---:|---:|---:|
 | 40-49% | 4 | 25.0% | 47.8% | -22.8% | 0.2413 |
-| 50-59% | 18 | 50.0% | 55.7% | -5.7% | 0.2479 |
+| 50-59% | 19 | 52.6% | 55.5% | -2.9% | 0.2473 |
 | 60-69% | 42 | 59.5% | 65.9% | -6.3% | 0.2422 |
 | 70-79% | 65 | 61.5% | 75.5% | -14.0% | 0.2573 |
 | 80-89% | 46 | 78.3% | 83.8% | -5.5% | 0.1699 |
@@ -29,8 +29,8 @@ Este reporte NO usa cuotas, EV ni ROI. Evalúa únicamente si la probabilidad de
 |---|---:|---:|---:|---:|---:|
 | over_1_5 | 48 | 79.2% | 79.6% | -0.5% | 0.1726 |
 | winner | 43 | 65.1% | 64.6% | +0.5% | 0.2146 |
+| draw_no_bet | 31 | 61.3% | 69.7% | -8.5% | 0.2365 |
 | double_chance | 30 | 56.7% | 78.7% | -22.1% | 0.2715 |
-| draw_no_bet | 30 | 60.0% | 70.4% | -10.4% | 0.2364 |
 | over_2_5 | 21 | 61.9% | 69.8% | -7.9% | 0.1817 |
 | corners | 6 | 0% | 77.2% | -77.2% | 0.5969 |
 
@@ -41,7 +41,7 @@ Este reporte NO usa cuotas, EV ni ROI. Evalúa únicamente si la probabilidad de
 | Mundial 2026 | 40 | 77.5% | 79.4% | -1.9% | 0.1786 |
 | Brasileirao | 36 | 61.1% | 74.6% | -13.5% | 0.2334 |
 | NBA | 20 | 80.0% | 64.6% | +15.4% | 0.1776 |
-| Serie A | 14 | 64.3% | 68.7% | -4.4% | 0.2062 |
+| Serie A | 15 | 66.7% | 67.6% | -0.9% | 0.2083 |
 | La Liga | 13 | 30.8% | 69.4% | -38.6% | 0.3691 |
 | Copa Sudamericana | 9 | 66.7% | 74.4% | -7.7% | 0.2129 |
 | Liga Colombiana | 9 | 77.8% | 75.5% | +2.3% | 0.1625 |
