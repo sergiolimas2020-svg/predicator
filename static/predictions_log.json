@@ -9141,8 +9141,8 @@
     "league": "Serie A",
     "prediccion": "Apuesta sin empate: Venezia",
     "confianza": "Probabilidad: 51.2%",
-    "resultado_real": null,
-    "acerto": null,
+    "resultado_real": "0-2",
+    "acerto": false,
     "prob_original": 61.9,
     "confidence_factor": 1.0,
     "prob_adjusted": 51.2,
@@ -9201,6 +9201,83 @@
         "ev_adjusted": -23.2,
         "value_score": null,
         "reason": "ev_negativo"
+      },
+      {
+        "market": "Over 1.5 goles",
+        "ev_adjusted": null,
+        "value_score": null,
+        "reason": "mercado_no_disponible"
+      }
+    ]
+  },
+  {
+    "fecha": "2026-09-20",
+    "slug": "frosinone-vs-como-serie-a-2026-09-20",
+    "home": "Frosinone",
+    "away": "Como",
+    "league": "Serie A",
+    "prediccion": "Apuesta sin empate: Frosinone",
+    "confianza": "Probabilidad: 50.4%",
+    "resultado_real": null,
+    "acerto": null,
+    "prob_original": 61.9,
+    "confidence_factor": 1.0,
+    "prob_adjusted": 50.4,
+    "bk_odds": 2.347,
+    "ev": 45.3,
+    "penalty": 0.0,
+    "ev_adjusted": 18.3,
+    "value_score": 15.6124,
+    "reason": "ok",
+    "version": "v1.2-clean-signal",
+    "stake_sugerido_pct": 3.39,
+    "stake_real_pct": 3.39,
+    "stake_modo": "activo",
+    "tipo_pick": "pick_exploratorio",
+    "base_pick": "Frosinone",
+    "value_level": "alto",
+    "markets_evaluated": [
+      {
+        "market": "Frosinone",
+        "ev_adjusted": 138.4,
+        "value_score": 261.1704,
+        "reason": "ok"
+      },
+      {
+        "market": "Doble oportunidad: Frosinone",
+        "ev_adjusted": 66.7,
+        "value_score": 68.9609,
+        "reason": "ok"
+      },
+      {
+        "market": "Apuesta sin empate: Frosinone",
+        "ev_adjusted": 18.3,
+        "value_score": 15.6124,
+        "reason": "ok"
+      },
+      {
+        "market": "Como",
+        "ev_adjusted": null,
+        "value_score": null,
+        "reason": "cuota_baja"
+      },
+      {
+        "market": "Apuesta sin empate: Como",
+        "ev_adjusted": -59.2,
+        "value_score": null,
+        "reason": "ev_negativo"
+      },
+      {
+        "market": "Doble oportunidad: Como",
+        "ev_adjusted": null,
+        "value_score": null,
+        "reason": "cuota_baja"
+      },
+      {
+        "market": "Over 2.5 goles",
+        "ev_adjusted": null,
+        "value_score": null,
+        "reason": "cuota_baja"
       },
       {
         "market": "Over 1.5 goles",
