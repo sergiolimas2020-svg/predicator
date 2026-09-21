@@ -1,8 +1,85 @@
 {
-  "total": 181,
-  "aciertos": 115,
+  "total": 182,
+  "aciertos": 116,
   "porcentaje": 64,
   "ultimos": [
+    {
+      "fecha": "2026-09-20",
+      "slug": "frosinone-vs-como-serie-a-2026-09-20",
+      "home": "Frosinone",
+      "away": "Como",
+      "league": "Serie A",
+      "prediccion": "Apuesta sin empate: Frosinone",
+      "confianza": "Probabilidad: 50.4%",
+      "resultado_real": "2-0",
+      "acerto": true,
+      "prob_original": 61.9,
+      "confidence_factor": 1.0,
+      "prob_adjusted": 50.4,
+      "bk_odds": 2.347,
+      "ev": 45.3,
+      "penalty": 0.0,
+      "ev_adjusted": 18.3,
+      "value_score": 15.6124,
+      "reason": "ok",
+      "version": "v1.2-clean-signal",
+      "stake_sugerido_pct": 3.39,
+      "stake_real_pct": 3.39,
+      "stake_modo": "activo",
+      "tipo_pick": "pick_exploratorio",
+      "base_pick": "Frosinone",
+      "value_level": "alto",
+      "markets_evaluated": [
+        {
+          "market": "Frosinone",
+          "ev_adjusted": 138.4,
+          "value_score": 261.1704,
+          "reason": "ok"
+        },
+        {
+          "market": "Doble oportunidad: Frosinone",
+          "ev_adjusted": 66.7,
+          "value_score": 68.9609,
+          "reason": "ok"
+        },
+        {
+          "market": "Apuesta sin empate: Frosinone",
+          "ev_adjusted": 18.3,
+          "value_score": 15.6124,
+          "reason": "ok"
+        },
+        {
+          "market": "Como",
+          "ev_adjusted": null,
+          "value_score": null,
+          "reason": "cuota_baja"
+        },
+        {
+          "market": "Apuesta sin empate: Como",
+          "ev_adjusted": -59.2,
+          "value_score": null,
+          "reason": "ev_negativo"
+        },
+        {
+          "market": "Doble oportunidad: Como",
+          "ev_adjusted": null,
+          "value_score": null,
+          "reason": "cuota_baja"
+        },
+        {
+          "market": "Over 2.5 goles",
+          "ev_adjusted": null,
+          "value_score": null,
+          "reason": "cuota_baja"
+        },
+        {
+          "market": "Over 1.5 goles",
+          "ev_adjusted": null,
+          "value_score": null,
+          "reason": "mercado_no_disponible"
+        }
+      ]
+    },
     {
       "fecha": "2026-09-19",
       "slug": "venezia-vs-lazio-serie-a-2026-09-19",
@@ -1455,83 +1532,6 @@
         {
           "market": "Over 2.5 goles",
           "ev_adjusted": -10.2,
-          "value_score": null,
-          "reason": "ev_negativo"
-        },
-        {
-          "market": "Over 1.5 goles",
-          "ev_adjusted": null,
-          "value_score": null,
-          "reason": "mercado_no_disponible"
-        }
-      ]
-    },
-    {
-      "fecha": "2026-07-25",
-      "slug": "santos-vs-chapecoense-brasileirao-2026-07-25",
-      "home": "Santos",
-      "away": "Chapecoense",
-      "league": "Brasileirao",
-      "prediccion": "Over 1.5 goles",
-      "confianza": "Probabilidad: 86.3%",
-      "resultado_real": "2-2",
-      "acerto": true,
-      "prob_original": 86.3,
-      "confidence_factor": 0.97,
-      "prob_adjusted": 86.3,
-      "bk_odds": null,
-      "ev": null,
-      "penalty": null,
-      "ev_adjusted": null,
-      "value_score": null,
-      "reason": "confianza",
-      "version": "v1.2-clean-signal",
-      "stake_sugerido_pct": 0.0,
-      "stake_real_pct": 0.0,
-      "stake_modo": "activo",
-      "tipo_pick": "pick_gratuito",
-      "base_pick": "Chapecoense",
-      "value_level": "estadistico",
-      "markets_evaluated": [
-        {
-          "market": "Chapecoense",
-          "ev_adjusted": 97.6,
-          "value_score": 214.1256,
-          "reason": "ok"
-        },
-        {
-          "market": "Santos",
-          "ev_adjusted": null,
-          "value_score": null,
-          "reason": "cuota_baja"
-        },
-        {
-          "market": "Apuesta sin empate: Santos",
-          "ev_adjusted": null,
-          "value_score": null,
-          "reason": "cuota_baja"
-        },
-        {
-          "market": "Doble oportunidad: Santos",
-          "ev_adjusted": null,
-          "value_score": null,
-          "reason": "cuota_baja"
-        },
-        {
-          "market": "Apuesta sin empate: Chapecoense",
-          "ev_adjusted": -37.6,
-          "value_score": null,
-          "reason": "ev_negativo"
-        },
-        {
-          "market": "Doble oportunidad: Chapecoense",
-          "ev_adjusted": 3.0,
-          "value_score": null,
-          "reason": "ev_insuficiente"
-        },
-        {
-          "market": "Over 2.5 goles",
-          "ev_adjusted": -2.0,
           "value_score": null,
           "reason": "ev_negativo"
         },
