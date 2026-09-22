@@ -1,31 +1,11 @@
 {
-  "Palestino": {
+  "Coquimbo Unido": {
     "corners": {},
     "goals": {
-      "over_1_5": "70%",
-      "over_2_5": "57%",
-      "over_3_5": "30%",
-      "bts": "61%"
-    },
-    "position": {}
-  },
-  "U. Catolica": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "87%",
-      "over_2_5": "74%",
-      "over_3_5": "43%",
-      "bts": "65%"
-    },
-    "position": {}
-  },
-  "Cobresal": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "78%",
-      "over_2_5": "61%",
-      "over_3_5": "43%",
-      "bts": "48%"
+      "over_1_5": "73%",
+      "over_2_5": "55%",
+      "over_3_5": "36%",
+      "bts": "68%"
     },
     "position": {}
   },
@@ -39,12 +19,32 @@
     },
     "position": {}
   },
-  "Everton": {
+  "La Serena": {
     "corners": {},
     "goals": {
       "over_1_5": "74%",
-      "over_2_5": "52%",
+      "over_2_5": "57%",
+      "over_3_5": "39%",
+      "bts": "57%"
+    },
+    "position": {}
+  },
+  "Palestino": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "70%",
+      "over_2_5": "57%",
       "over_3_5": "30%",
+      "bts": "61%"
+    },
+    "position": {}
+  },
+  "U. de Chile": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "65%",
+      "over_2_5": "52%",
+      "over_3_5": "22%",
       "bts": "48%"
     },
     "position": {}
@@ -59,13 +59,13 @@
     },
     "position": {}
   },
-  "Colo-Colo": {
+  "U. Concepcion": {
     "corners": {},
     "goals": {
-      "over_1_5": "70%",
-      "over_2_5": "57%",
-      "over_3_5": "35%",
-      "bts": "57%"
+      "over_1_5": "64%",
+      "over_2_5": "50%",
+      "over_3_5": "18%",
+      "bts": "45%"
     },
     "position": {}
   },
@@ -79,23 +79,23 @@
     },
     "position": {}
   },
-  "La Serena": {
+  "League average": {
     "corners": {},
     "goals": {
-      "over_1_5": "74%",
-      "over_2_5": "57%",
-      "over_3_5": "39%",
-      "bts": "57%"
+      "over_1_5": "56.0%",
+      "over_2_5": "31.3%",
+      "over_3_5": "17.0%",
+      "bts": "26.6%"
     },
     "position": {}
   },
-  "Coquimbo Unido": {
+  "U. Catolica": {
     "corners": {},
     "goals": {
-      "over_1_5": "73%",
-      "over_2_5": "55%",
-      "over_3_5": "36%",
-      "bts": "68%"
+      "over_1_5": "87%",
+      "over_2_5": "74%",
+      "over_3_5": "43%",
+      "bts": "65%"
     },
     "position": {}
   },
@@ -109,16 +109,6 @@
     },
     "position": {}
   },
-  "Nublense": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "74%",
-      "over_2_5": "43%",
-      "over_3_5": "26%",
-      "bts": "57%"
-    },
-    "position": {}
-  },
   "Audax Italiano": {
     "corners": {},
     "goals": {
@@ -129,33 +119,23 @@
     },
     "position": {}
   },
-  "U. de Chile": {
+  "Cobresal": {
     "corners": {},
     "goals": {
-      "over_1_5": "65%",
-      "over_2_5": "52%",
-      "over_3_5": "22%",
+      "over_1_5": "78%",
+      "over_2_5": "61%",
+      "over_3_5": "43%",
       "bts": "48%"
     },
     "position": {}
   },
-  "League average": {
+  "Nublense": {
     "corners": {},
     "goals": {
-      "over_1_5": "56.0%",
-      "over_2_5": "31.3%",
-      "over_3_5": "17.0%",
-      "bts": "26.6%"
-    },
-    "position": {}
-  },
-  "U. Concepcion": {
-    "corners": {},
-    "goals": {
-      "over_1_5": "64%",
-      "over_2_5": "50%",
-      "over_3_5": "18%",
-      "bts": "45%"
+      "over_1_5": "74%",
+      "over_2_5": "43%",
+      "over_3_5": "26%",
+      "bts": "57%"
     },
     "position": {}
   },
@@ -169,8 +149,28 @@
     },
     "position": {}
   },
+  "Colo-Colo": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "70%",
+      "over_2_5": "57%",
+      "over_3_5": "35%",
+      "bts": "57%"
+    },
+    "position": {}
+  },
+  "Everton": {
+    "corners": {},
+    "goals": {
+      "over_1_5": "74%",
+      "over_2_5": "52%",
+      "over_3_5": "30%",
+      "bts": "48%"
+    },
+    "position": {}
+  },
   "_metadata": {
-    "fecha_actualizacion": "2026-09-21T10:18:52.386929",
+    "fecha_actualizacion": "2026-09-22T09:33:39.741512",
     "liga": "chile",
     "fuente": "ESPN API"
   }
