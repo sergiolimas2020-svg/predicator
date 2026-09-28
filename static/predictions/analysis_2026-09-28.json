@@ -1,0 +1,54 @@
+{
+  "date": "2026-09-28",
+  "total_fixtures": 1,
+  "matches": [
+    {
+      "matchup": "América Mineiro vs Juventude",
+      "league": "Brasileirao Serie B",
+      "home": "América Mineiro",
+      "away": "Juventude",
+      "probabilities": {
+        "win_home": 8.3,
+        "draw": 35.4,
+        "win_away": 56.3,
+        "over_2_5": 15.5,
+        "over_1_5": 39.2
+      },
+      "favorite": "Juventude",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 0.27,
+      "lambda_away": 1.09,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 39.2,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 15.5,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    }
+  ],
+  "nota": "Análisis estadístico de todos los partidos del día. Probabilidades crudas del modelo (sin ajuste por liga ni mercado). No incluye recomendación de apuesta — ver value_picks y featured_pick para picks oficiales."
+}
