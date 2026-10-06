@@ -1,0 +1,276 @@
+{
+  "date": "2026-10-06",
+  "total_fixtures": 7,
+  "matches": [
+    {
+      "matchup": "Sport vs São Bernardo",
+      "league": "Brasileirao Serie B",
+      "home": "Sport",
+      "away": "São Bernardo",
+      "probabilities": {
+        "win_home": 36.4,
+        "draw": 39.3,
+        "win_away": 24.3,
+        "over_2_5": 18.4,
+        "over_1_5": 43.3
+      },
+      "favorite": "Empate técnico",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 0.84,
+      "lambda_away": 0.63,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 43.3,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 18.4,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Goiás vs Athletic",
+      "league": "Brasileirao Serie B",
+      "home": "Goiás",
+      "away": "Athletic",
+      "probabilities": {
+        "win_home": 31.8,
+        "draw": 36.7,
+        "win_away": 31.5,
+        "over_2_5": 24.2,
+        "over_1_5": 50.6
+      },
+      "favorite": "Empate técnico",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 0.85,
+      "lambda_away": 0.85,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 50.6,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 24.2,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Ponte Preta vs Juventude",
+      "league": "Brasileirao Serie B",
+      "home": "Ponte Preta",
+      "away": "Juventude",
+      "probabilities": {
+        "win_home": 7.3,
+        "draw": 31.4,
+        "win_away": 61.2,
+        "over_2_5": 19.8,
+        "over_1_5": 45.1
+      },
+      "favorite": "Juventude",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 0.28,
+      "lambda_away": 1.25,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 45.1,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 19.8,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Charlotte Hornets vs Brooklyn Nets",
+      "league": "NBA",
+      "home": "Charlotte Hornets",
+      "away": "Brooklyn Nets",
+      "probabilities": {
+        "win_home": 85.0,
+        "draw": 0.0,
+        "win_away": 15.0,
+        "over_2_5": null,
+        "over_1_5": null
+      },
+      "favorite": "Charlotte Hornets",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": true,
+      "lambda_home": null,
+      "lambda_away": null,
+      "elo_home": null,
+      "elo_away": null,
+      "danger": null,
+      "markets_explored": {
+        "available": [],
+        "unavailable": [
+          {
+            "group": "football_props",
+            "status": "unavailable",
+            "reason": "NBA no usa markets de fútbol"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Oklahoma City Thunder vs New Orleans Pelicans",
+      "league": "NBA",
+      "home": "Oklahoma City Thunder",
+      "away": "New Orleans Pelicans",
+      "probabilities": {
+        "win_home": 85.0,
+        "draw": 0.0,
+        "win_away": 15.0,
+        "over_2_5": null,
+        "over_1_5": null
+      },
+      "favorite": "Oklahoma City Thunder",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": true,
+      "lambda_home": null,
+      "lambda_away": null,
+      "elo_home": null,
+      "elo_away": null,
+      "danger": null,
+      "markets_explored": {
+        "available": [],
+        "unavailable": [
+          {
+            "group": "football_props",
+            "status": "unavailable",
+            "reason": "NBA no usa markets de fútbol"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Utah Jazz vs Denver Nuggets",
+      "league": "NBA",
+      "home": "Utah Jazz",
+      "away": "Denver Nuggets",
+      "probabilities": {
+        "win_home": 15.0,
+        "draw": 0.0,
+        "win_away": 85.0,
+        "over_2_5": null,
+        "over_1_5": null
+      },
+      "favorite": "Denver Nuggets",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": true,
+      "lambda_home": null,
+      "lambda_away": null,
+      "elo_home": null,
+      "elo_away": null,
+      "danger": null,
+      "markets_explored": {
+        "available": [],
+        "unavailable": [
+          {
+            "group": "football_props",
+            "status": "unavailable",
+            "reason": "NBA no usa markets de fútbol"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Golden State Warriors vs Los Angeles Lakers",
+      "league": "NBA",
+      "home": "Golden State Warriors",
+      "away": "Los Angeles Lakers",
+      "probabilities": {
+        "win_home": 53.0,
+        "draw": 0.0,
+        "win_away": 47.0,
+        "over_2_5": null,
+        "over_1_5": null
+      },
+      "favorite": "Golden State Warriors",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": true,
+      "lambda_home": null,
+      "lambda_away": null,
+      "elo_home": null,
+      "elo_away": null,
+      "danger": null,
+      "markets_explored": {
+        "available": [],
+        "unavailable": [
+          {
+            "group": "football_props",
+            "status": "unavailable",
+            "reason": "NBA no usa markets de fútbol"
+          }
+        ]
+      }
+    }
+  ],
+  "nota": "Análisis estadístico de todos los partidos del día. Probabilidades crudas del modelo (sin ajuste por liga ni mercado). No incluye recomendación de apuesta — ver value_picks y featured_pick para picks oficiales."
+}
