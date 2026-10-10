@@ -1,16 +1,16 @@
 # Auditoría estadística del motor
 
-Generado: 2026-10-09T11:35:01
+Generado: 2026-10-10T10:52:56
 
 Este reporte NO usa cuotas, EV ni ROI. Evalúa únicamente si la probabilidad del modelo se corresponde con los aciertos reales.
 
 ## Resumen
 
-- Picks resueltos evaluables: **185**
-- Acierto total: **64.3%**
+- Picks resueltos evaluables: **186**
+- Acierto total: **64.5%**
 - Probabilidad media publicada: **72.6%**
-- Gap calibración (acierto - prob): **-8.2%**
-- Brier score: **0.2238**
+- Gap calibración (acierto - prob): **-8.1%**
+- Brier score: **0.2228**
 
 ## Por banda de probabilidad
 
@@ -19,7 +19,7 @@ Este reporte NO usa cuotas, EV ni ROI. Evalúa únicamente si la probabilidad de
 | 40-49% | 4 | 25.0% | 47.8% | -22.8% | 0.2413 |
 | 50-59% | 22 | 50.0% | 54.9% | -4.9% | 0.2491 |
 | 60-69% | 42 | 59.5% | 65.9% | -6.3% | 0.2422 |
-| 70-79% | 68 | 63.2% | 75.4% | -12.1% | 0.2493 |
+| 70-79% | 69 | 63.8% | 75.4% | -11.7% | 0.2463 |
 | 80-89% | 46 | 78.3% | 83.8% | -5.5% | 0.1699 |
 | 90-99% | 3 | 100% | 93.3% | +6.7% | 0.0047 |
 
@@ -28,7 +28,7 @@ Este reporte NO usa cuotas, EV ni ROI. Evalúa únicamente si la probabilidad de
 | Grupo | N | Acierto | Prob. media | Gap | Brier |
 |---|---:|---:|---:|---:|---:|
 | over_1_5 | 48 | 79.2% | 79.6% | -0.5% | 0.1726 |
-| winner | 46 | 67.4% | 65.1% | +2.3% | 0.2056 |
+| winner | 47 | 68.1% | 65.4% | +2.7% | 0.2022 |
 | draw_no_bet | 34 | 58.8% | 68.1% | -9.3% | 0.2385 |
 | double_chance | 30 | 56.7% | 78.7% | -22.1% | 0.2715 |
 | over_2_5 | 21 | 61.9% | 69.8% | -7.9% | 0.1817 |
@@ -40,7 +40,7 @@ Este reporte NO usa cuotas, EV ni ROI. Evalúa únicamente si la probabilidad de
 |---|---:|---:|---:|---:|---:|
 | Mundial 2026 | 40 | 77.5% | 79.4% | -1.9% | 0.1786 |
 | Brasileirao | 36 | 61.1% | 74.6% | -13.5% | 0.2334 |
-| NBA | 23 | 82.6% | 65.6% | +17.0% | 0.1643 |
+| NBA | 24 | 83.3% | 66.2% | +17.2% | 0.1593 |
 | Serie A | 18 | 61.1% | 64.8% | -3.7% | 0.2169 |
 | La Liga | 13 | 30.8% | 69.4% | -38.6% | 0.3691 |
 | Copa Sudamericana | 9 | 66.7% | 74.4% | -7.7% | 0.2129 |
