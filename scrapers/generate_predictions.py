@@ -2368,6 +2368,12 @@ def _discover_guias_slugs():
     return slugs
 
 
+def _slug_date(slug):
+    """Extrae la fecha YYYY-MM-DD del final del slug (p. ej. '...-2026-10-11')."""
+    import re
+    m = re.search(r"(\d{4}-\d{2}-\d{2})$", slug)
+    return m.group(1) if m else None
+
 def generate_sitemap(slugs):
     """Genera sitemap.xml con todas las URLs del sitio (incluye páginas de contenido SEO)."""
     # URLs CANÓNICAS finales (sin /index.html que Vercel redirige a / y /…/).
@@ -2391,7 +2397,21 @@ def generate_sitemap(slugs):
     # Guías individuales (descubiertas a partir de /guias/*.html)
     guias_slugs = _discover_guias_slugs()
     guias_urls  = [f"{SITE_URL}/guias/{s}" for s in guias_slugs]
-    pred_urls   = [f"{SITE_URL}/static/predictions/{s}.html" for s in slugs]
+    # Incluir TODAS las páginas de partido existentes (archivo histórico),
+    # no solo las de hoy: si el sitemap solo lista el día actual, Google
+    # nunca alcanza a indexar las anteriores y el tráfico orgánico se cae.
+    today_slugs = list(slugs)
+    archive_slugs = sorted(
+        (p.stem for p in OUTPUT_DIR.glob("*.html") if p.stem != "index"),
+        key=lambda s: _slug_date(s) or "",
+        reverse=True,
+    )
+    seen = set(today_slugs)
+    pred_slugs  = today_slugs + [s for s in archive_slugs if s not in seen]
+    pred_urls   = [f"{SITE_URL}/static/predictions/{s}.html" for s in pred_slugs]
+    pred_lastmod = {f"{SITE_URL}/static/predictions/{s}.html": (_slug_date(s) or today)
+                    for s in pred_slugs}
+    today_pred_urls = {f"{SITE_URL}/static/predictions/{s}.html" for s in today_slugs}
     all_urls    = static_urls + content_urls + guias_urls + pred_urls
 
     def _priority(url):
@@ -2407,8 +2427,10 @@ def generate_sitemap(slugs):
             return "0.6"  # sobre
         if url in guias_urls:
             return "0.7"
-        if "predictions" in url and "index" not in url:
+        if url in today_pred_urls:
             return "0.9"
+        if url in pred_lastmod:
+            return "0.6"   # archivo histórico
         return "0.7"
 
     def _changefreq(url):
@@ -2418,12 +2440,14 @@ def generate_sitemap(slugs):
         # Resto del contenido educativo cambia poco → monthly
         if url in content_urls or url in guias_urls:
             return "monthly"
+        if url in pred_lastmod and url not in today_pred_urls:
+            return "monthly"  # partido ya jugado
         return "daily"
 
     entries = "\n".join(
         f"""  <url>
     <loc>{u}</loc>
-    <lastmod>{today}</lastmod>
+    <lastmod>{pred_lastmod.get(u, today)}</lastmod>
     <changefreq>{_changefreq(u)}</changefreq>
     <priority>{_priority(u)}</priority>
   </url>"""
