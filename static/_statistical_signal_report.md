@@ -1,16 +1,16 @@
 # Auditoría estadística del motor
 
-Generado: 2026-10-12T12:35:24
+Generado: 2026-10-13T12:20:51
 
 Este reporte NO usa cuotas, EV ni ROI. Evalúa únicamente si la probabilidad del modelo se corresponde con los aciertos reales.
 
 ## Resumen
 
-- Picks resueltos evaluables: **187**
-- Acierto total: **64.7%**
+- Picks resueltos evaluables: **188**
+- Acierto total: **64.4%**
 - Probabilidad media publicada: **72.5%**
-- Gap calibración (acierto - prob): **-7.8%**
-- Brier score: **0.2228**
+- Gap calibración (acierto - prob): **-8.1%**
+- Brier score: **0.2242**
 
 ## Por banda de probabilidad
 
@@ -18,7 +18,7 @@ Este reporte NO usa cuotas, EV ni ROI. Evalúa únicamente si la probabilidad de
 |---|---:|---:|---:|---:|---:|
 | 40-49% | 4 | 25.0% | 47.8% | -22.8% | 0.2413 |
 | 50-59% | 23 | 52.2% | 54.8% | -2.6% | 0.2482 |
-| 60-69% | 42 | 59.5% | 65.9% | -6.3% | 0.2422 |
+| 60-69% | 43 | 58.1% | 65.9% | -7.8% | 0.2477 |
 | 70-79% | 69 | 63.8% | 75.4% | -11.7% | 0.2463 |
 | 80-89% | 46 | 78.3% | 83.8% | -5.5% | 0.1699 |
 | 90-99% | 3 | 100% | 93.3% | +6.7% | 0.0047 |
@@ -28,7 +28,7 @@ Este reporte NO usa cuotas, EV ni ROI. Evalúa únicamente si la probabilidad de
 | Grupo | N | Acierto | Prob. media | Gap | Brier |
 |---|---:|---:|---:|---:|---:|
 | over_1_5 | 48 | 79.2% | 79.6% | -0.5% | 0.1726 |
-| winner | 47 | 68.1% | 65.4% | +2.7% | 0.2022 |
+| winner | 48 | 66.7% | 65.5% | +1.2% | 0.2079 |
 | draw_no_bet | 35 | 60.0% | 67.7% | -7.7% | 0.2382 |
 | double_chance | 30 | 56.7% | 78.7% | -22.1% | 0.2715 |
 | over_2_5 | 21 | 61.9% | 69.8% | -7.9% | 0.1817 |
@@ -40,7 +40,7 @@ Este reporte NO usa cuotas, EV ni ROI. Evalúa únicamente si la probabilidad de
 |---|---:|---:|---:|---:|---:|
 | Mundial 2026 | 40 | 77.5% | 79.4% | -1.9% | 0.1786 |
 | Brasileirao | 36 | 61.1% | 74.6% | -13.5% | 0.2334 |
-| NBA | 24 | 83.3% | 66.2% | +17.2% | 0.1593 |
+| NBA | 25 | 80.0% | 66.3% | +13.7% | 0.1721 |
 | Serie A | 19 | 63.2% | 64.2% | -1.0% | 0.2175 |
 | La Liga | 13 | 30.8% | 69.4% | -38.6% | 0.3691 |
 | Copa Sudamericana | 9 | 66.7% | 74.4% | -7.7% | 0.2129 |
