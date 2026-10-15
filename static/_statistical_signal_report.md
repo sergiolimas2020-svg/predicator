@@ -1,16 +1,16 @@
 # Auditoría estadística del motor
 
-Generado: 2026-10-14T09:50:45
+Generado: 2026-10-15T09:31:36
 
 Este reporte NO usa cuotas, EV ni ROI. Evalúa únicamente si la probabilidad del modelo se corresponde con los aciertos reales.
 
 ## Resumen
 
-- Picks resueltos evaluables: **190**
-- Acierto total: **64.7%**
+- Picks resueltos evaluables: **192**
+- Acierto total: **65.1%**
 - Probabilidad media publicada: **72.5%**
-- Gap calibración (acierto - prob): **-7.8%**
-- Brier score: **0.2225**
+- Gap calibración (acierto - prob): **-7.4%**
+- Brier score: **0.221**
 
 ## Por banda de probabilidad
 
@@ -18,8 +18,8 @@ Este reporte NO usa cuotas, EV ni ROI. Evalúa únicamente si la probabilidad de
 |---|---:|---:|---:|---:|---:|
 | 40-49% | 4 | 25.0% | 47.8% | -22.8% | 0.2413 |
 | 50-59% | 23 | 52.2% | 54.8% | -2.6% | 0.2482 |
-| 60-69% | 43 | 58.1% | 65.9% | -7.8% | 0.2477 |
-| 70-79% | 71 | 64.8% | 75.4% | -10.6% | 0.2412 |
+| 60-69% | 44 | 59.1% | 66.0% | -6.9% | 0.2445 |
+| 70-79% | 72 | 65.3% | 75.4% | -10.1% | 0.2385 |
 | 80-89% | 46 | 78.3% | 83.8% | -5.5% | 0.1699 |
 | 90-99% | 3 | 100% | 93.3% | +6.7% | 0.0047 |
 
@@ -27,8 +27,8 @@ Este reporte NO usa cuotas, EV ni ROI. Evalúa únicamente si la probabilidad de
 
 | Grupo | N | Acierto | Prob. media | Gap | Brier |
 |---|---:|---:|---:|---:|---:|
+| winner | 51 | 68.6% | 65.9% | +2.7% | 0.2002 |
 | over_1_5 | 49 | 79.6% | 79.5% | +0.0% | 0.1704 |
-| winner | 49 | 67.3% | 65.7% | +1.7% | 0.2051 |
 | draw_no_bet | 35 | 60.0% | 67.7% | -7.7% | 0.2382 |
 | double_chance | 30 | 56.7% | 78.7% | -22.1% | 0.2715 |
 | over_2_5 | 21 | 61.9% | 69.8% | -7.9% | 0.1817 |
@@ -40,7 +40,7 @@ Este reporte NO usa cuotas, EV ni ROI. Evalúa únicamente si la probabilidad de
 |---|---:|---:|---:|---:|---:|
 | Mundial 2026 | 40 | 77.5% | 79.4% | -1.9% | 0.1786 |
 | Brasileirao | 36 | 61.1% | 74.6% | -13.5% | 0.2334 |
-| NBA | 26 | 80.8% | 66.6% | +14.2% | 0.1681 |
+| NBA | 28 | 82.1% | 67.0% | +15.2% | 0.1618 |
 | Serie A | 19 | 63.2% | 64.2% | -1.0% | 0.2175 |
 | La Liga | 13 | 30.8% | 69.4% | -38.6% | 0.3691 |
 | Copa Sudamericana | 9 | 66.7% | 74.4% | -7.7% | 0.2129 |
