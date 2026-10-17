@@ -1,8 +1,92 @@
 {
-  "total": 192,
-  "aciertos": 125,
+  "total": 195,
+  "aciertos": 127,
   "porcentaje": 65,
   "ultimos": [
+    {
+      "fecha": "2026-10-16",
+      "slug": "detroit-pistons-vs-toronto-raptors-nba-2026-10-16",
+      "home": "Detroit Pistons",
+      "away": "Toronto Raptors",
+      "league": "NBA",
+      "prediccion": "Detroit Pistons",
+      "confianza": "Probabilidad: 71.7%",
+      "resultado_real": "129-125",
+      "acerto": true,
+      "prob_original": 71.7,
+      "confidence_factor": 1.0,
+      "prob_adjusted": 71.7,
+      "bk_odds": null,
+      "ev": null,
+      "penalty": null,
+      "ev_adjusted": null,
+      "value_score": null,
+      "reason": "confianza",
+      "version": "v1.2-clean-signal",
+      "stake_sugerido_pct": 0.0,
+      "stake_real_pct": 0.0,
+      "stake_modo": "activo",
+      "tipo_pick": "pick_suscripcion",
+      "base_pick": "Detroit Pistons",
+      "value_level": "estadistico",
+      "markets_evaluated": []
+    },
+    {
+      "fecha": "2026-10-16",
+      "slug": "dallas-mavericks-vs-atlanta-hawks-nba-2026-10-16",
+      "home": "Dallas Mavericks",
+      "away": "Atlanta Hawks",
+      "league": "NBA",
+      "prediccion": "Atlanta Hawks",
+      "confianza": "Probabilidad: 73.6%",
+      "resultado_real": "111-135",
+      "acerto": true,
+      "prob_original": 73.6,
+      "confidence_factor": 1.0,
+      "prob_adjusted": 73.6,
+      "bk_odds": null,
+      "ev": null,
+      "penalty": null,
+      "ev_adjusted": null,
+      "value_score": null,
+      "reason": "confianza",
+      "version": "v1.2-clean-signal",
+      "stake_sugerido_pct": 0.0,
+      "stake_real_pct": 0.0,
+      "stake_modo": "activo",
+      "tipo_pick": "pick_suscripcion",
+      "base_pick": "Atlanta Hawks",
+      "value_level": "estadistico",
+      "markets_evaluated": []
+    },
+    {
+      "fecha": "2026-10-16",
+      "slug": "phoenix-suns-vs-utah-jazz-nba-2026-10-16",
+      "home": "Phoenix Suns",
+      "away": "Utah Jazz",
+      "league": "NBA",
+      "prediccion": "Phoenix Suns",
+      "confianza": "Probabilidad: 78.6%",
+      "resultado_real": "116-119",
+      "acerto": false,
+      "prob_original": 78.6,
+      "confidence_factor": 1.0,
+      "prob_adjusted": 78.6,
+      "bk_odds": null,
+      "ev": null,
+      "penalty": null,
+      "ev_adjusted": null,
+      "value_score": null,
+      "reason": "confianza",
+      "version": "v1.2-clean-signal",
+      "stake_sugerido_pct": 0.0,
+      "stake_real_pct": 0.0,
+      "stake_modo": "activo",
+      "tipo_pick": "pick_gratuito",
+      "base_pick": "Phoenix Suns",
+      "value_level": "estadistico",
+      "markets_evaluated": []
+    },
     {
       "fecha": "2026-10-14",
       "slug": "boston-celtics-vs-charlotte-hornets-nba-2026-10-14",
@@ -909,237 +993,6 @@
         {
           "market": "Over 2.5 goles",
           "ev_adjusted": -2.4,
-          "value_score": null,
-          "reason": "ev_negativo"
-        },
-        {
-          "market": "Over 1.5 goles",
-          "ev_adjusted": null,
-          "value_score": null,
-          "reason": "mercado_no_disponible"
-        }
-      ]
-    },
-    {
-      "fecha": "2026-08-24",
-      "slug": "as-roma-vs-fiorentina-serie-a-2026-08-24",
-      "home": "AS Roma",
-      "away": "Fiorentina",
-      "league": "Serie A",
-      "prediccion": "AS Roma",
-      "confianza": "Probabilidad: 68.4%",
-      "resultado_real": "4-0",
-      "acerto": true,
-      "prob_original": 68.4,
-      "confidence_factor": 1.0,
-      "prob_adjusted": 68.4,
-      "bk_odds": null,
-      "ev": null,
-      "penalty": null,
-      "ev_adjusted": null,
-      "value_score": null,
-      "reason": "confianza",
-      "version": "v1.2-clean-signal",
-      "stake_sugerido_pct": 0.0,
-      "stake_real_pct": 0.0,
-      "stake_modo": "activo",
-      "tipo_pick": "pick_gratuito",
-      "base_pick": "AS Roma",
-      "value_level": "estadistico",
-      "markets_evaluated": [
-        {
-          "market": "AS Roma",
-          "ev_adjusted": -0.1,
-          "value_score": null,
-          "reason": "ev_negativo"
-        },
-        {
-          "market": "Apuesta sin empate: AS Roma",
-          "ev_adjusted": 0.5,
-          "value_score": null,
-          "reason": "ev_insuficiente"
-        },
-        {
-          "market": "Doble oportunidad: AS Roma",
-          "ev_adjusted": null,
-          "value_score": null,
-          "reason": "cuota_baja"
-        },
-        {
-          "market": "Fiorentina",
-          "ev_adjusted": 9.4,
-          "value_score": null,
-          "reason": "ev_insuficiente"
-        },
-        {
-          "market": "Apuesta sin empate: Fiorentina",
-          "ev_adjusted": -51.4,
-          "value_score": null,
-          "reason": "ev_negativo"
-        },
-        {
-          "market": "Doble oportunidad: Fiorentina",
-          "ev_adjusted": -25.1,
-          "value_score": null,
-          "reason": "ev_negativo"
-        },
-        {
-          "market": "Over 2.5 goles",
-          "ev_adjusted": -23.1,
-          "value_score": null,
-          "reason": "ev_negativo"
-        },
-        {
-          "market": "Over 1.5 goles",
-          "ev_adjusted": null,
-          "value_score": null,
-          "reason": "mercado_no_disponible"
-        }
-      ]
-    },
-    {
-      "fecha": "2026-08-23",
-      "slug": "coritiba-vs-corinthians-brasileirao-2026-08-23",
-      "home": "Coritiba",
-      "away": "Corinthians",
-      "league": "Brasileirao",
-      "prediccion": "Apuesta sin empate: Coritiba",
-      "confianza": "Probabilidad: 52.5%",
-      "resultado_real": "2-1",
-      "acerto": true,
-      "prob_original": 63.1,
-      "confidence_factor": 0.97,
-      "prob_adjusted": 52.5,
-      "bk_odds": 2.032,
-      "ev": 28.2,
-      "penalty": 0.0,
-      "ev_adjusted": 6.7,
-      "value_score": null,
-      "reason": "ev_insuficiente",
-      "version": "v1.2-clean-signal",
-      "stake_sugerido_pct": 1.62,
-      "stake_real_pct": 1.62,
-      "stake_modo": "activo",
-      "tipo_pick": "pick_exploratorio",
-      "base_pick": "Coritiba",
-      "value_level": "medio",
-      "markets_evaluated": [
-        {
-          "market": "Coritiba",
-          "ev_adjusted": 20.6,
-          "value_score": 23.5519,
-          "reason": "ok"
-        },
-        {
-          "market": "Apuesta sin empate: Coritiba",
-          "ev_adjusted": 6.7,
-          "value_score": null,
-          "reason": "ev_insuficiente"
-        },
-        {
-          "market": "Doble oportunidad: Coritiba",
-          "ev_adjusted": -1.6,
-          "value_score": null,
-          "reason": "ev_negativo"
-        },
-        {
-          "market": "Corinthians",
-          "ev_adjusted": -29.7,
-          "value_score": null,
-          "reason": "ev_negativo"
-        },
-        {
-          "market": "Apuesta sin empate: Corinthians",
-          "ev_adjusted": -38.0,
-          "value_score": null,
-          "reason": "ev_negativo"
-        },
-        {
-          "market": "Doble oportunidad: Corinthians",
-          "ev_adjusted": null,
-          "value_score": null,
-          "reason": "cuota_baja"
-        },
-        {
-          "market": "Over 2.5 goles",
-          "ev_adjusted": -21.8,
-          "value_score": null,
-          "reason": "ev_negativo"
-        },
-        {
-          "market": "Over 1.5 goles",
-          "ev_adjusted": -23.7,
-          "value_score": null,
-          "reason": "ev_negativo"
-        }
-      ]
-    },
-    {
-      "fecha": "2026-08-22",
-      "slug": "cruzeiro-vs-flamengo-brasileirao-2026-08-22",
-      "home": "Cruzeiro",
-      "away": "Flamengo",
-      "league": "Brasileirao",
-      "prediccion": "Over 1.5 goles",
-      "confianza": "Probabilidad: 78.9%",
-      "resultado_real": "2-1",
-      "acerto": true,
-      "prob_original": 78.9,
-      "confidence_factor": 1.0,
-      "prob_adjusted": 78.9,
-      "bk_odds": null,
-      "ev": null,
-      "penalty": null,
-      "ev_adjusted": null,
-      "value_score": null,
-      "reason": "confianza",
-      "version": "v1.2-clean-signal",
-      "stake_sugerido_pct": 0.0,
-      "stake_real_pct": 0.0,
-      "stake_modo": "activo",
-      "tipo_pick": "pick_suscripcion",
-      "base_pick": "Flamengo",
-      "value_level": "estadistico",
-      "markets_evaluated": [
-        {
-          "market": "Cruzeiro",
-          "ev_adjusted": -18.8,
-          "value_score": null,
-          "reason": "ev_negativo"
-        },
-        {
-          "market": "Apuesta sin empate: Cruzeiro",
-          "ev_adjusted": -47.3,
-          "value_score": null,
-          "reason": "ev_negativo"
-        },
-        {
-          "market": "Doble oportunidad: Cruzeiro",
-          "ev_adjusted": -32.8,
-          "value_score": null,
-          "reason": "ev_negativo"
-        },
-        {
-          "market": "Flamengo",
-          "ev_adjusted": 13.3,
-          "value_score": null,
-          "reason": "ev_insuficiente"
-        },
-        {
-          "market": "Apuesta sin empate: Flamengo",
-          "ev_adjusted": 1.5,
-          "value_score": null,
-          "reason": "ev_insuficiente"
-        },
-        {
-          "market": "Doble oportunidad: Flamengo",
-          "ev_adjusted": null,
-          "value_score": null,
-          "reason": "cuota_baja"
-        },
-        {
-          "market": "Over 2.5 goles",
-          "ev_adjusted": -2.9,
           "value_score": null,
           "reason": "ev_negativo"
         },
