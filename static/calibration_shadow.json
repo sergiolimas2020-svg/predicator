@@ -1,7 +1,7 @@
 {
   "is_shadow": true,
   "note": "PROPUESTA shadow de calibración por mercado. El motor NO lee este archivo. Producción sigue usando static/calibrator.json (global) con el guard A<0. No activar hasta validar.",
-  "generated_at": "2026-10-19T10:24:14",
+  "generated_at": "2026-10-20T09:43:31",
   "model_version": "v1.2-clean-signal",
   "min_samples": 20,
   "active_markets": [
@@ -61,14 +61,14 @@
       "proposed_calibrator": null
     },
     "draw_no_bet": {
-      "n": 37,
-      "hit_rate": 59.5,
-      "avg_prob": 66.9,
-      "cal_gap": -7.4,
+      "n": 38,
+      "hit_rate": 57.9,
+      "avg_prob": 66.6,
+      "cal_gap": -8.7,
       "A": null,
       "B": null,
       "valid_monotonic": null,
-      "brier_in_sample_before": 0.2392,
+      "brier_in_sample_before": 0.2405,
       "brier_in_sample_after": null,
       "brier_cv_before": null,
       "brier_cv_after": null,

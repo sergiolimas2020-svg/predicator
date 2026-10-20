@@ -1,0 +1,860 @@
+{
+  "date": "2026-10-20",
+  "total_fixtures": 18,
+  "matches": [
+    {
+      "matchup": "Deportivo Pereira vs Boyacá Chicó FC",
+      "league": "Liga Colombiana",
+      "home": "Deportivo Pereira",
+      "away": "Boyacá Chicó FC",
+      "probabilities": {
+        "win_home": 44.9,
+        "draw": 27.5,
+        "win_away": 27.6,
+        "over_2_5": 51.3,
+        "over_1_5": 75.6
+      },
+      "favorite": "Deportivo Pereira",
+      "stats_complete": false,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.55,
+      "lambda_away": 1.17,
+      "elo_home": null,
+      "elo_away": null,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 75.6,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 51.3,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Internacional de Bogotá vs Fortaleza CEIF",
+      "league": "Liga Colombiana",
+      "home": "Internacional de Bogotá",
+      "away": "Fortaleza CEIF",
+      "probabilities": {
+        "win_home": 42.7,
+        "draw": 30.4,
+        "win_away": 26.9,
+        "over_2_5": 40.7,
+        "over_1_5": 67.2
+      },
+      "favorite": "Internacional de Bogotá",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.32,
+      "lambda_away": 1.0,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 67.2,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 40.7,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Cúcuta Deportivo vs Atlético Nacional",
+      "league": "Liga Colombiana",
+      "home": "Cúcuta Deportivo",
+      "away": "Atlético Nacional",
+      "probabilities": {
+        "win_home": 42.7,
+        "draw": 30.4,
+        "win_away": 26.9,
+        "over_2_5": 40.7,
+        "over_1_5": 67.2
+      },
+      "favorite": "Cúcuta Deportivo",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.32,
+      "lambda_away": 1.0,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 67.2,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 40.7,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Millonarios vs Once Caldas",
+      "league": "Liga Colombiana",
+      "home": "Millonarios",
+      "away": "Once Caldas",
+      "probabilities": {
+        "win_home": 44.9,
+        "draw": 27.5,
+        "win_away": 27.6,
+        "over_2_5": 51.3,
+        "over_1_5": 75.6
+      },
+      "favorite": "Millonarios",
+      "stats_complete": false,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.55,
+      "lambda_away": 1.17,
+      "elo_home": null,
+      "elo_away": null,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 75.6,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 51.3,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Londrina vs Cuiabá",
+      "league": "Brasileirao Serie B",
+      "home": "Londrina",
+      "away": "Cuiabá",
+      "probabilities": {
+        "win_home": 29.8,
+        "draw": 40.1,
+        "win_away": 30.1,
+        "over_2_5": 17.7,
+        "over_1_5": 42.3
+      },
+      "favorite": "Empate técnico",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 0.72,
+      "lambda_away": 0.72,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 42.3,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 17.7,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Fenerbahce vs Slavia Prague",
+      "league": "Champions League",
+      "home": "Fenerbahce",
+      "away": "Slavia Prague",
+      "probabilities": {
+        "win_home": 44.9,
+        "draw": 27.5,
+        "win_away": 27.6,
+        "over_2_5": 51.3,
+        "over_1_5": 75.6
+      },
+      "favorite": "Fenerbahce",
+      "stats_complete": false,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.55,
+      "lambda_away": 1.17,
+      "elo_home": null,
+      "elo_away": null,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 75.6,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 51.3,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Sabah FK vs Borussia Dortmund",
+      "league": "Champions League",
+      "home": "Sabah FK",
+      "away": "Borussia Dortmund",
+      "probabilities": {
+        "win_home": 44.9,
+        "draw": 27.5,
+        "win_away": 27.6,
+        "over_2_5": 51.3,
+        "over_1_5": 75.6
+      },
+      "favorite": "Sabah FK",
+      "stats_complete": false,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.55,
+      "lambda_away": 1.17,
+      "elo_home": null,
+      "elo_away": null,
+      "danger": {
+        "home_sot": null,
+        "away_sot": null
+      },
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 75.6,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 51.3,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "corners",
+            "status": "unavailable",
+            "reason": "sin muestra suficiente de corners por localía"
+          },
+          {
+            "group": "shots",
+            "status": "unavailable",
+            "reason": "sin muestra suficiente de tiros a puerta por localía"
+          },
+          {
+            "group": "player_shots",
+            "status": "unavailable",
+            "reason": "API-Football no entregó tiros de jugadores suficientes para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "AS Roma vs Slovan Bratislava",
+      "league": "Champions League",
+      "home": "AS Roma",
+      "away": "Slovan Bratislava",
+      "probabilities": {
+        "win_home": 44.9,
+        "draw": 27.5,
+        "win_away": 27.6,
+        "over_2_5": 51.3,
+        "over_1_5": 75.6
+      },
+      "favorite": "AS Roma",
+      "stats_complete": false,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.55,
+      "lambda_away": 1.17,
+      "elo_home": null,
+      "elo_away": null,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 75.6,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 51.3,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "FC Porto vs PSV Eindhoven",
+      "league": "Champions League",
+      "home": "FC Porto",
+      "away": "PSV Eindhoven",
+      "probabilities": {
+        "win_home": 44.9,
+        "draw": 27.5,
+        "win_away": 27.6,
+        "over_2_5": 51.3,
+        "over_1_5": 75.6
+      },
+      "favorite": "FC Porto",
+      "stats_complete": false,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.55,
+      "lambda_away": 1.17,
+      "elo_home": null,
+      "elo_away": null,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 75.6,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 51.3,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Liverpool vs Villarreal",
+      "league": "Champions League",
+      "home": "Liverpool",
+      "away": "Villarreal",
+      "probabilities": {
+        "win_home": 43.0,
+        "draw": 33.7,
+        "win_away": 23.3,
+        "over_2_5": 29.5,
+        "over_1_5": 56.5
+      },
+      "favorite": "Liverpool",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.13,
+      "lambda_away": 0.76,
+      "elo_home": 1535.9,
+      "elo_away": 1418.8,
+      "danger": {
+        "home_sot": null,
+        "away_sot": null
+      },
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 56.5,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 29.5,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "corners",
+            "status": "unavailable",
+            "reason": "sin muestra suficiente de corners por localía"
+          },
+          {
+            "group": "shots",
+            "status": "unavailable",
+            "reason": "sin muestra suficiente de tiros a puerta por localía"
+          },
+          {
+            "group": "player_shots",
+            "status": "unavailable",
+            "reason": "API-Football no entregó tiros de jugadores suficientes para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Manchester City vs AEK Athens",
+      "league": "Champions League",
+      "home": "Manchester City",
+      "away": "AEK Athens",
+      "probabilities": {
+        "win_home": 44.9,
+        "draw": 27.5,
+        "win_away": 27.6,
+        "over_2_5": 51.3,
+        "over_1_5": 75.6
+      },
+      "favorite": "Manchester City",
+      "stats_complete": false,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.55,
+      "lambda_away": 1.17,
+      "elo_home": null,
+      "elo_away": null,
+      "danger": {
+        "home_sot": null,
+        "away_sot": null
+      },
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 75.6,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 51.3,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "corners",
+            "status": "unavailable",
+            "reason": "sin muestra suficiente de corners por localía"
+          },
+          {
+            "group": "shots",
+            "status": "unavailable",
+            "reason": "sin muestra suficiente de tiros a puerta por localía"
+          },
+          {
+            "group": "player_shots",
+            "status": "unavailable",
+            "reason": "API-Football no entregó tiros de jugadores suficientes para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Napoli vs Bodo/Glimt",
+      "league": "Champions League",
+      "home": "Napoli",
+      "away": "Bodo/Glimt",
+      "probabilities": {
+        "win_home": 44.9,
+        "draw": 27.5,
+        "win_away": 27.6,
+        "over_2_5": 51.3,
+        "over_1_5": 75.6
+      },
+      "favorite": "Napoli",
+      "stats_complete": false,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.55,
+      "lambda_away": 1.17,
+      "elo_home": null,
+      "elo_away": null,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 75.6,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 51.3,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Paris Saint-Germain vs Barcelona",
+      "league": "Champions League",
+      "home": "Paris Saint-Germain",
+      "away": "Barcelona",
+      "probabilities": {
+        "win_home": 43.0,
+        "draw": 27.8,
+        "win_away": 29.2,
+        "over_2_5": 51.0,
+        "over_1_5": 75.4
+      },
+      "favorite": "Paris Saint-Germain",
+      "stats_complete": false,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.51,
+      "lambda_away": 1.21,
+      "elo_home": 1500.0,
+      "elo_away": 1558.1,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 75.4,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 51.0,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "VfB Stuttgart vs Atlético Madrid",
+      "league": "Champions League",
+      "home": "VfB Stuttgart",
+      "away": "Atlético Madrid",
+      "probabilities": {
+        "win_home": 44.9,
+        "draw": 27.5,
+        "win_away": 27.6,
+        "over_2_5": 51.3,
+        "over_1_5": 75.6
+      },
+      "favorite": "VfB Stuttgart",
+      "stats_complete": false,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.55,
+      "lambda_away": 1.17,
+      "elo_home": null,
+      "elo_away": null,
+      "danger": {
+        "home_sot": null,
+        "away_sot": null
+      },
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 75.6,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 51.3,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "corners",
+            "status": "unavailable",
+            "reason": "sin muestra suficiente de corners por localía"
+          },
+          {
+            "group": "shots",
+            "status": "unavailable",
+            "reason": "sin muestra suficiente de tiros a puerta por localía"
+          },
+          {
+            "group": "player_shots",
+            "status": "unavailable",
+            "reason": "API-Football no entregó tiros de jugadores suficientes para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Vasco da Gama vs Boca Juniors",
+      "league": "Copa Sudamericana",
+      "home": "Vasco da Gama",
+      "away": "Boca Juniors",
+      "probabilities": {
+        "win_home": 44.9,
+        "draw": 27.5,
+        "win_away": 27.6,
+        "over_2_5": 51.3,
+        "over_1_5": 75.6
+      },
+      "favorite": "Vasco da Gama",
+      "stats_complete": false,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.55,
+      "lambda_away": 1.17,
+      "elo_home": null,
+      "elo_away": null,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 75.6,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 51.3,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Detroit Pistons vs Boston Celtics",
+      "league": "NBA",
+      "home": "Detroit Pistons",
+      "away": "Boston Celtics",
+      "probabilities": {
+        "win_home": 59.4,
+        "draw": 0.0,
+        "win_away": 40.6,
+        "over_2_5": null,
+        "over_1_5": null
+      },
+      "favorite": "Detroit Pistons",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": true,
+      "lambda_home": null,
+      "lambda_away": null,
+      "elo_home": null,
+      "elo_away": null,
+      "danger": null,
+      "markets_explored": {
+        "available": [],
+        "unavailable": [
+          {
+            "group": "football_props",
+            "status": "unavailable",
+            "reason": "NBA no usa markets de fútbol"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "New York Knicks vs Philadelphia 76ers",
+      "league": "NBA",
+      "home": "New York Knicks",
+      "away": "Philadelphia 76ers",
+      "probabilities": {
+        "win_home": 63.0,
+        "draw": 0.0,
+        "win_away": 37.0,
+        "over_2_5": null,
+        "over_1_5": null
+      },
+      "favorite": "New York Knicks",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": true,
+      "lambda_home": null,
+      "lambda_away": null,
+      "elo_home": null,
+      "elo_away": null,
+      "danger": null,
+      "markets_explored": {
+        "available": [],
+        "unavailable": [
+          {
+            "group": "football_props",
+            "status": "unavailable",
+            "reason": "NBA no usa markets de fútbol"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "San Antonio Spurs vs Oklahoma City Thunder",
+      "league": "NBA",
+      "home": "San Antonio Spurs",
+      "away": "Oklahoma City Thunder",
+      "probabilities": {
+        "win_home": 51.0,
+        "draw": 0.0,
+        "win_away": 49.0,
+        "over_2_5": null,
+        "over_1_5": null
+      },
+      "favorite": "San Antonio Spurs",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": true,
+      "lambda_home": null,
+      "lambda_away": null,
+      "elo_home": null,
+      "elo_away": null,
+      "danger": null,
+      "markets_explored": {
+        "available": [],
+        "unavailable": [
+          {
+            "group": "football_props",
+            "status": "unavailable",
+            "reason": "NBA no usa markets de fútbol"
+          }
+        ]
+      }
+    }
+  ],
+  "nota": "Análisis estadístico de todos los partidos del día. Probabilidades crudas del modelo (sin ajuste por liga ni mercado). No incluye recomendación de apuesta — ver value_picks y featured_pick para picks oficiales."
+}

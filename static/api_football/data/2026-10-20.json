@@ -1,0 +1,323 @@
+[
+  {
+    "key": "Sabah FK|Borussia Dortmund|2026-10-20",
+    "home": "Sabah FK",
+    "away": "Borussia Dortmund",
+    "league": "Champions League",
+    "date": "2026-10-20",
+    "home_id": null,
+    "away_id": null,
+    "league_id": 2,
+    "season": 2025,
+    "h2h": null,
+    "home_form": null,
+    "away_form": null,
+    "home_stats": null,
+    "away_stats": null,
+    "home_danger": null,
+    "away_danger": null,
+    "home_player_shots": null,
+    "away_player_shots": null,
+    "errors": [
+      "missing_team_mapping"
+    ]
+  },
+  {
+    "key": "Fenerbahce|Slavia Praha|2026-10-20",
+    "home": "Fenerbahce",
+    "away": "Slavia Praha",
+    "league": "Champions League",
+    "date": "2026-10-20",
+    "home_id": 611,
+    "away_id": null,
+    "league_id": 2,
+    "season": 2025,
+    "h2h": null,
+    "home_form": null,
+    "away_form": null,
+    "home_stats": null,
+    "away_stats": null,
+    "home_danger": null,
+    "away_danger": null,
+    "home_player_shots": null,
+    "away_player_shots": null,
+    "errors": [
+      "missing_team_mapping"
+    ]
+  },
+  {
+    "key": "Manchester City|AEK Athens|2026-10-20",
+    "home": "Manchester City",
+    "away": "AEK Athens",
+    "league": "Champions League",
+    "date": "2026-10-20",
+    "home_id": 50,
+    "away_id": null,
+    "league_id": 2,
+    "season": 2025,
+    "h2h": null,
+    "home_form": null,
+    "away_form": null,
+    "home_stats": null,
+    "away_stats": null,
+    "home_danger": null,
+    "away_danger": null,
+    "home_player_shots": null,
+    "away_player_shots": null,
+    "errors": [
+      "missing_team_mapping"
+    ]
+  },
+  {
+    "key": "AS Roma|ŠK Slovan Bratislava|2026-10-20",
+    "home": "AS Roma",
+    "away": "ŠK Slovan Bratislava",
+    "league": "Champions League",
+    "date": "2026-10-20",
+    "home_id": 497,
+    "away_id": null,
+    "league_id": 2,
+    "season": 2025,
+    "h2h": null,
+    "home_form": null,
+    "away_form": null,
+    "home_stats": null,
+    "away_stats": null,
+    "home_danger": null,
+    "away_danger": null,
+    "home_player_shots": null,
+    "away_player_shots": null,
+    "errors": [
+      "missing_team_mapping"
+    ]
+  },
+  {
+    "key": "VfB Stuttgart|Atlético Madrid|2026-10-20",
+    "home": "VfB Stuttgart",
+    "away": "Atlético Madrid",
+    "league": "Champions League",
+    "date": "2026-10-20",
+    "home_id": 172,
+    "away_id": 530,
+    "league_id": 2,
+    "season": 2025,
+    "h2h": null,
+    "home_form": null,
+    "away_form": null,
+    "home_stats": null,
+    "away_stats": null,
+    "home_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "home_player_shots": {
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_player_shots": {
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "errors": [
+      "h2h: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "away_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}",
+      "away_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}"
+    ]
+  },
+  {
+    "key": "Paris Saint Germain|Barcelona|2026-10-20",
+    "home": "Paris Saint Germain",
+    "away": "Barcelona",
+    "league": "Champions League",
+    "date": "2026-10-20",
+    "home_id": 85,
+    "away_id": 529,
+    "league_id": 2,
+    "season": 2025,
+    "h2h": null,
+    "home_form": null,
+    "away_form": null,
+    "home_stats": null,
+    "away_stats": null,
+    "home_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "home_player_shots": {
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_player_shots": {
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "errors": [
+      "h2h: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "away_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}",
+      "away_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}"
+    ]
+  },
+  {
+    "key": "Napoli|Bodø/Glimt|2026-10-20",
+    "home": "Napoli",
+    "away": "Bodø/Glimt",
+    "league": "Champions League",
+    "date": "2026-10-20",
+    "home_id": 492,
+    "away_id": null,
+    "league_id": 2,
+    "season": 2025,
+    "h2h": null,
+    "home_form": null,
+    "away_form": null,
+    "home_stats": null,
+    "away_stats": null,
+    "home_danger": null,
+    "away_danger": null,
+    "home_player_shots": null,
+    "away_player_shots": null,
+    "errors": [
+      "missing_team_mapping"
+    ]
+  },
+  {
+    "key": "Liverpool|Villarreal|2026-10-20",
+    "home": "Liverpool",
+    "away": "Villarreal",
+    "league": "Champions League",
+    "date": "2026-10-20",
+    "home_id": 40,
+    "away_id": 533,
+    "league_id": 2,
+    "season": 2025,
+    "h2h": null,
+    "home_form": null,
+    "away_form": null,
+    "home_stats": null,
+    "away_stats": null,
+    "home_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "home_player_shots": {
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_player_shots": {
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "errors": [
+      "h2h: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "away_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}",
+      "away_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}"
+    ]
+  },
+  {
+    "key": "Porto|PSV Eindhoven|2026-10-20",
+    "home": "Porto",
+    "away": "PSV Eindhoven",
+    "league": "Champions League",
+    "date": "2026-10-20",
+    "home_id": null,
+    "away_id": null,
+    "league_id": 2,
+    "season": 2025,
+    "h2h": null,
+    "home_form": null,
+    "away_form": null,
+    "home_stats": null,
+    "away_stats": null,
+    "home_danger": null,
+    "away_danger": null,
+    "home_player_shots": null,
+    "away_player_shots": null,
+    "errors": [
+      "missing_team_mapping"
+    ]
+  }
+]
