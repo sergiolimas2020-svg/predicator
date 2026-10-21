@@ -1,23 +1,23 @@
 # Auditoría estadística del motor
 
-Generado: 2026-10-20T09:43:25
+Generado: 2026-10-21T09:44:55
 
 Este reporte NO usa cuotas, EV ni ROI. Evalúa únicamente si la probabilidad del modelo se corresponde con los aciertos reales.
 
 ## Resumen
 
-- Picks resueltos evaluables: **198**
-- Acierto total: **64.6%**
-- Probabilidad media publicada: **72.2%**
-- Gap calibración (acierto - prob): **-7.6%**
-- Brier score: **0.2222**
+- Picks resueltos evaluables: **199**
+- Acierto total: **64.8%**
+- Probabilidad media publicada: **72.1%**
+- Gap calibración (acierto - prob): **-7.3%**
+- Brier score: **0.2223**
 
 ## Por banda de probabilidad
 
 | Grupo | N | Acierto | Prob. media | Gap | Brier |
 |---|---:|---:|---:|---:|---:|
 | 40-49% | 4 | 25.0% | 47.8% | -22.8% | 0.2413 |
-| 50-59% | 26 | 50.0% | 54.7% | -4.7% | 0.2503 |
+| 50-59% | 27 | 51.9% | 54.6% | -2.7% | 0.2499 |
 | 60-69% | 44 | 59.1% | 66.0% | -6.9% | 0.2445 |
 | 70-79% | 75 | 65.3% | 75.4% | -10.1% | 0.2392 |
 | 80-89% | 46 | 78.3% | 83.8% | -5.5% | 0.1699 |
@@ -27,7 +27,7 @@ Este reporte NO usa cuotas, EV ni ROI. Evalúa únicamente si la probabilidad de
 
 | Grupo | N | Acierto | Prob. media | Gap | Brier |
 |---|---:|---:|---:|---:|---:|
-| winner | 54 | 68.5% | 66.4% | +2.1% | 0.2033 |
+| winner | 55 | 69.1% | 66.1% | +3.0% | 0.204 |
 | over_1_5 | 49 | 79.6% | 79.5% | +0.0% | 0.1704 |
 | draw_no_bet | 38 | 57.9% | 66.6% | -8.7% | 0.2405 |
 | double_chance | 30 | 56.7% | 78.7% | -22.1% | 0.2715 |
@@ -40,7 +40,7 @@ Este reporte NO usa cuotas, EV ni ROI. Evalúa únicamente si la probabilidad de
 |---|---:|---:|---:|---:|---:|
 | Mundial 2026 | 40 | 77.5% | 79.4% | -1.9% | 0.1786 |
 | Brasileirao | 36 | 61.1% | 74.6% | -13.5% | 0.2334 |
-| NBA | 31 | 80.6% | 67.7% | +12.9% | 0.1709 |
+| NBA | 32 | 81.2% | 67.2% | +14.1% | 0.1731 |
 | Serie A | 22 | 59.1% | 62.8% | -3.7% | 0.2242 |
 | La Liga | 13 | 30.8% | 69.4% | -38.6% | 0.3691 |
 | Copa Sudamericana | 9 | 66.7% | 74.4% | -7.7% | 0.2129 |
