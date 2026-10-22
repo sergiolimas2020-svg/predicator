@@ -1,16 +1,16 @@
 # Auditoría estadística del motor
 
-Generado: 2026-10-21T09:44:55
+Generado: 2026-10-22T09:44:27
 
 Este reporte NO usa cuotas, EV ni ROI. Evalúa únicamente si la probabilidad del modelo se corresponde con los aciertos reales.
 
 ## Resumen
 
-- Picks resueltos evaluables: **199**
-- Acierto total: **64.8%**
-- Probabilidad media publicada: **72.1%**
-- Gap calibración (acierto - prob): **-7.3%**
-- Brier score: **0.2223**
+- Picks resueltos evaluables: **201**
+- Acierto total: **65.2%**
+- Probabilidad media publicada: **72.2%**
+- Gap calibración (acierto - prob): **-7.0%**
+- Brier score: **0.2208**
 
 ## Por banda de probabilidad
 
@@ -19,7 +19,7 @@ Este reporte NO usa cuotas, EV ni ROI. Evalúa únicamente si la probabilidad de
 | 40-49% | 4 | 25.0% | 47.8% | -22.8% | 0.2413 |
 | 50-59% | 27 | 51.9% | 54.6% | -2.7% | 0.2499 |
 | 60-69% | 44 | 59.1% | 66.0% | -6.9% | 0.2445 |
-| 70-79% | 75 | 65.3% | 75.4% | -10.1% | 0.2392 |
+| 70-79% | 77 | 66.2% | 75.4% | -9.1% | 0.2347 |
 | 80-89% | 46 | 78.3% | 83.8% | -5.5% | 0.1699 |
 | 90-99% | 3 | 100% | 93.3% | +6.7% | 0.0047 |
 
@@ -27,7 +27,7 @@ Este reporte NO usa cuotas, EV ni ROI. Evalúa únicamente si la probabilidad de
 
 | Grupo | N | Acierto | Prob. media | Gap | Brier |
 |---|---:|---:|---:|---:|---:|
-| winner | 55 | 69.1% | 66.1% | +3.0% | 0.204 |
+| winner | 57 | 70.2% | 66.4% | +3.8% | 0.1991 |
 | over_1_5 | 49 | 79.6% | 79.5% | +0.0% | 0.1704 |
 | draw_no_bet | 38 | 57.9% | 66.6% | -8.7% | 0.2405 |
 | double_chance | 30 | 56.7% | 78.7% | -22.1% | 0.2715 |
@@ -40,7 +40,7 @@ Este reporte NO usa cuotas, EV ni ROI. Evalúa únicamente si la probabilidad de
 |---|---:|---:|---:|---:|---:|
 | Mundial 2026 | 40 | 77.5% | 79.4% | -1.9% | 0.1786 |
 | Brasileirao | 36 | 61.1% | 74.6% | -13.5% | 0.2334 |
-| NBA | 32 | 81.2% | 67.2% | +14.1% | 0.1731 |
+| NBA | 34 | 82.4% | 67.6% | +14.7% | 0.1668 |
 | Serie A | 22 | 59.1% | 62.8% | -3.7% | 0.2242 |
 | La Liga | 13 | 30.8% | 69.4% | -38.6% | 0.3691 |
 | Copa Sudamericana | 9 | 66.7% | 74.4% | -7.7% | 0.2129 |
