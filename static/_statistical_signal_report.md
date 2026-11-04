@@ -1,23 +1,23 @@
 # Auditoría estadística del motor
 
-Generado: 2026-11-03T12:30:17
+Generado: 2026-11-04T12:40:49
 
 Este reporte NO usa cuotas, EV ni ROI. Evalúa únicamente si la probabilidad del modelo se corresponde con los aciertos reales.
 
 ## Resumen
 
-- Picks resueltos evaluables: **205**
-- Acierto total: **64.9%**
-- Probabilidad media publicada: **72.1%**
-- Gap calibración (acierto - prob): **-7.2%**
-- Brier score: **0.2211**
+- Picks resueltos evaluables: **206**
+- Acierto total: **64.6%**
+- Probabilidad media publicada: **72.0%**
+- Gap calibración (acierto - prob): **-7.4%**
+- Brier score: **0.2214**
 
 ## Por banda de probabilidad
 
 | Grupo | N | Acierto | Prob. media | Gap | Brier |
 |---|---:|---:|---:|---:|---:|
 | 40-49% | 4 | 25.0% | 47.8% | -22.8% | 0.2413 |
-| 50-59% | 28 | 50.0% | 54.6% | -4.6% | 0.2515 |
+| 50-59% | 29 | 48.3% | 54.5% | -6.3% | 0.2526 |
 | 60-69% | 45 | 60.0% | 66.0% | -6.0% | 0.2411 |
 | 70-79% | 79 | 65.8% | 75.3% | -9.5% | 0.2358 |
 | 80-89% | 46 | 78.3% | 83.8% | -5.5% | 0.1699 |
@@ -29,7 +29,7 @@ Este reporte NO usa cuotas, EV ni ROI. Evalúa únicamente si la probabilidad de
 |---|---:|---:|---:|---:|---:|
 | winner | 60 | 70.0% | 66.7% | +3.3% | 0.1999 |
 | over_1_5 | 49 | 79.6% | 79.5% | +0.0% | 0.1704 |
-| draw_no_bet | 39 | 56.4% | 66.3% | -9.9% | 0.2418 |
+| draw_no_bet | 40 | 55.0% | 65.9% | -10.9% | 0.2429 |
 | double_chance | 30 | 56.7% | 78.7% | -22.1% | 0.2715 |
 | over_2_5 | 21 | 61.9% | 69.8% | -7.9% | 0.1817 |
 | corners | 6 | 0% | 77.2% | -77.2% | 0.5969 |
@@ -39,8 +39,8 @@ Este reporte NO usa cuotas, EV ni ROI. Evalúa únicamente si la probabilidad de
 | Grupo | N | Acierto | Prob. media | Gap | Brier |
 |---|---:|---:|---:|---:|---:|
 | Mundial 2026 | 40 | 77.5% | 79.4% | -1.9% | 0.1786 |
+| Brasileirao | 37 | 59.5% | 74.1% | -14.6% | 0.2348 |
 | NBA | 37 | 81.1% | 68.0% | +13.0% | 0.1707 |
-| Brasileirao | 36 | 61.1% | 74.6% | -13.5% | 0.2334 |
 | Serie A | 23 | 56.5% | 62.4% | -5.9% | 0.2272 |
 | La Liga | 13 | 30.8% | 69.4% | -38.6% | 0.3691 |
 | Copa Sudamericana | 9 | 66.7% | 74.4% | -7.7% | 0.2129 |
