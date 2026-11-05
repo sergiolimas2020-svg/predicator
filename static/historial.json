@@ -1,8 +1,92 @@
 {
-  "total": 206,
-  "aciertos": 133,
+  "total": 209,
+  "aciertos": 135,
   "porcentaje": 65,
   "ultimos": [
+    {
+      "fecha": "2026-11-04",
+      "slug": "oklahoma-city-thunder-vs-cleveland-cavaliers-nba-2026-11-04",
+      "home": "Oklahoma City Thunder",
+      "away": "Cleveland Cavaliers",
+      "league": "NBA",
+      "prediccion": "Oklahoma City Thunder",
+      "confianza": "Probabilidad: 67.3%",
+      "resultado_real": "124-116",
+      "acerto": true,
+      "prob_original": 67.3,
+      "confidence_factor": 1.0,
+      "prob_adjusted": 67.3,
+      "bk_odds": null,
+      "ev": null,
+      "penalty": null,
+      "ev_adjusted": null,
+      "value_score": null,
+      "reason": "confianza",
+      "version": "v1.2-clean-signal",
+      "stake_sugerido_pct": 0.0,
+      "stake_real_pct": 0.0,
+      "stake_modo": "activo",
+      "tipo_pick": "pick_suscripcion",
+      "base_pick": "Oklahoma City Thunder",
+      "value_level": "estadistico",
+      "markets_evaluated": []
+    },
+    {
+      "fecha": "2026-11-04",
+      "slug": "detroit-pistons-vs-philadelphia-76ers-nba-2026-11-04",
+      "home": "Detroit Pistons",
+      "away": "Philadelphia 76ers",
+      "league": "NBA",
+      "prediccion": "Detroit Pistons",
+      "confianza": "Probabilidad: 72.2%",
+      "resultado_real": "106-112",
+      "acerto": false,
+      "prob_original": 72.2,
+      "confidence_factor": 1.0,
+      "prob_adjusted": 72.2,
+      "bk_odds": null,
+      "ev": null,
+      "penalty": null,
+      "ev_adjusted": null,
+      "value_score": null,
+      "reason": "confianza",
+      "version": "v1.2-clean-signal",
+      "stake_sugerido_pct": 0.0,
+      "stake_real_pct": 0.0,
+      "stake_modo": "activo",
+      "tipo_pick": "pick_suscripcion",
+      "base_pick": "Detroit Pistons",
+      "value_level": "estadistico",
+      "markets_evaluated": []
+    },
+    {
+      "fecha": "2026-11-04",
+      "slug": "new-york-knicks-vs-chicago-bulls-nba-2026-11-04",
+      "home": "New York Knicks",
+      "away": "Chicago Bulls",
+      "league": "NBA",
+      "prediccion": "New York Knicks",
+      "confianza": "Probabilidad: 79.9%",
+      "resultado_real": "135-105",
+      "acerto": true,
+      "prob_original": 79.9,
+      "confidence_factor": 1.0,
+      "prob_adjusted": 79.9,
+      "bk_odds": null,
+      "ev": null,
+      "penalty": null,
+      "ev_adjusted": null,
+      "value_score": null,
+      "reason": "confianza",
+      "version": "v1.2-clean-signal",
+      "stake_sugerido_pct": 0.0,
+      "stake_real_pct": 0.0,
+      "stake_modo": "activo",
+      "tipo_pick": "pick_gratuito",
+      "base_pick": "New York Knicks",
+      "value_level": "estadistico",
+      "markets_evaluated": []
+    },
     {
       "fecha": "2026-11-03",
       "slug": "chapecoense-vs-mirassol-brasileirao-2026-11-03",
@@ -772,188 +856,6 @@
       "base_pick": "Portland Trail Blazers",
       "value_level": "estadistico",
       "markets_evaluated": []
-    },
-    {
-      "fecha": "2026-10-13",
-      "slug": "galatasaray-vs-barcelona-champions-league-2026-10-13",
-      "home": "Galatasaray",
-      "away": "Barcelona",
-      "league": "Champions League",
-      "prediccion": "Over 1.5 goles",
-      "confianza": "Probabilidad: 75.4%",
-      "resultado_real": "1-4",
-      "acerto": true,
-      "prob_original": 75.4,
-      "confidence_factor": 1.0,
-      "prob_adjusted": 75.4,
-      "bk_odds": null,
-      "ev": null,
-      "penalty": null,
-      "ev_adjusted": null,
-      "value_score": null,
-      "reason": "confianza",
-      "version": "v1.2-clean-signal",
-      "stake_sugerido_pct": 0.0,
-      "stake_real_pct": 0.0,
-      "stake_modo": "activo",
-      "tipo_pick": "pick_gratuito",
-      "base_pick": "Galatasaray",
-      "value_level": "estadistico",
-      "markets_evaluated": [
-        {
-          "market": "Galatasaray",
-          "ev_adjusted": 266.2,
-          "value_score": 607.5702,
-          "reason": "ok"
-        },
-        {
-          "market": "Doble oportunidad: Galatasaray",
-          "ev_adjusted": 153.2,
-          "value_score": 222.7456,
-          "reason": "ok"
-        },
-        {
-          "market": "Apuesta sin empate: Galatasaray",
-          "ev_adjusted": 14.9,
-          "value_score": null,
-          "reason": "ev_insuficiente"
-        },
-        {
-          "market": "Barcelona",
-          "ev_adjusted": null,
-          "value_score": null,
-          "reason": "cuota_baja"
-        },
-        {
-          "market": "Apuesta sin empate: Barcelona",
-          "ev_adjusted": null,
-          "value_score": null,
-          "reason": "cuota_baja"
-        },
-        {
-          "market": "Doble oportunidad: Barcelona",
-          "ev_adjusted": null,
-          "value_score": null,
-          "reason": "cuota_baja"
-        },
-        {
-          "market": "Over 2.5 goles",
-          "ev_adjusted": null,
-          "value_score": null,
-          "reason": "cuota_baja"
-        },
-        {
-          "market": "Over 1.5 goles",
-          "ev_adjusted": null,
-          "value_score": null,
-          "reason": "mercado_no_disponible"
-        }
-      ]
-    },
-    {
-      "fecha": "2026-10-12",
-      "slug": "atlanta-hawks-vs-oklahoma-city-thunder-nba-2026-10-12",
-      "home": "Atlanta Hawks",
-      "away": "Oklahoma City Thunder",
-      "league": "NBA",
-      "prediccion": "Oklahoma City Thunder",
-      "confianza": "Probabilidad: 69.2%",
-      "resultado_real": "113-110",
-      "acerto": false,
-      "prob_original": 69.2,
-      "confidence_factor": 1.0,
-      "prob_adjusted": 69.2,
-      "bk_odds": null,
-      "ev": null,
-      "penalty": null,
-      "ev_adjusted": null,
-      "value_score": null,
-      "reason": "confianza",
-      "version": "v1.2-clean-signal",
-      "stake_sugerido_pct": 0.0,
-      "stake_real_pct": 0.0,
-      "stake_modo": "activo",
-      "tipo_pick": "pick_gratuito",
-      "base_pick": "Oklahoma City Thunder",
-      "value_level": "estadistico",
-      "markets_evaluated": []
-    },
-    {
-      "fecha": "2026-10-10",
-      "slug": "genoa-vs-fiorentina-serie-a-2026-10-10",
-      "home": "Genoa",
-      "away": "Fiorentina",
-      "league": "Serie A",
-      "prediccion": "Apuesta sin empate: Genoa",
-      "confianza": "Probabilidad: 52.2%",
-      "resultado_real": "2-1",
-      "acerto": true,
-      "prob_original": 61.9,
-      "confidence_factor": 1.0,
-      "prob_adjusted": 52.2,
-      "bk_odds": 2.029,
-      "ev": 25.6,
-      "penalty": 0.0,
-      "ev_adjusted": 5.9,
-      "value_score": null,
-      "reason": "ev_insuficiente",
-      "version": "v1.2-clean-signal",
-      "stake_sugerido_pct": 1.44,
-      "stake_real_pct": 1.44,
-      "stake_modo": "activo",
-      "tipo_pick": "pick_exploratorio",
-      "base_pick": "Genoa",
-      "value_level": "medio",
-      "markets_evaluated": [
-        {
-          "market": "Genoa",
-          "ev_adjusted": 36.5,
-          "value_score": 46.2436,
-          "reason": "ok"
-        },
-        {
-          "market": "Apuesta sin empate: Genoa",
-          "ev_adjusted": 5.9,
-          "value_score": null,
-          "reason": "ev_insuficiente"
-        },
-        {
-          "market": "Doble oportunidad: Genoa",
-          "ev_adjusted": 6.2,
-          "value_score": null,
-          "reason": "ev_insuficiente"
-        },
-        {
-          "market": "Fiorentina",
-          "ev_adjusted": -36.7,
-          "value_score": null,
-          "reason": "ev_negativo"
-        },
-        {
-          "market": "Apuesta sin empate: Fiorentina",
-          "ev_adjusted": -43.3,
-          "value_score": null,
-          "reason": "ev_negativo"
-        },
-        {
-          "market": "Doble oportunidad: Fiorentina",
-          "ev_adjusted": null,
-          "value_score": null,
-          "reason": "cuota_baja"
-        },
-        {
-          "market": "Over 2.5 goles",
-          "ev_adjusted": -5.1,
-          "value_score": null,
-          "reason": "ev_negativo"
-        },
-        {
-          "market": "Over 1.5 goles",
-          "ev_adjusted": null,
-          "value_score": null,
-          "reason": "mercado_no_disponible"
-        }
-      ]
     }
   ]
 }
