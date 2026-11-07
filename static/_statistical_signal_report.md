@@ -1,16 +1,16 @@
 # Auditoría estadística del motor
 
-Generado: 2026-11-06T12:35:32
+Generado: 2026-11-07T11:24:27
 
 Este reporte NO usa cuotas, EV ni ROI. Evalúa únicamente si la probabilidad del modelo se corresponde con los aciertos reales.
 
 ## Resumen
 
-- Picks resueltos evaluables: **209**
-- Acierto total: **64.6%**
+- Picks resueltos evaluables: **212**
+- Acierto total: **65.1%**
 - Probabilidad media publicada: **72.0%**
-- Gap calibración (acierto - prob): **-7.4%**
-- Brier score: **0.2214**
+- Gap calibración (acierto - prob): **-6.9%**
+- Brier score: **0.2196**
 
 ## Por banda de probabilidad
 
@@ -18,8 +18,8 @@ Este reporte NO usa cuotas, EV ni ROI. Evalúa únicamente si la probabilidad de
 |---|---:|---:|---:|---:|---:|
 | 40-49% | 4 | 25.0% | 47.8% | -22.8% | 0.2413 |
 | 50-59% | 29 | 48.3% | 54.5% | -6.3% | 0.2526 |
-| 60-69% | 46 | 60.9% | 66.1% | -5.2% | 0.2382 |
-| 70-79% | 81 | 65.4% | 75.4% | -9.9% | 0.2369 |
+| 60-69% | 48 | 62.5% | 66.1% | -3.6% | 0.233 |
+| 70-79% | 82 | 65.9% | 75.4% | -9.5% | 0.2347 |
 | 80-89% | 46 | 78.3% | 83.8% | -5.5% | 0.1699 |
 | 90-99% | 3 | 100% | 93.3% | +6.7% | 0.0047 |
 
@@ -27,7 +27,7 @@ Este reporte NO usa cuotas, EV ni ROI. Evalúa únicamente si la probabilidad de
 
 | Grupo | N | Acierto | Prob. media | Gap | Brier |
 |---|---:|---:|---:|---:|---:|
-| winner | 63 | 69.8% | 67.0% | +2.8% | 0.201 |
+| winner | 66 | 71.2% | 67.2% | +4.1% | 0.1961 |
 | over_1_5 | 49 | 79.6% | 79.5% | +0.0% | 0.1704 |
 | draw_no_bet | 40 | 55.0% | 65.9% | -10.9% | 0.2429 |
 | double_chance | 30 | 56.7% | 78.7% | -22.1% | 0.2715 |
@@ -38,8 +38,8 @@ Este reporte NO usa cuotas, EV ni ROI. Evalúa únicamente si la probabilidad de
 
 | Grupo | N | Acierto | Prob. media | Gap | Brier |
 |---|---:|---:|---:|---:|---:|
+| NBA | 43 | 81.4% | 68.5% | +12.9% | 0.169 |
 | Mundial 2026 | 40 | 77.5% | 79.4% | -1.9% | 0.1786 |
-| NBA | 40 | 80.0% | 68.4% | +11.6% | 0.1746 |
 | Brasileirao | 37 | 59.5% | 74.1% | -14.6% | 0.2348 |
 | Serie A | 23 | 56.5% | 62.4% | -5.9% | 0.2272 |
 | La Liga | 13 | 30.8% | 69.4% | -38.6% | 0.3691 |
