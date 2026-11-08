@@ -1,0 +1,1505 @@
+[
+  {
+    "key": "Central Córdoba|Lanus|2026-11-08",
+    "home": "Central Córdoba",
+    "away": "Lanus",
+    "league": "Liga Argentina",
+    "date": "2026-11-08",
+    "home_id": null,
+    "away_id": 446,
+    "league_id": 128,
+    "season": 2026,
+    "h2h": null,
+    "home_form": null,
+    "away_form": null,
+    "home_stats": null,
+    "away_stats": null,
+    "home_danger": null,
+    "away_danger": null,
+    "home_player_shots": null,
+    "away_player_shots": null,
+    "errors": [
+      "missing_team_mapping"
+    ]
+  },
+  {
+    "key": "Ipswich Town|Bournemouth|2026-11-08",
+    "home": "Ipswich Town",
+    "away": "Bournemouth",
+    "league": "Premier League",
+    "date": "2026-11-08",
+    "home_id": null,
+    "away_id": 35,
+    "league_id": 39,
+    "season": 2025,
+    "h2h": null,
+    "home_form": null,
+    "away_form": null,
+    "home_stats": null,
+    "away_stats": null,
+    "home_danger": null,
+    "away_danger": null,
+    "home_player_shots": null,
+    "away_player_shots": null,
+    "errors": [
+      "missing_team_mapping"
+    ]
+  },
+  {
+    "key": "Brighton and Hove Albion|Brentford|2026-11-08",
+    "home": "Brighton and Hove Albion",
+    "away": "Brentford",
+    "league": "Premier League",
+    "date": "2026-11-08",
+    "home_id": 51,
+    "away_id": 55,
+    "league_id": 39,
+    "season": 2025,
+    "h2h": null,
+    "home_form": null,
+    "away_form": null,
+    "home_stats": null,
+    "away_stats": null,
+    "home_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "home_player_shots": {
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_player_shots": {
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "errors": [
+      "h2h: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "away_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}",
+      "away_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}"
+    ]
+  },
+  {
+    "key": "Sunderland|Chelsea|2026-11-08",
+    "home": "Sunderland",
+    "away": "Chelsea",
+    "league": "Premier League",
+    "date": "2026-11-08",
+    "home_id": 746,
+    "away_id": 49,
+    "league_id": 39,
+    "season": 2025,
+    "h2h": null,
+    "home_form": null,
+    "away_form": null,
+    "home_stats": null,
+    "away_stats": null,
+    "home_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "home_player_shots": {
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_player_shots": {
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "errors": [
+      "h2h: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "away_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}",
+      "away_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}"
+    ]
+  },
+  {
+    "key": "Crystal Palace|Liverpool|2026-11-08",
+    "home": "Crystal Palace",
+    "away": "Liverpool",
+    "league": "Premier League",
+    "date": "2026-11-08",
+    "home_id": 52,
+    "away_id": 40,
+    "league_id": 39,
+    "season": 2025,
+    "h2h": null,
+    "home_form": null,
+    "away_form": null,
+    "home_stats": null,
+    "away_stats": null,
+    "home_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "home_player_shots": {
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_player_shots": {
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "errors": [
+      "h2h: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "away_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}",
+      "away_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}"
+    ]
+  },
+  {
+    "key": "Manchester United|Aston Villa|2026-11-08",
+    "home": "Manchester United",
+    "away": "Aston Villa",
+    "league": "Premier League",
+    "date": "2026-11-08",
+    "home_id": 33,
+    "away_id": 66,
+    "league_id": 39,
+    "season": 2025,
+    "h2h": null,
+    "home_form": null,
+    "away_form": null,
+    "home_stats": null,
+    "away_stats": null,
+    "home_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "home_player_shots": {
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_player_shots": {
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "errors": [
+      "h2h: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "away_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}",
+      "away_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}"
+    ]
+  },
+  {
+    "key": "Elche CF|Real Betis|2026-11-08",
+    "home": "Elche CF",
+    "away": "Real Betis",
+    "league": "La Liga",
+    "date": "2026-11-08",
+    "home_id": 797,
+    "away_id": 543,
+    "league_id": 140,
+    "season": 2025,
+    "h2h": null,
+    "home_form": null,
+    "away_form": null,
+    "home_stats": null,
+    "away_stats": null,
+    "home_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "home_player_shots": {
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_player_shots": {
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "errors": [
+      "h2h: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "away_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}",
+      "away_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}"
+    ]
+  },
+  {
+    "key": "Real Sociedad|Rayo Vallecano|2026-11-08",
+    "home": "Real Sociedad",
+    "away": "Rayo Vallecano",
+    "league": "La Liga",
+    "date": "2026-11-08",
+    "home_id": 548,
+    "away_id": 728,
+    "league_id": 140,
+    "season": 2025,
+    "h2h": null,
+    "home_form": null,
+    "away_form": null,
+    "home_stats": null,
+    "away_stats": null,
+    "home_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "home_player_shots": {
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_player_shots": {
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "errors": [
+      "h2h: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "away_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}",
+      "away_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}"
+    ]
+  },
+  {
+    "key": "Celta Vigo|Levante|2026-11-08",
+    "home": "Celta Vigo",
+    "away": "Levante",
+    "league": "La Liga",
+    "date": "2026-11-08",
+    "home_id": 538,
+    "away_id": 539,
+    "league_id": 140,
+    "season": 2025,
+    "h2h": null,
+    "home_form": null,
+    "away_form": null,
+    "home_stats": null,
+    "away_stats": null,
+    "home_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "home_player_shots": {
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_player_shots": {
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "errors": [
+      "h2h: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "away_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}",
+      "away_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}"
+    ]
+  },
+  {
+    "key": "Villarreal|Getafe|2026-11-08",
+    "home": "Villarreal",
+    "away": "Getafe",
+    "league": "La Liga",
+    "date": "2026-11-08",
+    "home_id": 533,
+    "away_id": 546,
+    "league_id": 140,
+    "season": 2025,
+    "h2h": null,
+    "home_form": null,
+    "away_form": null,
+    "home_stats": null,
+    "away_stats": null,
+    "home_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "home_player_shots": {
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_player_shots": {
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "errors": [
+      "h2h: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "away_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}",
+      "away_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}"
+    ]
+  },
+  {
+    "key": "Atlético Madrid|Barcelona|2026-11-08",
+    "home": "Atlético Madrid",
+    "away": "Barcelona",
+    "league": "La Liga",
+    "date": "2026-11-08",
+    "home_id": 530,
+    "away_id": 529,
+    "league_id": 140,
+    "season": 2025,
+    "h2h": null,
+    "home_form": null,
+    "away_form": null,
+    "home_stats": null,
+    "away_stats": null,
+    "home_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "home_player_shots": {
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_player_shots": {
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "errors": [
+      "h2h: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "away_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}",
+      "away_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}"
+    ]
+  },
+  {
+    "key": "Napoli|Lazio|2026-11-08",
+    "home": "Napoli",
+    "away": "Lazio",
+    "league": "Serie A",
+    "date": "2026-11-08",
+    "home_id": 492,
+    "away_id": 487,
+    "league_id": 135,
+    "season": 2025,
+    "h2h": null,
+    "home_form": null,
+    "away_form": null,
+    "home_stats": null,
+    "away_stats": null,
+    "home_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "home_player_shots": {
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_player_shots": {
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "errors": [
+      "h2h: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "away_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}",
+      "away_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}"
+    ]
+  },
+  {
+    "key": "Genoa|AC Milan|2026-11-08",
+    "home": "Genoa",
+    "away": "AC Milan",
+    "league": "Serie A",
+    "date": "2026-11-08",
+    "home_id": 495,
+    "away_id": 489,
+    "league_id": 135,
+    "season": 2025,
+    "h2h": null,
+    "home_form": null,
+    "away_form": null,
+    "home_stats": null,
+    "away_stats": null,
+    "home_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "home_player_shots": {
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_player_shots": {
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "errors": [
+      "h2h: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "away_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}",
+      "away_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}"
+    ]
+  },
+  {
+    "key": "Monza|Atalanta BC|2026-11-08",
+    "home": "Monza",
+    "away": "Atalanta BC",
+    "league": "Serie A",
+    "date": "2026-11-08",
+    "home_id": null,
+    "away_id": 499,
+    "league_id": 135,
+    "season": 2025,
+    "h2h": null,
+    "home_form": null,
+    "away_form": null,
+    "home_stats": null,
+    "away_stats": null,
+    "home_danger": null,
+    "away_danger": null,
+    "home_player_shots": null,
+    "away_player_shots": null,
+    "errors": [
+      "missing_team_mapping"
+    ]
+  },
+  {
+    "key": "Inter Milan|Como|2026-11-08",
+    "home": "Inter Milan",
+    "away": "Como",
+    "league": "Serie A",
+    "date": "2026-11-08",
+    "home_id": 489,
+    "away_id": 895,
+    "league_id": 135,
+    "season": 2025,
+    "h2h": null,
+    "home_form": null,
+    "away_form": null,
+    "home_stats": null,
+    "away_stats": null,
+    "home_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "home_player_shots": {
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_player_shots": {
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "errors": [
+      "h2h: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "away_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}",
+      "away_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}"
+    ]
+  },
+  {
+    "key": "Fiorentina|Juventus|2026-11-08",
+    "home": "Fiorentina",
+    "away": "Juventus",
+    "league": "Serie A",
+    "date": "2026-11-08",
+    "home_id": 502,
+    "away_id": 496,
+    "league_id": 135,
+    "season": 2025,
+    "h2h": null,
+    "home_form": null,
+    "away_form": null,
+    "home_stats": null,
+    "away_stats": null,
+    "home_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "home_player_shots": {
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_player_shots": {
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "errors": [
+      "h2h: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "away_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}",
+      "away_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}"
+    ]
+  },
+  {
+    "key": "1. FC Köln|Bayer Leverkusen|2026-11-08",
+    "home": "1. FC Köln",
+    "away": "Bayer Leverkusen",
+    "league": "Bundesliga",
+    "date": "2026-11-08",
+    "home_id": 192,
+    "away_id": 168,
+    "league_id": 78,
+    "season": 2025,
+    "h2h": null,
+    "home_form": null,
+    "away_form": null,
+    "home_stats": null,
+    "away_stats": null,
+    "home_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "home_player_shots": {
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_player_shots": {
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "errors": [
+      "h2h: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "away_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}",
+      "away_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}"
+    ]
+  },
+  {
+    "key": "SC Freiburg|Union Berlin|2026-11-08",
+    "home": "SC Freiburg",
+    "away": "Union Berlin",
+    "league": "Bundesliga",
+    "date": "2026-11-08",
+    "home_id": 160,
+    "away_id": 182,
+    "league_id": 78,
+    "season": 2025,
+    "h2h": null,
+    "home_form": null,
+    "away_form": null,
+    "home_stats": null,
+    "away_stats": null,
+    "home_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "home_player_shots": {
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_player_shots": {
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "errors": [
+      "h2h: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "away_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}",
+      "away_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}"
+    ]
+  },
+  {
+    "key": "TSG Hoffenheim|FC Schalke 04|2026-11-08",
+    "home": "TSG Hoffenheim",
+    "away": "FC Schalke 04",
+    "league": "Bundesliga",
+    "date": "2026-11-08",
+    "home_id": 167,
+    "away_id": null,
+    "league_id": 78,
+    "season": 2025,
+    "h2h": null,
+    "home_form": null,
+    "away_form": null,
+    "home_stats": null,
+    "away_stats": null,
+    "home_danger": null,
+    "away_danger": null,
+    "home_player_shots": null,
+    "away_player_shots": null,
+    "errors": [
+      "missing_team_mapping"
+    ]
+  },
+  {
+    "key": "Rennes|Lille|2026-11-08",
+    "home": "Rennes",
+    "away": "Lille",
+    "league": "Ligue 1",
+    "date": "2026-11-08",
+    "home_id": 94,
+    "away_id": 79,
+    "league_id": 61,
+    "season": 2025,
+    "h2h": null,
+    "home_form": null,
+    "away_form": null,
+    "home_stats": null,
+    "away_stats": null,
+    "home_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "home_player_shots": {
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_player_shots": {
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "errors": [
+      "h2h: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "away_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}",
+      "away_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}"
+    ]
+  },
+  {
+    "key": "Le Mans FC|AS Monaco|2026-11-08",
+    "home": "Le Mans FC",
+    "away": "AS Monaco",
+    "league": "Ligue 1",
+    "date": "2026-11-08",
+    "home_id": null,
+    "away_id": 91,
+    "league_id": 61,
+    "season": 2025,
+    "h2h": null,
+    "home_form": null,
+    "away_form": null,
+    "home_stats": null,
+    "away_stats": null,
+    "home_danger": null,
+    "away_danger": null,
+    "home_player_shots": null,
+    "away_player_shots": null,
+    "errors": [
+      "missing_team_mapping"
+    ]
+  },
+  {
+    "key": "Angers|Nice|2026-11-08",
+    "home": "Angers",
+    "away": "Nice",
+    "league": "Ligue 1",
+    "date": "2026-11-08",
+    "home_id": 77,
+    "away_id": 84,
+    "league_id": 61,
+    "season": 2025,
+    "h2h": null,
+    "home_form": null,
+    "away_form": null,
+    "home_stats": null,
+    "away_stats": null,
+    "home_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "home_player_shots": {
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_player_shots": {
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "errors": [
+      "h2h: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "away_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}",
+      "away_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}"
+    ]
+  },
+  {
+    "key": "Brest|Lyon|2026-11-08",
+    "home": "Brest",
+    "away": "Lyon",
+    "league": "Ligue 1",
+    "date": "2026-11-08",
+    "home_id": 106,
+    "away_id": 80,
+    "league_id": 61,
+    "season": 2025,
+    "h2h": null,
+    "home_form": null,
+    "away_form": null,
+    "home_stats": null,
+    "away_stats": null,
+    "home_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "home_player_shots": {
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_player_shots": {
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "errors": [
+      "h2h: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "away_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}",
+      "away_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}"
+    ]
+  },
+  {
+    "key": "Le Havre|Lorient|2026-11-08",
+    "home": "Le Havre",
+    "away": "Lorient",
+    "league": "Ligue 1",
+    "date": "2026-11-08",
+    "home_id": 111,
+    "away_id": 97,
+    "league_id": 61,
+    "season": 2025,
+    "h2h": null,
+    "home_form": null,
+    "away_form": null,
+    "home_stats": null,
+    "away_stats": null,
+    "home_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "home_player_shots": {
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_player_shots": {
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "errors": [
+      "h2h: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "away_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}",
+      "away_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}"
+    ]
+  },
+  {
+    "key": "RC Lens|Marseille|2026-11-08",
+    "home": "RC Lens",
+    "away": "Marseille",
+    "league": "Ligue 1",
+    "date": "2026-11-08",
+    "home_id": 116,
+    "away_id": 81,
+    "league_id": 61,
+    "season": 2025,
+    "h2h": null,
+    "home_form": null,
+    "away_form": null,
+    "home_stats": null,
+    "away_stats": null,
+    "home_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "home_player_shots": {
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_player_shots": {
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "errors": [
+      "h2h: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "away_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}",
+      "away_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}"
+    ]
+  },
+  {
+    "key": "Çaykur Rizespor|Erzurum BB|2026-11-08",
+    "home": "Çaykur Rizespor",
+    "away": "Erzurum BB",
+    "league": "Super Lig",
+    "date": "2026-11-08",
+    "home_id": 1007,
+    "away_id": null,
+    "league_id": 203,
+    "season": 2025,
+    "h2h": null,
+    "home_form": null,
+    "away_form": null,
+    "home_stats": null,
+    "away_stats": null,
+    "home_danger": null,
+    "away_danger": null,
+    "home_player_shots": null,
+    "away_player_shots": null,
+    "errors": [
+      "missing_team_mapping"
+    ]
+  },
+  {
+    "key": "Çorum FK|Fenerbahce|2026-11-08",
+    "home": "Çorum FK",
+    "away": "Fenerbahce",
+    "league": "Super Lig",
+    "date": "2026-11-08",
+    "home_id": null,
+    "away_id": 611,
+    "league_id": 203,
+    "season": 2025,
+    "h2h": null,
+    "home_form": null,
+    "away_form": null,
+    "home_stats": null,
+    "away_stats": null,
+    "home_danger": null,
+    "away_danger": null,
+    "home_player_shots": null,
+    "away_player_shots": null,
+    "errors": [
+      "missing_team_mapping"
+    ]
+  },
+  {
+    "key": "Alanyaspor|Trabzonspor|2026-11-08",
+    "home": "Alanyaspor",
+    "away": "Trabzonspor",
+    "league": "Super Lig",
+    "date": "2026-11-08",
+    "home_id": 996,
+    "away_id": 998,
+    "league_id": 203,
+    "season": 2025,
+    "h2h": null,
+    "home_form": null,
+    "away_form": null,
+    "home_stats": null,
+    "away_stats": null,
+    "home_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "home_player_shots": {
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_player_shots": {
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "errors": [
+      "h2h: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "away_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}",
+      "away_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}"
+    ]
+  },
+  {
+    "key": "Besiktas JK|Genclerbirligi SK|2026-11-08",
+    "home": "Besiktas JK",
+    "away": "Genclerbirligi SK",
+    "league": "Super Lig",
+    "date": "2026-11-08",
+    "home_id": 549,
+    "away_id": 997,
+    "league_id": 203,
+    "season": 2025,
+    "h2h": null,
+    "home_form": null,
+    "away_form": null,
+    "home_stats": null,
+    "away_stats": null,
+    "home_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_danger": {
+      "shots_on_target_avg": null,
+      "corners_avg": null,
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "home_player_shots": {
+      "venue": "home",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "away_player_shots": {
+      "venue": "away",
+      "n_fixtures": 0,
+      "fixture_ids": [],
+      "players": [],
+      "errors": [
+        "sin_form_data"
+      ]
+    },
+    "errors": [
+      "h2h: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "away_form: errors={'plan': 'Free plans do not have access to the Last parameter.'}",
+      "home_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}",
+      "away_stats: errors={'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}"
+    ]
+  }
+]

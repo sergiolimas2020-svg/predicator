@@ -1,23 +1,23 @@
 # Auditoría estadística del motor
 
-Generado: 2026-11-07T11:24:27
+Generado: 2026-11-08T11:36:59
 
 Este reporte NO usa cuotas, EV ni ROI. Evalúa únicamente si la probabilidad del modelo se corresponde con los aciertos reales.
 
 ## Resumen
 
-- Picks resueltos evaluables: **212**
-- Acierto total: **65.1%**
-- Probabilidad media publicada: **72.0%**
-- Gap calibración (acierto - prob): **-6.9%**
-- Brier score: **0.2196**
+- Picks resueltos evaluables: **213**
+- Acierto total: **64.8%**
+- Probabilidad media publicada: **71.9%**
+- Gap calibración (acierto - prob): **-7.1%**
+- Brier score: **0.2199**
 
 ## Por banda de probabilidad
 
 | Grupo | N | Acierto | Prob. media | Gap | Brier |
 |---|---:|---:|---:|---:|---:|
 | 40-49% | 4 | 25.0% | 47.8% | -22.8% | 0.2413 |
-| 50-59% | 29 | 48.3% | 54.5% | -6.3% | 0.2526 |
+| 50-59% | 30 | 46.7% | 54.5% | -7.8% | 0.2539 |
 | 60-69% | 48 | 62.5% | 66.1% | -3.6% | 0.233 |
 | 70-79% | 82 | 65.9% | 75.4% | -9.5% | 0.2347 |
 | 80-89% | 46 | 78.3% | 83.8% | -5.5% | 0.1699 |
@@ -29,7 +29,7 @@ Este reporte NO usa cuotas, EV ni ROI. Evalúa únicamente si la probabilidad de
 |---|---:|---:|---:|---:|---:|
 | winner | 66 | 71.2% | 67.2% | +4.1% | 0.1961 |
 | over_1_5 | 49 | 79.6% | 79.5% | +0.0% | 0.1704 |
-| draw_no_bet | 40 | 55.0% | 65.9% | -10.9% | 0.2429 |
+| draw_no_bet | 41 | 53.7% | 65.6% | -12.0% | 0.2441 |
 | double_chance | 30 | 56.7% | 78.7% | -22.1% | 0.2715 |
 | over_2_5 | 21 | 61.9% | 69.8% | -7.9% | 0.1817 |
 | corners | 6 | 0% | 77.2% | -77.2% | 0.5969 |
@@ -41,7 +41,7 @@ Este reporte NO usa cuotas, EV ni ROI. Evalúa únicamente si la probabilidad de
 | NBA | 43 | 81.4% | 68.5% | +12.9% | 0.169 |
 | Mundial 2026 | 40 | 77.5% | 79.4% | -1.9% | 0.1786 |
 | Brasileirao | 37 | 59.5% | 74.1% | -14.6% | 0.2348 |
-| Serie A | 23 | 56.5% | 62.4% | -5.9% | 0.2272 |
+| Serie A | 24 | 54.2% | 62.1% | -7.9% | 0.2298 |
 | La Liga | 13 | 30.8% | 69.4% | -38.6% | 0.3691 |
 | Copa Sudamericana | 9 | 66.7% | 74.4% | -7.7% | 0.2129 |
 | Liga Colombiana | 9 | 77.8% | 75.5% | +2.3% | 0.1625 |
