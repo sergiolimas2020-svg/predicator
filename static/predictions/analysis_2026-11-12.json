@@ -1,0 +1,323 @@
+{
+  "date": "2026-11-12",
+  "total_fixtures": 8,
+  "matches": [
+    {
+      "matchup": "Deportivo Pasto vs Atlético Junior",
+      "league": "Liga Colombiana",
+      "home": "Deportivo Pasto",
+      "away": "Atlético Junior",
+      "probabilities": {
+        "win_home": 44.9,
+        "draw": 27.5,
+        "win_away": 27.6,
+        "over_2_5": 51.3,
+        "over_1_5": 75.6
+      },
+      "favorite": "Deportivo Pasto",
+      "stats_complete": false,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.55,
+      "lambda_away": 1.17,
+      "elo_home": null,
+      "elo_away": null,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 75.6,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 51.3,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Llaneros FC vs Boyacá Chicó FC",
+      "league": "Liga Colombiana",
+      "home": "Llaneros FC",
+      "away": "Boyacá Chicó FC",
+      "probabilities": {
+        "win_home": 44.9,
+        "draw": 27.5,
+        "win_away": 27.6,
+        "over_2_5": 51.3,
+        "over_1_5": 75.6
+      },
+      "favorite": "Llaneros FC",
+      "stats_complete": false,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.55,
+      "lambda_away": 1.17,
+      "elo_home": null,
+      "elo_away": null,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 75.6,
+            "source": "model_goals",
+            "official_pick_candidate": true
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 51.3,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Ponte Preta vs Operário PR",
+      "league": "Brasileirao Serie B",
+      "home": "Ponte Preta",
+      "away": "Operário PR",
+      "probabilities": {
+        "win_home": 12.7,
+        "draw": 27.2,
+        "win_away": 60.2,
+        "over_2_5": 36.4,
+        "over_1_5": 63.3
+      },
+      "favorite": "Operário PR",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 0.59,
+      "lambda_away": 1.56,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 63.3,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 36.4,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "São Bernardo vs Athletic",
+      "league": "Brasileirao Serie B",
+      "home": "São Bernardo",
+      "away": "Athletic",
+      "probabilities": {
+        "win_home": 48.0,
+        "draw": 34.7,
+        "win_away": 17.4,
+        "over_2_5": 23.8,
+        "over_1_5": 50.1
+      },
+      "favorite": "São Bernardo",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": false,
+      "lambda_home": 1.12,
+      "lambda_away": 0.56,
+      "elo_home": 1500.0,
+      "elo_away": 1500.0,
+      "danger": null,
+      "markets_explored": {
+        "available": [
+          {
+            "market": "Over 1.5 goles",
+            "market_key": "over15",
+            "prob_adjusted": 50.1,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          },
+          {
+            "market": "Over 2.5 goles",
+            "market_key": "over25",
+            "prob_adjusted": 23.8,
+            "source": "model_goals",
+            "official_pick_candidate": false
+          }
+        ],
+        "unavailable": [
+          {
+            "group": "api_football_markets",
+            "status": "unavailable",
+            "reason": "sin static/api_football/data para este partido"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Philadelphia 76ers vs Toronto Raptors",
+      "league": "NBA",
+      "home": "Philadelphia 76ers",
+      "away": "Toronto Raptors",
+      "probabilities": {
+        "win_home": 52.5,
+        "draw": 0.0,
+        "win_away": 47.5,
+        "over_2_5": null,
+        "over_1_5": null
+      },
+      "favorite": "Philadelphia 76ers",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": true,
+      "lambda_home": null,
+      "lambda_away": null,
+      "elo_home": null,
+      "elo_away": null,
+      "danger": null,
+      "markets_explored": {
+        "available": [],
+        "unavailable": [
+          {
+            "group": "football_props",
+            "status": "unavailable",
+            "reason": "NBA no usa markets de fútbol"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Washington Wizards vs Detroit Pistons",
+      "league": "NBA",
+      "home": "Washington Wizards",
+      "away": "Detroit Pistons",
+      "probabilities": {
+        "win_home": 15.0,
+        "draw": 0.0,
+        "win_away": 85.0,
+        "over_2_5": null,
+        "over_1_5": null
+      },
+      "favorite": "Detroit Pistons",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": true,
+      "lambda_home": null,
+      "lambda_away": null,
+      "elo_home": null,
+      "elo_away": null,
+      "danger": null,
+      "markets_explored": {
+        "available": [],
+        "unavailable": [
+          {
+            "group": "football_props",
+            "status": "unavailable",
+            "reason": "NBA no usa markets de fútbol"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Minnesota Timberwolves vs Dallas Mavericks",
+      "league": "NBA",
+      "home": "Minnesota Timberwolves",
+      "away": "Dallas Mavericks",
+      "probabilities": {
+        "win_home": 83.0,
+        "draw": 0.0,
+        "win_away": 17.0,
+        "over_2_5": null,
+        "over_1_5": null
+      },
+      "favorite": "Minnesota Timberwolves",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": true,
+      "lambda_home": null,
+      "lambda_away": null,
+      "elo_home": null,
+      "elo_away": null,
+      "danger": null,
+      "markets_explored": {
+        "available": [],
+        "unavailable": [
+          {
+            "group": "football_props",
+            "status": "unavailable",
+            "reason": "NBA no usa markets de fútbol"
+          }
+        ]
+      }
+    },
+    {
+      "matchup": "Phoenix Suns vs Charlotte Hornets",
+      "league": "NBA",
+      "home": "Phoenix Suns",
+      "away": "Charlotte Hornets",
+      "probabilities": {
+        "win_home": 52.5,
+        "draw": 0.0,
+        "win_away": 47.5,
+        "over_2_5": null,
+        "over_1_5": null
+      },
+      "favorite": "Phoenix Suns",
+      "stats_complete": true,
+      "confidence_factor": 1.0,
+      "is_nba": true,
+      "lambda_home": null,
+      "lambda_away": null,
+      "elo_home": null,
+      "elo_away": null,
+      "danger": null,
+      "markets_explored": {
+        "available": [],
+        "unavailable": [
+          {
+            "group": "football_props",
+            "status": "unavailable",
+            "reason": "NBA no usa markets de fútbol"
+          }
+        ]
+      }
+    }
+  ],
+  "nota": "Análisis estadístico de todos los partidos del día. Probabilidades crudas del modelo (sin ajuste por liga ni mercado). No incluye recomendación de apuesta — ver value_picks y featured_pick para picks oficiales."
+}
