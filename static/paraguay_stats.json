@@ -1,19 +1,4 @@
 {
-  "2 de Mayo": {
-    "corners": {},
-    "goals": {},
-    "position": {
-      "posicion": 6,
-      "partidos": 19,
-      "ganados": 8,
-      "empatados": 6,
-      "perdidos": 5,
-      "goles_favor": 18,
-      "goles_contra": 21,
-      "diferencia": -3,
-      "puntos": 30
-    }
-  },
   "Deportivo Recoleta": {
     "corners": {},
     "goals": {},
@@ -27,6 +12,21 @@
       "goles_contra": 33,
       "diferencia": -12,
       "puntos": 16
+    }
+  },
+  "Nacional Asunción": {
+    "corners": {},
+    "goals": {},
+    "position": {
+      "posicion": 4,
+      "partidos": 19,
+      "ganados": 9,
+      "empatados": 5,
+      "perdidos": 5,
+      "goles_favor": 26,
+      "goles_contra": 14,
+      "diferencia": 12,
+      "puntos": 32
     }
   },
   "Cerro Porteño": {
@@ -59,19 +59,34 @@
       "puntos": 33
     }
   },
-  "Club Olimpia": {
+  "Sportivo San Lorenzo": {
     "corners": {},
     "goals": {},
     "position": {
-      "posicion": 1,
+      "posicion": 12,
       "partidos": 19,
-      "ganados": 13,
-      "empatados": 3,
-      "perdidos": 3,
-      "goles_favor": 37,
-      "goles_contra": 14,
-      "diferencia": 23,
-      "puntos": 42
+      "ganados": 2,
+      "empatados": 5,
+      "perdidos": 12,
+      "goles_favor": 14,
+      "goles_contra": 32,
+      "diferencia": -18,
+      "puntos": 11
+    }
+  },
+  "Sportivo Trinidense": {
+    "corners": {},
+    "goals": {},
+    "position": {
+      "posicion": 2,
+      "partidos": 19,
+      "ganados": 10,
+      "empatados": 4,
+      "perdidos": 5,
+      "goles_favor": 31,
+      "goles_contra": 18,
+      "diferencia": 13,
+      "puntos": 34
     }
   },
   "Sportivo Ameliano": {
@@ -104,51 +119,6 @@
       "puntos": 17
     }
   },
-  "Nacional Asunción": {
-    "corners": {},
-    "goals": {},
-    "position": {
-      "posicion": 4,
-      "partidos": 19,
-      "ganados": 9,
-      "empatados": 5,
-      "perdidos": 5,
-      "goles_favor": 26,
-      "goles_contra": 14,
-      "diferencia": 12,
-      "puntos": 32
-    }
-  },
-  "Sportivo Trinidense": {
-    "corners": {},
-    "goals": {},
-    "position": {
-      "posicion": 2,
-      "partidos": 19,
-      "ganados": 10,
-      "empatados": 4,
-      "perdidos": 5,
-      "goles_favor": 31,
-      "goles_contra": 18,
-      "diferencia": 13,
-      "puntos": 34
-    }
-  },
-  "Sportivo San Lorenzo": {
-    "corners": {},
-    "goals": {},
-    "position": {
-      "posicion": 12,
-      "partidos": 19,
-      "ganados": 2,
-      "empatados": 5,
-      "perdidos": 12,
-      "goles_favor": 14,
-      "goles_contra": 32,
-      "diferencia": -18,
-      "puntos": 11
-    }
-  },
   "Guaraní": {
     "corners": {},
     "goals": {},
@@ -164,6 +134,21 @@
       "puntos": 31
     }
   },
+  "2 de Mayo": {
+    "corners": {},
+    "goals": {},
+    "position": {
+      "posicion": 6,
+      "partidos": 19,
+      "ganados": 8,
+      "empatados": 6,
+      "perdidos": 5,
+      "goles_favor": 18,
+      "goles_contra": 21,
+      "diferencia": -3,
+      "puntos": 30
+    }
+  },
   "Sportivo Luqueño": {
     "corners": {},
     "goals": {},
@@ -177,6 +162,21 @@
       "goles_contra": 33,
       "diferencia": -8,
       "puntos": 22
+    }
+  },
+  "Club Olimpia": {
+    "corners": {},
+    "goals": {},
+    "position": {
+      "posicion": 1,
+      "partidos": 19,
+      "ganados": 13,
+      "empatados": 3,
+      "perdidos": 3,
+      "goles_favor": 37,
+      "goles_contra": 14,
+      "diferencia": 23,
+      "puntos": 42
     }
   },
   "Olimpia": {
@@ -210,7 +210,7 @@
     }
   },
   "_metadata": {
-    "fecha_actualizacion": "2026-11-18T13:34:26.420323",
+    "fecha_actualizacion": "2026-11-19T14:01:05.731818",
     "liga": "paraguay",
     "fuente": "ESPN API"
   }

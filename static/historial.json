@@ -1,8 +1,92 @@
 {
-  "total": 215,
-  "aciertos": 138,
+  "total": 218,
+  "aciertos": 140,
   "porcentaje": 64,
   "ultimos": [
+    {
+      "fecha": "2026-11-18",
+      "slug": "miami-heat-vs-milwaukee-bucks-nba-2026-11-18",
+      "home": "Miami Heat",
+      "away": "Milwaukee Bucks",
+      "league": "NBA",
+      "prediccion": "Miami Heat",
+      "confianza": "Probabilidad: 71.6%",
+      "resultado_real": "137-130",
+      "acerto": true,
+      "prob_original": 71.6,
+      "confidence_factor": 1.0,
+      "prob_adjusted": 71.6,
+      "bk_odds": null,
+      "ev": null,
+      "penalty": null,
+      "ev_adjusted": null,
+      "value_score": null,
+      "reason": "confianza",
+      "version": "v1.2-clean-signal",
+      "stake_sugerido_pct": 0.0,
+      "stake_real_pct": 0.0,
+      "stake_modo": "activo",
+      "tipo_pick": "pick_suscripcion",
+      "base_pick": "Miami Heat",
+      "value_level": "estadistico",
+      "markets_evaluated": []
+    },
+    {
+      "fecha": "2026-11-18",
+      "slug": "oklahoma-city-thunder-vs-atlanta-hawks-nba-2026-11-18",
+      "home": "Oklahoma City Thunder",
+      "away": "Atlanta Hawks",
+      "league": "NBA",
+      "prediccion": "Oklahoma City Thunder",
+      "confianza": "Probabilidad: 75.2%",
+      "resultado_real": "112-117",
+      "acerto": false,
+      "prob_original": 75.2,
+      "confidence_factor": 1.0,
+      "prob_adjusted": 75.2,
+      "bk_odds": null,
+      "ev": null,
+      "penalty": null,
+      "ev_adjusted": null,
+      "value_score": null,
+      "reason": "confianza",
+      "version": "v1.2-clean-signal",
+      "stake_sugerido_pct": 0.0,
+      "stake_real_pct": 0.0,
+      "stake_modo": "activo",
+      "tipo_pick": "pick_suscripcion",
+      "base_pick": "Oklahoma City Thunder",
+      "value_level": "estadistico",
+      "markets_evaluated": []
+    },
+    {
+      "fecha": "2026-11-18",
+      "slug": "sacramento-kings-vs-phoenix-suns-nba-2026-11-18",
+      "home": "Sacramento Kings",
+      "away": "Phoenix Suns",
+      "league": "NBA",
+      "prediccion": "Phoenix Suns",
+      "confianza": "Probabilidad: 75.9%",
+      "resultado_real": "107-128",
+      "acerto": true,
+      "prob_original": 75.9,
+      "confidence_factor": 1.0,
+      "prob_adjusted": 75.9,
+      "bk_odds": null,
+      "ev": null,
+      "penalty": null,
+      "ev_adjusted": null,
+      "value_score": null,
+      "reason": "confianza",
+      "version": "v1.2-clean-signal",
+      "stake_sugerido_pct": 0.0,
+      "stake_real_pct": 0.0,
+      "stake_modo": "activo",
+      "tipo_pick": "pick_gratuito",
+      "base_pick": "Phoenix Suns",
+      "value_level": "estadistico",
+      "markets_evaluated": []
+    },
     {
       "fecha": "2026-11-14",
       "slug": "chapecoense-vs-vasco-da-gama-brasileirao-2026-11-14",
@@ -764,237 +848,6 @@
           "ev_adjusted": null,
           "value_score": null,
           "reason": "mercado_no_disponible"
-        },
-        {
-          "market": "Over 1.5 goles",
-          "ev_adjusted": null,
-          "value_score": null,
-          "reason": "mercado_no_disponible"
-        }
-      ]
-    },
-    {
-      "fecha": "2026-10-19",
-      "slug": "parma-vs-torino-serie-a-2026-10-19",
-      "home": "Parma",
-      "away": "Torino",
-      "league": "Serie A",
-      "prediccion": "Apuesta sin empate: Parma",
-      "confianza": "Probabilidad: 53.8%",
-      "resultado_real": "0-3",
-      "acerto": false,
-      "prob_original": 61.9,
-      "confidence_factor": 1.0,
-      "prob_adjusted": 53.8,
-      "bk_odds": 2.072,
-      "ev": 28.3,
-      "penalty": 0.0,
-      "ev_adjusted": 11.5,
-      "value_score": null,
-      "reason": "ev_insuficiente",
-      "version": "v1.2-clean-signal",
-      "stake_sugerido_pct": 2.68,
-      "stake_real_pct": 2.68,
-      "stake_modo": "activo",
-      "tipo_pick": "pick_exploratorio",
-      "base_pick": "Parma",
-      "value_level": "medio",
-      "markets_evaluated": [
-        {
-          "market": "Parma",
-          "ev_adjusted": 40.1,
-          "value_score": 49.4257,
-          "reason": "ok"
-        },
-        {
-          "market": "Apuesta sin empate: Parma",
-          "ev_adjusted": 11.5,
-          "value_score": null,
-          "reason": "ev_insuficiente"
-        },
-        {
-          "market": "Doble oportunidad: Parma",
-          "ev_adjusted": 2.0,
-          "value_score": null,
-          "reason": "ev_insuficiente"
-        },
-        {
-          "market": "Torino",
-          "ev_adjusted": -25.4,
-          "value_score": null,
-          "reason": "ev_negativo"
-        },
-        {
-          "market": "Apuesta sin empate: Torino",
-          "ev_adjusted": -35.1,
-          "value_score": null,
-          "reason": "ev_negativo"
-        },
-        {
-          "market": "Doble oportunidad: Torino",
-          "ev_adjusted": null,
-          "value_score": null,
-          "reason": "cuota_baja"
-        },
-        {
-          "market": "Over 2.5 goles",
-          "ev_adjusted": 13.7,
-          "value_score": null,
-          "reason": "ev_insuficiente"
-        },
-        {
-          "market": "Over 1.5 goles",
-          "ev_adjusted": null,
-          "value_score": null,
-          "reason": "mercado_no_disponible"
-        }
-      ]
-    },
-    {
-      "fecha": "2026-10-18",
-      "slug": "fiorentina-vs-como-serie-a-2026-10-18",
-      "home": "Fiorentina",
-      "away": "Como",
-      "league": "Serie A",
-      "prediccion": "Apuesta sin empate: Fiorentina",
-      "confianza": "Probabilidad: 54.6%",
-      "resultado_real": "1-3",
-      "acerto": false,
-      "prob_original": 61.9,
-      "confidence_factor": 1.0,
-      "prob_adjusted": 54.6,
-      "bk_odds": 1.949,
-      "ev": 20.7,
-      "penalty": 0.0,
-      "ev_adjusted": 6.4,
-      "value_score": null,
-      "reason": "ev_insuficiente",
-      "version": "v1.2-clean-signal",
-      "stake_sugerido_pct": 1.69,
-      "stake_real_pct": 1.69,
-      "stake_modo": "activo",
-      "tipo_pick": "pick_exploratorio",
-      "base_pick": "Fiorentina",
-      "value_level": "medio",
-      "markets_evaluated": [
-        {
-          "market": "Fiorentina",
-          "ev_adjusted": 56.7,
-          "value_score": 74.1825,
-          "reason": "ok"
-        },
-        {
-          "market": "Doble oportunidad: Fiorentina",
-          "ev_adjusted": 17.7,
-          "value_score": 11.3515,
-          "reason": "ok"
-        },
-        {
-          "market": "Apuesta sin empate: Fiorentina",
-          "ev_adjusted": 6.4,
-          "value_score": null,
-          "reason": "ev_insuficiente"
-        },
-        {
-          "market": "Como",
-          "ev_adjusted": -34.0,
-          "value_score": null,
-          "reason": "ev_negativo"
-        },
-        {
-          "market": "Apuesta sin empate: Como",
-          "ev_adjusted": -41.7,
-          "value_score": null,
-          "reason": "ev_negativo"
-        },
-        {
-          "market": "Doble oportunidad: Como",
-          "ev_adjusted": null,
-          "value_score": null,
-          "reason": "cuota_baja"
-        },
-        {
-          "market": "Over 2.5 goles",
-          "ev_adjusted": -18.8,
-          "value_score": null,
-          "reason": "ev_negativo"
-        },
-        {
-          "market": "Over 1.5 goles",
-          "ev_adjusted": null,
-          "value_score": null,
-          "reason": "mercado_no_disponible"
-        }
-      ]
-    },
-    {
-      "fecha": "2026-10-17",
-      "slug": "venezia-vs-napoli-serie-a-2026-10-17",
-      "home": "Venezia",
-      "away": "Napoli",
-      "league": "Serie A",
-      "prediccion": "Apuesta sin empate: Venezia",
-      "confianza": "Probabilidad: 53.9%",
-      "resultado_real": "1-0",
-      "acerto": true,
-      "prob_original": 61.9,
-      "confidence_factor": 1.0,
-      "prob_adjusted": 53.9,
-      "bk_odds": 2.238,
-      "ev": 38.6,
-      "penalty": 0.0,
-      "ev_adjusted": 20.6,
-      "value_score": 16.595,
-      "reason": "ok",
-      "version": "v1.2-clean-signal",
-      "stake_sugerido_pct": 4.17,
-      "stake_real_pct": 4.17,
-      "stake_modo": "activo",
-      "tipo_pick": "pick_exploratorio",
-      "base_pick": "Venezia",
-      "value_level": "alto",
-      "markets_evaluated": [
-        {
-          "market": "Venezia",
-          "ev_adjusted": 113.5,
-          "value_score": 187.1228,
-          "reason": "ok"
-        },
-        {
-          "market": "Doble oportunidad: Venezia",
-          "ev_adjusted": 43.2,
-          "value_score": 36.4115,
-          "reason": "ok"
-        },
-        {
-          "market": "Apuesta sin empate: Venezia",
-          "ev_adjusted": 20.6,
-          "value_score": 16.595,
-          "reason": "ok"
-        },
-        {
-          "market": "Napoli",
-          "ev_adjusted": -48.0,
-          "value_score": null,
-          "reason": "ev_negativo"
-        },
-        {
-          "market": "Apuesta sin empate: Napoli",
-          "ev_adjusted": -48.5,
-          "value_score": null,
-          "reason": "ev_negativo"
-        },
-        {
-          "market": "Doble oportunidad: Napoli",
-          "ev_adjusted": null,
-          "value_score": null,
-          "reason": "cuota_baja"
-        },
-        {
-          "market": "Over 2.5 goles",
-          "ev_adjusted": -18.9,
-          "value_score": null,
-          "reason": "ev_negativo"
         },
         {
           "market": "Over 1.5 goles",
